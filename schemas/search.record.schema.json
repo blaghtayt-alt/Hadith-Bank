@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hadith Bank readable search projection",
+  "description": "One preserved source occurrence. Null denotes missing evidence; provider IDs are not canonical collection numbers.",
+  "type": "object",
+  "required": ["schema_version", "id", "language", "source_language_code", "book_key", "edition", "source_id", "provider_entry_id", "title", "text_arabic", "text_translation", "number", "narrator", "source", "translator", "translation_provenance", "topic_tags", "editorial_tags", "source_headings", "review", "commentary", "benefits", "footnotes", "references", "grading", "page", "related_versions", "canonical_record_sha256"],
+  "properties": {
+    "schema_version": {"const": "hadith-bank-search-record-v1"},
+    "id": {"type": "string", "minLength": 1},
+    "language": {"enum": ["ja", "fil", "vi", "zh-CN", "uz", "hi", "ur", "bn", "pt"]},
+    "source_language_code": {"type": "string"},
+    "book_key": {"type": "string", "minLength": 1},
+    "edition": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "provider_entry_id": {"type": ["string", "integer", "null"]},
+    "title": {"type": ["string", "null"]},
+    "text_arabic": {"type": ["string", "null"]},
+    "text_translation": {"type": ["string", "null"]},
+    "number": {"type": "object"},
+    "narrator": {"type": "object"},
+    "source": {
+      "type": "object",
+      "required": ["name", "work_title", "url", "record_url", "original_file", "sha256", "record_locator", "format"],
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "work_title": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"]},
+        "record_url": {"type": ["string", "null"]},
+        "original_file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "record_locator": {
+          "type": "object",
+          "required": ["path"],
+          "properties": {
+            "path": {"type": "string", "minLength": 1},
+            "line": {"type": "integer", "minimum": 1},
+            "json_pointer": {"type": "string", "pattern": "^/"}
+          },
+          "oneOf": [{"required": ["line"]}, {"required": ["json_pointer"]}]
+        },
+        "format": {"type": "string"}
+      }
+    },
+    "translator": {"type": "object", "required": ["name"], "properties": {"name": {"type": ["string", "null"]}}},
+    "translation_provenance": {
+      "type": "object",
+      "required": ["origin", "label", "basis", "human_involvement", "ai_translation", "evidence_ids", "scope_note", "policy_path"],
+      "properties": {
+        "origin": {"enum": ["publisher_human_workflow", "human_translator_credited", "unknown"]},
+        "label": {"type": "string"},
+        "basis": {"type": "string"},
+        "human_involvement": {"type": "string"},
+        "ai_translation": {"enum": [true, false, "unknown"]},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "scope_note": {"type": "string"},
+        "policy_path": {"type": "string"}
+      }
+    },
+    "topic_tags": {"type": "array", "items": {"type": "object"}},
+    "editorial_tags": {"type": "array", "items": {"type": "string"}},
+    "source_headings": {"type": "array", "items": {"type": "string"}},
+    "review": {"type": "object", "required": ["status", "issues", "independent_pro_qc", "release_status", "certified_release_eligible"]},
+    "commentary": {"type": "object"},
+    "benefits": {"type": ["object", "null"]},
+    "footnotes": {"type": "array"},
+    "references": {"type": ["object", "array"]},
+    "grading": {"type": ["object", "array"]},
+    "page": {"type": "object"},
+    "related_versions": {"type": ["object", "array"]},
+    "canonical_record_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

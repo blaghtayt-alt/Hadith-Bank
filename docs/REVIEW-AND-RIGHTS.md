@@ -1,5 +1,7 @@
 # Review, completeness, provenance, and rights
 
+> **Current HadeethEnc policy (11 November 2026):** the owner waived separate bank review. The earlier pending-review statements below describe the historical import. Original source flags, Arabic alignment notes and other materials’ review requirements remain unchanged. See [current policy](CURRENT-REVIEW-POLICY.md).
+
 ## What is transferred
 
 Only language-specific text packages for ja, fil, vi, zh-CN, uz, and hi from the formerly public Hadith-related materials are copied. Each cataloged source file is copied from its pinned Git revision. A SHA-256 mismatch prevents a clean audit claim. Additional public but uncataloged files are placed in a separate revision folder and reported.

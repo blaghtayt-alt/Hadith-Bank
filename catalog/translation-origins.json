@@ -1,0 +1,63 @@
+{
+  "schema": "hadith-bank-translation-origin-evidence-v1",
+  "as_of_date_japan": "2026-11-11",
+  "local_evidence": "sources/translation-origin-evidence/2026-11-11/evidence.json",
+  "principle": "Display human translation evidence and its scope; AI translation, human review and extraction method are separate facts.",
+  "evidence": [
+    {
+      "id": "hadeethenc-platform",
+      "url": "https://islamiccontent.org/",
+      "scope": "publisher_platform_identity",
+      "finding": "The association identifies HadeethEnc as one of its platforms."
+    },
+    {
+      "id": "publisher-translation-workflow",
+      "url": "https://islamiccontent.org/About",
+      "additional_url": "https://hadeethenc.com/ar/home/about",
+      "scope": "publisher_organization_workflow_not_individual_passage_authorship",
+      "finding": "The publisher describes translators, language proofreading, religious review and approval. Named translators and AI use for these exact exported passages are not stated."
+    },
+    {
+      "id": "ai-assistance-scope",
+      "url": "https://molhem.ai/",
+      "scope": "platform_capability_not_evidence_that_these_exports_used_it",
+      "finding": "The association-associated platform describes AI assistance with human review. Its existence neither proves nor excludes AI use in any particular bank record."
+    },
+    {
+      "id": "pdf-human-riyadh-al-salihin",
+      "source_file": "163819884895551.pdf",
+      "source_sha256": "ac1cd8a6821e3affcd3a10c5d0c4863e19cf4f1b4a36f3505834ab491eb0c4c8",
+      "translator": "艾乃斯·马风德",
+      "credit_pdf_page": 12,
+      "dated_afterword_pdf_page": 358,
+      "afterword_date": "1999-02-15",
+      "date_scope": "signed afterword; not an inferred publication date",
+      "scope": "named_historical_human_translator_in_source"
+    },
+    {
+      "id": "pdf-human-shengxunjing",
+      "source_file": "163819897387558.pdf",
+      "source_sha256": "64d260b8d79a3d53b755bb2d271d5e5314ca486299c3e173fbb32d77230000f1",
+      "translator": "陈克礼",
+      "credit_pdf_page": 2,
+      "edition_statement": "1981-1-1",
+      "volume_year_statements": [
+        "1954",
+        "1981"
+      ],
+      "scope": "named_historical_human_translator_in_source"
+    }
+  ],
+  "classification_rules": {
+    "publisher_human_workflow": "Human source classification follows the owner instruction and publisher-described translator workflow; exact-record ai_translation stays as supplied.",
+    "human_translator_credited": "Named translator and historical source evidence support human origin.",
+    "unknown": "No established author/process attribution for the exact source; retain unknown."
+  },
+  "source_record_policy": "Canonical records and their historic assertions are unchanged. These evidence-backed labels are a separately versioned display/search layer.",
+  "human_translation_does_not_equal_bank_qc_pass": true,
+  "local_evidence_sha256": "df54217ddc11ec2d64f1c7add041de8ba66f943c8767c6feb38abbfaf89db8b0",
+  "current_owner_and_source_evidence": {
+    "path": "sources/translation-origin-evidence/2026-11-11/current-policy-evidence.json",
+    "sha256": "47df4ab234464bde43e61d388dfcb9e9b812d6e0855937146d8c028173e1e7fc"
+  }
+}

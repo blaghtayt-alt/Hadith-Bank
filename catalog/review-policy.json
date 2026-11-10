@@ -1,0 +1,25 @@
+{
+  "schema": "hadith-bank-review-policy-v1",
+  "as_of_date_japan": "2026-11-11",
+  "hadeethenc": {
+    "separate_bank_review_required": false,
+    "decision": "owner_waived_separate_bank_review",
+    "decision_date_japan": "2026-11-11",
+    "decision_source": "explicit_owner_instruction",
+    "scope": {
+      "book_key": "hadeethenc",
+      "source_provider": "HadeethEnc.com",
+      "formats": ["sqlite", "xlsx"]
+    },
+    "independent_review_performed": false,
+    "arabic_alignment_flags_retained": true,
+    "historical_import_metadata_preserved": true,
+    "publication_scope_changed": false,
+    "label": "No separate bank review required — owner decision",
+    "note": "This decision removes the separate Hadith Bank review requirement for HadeethEnc source imports. It does not assert that an independent review occurred, resolve source-version alignment notes, change publisher conditions, or authorize publication of other private materials. Historical import statuses remain in the canonical source records."
+  },
+  "other_materials": {
+    "existing_review_and_publication_status_preserved": true,
+    "note": "The owner decision is scoped to HadeethEnc; PDF transcription and other source-specific qualifications remain unchanged."
+  }
+}

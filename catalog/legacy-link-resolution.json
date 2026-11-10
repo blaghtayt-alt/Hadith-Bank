@@ -1,0 +1,726 @@
+{
+  "schema_version": "hadith-bank-legacy-link-resolution-v1",
+  "title": "Preserved source-document link inventory",
+  "inspection_date_japan": "2026-11-11",
+  "scope": "relative hyperlinks in preserved unindexed legacy source documents; supplemental navigation metadata only",
+  "source_edition": {
+    "directory_label": "unindexed-1d66abd7",
+    "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b"
+  },
+  "candidate_edition": {
+    "directory_label": "published-76d8b0bb",
+    "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191"
+  },
+  "summary": {
+    "link_occurrences": 35,
+    "source_documents": 18,
+    "other_revision_candidate_available": 26,
+    "missing_local_target": 9,
+    "by_original_href": {
+      "../../../books/downloads/fil/README.md": 1,
+      "../essential-01-005/README.md": 1,
+      "../essential-ar/README.md": 5,
+      "001.md": 1,
+      "002.json": 6,
+      "003-sources.json": 12,
+      "003.json": 6,
+      "sources/": 3
+    }
+  },
+  "policy": {
+    "canonical_source_bytes_preserved": true,
+    "automatic_redirects_added": false,
+    "cross_revision_equivalence_inferred": false,
+    "missing_content_created": false,
+    "publication_or_qc_status_changed": false,
+    "paths_relative_to_bank_root": true
+  },
+  "runtime_scope": {
+    "applies_to": "links embedded in historical source documents",
+    "does_not_replace": [
+      "catalog/materials.json source_file and canonical_records_path",
+      "search record source.record_locator",
+      "generated reading-page navigation"
+    ],
+    "explanation": "Reader/search locators are maintained and validated separately. This map records historical source-document links; an alternative file in another preserved revision is not an asserted replacement."
+  },
+  "inspection": {
+    "source_documents_hash_checked": 18,
+    "missing_targets_rechecked": 35,
+    "candidate_link_targets_rechecked": 26,
+    "source_revisions_from": "catalog/materials.json legacy_materials",
+    "external_urls_checked": false,
+    "anchor_destinations_checked": false,
+    "pdf_pages_visually_checked": 0,
+    "independent_pro_qc_performed": false
+  },
+  "links": [
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "fil",
+      "source_document_sha256": "b0b11b741c9ee56365ca3f2ee1a50589c6513c6c88893c841a2e82297f17c45a",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/fil/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/fil/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "8d588d86aadf44eb14eec928733dc78e0e7833f1f0711fc426a4b94b31d5c5be",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "fil",
+      "source_document_sha256": "08181253e800e220477d795193134ba08c5f11196c724c06c512109bc5674bb5",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/fil/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/fil/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "f3bec0ea5648afc4d0ade976008fd3f14e66a8fb9583438b600bb65ff733452c",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "fil",
+      "source_document_sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../../../books/downloads/fil/README.md",
+      "missing_relative_target": "languages/fil/books/books/downloads/fil/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "fil",
+      "source_document_sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-01-005/README.md",
+      "missing_relative_target": "languages/fil/books/essential/editions/essential-01-005/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [
+        {
+          "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/005.json",
+          "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+          "sha256": "c344eb798971f89fefbb47234d5c8c9ebda9cdd37b0c2f5b294e348eec2f13b4",
+          "relationship": "related_lesson_material_not_the_missing_README"
+        },
+        {
+          "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/005.txt",
+          "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+          "sha256": "f9e74bc8c17b06f97d9b27803b7e8499cd53a1fad96675709f9b2587dbb56a56",
+          "relationship": "related_lesson_material_not_the_missing_README"
+        }
+      ],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "fil",
+      "source_document_sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-ar/README.md",
+      "missing_relative_target": "languages/fil/books/essential/editions/essential-ar/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "fil",
+      "source_document_sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/fil/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/fil/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "f3bec0ea5648afc4d0ade976008fd3f14e66a8fb9583438b600bb65ff733452c",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "fil",
+      "source_document_sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/fil/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/fil/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "2d3a604595ae5fdcdb342768c4f99f6d847ac5db112a4baa29533bacb5bb7120",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "hi",
+      "source_document_sha256": "9e3955f498213082d39b647097ec2d5ffda283bfbd1aa6414911d94f5cdd5139",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/hi/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/hi/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "56c5ed441a0546bcd1c11ecfaa7195193c5bed24e5f2e0117dff0e1138848982",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "hi",
+      "source_document_sha256": "ca009ac054a89166999fc24cf84581a02030487a327309a024720c6059e7ce9f",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/hi/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/hi/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "26a1ecebafb4a3abfa2aa30a2f89ee9ff6b2bce4362d60ad127a99334f556e97",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "hi",
+      "source_document_sha256": "46d16b1042ec02d2de778ee1e62c89435a08510995cf6e223019827916474efc",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-ar/README.md",
+      "missing_relative_target": "languages/hi/books/essential/editions/essential-ar/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "hi",
+      "source_document_sha256": "46d16b1042ec02d2de778ee1e62c89435a08510995cf6e223019827916474efc",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/hi/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/hi/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "26a1ecebafb4a3abfa2aa30a2f89ee9ff6b2bce4362d60ad127a99334f556e97",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "hi",
+      "source_document_sha256": "46d16b1042ec02d2de778ee1e62c89435a08510995cf6e223019827916474efc",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/hi/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/hi/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "4d5f7efc20eced1312d722c5850bea750646470c4d5e21975e1614d3436e21d5",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "hi",
+      "source_document_sha256": "46d16b1042ec02d2de778ee1e62c89435a08510995cf6e223019827916474efc",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "sources/",
+      "missing_relative_target": "languages/hi/books/essential/editions/unindexed-1d66abd7/sources",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources",
+          "kind": "directory",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": null,
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/ja/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "ja",
+      "source_document_sha256": "2f2d44f00f6cff9a92e32ceea5fcce9b72e2f95cd7fae412e9e938dd7a5388b3",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/ja/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/ja/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "38d248d4f64675909100391e434892afd8974770148851a95617661b9c169e18",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/ja/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "ja",
+      "source_document_sha256": "7a9071901e177998fa73c683e42a2977fd625de3987b6c35a5e27f2d33f81c6d",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/ja/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/ja/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "09a29e5d907339ec1188012f3daa7a242c5c44df1fe3d6cbc063e4e2a6f9958c",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/ja/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "ja",
+      "source_document_sha256": "e73711e4f3ac5c2b37e4d12242c38f38100f9d7f553db6acc1751b6aa47b7174",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/ja/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/ja/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "09a29e5d907339ec1188012f3daa7a242c5c44df1fe3d6cbc063e4e2a6f9958c",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/ja/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "ja",
+      "source_document_sha256": "e73711e4f3ac5c2b37e4d12242c38f38100f9d7f553db6acc1751b6aa47b7174",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/ja/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/ja/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "d0871c9cd357f7e09d0a9756d58044bff9ffda8fd104160220492400cb474f87",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "uz",
+      "source_document_sha256": "56a91015e1994e604d960477d785be4bc948ae922a6a535e62076613de062d35",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/uz/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/uz/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "c619f29d047d8d03caabf2b075007062f3326df6f773739046e8c20a9fa8e734",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "uz",
+      "source_document_sha256": "657181caff13a2002bb5750a1c45b41f89f3d542ae003c7732cee51c5d77d54c",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/uz/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/uz/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "9c694f2664049c0d3c323f93c83214ddccbc6c3016564f1bb3314f11bdd6abe5",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "uz",
+      "source_document_sha256": "68a70c2ec19d888ec0bdd7cc24bef6caf9ceb17d312255ab15599596511854cd",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-ar/README.md",
+      "missing_relative_target": "languages/uz/books/essential/editions/essential-ar/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "uz",
+      "source_document_sha256": "68a70c2ec19d888ec0bdd7cc24bef6caf9ceb17d312255ab15599596511854cd",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/uz/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/uz/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "9c694f2664049c0d3c323f93c83214ddccbc6c3016564f1bb3314f11bdd6abe5",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "uz",
+      "source_document_sha256": "68a70c2ec19d888ec0bdd7cc24bef6caf9ceb17d312255ab15599596511854cd",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/uz/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/uz/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "0c65ce9d81b991abec38306cd6251b6dc0a06c46aa2be17ef9b3c5560942b5bd",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "uz",
+      "source_document_sha256": "68a70c2ec19d888ec0bdd7cc24bef6caf9ceb17d312255ab15599596511854cd",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "sources/",
+      "missing_relative_target": "languages/uz/books/essential/editions/unindexed-1d66abd7/sources",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources",
+          "kind": "directory",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": null,
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/vi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "vi",
+      "source_document_sha256": "ab3d74dfb8740bcda8a7838441670e6b71e57d7acf1c51b8d3c140255fc8aaa0",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/vi/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/vi/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "a310b085fe993a8e21a6836ea34fa188098c6b80863ffde6a7748e3bbbabfaec",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "vi",
+      "source_document_sha256": "60e4b8a37440329c23af592d805be1252d7f226f270bd4d01bc5b1c325315ca3",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/vi/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/vi/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "030758517f5de2ed3344e73bd4673b47d6674e9d1217ccc22ee116038307bfd2",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "vi",
+      "source_document_sha256": "cd41071b2070135d8332ec1a10cd3b91cea6e79298023e24a16d04e343673e87",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-ar/README.md",
+      "missing_relative_target": "languages/vi/books/essential/editions/essential-ar/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "vi",
+      "source_document_sha256": "cd41071b2070135d8332ec1a10cd3b91cea6e79298023e24a16d04e343673e87",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/vi/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/vi/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "030758517f5de2ed3344e73bd4673b47d6674e9d1217ccc22ee116038307bfd2",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "vi",
+      "source_document_sha256": "cd41071b2070135d8332ec1a10cd3b91cea6e79298023e24a16d04e343673e87",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/vi/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "d631d54415dec51cdd73550d61a7f7e3c5c0c2298fb7db5122bc54d22e48b89a",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/002.md",
+      "language": "zh-CN",
+      "source_document_sha256": "f6c373f7fc524496917589333e057190693bdc4a295b1e86e46c3defa5d71f66",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "002.json",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/002.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/002.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "1770ca4f4a28bbb13add0b576fe01481df461db46a40ca3a54e6e3f2234b0360",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.md",
+      "language": "zh-CN",
+      "source_document_sha256": "0f184a2c44a515126acfcd2410aac8f5be45b4e3810947096d14edd24d3005a9",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "6982add7ca1daba7286078bffe791d0cb16474b328720dae831523778f48af66",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "zh-CN",
+      "source_document_sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "../essential-ar/README.md",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/essential-ar/README.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "zh-CN",
+      "source_document_sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "001.md",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/001.md",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "zh-CN",
+      "source_document_sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003-sources.json",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003-sources.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003-sources.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "6982add7ca1daba7286078bffe791d0cb16474b328720dae831523778f48af66",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "zh-CN",
+      "source_document_sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "003.json",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.json",
+      "status": "other_revision_candidate_available_unverified",
+      "candidates": [
+        {
+          "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003.json",
+          "kind": "file",
+          "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+          "sha256": "e6124b837b41c1fd84d64a3d41bebd6758361720ed6bbac9ccf4db30ad8a5162",
+          "relationship": "same_language_other_revision_candidate",
+          "equivalence_verified": false
+        }
+      ],
+      "related_material": [],
+      "source_document_modified": false
+    },
+    {
+      "source_document": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "language": "zh-CN",
+      "source_document_sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "original_href": "sources/",
+      "missing_relative_target": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/sources",
+      "status": "missing_local_target",
+      "candidates": [],
+      "related_material": [],
+      "source_document_modified": false
+    }
+  ]
+}

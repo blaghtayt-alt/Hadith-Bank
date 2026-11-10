@@ -1,0 +1,123 @@
+{
+  "schema": "hadith-bank-language-materials-v1",
+  "language": "vi",
+  "name": "Vietnamese",
+  "scope": "public_source_snapshots",
+  "record_count": 1203,
+  "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
+  "datasets": [
+    {
+      "dataset_id": "hadeethenc-vi-sqlite-3fb9e549494ff0f6",
+      "language": "vi",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-3fb9e549494ff0f6",
+      "source_name": "HadeethEnc.com",
+      "count": 1203,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/vi.sqlite",
+      "source_sha256": "3fb9e549494ff0f60454b034add71b0cefe72deb3e4fffce98f4bf90a79abcd7",
+      "canonical_records_path": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+      "canonical_records_sha256": "edcea9fc2017d45c9803cdbea873755da4c820126692824a85359d3f22837c8d",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    }
+  ],
+  "legacy_materials": [
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/002.json",
+      "sha256": "a310b085fe993a8e21a6836ea34fa188098c6b80863ffde6a7748e3bbbabfaec",
+      "bytes": 62824,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "sha256": "ab3d74dfb8740bcda8a7838441670e6b71e57d7acf1c51b8d3c140255fc8aaa0",
+      "bytes": 17544,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "sha256": "030758517f5de2ed3344e73bd4673b47d6674e9d1217ccc22ee116038307bfd2",
+      "bytes": 148788,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/003.json",
+      "sha256": "d631d54415dec51cdd73550d61a7f7e3c5c0c2298fb7db5122bc54d22e48b89a",
+      "bytes": 46878,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "sha256": "60e4b8a37440329c23af592d805be1252d7f226f270bd4d01bc5b1c325315ca3",
+      "bytes": 14224,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "sha256": "955fd2859b265adece6297c745c34af1fe1e3515bc94cfd9309ae3a1604c4c75",
+      "bytes": 14246,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "vi",
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "sha256": "cd41071b2070135d8332ec1a10cd3b91cea6e79298023e24a16d04e343673e87",
+      "bytes": 521,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    }
+  ],
+  "reading_index": "browse/vi/README.md",
+  "related_snapshots": "catalog/related-snapshots.json"
+}

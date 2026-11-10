@@ -6,3 +6,11 @@ Thumbs.db
 *.zip
 
 !sources/hadeethenc/snapshots/2026-11-11/raw/*.sqlite.zip
+
+# Reproducible whole stream; the public checkout uses verified ordered shards.
+/search/records.jsonl
+.cache/
+# Private attachment sources and combined exports are kept outside this checkout.
+/attachments/
+/hadith-bank-all-materials/
+/recovered/

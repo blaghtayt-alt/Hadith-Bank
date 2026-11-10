@@ -1,0 +1,143 @@
+{
+  "schema": "hadith-bank.reader-functional-audit.v1",
+  "audit_date_japan": "2026-11-11",
+  "status": "pass",
+  "scope": "Functional software verification of generated JavaScript and actual embedded source projections. Not source translation, authenticity, rights or independent Pro QC.",
+  "method": "Execute the exact generated reader application script in Node.js VM with a minimal event-capable DOM. Exercise native Blob, Response and DecompressionStream on the actual gzip payload. DOM checks do not constitute browser rendering or visual inspection.",
+  "runtime": "v24.22.1",
+  "visual_browser_inspection_performed": false,
+  "visual_limitation": "Chromium launch was already blocked in this environment; this audit did not retry it or claim visual validation.",
+  "primary_artifact_scope": "public_repository",
+  "reader_file": "hadith-bank-reader.html",
+  "reader_sha256": "9742542f26bb796c39fda787e32987dd3608da7b418b774dd2c22f3f066a4843",
+  "template_sha256": "bb2353b829bb96786fd231e4b870195e856d414443b3589ead3742bc8326ade1",
+  "source_stream_sha256": "e1cd4a0ec027d861e83e09cc9990f8f9fc732797bd31b2ca9e2f87b462672655",
+  "public_records": 8423,
+  "combined": {
+    "reader_sha256": "1d12a3d04238f50a15eea4345eca1d75f1b1374559124554a0e4b737c407d815",
+    "record_count": 40723,
+    "source_stream_sha256": "2f110651b334c99c34e65a0dbe6e70893e4cb220369c2a2b1eb5782db05465f9",
+    "named_translator_records": 7176
+  },
+  "checks": [
+    {
+      "name": "public_reader_loads_actual_embedded_gzip_payload",
+      "status": "pass",
+      "records": 8423,
+      "compression_path_exercised": true
+    },
+    {
+      "name": "embedded_projection_equals_all_verified_source_shards",
+      "status": "pass",
+      "compared_records": 8423,
+      "verified_shards": 88,
+      "source_stream_sha256": "e1cd4a0ec027d861e83e09cc9990f8f9fc732797bd31b2ca9e2f87b462672655"
+    },
+    {
+      "name": "japanese_filter_shows_exactly_281",
+      "status": "pass",
+      "matched_records": 281,
+      "pages": 12
+    },
+    {
+      "name": "japanese_provider_entry_2758_is_found",
+      "status": "pass",
+      "record_id": "hadeethenc:entry:2758:translation:ja:revision:56eb334b0e237553"
+    },
+    {
+      "name": "reference_metadata_search_finds_reference_only_term",
+      "status": "pass",
+      "query": "إكمال المعلم",
+      "matched_records": 12,
+      "target_record_found": true
+    },
+    {
+      "name": "all_public_source_filters_have_language_collection_edition_labels",
+      "status": "pass",
+      "labeled_source_options": 6
+    },
+    {
+      "name": "waiver_badge_and_unchanged_history_and_alignment_are_rendered",
+      "status": "pass",
+      "record_id": "hadeethenc:entry:3135:translation:ja:revision:34651a561e2a81dc",
+      "flagged_public_records": 267,
+      "independent_review_claimed": false
+    },
+    {
+      "name": "arabic_toggle_changes_existing_cards_and_newly_rendered_cards",
+      "status": "pass",
+      "existing_and_new_cards_checked": true
+    },
+    {
+      "name": "selection_enables_json_export",
+      "status": "pass"
+    },
+    {
+      "name": "selected_json_is_exact_original_embedded_projection",
+      "status": "pass",
+      "exported_records": 1,
+      "all_record_fields_compared": true
+    },
+    {
+      "name": "clear_selection_disables_export",
+      "status": "pass"
+    },
+    {
+      "name": "pagination_advances_and_clear_filters_restores_full_count",
+      "status": "pass"
+    },
+    {
+      "name": "zero_results_is_rendered",
+      "status": "pass"
+    },
+    {
+      "name": "public_translator_metadata_is_honest",
+      "status": "pass",
+      "named_translators_in_public_records": 0,
+      "publisher_metadata_search_matches": 8423,
+      "named_translator_case": "checked separately against combined package actual named sources"
+    },
+    {
+      "name": "combined_reader_loads_all_40723_occurrences",
+      "status": "pass",
+      "records": 40723
+    },
+    {
+      "name": "combined_named_translator_search_uses_actual_source_metadata",
+      "status": "pass",
+      "actual_named_source_records": 7176,
+      "distinct_names_exercised": 2,
+      "results": [
+        {
+          "matching_records": 2112,
+          "target_record_found": true
+        },
+        {
+          "matching_records": 5064,
+          "target_record_found": true
+        }
+      ],
+      "private_source_text_in_report": false
+    },
+    {
+      "name": "combined_reference_search_preserves_two_japanese_source_versions",
+      "status": "pass",
+      "japanese_occurrences": 562,
+      "reference_matches": 12,
+      "provider_2758_source_occurrences": 2,
+      "separate_source_versions_retained": true
+    },
+    {
+      "name": "combined_source_filters_have_18_distinct_labeled_editions",
+      "status": "pass",
+      "source_options": 18,
+      "language_collection_edition_labels": true
+    }
+  ],
+  "summary": {
+    "passed": 18,
+    "failed": 0
+  },
+  "source_files_modified": false,
+  "reader_source_modified": false
+}

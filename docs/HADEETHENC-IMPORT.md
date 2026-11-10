@@ -1,5 +1,7 @@
 # HadeethEnc six-language corpus — uploaded source snapshot
 
+> **Current HadeethEnc policy (11 November 2026):** the owner waived separate bank review. The earlier pending-review statements below describe the historical import. Original source flags, Arabic alignment notes and other materials’ review requirements remain unchanged. See [current policy](CURRENT-REVIEW-POLICY.md).
+
 The actual Hadith bodies are included in Hadith-Bank: **8,423 translations with embedded original Arabic**, covering 2,328 publisher entry IDs. Counts: Japanese 281; Filipino/Tagalog 1,949; Vietnamese 1,203; Chinese 2,256; Uzbek 420; Hindi 2,314.
 
 ## Status

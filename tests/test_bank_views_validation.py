@@ -1,0 +1,112 @@
+"""Portable-validation regressions using actual unchanged source projections."""
+import base64
+import contextlib
+import copy
+import gzip
+import hashlib
+import io
+import json
+from pathlib import Path
+import sys
+import tempfile
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import validate_bank_views as validator
+
+
+class PortableViewValidationTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        catalog = json.loads((ROOT / 'catalog/materials.json').read_text(encoding='utf-8'))
+        cls.material = next(m for m in catalog['materials'] if m['language'] == 'ja' and m['edition'].startswith('sqlite-'))
+        shard = next(s for s in catalog['search']['shards'] if '/ja/' in s['path'])
+        with (ROOT / shard['path']).open(encoding='utf-8') as stream:
+            cls.records = [json.loads(next(stream)), json.loads(next(stream))]
+        with (ROOT / cls.material['canonical_records_path']).open(encoding='utf-8') as stream:
+            cls.canonical = [json.loads(next(stream)), json.loads(next(stream))]
+        cls.policy = json.loads((ROOT / 'catalog/review-policy.json').read_text())['hadeethenc']
+
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.addCleanup(self.directory.cleanup)
+        self.root = Path(self.directory.name)
+        for relative in (self.material['source_file'], self.material['canonical_records_path'],
+                         'catalog/translation-origins.json', 'catalog/review-policy.json'):
+            target = self.root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text('{}', encoding='utf-8')
+        self.expected = {row['record_id']: validator.expected_record(row, self.material, i, True, self.policy)
+                         for i, row in enumerate(self.canonical)}
+
+    def shards(self):
+        specifications, aggregate = [], hashlib.sha256()
+        for i, record in enumerate(self.records):
+            relative = 'search/part-' + str(i) + '.jsonl'
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            data = json.dumps(record, ensure_ascii=False).encode('utf-8') + b'\n'
+            path.write_bytes(data); aggregate.update(data)
+            specifications.append({'path': relative, 'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data), 'count': 1})
+        return {'shards': specifications, 'records_path': 'search/records.jsonl',
+                'records_sha256': aggregate.hexdigest(), 'count': 2, 'whole_file_optional': True}
+
+    def test_complete_public_projection_rejects_injected_commentary_and_extra_fields(self):
+        record = self.records[0]
+        validator.compare_projection(record, self.expected[record['id']], self.root, True)
+        for altered in (dict(record, private_note='unrelated attachment'),
+                        dict(record, commentary={'translation': 'unrelated attachment'})):
+            with self.assertRaisesRegex(validator.ValidationError, 'Public projection fields differ'):
+                validator.compare_projection(altered, self.expected[record['id']], self.root, True)
+
+    def test_shard_order_and_individual_hash_are_both_enforced(self):
+        search = self.shards()
+        validator.verify_shards(self.root, search, self.expected, True)
+        reordered = dict(search, shards=list(reversed(search['shards'])))
+        with self.assertRaisesRegex(validator.ValidationError, 'Ordered shard aggregate'):
+            validator.verify_shards(self.root, reordered, self.expected, True)
+        bad_hash = copy.deepcopy(search)
+        bad_hash['shards'][0]['sha256'] = '0' * 64
+        with self.assertRaisesRegex(validator.ValidationError, 'Shard SHA-256 mismatch'):
+            validator.verify_shards(self.root, bad_hash, self.expected, True)
+
+    def test_reader_compares_complete_objects_not_just_ids_or_counts(self):
+        search = self.shards()
+        expected = [(r['id'], validator.object_hash(r)) for r in self.records]
+        def write_reader(records):
+            payload = base64.b64encode(gzip.compress(json.dumps(records, ensure_ascii=False).encode('utf-8'))).decode('ascii')
+            snapshot = json.dumps({'record_count': 2, 'records_sha256': search['records_sha256']})
+            (self.root / 'reader.html').write_text('<script id="hadith-records" data-encoding="gzip-base64">' + payload + '</script>'
+                                                  '<script id="hadith-snapshot">' + snapshot + '</script>', encoding='utf-8')
+        write_reader(self.records)
+        validator.verify_reader(self.root, 'reader.html', expected, search)
+        changed = copy.deepcopy(self.records)
+        changed[0]['translator']['name'] = 'unrelated attachment'
+        write_reader(changed)
+        with self.assertRaisesRegex(validator.ValidationError, 'Reader differs from source projection'):
+            validator.verify_reader(self.root, 'reader.html', expected, search)
+
+    def test_paths_and_symlinks_cannot_escape_local_bank(self):
+        for relative in ('../outside', '/tmp/outside', 'a/../b', 'a\\b', 'https://example.org/file', 'a//b'):
+            with self.subTest(relative=relative), self.assertRaises(validator.ValidationError):
+                validator.local(self.root, relative, exists=False)
+        (self.root / 'escape').symlink_to(self.root.parent, target_is_directory=True)
+        with self.assertRaisesRegex(validator.ValidationError, 'Symlink'):
+            validator.local(self.root, 'escape/file', exists=False)
+
+    def test_report_option_cannot_overwrite_historical_audit(self):
+        prior = self.root / 'reports/organization-final-audit.json'
+        prior.parent.mkdir(); prior.write_text('{"preserved":true}')
+        with contextlib.redirect_stderr(io.StringIO()):
+            result = validator.main(['--root', str(self.root), '--report', 'reports/organization-final-audit.json'])
+        self.assertEqual(result, 1)
+        self.assertEqual(prior.read_text(), '{"preserved":true}')
+
+    def test_duplicate_json_keys_fail_closed(self):
+        with self.assertRaisesRegex(validator.ValidationError, 'Duplicate JSON key'):
+            validator.parse_json('{"id":"first","id":"second"}')
+
+
+if __name__ == '__main__':
+    unittest.main()

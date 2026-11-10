@@ -1,0 +1,179 @@
+{
+  "schema_version": "hadith-bank-translation-origin-evidence-snapshot-v1",
+  "snapshot_id": "translation-origin-evidence-2026-11-11",
+  "as_of_date_japan": "2026-11-11",
+  "created_at_utc": "2026-11-10T18:09:27Z",
+  "purpose": "Reproducible, locally available support for display/search translation-origin labels. This snapshot does not replace canonical source records or independent bank QC.",
+  "evidence": [
+    {
+      "id": "hadeethenc-platform",
+      "evidence_format": "web_tool_extracted_findings",
+      "retrieved_at_utc": "2026-11-10T18:08:32Z",
+      "retrieval_interval_utc": {
+        "started_at": "2026-11-10T18:08:29Z",
+        "completed_at": "2026-11-10T18:08:32Z"
+      },
+      "raw_page_bytes_archived": false,
+      "raw_page_sha256": null,
+      "caveat": "The search/browsing tool returned extracted page text. No original HTTP response bytes were retained, so this snapshot does not assert a raw-page hash.",
+      "url": "https://islamiccontent.org/",
+      "publisher_name": "جمعية خدمة المحتوى الإسلامي باللغات",
+      "source_section": "مواقع الجمعية; مسار ترجمات الأحاديث النبوية وبيانها",
+      "claim_scope": "publisher_platform_identity",
+      "supported_findings": [
+        "The association lists HadeethEnc among its platforms and links to the HadeethEnc hadith-translation project."
+      ],
+      "not_established": [
+        "Authorship, AI assistance or review of any exact exported record."
+      ]
+    },
+    {
+      "id": "publisher-translation-workflow",
+      "evidence_format": "web_tool_extracted_findings",
+      "retrieved_at_utc": "2026-11-10T18:08:32Z",
+      "retrieval_interval_utc": {
+        "started_at": "2026-11-10T18:08:29Z",
+        "completed_at": "2026-11-10T18:08:32Z"
+      },
+      "raw_page_bytes_archived": false,
+      "raw_page_sha256": null,
+      "caveat": "The search/browsing tool returned extracted page text. No original HTTP response bytes were retained, so this snapshot does not assert a raw-page hash.",
+      "url": "https://islamiccontent.org/About",
+      "additional_url": "https://hadeethenc.com/ar/home/about",
+      "source_section": "منهجية نشاط الترجمة في الجمعية",
+      "claim_scope": "publisher_organization_workflow_not_individual_passage_authorship",
+      "supported_findings": [
+        "The association describes a system supporting translators, translation from Arabic, linguistic proofreading, religious review and approval, and subsequent improvement."
+      ],
+      "short_supporting_excerpt": "التدقيق اللغوي للترجمات. المراجعة الشرعية والاعتماد.",
+      "not_established": [
+        "Named translator for the exact exported entries.",
+        "Absence or use of AI assistance in each exported translation version.",
+        "Independent Hadith Bank QC."
+      ],
+      "additional_url_observation": {
+        "method": "search_engine_extracted_official_page",
+        "direct_open_status": "HTTP 429; not repeatedly retried",
+        "observation_date_utc": "2026-11-10",
+        "exact_observation_timestamp_retained": false,
+        "finding": "The official HadeethEnc project description discusses translation, translators and translation memory.",
+        "raw_page_bytes_archived": false,
+        "raw_page_sha256": null
+      }
+    },
+    {
+      "id": "ai-assistance-scope",
+      "evidence_format": "web_tool_extracted_findings",
+      "retrieved_at_utc": "2026-11-10T18:08:32Z",
+      "retrieval_interval_utc": {
+        "started_at": "2026-11-10T18:08:29Z",
+        "completed_at": "2026-11-10T18:08:32Z"
+      },
+      "raw_page_bytes_archived": false,
+      "raw_page_sha256": null,
+      "caveat": "The search/browsing tool returned extracted page text. No original HTTP response bytes were retained, so this snapshot does not assert a raw-page hash.",
+      "url": "https://molhem.ai/",
+      "source_section": "منصة مجانية موثوقة; منهجية شرعية مدعومة بتقنيات الذكاء الاصطناعي; هل تعتمد الترجمة على الذكاء الاصطناعي فقط؟",
+      "claim_scope": "association_platform_capability_not_proof_of_use_in_any_bank_record",
+      "supported_findings": [
+        "Molhem identifies itself as developed by the same association and describes AI-assisted translation with human review."
+      ],
+      "short_supporting_excerpt": "منصّة ترجمة متعددة النماذج مع مراجعة بشرية وتقييم جودة مدمج",
+      "not_established": [
+        "Whether a particular HadeethEnc SQLite/XLSX record used this platform.",
+        "Whether any exact bank translation was AI-generated or entirely human-authored."
+      ]
+    },
+    {
+      "id": "pdf-human-riyadh-al-salihin",
+      "evidence_format": "supplied_pdf_embedded_text_checked",
+      "checked_at_utc": "2026-11-10T18:09:27Z",
+      "verification_scope": "PDF SHA-256 recomputed; cited embedded credit/date text checked. This is not a new page-image or character-by-character QC claim.",
+      "original_pdf_availability": "private_combined_package_only",
+      "public_pdf_republication_authorized_by_this_snapshot": false,
+      "source_file": "163819884895551.pdf",
+      "source_sha256": "ac1cd8a6821e3affcd3a10c5d0c4863e19cf4f1b4a36f3505834ab491eb0c4c8",
+      "source_page_count": 358,
+      "translator": "艾乃斯·马风德",
+      "credit_pdf_page": 12,
+      "credit_verbatim": "翻译：艾乃斯·马风德",
+      "dated_afterword_pdf_page": 358,
+      "signature_verbatim": "艾乃斯·马风德",
+      "afterword_date_verbatim": "1999 年2 月15 日",
+      "afterword_date": "1999-02-15",
+      "date_scope": "Signed translator afterword; not an inferred publication date.",
+      "claim_scope": "named_historical_human_translator_in_supplied_source",
+      "supported_findings": [
+        "The named translator credit and signed historical afterword support the human origin of this translation."
+      ],
+      "not_established": [
+        "Accuracy of every extracted character.",
+        "Independent canonical narration mapping or authenticity.",
+        "Public reuse rights."
+      ]
+    },
+    {
+      "id": "pdf-human-shengxunjing",
+      "evidence_format": "supplied_pdf_embedded_text_checked",
+      "checked_at_utc": "2026-11-10T18:09:27Z",
+      "verification_scope": "PDF SHA-256 recomputed; cited embedded credit/date text checked. This is not a new page-image or character-by-character QC claim.",
+      "original_pdf_availability": "private_combined_package_only",
+      "public_pdf_republication_authorized_by_this_snapshot": false,
+      "source_file": "163819897387558.pdf",
+      "source_sha256": "64d260b8d79a3d53b755bb2d271d5e5314ca486299c3e173fbb32d77230000f1",
+      "source_page_count": 975,
+      "translator": "陈克礼",
+      "credit_pdf_page": 2,
+      "credit_verbatim": "陈克礼/译",
+      "edition_statement_verbatim": "·版次：1981-1-1",
+      "volume_year_statements": [
+        "1954",
+        "1981"
+      ],
+      "edition_scope": "Transcribed digital source copyright-information page; not independently verified against a physical print edition.",
+      "claim_scope": "named_historical_human_translator_in_supplied_source",
+      "supported_findings": [
+        "The named translator credit and historical edition statements support the human origin of this translation."
+      ],
+      "not_established": [
+        "Accuracy of every extracted character.",
+        "Independent canonical narration mapping or authenticity.",
+        "Public reuse rights."
+      ]
+    }
+  ],
+  "label_rules": {
+    "publisher_human_workflow": "Publisher describes translation and human review; retain exact-record ai_translation as unknown unless record-specific evidence establishes otherwise.",
+    "human_translator_credited": "Named historical human translator supported by the supplied source; no promotion of extraction, authenticity or independent-QC status.",
+    "unknown": "Exact-source authorship/process remains unestablished; do not infer origin from filename, download format or OCR use."
+  },
+  "unchanged_fields": [
+    "canonical source text",
+    "canonical ai_translation values",
+    "review and release eligibility",
+    "rights/publication status"
+  ],
+  "structural_label_audit": {
+    "dataset": "Combined searchable package present during audit",
+    "records_scanned": 40723,
+    "counts": [
+      {
+        "origin": "publisher_human_workflow",
+        "ai_translation": "unknown",
+        "records": 20570
+      },
+      {
+        "origin": "human_translator_credited",
+        "ai_translation": false,
+        "records": 7176
+      },
+      {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "records": 12977
+      }
+    ],
+    "named_human_label_flag_inconsistencies": 0,
+    "scope": "Structural field audit; not translation-accuracy or narration/authenticity review."
+  }
+}

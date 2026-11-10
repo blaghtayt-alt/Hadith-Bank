@@ -1,5 +1,7 @@
 # Hindi Hadith bank
 
+**[Read the narration texts](../../browse/hi/README.md)** · [Search instructions](../../docs/READING-AND-SEARCH.md) · [All materials](../../catalog/README.md)
+
 - [Local source catalog](catalog.json)
 - [Essential: book and editions](books/essential/README.md)
 
@@ -7,4 +9,4 @@ All catalog-linked contents are copied inside this repository. Their original wo
 
 ## HadeethEnc actual text
 
-[Browse 2,314 translations with Arabic](books/hadeethenc/README.md). These are locally stored full records, not website pointers. Independent Pro QC remains pending.
+[Browse 2,314 translations with Arabic](books/hadeethenc/README.md). These are locally stored full records, not website pointers. Separate bank review is not required under the owner decision; historical import flags and source-alignment notes are preserved.

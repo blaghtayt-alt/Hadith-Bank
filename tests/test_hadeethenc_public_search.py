@@ -13,7 +13,9 @@ class PublicSearchTests(unittest.TestCase):
   with mock.patch('socket.create_connection',side_effect=AssertionError('Search must not use a network')):
    for lang,count in expected.items():
     result=search_hadeethenc.search(ROOT,language=lang,limit=0)
-    self.assertEqual(result['matched'],count);self.assertIn('pending',result['warning'])
+    self.assertEqual(result['matched'],count)
+    if 'current_review_policy' in result:self.assertIn('not required by owner',result['warning'])
+    else:self.assertIn('pending',result['warning'])
  def test_actual_translation_and_arabic_are_returned(self):
   collection=self.registry['collections'][0]
   with (ROOT/collection['records_path']).open(encoding='utf-8') as stream:record=json.loads(next(stream))

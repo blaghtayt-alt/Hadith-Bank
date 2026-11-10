@@ -11,7 +11,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/manifest.json"
+      "hadeethenc_manifest": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/manifest.json",
+      "materials_catalog": "catalog/languages/ja.json",
+      "record_count": 281,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/ja/README.md"
     },
     {
       "language": "fil",
@@ -23,7 +27,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/manifest.json"
+      "hadeethenc_manifest": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/manifest.json",
+      "materials_catalog": "catalog/languages/fil.json",
+      "record_count": 1949,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/fil/README.md"
     },
     {
       "language": "vi",
@@ -35,7 +43,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/manifest.json"
+      "hadeethenc_manifest": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/manifest.json",
+      "materials_catalog": "catalog/languages/vi.json",
+      "record_count": 1203,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/vi/README.md"
     },
     {
       "language": "zh-CN",
@@ -47,7 +59,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json"
+      "hadeethenc_manifest": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json",
+      "materials_catalog": "catalog/languages/zh-CN.json",
+      "record_count": 2256,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/zh-CN/README.md"
     },
     {
       "language": "uz",
@@ -59,7 +75,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/manifest.json"
+      "hadeethenc_manifest": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/manifest.json",
+      "materials_catalog": "catalog/languages/uz.json",
+      "record_count": 420,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/uz/README.md"
     },
     {
       "language": "hi",
@@ -71,7 +91,11 @@
         "essential",
         "hadeethenc"
       ],
-      "hadeethenc_manifest": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/manifest.json"
+      "hadeethenc_manifest": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/manifest.json",
+      "materials_catalog": "catalog/languages/hi.json",
+      "record_count": 2314,
+      "source_dataset_count": 1,
+      "readingIndex": "browse/hi/README.md"
     }
   ],
   "organizedIndex": "organized/INDEX.json",
@@ -103,5 +127,251 @@
       "publicTextPublished": true,
       "independentProQC": "pending"
     }
-  ]
+  ],
+  "scope": "public_source_snapshots",
+  "recordCount": 8423,
+  "languageCount": 6,
+  "countUnit": "source narration/entry occurrences across editions; not unique canonical Hadith",
+  "sourceDatasetCount": 6,
+  "sourceDatasets": [
+    {
+      "dataset_id": "hadeethenc-ja-sqlite-a81da9af28f854f6",
+      "language": "ja",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-a81da9af28f854f6",
+      "source_name": "HadeethEnc.com",
+      "count": 281,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/ja.sqlite",
+      "source_sha256": "a81da9af28f854f6d44456657228ca7bc244aea70d5665717797b9cee7530847",
+      "canonical_records_path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
+      "canonical_records_sha256": "35650ff990760029aaa3f7f03b5c94c55759aa104a3dc0c8e35d9c24dc3359c9",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "hadeethenc-tl-sqlite-e8fa6e4c26c11c06",
+      "language": "fil",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-e8fa6e4c26c11c06",
+      "source_name": "HadeethEnc.com",
+      "count": 1949,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/tl.sqlite",
+      "source_sha256": "e8fa6e4c26c11c060c36621cc7fb257a3e8daab957f1bb226ad3940688a72abb",
+      "canonical_records_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+      "canonical_records_sha256": "4329ff9582d8c88e9f394078b80acd354f5d0e83ffb5fcbfc9e4e372a5c97f63",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "hadeethenc-vi-sqlite-3fb9e549494ff0f6",
+      "language": "vi",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-3fb9e549494ff0f6",
+      "source_name": "HadeethEnc.com",
+      "count": 1203,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/vi.sqlite",
+      "source_sha256": "3fb9e549494ff0f60454b034add71b0cefe72deb3e4fffce98f4bf90a79abcd7",
+      "canonical_records_path": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+      "canonical_records_sha256": "edcea9fc2017d45c9803cdbea873755da4c820126692824a85359d3f22837c8d",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "hadeethenc-zh-sqlite-a22a0e545c70b320",
+      "language": "zh-CN",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-a22a0e545c70b320",
+      "source_name": "HadeethEnc.com",
+      "count": 2256,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite",
+      "source_sha256": "a22a0e545c70b320b451ebc37022f1fe24b74e03f6b26972444753517944a604",
+      "canonical_records_path": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+      "canonical_records_sha256": "d7aa6c6d2d6d74685e66e4ddbb40fb5f7c2d091894d708d3b1f6799b3754dcff",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "hadeethenc-uz-sqlite-8241193c5ac1f3bc",
+      "language": "uz",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-8241193c5ac1f3bc",
+      "source_name": "HadeethEnc.com",
+      "count": 420,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite",
+      "source_sha256": "8241193c5ac1f3bcc2c708ebb5dc3ee42313e04f6a32d04b3010f2b38c9506a7",
+      "canonical_records_path": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/records.jsonl",
+      "canonical_records_sha256": "3c9e01b66288242ad61b1ebc8d94e0c49c098492e057de4df8e7a1c2b27f48bf",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "hadeethenc-hi-sqlite-3b74b6c4da6dc883",
+      "language": "hi",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-3b74b6c4da6dc883",
+      "source_name": "HadeethEnc.com",
+      "count": 2314,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite",
+      "source_sha256": "3b74b6c4da6dc8838741fae5d7f2281cdb3ae896f9614c987e78baf8cccfd45d",
+      "canonical_records_path": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
+      "canonical_records_sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    }
+  ],
+  "materialsCatalog": "catalog/materials.json",
+  "readingIndex": "browse/README.md",
+  "relatedSnapshots": "catalog/related-snapshots.json",
+  "translationOriginEvidence": "catalog/translation-origins.json",
+  "currentReviewPolicy": "catalog/review-policy.json"
 }

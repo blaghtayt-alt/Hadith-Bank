@@ -3,6 +3,45 @@
 import argparse,hashlib,json,pathlib,sys,unicodedata
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 def norm(s):return "".join(c for c in unicodedata.normalize("NFKD",str(s)).casefold() if not unicodedata.combining(c))
+def matching_excerpt(text, query, width=350):
+ """Show the actual matched characters, even far into a long JSONL record."""
+ needle=norm(query);offset=norm(text).find(needle)
+ if offset<0:return text[:width]
+ # Normalization can change character counts (diacritics, ligatures, casefold).
+ # Map the folded match back to source offsets instead of slicing at that index.
+ folded_length=0;start=None;end=0
+ for i,char in enumerate(text):
+  next_length=folded_length+len(norm(char))
+  if start is None and next_length>offset:start=i
+  if next_length>=offset+len(needle):end=i+1;break
+  folded_length=next_length
+ if start is None:start=0
+ if not needle:start=0;end=0
+ left=max(0,start-80);right=min(len(text),max(left+width,end+80))
+ if right==len(text):left=max(0,min(left,right-width))
+ return ('…' if left else '')+text[left:right]+('…' if right<len(text) else '')
+def fulltext_search(root,query,language=None,limit=20):
+ """Search local source lines; JSONL remains one narration per source line."""
+ root=pathlib.Path(root).resolve();matches=[];files=0;matched=0;needle=norm(query)
+ for lang in ([language] if language else ["ja","fil","vi","zh-CN","uz","hi"]):
+  for path in sorted((root/"languages"/lang/"books").rglob("*")):
+   if not path.is_file() or path.suffix not in (".txt",".md",".json",".jsonl"):continue
+   if not path.resolve().is_relative_to(root):raise ValueError("Unsafe local search file "+str(path))
+   files+=1
+   with path.open(encoding="utf-8",errors="replace") as stream:
+    for i,line in enumerate(stream,1):
+     line=line.rstrip("\r\n")
+     if needle not in norm(line):continue
+     matched+=1
+     if len(matches)>=max(0,limit):continue
+     hit={"path":path.relative_to(root).as_posix(),"line":i,"excerpt":matching_excerpt(line,query)}
+     if path.suffix==".jsonl":
+      try:
+       record=json.loads(line)
+       if isinstance(record,dict) and record.get("record_id"):hit["record_id"]=record["record_id"]
+      except json.JSONDecodeError:pass
+     matches.append(hit)
+ return {"searched_files":files,"matched":matched,"shown":len(matches),"match_unit":"source_line","results":matches}
 def emit(obj):print(json.dumps(obj,ensure_ascii=False,indent=2))
 def verified(loc):
  p=(ROOT/loc["path"]).resolve()
@@ -30,15 +69,7 @@ def main():
  f=sp.add_parser("fulltext");f.add_argument("query");f.add_argument("--language",choices=["ja","fil","vi","zh-CN","uz","hi"]);f.add_argument("--limit",type=int,default=20)
  a=p.parse_args()
  if a.action=="fulltext":
-  matches=[];files=0
-  for lang in ([a.language] if a.language else ["ja","fil","vi","zh-CN","uz","hi"]):
-   for path in (ROOT/"languages"/lang/"books").rglob("*"):
-    if not path.is_file() or path.suffix not in (".txt",".md",".json"):continue
-    files+=1
-    for i,line in enumerate(path.read_text(encoding="utf-8",errors="replace").splitlines(),1):
-     if norm(a.query) in norm(line) and len(matches)<max(0,a.limit):
-      matches.append({"path":path.relative_to(ROOT).as_posix(),"line":i,"excerpt":line[:350]})
-  emit({"searched_files":files,"results":matches});return
+  emit(fulltext_search(ROOT,a.query,a.language,a.limit));return
  idx=json.loads((ROOT/"organized/INDEX.json").read_text(encoding="utf-8"))
  groups={"package":"packages","reading":"readingsOnly","source":"sourceRecords","lesson":"lessons","chapter":"chapters"}
  if a.action=="search":

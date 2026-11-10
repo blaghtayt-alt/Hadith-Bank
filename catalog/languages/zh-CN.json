@@ -1,0 +1,123 @@
+{
+  "schema": "hadith-bank-language-materials-v1",
+  "language": "zh-CN",
+  "name": "Chinese",
+  "scope": "public_source_snapshots",
+  "record_count": 2256,
+  "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
+  "datasets": [
+    {
+      "dataset_id": "hadeethenc-zh-sqlite-a22a0e545c70b320",
+      "language": "zh-CN",
+      "book_key": "hadeethenc",
+      "edition": "sqlite-a22a0e545c70b320",
+      "source_name": "HadeethEnc.com",
+      "count": 2256,
+      "release_status": "published_unreviewed_source_import",
+      "available_locally": true,
+      "source_file": "sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite",
+      "source_sha256": "a22a0e545c70b320b451ebc37022f1fe24b74e03f6b26972444753517944a604",
+      "canonical_records_path": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+      "canonical_records_sha256": "d7aa6c6d2d6d74685e66e4ddbb40fb5f7c2d091894d708d3b1f6799b3754dcff",
+      "translation_provenance": {
+        "origin": "publisher_human_workflow",
+        "label": "Human translation — HadeethEnc",
+        "basis": "owner_source_classification_and_publisher_described_workflow",
+        "translation_classification": "human",
+        "human_involvement": "publisher_described_translation_proofreading_and_review",
+        "ai_translation": "unknown",
+        "evidence_ids": [
+          "hadeethenc-platform",
+          "publisher-translation-workflow",
+          "ai-assistance-scope"
+        ],
+        "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
+        "policy_path": "catalog/translation-origins.json"
+      },
+      "current_review_policy": {
+        "separate_bank_review_required": false,
+        "status": "not_required_by_owner",
+        "label": "No separate bank review required — owner decision",
+        "decision_date_japan": "2026-11-11",
+        "independent_review_performed": false,
+        "historical_status_preserved": true,
+        "arabic_alignment_flags_retained": true,
+        "policy_path": "catalog/review-policy.json"
+      }
+    }
+  ],
+  "legacy_materials": [
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/002.json",
+      "sha256": "1770ca4f4a28bbb13add0b576fe01481df461db46a40ca3a54e6e3f2234b0360",
+      "bytes": 46981,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/002.md",
+      "sha256": "f6c373f7fc524496917589333e057190693bdc4a295b1e86e46c3defa5d71f66",
+      "bytes": 11584,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "sha256": "6982add7ca1daba7286078bffe791d0cb16474b328720dae831523778f48af66",
+      "bytes": 129901,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003.json",
+      "sha256": "e6124b837b41c1fd84d64a3d41bebd6758361720ed6bbac9ccf4db30ad8a5162",
+      "bytes": 27682,
+      "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.md",
+      "sha256": "0f184a2c44a515126acfcd2410aac8f5be45b4e3810947096d14edd24d3005a9",
+      "bytes": 8240,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "sha256": "67afc5a82aded7bf4418f8300b0e41cf36911778b7c29ffcfceb06587c8ba60b",
+      "bytes": 8138,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    },
+    {
+      "language": "zh-CN",
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb",
+      "bytes": 631,
+      "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
+      "kind": "legacy_source_document",
+      "translation_origin": "unknown",
+      "available_locally": true
+    }
+  ],
+  "reading_index": "browse/zh-CN/README.md",
+  "related_snapshots": "catalog/related-snapshots.json"
+}

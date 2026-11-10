@@ -1,84 +1,85 @@
-# Hadith Bank — standalone six-language corpus
+# Hadith Bank
 
-An independent, locally searchable archive of **Japanese, Filipino, Vietnamese, Simplified Chinese, Uzbek and Hindi** Hadith-related source material, with the Arabic passages and source evidence carried by each imported publication.
+**8,423 HadeethEnc source occurrences in six languages, with Arabic, source attribution and separate narration fields.**
 
-No app installation, second repository, external file pointer, API token or network access is required to browse or resolve the local records. Third-party primary-source web citations, where present in the materials, are provenance, **not runtime dependencies**.
+[Read the narrations](browse/README.md) · [Japanese: all 281 entries](browse/ja/hadeethenc/sqlite-a81da9af28f854f6/README.md) · [Complete materials catalog](catalog/README.md) · [Offline reader](hadith-bank-reader.html)
 
-## Languages
+The bank works independently. All public narration text, original source databases, local record locators, schemas and search tools are included. Reading and search work offline after downloading the repository. External source links provide attribution.
 
-| Language | Code | Catalog |
-| --- | --- | --- |
-| Japanese | ja | [Browse](languages/ja/README.md) |
-| Filipino | fil | [Browse](languages/fil/README.md) |
-| Vietnamese | vi | [Browse](languages/vi/README.md) |
-| Chinese (Simplified) | zh-CN | [Browse](languages/zh-CN/README.md) |
-| Uzbek | uz | [Browse](languages/uz/README.md) |
-| Hindi | hi | [Browse](languages/hi/README.md) |
+## Read by language
 
-Source material is organized by **language → book → edition/source revision**.
-The published revision is checksum-pinned. Other previously public but unindexed files are preserved under a separate edition/revision folder to avoid silently treating them as independently approved.
+| Language | Public source occurrences | Read | Structured catalog |
+| --- | ---: | --- | --- |
+| Japanese | 281 | [Read](browse/ja/README.md) | [JSON](catalog/languages/ja.json) |
+| Filipino / Tagalog | 1,949 | [Read](browse/fil/README.md) | [JSON](catalog/languages/fil.json) |
+| Vietnamese | 1,203 | [Read](browse/vi/README.md) | [JSON](catalog/languages/vi.json) |
+| Chinese | 2,256 | [Read](browse/zh-CN/README.md) | [JSON](catalog/languages/zh-CN.json) |
+| Uzbek | 420 | [Read](browse/uz/README.md) | [JSON](catalog/languages/uz.json) |
+| Hindi | 2,314 | [Read](browse/hi/README.md) | [JSON](catalog/languages/hi.json) |
+| **Total** | **8,423** | [All languages](browse/README.md) | [All datasets](catalog/materials.json) |
 
-## Current import and trust boundaries
+Counts describe source occurrences. Different languages, chains, book occurrences and source editions remain separate. They are not a unique canonical Hadith total.
 
-This migration copies 83 language-specific source files, including 8 cataloged source packages, 6 readings with missing complete source envelopes, and associated unindexed files. The metadata index includes 182 source metadata records. **These are not counts of independently authenticated Hadith.**
+## How the material is organized
 
-The imported source packages were already public, but the import is not independent Pro quality control and does not establish accuracy, scholastic authenticity, copyright permission, human translation or full-book completeness. Check the individual catalog, source-conditions records and [audit](reports/IMPORT-STATUS.json). Do not treat an unindexed file or a reading-only entry as approved.
+| Material | Location |
+| --- | --- |
+| Canonical source records | `languages/<language>/books/<book>/editions/<edition>/records.jsonl` |
+| Readable, paginated text | `browse/<language>/<book>/<edition>/` |
+| Unified JSONL search records | `search/<language>/<book>/<edition>/part-*.jsonl` |
+| Language, source, edition and checksum catalog | `catalog/materials.json` and `catalog/languages/` |
+| Original HadeethEnc databases and download evidence | `sources/hadeethenc/snapshots/2026-11-11/` |
+| Preserved legacy lessons and source documents | [83-file inventory](browse/materials/legacy.md) |
+| Source edition relationships | `catalog/related-snapshots.json` |
+| Current HadeethEnc review decision | `catalog/review-policy.json` |
 
-Original text is preserved without paraphrase. Arabic, translation, isnad, citations, grades, commentary, metadata, edition markers and source conditions are retained only where present and supported. Source occurrences are not deduplicated or merged. Missing fields remain unknown; no synthetic Arabic source or narrator/grade is supplied.
+JSON is the main machine-readable format. Each search record has separate fields for Arabic, translation, source, book/number, narrator/isnad, translator, page/row locator, tags, commentary, benefits, footnotes, references, grading, source hashes and review history. Missing information stays null or unknown. No new translation or missing source text is invented.
 
-The supplemental bank field `ai_translation` is set to `"unknown"` on imported catalog and index records: historic model-assisted review by itself does **not** establish whether each underlying translation was written by AI. Any future AI-created translation must be explicitly labeled and separately attributed with traceable evidence.
+**For ordinary reading**, use the paginated links above. **For browser search**, download `hadith-bank-reader.html` and open it locally. It contains its own data, offers language/source filters and exports selected records as JSON. GitHub's file page displays source code; download the HTML to use the reader.
 
-## Offline usage
+## Search
 
-Requires Python 3, standard library only:
+Python 3 is sufficient; the search tools use the standard library.
 
 ```bash
-python scripts/search.py search --language ja --kind package
-python scripts/search.py search "Muslim 2654" --language vi --kind source
-python scripts/search.py resolve "package:ja:essential-01-003" --reading
-python scripts/search.py fulltext "2654" --language hi
+python scripts/hadith_search.py '礼拝' --language ja --limit 5
+python scripts/hadith_search.py --language ja --id 2758 --json
+python scripts/hadith_search.py 'HadeethEnc.com' --language fil --limit 3
+python scripts/hadith_search.py 'Muslim' --language vi --include-commentary
+python scripts/search.py fulltext '2758' --language ja --limit 5
+```
+
+Unified search includes narration text, source references, translators and source metadata. Commentary, benefits and footnotes are optional. General document search also reads JSONL. Search verifies the input stream's checksums and uses a disposable local cache; normalization is applied only to search keys, preserving returned text exactly.
+
+[Search examples and field guide](docs/READING-AND-SEARCH.md) · [Search record schema](schemas/search.record.schema.json)
+
+## Human translation, attribution and review
+
+HadeethEnc entries are labeled **Human translation — HadeethEnc**, following the owner's source classification and the provider's [description of its translator workflow](https://hadeethenc.com/en/home/about). The named translator is retained when evidenced; none is invented. The exact imported AI-origin flags remain visible with their original scope. [Translation-origin evidence](catalog/translation-origins.json).
+
+**The owner waived separate bank review for HadeethEnc on 11 November 2026.** This current decision appears in the reader and search alongside the preserved import history. The **267 Arabic-version alignment notes** remain available: Japanese 102, Chinese 103, Hindi 62. The waiver does not assert that review was performed or that those notes were resolved. [Current policy](docs/CURRENT-REVIEW-POLICY.md) · [Original alignment ledger](reports/hadeethenc/2026-11-11/public/exceptions.json).
+
+Original texts, stable IDs, source databases and historical import records remain unchanged. Publisher conditions apply. Translation origin, source-version alignment, transcription fidelity and scholarly authenticity remain separate facts.
+
+## Supplied PDF/XLSX materials
+
+The combined package contains **45,788 source occurrences across nine languages and 64 source datasets**: the 8,423 public occurrences plus **37,365 supplied-file occurrences**. It retains the original attachments and all 83 legacy source documents.
+
+The public catalog registers the supplied-file intake accurately as separate metadata. Its held source files remain in the combined package with their existing publication qualifications. That intake includes Bengali, Urdu and Portuguese alongside the shared language families. See [intake organization](docs/ATTACHMENT-INTAKE.md) and [the metadata inventory](browse/materials/private.md).
+
+The Japanese SQLite snapshot and supplied v1.8.0 workbook each contain the same 281 publisher IDs. Both snapshots are preserved in the combined package; they do not represent 562 distinct Hadiths.
+
+The latest additive intakes contribute **3,254 Vietnamese occurrences from 45 PDFs** and **1,811 Japanese Sahih Muslim volume-one occurrences from the supplied 580-page PDF**. The Japanese intake includes 191 abbreviated route/reference occurrences; its source scope is preserved. These PDF packages retain their private-candidate and pending-review status. Their source editions are registered as metadata in [the additional intake catalog](catalog/additional-private-intakes.json), with details in [the intake guide](docs/ADDITIONAL-INTAKES.md).
+
+## Rebuild and validate
+
+```bash
+python scripts/build_bank_views.py
+python scripts/build_reader.py --root . --output hadith-bank-reader.html --markdown-output browse
 python scripts/validate.py
-```
-
-The search utility reads the copied files **locally**, verifies the expected byte lengths and SHA-256 digests on record resolution, and can inspect a source envelope member and JSON Pointer. Full-text search scans copied JSON, Markdown and text; it does not pretend to segment every passage into an authenticated narration.
-
-## Design and verification
-
-- [Catalog index](index.json)
-- [Source metadata and local locators](organized/INDEX.json)
-- [Audit and hashes](reports/IMPORT-STATUS.json)
-- [Corpus limitations](docs/REVIEW-AND-RIGHTS.md)
-- [Contributing rules](AGENTS.md)
-- [Index schema](schemas/index.schema.json)
-
-## Source coverage limits
-
-This public repository intentionally contains **only the six language families above**, along with Arabic quotations already contained in those source packages. It does not yet include completed, independently QC-passed OCR books or a claim to cover all narrations in these languages. An edition/translation should only be promoted after source alignment, rights review, complete page comparison and a separate recorded Pro QC decision.
-
-## HadeethEnc — actual texts now included
-
-**8,423 translated entries with Arabic are stored in this repository**, not just linked: Japanese 281, Filipino/Tagalog 1,949, Vietnamese 1,203, Chinese 2,256, Uzbek 420 and Hindi 2,314. [Browse the full-text dataset](datasets/hadeethenc/README.md).
-
-The owner requested this public source-snapshot upload. **Independent Pro QC remains pending**; 267 Arabic-version alignment exceptions and unknown translation authorship remain flagged. This is not a certified Hadith or translation release. Original provider text, source categories, available version fields, raw databases and checksums are preserved.
-
-```text
-python scripts/search_hadeethenc.py --language ja --id 2758
-python scripts/search.py hadith --language fil --limit 3
 python scripts/validate_hadeethenc_public.py
+python scripts/validate_bank_views.py --root . --report reports/portable-validation.json
+python -m unittest discover -s tests
 ```
 
-[Current upload audit](reports/hadeethenc/2026-11-11/public/summary.json) · [Source and tagging notes](docs/HADEETHENC-IMPORT.md). Earlier private-candidate reports remain as historical evidence.
-
-## Supplied PDF/XLSX intake — private review queue
-
-A further source intake registers **32,300 narration occurrences from 12 supplied
-files in eight languages**: Japanese, Vietnamese, Chinese, Uzbek, Hindi, Urdu,
-Bengali and Portuguese. Primary JSON records follow language → book → source
-snapshot, preserve original IDs and source evidence, and separate source headings
-from editorial status tags. This is a separate intake, not a unique-Hadith total
-added to the earlier SQLite candidate.
-
-The complete structured texts and original attachments remain in the private
-candidate pending the bank's publication requirements. The public repository
-contains the reproducible adapter, schemas, offline search, validator and non-text
-registration audit. See [organization, tags and review status](docs/ATTACHMENT-INTAKE.md).
+Generated reading/search views preserve canonical text and source IDs. The whole `search/records.jsonl` is optional and reproducible; the published checkout includes its ordered, checksum-verified shards. [Organization validation](reports/organization-final-audit.json).

@@ -1,0 +1,683 @@
+{
+  "schema": "hadith-bank-portable-validation-v1",
+  "status": "passed",
+  "scope": "public_source_snapshots",
+  "checked_at_utc": "2026-11-10T19:43:09.843126+00:00",
+  "record_count": 8423,
+  "source_dataset_count": 6,
+  "by_language": {
+    "fil": 1949,
+    "hi": 2314,
+    "ja": 281,
+    "uz": 420,
+    "vi": 1203,
+    "zh-CN": 2256
+  },
+  "by_dataset": {
+    "hadeethenc-hi-sqlite-3b74b6c4da6dc883": 2314,
+    "hadeethenc-ja-sqlite-a81da9af28f854f6": 281,
+    "hadeethenc-tl-sqlite-e8fa6e4c26c11c06": 1949,
+    "hadeethenc-uz-sqlite-8241193c5ac1f3bc": 420,
+    "hadeethenc-vi-sqlite-3fb9e549494ff0f6": 1203,
+    "hadeethenc-zh-sqlite-a22a0e545c70b320": 2256
+  },
+  "coverage": {
+    "canonical_occurrences_compared": 8423,
+    "projection_objects_compared": 8423,
+    "exact_arabic_and_translation_codepoints_compared": 6415707,
+    "canonical_record_files_hashed": 6,
+    "source_and_legacy_files_hashed": 95,
+    "ordered_search_shards_hashed": 88,
+    "canonical_record_digest_checks": 8423,
+    "complete_public_projection_objects_reconstructed": 8423,
+    "pdf_page_images_reviewed": 0,
+    "source_glyph_or_linguistic_reviews_performed": 0
+  },
+  "source_files": [
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/ja.sqlite",
+      "bytes": 1339392,
+      "sha256": "a81da9af28f854f6d44456657228ca7bc244aea70d5665717797b9cee7530847"
+    },
+    {
+      "path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
+      "bytes": 4834734,
+      "sha256": "35650ff990760029aaa3f7f03b5c94c55759aa104a3dc0c8e35d9c24dc3359c9"
+    },
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/tl.sqlite",
+      "bytes": 7634944,
+      "sha256": "e8fa6e4c26c11c060c36621cc7fb257a3e8daab957f1bb226ad3940688a72abb"
+    },
+    {
+      "path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+      "bytes": 35118705,
+      "sha256": "4329ff9582d8c88e9f394078b80acd354f5d0e83ffb5fcbfc9e4e372a5c97f63"
+    },
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/vi.sqlite",
+      "bytes": 5263360,
+      "sha256": "3fb9e549494ff0f60454b034add71b0cefe72deb3e4fffce98f4bf90a79abcd7"
+    },
+    {
+      "path": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+      "bytes": 22462207,
+      "sha256": "edcea9fc2017d45c9803cdbea873755da4c820126692824a85359d3f22837c8d"
+    },
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite",
+      "bytes": 5292032,
+      "sha256": "a22a0e545c70b320b451ebc37022f1fe24b74e03f6b26972444753517944a604"
+    },
+    {
+      "path": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+      "bytes": 35251893,
+      "sha256": "d7aa6c6d2d6d74685e66e4ddbb40fb5f7c2d091894d708d3b1f6799b3754dcff"
+    },
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite",
+      "bytes": 2584576,
+      "sha256": "8241193c5ac1f3bcc2c708ebb5dc3ee42313e04f6a32d04b3010f2b38c9506a7"
+    },
+    {
+      "path": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/records.jsonl",
+      "bytes": 9245968,
+      "sha256": "3c9e01b66288242ad61b1ebc8d94e0c49c098492e057de4df8e7a1c2b27f48bf"
+    },
+    {
+      "path": "sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite",
+      "bytes": 12808192,
+      "sha256": "3b74b6c4da6dc8838741fae5d7f2281cdb3ae896f9614c987e78baf8cccfd45d"
+    },
+    {
+      "path": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
+      "bytes": 51721418,
+      "sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 74522,
+      "sha256": "38d248d4f64675909100391e434892afd8974770148851a95617661b9c169e18"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 22128,
+      "sha256": "2f2d44f00f6cff9a92e32ceea5fcce9b72e2f95cd7fae412e9e938dd7a5388b3"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 131777,
+      "sha256": "09a29e5d907339ec1188012f3daa7a242c5c44df1fe3d6cbc063e4e2a6f9958c"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 54847,
+      "sha256": "d0871c9cd357f7e09d0a9756d58044bff9ffda8fd104160220492400cb474f87"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 17583,
+      "sha256": "7a9071901e177998fa73c683e42a2977fd625de3987b6c35a5e27f2d33f81c6d"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 17435,
+      "sha256": "396df5977f593d3af4f1eb1e8f3bb53c3f385b4e62f5f8ec73f28be617c08018"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/004-sources.json",
+      "bytes": 409273,
+      "sha256": "bcdec9c707b790e8ff1113eeb78a18a66e6c00282b50f992cc9070bc76b1b64d"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/004.json",
+      "bytes": 137251,
+      "sha256": "22359913dda9635142d6cfe82a9607618f49d191d0f571fc1dda9ffedab7897f"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/004.md",
+      "bytes": 45962,
+      "sha256": "3f73d71f91da22a948188f781702fe4d5f33d19d30772a90c9900db6b259a436"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/004.txt",
+      "bytes": 45824,
+      "sha256": "bcdbb9f00ca18cb03ae23be12fbc71817d412f098cf145ff2fb6a119387c131c"
+    },
+    {
+      "path": "languages/ja/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 410,
+      "sha256": "e73711e4f3ac5c2b37e4d12242c38f38100f9d7f553db6acc1751b6aa47b7174"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 68858,
+      "sha256": "8d588d86aadf44eb14eec928733dc78e0e7833f1f0711fc426a4b94b31d5c5be"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 19330,
+      "sha256": "b0b11b741c9ee56365ca3f2ee1a50589c6513c6c88893c841a2e82297f17c45a"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 115155,
+      "sha256": "f3bec0ea5648afc4d0ade976008fd3f14e66a8fb9583438b600bb65ff733452c"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 41601,
+      "sha256": "2d3a604595ae5fdcdb342768c4f99f6d847ac5db112a4baa29533bacb5bb7120"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 12703,
+      "sha256": "08181253e800e220477d795193134ba08c5f11196c724c06c512109bc5674bb5"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 12554,
+      "sha256": "81a6b7fc0652ea9419752ef3a43b9432a726aa31b8f7b41c248b7ef94edc4931"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/005.json",
+      "bytes": 27193,
+      "sha256": "c344eb798971f89fefbb47234d5c8c9ebda9cdd37b0c2f5b294e348eec2f13b4"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/005.txt",
+      "bytes": 22540,
+      "sha256": "f9e74bc8c17b06f97d9b27803b7e8499cd53a1fad96675709f9b2587dbb56a56"
+    },
+    {
+      "path": "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 1232,
+      "sha256": "41ff8b7cf23826ffab7a80e57985487ec57b7243b8e85c598d91aa224a17b1ed"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 62824,
+      "sha256": "a310b085fe993a8e21a6836ea34fa188098c6b80863ffde6a7748e3bbbabfaec"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 17544,
+      "sha256": "ab3d74dfb8740bcda8a7838441670e6b71e57d7acf1c51b8d3c140255fc8aaa0"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 148788,
+      "sha256": "030758517f5de2ed3344e73bd4673b47d6674e9d1217ccc22ee116038307bfd2"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 46878,
+      "sha256": "d631d54415dec51cdd73550d61a7f7e3c5c0c2298fb7db5122bc54d22e48b89a"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 14224,
+      "sha256": "60e4b8a37440329c23af592d805be1252d7f226f270bd4d01bc5b1c325315ca3"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 14246,
+      "sha256": "955fd2859b265adece6297c745c34af1fe1e3515bc94cfd9309ae3a1604c4c75"
+    },
+    {
+      "path": "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 521,
+      "sha256": "cd41071b2070135d8332ec1a10cd3b91cea6e79298023e24a16d04e343673e87"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 46981,
+      "sha256": "1770ca4f4a28bbb13add0b576fe01481df461db46a40ca3a54e6e3f2234b0360"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 11584,
+      "sha256": "f6c373f7fc524496917589333e057190693bdc4a295b1e86e46c3defa5d71f66"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 129901,
+      "sha256": "6982add7ca1daba7286078bffe791d0cb16474b328720dae831523778f48af66"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 27682,
+      "sha256": "e6124b837b41c1fd84d64a3d41bebd6758361720ed6bbac9ccf4db30ad8a5162"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 8240,
+      "sha256": "0f184a2c44a515126acfcd2410aac8f5be45b4e3810947096d14edd24d3005a9"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 8138,
+      "sha256": "67afc5a82aded7bf4418f8300b0e41cf36911778b7c29ffcfceb06587c8ba60b"
+    },
+    {
+      "path": "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 631,
+      "sha256": "68b6b5a40c237daf5bdde870474614dbeb58132ad5fbddec607c7333ac7c29fb"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/001.json",
+      "bytes": 690541,
+      "sha256": "e155141adedabf926827f24b42c5cc3ed0e0f915ac04196f9ef4e75c023973fa"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/001.md",
+      "bytes": 59475,
+      "sha256": "4bfb8a102eb8cb36f87e28300f198f3ee0356997d6da09188db8e3350a9e95c5"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 86276,
+      "sha256": "c619f29d047d8d03caabf2b075007062f3326df6f773739046e8c20a9fa8e734"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 22310,
+      "sha256": "56a91015e1994e604d960477d785be4bc948ae922a6a535e62076613de062d35"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 415884,
+      "sha256": "9c694f2664049c0d3c323f93c83214ddccbc6c3016564f1bb3314f11bdd6abe5"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 43361,
+      "sha256": "0c65ce9d81b991abec38306cd6251b6dc0a06c46aa2be17ef9b3c5560942b5bd"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 13068,
+      "sha256": "657181caff13a2002bb5750a1c45b41f89f3d542ae003c7732cee51c5d77d54c"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 12997,
+      "sha256": "2969d866d64d1ff19770e9ffbff4311790545fd78f663eda70a52d5f4290935e"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/004-sources.json",
+      "bytes": 902008,
+      "sha256": "c38ab11fdae148766f65ffdb8f74e84f6adfe003c52f973656a9f1ee265e8acb"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/004.json",
+      "bytes": 83327,
+      "sha256": "a5292cb2bbcf54df24efcc4843f150fcebf50a0648d0bdd2991f9bc65e5e87f9"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/004.md",
+      "bytes": 23897,
+      "sha256": "9b24aa2ace2996a4e07643e051a2711e422df7dba84e030ab10807d55c960fd3"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/004.txt",
+      "bytes": 23765,
+      "sha256": "4296d5eba8fb4f82999c678afb7430ae2617eeb2d5ccb51cd05f6d274a13e1ef"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 759,
+      "sha256": "68a70c2ec19d888ec0bdd7cc24bef6caf9ceb17d312255ab15599596511854cd"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/APP-SOURCE-PROJECTION930.json",
+      "bytes": 742036,
+      "sha256": "949c40c5853f34dedc1289c5cbed5d7b2ed4a00965bedf90a9e44e7e1276eb0c"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/COMPLETE-CANDIDATE-UZ930.json",
+      "bytes": 66303,
+      "sha256": "47cb6930c794fa555c1595a803300489bf79993476e615936cdf28a5549b0e8a"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/CONTINUOUS-UZBEK-ONLY930.txt",
+      "bytes": 58337,
+      "sha256": "af09282f3331ce7cc407ff118aefcb6dda3a69deac274fe5250623c7ef228b1e"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/EXACT-115-FIELD-QUOTE-NOTE-BOUNDS930.json",
+      "bytes": 269111,
+      "sha256": "e509c8beeffcd8f7c3441e423ffa6c98e788cc15900db02983cff5ca149dafdc"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/EXACT-SOURCE-ARABIC930.json",
+      "bytes": 253638,
+      "sha256": "0bd6a7c3275cb36714611a8b9306388c5a4fc474750c45d064d6f1d3d9bb7446"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-QUALIFICATION934.json",
+      "bytes": 21953,
+      "sha256": "938d4db377a1bb41a34d5f9b47d306a5dc6acc6b6033737b1357829d38ee8e72"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-SOURCE-QUALIFICATIONS934.json",
+      "bytes": 26000,
+      "sha256": "36fa3409ea208d695f258246538ed9382a88fcb6a377d69a5f8a340d647c3f14"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-SOURCE-REVIEW-FINDING934.json",
+      "bytes": 18427,
+      "sha256": "336c26aca0d17d5174c7a35c8f578fae482d047ba68ce400bca4fddb4064e676"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/GLOSSARY930.json",
+      "bytes": 2980,
+      "sha256": "8a30921945d754557e5d79d6885118783ce3f5319478d5a6f1fc9c03d9e2da58"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/HADITH-REFERENCE-REGISTER930.json",
+      "bytes": 39532,
+      "sha256": "58664d4e7249982fb9b592191084a7506857db528eb8e897e07d4d5b42889064"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/PUBLISHER-AND-ARABIC-PARENTS930.json",
+      "bytes": 214993,
+      "sha256": "c9f04a22c5bce7ee1c4bc80f6785fd2dc9dc8bfbef578d01266d9637e2ceedbc"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/REUSED-COMPLETE-ARABIC-PRIMARY-PARENTS930.json",
+      "bytes": 100310,
+      "sha256": "7edf008a05155554183b5f9c95b6b799aa7d29a1e8fc68f8c8cf4a2126f400f7"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-CONDITIONS-ACTUAL930.json",
+      "bytes": 47615,
+      "sha256": "3529599a71c6b0e4e7e8743993eec3d593540f715f817913f0398e1ca33b7073"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-NOTES-UZ930.md",
+      "bytes": 9405,
+      "sha256": "9cca7594cb8a9eecde45793ee0a9ffe957c646754bfb879076547ddb1f4fc5e3"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-ARABIC-ORIGINALS930.txt",
+      "bytes": 58793,
+      "sha256": "87a02aa8bf150276e14a7b78f4771d96f665006cd9f49c52322a8fbe98afb430"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-CONDITIONS930.txt",
+      "bytes": 39899,
+      "sha256": "c21fda4fdce3c3450c440bfa4cb9a7d81f798d45efbdf38410bf2c646c840b3c"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-HADITH930.txt",
+      "bytes": 67495,
+      "sha256": "481ed9f0b3c0abbed949af1a7063e0192e07ef7f91782331a241c4697ec69a00"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-QURAN930.txt",
+      "bytes": 74774,
+      "sha256": "e6ddadb1623f9e9ede6edd1ee2e3fd6f325ab24155712ba8967e0182edce9303"
+    },
+    {
+      "path": "languages/uz/books/essential/editions/published-76d8b0bb/sources/TERRA-CONSUMER-CONTRACT934.json",
+      "bytes": 2610,
+      "sha256": "fb6928d0e4e7c83453c755d64783516b14bab4eebdfcc0f97d34073c2afd348c"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/001.json",
+      "bytes": 219380,
+      "sha256": "eacbb016c84ef448bb67d773b0f24875ff042aa79534028924cf26a2f8fc7904"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/unindexed-1d66abd7/001.md",
+      "bytes": 103986,
+      "sha256": "1bbbb49ddd141e48a6ae6989564982f20a8b986f41d8fddab9f52b6aeab5b862"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/002.json",
+      "bytes": 103681,
+      "sha256": "56c5ed441a0546bcd1c11ecfaa7195193c5bed24e5f2e0117dff0e1138848982"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "bytes": 30256,
+      "sha256": "9e3955f498213082d39b647097ec2d5ffda283bfbd1aa6414911d94f5cdd5139"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "bytes": 291830,
+      "sha256": "26a1ecebafb4a3abfa2aa30a2f89ee9ff6b2bce4362d60ad127a99334f556e97"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/003.json",
+      "bytes": 78556,
+      "sha256": "4d5f7efc20eced1312d722c5850bea750646470c4d5e21975e1614d3436e21d5"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "bytes": 25709,
+      "sha256": "ca009ac054a89166999fc24cf84581a02030487a327309a024720c6059e7ce9f"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "bytes": 25615,
+      "sha256": "0b085dd1f6643c8351e0c607f39a4754665e93de2ab71ded778ce9ae11563ea6"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "bytes": 618,
+      "sha256": "46d16b1042ec02d2de778ee1e62c89435a08510995cf6e223019827916474efc"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/ALL-MANDATORY-NOTE-BOUNDS908.json",
+      "bytes": 37680,
+      "sha256": "fb119dde0e63dc3500253c5a4120ff1303ee51bd861268e973a192db5a4c7ecd"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/ALL115-EXACT-QUOTE-BOUNDS908.json",
+      "bytes": 144406,
+      "sha256": "f0e701d4487658d9a698b8b36405356cbd1c94d103f9f268206003271796d9af"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/CANDIDATE-WHOLE-LESSON001-HI896.json",
+      "bytes": 216499,
+      "sha256": "9e40b608c461264337693eac1ad5df9ef21bfb01855f5be24ee3edcbfb1245df"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/HINDI-CONTEXT-GLOSSARY896.json",
+      "bytes": 3410,
+      "sha256": "fe046f924a11d5a179ca1d27c384c80cee07176d05a9d7411615cb1fadc5f4de"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/READING-PROJECTION896.json",
+      "bytes": 215009,
+      "sha256": "22dbfcc92543586ce5de01cb4dbbe4ef3546d5e0cd5163206f6039c2aed96d5e"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/READING908.md",
+      "bytes": 103986,
+      "sha256": "1bbbb49ddd141e48a6ae6989564982f20a8b986f41d8fddab9f52b6aeab5b862"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/SOURCE-CARRIER-TEXT896.json",
+      "bytes": 1284751,
+      "sha256": "3a775b33c19f407c7c98dc2cec0dff78e3db830a6cc394dd4da337ce20d640c8"
+    },
+    {
+      "path": "languages/hi/books/essential/editions/published-76d8b0bb/sources/SOURCE-NOTE896.json",
+      "bytes": 4113,
+      "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
+    }
+  ],
+  "search_stream_sha256": "e1cd4a0ec027d861e83e09cc9990f8f9fc732797bd31b2ca9e2f87b462672655",
+  "reader": {
+    "path": "hadith-bank-reader.html",
+    "sha256": "cde24781622b88f32d9db842a13aa149e8c71c27306c2785da9d702a2180a0fe",
+    "bytes": 19840701,
+    "embedded_objects_compared": 8423,
+    "external_script_or_stylesheet_dependencies": false
+  },
+  "navigation": {
+    "markdown_files_checked": 364,
+    "local_targets_checked": 19394,
+    "external_links_not_requested": 8424,
+    "fragment_anchors_checked": false
+  },
+  "baseline_git": {
+    "commit": "9688bbfb6e53832169acdc4ef5127ef8fc1fb259",
+    "files_compared": 126,
+    "catalog_source_and_legacy_files": 95,
+    "additional_frozen_source_support_files": 31,
+    "all_bytes_equal": true,
+    "network_used": false,
+    "paths": [
+      "languages/fil/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/fil/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/fil/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/005.json",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/005.txt",
+      "languages/fil/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/categories.json",
+      "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/manifest.json",
+      "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+      "languages/hi/books/essential/editions/published-76d8b0bb/001.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/ALL-MANDATORY-NOTE-BOUNDS908.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/ALL115-EXACT-QUOTE-BOUNDS908.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/CANDIDATE-WHOLE-LESSON001-HI896.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/HINDI-CONTEXT-GLOSSARY896.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/READING-PROJECTION896.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/READING908.md",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/SOURCE-CARRIER-TEXT896.json",
+      "languages/hi/books/essential/editions/published-76d8b0bb/sources/SOURCE-NOTE896.json",
+      "languages/hi/books/essential/editions/unindexed-1d66abd7/001.md",
+      "languages/hi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/hi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/hi/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/hi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/categories.json",
+      "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/manifest.json",
+      "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
+      "languages/ja/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/ja/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/ja/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/004-sources.json",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/004.json",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/004.md",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/004.txt",
+      "languages/ja/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/categories.json",
+      "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/manifest.json",
+      "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
+      "languages/uz/books/essential/editions/published-76d8b0bb/001.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/APP-SOURCE-PROJECTION930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/COMPLETE-CANDIDATE-UZ930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/CONTINUOUS-UZBEK-ONLY930.txt",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/EXACT-115-FIELD-QUOTE-NOTE-BOUNDS930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/EXACT-SOURCE-ARABIC930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-QUALIFICATION934.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-SOURCE-QUALIFICATIONS934.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/FINAL-SOURCE-REVIEW-FINDING934.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/GLOSSARY930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/HADITH-REFERENCE-REGISTER930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/PUBLISHER-AND-ARABIC-PARENTS930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/REUSED-COMPLETE-ARABIC-PRIMARY-PARENTS930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-CONDITIONS-ACTUAL930.json",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-NOTES-UZ930.md",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-ARABIC-ORIGINALS930.txt",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-CONDITIONS930.txt",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-HADITH930.txt",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/SOURCE-TEXTS-QURAN930.txt",
+      "languages/uz/books/essential/editions/published-76d8b0bb/sources/TERRA-CONSUMER-CONTRACT934.json",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/001.md",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/004-sources.json",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/004.json",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/004.md",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/004.txt",
+      "languages/uz/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/categories.json",
+      "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/manifest.json",
+      "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/records.jsonl",
+      "languages/vi/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/vi/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/vi/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/vi/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/vi/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/vi/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/vi/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/categories.json",
+      "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/manifest.json",
+      "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+      "languages/zh-CN/books/essential/editions/published-76d8b0bb/002.json",
+      "languages/zh-CN/books/essential/editions/published-76d8b0bb/003-sources.json",
+      "languages/zh-CN/books/essential/editions/published-76d8b0bb/003.json",
+      "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/002.md",
+      "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.md",
+      "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/003.txt",
+      "languages/zh-CN/books/essential/editions/unindexed-1d66abd7/README.md",
+      "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/categories.json",
+      "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json",
+      "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+      "sources/hadeethenc/snapshots/2026-11-11/README.md",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/discovery-http.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/export-manifest.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/home.html",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/language-homepage-observations.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/languages.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/original-candidate-file-manifest.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/original-candidate-publication-gate.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/original-candidate-summary.json",
+      "sources/hadeethenc/snapshots/2026-11-11/evidence/original-candidate-validation.json",
+      "sources/hadeethenc/snapshots/2026-11-11/manifest.json",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/ar.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/ar.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/ja.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/ja.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/tl.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/tl.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/vi.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/vi.sqlite.zip",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite",
+      "sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite.zip"
+    ]
+  },
+  "public_scope": {
+    "enforced": true,
+    "authorized_dataset_count": 6,
+    "public_snapshot_hashes_pinned": true,
+    "private_attachment_paths_and_extra_text_excluded_from_public_projections": true,
+    "private_source_document_formats_absent": true
+  },
+  "runtime_source_files_local": true,
+  "network_requests": 0,
+  "source_files_modified": false,
+  "independent_pro_qc_performed": false,
+  "prior_audit_reports_modified": false,
+  "failures": [],
+  "limitations": [
+    "Comparisons establish equality with preserved canonical records, not source-page transcription accuracy.",
+    "No translation, narration-authenticity, rights or independent Pro QC was performed.",
+    "Reader payload equality is checked; visual browser behavior and remote URLs are not tested.",
+    "Historical broken links inside verbatim legacy documents are outside the generated-navigation check."
+  ],
+  "validator_sha256": "1463d860a3ef7311d2bbd4bd6fbca4f05652e14e002e59de02369aa3cf95be43"
+}
