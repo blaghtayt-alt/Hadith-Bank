@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hadith Bank local six-language source index",
+  "type": "object",
+  "required": [
+    "schema",
+    "languages",
+    "packages",
+    "readingsOnly",
+    "sourceRecords",
+    "chapters",
+    "lessons",
+    "quranCitationKeys"
+  ],
+  "properties": {
+    "schema": {
+      "const": "hadith-bank-local-index-v1"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "ja",
+          "fil",
+          "vi",
+          "zh-CN",
+          "uz",
+          "hi"
+        ]
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "readingsOnly": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "sourceRecords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "chapters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    },
+    "quranCitationKeys": {
+      "type": "array",
+      "maxItems": 0
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "ai_translation": {
+          "enum": [
+            true,
+            false,
+            "unknown"
+          ]
+        }
+      }
+    }
+  }
+}
