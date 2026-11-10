@@ -1,0 +1,46 @@
+{
+  "scope": "Schema and offline lookup verification; not source transcription or release approval.",
+  "schema_validation": {
+    "status": "passed",
+    "records": 32300,
+    "draft": "2020-12",
+    "schema_sha256": "21b1419df9a7cc845bf4f14447b0b84247acba0caac491d6b7c4cc9df7a9aaea"
+  },
+  "unit_tests": {
+    "status": "passed",
+    "count": 22,
+    "categories": {
+      "existing_sqlite_import": 3,
+      "attachment_search": 10,
+      "attachment_validation": 9
+    },
+    "source_fixtures": "synthetic; no candidate source passages in public tests"
+  },
+  "actual_source_lookup_checks": [
+    {
+      "language": "ja",
+      "provider_entry_id": "2758",
+      "matched": 1
+    },
+    {
+      "language": "pt",
+      "record_id": "hadeethenc-pt-v1.29.0-5328-n1",
+      "matched": 1,
+      "translation_is_null": true
+    },
+    {
+      "language_alias": "zh",
+      "book": "riyadh-al-salihin",
+      "editorial_tag": "ai_translation:false",
+      "matched": 2112,
+      "shown_at_limit_zero": 0
+    }
+  ],
+  "legacy_public_bank_validation": {
+    "status": "passed",
+    "source_files": 83,
+    "source_metadata_records": 182,
+    "errors": 0
+  },
+  "new_source_passages_published": 0
+}

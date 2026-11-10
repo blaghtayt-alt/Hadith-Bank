@@ -1,0 +1,96 @@
+{
+  "scope": "Independent code, metadata and exact-source-record preservation review; not Pro publication QC.",
+  "status": "pass_integration_scope_publication_pending",
+  "independent_review_sha256": "e374d052bba97c55fddcf92ce26f02850ad68ef028cc1276a60da5b456067f93",
+  "records_checked": 32300,
+  "source_evidence_files_byte_identical": 179,
+  "record_files": [
+    {
+      "path": "languages/bn/books/hadeethenc/editions/xlsx-v1.57.0-c7c54f5816a089ba/records.json",
+      "sha256": "3c5ec673c36c390a87cf06668ad724e9efbba2c1adc9697524adfea1798c0199",
+      "count": 1953
+    },
+    {
+      "path": "languages/hi/books/hadeethenc/editions/xlsx-v1.59.0-2058c3866f607e3d/records.json",
+      "sha256": "4a1aca7b8497c1272f78c364e00a0b69036a990f54e408bd7376452f75c1784a",
+      "count": 2346
+    },
+    {
+      "path": "languages/ja/books/hadeethenc/editions/xlsx-v1.8.0-fa33f00835930f4a/records.json",
+      "sha256": "a7fb108edf42dd9ad8145dea01b9ec120d6378c9d462977afa1b0a798aaad17c",
+      "count": 281
+    },
+    {
+      "path": "languages/pt/books/hadeethenc/editions/xlsx-v1.29.0-dc12c679fdf9e07f/records.json",
+      "sha256": "75992af0933dd22edc4872125d11322dbd0dfeda7f3c1dbfdb4781b61dbf40c2",
+      "count": 1391
+    },
+    {
+      "path": "languages/ur/books/hadeethenc/editions/xlsx-v1.36.0-0f5afc97215b1456/records.json",
+      "sha256": "0c6690da27ab66d2a0f65d074e39224126844a4f9e811f9bc195855330145978",
+      "count": 2257
+    },
+    {
+      "path": "languages/uz/books/hadeethenc/editions/xlsx-v1.20.0-9ac159f373c79efb/records.json",
+      "sha256": "5f9723fe6bf72c51381f5c7d5504212014b84feb612685d153019600c6b6f807",
+      "count": 421
+    },
+    {
+      "path": "languages/vi/books/hadeethenc/editions/xlsx-v1.19.0-2c7e9232f1ec3e85/records.json",
+      "sha256": "53e4bfa254b94c4c5a8c82a15a46cca345c877f9eb760c04e61ef292727279b0",
+      "count": 1208
+    },
+    {
+      "path": "languages/zh-CN/books/bukhari/editions/pdf-f68652aae1134f45/records.json",
+      "sha256": "b55044609fab0e55db807c0ea06c17c8170c0c3b33e6407b988a7d79f0653cf9",
+      "count": 7538
+    },
+    {
+      "path": "languages/zh-CN/books/hadeethenc/editions/xlsx-v1.16.0-c89f69fd2c66448e/records.json",
+      "sha256": "b595c1f7471cb370cf2155cd2d9e54629cabee284a5a8c31bcfa18508f503b8b",
+      "count": 2290
+    },
+    {
+      "path": "languages/zh-CN/books/muslim/editions/pdf-05e72574f09bcfb1/records.json",
+      "sha256": "f728cdcf1d2bc7df5609f0d6a6a2b019c02b4455c4528b1702264ab28a7c439d",
+      "count": 5439
+    },
+    {
+      "path": "languages/zh-CN/books/riyadh-al-salihin/editions/pdf-ac1cd8a6821e3aff/records.json",
+      "sha256": "7421ff828d7c6951793e0843dd40d0bfb01499215795edc75246fef78bc6a397",
+      "count": 2112
+    },
+    {
+      "path": "languages/zh-CN/books/shengxunjing/editions/pdf-64d260b8d79a3d53/records.json",
+      "sha256": "3dc8dfe92f8bee61060455951dc0044addcb227b2f69da4b27e3357db45e8868",
+      "count": 5064
+    }
+  ],
+  "record_paths_scope": "private candidate; not public runtime paths",
+  "reviewed_manifest": "abe3a1e10d9c638f60c5748c8f7178ff37808b84f75b54506e0a79f159a7516b",
+  "source_heading_assignments": 53373,
+  "editorial_tag_assignments": 425316,
+  "publisher_topic_assignments": 0,
+  "source_group_count": 562,
+  "provider_entry_group_count": 2328,
+  "resolved_findings": [
+    {
+      "code": "provider_id_search_omitted_nested_source_entry_id",
+      "location": "scripts/search_attachments.py::_id_values",
+      "record_id": "hadeethenc-ja-v1.8.0-2758",
+      "before_provider_id_query_matches": 0,
+      "after_provider_id_query_matches": 1,
+      "resolution": "number.source_entry_id added; actual candidate regression rechecked; no narration changes required.",
+      "candidate_script_copy_also_matches_reviewed_fix": true
+    }
+  ],
+  "remaining_integration_defects": [],
+  "publication_allowed": false,
+  "limitations": [
+    "No new source PDF images were reviewed during this integration audit. Earlier targeted source-review coverage remains as documented in evidence.",
+    "This is complete mechanical preservation checking plus code/metadata/relationship review. It is not full source visual QC, translation accuracy review, canonical authentication, rights clearance or independent Pro publication QC.",
+    "Original extraction uncertainties, missing Arabic, missing Portuguese translation, null metadata, source numbering anomalies and historical human-translation evidence remain unchanged.",
+    "The earlier private SQLite candidate bytes remain unavailable; incoming counts are source occurrences, not an increment in unique hadiths.",
+    "Only current eight-language source inputs were evaluated. XLSX grouping assumes the observed one-sheet exports; future multi-sheet inputs require sheet-aware group identifiers."
+  ]
+}

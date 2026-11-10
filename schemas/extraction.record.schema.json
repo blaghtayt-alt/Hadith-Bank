@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:hadith-bank:record:1.0.0",
+  "title": "Hadith Bank narration occurrence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "language",
+    "record_type",
+    "narration_unit",
+    "text",
+    "book",
+    "number",
+    "narrator",
+    "source",
+    "translator",
+    "page",
+    "references",
+    "commentary",
+    "footnotes",
+    "grading",
+    "ai_translation",
+    "provenance",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "enum": [
+        "ja",
+        "vi",
+        "zh",
+        "uz",
+        "hi",
+        "ur",
+        "bn",
+        "pt"
+      ]
+    },
+    "record_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "narration_unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "object",
+      "required": [
+        "arabic",
+        "translation"
+      ],
+      "properties": {
+        "arabic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "translation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "arabic": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "translation": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "book": {
+      "type": "object",
+      "required": [
+        "title",
+        "chapter",
+        "section",
+        "edition",
+        "compiler"
+      ],
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chapter": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "section": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "edition": {
+          "type": [
+            "object",
+            "string",
+            "null"
+          ]
+        },
+        "compiler": {
+          "type": [
+            "object",
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "number": {
+      "type": "object",
+      "required": [
+        "in_book",
+        "canonical"
+      ],
+      "properties": {
+        "in_book": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_entry_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "narrator": {
+      "type": "object",
+      "required": [
+        "name",
+        "verbatim",
+        "language"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verbatim": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "file",
+        "sha256",
+        "title",
+        "format",
+        "package_file"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "format": {
+          "enum": [
+            "pdf",
+            "xlsx"
+          ]
+        },
+        "package_file": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "translator": {
+      "type": "object",
+      "required": [
+        "name",
+        "evidence"
+      ],
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "required": [
+        "pdf",
+        "printed",
+        "sheet",
+        "row"
+      ],
+      "properties": {
+        "pdf": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "printed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sheet": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "row": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        }
+      }
+    },
+    "references": {
+      "type": "object",
+      "required": [
+        "arabic",
+        "translation",
+        "items"
+      ],
+      "properties": {
+        "arabic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "translation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "items": {
+          "type": "array"
+        }
+      }
+    },
+    "commentary": {
+      "type": "object",
+      "required": [
+        "arabic",
+        "translation",
+        "items"
+      ],
+      "properties": {
+        "arabic": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "translation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "items": {
+          "type": "array"
+        }
+      }
+    },
+    "footnotes": {
+      "type": "array"
+    },
+    "grading": {
+      "type": "object"
+    },
+    "ai_translation": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "const": "unknown"
+        }
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "extraction_method"
+      ]
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "status",
+        "issues"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "issues": {
+          "type": "array"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
