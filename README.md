@@ -54,3 +54,7 @@ The search utility reads the copied files **locally**, verifies the expected byt
 ## Source coverage limits
 
 This public repository intentionally contains **only the six language families above**, along with Arabic quotations already contained in those source packages. It does not yet include completed, independently QC-passed OCR books or a claim to cover all narrations in these languages. An edition/translation should only be promoted after source alignment, rights review, complete page comparison and a separate recorded Pro QC decision.
+
+## HadeethEnc intake — private review queue
+
+An additional **8,423 actual translated Hadith entries, each with source-embedded Arabic**, have been acquired from the official six-language SQLite exports. These candidate texts are **not yet published here**: independent Pro QC and publication requirements remain pending. This repository now includes the importer, full-source-field validator, offline candidate search, schema, tests and a non-text audit. See [import status and tagging rules](docs/HADEETHENC-IMPORT.md) and [counts and exceptions](reports/hadeethenc/2026-11-11/summary.json).

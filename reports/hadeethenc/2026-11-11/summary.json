@@ -1,0 +1,123 @@
+{
+  "schema": "hadeethenc-import-summary-v1",
+  "selected_languages": [
+    "ja",
+    "fil",
+    "vi",
+    "zh-CN",
+    "uz",
+    "hi"
+  ],
+  "total_translation_entries": 8423,
+  "unique_provider_entry_ids": 2328,
+  "scope": "Every row in six downloaded official SQLite snapshots; not a claim to cover every live API entry or all world Hadith.",
+  "actual_hadith_text_included": true,
+  "all_translations_include_embedded_arabic": true,
+  "arabic_exact_alignment_count": 8156,
+  "arabic_alignment_exception_count": 267,
+  "per_language": [
+    {
+      "language": "ja",
+      "source_code": "ja",
+      "language_name": "Japanese",
+      "records": 281,
+      "arabic_exact_match": 179,
+      "arabic_alignment_exceptions": 102,
+      "missing_hints": 1,
+      "publisher_categories": 199,
+      "publisher_category_links": 467,
+      "records_path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
+      "records_sha256": "d0325cc1ef4423c8f81a8e5d56bed5de4a432edaf9b1eb8df63a97f22d684fa9",
+      "edition_snapshot": "sqlite-a81da9af28f854f6"
+    },
+    {
+      "language": "fil",
+      "source_code": "tl",
+      "language_name": "Filipino / Tagalog",
+      "records": 1949,
+      "arabic_exact_match": 1949,
+      "missing_hints": 1108,
+      "missing_explanation": 1,
+      "publisher_categories": 414,
+      "publisher_category_links": 2662,
+      "records_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+      "records_sha256": "d9b39b123f5baeb41312aae72c672abfaaa8b834361d7e147996940bcf327e23",
+      "edition_snapshot": "sqlite-e8fa6e4c26c11c06"
+    },
+    {
+      "language": "vi",
+      "source_code": "vi",
+      "language_name": "Vietnamese",
+      "records": 1203,
+      "arabic_exact_match": 1203,
+      "missing_hints": 349,
+      "publisher_categories": 353,
+      "publisher_category_links": 1719,
+      "records_path": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+      "records_sha256": "4d81301fefe24c4c6b3337df5e6995ead66598fb536d2bc08c22f837d57d332b",
+      "edition_snapshot": "sqlite-3fb9e549494ff0f6"
+    },
+    {
+      "language": "zh-CN",
+      "source_code": "zh",
+      "language_name": "Chinese",
+      "records": 2256,
+      "arabic_alignment_exceptions": 103,
+      "missing_explanation": 1576,
+      "missing_hints": 1576,
+      "arabic_exact_match": 2153,
+      "publisher_categories": 444,
+      "publisher_category_links": 3048,
+      "records_path": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+      "records_sha256": "0cb5b25f10bd66206d33a917355e98ed8dc76351e15d1edd9987274b5a94ab64",
+      "edition_snapshot": "sqlite-a22a0e545c70b320"
+    },
+    {
+      "language": "uz",
+      "source_code": "uz",
+      "language_name": "Uzbek",
+      "records": 420,
+      "arabic_exact_match": 420,
+      "publisher_categories": 230,
+      "publisher_category_links": 669,
+      "records_path": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/records.jsonl",
+      "records_sha256": "384ed8116b93311ee9a9e7694cbbc9c45012ce3e59638d72f12515ff19d483ae",
+      "edition_snapshot": "sqlite-8241193c5ac1f3bc"
+    },
+    {
+      "language": "hi",
+      "source_code": "hi",
+      "language_name": "Hindi",
+      "records": 2314,
+      "arabic_exact_match": 2252,
+      "missing_explanation": 989,
+      "missing_hints": 1536,
+      "arabic_alignment_exceptions": 62,
+      "publisher_categories": 449,
+      "publisher_category_links": 3137,
+      "records_path": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
+      "records_sha256": "f8e35c17ae7844ad806448245346ea129432ddcb91d4ab5f1bd39fdead0c6273",
+      "edition_snapshot": "sqlite-3b74b6c4da6dc883"
+    }
+  ],
+  "total_exception_items": 267,
+  "independent_pro_qc_performed": false,
+  "publication_status": "private_candidate_not_published",
+  "published_translation_entries": 0,
+  "source": "HadeethEnc.com",
+  "acquisition_method": "official_SQLite_exports",
+  "new_translations_generated": 0,
+  "path_scope": "records_path values refer to the PRIVATE candidate; they are not public-repository runtime locators.",
+  "public_repository_change": "Importer, validator, search, tests, schema and audit only. No new translation records were published.",
+  "mechanical_validation": {
+    "raw_files_hashed": 14,
+    "records_compared": 8423,
+    "mapped_fields_compared": 67384,
+    "source_codepoints_compared": 19087750
+  },
+  "mechanical_validation_success": true,
+  "exception_types": {
+    "stated_arabic_version_missing_from_arabic_export": 266,
+    "same_id_version_but_arabic_text_differs": 1
+  }
+}
