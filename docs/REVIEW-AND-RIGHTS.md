@@ -21,3 +21,7 @@ The migrated files were already publicly available in the source repository. Tha
 ## Import audit
 
 See reports/IMPORT-STATUS.json for each file's local path, SHA256, original pinned revision or uncataloged source revision, bytes, integrity exceptions and exact scope. The six language catalogs distinguish catalog-indexed packages from readings without a complete source envelope. The metadata index source records are not equivalent to unique narrations.
+
+## HadeethEnc public source snapshot
+
+The owner subsequently requested uploading the acquired HadeethEnc texts. This specific source snapshot is now public and explicitly unreviewed, not an approved release. Original content, available version fields, source attribution, missing metadata, conditional reuse notices and all 267 Arabic-alignment exceptions are retained. See HADEETHENC-IMPORT.md and ../datasets/hadeethenc/PUBLICATION-STATUS.json. Prior candidate-only reports are historical, not the current visibility status.

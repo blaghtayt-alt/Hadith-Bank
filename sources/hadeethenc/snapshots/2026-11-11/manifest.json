@@ -1,0 +1,295 @@
+{
+  "provider": "HadeethEnc.com",
+  "original_exports": [
+    {
+      "language": "ja",
+      "source_url": "https://hadeethenc.com/en/browse/download/ja/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/ja.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:05.896076+00:00",
+      "bytes": 282014,
+      "sha256": "b456458cfd36aca9848367f61e899a2c2b16c03b45ebd0ae3b4e064b4369802c",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a1ef996-44d9e\"",
+      "archive_path": "raw/ja.sqlite.zip",
+      "archive_members": [
+        "ja.sqlite"
+      ],
+      "local_path": "raw/ja.sqlite",
+      "sqlite_bytes": 1339392,
+      "sqlite_sha256": "a81da9af28f854f6d44456657228ca7bc244aea70d5665717797b9cee7530847",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 199
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 281
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 467
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "tl",
+      "source_url": "https://hadeethenc.com/en/browse/download/tl/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/tl.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:07.831396+00:00",
+      "bytes": 1779779,
+      "sha256": "62fdac97a620b1b107dc8867e2153a8dd99d1ae51032e20a346cb1e253549dcc",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a99e918-1b2843\"",
+      "archive_path": "raw/tl.sqlite.zip",
+      "archive_members": [
+        "tl.sqlite"
+      ],
+      "local_path": "raw/tl.sqlite",
+      "sqlite_bytes": 7634944,
+      "sqlite_sha256": "e8fa6e4c26c11c060c36621cc7fb257a3e8daab957f1bb226ad3940688a72abb",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 414
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 1949
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 2662
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "vi",
+      "source_url": "https://hadeethenc.com/en/browse/download/vi/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/vi.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:09.265067+00:00",
+      "bytes": 1245099,
+      "sha256": "77c815882e6cfa7684cd03fd31ba085a6d41c5ef1c8413edecc85d3e4d4af39d",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a1ef61f-12ffab\"",
+      "archive_path": "raw/vi.sqlite.zip",
+      "archive_members": [
+        "vi.sqlite"
+      ],
+      "local_path": "raw/vi.sqlite",
+      "sqlite_bytes": 5263360,
+      "sqlite_sha256": "3fb9e549494ff0f60454b034add71b0cefe72deb3e4fffce98f4bf90a79abcd7",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 353
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 1203
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 1719
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "zh",
+      "source_url": "https://hadeethenc.com/en/browse/download/zh/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/zh.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:10.688316+00:00",
+      "bytes": 1462462,
+      "sha256": "579b245f861923a828e924a2fb10b591ac988e3135b954c59056c0f5278ff2bb",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a1ef535-1650be\"",
+      "archive_path": "raw/zh.sqlite.zip",
+      "archive_members": [
+        "zh.sqlite"
+      ],
+      "local_path": "raw/zh.sqlite",
+      "sqlite_bytes": 5292032,
+      "sqlite_sha256": "a22a0e545c70b320b451ebc37022f1fe24b74e03f6b26972444753517944a604",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 444
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 2256
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 3048
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "uz",
+      "source_url": "https://hadeethenc.com/en/browse/download/uz/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/uz.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:12.071855+00:00",
+      "bytes": 456245,
+      "sha256": "6535488b55573d5e0331664b8f994bc871b443fd7afcb007ad2f9fa5f131de59",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a3da15f-6f635\"",
+      "archive_path": "raw/uz.sqlite.zip",
+      "archive_members": [
+        "uz.sqlite"
+      ],
+      "local_path": "raw/uz.sqlite",
+      "sqlite_bytes": 2584576,
+      "sqlite_sha256": "8241193c5ac1f3bcc2c708ebb5dc3ee42313e04f6a32d04b3010f2b38c9506a7",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 230
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 420
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 669
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "hi",
+      "source_url": "https://hadeethenc.com/en/browse/download/hi/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/hi.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:13.516026+00:00",
+      "bytes": 2116762,
+      "sha256": "90b7c637482f275f505b8dba8ebae50e257553b954d5cad343a74669420d9043",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6a90adb9-204c9a\"",
+      "archive_path": "raw/hi.sqlite.zip",
+      "archive_members": [
+        "hi.sqlite"
+      ],
+      "local_path": "raw/hi.sqlite",
+      "sqlite_bytes": 12808192,
+      "sqlite_sha256": "3b74b6c4da6dc8838741fae5d7f2281cdb3ae896f9614c987e78baf8cccfd45d",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 449
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+          "rows": 2314
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 3137
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "language": "ar",
+      "source_url": "https://hadeethenc.com/en/browse/download/ar/sqlite",
+      "final_url": "https://hadeethenc.com/downloads/sqlite/ar.sqlite.zip",
+      "http_status": 200,
+      "retrieved_at": "2026-11-10T16:49:15.052806+00:00",
+      "bytes": 4289165,
+      "sha256": "1d5a2b5e89c07903550883af37a29f720e291eb8ca1ab28121bb0e7437fb6c70",
+      "content_type": "application/zip",
+      "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+      "etag_verbatim": "\"6acf5e66-41728d\"",
+      "archive_path": "raw/ar.sqlite.zip",
+      "archive_members": [
+        "ar.sqlite"
+      ],
+      "local_path": "raw/ar.sqlite",
+      "sqlite_bytes": 21651456,
+      "sqlite_sha256": "0eaec8283524c4d2bf9fb8cf1d0c0a77c753d472ac962cb51413a2c3cd8da70a",
+      "tables": [
+        {
+          "name": "categories",
+          "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 493
+        },
+        {
+          "name": "hadeeths",
+          "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER,\r\n                title TEXT,\r\n                title_clean TEXT,\r\n                hadeeth TEXT,\r\n                hadeeth_clean TEXT,\r\n                explanation TEXT,\r\n                explanation_clean TEXT,\r\n                \r\n                hints TEXT,\r\n                words_meanings TEXT,\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                reference TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                version INTEGER NOT NULL DEFAULT 1,\r\n                current INTEGER NOT NULL DEFAULT 0\r\n            )",
+          "rows": 3582
+        },
+        {
+          "name": "category_hadeeth",
+          "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+          "rows": 4896
+        },
+        {
+          "name": "sqlite_sequence",
+          "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+          "rows": 1
+        }
+      ]
+    }
+  ],
+  "path_base": "sources/hadeethenc/snapshots/2026-11-11",
+  "raw_files_are_exact_original_bytes": true,
+  "arabic_export_role": "Reference evidence for six requested translation languages; not a seventh indexed target corpus."
+}

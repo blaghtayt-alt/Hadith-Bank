@@ -55,9 +55,19 @@ The search utility reads the copied files **locally**, verifies the expected byt
 
 This public repository intentionally contains **only the six language families above**, along with Arabic quotations already contained in those source packages. It does not yet include completed, independently QC-passed OCR books or a claim to cover all narrations in these languages. An edition/translation should only be promoted after source alignment, rights review, complete page comparison and a separate recorded Pro QC decision.
 
-## HadeethEnc intake — private review queue
+## HadeethEnc — actual texts now included
 
-An additional **8,423 actual translated Hadith entries, each with source-embedded Arabic**, have been acquired from the official six-language SQLite exports. These candidate texts are **not yet published here**: independent Pro QC and publication requirements remain pending. This repository now includes the importer, full-source-field validator, offline candidate search, schema, tests and a non-text audit. See [import status and tagging rules](docs/HADEETHENC-IMPORT.md) and [counts and exceptions](reports/hadeethenc/2026-11-11/summary.json).
+**8,423 translated entries with Arabic are stored in this repository**, not just linked: Japanese 281, Filipino/Tagalog 1,949, Vietnamese 1,203, Chinese 2,256, Uzbek 420 and Hindi 2,314. [Browse the full-text dataset](datasets/hadeethenc/README.md).
+
+The owner requested this public source-snapshot upload. **Independent Pro QC remains pending**; 267 Arabic-version alignment exceptions and unknown translation authorship remain flagged. This is not a certified Hadith or translation release. Original provider text, source categories, available version fields, raw databases and checksums are preserved.
+
+```text
+python scripts/search_hadeethenc.py --language ja --id 2758
+python scripts/search.py hadith --language fil --limit 3
+python scripts/validate_hadeethenc_public.py
+```
+
+[Current upload audit](reports/hadeethenc/2026-11-11/public/summary.json) · [Source and tagging notes](docs/HADEETHENC-IMPORT.md). Earlier private-candidate reports remain as historical evidence.
 
 ## Supplied PDF/XLSX intake — private review queue
 

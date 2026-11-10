@@ -19,6 +19,9 @@ def at_pointer(obj,path):
   obj=obj[int(key)] if isinstance(obj,list) else obj[key]
  return obj
 def main():
+ if len(sys.argv)>1 and sys.argv[1]=='hadith':
+  from search_hadeethenc import main as hadeethenc_main
+  return hadeethenc_main(sys.argv[2:])
  p=argparse.ArgumentParser(description=__doc__);sp=p.add_subparsers(dest="action",required=True)
  q=sp.add_parser("search");q.add_argument("query",nargs="?",default="")
  q.add_argument("--kind",choices=["package","reading","source","lesson","chapter"])

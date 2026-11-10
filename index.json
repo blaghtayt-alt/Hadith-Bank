@@ -6,54 +6,76 @@
       "name": "Japanese",
       "catalog": "languages/ja/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/manifest.json"
     },
     {
       "language": "fil",
       "name": "Filipino",
       "catalog": "languages/fil/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/manifest.json"
     },
     {
       "language": "vi",
       "name": "Vietnamese",
       "catalog": "languages/vi/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/manifest.json"
     },
     {
       "language": "zh-CN",
       "name": "Chinese (Simplified)",
       "catalog": "languages/zh-CN/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json"
     },
     {
       "language": "uz",
       "name": "Uzbek",
       "catalog": "languages/uz/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/manifest.json"
     },
     {
       "language": "hi",
       "name": "Hindi",
       "catalog": "languages/hi/catalog.json",
       "book": "essential",
-      "ai_translation": "unknown"
+      "ai_translation": "unknown",
+      "books": [
+        "essential",
+        "hadeethenc"
+      ],
+      "hadeethenc_manifest": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/manifest.json"
     }
   ],
   "organizedIndex": "organized/INDEX.json",
   "privateIntakes": [
-    {
-      "id": "hadeethenc-sqlite-2026-11-11",
-      "kind": "official_sqlite_snapshots",
-      "status": "private_candidate",
-      "summary": "reports/hadeethenc/2026-11-11/summary.json",
-      "documentation": "docs/HADEETHENC-IMPORT.md",
-      "publicTextPublished": false
-    },
     {
       "id": "attachments-b53d154fa3622b95",
       "kind": "supplied_pdf_xlsx_extraction",
@@ -61,6 +83,25 @@
       "summary": "reports/attachments/attachments-b53d154fa3622b95/summary.json",
       "documentation": "docs/ATTACHMENT-INTAKE.md",
       "publicTextPublished": false
+    }
+  ],
+  "datasets": [
+    {
+      "id": "hadeethenc",
+      "catalog": "datasets/hadeethenc/collections.json",
+      "count": 8423,
+      "release_status": "published_unreviewed_source_import"
+    }
+  ],
+  "publicIntakes": [
+    {
+      "id": "hadeethenc-sqlite-2026-11-11",
+      "kind": "official_sqlite_snapshots",
+      "status": "published_unreviewed_source_import",
+      "summary": "reports/hadeethenc/2026-11-11/public/summary.json",
+      "documentation": "docs/HADEETHENC-IMPORT.md",
+      "publicTextPublished": true,
+      "independentProQC": "pending"
     }
   ]
 }

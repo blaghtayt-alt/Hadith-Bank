@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HadeethEnc public unreviewed source record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "occurrence_id",
+    "source_entry_id",
+    "language",
+    "source_language_code",
+    "ai_translation",
+    "texts",
+    "commentary",
+    "narration",
+    "grading",
+    "source_references",
+    "publication",
+    "topic_tags",
+    "editorial_tags",
+    "arabic_alignment",
+    "provenance",
+    "related_versions",
+    "rights",
+    "review",
+    "metadata_gaps",
+    "source_row_verbatim",
+    "correction_log"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "hadith-bank-hadeethenc-record-v2"
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^hadeethenc:entry:[0-9]+:translation:"
+    },
+    "occurrence_id": {
+      "type": "string"
+    },
+    "source_entry_id": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "language": {
+      "enum": [
+        "ja",
+        "fil",
+        "vi",
+        "zh-CN",
+        "uz",
+        "hi"
+      ]
+    },
+    "source_language_code": {
+      "enum": [
+        "ja",
+        "tl",
+        "vi",
+        "zh",
+        "uz",
+        "hi"
+      ]
+    },
+    "ai_translation": {
+      "enum": [
+        true,
+        false,
+        "unknown"
+      ]
+    },
+    "texts": {
+      "type": "object",
+      "required": [
+        "arabic_verbatim",
+        "translation_verbatim"
+      ],
+      "properties": {
+        "arabic_verbatim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "translation_verbatim": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "topic_tags": {
+      "type": "array"
+    },
+    "source_row_verbatim": {
+      "type": "object"
+    },
+    "review": {
+      "type": "object",
+      "required": [
+        "release_status",
+        "release_eligible",
+        "independent_pro_qc"
+      ],
+      "properties": {
+        "release_status": {
+          "const": "published_unreviewed_source_import"
+        },
+        "release_eligible": {
+          "const": false
+        },
+        "independent_pro_qc": {
+          "const": "pending"
+        }
+      }
+    },
+    "correction_log": {
+      "type": "array"
+    },
+    "metadata_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

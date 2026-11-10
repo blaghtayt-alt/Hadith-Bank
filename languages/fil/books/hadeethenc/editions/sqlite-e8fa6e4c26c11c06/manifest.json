@@ -1,0 +1,77 @@
+{
+  "source": {
+    "language": "tl",
+    "source_url": "https://hadeethenc.com/en/browse/download/tl/sqlite",
+    "final_url": "https://hadeethenc.com/downloads/sqlite/tl.sqlite.zip",
+    "http_status": 200,
+    "retrieved_at": "2026-11-10T16:49:07.831396+00:00",
+    "bytes": 1779779,
+    "sha256": "62fdac97a620b1b107dc8867e2153a8dd99d1ae51032e20a346cb1e253549dcc",
+    "content_type": "application/zip",
+    "last_modified_verbatim": "Thu, 26 Mar 2000 17:35:45 GMT",
+    "etag_verbatim": "\"6a99e918-1b2843\"",
+    "archive_path": "raw/tl.sqlite.zip",
+    "archive_members": [
+      "tl.sqlite"
+    ],
+    "local_path": "raw/tl.sqlite",
+    "sqlite_bytes": 7634944,
+    "sqlite_sha256": "e8fa6e4c26c11c060c36621cc7fb257a3e8daab957f1bb226ad3940688a72abb",
+    "tables": [
+      {
+        "name": "categories",
+        "schema": "CREATE TABLE categories (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                num INTEGER NOT NULL DEFAULT 0,\r\n                parent_id INTEGER NOT NULL DEFAULT 0\r\n            )",
+        "rows": 414
+      },
+      {
+        "name": "hadeeths",
+        "schema": "CREATE TABLE hadeeths (\r\n                id INTEGER PRIMARY KEY,\r\n                title TEXT,\r\n                hadeeth TEXT,\r\n                explanation TEXT,\r\n                \r\n                hints TEXT,\r\n                hadeeth_ar TEXT,\r\n\r\n                grade TEXT,\r\n                attribution TEXT,\r\n                tarteeb INTEGER NOT NULL DEFAULT 0,\r\n                ar_version INTEGER NOT NULL DEFAULT 1\r\n\r\n            )",
+        "rows": 1949
+      },
+      {
+        "name": "category_hadeeth",
+        "schema": "CREATE TABLE category_hadeeth (\r\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\r\n                category_id INTEGER NOT NULL,\r\n                hadeeth_id INTEGER NOT NULL,\r\n                FOREIGN KEY (category_id) REFERENCES categories (id),\r\n                FOREIGN KEY (hadeeth_id) REFERENCES hadeeths (id)\r\n            )",
+        "rows": 2662
+      },
+      {
+        "name": "sqlite_sequence",
+        "schema": "CREATE TABLE sqlite_sequence(name,seq)",
+        "rows": 1
+      }
+    ]
+  },
+  "original_candidate_records_sha256": "d9b39b123f5baeb41312aae72c672abfaaa8b834361d7e147996940bcf327e23",
+  "public_records": {
+    "language": "fil",
+    "source_code": "tl",
+    "book": "hadeethenc",
+    "edition": "sqlite-e8fa6e4c26c11c06",
+    "records_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+    "count": 1949,
+    "release_status": "published_unreviewed_source_import",
+    "records_sha256": "4329ff9582d8c88e9f394078b80acd354f5d0e83ffb5fcbfc9e4e372a5c97f63",
+    "bytes": 35118705,
+    "categories_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/categories.json",
+    "categories_sha256": "25537d3f789761143439584a0abc1167c15f3911e4daf3b9830dc56eb5f9169f",
+    "manifest_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/manifest.json",
+    "ai_translation": "unknown",
+    "independent_pro_qc": "pending",
+    "certified_release_eligible": false
+  },
+  "coverage": {
+    "language": "fil",
+    "source_code": "tl",
+    "records": 1949,
+    "arabic_exact_alignment": 1949,
+    "arabic_alignment_exceptions": 0,
+    "records_path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+    "records_sha256": "4329ff9582d8c88e9f394078b80acd354f5d0e83ffb5fcbfc9e4e372a5c97f63",
+    "bytes": 35118705
+  },
+  "translation_version": null,
+  "ar_version_is_not_translation_version": true,
+  "release_status": "published_unreviewed_source_import",
+  "independent_pro_qc": "pending",
+  "certified_release_eligible": false,
+  "publication_status_path": "datasets/hadeethenc/PUBLICATION-STATUS.json"
+}

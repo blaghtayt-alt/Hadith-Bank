@@ -1,45 +1,36 @@
-# HadeethEnc six-language import — private pending review
+# HadeethEnc six-language corpus — uploaded source snapshot
 
-## Actual outcome, 11 November 2026 (Japan)
+The actual Hadith bodies are included in Hadith-Bank: **8,423 translations with embedded original Arabic**, covering 2,328 publisher entry IDs. Counts: Japanese 281; Filipino/Tagalog 1,949; Vietnamese 1,203; Chinese 2,256; Uzbek 420; Hindi 2,314.
 
-8,423 translated entries were downloaded and converted from official SQLite exports: Japanese 281, Filipino/Tagalog 1,949, Vietnamese 1,203, Chinese 2,256, Uzbek 420, Hindi 2,314. Every entry contains actual translated Hadith text and the Arabic text embedded in its source export. These are translation occurrences across 2,328 publisher entry IDs, not 8,423 unique canonical narrations.
+## Status
 
-**The new text corpus is private and has NOT been pushed to this public repository.** The repository contains the reproducible importer, validator, offline search, tests, schema and non-text audit. Existing public material is unchanged. Candidate-only paths in audit reports are not public runtime dependencies.
+The owner explicitly requested public upload after receiving the pending-review report. This is **published_unreviewed_source_import**, not a verified release. Independent Pro QC, human review, canonical authentication and semantic translation verification have not been performed. All prior warnings and 267 Arabic-alignment exceptions remain. Earlier private-candidate audit reports are historical; the current audit is under reports/hadeethenc/2026-11-11/public/.
 
-## Attribution and preservation
+## Where the text is
 
-Source and publisher: HadeethEnc.com. The islamhouse-dev/hadith-api repository documents this same provider's API; it is not a second independent Hadith corpus.
+Full JSONL records: languages/<code>/books/hadeethenc/editions/sqlite-<snapshot-hash>/records.jsonl. Each line contains the actual Arabic and translated Hadith, separate explanation/benefits, publisher categories, source attribution, grading labels and provenance. The local registry is datasets/hadeethenc/collections.json. Original ZIPs and SQLite databases are included under sources/hadeethenc/snapshots/2026-11-11/raw/. No second repository or network lookup is required.
 
-The source API codes tl and zh are retained alongside bank directory codes fil and zh-CN. The Chinese directory is an organizational alias, not proof of a publisher-specified Chinese locale. Uzbek script is unchanged. No new translations, OCR or scripture corrections were generated.
+## Tags, fidelity and limits
 
-Arabic, translated text, explanations, benefits, raw source fields, bibliography, grading labels and publisher categories remain separate. Publisher topic tags retain category IDs, hierarchy and relation-row evidence; import-status tags are explicitly editorial. AI/human authorship is unknown for these exact passages, so ai_translation is unknown, not automatically false merely because they came from a website.
+Publisher topic labels, category IDs, hierarchy and category-relation rows remain unchanged. Editorial/import tags are separate. Occurrence IDs and exact source-row revision IDs are retained. Provider entry IDs are not canonical collection Hadith numbers. Cross-language links are provider-entry links, not asserted chain or narration-family identities.
 
-Each provider entry/language occurrence and exact row revision has its own ID. Cross-language links use only the provider's entry ID and never assert identical canonical narration, chain or edition. Book references are retained verbatim and are not converted into verified canonical occurrences or guessed narrator/number mappings.
+No translations were created and no source wording was corrected or normalized. All source-row values are preserved, including genuine source anomalies. AI/human translation authorship remains unknown for every entry. Missing translators, editions, structured narrator chains, canonical occurrence mappings and named grading assessors remain null/unknown.
 
-## Arabic alignment
+8,156 entries match the supporting Arabic export by provider ID, source version and exact text. The remaining 267 retain their embedded Arabic but do not inherit bibliography or Arabic grades from a different version: Japanese 102, Chinese 103, Hindi 62. In 266 cases the specified Arabic version is absent; one has differing text at the same ID/version.
 
-8,156 entries have an exact publisher-ID, Arabic-version and text match to the downloaded Arabic export. 267 do not: Japanese 102, Chinese 103, Hindi 62. Their source-embedded Arabic remains intact. Current-version bibliography and Arabic grades are not silently attached to those entries. See the exception ledger for exact reasons and source IDs.
+## Attribution and source version
 
-## Verification limits and publication gate
+Source/publisher: **HadeethEnc.com**. Its own hadith-api repository documents the same provider, not a second corpus. Retain source credit and all original version metadata when redistributing. The official source offers conditional republication requiring unchanged content, attribution, version preservation/disclosure, correction reporting, updates and suitable presentation. Full source terms are preserved with the evidence. The import neither grants an unrestricted license nor certifies that every downstream reuse meets those conditions.
 
-All 8,423 imported rows and 67,384 mapped fields passed programmatic comparison with the source SQLite databases, with checksums for all 14 source files. This is not independent Pro QC, scholarly authentication, human review or semantic translation verification. Three synthetic-fixture tests check lossless import, version/text mismatch quarantine, altered-text rejection and the closed release gate.
+The source exports include ar_version; that field is an Arabic revision, not a verified translation-edition number. The exact archive/database SHA-256, retrieval time and available source version are disclosed per record. Translation-version numbers not supplied by the source remain unknown; no website version is substituted. Chinese bank code zh-CN maps to source code zh without asserting a publisher-specific locale; Filipino uses source code tl. Uzbek script is preserved exactly.
 
-The site permits republication under conditions including unmodified content, publisher attribution, version disclosure/preservation and keeping translations updated. The export contains ar_version, which is **not** a confirmed translation-edition number. Translation authors, exact translation versions, canonical occurrence mappings, full narrator-chain segmentation and named grading assessors remain unknown unless supported. No publication permission beyond the source's stated conditions is inferred.
-
-Do not publish the candidate until independent Pro QC and all applicable publication requirements are satisfied. Do not upload it to a public branch or pull request as a workaround.
-
-## Reproduce from downloaded snapshots
-
-Use Python 3, standard library only for conversion, validation and search. Input is a private directory containing raw/{ja,tl,vi,zh,uz,hi,ar}.sqlite, their original .sqlite.zip archives, and export-manifest-v2.json (source URLs, UTC retrieval times and hashes). Keep candidate output outside the public repository.
+## Offline tools
 
 ```text
-python scripts/import_hadeethenc.py --input PRIVATE_INPUT --output PRIVATE_CANDIDATE
-python scripts/validate_hadeethenc.py --root PRIVATE_CANDIDATE
-python scripts/search_hadeethenc.py --root PRIVATE_CANDIDATE --language ja --id 2758
-python scripts/search_hadeethenc.py --root PRIVATE_CANDIDATE --language fil --topic-id 1
-python -m unittest discover -s tests -p test_hadeethenc_import.py
+python scripts/search_hadeethenc.py --language ja --id 2758
+python scripts/search.py hadith --language fil --limit 3
+python scripts/validate_hadeethenc_public.py
+python scripts/validate.py
 ```
 
-Search always displays the unknown-authorship and pending-review warning. Metadata classification and full-text search require no network. The import scope is every row in the downloaded official snapshots, not a verified inventory of all live API entries.
-
-Audit: reports/hadeethenc/2026-11-11/summary.json, validation.json and exceptions.json.
+The search displays pending-review and unknown-authorship warnings. Programmatic validation compares every source row, mapped field and publisher taxonomy with the included raw databases, checks exact Arabic-version alignment and verifies local file hashes. This is a mechanical check, not independent Pro QC.

@@ -12,3 +12,7 @@ This repository is the standalone Hadith Bank, not a live application. Changes m
 8. Search and resolve must work completely offline against files inside this repository. All runtime source locators must be local, checksum-verifiable and path-traversal safe.
 9. Keep the public language scope limited to Japanese, Filipino, Vietnamese, Simplified Chinese, Uzbek and Hindi unless explicitly expanded by the repository owner.
 10. Do not rewrite or delete previously copied verbatim source bytes just to normalize style, remove source anomalies, or manufacture a clean QC status. Version changes must preserve before/after evidence.
+
+## Owner-authorized HadeethEnc source snapshot
+
+On 11 November 2026 the owner explicitly requested uploading this already-described six-language HadeethEnc dataset after being informed that independent Pro QC was pending. This specific upload is a **public unreviewed source snapshot**, not a QC-passed release. Keep source texts unchanged, all pending-review and Arabic-version flags visible, and certified_release_eligible=false. This scoped upload does not waive the independent-QC requirement for any later verified release or other dataset. The exact scope and status are recorded in datasets/hadeethenc/PUBLICATION-STATUS.json. Publisher conditions continue to apply.
