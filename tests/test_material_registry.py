@@ -157,6 +157,56 @@ class MaterialRegistryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'direct DOCX source import'):
             material_registry.load_public_materials(self.root)
 
+    def published_book_manifest(self):
+        manifest = self.manifest()
+        identifier = 'zh-cn-ibn-majah-yu-2013'
+        manifest.update(id=identifier, source_id=identifier, language='zh-CN', book='ibn-majah')
+        manifest['source'].update(format='pdf', sha256=material_registry.BOOK_DISPLAY_SOURCES[identifier])
+        manifest['display_policy'] = {
+            'qc_tags': False, 'decision': material_registry.BOOK_DISPLAY_DECISION,
+            'basis': 'TEST explicit owner decision for this identified published book',
+        }
+        return manifest
+
+    def test_published_book_display_policy_retains_supported_publication_decisions(self):
+        manifest = self.published_book_manifest()
+        for decision in material_registry.PUBLICATION_DECISIONS:
+            with self.subTest(decision=decision):
+                manifest['publication']['decision'] = decision
+                before = copy.deepcopy(manifest)
+                authorization = material_registry.publication(manifest, 'TEST/manifest.json')
+                policy = material_registry.display_policy_for(manifest, authorization, 'TEST/manifest.json')
+                self.assertEqual(policy, manifest['display_policy'])
+                self.assertFalse(authorization['independent_qc_asserted'])
+                self.assertFalse(authorization['rights_clearance_asserted'])
+                self.assertEqual(manifest, before)
+                policy['basis'] = 'TEST changed projection'
+                self.assertEqual(manifest, before)
+
+    def test_published_book_display_policy_rejects_other_sources_and_missing_authorization(self):
+        manifest = self.published_book_manifest()
+        for field, value in [('id', 'TEST-other-material'), ('source_id', 'TEST-other-source'),
+                             ('book', 'bukhari'), ('language', 'fa'),
+                             ('adapter', 'pdf-intake-package-v1'),
+                             ('source.sha256', '0' * 64), ('source.format', 'docx')]:
+            with self.subTest(field=field):
+                changed = copy.deepcopy(manifest)
+                target, key = (changed['source'], field.split('.')[1]) if '.' in field else (changed, field)
+                target[key] = value
+                authorization = material_registry.publication(changed, 'TEST/manifest.json')
+                with self.assertRaisesRegex(ValueError, 'only to its identified source PDF'):
+                    material_registry.display_policy_for(changed, authorization, 'TEST/manifest.json')
+        authorization = material_registry.publication(manifest, 'TEST/manifest.json')
+        for field, value in [('authorized', False), ('visibility', 'private'), ('decision', 'TEST-unsupported')]:
+            with self.subTest(authorization=field):
+                changed = dict(authorization, **{field: value})
+                with self.assertRaisesRegex(ValueError, 'only to its identified source PDF'):
+                    material_registry.display_policy_for(manifest, changed, 'TEST/manifest.json')
+        manifest['publication']['authorized'] = False
+        self.save_manifest(manifest)
+        with self.assertRaisesRegex(ValueError, 'publication.authorized=true'):
+            material_registry.load_public_materials(self.root)
+
     def test_invalid_input_leaves_previously_staged_site_untouched(self):
         site = self.root / '_site'
         site.mkdir()

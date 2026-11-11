@@ -24,6 +24,10 @@ SOURCE_IMPORT_DECISION = 'owner_requested_public_source_import'
 PUBLICATION_DECISIONS = (DECISION, SOURCE_IMPORT_DECISION)
 COMPONENT = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\Z')
 LANGUAGE = re.compile(r'[A-Za-z][A-Za-z0-9-]*\Z')
+BOOK_DISPLAY_DECISION = 'owner_requested_no_qc_tags_for_published_book'
+BOOK_DISPLAY_SOURCES = {
+    'zh-cn-ibn-majah-yu-2013': 'e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383',
+}
 
 
 def require(condition, message):
@@ -91,6 +95,35 @@ def preserve_translation_declarations(projected, row, material):
         if key in original_source:
             source.setdefault('original_metadata', {})[key] = copy.deepcopy(original_source[key])
     return projected
+
+
+def display_policy_for(manifest, authorization, relative):
+    policy = manifest.get('display_policy')
+    if policy is None:
+        return None
+    require(isinstance(policy, dict) and policy.get('qc_tags') is False and
+            isinstance(policy.get('basis'), str) and bool(policy['basis'].strip()),
+            'Invalid explicit display policy: ' + relative)
+    source = manifest.get('source') or {}
+    require(isinstance(source, dict), 'Display policy requires a source descriptor: ' + relative)
+    if policy.get('decision') == 'owner_requested_no_qc_tags_for_non_ocr':
+        require(manifest.get('adapter') == 'records-v1' and source.get('format') == 'docx' and
+                authorization['decision'] == SOURCE_IMPORT_DECISION,
+                'No-QC display policy requires an authorized direct DOCX source import')
+    elif policy.get('decision') == BOOK_DISPLAY_DECISION:
+        require(authorization.get('authorized') is True and authorization.get('visibility') == 'public' and
+                authorization.get('decision') in PUBLICATION_DECISIONS and
+                manifest.get('adapter') == 'records-v1' and source.get('format') == 'pdf' and
+                manifest.get('id') in BOOK_DISPLAY_SOURCES and
+                manifest.get('source_id') == manifest.get('id') and
+                source.get('sha256') == BOOK_DISPLAY_SOURCES[manifest['id']] and
+                manifest.get('language') == 'zh-CN' and manifest.get('book') == 'ibn-majah',
+                'Published-book display decision applies only to its identified source PDF')
+    else:
+        raise ValueError('Unsupported explicit display decision: ' + relative)
+    return copy.deepcopy(policy)
+
+
 
 
 def normalized_projection(row, material, position):
@@ -245,15 +278,7 @@ def load_public_materials(root, validate_attachment_roots=True):
         authorization = publication(manifest, relative)
         adapter = manifest.get('adapter')
         require(adapter in ('records-v1', 'pdf-intake-package-v1'), 'Unsupported material adapter: ' + str(adapter))
-        display_policy = manifest.get('display_policy')
-        if display_policy is not None:
-            require(isinstance(display_policy, dict) and display_policy.get('qc_tags') is False and
-                    display_policy.get('decision') == 'owner_requested_no_qc_tags_for_non_ocr' and
-                    isinstance(display_policy.get('basis'), str) and bool(display_policy['basis']),
-                    'Invalid explicit non-OCR display policy: ' + relative)
-            require(adapter == 'records-v1' and manifest.get('source', {}).get('format') == 'docx' and
-                    authorization['decision'] == SOURCE_IMPORT_DECISION,
-                    'No-QC display policy requires an authorized direct DOCX source import')
+        display_policy = display_policy_for(manifest, authorization, relative)
         result['manifests'].append({'path': relative, 'sha256': digest_file(path), 'id': identifier, 'adapter': adapter,
                                     'publication': authorization})
         collection_rows = []
