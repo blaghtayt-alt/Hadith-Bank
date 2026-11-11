@@ -138,7 +138,22 @@ const counterpartTranslationOrigin = data => {
   return ["human","ai","unknown"].includes(data.translation_origin)?data.translation_origin:"unknown";
 };
 const legacyOrigin = item => {const current=item.current_policy && item.current_policy.classification;return ["human","ai","unknown"].includes(current)?current:"unknown";};
-const bookLabel = (key, language="") => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","targhib-wa-tarhib":"Al-Targhib wa-l-Tarhib (Sahih and Daif)","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};const label=Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;return key==="ibn-majah" && language==="zh-CN"?"伊本·马哲圣训集 — "+label:label;};
+const bookLabel = (key, language="") => {
+  const titles=snapshot.book_titles || {}, own=(object,name)=>Object.prototype.hasOwnProperty.call(object,name);
+  const fallback=language && !/^en(?:-|$)/.test(language)?"ar":"";
+  const labels=own(titles,language)?titles[language]:titles[fallback] || {};
+  if(own(labels,key) && typeof labels[key]==="string")return labels[key];
+  const english=titles[""] || {};
+  return own(english,key) && typeof english[key]==="string"?english[key]:key;
+};
+const bookTitle = (key, language="") => {
+  const node=element("bdi","book-title");node.dir="ltr";
+  bookLabel(key,language).split(" — ").forEach((part,index)=>{
+    if(index)node.append(document.createTextNode(" — "));
+    node.append(element("bdi",null,part));
+  });
+  return node;
+};
 const languageLabel = code => {
   if(Object.prototype.hasOwnProperty.call(names,code) && typeof names[code]==="string") return names[code];
   try { if(typeof Intl.DisplayNames === "function") return new Intl.DisplayNames(["en"],{type:"language"}).of(code) || code; } catch(_){}
@@ -359,7 +374,7 @@ const primarySearchKey = record => {const source=record.source || {},narrator=re
 const searchKeys = records.map(primarySearchKey);
 const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,...sourceContextFields.map(key=>source[key]),narrator.source_context].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 let commentaryKeys = null;
-function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; select.append(option); });select.value=items.has(value)?value:""; }
+function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; option.dir="ltr"; select.append(option); });select.value=items.has(value)?value:""; }
 function icon(name) {
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg"),use=document.createElementNS("http://www.w3.org/2000/svg","use");
   svg.setAttribute("class","icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("focusable","false");use.setAttribute("href","#icon-"+name);svg.append(use);return svg;
@@ -421,7 +436,7 @@ function bookDownloads(scope){
   const disclosure=element("details","available-downloads"),list=element("div","material-list");
   disclosure.open=!!scope.language && items.length<=4;
   disclosure.append(element("summary",null,"Download books and source materials ("+nf.format(items.length)+")"));
-  for(const item of items){const href=sourceDownloadURL(item.path,site);if(!href)continue;const row=element("div","material-item"),link=element("a","source-url",sourceDownloadLabel(item.path));link.href=href;link.target="_blank";link.rel="noopener noreferrer";link.download=item.path.split("/").pop();row.append(element("strong",null,item.source_name || item.path.split("/").pop()),element("div","meta-value",languageLabel(item.language || "")+(item.book_key?" · "+bookLabel(item.book_key,item.language):"")),link);list.append(row);}
+  for(const item of items){const href=sourceDownloadURL(item.path,site);if(!href)continue;const row=element("div","material-item"),link=element("a","source-url",sourceDownloadLabel(item.path));link.href=href;link.target="_blank";link.rel="noopener noreferrer";link.download=item.path.split("/").pop();const downloadCollection=element("div","meta-value",languageLabel(item.language || ""));if(item.book_key)downloadCollection.append(document.createTextNode(" · "),bookTitle(item.book_key,item.language));row.append(element("strong",null,item.source_name || item.path.split("/").pop()),downloadCollection,link);list.append(row);}
   if(!list.childNodes.length)return null;disclosure.append(list);return disclosure;
 }
 function renderAvailableMaterials(scope){
@@ -439,7 +454,7 @@ function renderAvailableMaterials(scope){
   const editions=scope.materials.reduce((total,material)=>total+material.edition_count,0);
   $("available-summary").textContent=nf.format(scope.language_count)+" source occurrences · "+nf.format(scope.materials.length)+" collections · "+nf.format(editions)+" source editions"+(documents.length?" · "+nf.format(documents.length)+" copied-bank documents":"");
   const grid=element("div","available-grid");
-  scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key,scope.language)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");button.append(element("strong",null,bookLabel(material.book_key,scope.language)),element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
+  scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key,scope.language)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");const title=element("strong");title.append(bookTitle(material.book_key,scope.language));button.append(title,element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
   if(grid.childNodes.length)container.append(grid);
   const downloads=bookDownloads(scope);if(downloads)container.append(downloads);
   if(documents.length){
@@ -528,7 +543,7 @@ function card(record,index) {
   const card=element("article","record-card");
   const top=element("div","card-top"), heading=element("div","card-heading"),eyebrows=element("div","card-eyebrows");
   eyebrows.append(element("span","eyebrow",languageLabel(record.language)),element("span","origin-badge","Translation: "+originLabel(record)));heading.append(eyebrows);
-  heading.append(element("div","book-line",bookLabel(record.book_key,record.language)+" · "+numberLabel(record)));
+  const bookLine=element("div","book-line");bookLine.append(bookTitle(record.book_key,record.language),document.createTextNode(" · "+numberLabel(record)));heading.append(bookLine);
   const select=element("label","check record-select"), checkbox=element("input"); checkbox.type="checkbox"; checkbox.checked=state.selected.has(index); checkbox.setAttribute("aria-label","Select "+record.id); checkbox.addEventListener("change",()=>{checkbox.checked?state.selected.add(index):state.selected.delete(index);updateSelection();}); select.append(checkbox,document.createTextNode("Select")); top.append(heading,select);card.append(top);
   if(record.title){const title=element("h3","record-title",record.title);title.dir=textDirection(record.language);title.lang=record.language;card.append(title);}
   const kind=recordTypeInfo(record);if(kind){const info=element("div","source-headings");info.append(element("strong",null,kind.label),document.createTextNode(" · "+kind.note));card.append(info);}
@@ -546,7 +561,8 @@ function card(record,index) {
   block.append(meta("Narrator",valueText(record.narrator && record.narrator.name)||"Not named in the supplied source"));
   const origin=element("div","meta-value",originLabel(record));
   block.append(meta("Translation origin",origin,true));
-  block.append(meta("Collection & edition",bookLabel(record.book_key,record.language)+" · "+editionLabel(record)),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
+  const collection=element("div","meta-value");collection.append(bookTitle(record.book_key,record.language),document.createTextNode(" · "+editionLabel(record)));
+  block.append(meta("Collection & edition",collection),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
   const sourceSummary=element("div","source-summary"),sourceName=element(url?"a":"span",null,sourceLabel(record));
   if(url){sourceName.href=url;sourceName.target="_blank";sourceName.rel="noopener noreferrer";}
   sourceSummary.append(icon("file-text"),sourceName);card.append(sourceSummary);

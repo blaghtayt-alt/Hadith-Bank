@@ -14,8 +14,11 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
+from book_titles import title_metadata
 from review_display_policy import extraction_metadata, needs_ocr_review, review_badges, text_direction
 
+
+READER_SNAPSHOT_JS = 'const snapshot=' + json.dumps({'book_titles': title_metadata()}, ensure_ascii=False) + ';\n'
 
 def fixture(index=1):
     return {
@@ -214,7 +217,7 @@ class ReaderTests(unittest.TestCase):
     def test_hosted_local_source_links_and_review_labels(self):
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=[],names={};
 const valueText = ''' + helpers + '''
 const site=input.site;
@@ -257,7 +260,7 @@ process.stdout.write(JSON.stringify({
     def test_document_downloads_use_preserved_paths_and_safe_github_raw_urls(self):
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=[],names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify({
@@ -303,7 +306,7 @@ process.stdout.write(JSON.stringify({
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         source_files = 'function sourceFiles(' + template.split('function sourceFiles(', 1)[1].split('function citationList(', 1)[0]
-        program = '''const records=[],names={};
+        program = READER_SNAPSHOT_JS + '''const records=[],names={};
 const valueText = ''' + helpers + '''
 const document={createElement:tag=>({tag,children:[],append(...nodes){this.children.push(...nodes);}})};
 const site={repository_url:'https://github.com/TEST/TEST',source_ref:'main'};
@@ -376,7 +379,7 @@ process.stdout.write(JSON.stringify({hosted,local}));'''
         before = json.loads(json.dumps(records))
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input,names={};
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input,names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify({badges:records.map(reviewBadges),pending:records.filter(needsOCRReview).map(r=>r.id),records}));'''
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(records),
@@ -453,7 +456,7 @@ process.stdout.write(JSON.stringify({badges:records.map(reviewBadges),pending:re
                 self.assertNotIn('<strong>Companion report', rendered)
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify(input.map(recordTypeInfo)));'''
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(classifications),
@@ -489,7 +492,7 @@ process.stdout.write(JSON.stringify(input.map(recordTypeInfo)));'''
         self.assertIn('Reference to a variant', rendered)
         self.assertIn('Reference not fully resolved', rendered)
         helpers = document.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify({directions:input.languages.map(x=>textDirection(x)),references:input.references.map(citationData)}));'''
         languages=['fa','fa-IR','ur','ar','ja','vi']
@@ -555,7 +558,7 @@ process.stdout.write(JSON.stringify({directions:input.languages.map(x=>textDirec
                 self.assertIn('<br>' + html.escape(data['scope']) + '</p>', parts)
                 self.assertIn('<p dir="auto">' + html.escape(data['source_citation']) + '</p>', parts)
         helpers = document.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify({references:input.references.items.map(citationData),number:numberLabel(input),record:input}));'''
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(record),
@@ -613,7 +616,7 @@ process.stdout.write(JSON.stringify({references:input.references.items.map(citat
         ]
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,names={};
 const valueText = ''' + helpers + '''
 const result=input.selections.map(selection=>{
@@ -652,7 +655,8 @@ process.stdout.write(JSON.stringify(result));'''
         self.assertEqual(actual[6]['book_labels'], [bilingual_title])
         self.assertIn(bilingual_title, actual[6]['source_labels'][0])
         self.assertEqual(actual[6]['rows'], ['TEST-8'])
-        self.assertEqual(actual[7]['book_labels'], ['Sunan Ibn Majah'])
+        self.assertEqual(actual[7]['book_labels'], ['سنن ابن‌ماجه — Sunan Ibn Majah'])
+        self.assertIn('سنن ابن‌ماجه — Sunan Ibn Majah', actual[7]['source_labels'][0])
         self.assertNotIn('伊本', actual[7]['source_labels'][0])
         self.assertEqual(actual[7]['rows'], ['TEST-9'])
         self.assertIn('Sunan Ibn Majah', actual[8]['book_labels'])
@@ -678,7 +682,7 @@ process.stdout.write(JSON.stringify(result));'''
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         filter_function = template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,names={},state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
 const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filter_function + '''
@@ -722,7 +726,7 @@ process.stdout.write(JSON.stringify({results,categories:records.map(originLabel)
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         filter_function = template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
 const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filter_function + '''

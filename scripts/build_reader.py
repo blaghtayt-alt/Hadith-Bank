@@ -27,6 +27,7 @@ from counterpart_display import (counterpart_data, counterpart_source_data,
                                  counterpart_citation, counterpart_qualification, counterpart_alignment_notes,
                                  counterpart_translation_origin)
 from citation_search import has_noncanonical_numbering
+from book_titles import book_label as collection_label, title_metadata
 
 
 PAGE_SIZE = 25
@@ -406,7 +407,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
     label = {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[classification(record)]
     lines += [
         '<p><strong>Source:</strong> ' + source_display + '<br>',
-        '<strong>Collection:</strong> ' + escaped(record['book_key']) +
+        '<strong>Collection:</strong> ' + escaped(collection_label(record['book_key'], record['language'])) +
         ' · <strong>Edition:</strong> ' + escaped(record['edition']) + '<br>',
         '<strong>Number:</strong> ' + escaped(number_label(record)) + '<br>',
         '<strong>Page:</strong> ' + escaped(page_label(record)) + '<br>',
@@ -543,7 +544,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
                 nav.append('[Previous](page-' + str(page).zfill(4) + '.md)')
             if page + 1 < pages:
                 nav.append('[Next](page-' + str(page + 2).zfill(4) + '.md)')
-            body = ['# ' + escaped(label) + ' / ' + escaped(book_label(book)), '',
+            body = ['# ' + escaped(label) + ' / ' + escaped(book_label(book, language)), '',
                     'Edition: `' + edition + '` · Narrations ' + str(start + 1) + '–' + str(end) +
                     ' of ' + str(len(items)) + '.', '', ' · '.join(nav), '']
             body.extend(markdown_record(r, start + i + 1, bank_root, output / directory, downloads, download_site)
@@ -553,7 +554,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
             page_links.append('- [Narrations ' + str(start + 1) + '–' + str(end) + '](' + name + ')')
             page_count += 1
         save(directory + '/README.md', '\n'.join([
-            '# ' + escaped(label) + ' / ' + escaped(book_label(book)), '',
+            '# ' + escaped(label) + ' / ' + escaped(book_label(book, language)), '',
             *[prose(name) for name in sorted({r['source'].get('name') or r['source_id'] for r in items})], '',
             '[Read this edition online](' + download_site['live_url'].rstrip('/') + '/browse/' + directory + '/)', '',
             'Edition: `' + edition + '` · ' + str(len(items)) + ' source occurrences.', '',
@@ -565,7 +566,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         languages[language].append((book, edition, len(items)))
     for (language, book), entries in sorted(books.items()):
         save(language + '/' + book + '/README.md', '\n'.join([
-            '# ' + escaped(language_label(language)) + ' / ' + escaped(book_label(book)), '',
+            '# ' + escaped(language_label(language)) + ' / ' + escaped(book_label(book, language)), '',
             '[Read this collection online](' + download_site['live_url'].rstrip('/') + '/browse/' + language + '/' + book + '/)', '',
             '[Language index](../README.md) · [All languages](../../README.md)', '',
             *['- [' + edition + '](' + edition + '/README.md) — ' + str(count) + ' source occurrences'
@@ -578,7 +579,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         save(language + '/README.md', '\n'.join([
             '# ' + escaped(language_label(language)), '', '[All languages](../README.md)', '',
             '[Browse this language online](' + download_site['live_url'].rstrip('/') + '/browse/' + language + '/)', '',
-            *['- [' + escaped(book_label(book)) + '](' + book + '/README.md) — ' + str(count) + ' source occurrences'
+            *['- [' + escaped(book_label(book, language)) + '](' + book + '/README.md) — ' + str(count) + ' source occurrences'
               for book, count in sorted(grouped.items())], '',
         ]))
     catalog = catalog or {}
@@ -619,7 +620,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         for item in private:
             private_lines += ['## ' + escaped(item.get('dataset_id')), '',
                               '<p>' + escaped(LANGUAGE_NAMES.get(item.get('language'), item.get('language'))) +
-                              ' · ' + escaped(item.get('book_key')) + ' · ' + escaped(item.get('edition')) +
+                              ' · ' + escaped(collection_label(item.get('book_key') or '', item.get('language') or '')) + ' · ' + escaped(item.get('edition')) +
                               '<br>Source occurrences in separate package: ' + escaped(item.get('count')) +
                               '<br>Release status: ' + escaped(item.get('release_status')) +
                               '<br>' + escaped(item.get('location_note')) + '</p>', '']
@@ -885,6 +886,7 @@ def build(root, output, markdown_output=None, compress=True, site=None):
         raise ValueError('Reader output must not use symlinks')
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
                 'materials': catalog.get('materials', []), 'language_names': LANGUAGE_NAMES,
+                'book_titles': title_metadata(),
                 'site': site_metadata(catalog, site),
                 'review_display_policy': review_display_metadata(root),
                 'counterparts': catalog.get('counterparts'),

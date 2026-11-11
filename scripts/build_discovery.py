@@ -27,6 +27,7 @@ from counterpart_display import (
     counterpart_source_data, counterpart_translation_origin,
 )
 from current_provenance import classification
+from book_titles import book_label as collection_label
 from review_display_policy import review_badges, text_direction
 
 
@@ -96,13 +97,20 @@ def language_heading(code):
     return LANGUAGE_HEADINGS.get(code, language_name(code) + ' hadiths')
 
 
-def book_name(key):
-    return BOOK_NAMES.get(key, key.replace('-', ' '))
+def book_name(key, language=''):
+    # Retain qualified wording for attribution groups in static pages.
+    return collection_label(key, language, english=BOOK_NAMES.get(key))
 
 
 # Public display helpers shared by repository indexes and reader navigation.
 language_label = language_name
 book_label = book_name
+
+
+def title_markup(label):
+    """Keep native/English title portions isolated inside left-to-right UI."""
+    return '<bdi dir="ltr">' + ' — '.join('<bdi>' + esc(part) + '</bdi>'
+                                         for part in label.split(' — ')) + '</bdi>'
 
 
 def record_path(record):
@@ -227,12 +235,12 @@ class Writer:
 
 
 def source_title(record):
-    return text((record.get('source') or {}).get('name')) or book_name(record['book_key'])
+    return text((record.get('source') or {}).get('name')) or book_name(record['book_key'], record['language'])
 
 
 def record_title(record):
     source = compact(source_title(record), 110)
-    collection = book_name(record['book_key'])
+    collection = book_name(record['book_key'], record['language'])
     identity = record_path(record).rsplit('/', 1)[-1][:10]
     parts = [source, collection if collection.casefold() not in source.casefold() else '', compact(number_label(record), 85),
              language_name(record['language']), identity, 'Hadith Bank']
@@ -241,7 +249,7 @@ def record_title(record):
 
 def record_description(record):
     primary = record.get('text_translation') or record.get('text_arabic')
-    return compact(primary, 145) or (book_name(record['book_key']) + ' source occurrence. ' + number_label(record))
+    return compact(primary, 145) or (book_name(record['book_key'], record['language']) + ' source occurrence. ' + number_label(record))
 
 
 def record_downloads(record, downloads, sources):
@@ -260,8 +268,8 @@ def render_record(writer, record, downloads, sources):
     link = lambda target: esc(relative_link(path, target))
     body = ['<nav aria-label="Breadcrumbs"><a href="' + link('browse/' + language + '/index.html') + '">' +
             esc(language_name(language)) + '</a><a href="' + link('browse/' + language + '/' + book + '/index.html') + '">' +
-            esc(book_name(book)) + '</a><a href="' + link(edition_path) + '">Source edition</a></nav>',
-            '<h1>' + esc(book_name(book)) + ' — ' + esc(number_label(record)) + '</h1>']
+            title_markup(book_name(book, language)) + '</a><a href="' + link(edition_path) + '">Source edition</a></nav>',
+            '<h1>' + title_markup(book_name(book, language)) + ' — ' + esc(number_label(record)) + '</h1>']
     if record.get('title'):
         body.append(literal(record['title'], language))
     body.append('<p><span class="badge">' + esc(kind['label']) + '</span>'
@@ -310,7 +318,7 @@ def render_record(writer, record, downloads, sources):
         body.append(content)
     source_url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_display = '<a href="' + esc(source_url) + '">' + esc(source_title(record)) + '</a>' if source_url else esc(source_title(record))
-    metadata = [('Source book or publication', source_display), ('Collection', esc(book_name(book))),
+    metadata = [('Source book or publication', source_display), ('Collection', title_markup(book_name(book, language))),
                 ('Source numbering', esc(number_label(record))), ('Source edition', esc(edition)),
                 ('Source location', esc(page_label(record))),
                 ('Translator', esc((record.get('translator') or {}).get('name') or 'Not named in the supplied source')),
@@ -398,14 +406,14 @@ def render_indexes(writer, records, downloads, sources):
         group_downloads = {item['path']: item for record in items for item in record_downloads(record, downloads, sources)}
         for page_number in range(1, page_count + 1):
             current = directory + ('index.html' if page_number == 1 else 'page-' + str(page_number) + '.html')
-            heading = book_name(book) + ' — ' + language_name(language)
+            heading = book_name(book, language) + ' — ' + language_name(language)
             native_title = compact(editions[0], 110)
-            collection = book_name(book)
+            collection = book_name(book, language)
             title = (native_title + (' | ' + collection if collection.casefold() not in native_title.casefold() else '') +
                      ' | ' + language_name(language) + ' | ' + edition + ' | Page ' + str(page_number) + ' | Hadith Bank')
             body = '<nav aria-label="Breadcrumbs"><a href="' + esc(relative_link(current, 'browse/' + language + '/index.html')) + '">' + esc(language_name(language)) + '</a>'
-            body += '<a href="' + esc(relative_link(current, 'browse/' + language + '/' + book + '/index.html')) + '">' + esc(book_name(book)) + '</a></nav>'
-            body += '<h1>' + esc(heading) + '</h1><p>' + esc(' · '.join(editions)) + '</p>'
+            body += '<a href="' + esc(relative_link(current, 'browse/' + language + '/' + book + '/index.html')) + '">' + title_markup(book_name(book, language)) + '</a></nav>'
+            body += '<h1>' + title_markup(heading) + '</h1><p>' + esc(' · '.join(editions)) + '</p>'
             body += '<p class="muted">' + str(len(items)) + ' source occurrences in this edition. Source numbering, excerpts and variants are retained. '
             body += 'This count does not assert that the entire original collection is present.</p>'
             body += download_links(list(group_downloads.values()), writer.site)
@@ -417,8 +425,8 @@ def render_indexes(writer, records, downloads, sources):
     for (language, book), entries in sorted(books.items()):
         current = 'browse/' + language + '/' + book + '/index.html'
         count = sum(len(items) for _, items in entries)
-        heading = book_name(book) + ' — ' + language_heading(language)
-        body = '<p><a href="' + esc(relative_link(current, 'browse/' + language + '/index.html')) + '">' + esc(language_name(language)) + '</a></p><h1>' + esc(heading) + '</h1>'
+        heading = book_name(book, language) + ' — ' + language_heading(language)
+        body = '<p><a href="' + esc(relative_link(current, 'browse/' + language + '/index.html')) + '">' + esc(language_name(language)) + '</a></p><h1>' + title_markup(heading) + '</h1>'
         body += '<p>' + str(count) + ' source occurrences across ' + str(len(entries)) + ' editions or source snapshots. '
         body += 'Some sources contain excerpts or quotations; availability does not mean the complete book is present.</p><ul class="cards">'
         for edition, items in entries:
@@ -429,17 +437,17 @@ def render_indexes(writer, records, downloads, sources):
             body += '<span class="muted">' + esc(edition) + ' · ' + str(len(items)) + ' source occurrences</span>'
             body += download_links(list(group_downloads.values()), writer.site) + '</li>'
         body += '</ul>'
-        writer.page(current, heading + ' | Hadith Bank', compact(book_name(book) + ' in ' + language_name(language) +
+        writer.page(current, heading + ' | Hadith Bank', compact(book_name(book, language) + ' in ' + language_name(language) +
                     ': source editions, individual narrations, exact references and original books where available.'), body, language)
     for language, book_counts in sorted(languages.items()):
         current = 'browse/' + language + '/index.html'
         heading = language_heading(language) + ' — ' + LANGUAGE_NAMES.get(language, language)
-        body = '<p><a href="' + esc(relative_link(current, 'browse/index.html')) + '">All languages</a></p><h1>' + esc(heading) + '</h1>'
+        body = '<p><a href="' + esc(relative_link(current, 'browse/index.html')) + '">All languages</a></p><h1>' + title_markup(heading) + '</h1>'
         body += ('<p>' + str(sum(book_counts.values())) + ' source occurrences in ' + str(len(book_counts)) +
                  ' collection groups. Choose a book, source edition and individual text.</p><ul class="cards">')
         for book, count in sorted(book_counts.items()):
             target = 'browse/' + language + '/' + book + '/index.html'
-            body += '<li><a href="' + esc(relative_link(current, target)) + '">' + esc(book_name(book)) + '</a><br>' + str(count) + ' source occurrences</li>'
+            body += '<li><a href="' + esc(relative_link(current, target)) + '">' + title_markup(book_name(book, language)) + '</a><br>' + str(count) + ' source occurrences</li>'
         body += '</ul>'
         writer.page(current, heading + ' | Hadith Bank', compact(language_heading(language) + '. ' +
                     str(sum(book_counts.values())) + ' source occurrences, book editions and available Word/PDF downloads.'), body, language)
