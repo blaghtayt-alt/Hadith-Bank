@@ -345,6 +345,23 @@ process.stdout.write(JSON.stringify({results,records}));'''
         self.assertEqual(updated['matched'], 1)
         self.assertNotEqual(updated['integrity']['records_sha256'], first['integrity']['records_sha256'])
 
+    def test_connection_initialization_error_closes_the_database(self):
+        class FailingConnection(sqlite3.Connection):
+            def execute(self, sql, *args, **kwargs):
+                if sql == 'PRAGMA foreign_keys=ON':
+                    raise sqlite3.OperationalError('TEST connection initialization failure')
+                return super().execute(sql, *args, **kwargs)
+
+        database = self.root / 'initialization-failure.sqlite'
+        connection = sqlite3.connect(database, factory=FailingConnection)
+        self.addCleanup(connection.close)
+        with mock.patch.object(searcher.sqlite3, 'connect', return_value=connection):
+            with self.assertRaisesRegex(sqlite3.OperationalError, 'TEST connection initialization failure'):
+                searcher._connect(database)
+        with self.assertRaisesRegex(sqlite3.ProgrammingError, 'closed database'):
+            connection.execute('SELECT 1')
+        database.unlink()
+
     def test_modified_cache_is_discarded_and_results_remain_original(self):
         self.call('alpha')
         database = self.root / '.cache/hadith-search.sqlite'

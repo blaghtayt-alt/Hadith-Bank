@@ -60,6 +60,17 @@ jobs:
           python-version: '3.13'
       - name: Run software tests
         run: python -m unittest discover -s tests
+      - name: Synchronize official counterpart sources for newly registered IDs
+        shell: bash
+        run: |
+          set -euo pipefail
+          status=0
+          python scripts/sync_hadeethenc_counterparts.py --root . || status=$?
+          if [[ "$status" == 2 ]]; then
+            echo "Some publisher IDs have no English export yet; their unmatched status is preserved."
+          elif [[ "$status" != 0 ]]; then
+            exit "$status"
+          fi
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
       - name: Keep generated bank files synchronized
@@ -74,6 +85,7 @@ jobs:
             exit 0
           fi
           git add -A -- catalog search browse index.json hadith-bank-reader.html \
+            sources/counterparts reports/counterpart-coverage.json \
             reports/reading-views-validation.json \
             reports/portable-validation.json reports/site-build.json
           if ! git diff --cached --quiet; then

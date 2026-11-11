@@ -2,6 +2,8 @@
 
 ## Choose an entry point
 
+Use **Show Arabic text** and **Show English text** to add available counterparts while keeping the original narration visible. Arabic/English keywords and collection-number references are searchable even when these displays are closed. See [automatic counterparts and coverage](ARABIC-ENGLISH-COUNTERPARTS.md).
+
 - **[Live reader](https://blaghtayt-alt.github.io/Hadith-Bank/):** select a language to see its available collections, source editions and copied-bank documents. Search, narrow the translation origin, and read the full indexed source text.
 - **[Readable pages](../browse/README.md):** translations and Arabic in normal paragraphs, with source, translator/process label, page/row locator and optional audit details. The [Japanese public collection](../browse/ja/README.md) includes HadeethEnc, Sahih Muslim volume one, and the newly extracted old-bank/Qur’an-book quotations.
 - **[Materials catalog](../catalog/README.md):** all registered datasets and 83 preserved legacy source documents. Original lessons remain available alongside their individually indexed quotation records. Document totals are counted separately from quotation occurrences.

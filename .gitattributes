@@ -1,5 +1,11 @@
 # Preserve exact imported source bytes, including CRLFs
 languages/** -text
+attachments/** -text
+materials/** -text
+sources/counterparts/** -text
+
+# Pinned upstream UI assets are verified by their exact byte hashes.
+reader/vendor/** -text
 
 sources/hadeethenc/** -text
 datasets/hadeethenc/** -text

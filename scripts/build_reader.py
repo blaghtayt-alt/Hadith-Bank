@@ -23,11 +23,13 @@ from urllib.parse import urlsplit
 import xml.etree.ElementTree as ET
 
 from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
+from counterpart_display import counterpart_data, counterpart_citation, counterpart_qualification
+from citation_search import has_noncanonical_numbering
 
 
 PAGE_SIZE = 25
 LANGUAGE_NAMES = {
-    'ar': 'Arabic', 'bn': 'Bengali', 'fa': 'Persian', 'fa-IR': 'Persian',
+    'ar': 'Arabic', 'bn': 'Bengali', 'en': 'English', 'fa': 'Persian', 'fa-IR': 'Persian',
     'fil': 'Filipino', 'hi': 'Hindi',
     'ja': 'Japanese', 'pt': 'Portuguese', 'ur': 'Urdu', 'uz': 'Uzbek',
     'vi': 'Vietnamese', 'zh': 'Chinese', 'zh-CN': 'Chinese (Simplified)',
@@ -214,8 +216,10 @@ def number_label(record):
     number = record.get('number') or {}
     items = []
     if isinstance(number, dict) and number.get('in_book') is not None:
-        prefix = 'Source number ' if number.get('numbering_system') else 'Number in collection '
-        items.append(prefix + text(number['in_book']))
+        label = ('Source number ' if number.get('numbering_system') else
+                 'Number in source ' if has_noncanonical_numbering(number) else
+                 'Number in collection ')
+        items.append(label + text(number['in_book']))
     if isinstance(number, dict) and number.get('source_cited'):
         items.append('Cited: ' + text(number['source_cited']))
     if record.get('provider_entry_id') is not None:
@@ -354,10 +358,31 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
         lines += [prose(primary, text_direction(record.get('language'), primary_arabic)), '']
     else:
         lines += ['Text not supplied in this projection.', '']
-    if record.get('text_arabic') and not primary_arabic:
+    supplied_arabic = counterpart_data(record, 'arabic')
+    if (record.get('text_arabic') and not primary_arabic and
+            (supplied_arabic is None or supplied_arabic['text'] != record['text_arabic'])):
         lines += ['<details>', '<summary>Arabic source text</summary>', '',
                   prose(record['text_arabic'], 'rtl'),
                   '', '</details>', '']
+    for language in ('arabic', 'english'):
+        counterpart = counterpart_data(record, language)
+        if counterpart is None:
+            continue
+        label = language.title() + (' · full narration' if counterpart.get('scope') == 'full_narration' else '')
+        direction = 'rtl' if language == 'arabic' else 'ltr'
+        lines += ['<details>', '<summary>' + label + '</summary>', '']
+        qualification = counterpart_qualification(counterpart, record)
+        if qualification:
+            lines += [prose(qualification), '']
+        lines += [prose(counterpart['text'], direction),
+                  prose(counterpart_citation(counterpart, language), direction), '']
+        counterpart_url = safe_url(counterpart.get('source_url'))
+        credit = counterpart.get('source_name') or 'Source not named'
+        counterpart_credit = ('<a href="' + escaped(counterpart_url) + '">' + escaped(credit) + '</a>'
+                              if counterpart_url else escaped(credit))
+        if language == 'english':
+            counterpart_credit += ' · Translation origin: ' + ('Human' if counterpart.get('translation_origin') == 'human' else 'Unknown')
+        lines += ['<p>' + counterpart_credit + '</p>', '', '</details>', '']
     url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_name = source.get('name') or record['source_id']
     source_display = ('<a href="' + escaped(url) + '">' + escaped(source_name) + '</a>'
@@ -730,6 +755,7 @@ def build(root, output, markdown_output=None, compress=True, site=None):
                 'materials': catalog.get('materials', []), 'language_names': LANGUAGE_NAMES,
                 'site': site_metadata(catalog, site),
                 'review_display_policy': review_display_metadata(root),
+                'counterparts': catalog.get('counterparts'),
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if compress:

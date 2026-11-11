@@ -23,6 +23,7 @@ from urllib.parse import unquote, urlsplit
 
 from current_provenance import apply_policy as apply_provenance_policy, classification, decision_for, load_policy as load_provenance_policy
 from review_display_policy import extraction_metadata
+from resolve_counterparts import CounterpartResolver
 
 
 PUBLIC_BASELINE = '9688bbfb6e53832169acdc4ef5127ef8fc1fb259'
@@ -241,7 +242,9 @@ def expected_record(row, material, position, is_jsonl, policy, provenance_policy
             'review_fields': {k: review[k] for k in ('status', 'issues', 'independent_pro_qc', 'release_status') if k in review}}
 
 
-def compare_projection(record, expected, root, public):
+def compare_projection(record, expected, root, public, counterpart_resolver=None):
+    if counterpart_resolver is None and 'counterparts' in record:
+        counterpart_resolver = CounterpartResolver(root)
     identifier = expected['id']
     for field in ('id', 'source_id', 'language', 'book_key', 'edition', 'text_arabic', 'text_translation', 'canonical_record_sha256'):
         require(record.get(field) == expected[field], 'Projection/source mismatch for ' + identifier + ': ' + field)
@@ -251,7 +254,8 @@ def compare_projection(record, expected, root, public):
     local(root, source['original_file'])
     local(root, source['record_locator']['path'])
     if 'full_projection_sha256' in expected:
-        require(object_hash(record) == expected['full_projection_sha256'], 'Public projection fields differ from authorized source and policy: ' + identifier)
+        original = {key: value for key, value in record.items() if key != 'counterparts'}
+        require(object_hash(original) == expected['full_projection_sha256'], 'Public projection fields differ from authorized source and policy: ' + identifier)
     else:
         require(not public, 'Private canonical shape in public projection')
         for field, value in expected['preserved_fields'].items():
@@ -260,6 +264,11 @@ def compare_projection(record, expected, root, public):
         for field, value in expected['review_fields'].items():
             require(record.get('review', {}).get(field) == value, 'Historical review changed for ' + identifier + ': ' + field)
         require(record.get('review', {}).get('certified_release_eligible') is False, 'Private source release status promoted: ' + identifier)
+    if counterpart_resolver is not None and counterpart_resolver.enabled:
+        require(record.get('counterparts') == counterpart_resolver.for_record(record),
+                'Counterpart differs from its verified source/matching evidence: ' + identifier)
+    else:
+        require('counterparts' not in record, 'Counterpart lacks a verified source manifest: ' + identifier)
     for relative in (record.get('translation_provenance', {}).get('policy_path'),
                      record.get('translation_provenance', {}).get('current_policy', {}).get('policy_path'),
                      record.get('review', {}).get('current_policy', {}).get('policy_path')):
@@ -270,6 +279,7 @@ def compare_projection(record, expected, root, public):
 
 
 def verify_shards(root, search, expected, public):
+    counterpart_resolver = CounterpartResolver(root)
     require(isinstance(search.get('shards'), list) and search['shards'], 'Missing ordered search shards')
     aggregate, seen, paths, projected_hashes = hashlib.sha256(), set(), set(), []
     by_language, by_dataset, current_origins, text_codepoints = Counter(), Counter(), Counter(), 0
@@ -288,7 +298,7 @@ def verify_shards(root, search, expected, public):
                 identifier = record.get('id')
                 require(isinstance(identifier, str) and identifier in expected, 'Unexpected projected occurrence: ' + str(identifier))
                 require(identifier not in seen, 'Duplicate projected occurrence: ' + identifier)
-                compare_projection(record, expected[identifier], root, public)
+                compare_projection(record, expected[identifier], root, public, counterpart_resolver)
                 seen.add(identifier); rows += 1
                 by_language[record['language']] += 1; by_dataset[record['source_id']] += 1
                 current_origins[classification(record)] += 1

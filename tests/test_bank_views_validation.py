@@ -25,6 +25,11 @@ class PortableViewValidationTests(unittest.TestCase):
         shard = next(s for s in catalog['search']['shards'] if '/ja/' in s['path'])
         with (ROOT / shard['path']).open(encoding='utf-8') as stream:
             cls.records = [json.loads(next(stream)), json.loads(next(stream))]
+        # This small fixture validates the original source projection without
+        # installing the optional counterpart databases. Their additive field
+        # is separately rejected below when no verified manifest is present.
+        for record in cls.records:
+            record.pop('counterparts', None)
         with (ROOT / cls.material['canonical_records_path']).open(encoding='utf-8') as stream:
             cls.canonical = [json.loads(next(stream)), json.loads(next(stream))]
         cls.policy = json.loads((ROOT / 'catalog/review-policy.json').read_text())['hadeethenc']
@@ -72,6 +77,11 @@ class PortableViewValidationTests(unittest.TestCase):
         bad_hash['shards'][0]['sha256'] = '0' * 64
         with self.assertRaisesRegex(validator.ValidationError, 'Shard SHA-256 mismatch'):
             validator.verify_shards(self.root, bad_hash, self.expected, True)
+
+    def test_counterparts_require_their_own_verified_source_manifest(self):
+        record = dict(self.records[0], counterparts={'english': {'text': 'TEST unsupported'}})
+        with self.assertRaisesRegex(validator.ValidationError, 'Counterpart lacks a verified source manifest'):
+            validator.compare_projection(record, self.expected[record['id']], self.root, True)
 
     def test_reader_compares_complete_objects_not_just_ids_or_counts(self):
         search = self.shards()

@@ -18,6 +18,7 @@ import sys
 
 from current_provenance import POLICY_PATH as CURRENT_PROVENANCE_PATH, apply_policy as apply_provenance_policy, classification, load_policy as load_provenance_policy
 from review_display_policy import extraction_metadata
+from resolve_counterparts import enrich_records
 
 
 LANG_NAMES = {'ja': 'Japanese', 'fil': 'Filipino / Tagalog', 'vi': 'Vietnamese',
@@ -665,6 +666,7 @@ def build(bank_root, output, attachments=None):
         registry['review_status'] = 'Original private_candidate/source-review-pending history preserved; current public availability is recorded per source.'
         registry['scope'] = 'public_repository_source_registration'
         write_json(registry_path, registry)
+    counterpart_summary = enrich_records(output, [item for group in projection_groups for item in group])
     search_root = output / 'search'
     if search_root.exists():
         # Only this generator's reproducible projections are replaced.
@@ -731,6 +733,8 @@ def build(bank_root, output, attachments=None):
         'no_new_translation_created': True, 'canonical_sources_unchanged': True,
         'snapshot_equivalence_note': 'Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.',
     }
+    if counterpart_summary is not None:
+        catalog['counterparts'] = counterpart_summary
     write_json(output / 'catalog/materials.json', catalog)
     write_snapshot_relationships(output, projection_groups)
     write_entry_points(output, catalog)

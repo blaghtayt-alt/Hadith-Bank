@@ -42,10 +42,13 @@ import tempfile
 import unicodedata
 
 from current_provenance import classification as current_translation_origin
+from counterpart_display import (counterpart_data, counterpart_search_values,
+                                 counterpart_citation, counterpart_qualification)
+from citation_search import has_noncanonical_numbering, record_citation_pairs, split_citation_query
 
 
 VERSION = 'hadith-bank-search-v1'
-CACHE_VERSION = '5:literal-substrings:nfkc-casefold-arabic-persian-cjk:scoped-source-metadata:current-origin:record-metadata'
+CACHE_VERSION = '7:literal-substrings:arabic-persian-cjk:arabic-digits:paired-citations:scoped-source-metadata:current-origin:record-metadata'
 CATALOG_PATH = 'catalog/materials.json'
 DEFAULT_DATABASE = '.cache/hadith-search.sqlite'
 LANGUAGE_ALIASES = {'zh': 'zh-CN', 'tl': 'fil'}
@@ -254,6 +257,7 @@ class VerifiedStream:
 def _fold(value, *, join_cjk=True):
     """Search-only normalization; never apply this to result/source fields."""
     value = unicodedata.normalize('NFKC', value).casefold()
+    value = value.translate(str.maketrans('٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹', '01234567890123456789'))
     value = ''.join(char for char in value if char != '\u0640' and not (
         unicodedata.category(char).startswith('M') and
         ('ARABIC' in unicodedata.name(char, '') or '\u0610' <= char <= '\u061a' or
@@ -294,6 +298,7 @@ def _keys(record):
     values = [record.get(field) for field in _PRIMARY_SEARCH_FIELDS]
     values += [source.get(field) for field in _SOURCE_SEARCH_FIELDS]
     values += [narrator.get(field) for field in _NARRATOR_SEARCH_FIELDS]
+    values += list(counterpart_search_values(record))
     # Normalize within each source field, then separate fields so a CJK substring
     # cannot be manufactured by joining a title to the start of the narration.
     body = '\n'.join(_fold(s) for value in values for s in _strings(value))
@@ -386,8 +391,12 @@ def _connect(path, *, readonly=False):
         connection = sqlite3.connect(path.as_uri() + '?mode=ro', uri=True)
     else:
         connection = sqlite3.connect(path)
-    connection.execute('PRAGMA trusted_schema=OFF')
-    connection.execute('PRAGMA foreign_keys=ON')
+    try:
+        connection.execute('PRAGMA trusted_schema=OFF')
+        connection.execute('PRAGMA foreign_keys=ON')
+    except BaseException:
+        connection.close()
+        raise
     return connection
 
 
@@ -410,6 +419,8 @@ def _build_cache(connection, stream):
         );
         CREATE TABLE tags(record_line INTEGER NOT NULL, value TEXT NOT NULL,
             PRIMARY KEY(record_line, value), FOREIGN KEY(record_line) REFERENCES records(line));
+        CREATE TABLE citation_pairs(record_line INTEGER NOT NULL, book_key TEXT NOT NULL, number TEXT NOT NULL,
+            PRIMARY KEY(record_line, book_key, number), FOREIGN KEY(record_line) REFERENCES records(line));
         CREATE INDEX records_identity ON records(id);
         CREATE INDEX records_provider ON records(provider_entry_id);
         CREATE INDEX records_language ON records(language);
@@ -418,6 +429,7 @@ def _build_cache(connection, stream):
         CREATE INDEX records_origin ON records(translation_origin);
         CREATE INDEX records_current_origin ON records(current_translation_origin);
         CREATE INDEX tags_value ON tags(value, record_line);
+        CREATE INDEX citation_pair_values ON citation_pairs(book_key, number, record_line);
     ''')
     engine = _create_fts(connection)
     with connection:
@@ -431,6 +443,8 @@ def _build_cache(connection, stream):
             ))
             connection.executemany('INSERT INTO tags VALUES (?, ?)',
                                    ((line, tag) for tag in sorted(_tag_values(record))))
+            connection.executemany('INSERT INTO citation_pairs VALUES (?, ?, ?)',
+                                   ((line, key, number) for key, number in sorted(record_citation_pairs(record))))
         if engine == 'trigram':
             connection.execute("INSERT INTO search_fts(search_fts) VALUES ('rebuild')")
         connection.executemany('INSERT INTO metadata VALUES (?, ?)', [
@@ -505,7 +519,7 @@ def _like(value):
     return '%' + value.replace('\\', '\\\\').replace('%', '\\%').replace('_', '\\_') + '%'
 
 
-def _where(terms, filters, include_commentary, engine):
+def _where(terms, filters, include_commentary, engine, citation_pairs=()):
     clauses, parameters = [], []
     for key in ('language', 'book_key', 'source_id'):
         if filters.get(key) is not None:
@@ -522,6 +536,9 @@ def _where(terms, filters, include_commentary, engine):
     if filters['tag'] is not None:
         clauses.append('EXISTS (SELECT 1 FROM tags t WHERE t.record_line = r.line AND t.value = ?)')
         parameters.append(filters['tag'])
+    for book_key, number in citation_pairs:
+        clauses.append('EXISTS (SELECT 1 FROM citation_pairs c WHERE c.record_line = r.line AND c.book_key = ? AND c.number = ?)')
+        parameters.extend((book_key, number))
     if engine == 'trigram':
         long_terms = [term for term in terms if len(term) >= 3]
         if long_terms:
@@ -537,7 +554,7 @@ def _where(terms, filters, include_commentary, engine):
     return (' WHERE ' + ' AND '.join(clauses) if clauses else ''), parameters
 
 
-def _matches(record, terms, filters, include_commentary):
+def _matches(record, terms, filters, include_commentary, citation_pairs=()):
     origin = (current_translation_origin(record) if filters['translation_origin'] in ('human', 'ai', 'unknown')
               else record['translation_provenance']['origin'])
     for key, value in [('language', record['language']), ('book_key', record['book_key']),
@@ -548,6 +565,8 @@ def _matches(record, terms, filters, include_commentary):
     if filters['entry_id'] is not None and filters['entry_id'] not in (record['id'], record['provider_entry_id']):
         return False
     if filters['tag'] is not None and filters['tag'] not in _tag_values(record):
+        return False
+    if not set(citation_pairs).issubset(record_citation_pairs(record)):
         return False
     body, annotations = _keys(record)
     searchable = body + ('\n' + annotations if include_commentary else '')
@@ -572,12 +591,13 @@ def search(root, query='', *, language=None, book=None, source=None, entry_id=No
     filters = {'language': LANGUAGE_ALIASES.get(language, language), 'book_key': book,
                'source_id': source, 'entry_id': entry_id, 'tag': tag,
                'translation_origin': translation_origin}
-    terms = list(dict.fromkeys(_fold(query, join_cjk=False).split()))
+    citation_pairs, other_query = split_citation_query(_fold(query, join_cjk=False))
+    terms = list(dict.fromkeys(other_query.split()))
     catalog = _load_catalog(root)
     stream = VerifiedStream(root, catalog['search'])
     connection, engine, rebuilt, cache_path = _cache(stream, database)
     try:
-        where, parameters = _where(terms, filters, include_commentary, engine)
+        where, parameters = _where(terms, filters, include_commentary, engine, citation_pairs)
         try:
             matched = connection.execute('SELECT COUNT(*) FROM records r' + where, parameters).fetchone()[0]
             selected = connection.execute('SELECT r.line FROM records r' + where + ' ORDER BY r.line LIMIT ?',
@@ -585,7 +605,7 @@ def search(root, query='', *, language=None, book=None, source=None, entry_id=No
         except sqlite3.OperationalError:
             # Some SQLite builds accept the table but lack a query capability.
             # The literal LIKE fallback has the same matching semantics.
-            where, parameters = _where(terms, filters, include_commentary, 'like')
+            where, parameters = _where(terms, filters, include_commentary, 'like', citation_pairs)
             matched = connection.execute('SELECT COUNT(*) FROM records r' + where, parameters).fetchone()[0]
             selected = connection.execute('SELECT r.line FROM records r' + where + ' ORDER BY r.line LIMIT ?',
                                           parameters + [limit]).fetchall()
@@ -595,7 +615,7 @@ def search(root, query='', *, language=None, book=None, source=None, entry_id=No
         for (line,) in selected:
             record = stream.record(line)
             original = _validate_record(root, record)
-            if not _matches(record, terms, filters, include_commentary):
+            if not _matches(record, terms, filters, include_commentary, citation_pairs):
                 raise ValueError('Cached result disagrees with the verified source record; remove the disposable cache')
             if original not in source_hashes:
                 source_hashes[original] = _hash_file(original)
@@ -614,6 +634,7 @@ def search(root, query='', *, language=None, book=None, source=None, entry_id=No
             results.append(result)
         return {
             'schema': VERSION, 'query': query, 'filters': filters,
+            'query_interpretation': {'citation_pairs': [{'book_key': key, 'number': number} for key, number in citation_pairs], 'text_terms': terms},
             'matched': matched, 'shown': len(results), 'limit': limit,
             'include_commentary': include_commentary,
             'results': results,
@@ -638,11 +659,26 @@ def format_results(result):
             lines.append('Title: ' + item['title'])
         number = item['number'].get('in_book')
         if number is not None:
-            lines.append('Printed number: ' + str(number))
+            label = 'Source number: ' if has_noncanonical_numbering(item['number']) else 'Printed number: '
+            lines.append(label + str(number))
         if item['provider_entry_id'] is not None:
             lines.append('Provider entry: ' + item['provider_entry_id'])
         lines.extend(['', 'Arabic:', item['text_arabic'] or '(not supplied)',
                       '', 'Translation:', item['text_translation'] or '(not supplied)'])
+        for language in ('arabic', 'english'):
+            counterpart = counterpart_data(item, language)
+            if counterpart is None:
+                continue
+            lines.extend(['', language.title() + ' counterpart:', counterpart['text'],
+                          counterpart_citation(counterpart, language)])
+            qualification = counterpart_qualification(counterpart, item)
+            if qualification:
+                lines.append(qualification)
+            lines.append('Counterpart source: ' + (counterpart.get('source_name') or '(not named)'))
+            if counterpart.get('source_url'):
+                lines.append('Counterpart URL: ' + counterpart['source_url'])
+            if language == 'english':
+                lines.append('Counterpart translation origin: ' + ('Human' if counterpart.get('translation_origin') == 'human' else 'Unknown'))
         narrator = item['narrator'] or {}
         if narrator.get('name'):
             lines.extend(['', 'Narrator: ' + str(narrator['name'])])
