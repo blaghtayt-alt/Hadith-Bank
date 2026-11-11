@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sahih Muslim
+# Filipino / Tagalog — Filipino / صحيح مسلم — Sahih Muslim
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Sahih Muslim</p>
 

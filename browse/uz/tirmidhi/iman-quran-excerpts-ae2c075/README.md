@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Jami al-Tirmidhi
+# O‘zbekcha — Uzbek / Жомеъ ат-Термизий — Jami al-Tirmidhi
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Musnad Ahmad
+# 简体中文 — Chinese (Simplified) / 艾哈迈德圣训集 — Musnad Ahmad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/ahmad/)
 

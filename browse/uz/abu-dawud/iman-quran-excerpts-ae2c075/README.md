@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sunan Abi Dawud
+# O‘zbekcha — Uzbek / Сунани Абу Довуд — Sunan Abi Dawud
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Sunan Abi Dawud</p>
 

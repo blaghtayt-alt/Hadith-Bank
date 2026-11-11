@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Collection not identified in the source
+# O‘zbekcha — Uzbek / Тўплам аниқланмаган — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — uz — Unclassified source citations</p>
 

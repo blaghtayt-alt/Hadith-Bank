@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to al-Tabarani
+# Filipino / Tagalog — Filipino / الطبراني — Reports attributed to al-Tabarani
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/tabarani/)
 

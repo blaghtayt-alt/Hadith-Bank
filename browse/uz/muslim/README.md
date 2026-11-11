@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sahih Muslim
+# O‘zbekcha — Uzbek / Саҳиҳ Муслим — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/muslim/)
 

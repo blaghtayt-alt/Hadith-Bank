@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sahih al-Bukhari
+# 日本語 — Japanese / サヒーフ・アル＝ブハーリー — Sahih al-Bukhari
 
 <p dir="auto">Older Hadith Bank — ja — Sahih al-Bukhari</p>
 

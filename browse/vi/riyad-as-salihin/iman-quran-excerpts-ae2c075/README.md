@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Riyad al-Salihin
+# Tiếng Việt — Vietnamese / Những Ngôi Vườn Của Những Người Ngoan Đạo — Riyad al-Salihin
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Riyad as-Salihin</p>
 

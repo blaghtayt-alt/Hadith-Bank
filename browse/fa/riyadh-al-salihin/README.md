@@ -1,4 +1,4 @@
-# فارسی — Persian / Riyad al-Salihin
+# فارسی — Persian / ریاض الصالحین — Riyad al-Salihin
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/riyadh-al-salihin/)
 

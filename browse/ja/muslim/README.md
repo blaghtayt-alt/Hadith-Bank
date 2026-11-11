@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sahih Muslim
+# 日本語 — Japanese / サヒーフ・ムスリム — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/muslim/)
 

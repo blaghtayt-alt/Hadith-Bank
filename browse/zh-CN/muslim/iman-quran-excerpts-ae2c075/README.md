@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sahih Muslim
+# 简体中文 — Chinese (Simplified) / 穆斯林圣训实录 — Sahih Muslim
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sahih Muslim</p>
 

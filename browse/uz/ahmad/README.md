@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Musnad Ahmad
+# O‘zbekcha — Uzbek / Муснади Аҳмад — Musnad Ahmad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/ahmad/)
 

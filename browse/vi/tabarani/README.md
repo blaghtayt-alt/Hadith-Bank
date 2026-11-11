@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Reports attributed to al-Tabarani
+# Tiếng Việt — Vietnamese / الطبراني — Reports attributed to al-Tabarani
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/tabarani/)
 

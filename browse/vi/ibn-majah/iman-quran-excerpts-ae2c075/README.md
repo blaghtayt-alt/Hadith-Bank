@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sunan Ibn Majah
+# Tiếng Việt — Vietnamese / سنن ابن ماجه — Sunan Ibn Majah
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Sunan Ibn Majah</p>
 

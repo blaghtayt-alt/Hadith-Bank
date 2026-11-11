@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Riyad al-Salihin
+# O‘zbekcha — Uzbek / Риёзус-солиҳийн — Riyad al-Salihin
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/riyad-as-salihin/)
 

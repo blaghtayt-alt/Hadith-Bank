@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sahih Muslim
+# हिन्दी — Hindi / सहीह मुस्लिम — Sahih Muslim
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Sahih Muslim</p>
 

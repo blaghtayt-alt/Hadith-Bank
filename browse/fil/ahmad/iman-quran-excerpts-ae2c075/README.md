@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Musnad Ahmad
+# Filipino / Tagalog — Filipino / مسند أحمد — Musnad Ahmad
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Musnad Ahmad</p>
 

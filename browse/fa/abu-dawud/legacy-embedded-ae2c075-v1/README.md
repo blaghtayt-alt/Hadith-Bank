@@ -1,4 +1,4 @@
-# فارسی — Persian / Sunan Abi Dawud
+# فارسی — Persian / سنن ابی‌داوود — Sunan Abi Dawud
 
 <p dir="auto">Older Hadith Bank — fa — Sunan Abi Dawud</p>
 

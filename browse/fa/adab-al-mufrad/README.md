@@ -1,4 +1,4 @@
-# فارسی — Persian / Al-Adab al-Mufrad
+# فارسی — Persian / الأدب المفرد — Al-Adab al-Mufrad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/adab-al-mufrad/)
 

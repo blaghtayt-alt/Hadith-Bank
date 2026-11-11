@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Al-Adab al-Mufrad
+# O‘zbekcha — Uzbek / Ал-Адаб ал-Муфрад — Al-Adab al-Mufrad
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

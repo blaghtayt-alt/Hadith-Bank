@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Hisn al-Muslim
+# Filipino / Tagalog — Filipino / KUTANG-TANGGULAN NG MUSLIM — Hisn al-Muslim
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Hisn al-Muslim</p>
 

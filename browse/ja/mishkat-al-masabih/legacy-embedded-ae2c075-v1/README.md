@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Mishkat al-Masabih
+# 日本語 — Japanese / ミシカート アルマサビーハ — Mishkat al-Masabih
 
 <p dir="auto">Older Hadith Bank — ja — Mishkat al-Masabih</p>
 

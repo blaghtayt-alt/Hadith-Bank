@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Jami al-Tirmidhi
+# 日本語 — Japanese / スナン・アッ＝ティルミズィー — Jami al-Tirmidhi
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/tirmidhi/)
 

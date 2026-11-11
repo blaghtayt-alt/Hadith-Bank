@@ -1,4 +1,4 @@
-# فارسی — Persian / Riyad al-Salihin
+# فارسی — Persian / ریاض الصالحین — Riyad al-Salihin
 
 <p dir="auto">ترجمه فارسی ریاض الصالحین — عبد الله خاموش هروی</p>
 

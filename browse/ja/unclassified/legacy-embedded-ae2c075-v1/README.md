@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Collection not identified in the source
+# 日本語 — Japanese / 出典未特定 — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — ja — Unclassified source citations</p>
 

@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Reports attributed to al-Hakim
+# 日本語 — Japanese / الحاكم — Reports attributed to al-Hakim
 
 <p dir="auto">Older Hadith Bank — ja — Al-Hakim</p>
 

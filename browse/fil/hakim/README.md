@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to al-Hakim
+# Filipino / Tagalog — Filipino / الحاكم — Reports attributed to al-Hakim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/hakim/)
 

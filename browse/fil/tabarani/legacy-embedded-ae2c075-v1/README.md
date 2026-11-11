@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to al-Tabarani
+# Filipino / Tagalog — Filipino / الطبراني — Reports attributed to al-Tabarani
 
 <p dir="auto">Older Hadith Bank — fil — Al-Tabarani</p>
 

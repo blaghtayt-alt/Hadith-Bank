@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sunan Abi Dawud
+# Tiếng Việt — Vietnamese / سنن أبي داود — Sunan Abi Dawud
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/abu-dawud/)
 

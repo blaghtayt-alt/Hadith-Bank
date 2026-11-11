@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sahih al-Bukhari
+# 简体中文 — Chinese (Simplified) / 布哈里圣训实录 — Sahih al-Bukhari
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

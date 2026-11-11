@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sunan Abi Dawud
+# 简体中文 — Chinese (Simplified) / 艾布·达吾德圣训集 — Sunan Abi Dawud
 
 <p dir="auto">艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)</p>
 

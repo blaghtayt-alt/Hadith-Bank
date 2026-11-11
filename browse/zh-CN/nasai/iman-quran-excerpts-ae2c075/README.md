@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sunan al-Nasai
+# 简体中文 — Chinese (Simplified) / 奈萨仪圣训集 — Sunan al-Nasai
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sunan al-Nasai</p>
 

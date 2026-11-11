@@ -1,4 +1,4 @@
-# فارسی — Persian / Sunan Ibn Majah
+# فارسی — Persian / سنن ابن‌ماجه — Sunan Ibn Majah
 
 <p dir="auto">Older Hadith Bank — fa — Sunan Ibn Majah</p>
 

@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sahih Muslim
+# Filipino / Tagalog — Filipino / صحيح مسلم — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/muslim/)
 

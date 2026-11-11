@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sahih Muslim
+# O‘zbekcha — Uzbek / Саҳиҳ Муслим — Sahih Muslim
 
 <p dir="auto">Older Hadith Bank — uz — Sahih Muslim</p>
 

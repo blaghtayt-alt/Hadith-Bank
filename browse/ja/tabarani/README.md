@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Reports attributed to al-Tabarani
+# 日本語 — Japanese / الطبراني — Reports attributed to al-Tabarani
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/tabarani/)
 

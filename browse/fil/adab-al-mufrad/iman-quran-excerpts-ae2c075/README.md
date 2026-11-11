@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Al-Adab al-Mufrad
+# Filipino / Tagalog — Filipino / الأدب المفرد — Al-Adab al-Mufrad
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

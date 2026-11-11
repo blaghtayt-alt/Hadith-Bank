@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Jami al-Tirmidhi
+# 日本語 — Japanese / スナン・アッ＝ティルミズィー — Jami al-Tirmidhi
 
 <p dir="auto">Older Hadith Bank — ja — Jami al-Tirmidhi</p>
 

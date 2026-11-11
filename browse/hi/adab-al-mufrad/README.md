@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Al-Adab al-Mufrad
+# हिन्दी — Hindi / अल-अदब अल-मुफ़रद — Al-Adab al-Mufrad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/adab-al-mufrad/)
 

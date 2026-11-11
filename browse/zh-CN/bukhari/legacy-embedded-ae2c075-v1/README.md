@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sahih al-Bukhari
+# 简体中文 — Chinese (Simplified) / 布哈里圣训实录 — Sahih al-Bukhari
 
 <p dir="auto">Older Hadith Bank — zh-CN — Sahih al-Bukhari</p>
 

@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Collection not identified in the source
+# Tiếng Việt — Vietnamese / Chưa xác định bộ sưu tập — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — vi — Unclassified source citations</p>
 

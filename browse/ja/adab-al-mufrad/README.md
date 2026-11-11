@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Al-Adab al-Mufrad
+# 日本語 — Japanese / アル＝アダブ・アル＝ムフラド — Al-Adab al-Mufrad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/adab-al-mufrad/)
 

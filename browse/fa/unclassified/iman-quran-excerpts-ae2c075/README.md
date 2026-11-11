@@ -1,4 +1,4 @@
-# فارسی — Persian / Collection not identified in the source
+# فارسی — Persian / مجموعه مشخص نشده — Collection not identified in the source
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Unresolved collection</p>
 

@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Reports attributed to al-Hakim
+# O‘zbekcha — Uzbek / الحاكم — Reports attributed to al-Hakim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/hakim/)
 

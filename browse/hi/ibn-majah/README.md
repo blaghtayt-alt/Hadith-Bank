@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sunan Ibn Majah
+# हिन्दी — Hindi / सुनन इब्ने माजह — Sunan Ibn Majah
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/ibn-majah/)
 

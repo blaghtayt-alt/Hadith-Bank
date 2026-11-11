@@ -1,4 +1,4 @@
-# فارسی — Persian / Al-Targhib wa al-Tarhib
+# فارسی — Persian / ترغیب و ترهیب — Al-Targhib wa al-Tarhib
 
 <p dir="auto">ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 3</p>
 

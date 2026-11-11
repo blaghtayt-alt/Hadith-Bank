@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Reports attributed to al-Hakim
+# 日本語 — Japanese / الحاكم — Reports attributed to al-Hakim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hakim/)
 

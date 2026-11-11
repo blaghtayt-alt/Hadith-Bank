@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Hisn al-Muslim
+# हिन्दी — Hindi / हिस्नुल्-मुस्लिम — Hisn al-Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/hisn-al-muslim/)
 

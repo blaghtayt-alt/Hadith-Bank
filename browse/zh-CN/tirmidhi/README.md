@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Jami al-Tirmidhi
+# 简体中文 — Chinese (Simplified) / 提尔米兹圣训集 — Jami al-Tirmidhi
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/tirmidhi/)
 

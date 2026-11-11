@@ -1,4 +1,4 @@
-# فارسی — Persian / Sunan Abi Dawud
+# فارسی — Persian / سنن ابی‌داوود — Sunan Abi Dawud
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/abu-dawud/)
 

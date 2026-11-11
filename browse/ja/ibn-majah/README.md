@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sunan Ibn Majah
+# 日本語 — Japanese / スナン・イブン・マージャ — Sunan Ibn Majah
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/ibn-majah/)
 

@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sahih al-Bukhari
+# Filipino / Tagalog — Filipino / صحيح البخاري — Sahih al-Bukhari
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

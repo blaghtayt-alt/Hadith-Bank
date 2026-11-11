@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Musnad Ahmad
+# 日本語 — Japanese / ムスナド・アフマド — Musnad Ahmad
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Musnad Ahmad</p>
 

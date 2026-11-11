@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Hisn al-Muslim
+# 日本語 — Japanese / ムスリムの砦 — Hisn al-Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hisn-al-muslim/)
 

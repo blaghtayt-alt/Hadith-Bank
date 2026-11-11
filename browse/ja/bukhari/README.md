@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sahih al-Bukhari
+# 日本語 — Japanese / サヒーフ・アル＝ブハーリー — Sahih al-Bukhari
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/bukhari/)
 

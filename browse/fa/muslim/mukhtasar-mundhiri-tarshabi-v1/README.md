@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih Muslim
+# فارسی — Persian / صحیح مسلم — Sahih Muslim
 
 <p dir="auto">مختصر صحیح مسلم — منذری / ترشابی، جلد 1</p>
 

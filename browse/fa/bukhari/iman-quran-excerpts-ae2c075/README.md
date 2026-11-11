@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih al-Bukhari
+# فارسی — Persian / صحیح البخاری — Sahih al-Bukhari
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

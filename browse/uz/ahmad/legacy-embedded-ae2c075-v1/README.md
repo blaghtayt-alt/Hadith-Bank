@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Musnad Ahmad
+# O‘zbekcha — Uzbek / Муснади Аҳмад — Musnad Ahmad
 
 <p dir="auto">Older Hadith Bank — uz — Musnad Ahmad</p>
 

@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Collection not identified in the source
+# 日本語 — Japanese / 出典未特定 — Collection not identified in the source
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/unclassified/)
 

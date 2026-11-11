@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sahih Muslim
+# 日本語 — Japanese / サヒーフ・ムスリム — Sahih Muslim
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Sahih Muslim</p>
 

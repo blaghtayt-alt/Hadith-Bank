@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sunan Abi Dawud
+# O‘zbekcha — Uzbek / Сунани Абу Довуд — Sunan Abi Dawud
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/abu-dawud/)
 

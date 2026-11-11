@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sahih Muslim
+# हिन्दी — Hindi / सहीह मुस्लिम — Sahih Muslim
 
 <p dir="auto">Older Hadith Bank — hi — Sahih Muslim</p>
 

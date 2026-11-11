@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Reports attributed to Ibn Hibban
+# Tiếng Việt — Vietnamese / ابن حبان — Reports attributed to Ibn Hibban
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/ibn-hibban/)
 

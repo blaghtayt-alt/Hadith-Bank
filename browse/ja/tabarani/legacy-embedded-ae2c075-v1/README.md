@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Reports attributed to al-Tabarani
+# 日本語 — Japanese / الطبراني — Reports attributed to al-Tabarani
 
 <p dir="auto">Older Hadith Bank — ja — Al-Tabarani</p>
 

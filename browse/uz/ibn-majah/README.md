@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sunan Ibn Majah
+# O‘zbekcha — Uzbek / Сунани Ибн Можа — Sunan Ibn Majah
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/ibn-majah/)
 

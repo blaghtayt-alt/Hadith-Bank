@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Reports attributed to al-Tabarani
+# Tiếng Việt — Vietnamese / الطبراني — Reports attributed to al-Tabarani
 
 <p dir="auto">Older Hadith Bank — vi — Al-Tabarani</p>
 

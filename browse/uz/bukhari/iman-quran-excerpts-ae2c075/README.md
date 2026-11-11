@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sahih al-Bukhari
+# O‘zbekcha — Uzbek / Саҳиҳ ал-Бухорий — Sahih al-Bukhari
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

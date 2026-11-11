@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Musnad Ahmad
+# Filipino / Tagalog — Filipino / مسند أحمد — Musnad Ahmad
 
 <p dir="auto">Older Hadith Bank — fil — Musnad Ahmad</p>
 

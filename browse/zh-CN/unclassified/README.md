@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Collection not identified in the source
+# 简体中文 — Chinese (Simplified) / 未确定典籍 — Collection not identified in the source
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/unclassified/)
 

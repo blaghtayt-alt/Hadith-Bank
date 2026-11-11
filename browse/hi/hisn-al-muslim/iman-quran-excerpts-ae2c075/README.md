@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Hisn al-Muslim
+# हिन्दी — Hindi / हिस्नुल्-मुस्लिम — Hisn al-Muslim
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Hisn al-Muslim</p>
 

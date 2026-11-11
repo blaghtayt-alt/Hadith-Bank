@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih Muslim
+# فارسی — Persian / صحیح مسلم — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/muslim/)
 

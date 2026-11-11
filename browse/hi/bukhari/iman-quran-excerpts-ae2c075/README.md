@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sahih al-Bukhari
+# हिन्दी — Hindi / सह़ीह़ बुख़ारी — Sahih al-Bukhari
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

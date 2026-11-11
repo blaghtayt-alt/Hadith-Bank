@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sahih Muslim
+# Filipino / Tagalog — Filipino / صحيح مسلم — Sahih Muslim
 
 <p dir="auto">Older Hadith Bank — fil — Sahih Muslim</p>
 

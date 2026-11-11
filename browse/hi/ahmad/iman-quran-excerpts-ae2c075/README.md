@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Musnad Ahmad
+# हिन्दी — Hindi / मुसनद अह़मद — Musnad Ahmad
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Musnad Ahmad</p>
 

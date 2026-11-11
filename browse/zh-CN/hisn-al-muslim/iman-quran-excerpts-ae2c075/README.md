@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Hisn al-Muslim
+# 简体中文 — Chinese (Simplified) / 穆斯林的堡垒 — Hisn al-Muslim
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Hisn al-Muslim</p>
 

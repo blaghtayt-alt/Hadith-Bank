@@ -1,4 +1,4 @@
-# فارسی — Persian / Jami al-Tirmidhi
+# فارسی — Persian / سنن ترمذی — Jami al-Tirmidhi
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sunan Ibn Majah
+# हिन्दी — Hindi / सुनन इब्ने माजह — Sunan Ibn Majah
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Sunan Ibn Majah</p>
 

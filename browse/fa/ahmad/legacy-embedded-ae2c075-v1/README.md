@@ -1,4 +1,4 @@
-# فارسی — Persian / Musnad Ahmad
+# فارسی — Persian / مُسنَد احمد — Musnad Ahmad
 
 <p dir="auto">Older Hadith Bank — fa — Musnad Ahmad</p>
 

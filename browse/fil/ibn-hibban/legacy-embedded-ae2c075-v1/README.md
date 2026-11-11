@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to Ibn Hibban
+# Filipino / Tagalog — Filipino / ابن حبان — Reports attributed to Ibn Hibban
 
 <p dir="auto">Older Hadith Bank — fil — Sahih Ibn Hibban</p>
 

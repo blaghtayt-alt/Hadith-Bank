@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Musnad Ahmad
+# O‘zbekcha — Uzbek / Муснади Аҳмад — Musnad Ahmad
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Musnad Ahmad</p>
 

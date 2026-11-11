@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Reports attributed to Ibn Hibban
+# Tiếng Việt — Vietnamese / ابن حبان — Reports attributed to Ibn Hibban
 
 <p dir="auto">Older Hadith Bank — vi — Sahih Ibn Hibban</p>
 

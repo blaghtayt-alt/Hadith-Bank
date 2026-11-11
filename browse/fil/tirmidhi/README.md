@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Jami al-Tirmidhi
+# Filipino / Tagalog — Filipino / جامع الترمذي — Jami al-Tirmidhi
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/tirmidhi/)
 

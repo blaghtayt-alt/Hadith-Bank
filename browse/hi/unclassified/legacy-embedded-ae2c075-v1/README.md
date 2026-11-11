@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Collection not identified in the source
+# हिन्दी — Hindi / संग्रह की पहचान नहीं हुई — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — hi — Unclassified source citations</p>
 

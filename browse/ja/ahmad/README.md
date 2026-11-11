@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Musnad Ahmad
+# 日本語 — Japanese / ムスナド・アフマド — Musnad Ahmad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/ahmad/)
 

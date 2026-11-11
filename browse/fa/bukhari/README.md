@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih al-Bukhari
+# فارسی — Persian / صحیح البخاری — Sahih al-Bukhari
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/)
 

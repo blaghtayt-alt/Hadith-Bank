@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sunan Ibn Majah
+# हिन्दी — Hindi / सुनन इब्ने माजह — Sunan Ibn Majah
 
 <p dir="auto">Older Hadith Bank — hi — Sunan Ibn Majah</p>
 

@@ -1,4 +1,4 @@
-# فارسی — Persian / Collection not identified in the source
+# فارسی — Persian / مجموعه مشخص نشده — Collection not identified in the source
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/unclassified/)
 

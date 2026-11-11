@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Collection not identified in the source
+# O‘zbekcha — Uzbek / Тўплам аниқланмаган — Collection not identified in the source
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/unclassified/)
 

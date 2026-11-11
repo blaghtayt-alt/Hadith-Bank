@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Muwatta of Imam Malik
+# 简体中文 — Chinese (Simplified) / 穆宛塔圣训集 — Muwatta of Imam Malik
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/malik/)
 

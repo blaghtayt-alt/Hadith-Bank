@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sunan Abi Dawud
+# हिन्दी — Hindi / सुनन अबू दावूद — Sunan Abi Dawud
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Sunan Abi Dawud</p>
 

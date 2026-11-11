@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Jami al-Tirmidhi
+# Tiếng Việt — Vietnamese / جامع الترمذي — Jami al-Tirmidhi
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

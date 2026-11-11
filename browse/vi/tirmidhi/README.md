@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Jami al-Tirmidhi
+# Tiếng Việt — Vietnamese / جامع الترمذي — Jami al-Tirmidhi
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/tirmidhi/)
 

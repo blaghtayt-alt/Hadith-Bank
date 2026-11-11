@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sahih Muslim
+# Tiếng Việt — Vietnamese / صحيح مسلم — Sahih Muslim
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Sahih Muslim</p>
 

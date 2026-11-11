@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sahih Muslim
+# O‘zbekcha — Uzbek / Саҳиҳ Муслим — Sahih Muslim
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Sahih Muslim</p>
 

@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sahih Muslim
+# Tiếng Việt — Vietnamese / صحيح مسلم — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/muslim/)
 

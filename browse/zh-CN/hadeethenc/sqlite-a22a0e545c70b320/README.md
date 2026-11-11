@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / HadeethEnc
+# 简体中文 — Chinese (Simplified) / 圣训翻译百科全书 — HadeethEnc
 
 <p dir="auto">HadeethEnc.com</p>
 

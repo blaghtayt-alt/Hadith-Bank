@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih Muslim
+# فارسی — Persian / صحیح مسلم — Sahih Muslim
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Sahih Muslim</p>
 

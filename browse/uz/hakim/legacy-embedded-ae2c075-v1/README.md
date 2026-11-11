@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Reports attributed to al-Hakim
+# O‘zbekcha — Uzbek / الحاكم — Reports attributed to al-Hakim
 
 <p dir="auto">Older Hadith Bank — uz — Al-Hakim</p>
 

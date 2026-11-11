@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Jami al-Tirmidhi
+# हिन्दी — Hindi / सुनन तिर्मिज़ी — Jami al-Tirmidhi
 
 <p dir="auto">Older Hadith Bank — hi — Jami al-Tirmidhi</p>
 

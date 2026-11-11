@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Hisn al-Muslim
+# Filipino / Tagalog — Filipino / KUTANG-TANGGULAN NG MUSLIM — Hisn al-Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/hisn-al-muslim/)
 

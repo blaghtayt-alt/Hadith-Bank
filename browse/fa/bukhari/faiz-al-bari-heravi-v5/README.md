@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih al-Bukhari
+# فارسی — Persian / صحیح البخاری — Sahih al-Bukhari
 
 <p dir="auto">فیض الباری — مختصر صحیح البخاری، جلد 5</p>
 

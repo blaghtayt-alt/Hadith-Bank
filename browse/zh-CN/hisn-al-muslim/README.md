@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Hisn al-Muslim
+# 简体中文 — Chinese (Simplified) / 穆斯林的堡垒 — Hisn al-Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/)
 

@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to Ibn Hibban
+# Filipino / Tagalog — Filipino / ابن حبان — Reports attributed to Ibn Hibban
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/ibn-hibban/)
 

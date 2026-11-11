@@ -1,4 +1,4 @@
-# فارسی — Persian / Al-Targhib wa al-Tarhib
+# فارسی — Persian / ترغیب و ترهیب — Al-Targhib wa al-Tarhib
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/targhib-wa-tarhib/)
 

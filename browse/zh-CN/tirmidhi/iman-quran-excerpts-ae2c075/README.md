@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Jami al-Tirmidhi
+# 简体中文 — Chinese (Simplified) / 提尔米兹圣训集 — Jami al-Tirmidhi
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

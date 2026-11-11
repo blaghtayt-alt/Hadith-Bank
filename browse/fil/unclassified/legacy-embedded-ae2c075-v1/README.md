@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Collection not identified in the source
+# Filipino / Tagalog — Filipino / Hindi natukoy ang koleksiyon — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — fil — Unclassified source citations</p>
 

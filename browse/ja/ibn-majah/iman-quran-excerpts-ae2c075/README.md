@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sunan Ibn Majah
+# 日本語 — Japanese / スナン・イブン・マージャ — Sunan Ibn Majah
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Sunan Ibn Majah</p>
 

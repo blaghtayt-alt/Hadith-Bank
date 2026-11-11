@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sunan Abi Dawud
+# 日本語 — Japanese / スナン・アブー・ダーウード — Sunan Abi Dawud
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Sunan Abi Dawud</p>
 

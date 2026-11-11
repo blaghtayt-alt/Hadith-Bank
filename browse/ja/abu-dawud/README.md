@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sunan Abi Dawud
+# 日本語 — Japanese / スナン・アブー・ダーウード — Sunan Abi Dawud
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/abu-dawud/)
 

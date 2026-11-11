@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Sahih al-Bukhari
+# 日本語 — Japanese / サヒーフ・アル＝ブハーリー — Sahih al-Bukhari
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

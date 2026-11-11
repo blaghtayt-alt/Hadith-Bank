@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Reports attributed to al-Hakim
+# Filipino / Tagalog — Filipino / الحاكم — Reports attributed to al-Hakim
 
 <p dir="auto">Older Hadith Bank — fil — Al-Hakim</p>
 

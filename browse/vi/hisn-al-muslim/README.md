@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Hisn al-Muslim
+# Tiếng Việt — Vietnamese / حصن المسلم — Hisn al-Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/hisn-al-muslim/)
 

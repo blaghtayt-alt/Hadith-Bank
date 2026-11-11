@@ -1,4 +1,4 @@
-# فارسی — Persian / Sahih al-Bukhari
+# فارسی — Persian / صحیح البخاری — Sahih al-Bukhari
 
 <p dir="auto">Older Hadith Bank — fa — Sahih al-Bukhari</p>
 

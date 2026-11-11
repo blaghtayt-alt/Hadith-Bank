@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sunan Abi Dawud
+# Filipino / Tagalog — Filipino / سنن أبي داود — Sunan Abi Dawud
 
 <p dir="auto">Older Hadith Bank — fil — Sunan Abi Dawud</p>
 

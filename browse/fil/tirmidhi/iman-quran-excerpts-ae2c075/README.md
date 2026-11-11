@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Jami al-Tirmidhi
+# Filipino / Tagalog — Filipino / جامع الترمذي — Jami al-Tirmidhi
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

@@ -1,4 +1,4 @@
-# فارسی — Persian / Musnad Ahmad
+# فارسی — Persian / مُسنَد احمد — Musnad Ahmad
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Musnad Ahmad</p>
 

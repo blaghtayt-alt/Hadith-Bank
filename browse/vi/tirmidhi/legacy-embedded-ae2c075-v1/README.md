@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Jami al-Tirmidhi
+# Tiếng Việt — Vietnamese / جامع الترمذي — Jami al-Tirmidhi
 
 <p dir="auto">Older Hadith Bank — vi — Jami al-Tirmidhi</p>
 

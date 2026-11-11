@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Musnad Ahmad
+# 简体中文 — Chinese (Simplified) / 艾哈迈德圣训集 — Musnad Ahmad
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Musnad Ahmad</p>
 

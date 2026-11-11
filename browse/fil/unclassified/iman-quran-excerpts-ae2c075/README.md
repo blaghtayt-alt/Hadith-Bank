@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Collection not identified in the source
+# Filipino / Tagalog — Filipino / Hindi natukoy ang koleksiyon — Collection not identified in the source
 
 <p dir="auto">Filipino Quran-study Hadith excerpts — Unresolved collection</p>
 

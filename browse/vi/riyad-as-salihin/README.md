@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Riyad al-Salihin
+# Tiếng Việt — Vietnamese / Những Ngôi Vườn Của Những Người Ngoan Đạo — Riyad al-Salihin
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/riyad-as-salihin/)
 

@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sunan Ibn Majah
+# O‘zbekcha — Uzbek / Сунани Ибн Можа — Sunan Ibn Majah
 
 <p dir="auto">Older Hadith Bank — uz — Sunan Ibn Majah</p>
 

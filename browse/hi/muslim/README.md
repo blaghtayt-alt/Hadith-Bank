@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sahih Muslim
+# हिन्दी — Hindi / सहीह मुस्लिम — Sahih Muslim
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/muslim/)
 

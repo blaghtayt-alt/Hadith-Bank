@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sunan Ibn Majah
+# Tiếng Việt — Vietnamese / سنن ابن ماجه — Sunan Ibn Majah
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/ibn-majah/)
 

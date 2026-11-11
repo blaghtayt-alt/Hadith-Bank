@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Jami al-Tirmidhi
+# 日本語 — Japanese / スナン・アッ＝ティルミズィー — Jami al-Tirmidhi
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
 

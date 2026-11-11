@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Al-Adab al-Mufrad
+# Tiếng Việt — Vietnamese / الأدب المفرد — Al-Adab al-Mufrad
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

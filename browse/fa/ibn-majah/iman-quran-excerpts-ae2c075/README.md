@@ -1,4 +1,4 @@
-# فارسی — Persian / Sunan Ibn Majah
+# فارسی — Persian / سنن ابن‌ماجه — Sunan Ibn Majah
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Sunan Ibn Majah</p>
 

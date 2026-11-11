@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / 200 Golden Hadith
+# Tiếng Việt — Vietnamese / HAI TRĂM HADITH VÀNG CỦA NABI MUHAMMAD — 200 Golden Hadith
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/200-golden-hadith/)
 

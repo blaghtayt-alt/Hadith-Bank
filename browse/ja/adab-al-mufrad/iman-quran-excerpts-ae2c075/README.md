@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Al-Adab al-Mufrad
+# 日本語 — Japanese / アル＝アダブ・アル＝ムフラド — Al-Adab al-Mufrad
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

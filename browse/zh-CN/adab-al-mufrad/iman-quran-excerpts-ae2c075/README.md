@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Al-Adab al-Mufrad
+# 简体中文 — Chinese (Simplified) / 道德箴言集 — Al-Adab al-Mufrad
 
 <p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

@@ -1,4 +1,4 @@
-# فارسی — Persian / Al-Adab al-Mufrad
+# فارسی — Persian / الأدب المفرد — Al-Adab al-Mufrad
 
 <p dir="auto">Persian Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sahih al-Bukhari
+# O‘zbekcha — Uzbek / Саҳиҳ ал-Бухорий — Sahih al-Bukhari
 
 <p dir="auto">Older Hadith Bank — uz — Sahih al-Bukhari</p>
 

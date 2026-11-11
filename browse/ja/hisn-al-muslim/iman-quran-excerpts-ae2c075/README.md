@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Hisn al-Muslim
+# 日本語 — Japanese / ムスリムの砦 — Hisn al-Muslim
 
 <p dir="auto">Japanese Quran-study Hadith excerpts — Hisn al-Muslim</p>
 

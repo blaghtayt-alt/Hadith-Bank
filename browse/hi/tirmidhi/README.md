@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Jami al-Tirmidhi
+# हिन्दी — Hindi / सुनन तिर्मिज़ी — Jami al-Tirmidhi
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/tirmidhi/)
 

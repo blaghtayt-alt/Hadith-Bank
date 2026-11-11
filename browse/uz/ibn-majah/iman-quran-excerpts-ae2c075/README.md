@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Sunan Ibn Majah
+# O‘zbekcha — Uzbek / Сунани Ибн Можа — Sunan Ibn Majah
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Sunan Ibn Majah</p>
 

@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Sahih al-Bukhari
+# हिन्दी — Hindi / सह़ीह़ बुख़ारी — Sahih al-Bukhari
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/bukhari/)
 

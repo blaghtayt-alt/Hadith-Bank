@@ -1,4 +1,4 @@
-# हिन्दी — Hindi / Al-Adab al-Mufrad
+# हिन्दी — Hindi / अल-अदब अल-मुफ़रद — Al-Adab al-Mufrad
 
 <p dir="auto">Hindi Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
 

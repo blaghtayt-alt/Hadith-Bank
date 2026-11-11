@@ -1,4 +1,4 @@
-# 日本語 — Japanese / Mishkat al-Masabih
+# 日本語 — Japanese / ミシカート アルマサビーハ — Mishkat al-Masabih
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/mishkat-al-masabih/)
 

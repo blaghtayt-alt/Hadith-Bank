@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Al-Adab al-Mufrad
+# Filipino / Tagalog — Filipino / الأدب المفرد — Al-Adab al-Mufrad
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/adab-al-mufrad/)
 

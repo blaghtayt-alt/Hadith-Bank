@@ -4,13 +4,13 @@
 
 [Browse this language online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/)
 
-- [Sunan Abi Dawud](abu-dawud/README.md) — 2 source occurrences
-- [Al-Adab al-Mufrad](adab-al-mufrad/README.md) — 1 source occurrences
-- [Musnad Ahmad](ahmad/README.md) — 3 source occurrences
-- [Sahih al-Bukhari](bukhari/README.md) — 105 source occurrences
+- [सुनन अबू दावूद — Sunan Abi Dawud](abu-dawud/README.md) — 2 source occurrences
+- [अल-अदब अल-मुफ़रद — Al-Adab al-Mufrad](adab-al-mufrad/README.md) — 1 source occurrences
+- [मुसनद अह़मद — Musnad Ahmad](ahmad/README.md) — 3 source occurrences
+- [सह़ीह़ बुख़ारी — Sahih al-Bukhari](bukhari/README.md) — 105 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 2314 source occurrences
-- [Hisn al-Muslim](hisn-al-muslim/README.md) — 2 source occurrences
-- [Sunan Ibn Majah](ibn-majah/README.md) — 2 source occurrences
-- [Sahih Muslim](muslim/README.md) — 120 source occurrences
-- [Jami al-Tirmidhi](tirmidhi/README.md) — 7 source occurrences
-- [Collection not identified in the source](unclassified/README.md) — 28 source occurrences
+- [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 2 source occurrences
+- [सुनन इब्ने माजह — Sunan Ibn Majah](ibn-majah/README.md) — 2 source occurrences
+- [सहीह मुस्लिम — Sahih Muslim](muslim/README.md) — 120 source occurrences
+- [सुनन तिर्मिज़ी — Jami al-Tirmidhi](tirmidhi/README.md) — 7 source occurrences
+- [संग्रह की पहचान नहीं हुई — Collection not identified in the source](unclassified/README.md) — 28 source occurrences

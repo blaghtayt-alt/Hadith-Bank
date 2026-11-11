@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sunan Ibn Majah
+# 简体中文 — Chinese (Simplified) / 伊本·马哲圣训集 — Sunan Ibn Majah
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/ibn-majah/)
 

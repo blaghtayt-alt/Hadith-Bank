@@ -1,4 +1,4 @@
-# Filipino / Tagalog — Filipino / Sahih al-Bukhari
+# Filipino / Tagalog — Filipino / صحيح البخاري — Sahih al-Bukhari
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/bukhari/)
 

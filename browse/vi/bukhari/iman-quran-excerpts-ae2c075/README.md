@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sahih al-Bukhari
+# Tiếng Việt — Vietnamese / صحيح البخاري — Sahih al-Bukhari
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Sahih al-Bukhari</p>
 

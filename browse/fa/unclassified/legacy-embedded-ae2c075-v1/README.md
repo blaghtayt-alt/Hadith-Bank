@@ -1,4 +1,4 @@
-# فارسی — Persian / Collection not identified in the source
+# فارسی — Persian / مجموعه مشخص نشده — Collection not identified in the source
 
 <p dir="auto">Older Hadith Bank — fa — Unclassified source citations</p>
 

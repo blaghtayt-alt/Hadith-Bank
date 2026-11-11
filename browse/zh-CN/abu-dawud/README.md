@@ -1,4 +1,4 @@
-# 简体中文 — Chinese (Simplified) / Sunan Abi Dawud
+# 简体中文 — Chinese (Simplified) / 艾布·达吾德圣训集 — Sunan Abi Dawud
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/abu-dawud/)
 

@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Sunan Abi Dawud
+# Tiếng Việt — Vietnamese / سنن أبي داود — Sunan Abi Dawud
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Sunan Abi Dawud</p>
 

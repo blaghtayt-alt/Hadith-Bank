@@ -1,4 +1,4 @@
-# O‘zbekcha — Uzbek / Riyad al-Salihin
+# O‘zbekcha — Uzbek / Риёзус-солиҳийн — Riyad al-Salihin
 
 <p dir="auto">Uzbek Quran-study Hadith excerpts — Riyad as-Salihin</p>
 

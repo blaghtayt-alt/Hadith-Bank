@@ -1,4 +1,4 @@
-# Tiếng Việt — Vietnamese / Hisn al-Muslim
+# Tiếng Việt — Vietnamese / حصن المسلم — Hisn al-Muslim
 
 <p dir="auto">Vietnamese Quran-study Hadith excerpts — Hisn al-Muslim</p>
 
