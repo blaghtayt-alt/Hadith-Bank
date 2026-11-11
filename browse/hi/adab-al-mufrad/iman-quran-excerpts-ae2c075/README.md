@@ -1,4 +1,8 @@
-# Hindi / adab-al-mufrad
+# हिन्दी — Hindi / Al-Adab al-Mufrad
+
+<p dir="auto">Hindi Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/adab-al-mufrad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

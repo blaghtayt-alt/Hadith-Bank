@@ -1,4 +1,8 @@
-# Filipino / ibn-hibban
+# Filipino / Tagalog — Filipino / Reports attributed to Ibn Hibban
+
+<p dir="auto">Older Hadith Bank — fil — Sahih Ibn Hibban</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/ibn-hibban/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

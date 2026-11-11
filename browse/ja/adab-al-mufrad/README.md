@@ -1,4 +1,6 @@
-# Japanese / adab-al-mufrad
+# 日本語 — Japanese / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

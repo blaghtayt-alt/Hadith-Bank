@@ -1,4 +1,8 @@
-# Filipino / muslim
+# Filipino / Tagalog — Filipino / Sahih Muslim
+
+<p dir="auto">Filipino Quran-study Hadith excerpts — Sahih Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/muslim/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 14 source occurrences.
 

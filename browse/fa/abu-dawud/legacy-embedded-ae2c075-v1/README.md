@@ -1,4 +1,8 @@
-# Persian / abu-dawud
+# فارسی — Persian / Sunan Abi Dawud
+
+<p dir="auto">Older Hadith Bank — fa — Sunan Abi Dawud</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

@@ -1,4 +1,6 @@
-# Filipino / bukhari
+# Filipino / Tagalog — Filipino / Sahih al-Bukhari
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/bukhari/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

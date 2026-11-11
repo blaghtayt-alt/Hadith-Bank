@@ -1,4 +1,8 @@
-# Persian / bukhari
+# فارسی — Persian / Sahih al-Bukhari
+
+<p dir="auto">فیض الباری — مختصر صحیح البخاری، جلد 6</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/faiz-al-bari-heravi-v6/)
 
 Edition: `faiz-al-bari-heravi-v6` · 457 source occurrences.
 

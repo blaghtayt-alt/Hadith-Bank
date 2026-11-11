@@ -1,4 +1,8 @@
-# Japanese / ahmad
+# 日本語 — Japanese / Musnad Ahmad
+
+<p dir="auto">Japanese Quran-study Hadith excerpts — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/ahmad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 3 source occurrences.
 

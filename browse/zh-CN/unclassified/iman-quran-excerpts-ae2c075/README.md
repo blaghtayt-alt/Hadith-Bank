@@ -1,4 +1,8 @@
-# Chinese (Simplified) / unclassified
+# 简体中文 — Chinese (Simplified) / Collection not identified in the source
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Unresolved collection</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/unclassified/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

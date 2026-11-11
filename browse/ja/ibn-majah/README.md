@@ -1,4 +1,6 @@
-# Japanese / ibn-majah
+# 日本語 — Japanese / Sunan Ibn Majah
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/ibn-majah/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

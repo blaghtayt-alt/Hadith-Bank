@@ -1,4 +1,8 @@
-# Persian / riyadh-al-salihin
+# فارسی — Persian / Riyad al-Salihin
+
+<p dir="auto">ترجمه فارسی ریاض الصالحین — عبد الله خاموش هروی</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/riyadh-al-salihin/heravi-1394-digital/)
 
 Edition: `heravi-1394-digital` · 1946 source occurrences.
 

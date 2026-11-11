@@ -1,4 +1,6 @@
-# Hindi / ahmad
+# हिन्दी — Hindi / Musnad Ahmad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/ahmad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

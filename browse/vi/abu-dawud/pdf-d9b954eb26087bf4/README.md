@@ -1,4 +1,8 @@
-# Vietnamese / abu-dawud
+# Tiếng Việt — Vietnamese / Sunan Abi Dawud
+
+<p dir="auto">Chanlyislam</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/abu-dawud/pdf-d9b954eb26087bf4/)
 
 Edition: `pdf-d9b954eb26087bf4` · 84 source occurrences.
 

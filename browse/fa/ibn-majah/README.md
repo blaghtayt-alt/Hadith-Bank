@@ -1,4 +1,6 @@
-# Persian / ibn-majah
+# فارسی — Persian / Sunan Ibn Majah
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/ibn-majah/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

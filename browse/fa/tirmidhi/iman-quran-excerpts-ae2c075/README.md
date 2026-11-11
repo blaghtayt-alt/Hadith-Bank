@@ -1,4 +1,8 @@
-# Persian / tirmidhi
+# فارسی — Persian / Jami al-Tirmidhi
+
+<p dir="auto">Persian Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/tirmidhi/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 5 source occurrences.
 

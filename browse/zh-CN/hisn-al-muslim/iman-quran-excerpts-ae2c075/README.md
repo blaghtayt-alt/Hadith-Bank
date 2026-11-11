@@ -1,4 +1,8 @@
-# Chinese (Simplified) / hisn-al-muslim
+# 简体中文 — Chinese (Simplified) / Hisn al-Muslim
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Hisn al-Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

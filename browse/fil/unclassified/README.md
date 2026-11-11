@@ -1,4 +1,6 @@
-# Filipino / unclassified
+# Filipino / Tagalog — Filipino / Collection not identified in the source
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/unclassified/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

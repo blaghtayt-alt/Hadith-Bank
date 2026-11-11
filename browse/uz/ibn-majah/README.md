@@ -1,4 +1,6 @@
-# Uzbek / ibn-majah
+# O‘zbekcha — Uzbek / Sunan Ibn Majah
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/ibn-majah/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

@@ -1,4 +1,8 @@
-# Japanese / muslim
+# 日本語 — Japanese / Sahih Muslim
+
+<p dir="auto">WEB版　日訳サヒーフ・ムスリム</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/muslim/pdf-c859ce57c211ea1b/)
 
 Edition: `pdf-c859ce57c211ea1b` · 1811 source occurrences.
 

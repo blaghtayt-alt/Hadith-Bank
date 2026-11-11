@@ -1,4 +1,8 @@
-# Uzbek / hadeethenc
+# O‘zbekcha — Uzbek / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/)
 
 Edition: `sqlite-8241193c5ac1f3bc` · 420 source occurrences.
 

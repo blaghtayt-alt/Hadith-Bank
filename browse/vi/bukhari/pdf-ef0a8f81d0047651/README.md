@@ -1,4 +1,8 @@
-# Vietnamese / bukhari
+# Tiếng Việt — Vietnamese / Sahih al-Bukhari
+
+<p dir="auto">Chanlyislam</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/bukhari/pdf-ef0a8f81d0047651/)
 
 Edition: `pdf-ef0a8f81d0047651` · 62 source occurrences.
 

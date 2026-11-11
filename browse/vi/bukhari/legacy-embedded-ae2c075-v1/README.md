@@ -1,4 +1,8 @@
-# Vietnamese / bukhari
+# Tiếng Việt — Vietnamese / Sahih al-Bukhari
+
+<p dir="auto">Older Hadith Bank — vi — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/bukhari/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 21 source occurrences.
 

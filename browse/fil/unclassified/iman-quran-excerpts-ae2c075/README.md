@@ -1,4 +1,8 @@
-# Filipino / unclassified
+# Filipino / Tagalog — Filipino / Collection not identified in the source
+
+<p dir="auto">Filipino Quran-study Hadith excerpts — Unresolved collection</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/unclassified/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

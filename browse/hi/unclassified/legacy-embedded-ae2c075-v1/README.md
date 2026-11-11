@@ -1,4 +1,8 @@
-# Hindi / unclassified
+# हिन्दी — Hindi / Collection not identified in the source
+
+<p dir="auto">Older Hadith Bank — hi — Unclassified source citations</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/unclassified/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 28 source occurrences.
 

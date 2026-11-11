@@ -1,4 +1,6 @@
-# Uzbek / ahmad
+# O‘zbekcha — Uzbek / Musnad Ahmad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/ahmad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

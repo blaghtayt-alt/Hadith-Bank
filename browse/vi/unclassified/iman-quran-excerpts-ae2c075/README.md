@@ -1,4 +1,8 @@
-# Vietnamese / unclassified
+# Tiếng Việt — Vietnamese / Collection not identified in the source
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Unresolved collection</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/unclassified/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

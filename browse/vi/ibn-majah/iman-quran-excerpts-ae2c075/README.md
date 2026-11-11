@@ -1,4 +1,8 @@
-# Vietnamese / ibn-majah
+# Tiếng Việt — Vietnamese / Sunan Ibn Majah
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Sunan Ibn Majah</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/ibn-majah/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

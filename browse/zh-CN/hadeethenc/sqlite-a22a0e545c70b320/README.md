@@ -1,4 +1,8 @@
-# Chinese (Simplified) / hadeethenc
+# 简体中文 — Chinese (Simplified) / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/)
 
 Edition: `sqlite-a22a0e545c70b320` · 2256 source occurrences.
 

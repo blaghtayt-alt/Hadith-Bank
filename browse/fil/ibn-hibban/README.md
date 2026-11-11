@@ -1,4 +1,6 @@
-# Filipino / ibn-hibban
+# Filipino / Tagalog — Filipino / Reports attributed to Ibn Hibban
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/ibn-hibban/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

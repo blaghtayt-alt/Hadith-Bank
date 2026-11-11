@@ -1,4 +1,8 @@
-# Vietnamese / abu-dawud
+# Tiếng Việt — Vietnamese / Sunan Abi Dawud
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Sunan Abi Dawud</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/abu-dawud/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

@@ -1,4 +1,6 @@
-# Chinese (Simplified) / bukhari
+# 简体中文 — Chinese (Simplified) / Sahih al-Bukhari
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/bukhari/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

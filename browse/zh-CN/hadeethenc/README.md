@@ -1,4 +1,6 @@
-# Chinese (Simplified) / hadeethenc
+# 简体中文 — Chinese (Simplified) / HadeethEnc
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hadeethenc/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

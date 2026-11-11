@@ -1,4 +1,8 @@
-# Vietnamese / tabarani
+# Tiếng Việt — Vietnamese / Reports attributed to al-Tabarani
+
+<p dir="auto">Older Hadith Bank — vi — Al-Tabarani</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/tabarani/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

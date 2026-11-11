@@ -1,4 +1,8 @@
-# Uzbek / bukhari
+# O‘zbekcha — Uzbek / Sahih al-Bukhari
+
+<p dir="auto">Uzbek Quran-study Hadith excerpts — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/bukhari/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 13 source occurrences.
 

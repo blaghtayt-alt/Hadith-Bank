@@ -1,4 +1,8 @@
-# Uzbek / riyad-as-salihin
+# O‘zbekcha — Uzbek / Riyad al-Salihin
+
+<p dir="auto">Uzbek Quran-study Hadith excerpts — Riyad as-Salihin</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/riyad-as-salihin/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 3 source occurrences.
 

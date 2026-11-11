@@ -1,4 +1,6 @@
-# Japanese / tirmidhi
+# 日本語 — Japanese / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

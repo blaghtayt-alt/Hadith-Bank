@@ -1,4 +1,8 @@
-# Persian / adab-al-mufrad
+# فارسی — Persian / Al-Adab al-Mufrad
+
+<p dir="auto">Persian Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/adab-al-mufrad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

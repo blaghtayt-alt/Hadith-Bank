@@ -1,4 +1,6 @@
-# Persian / bukhari
+# فارسی — Persian / Sahih al-Bukhari
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

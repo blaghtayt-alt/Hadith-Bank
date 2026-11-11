@@ -1,4 +1,6 @@
-# Persian / tirmidhi
+# فارسی — Persian / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

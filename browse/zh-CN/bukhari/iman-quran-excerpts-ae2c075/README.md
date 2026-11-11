@@ -1,4 +1,8 @@
-# Chinese (Simplified) / bukhari
+# 简体中文 — Chinese (Simplified) / Sahih al-Bukhari
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/bukhari/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 10 source occurrences.
 

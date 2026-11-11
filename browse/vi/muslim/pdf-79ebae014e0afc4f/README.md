@@ -1,4 +1,8 @@
-# Vietnamese / muslim
+# Tiếng Việt — Vietnamese / Sahih Muslim
+
+<p dir="auto">Chanlyislam</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/muslim/pdf-79ebae014e0afc4f/)
 
 Edition: `pdf-79ebae014e0afc4f` · 35 source occurrences.
 

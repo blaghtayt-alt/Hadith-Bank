@@ -1,4 +1,6 @@
-# Chinese (Simplified) / hisn-al-muslim
+# 简体中文 — Chinese (Simplified) / Hisn al-Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

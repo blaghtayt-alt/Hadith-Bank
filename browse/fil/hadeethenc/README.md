@@ -1,4 +1,6 @@
-# Filipino / hadeethenc
+# Filipino / Tagalog — Filipino / HadeethEnc
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/hadeethenc/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

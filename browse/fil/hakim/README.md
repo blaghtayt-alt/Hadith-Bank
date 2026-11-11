@@ -1,4 +1,6 @@
-# Filipino / hakim
+# Filipino / Tagalog — Filipino / Reports attributed to al-Hakim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/hakim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

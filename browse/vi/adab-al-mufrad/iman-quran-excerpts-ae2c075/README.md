@@ -1,4 +1,8 @@
-# Vietnamese / adab-al-mufrad
+# Tiếng Việt — Vietnamese / Al-Adab al-Mufrad
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/adab-al-mufrad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

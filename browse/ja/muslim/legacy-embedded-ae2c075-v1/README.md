@@ -1,4 +1,8 @@
-# Japanese / muslim
+# 日本語 — Japanese / Sahih Muslim
+
+<p dir="auto">Older Hadith Bank — ja — Sahih Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/muslim/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 39 source occurrences.
 

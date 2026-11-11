@@ -1,4 +1,8 @@
-# Vietnamese / hadeethenc
+# Tiếng Việt — Vietnamese / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/hadeethenc/sqlite-3fb9e549494ff0f6/)
 
 Edition: `sqlite-3fb9e549494ff0f6` · 1203 source occurrences.
 

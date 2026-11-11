@@ -1,4 +1,8 @@
-# Persian / targhib-wa-tarhib
+# فارسی — Persian / Al-Targhib wa al-Tarhib
+
+<p dir="auto">ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 1</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/targhib-wa-tarhib/bazmandegan-1397-v1/)
 
 Edition: `bazmandegan-1397-v1` · 2416 source occurrences.
 

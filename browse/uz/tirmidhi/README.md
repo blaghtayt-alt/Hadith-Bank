@@ -1,4 +1,6 @@
-# Uzbek / tirmidhi
+# O‘zbekcha — Uzbek / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

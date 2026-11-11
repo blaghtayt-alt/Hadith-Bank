@@ -1,4 +1,8 @@
-# Persian / ahmad
+# فارسی — Persian / Musnad Ahmad
+
+<p dir="auto">Older Hadith Bank — fa — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/ahmad/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 3 source occurrences.
 

@@ -1,4 +1,8 @@
-# Chinese (Simplified) / malik
+# 简体中文 — Chinese (Simplified) / Muwatta of Imam Malik
+
+<p dir="auto">穆宛塔圣训集 — Muwatta of Imam Malik (al-Shaybani recension)</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/malik/docx-cf65c0e865be95a7/)
 
 Edition: `docx-cf65c0e865be95a7` · 1006 source occurrences.
 

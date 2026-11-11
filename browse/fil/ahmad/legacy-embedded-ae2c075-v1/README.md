@@ -1,4 +1,8 @@
-# Filipino / ahmad
+# Filipino / Tagalog — Filipino / Musnad Ahmad
+
+<p dir="auto">Older Hadith Bank — fil — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/ahmad/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

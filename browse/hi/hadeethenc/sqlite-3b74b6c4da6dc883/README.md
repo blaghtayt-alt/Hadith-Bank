@@ -1,4 +1,8 @@
-# Hindi / hadeethenc
+# हिन्दी — Hindi / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/)
 
 Edition: `sqlite-3b74b6c4da6dc883` · 2314 source occurrences.
 

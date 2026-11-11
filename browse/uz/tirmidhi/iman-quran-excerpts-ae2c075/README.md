@@ -1,4 +1,8 @@
-# Uzbek / tirmidhi
+# O‘zbekcha — Uzbek / Jami al-Tirmidhi
+
+<p dir="auto">Uzbek Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/tirmidhi/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 5 source occurrences.
 

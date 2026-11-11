@@ -1,4 +1,8 @@
-# Vietnamese / riyad-as-salihin
+# Tiếng Việt — Vietnamese / Riyad al-Salihin
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Riyad as-Salihin</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/riyad-as-salihin/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

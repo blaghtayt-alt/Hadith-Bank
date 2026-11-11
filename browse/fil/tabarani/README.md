@@ -1,4 +1,6 @@
-# Filipino / tabarani
+# Filipino / Tagalog — Filipino / Reports attributed to al-Tabarani
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/tabarani/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

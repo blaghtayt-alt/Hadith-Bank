@@ -1,4 +1,8 @@
-# Hindi / abu-dawud
+# हिन्दी — Hindi / Sunan Abi Dawud
+
+<p dir="auto">Hindi Quran-study Hadith excerpts — Sunan Abi Dawud</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/abu-dawud/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

@@ -1,4 +1,8 @@
-# Filipino / tirmidhi
+# Filipino / Tagalog — Filipino / Jami al-Tirmidhi
+
+<p dir="auto">Filipino Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/tirmidhi/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 4 source occurrences.
 

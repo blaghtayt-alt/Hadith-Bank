@@ -1,4 +1,8 @@
-# Chinese (Simplified) / adab-al-mufrad
+# 简体中文 — Chinese (Simplified) / Al-Adab al-Mufrad
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Al-Adab al-Mufrad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/adab-al-mufrad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

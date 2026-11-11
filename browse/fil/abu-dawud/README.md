@@ -1,4 +1,6 @@
-# Filipino / abu-dawud
+# Filipino / Tagalog — Filipino / Sunan Abi Dawud
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/abu-dawud/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

@@ -1,4 +1,6 @@
-# Hindi / bukhari
+# हिन्दी — Hindi / Sahih al-Bukhari
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/bukhari/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

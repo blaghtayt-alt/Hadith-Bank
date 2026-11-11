@@ -1,4 +1,6 @@
-# Japanese / mishkat-al-masabih
+# 日本語 — Japanese / Mishkat al-Masabih
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/mishkat-al-masabih/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

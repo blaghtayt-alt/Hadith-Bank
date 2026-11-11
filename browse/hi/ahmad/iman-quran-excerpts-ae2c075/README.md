@@ -1,4 +1,8 @@
-# Hindi / ahmad
+# हिन्दी — Hindi / Musnad Ahmad
+
+<p dir="auto">Hindi Quran-study Hadith excerpts — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/ahmad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 3 source occurrences.
 

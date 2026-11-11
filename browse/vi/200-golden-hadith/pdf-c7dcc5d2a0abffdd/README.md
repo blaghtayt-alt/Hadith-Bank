@@ -1,4 +1,8 @@
-# Vietnamese / 200-golden-hadith
+# Tiếng Việt — Vietnamese / 200 Golden Hadith
+
+<p dir="auto">Chanlyislam</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/)
 
 Edition: `pdf-c7dcc5d2a0abffdd` · 200 source occurrences.
 

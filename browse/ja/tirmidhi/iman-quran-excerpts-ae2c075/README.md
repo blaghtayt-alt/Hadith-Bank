@@ -1,4 +1,8 @@
-# Japanese / tirmidhi
+# 日本語 — Japanese / Jami al-Tirmidhi
+
+<p dir="auto">Japanese Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/tirmidhi/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 8 source occurrences.
 

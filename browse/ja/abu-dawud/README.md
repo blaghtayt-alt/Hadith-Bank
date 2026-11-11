@@ -1,4 +1,6 @@
-# Japanese / abu-dawud
+# 日本語 — Japanese / Sunan Abi Dawud
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/abu-dawud/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

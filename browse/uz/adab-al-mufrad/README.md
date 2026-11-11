@@ -1,4 +1,6 @@
-# Uzbek / adab-al-mufrad
+# O‘zbekcha — Uzbek / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

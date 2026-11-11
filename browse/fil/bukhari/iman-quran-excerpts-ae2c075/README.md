@@ -1,4 +1,8 @@
-# Filipino / bukhari
+# Filipino / Tagalog — Filipino / Sahih al-Bukhari
+
+<p dir="auto">Filipino Quran-study Hadith excerpts — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/bukhari/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 13 source occurrences.
 

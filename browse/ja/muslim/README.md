@@ -1,4 +1,6 @@
-# Japanese / muslim
+# 日本語 — Japanese / Sahih Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

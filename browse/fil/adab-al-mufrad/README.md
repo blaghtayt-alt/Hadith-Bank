@@ -1,4 +1,6 @@
-# Filipino / adab-al-mufrad
+# Filipino / Tagalog — Filipino / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

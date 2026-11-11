@@ -1,4 +1,8 @@
-# Chinese (Simplified) / bukhari
+# 简体中文 — Chinese (Simplified) / Sahih al-Bukhari
+
+<p dir="auto">Older Hadith Bank — zh-CN — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/bukhari/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 38 source occurrences.
 

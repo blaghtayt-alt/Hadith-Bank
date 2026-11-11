@@ -1,4 +1,6 @@
-# Japanese / hakim
+# 日本語 — Japanese / Reports attributed to al-Hakim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hakim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

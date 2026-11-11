@@ -1,4 +1,8 @@
-# Chinese (Simplified) / abu-dawud
+# 简体中文 — Chinese (Simplified) / Sunan Abi Dawud
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sunan Abi Dawud</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/abu-dawud/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 1 source occurrences.
 

@@ -1,4 +1,6 @@
-# Vietnamese / riyad-as-salihin
+# Tiếng Việt — Vietnamese / Riyad al-Salihin
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/riyad-as-salihin/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

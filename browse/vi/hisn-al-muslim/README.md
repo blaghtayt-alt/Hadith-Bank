@@ -1,4 +1,6 @@
-# Vietnamese / hisn-al-muslim
+# Tiếng Việt — Vietnamese / Hisn al-Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/hisn-al-muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

@@ -1,4 +1,6 @@
-# Filipino / tirmidhi
+# Filipino / Tagalog — Filipino / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

@@ -1,4 +1,6 @@
-# Vietnamese / unclassified
+# Tiếng Việt — Vietnamese / Collection not identified in the source
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/unclassified/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

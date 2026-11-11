@@ -1,4 +1,8 @@
-# Hindi / hisn-al-muslim
+# हिन्दी — Hindi / Hisn al-Muslim
+
+<p dir="auto">Hindi Quran-study Hadith excerpts — Hisn al-Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/hisn-al-muslim/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

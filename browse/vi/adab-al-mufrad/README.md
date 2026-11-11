@@ -1,4 +1,6 @@
-# Vietnamese / adab-al-mufrad
+# Tiếng Việt — Vietnamese / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

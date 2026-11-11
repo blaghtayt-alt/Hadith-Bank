@@ -1,4 +1,6 @@
-# Uzbek / hakim
+# O‘zbekcha — Uzbek / Reports attributed to al-Hakim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/hakim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

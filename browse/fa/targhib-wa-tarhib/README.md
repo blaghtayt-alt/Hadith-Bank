@@ -1,4 +1,6 @@
-# Persian / targhib-wa-tarhib
+# فارسی — Persian / Al-Targhib wa al-Tarhib
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/targhib-wa-tarhib/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

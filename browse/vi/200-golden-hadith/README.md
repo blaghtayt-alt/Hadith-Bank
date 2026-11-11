@@ -1,4 +1,6 @@
-# Vietnamese / 200-golden-hadith
+# Tiếng Việt — Vietnamese / 200 Golden Hadith
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/200-golden-hadith/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

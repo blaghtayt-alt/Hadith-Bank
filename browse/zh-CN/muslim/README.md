@@ -1,4 +1,6 @@
-# Chinese (Simplified) / muslim
+# 简体中文 — Chinese (Simplified) / Sahih Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

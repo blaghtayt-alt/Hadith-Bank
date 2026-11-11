@@ -1,4 +1,8 @@
-# Japanese / bukhari
+# 日本語 — Japanese / Sahih al-Bukhari
+
+<p dir="auto">Japanese Quran-study Hadith excerpts — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/bukhari/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 15 source occurrences.
 

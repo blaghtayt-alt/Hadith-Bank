@@ -1,4 +1,8 @@
-# Hindi / tirmidhi
+# हिन्दी — Hindi / Jami al-Tirmidhi
+
+<p dir="auto">Older Hadith Bank — hi — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/tirmidhi/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 2 source occurrences.
 

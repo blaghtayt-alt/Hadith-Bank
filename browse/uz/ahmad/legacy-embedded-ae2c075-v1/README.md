@@ -1,4 +1,8 @@
-# Uzbek / ahmad
+# O‘zbekcha — Uzbek / Musnad Ahmad
+
+<p dir="auto">Older Hadith Bank — uz — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/ahmad/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

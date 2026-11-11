@@ -1,4 +1,6 @@
-# Japanese / bukhari
+# 日本語 — Japanese / Sahih al-Bukhari
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/bukhari/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

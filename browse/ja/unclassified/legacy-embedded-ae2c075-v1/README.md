@@ -1,4 +1,8 @@
-# Japanese / unclassified
+# 日本語 — Japanese / Collection not identified in the source
+
+<p dir="auto">Older Hadith Bank — ja — Unclassified source citations</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/unclassified/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 18 source occurrences.
 

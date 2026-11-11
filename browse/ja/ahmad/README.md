@@ -1,4 +1,6 @@
-# Japanese / ahmad
+# 日本語 — Japanese / Musnad Ahmad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/ahmad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

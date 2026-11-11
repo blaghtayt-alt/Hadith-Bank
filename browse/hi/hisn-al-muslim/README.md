@@ -1,4 +1,6 @@
-# Hindi / hisn-al-muslim
+# हिन्दी — Hindi / Hisn al-Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/hisn-al-muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

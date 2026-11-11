@@ -1,4 +1,8 @@
-# Filipino / bukhari
+# Filipino / Tagalog — Filipino / Sahih al-Bukhari
+
+<p dir="auto">Older Hadith Bank — fil — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/bukhari/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 23 source occurrences.
 

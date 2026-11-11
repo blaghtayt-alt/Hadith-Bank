@@ -1,4 +1,6 @@
-# Hindi / adab-al-mufrad
+# हिन्दी — Hindi / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

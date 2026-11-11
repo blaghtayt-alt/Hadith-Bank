@@ -1,4 +1,8 @@
-# Japanese / hadeethenc
+# 日本語 — Japanese / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hadeethenc/sqlite-a81da9af28f854f6/)
 
 Edition: `sqlite-a81da9af28f854f6` · 281 source occurrences.
 

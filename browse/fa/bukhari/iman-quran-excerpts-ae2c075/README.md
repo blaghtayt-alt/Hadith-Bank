@@ -1,4 +1,8 @@
-# Persian / bukhari
+# فارسی — Persian / Sahih al-Bukhari
+
+<p dir="auto">Persian Quran-study Hadith excerpts — Sahih al-Bukhari</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 12 source occurrences.
 

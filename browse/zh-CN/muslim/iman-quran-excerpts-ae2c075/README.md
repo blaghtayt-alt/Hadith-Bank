@@ -1,4 +1,8 @@
-# Chinese (Simplified) / muslim
+# 简体中文 — Chinese (Simplified) / Sahih Muslim
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Sahih Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/muslim/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 15 source occurrences.
 

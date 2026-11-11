@@ -1,4 +1,8 @@
-# Uzbek / muslim
+# O‘zbekcha — Uzbek / Sahih Muslim
+
+<p dir="auto">Older Hadith Bank — uz — Sahih Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/muslim/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 34 source occurrences.
 

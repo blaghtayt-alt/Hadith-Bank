@@ -1,4 +1,6 @@
-# Persian / abu-dawud
+# فارسی — Persian / Sunan Abi Dawud
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/abu-dawud/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

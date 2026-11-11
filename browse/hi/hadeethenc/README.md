@@ -1,4 +1,6 @@
-# Hindi / hadeethenc
+# हिन्दी — Hindi / HadeethEnc
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/hadeethenc/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

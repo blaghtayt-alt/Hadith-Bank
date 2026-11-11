@@ -1,4 +1,8 @@
-# Persian / muslim
+# فارسی — Persian / Sahih Muslim
+
+<p dir="auto">مختصر صحیح مسلم — منذری / ترشابی، جلد 1</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/)
 
 Edition: `mukhtasar-mundhiri-tarshabi-v1` · 1104 source occurrences.
 

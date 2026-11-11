@@ -1,4 +1,8 @@
-# Filipino / abu-dawud
+# Filipino / Tagalog — Filipino / Sunan Abi Dawud
+
+<p dir="auto">Older Hadith Bank — fil — Sunan Abi Dawud</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/abu-dawud/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 3 source occurrences.
 

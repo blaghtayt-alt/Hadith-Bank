@@ -1,4 +1,6 @@
-# Hindi / abu-dawud
+# हिन्दी — Hindi / Sunan Abi Dawud
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/abu-dawud/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

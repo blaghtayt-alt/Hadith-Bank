@@ -1,4 +1,8 @@
-# Filipino / ahmad
+# Filipino / Tagalog — Filipino / Musnad Ahmad
+
+<p dir="auto">Filipino Quran-study Hadith excerpts — Musnad Ahmad</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/ahmad/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 3 source occurrences.
 

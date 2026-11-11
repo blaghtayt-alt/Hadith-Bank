@@ -1,4 +1,6 @@
-# Japanese / hadeethenc
+# 日本語 — Japanese / HadeethEnc
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hadeethenc/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

@@ -1,4 +1,6 @@
-# Hindi / tirmidhi
+# हिन्दी — Hindi / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

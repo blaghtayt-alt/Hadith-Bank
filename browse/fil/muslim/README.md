@@ -1,4 +1,6 @@
-# Filipino / muslim
+# Filipino / Tagalog — Filipino / Sahih Muslim
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/muslim/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

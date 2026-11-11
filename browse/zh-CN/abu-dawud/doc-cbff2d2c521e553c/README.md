@@ -1,4 +1,8 @@
-# Chinese (Simplified) / abu-dawud
+# 简体中文 — Chinese (Simplified) / Sunan Abi Dawud
+
+<p dir="auto">艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/abu-dawud/doc-cbff2d2c521e553c/)
 
 Edition: `doc-cbff2d2c521e553c` · 2828 source occurrences.
 

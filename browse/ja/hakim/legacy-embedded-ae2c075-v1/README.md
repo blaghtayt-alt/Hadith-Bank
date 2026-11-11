@@ -1,4 +1,8 @@
-# Japanese / hakim
+# 日本語 — Japanese / Reports attributed to al-Hakim
+
+<p dir="auto">Older Hadith Bank — ja — Al-Hakim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/hakim/legacy-embedded-ae2c075-v1/)
 
 Edition: `legacy-embedded-ae2c075-v1` · 1 source occurrences.
 

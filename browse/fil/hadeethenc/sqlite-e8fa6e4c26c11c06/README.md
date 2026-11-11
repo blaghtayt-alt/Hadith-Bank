@@ -1,4 +1,8 @@
-# Filipino / hadeethenc
+# Filipino / Tagalog — Filipino / HadeethEnc
+
+<p dir="auto">HadeethEnc.com</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/hadeethenc/sqlite-e8fa6e4c26c11c06/)
 
 Edition: `sqlite-e8fa6e4c26c11c06` · 1949 source occurrences.
 

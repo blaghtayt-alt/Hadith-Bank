@@ -1,4 +1,8 @@
-# Chinese (Simplified) / tirmidhi
+# 简体中文 — Chinese (Simplified) / Jami al-Tirmidhi
+
+<p dir="auto">Simplified Chinese Quran-study Hadith excerpts — Jami al-Tirmidhi</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/tirmidhi/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 6 source occurrences.
 

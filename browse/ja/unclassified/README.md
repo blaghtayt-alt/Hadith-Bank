@@ -1,4 +1,6 @@
-# Japanese / unclassified
+# 日本語 — Japanese / Collection not identified in the source
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/unclassified/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

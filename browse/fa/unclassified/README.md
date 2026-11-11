@@ -1,4 +1,6 @@
-# Persian / unclassified
+# فارسی — Persian / Collection not identified in the source
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/unclassified/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

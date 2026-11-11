@@ -1,4 +1,6 @@
-# Uzbek / hadeethenc
+# O‘zbekcha — Uzbek / HadeethEnc
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/hadeethenc/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

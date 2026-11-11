@@ -1,4 +1,8 @@
-# Vietnamese / hisn-al-muslim
+# Tiếng Việt — Vietnamese / Hisn al-Muslim
+
+<p dir="auto">Vietnamese Quran-study Hadith excerpts — Hisn al-Muslim</p>
+
+[Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/hisn-al-muslim/iman-quran-excerpts-ae2c075/)
 
 Edition: `iman-quran-excerpts-ae2c075` · 2 source occurrences.
 

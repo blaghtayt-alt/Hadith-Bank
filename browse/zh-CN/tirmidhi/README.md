@@ -1,4 +1,6 @@
-# Chinese (Simplified) / tirmidhi
+# 简体中文 — Chinese (Simplified) / Jami al-Tirmidhi
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/tirmidhi/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 

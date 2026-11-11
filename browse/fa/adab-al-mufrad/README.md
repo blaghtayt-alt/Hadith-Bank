@@ -1,4 +1,6 @@
-# Persian / adab-al-mufrad
+# فارسی — Persian / Al-Adab al-Mufrad
+
+[Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/adab-al-mufrad/)
 
 [Language index](../README.md) · [All languages](../../README.md)
 
