@@ -339,3 +339,10 @@ details[open] > summary .disclosure-chevron { transform: rotate(180deg); }
   .review-notice { break-inside: avoid; }
   .source-url { display: block; }
 }
+/* The discovery links are present before the reader JavaScript starts. */
+.discovery-nav { margin: 0 0 1.5rem; border: 1px solid #d9e0d7; border-radius: .75rem; padding: .8rem 1rem; }
+.discovery-nav summary { cursor: pointer; color: #123c32; font-weight: 600; }
+.discovery-nav p { margin: .6rem 0; line-height: 1.6; font-size: .9rem; }
+.discovery-nav ul { display: flex; flex-wrap: wrap; gap: .6rem 1.3rem; padding: 0; margin: .8rem 0; list-style: none; }
+.discovery-nav a, .record-permalink { color: #225c49; text-underline-offset: .2em; }
+.record-permalink { display: inline-block; margin: .65rem 0; font-size: .88rem; }

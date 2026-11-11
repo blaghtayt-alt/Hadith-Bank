@@ -343,10 +343,13 @@ def record_type_info(record):
 
 def markdown_record(record, index, bank_root=None, page_directory=None, downloads=None, site=None):
     from current_provenance import classification
+    from build_discovery import record_path
     source = record['source']
     provenance = record['translation_provenance']
     translator = record['translator']
     lines = ['## Narration ' + str(index), '']
+    live = site_metadata({}, site)['live_url'].rstrip('/') + '/'
+    lines += ['[Open this narration online](' + live + record_path(record) + ')', '']
     if record.get('title'):
         lines += ['<p dir="' + text_direction(record.get('language')) + '"><strong>' + escaped(record['title']) + '</strong></p>', '']
     kind = record_type_info(record)
@@ -509,6 +512,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
 
 
 def build_markdown(records, output, info, catalog=None, bank_root=None):
+    from build_discovery import book_label, language_label
     output = Path(output).resolve()
     groups = collections.defaultdict(list)
     for record in records:
@@ -527,7 +531,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         written.append(relative)
 
     for (language, book, edition), items in sorted(groups.items()):
-        label = LANGUAGE_NAMES.get(language, language)
+        label = language_label(language)
         directory = '/'.join((language, book, edition))
         pages = (len(items) + PAGE_SIZE - 1) // PAGE_SIZE
         page_links = []
@@ -539,7 +543,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
                 nav.append('[Previous](page-' + str(page).zfill(4) + '.md)')
             if page + 1 < pages:
                 nav.append('[Next](page-' + str(page + 2).zfill(4) + '.md)')
-            body = ['# ' + escaped(label) + ' / ' + escaped(book), '',
+            body = ['# ' + escaped(label) + ' / ' + escaped(book_label(book)), '',
                     'Edition: `' + edition + '` · Narrations ' + str(start + 1) + '–' + str(end) +
                     ' of ' + str(len(items)) + '.', '', ' · '.join(nav), '']
             body.extend(markdown_record(r, start + i + 1, bank_root, output / directory, downloads, download_site)
@@ -549,7 +553,9 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
             page_links.append('- [Narrations ' + str(start + 1) + '–' + str(end) + '](' + name + ')')
             page_count += 1
         save(directory + '/README.md', '\n'.join([
-            '# ' + escaped(label) + ' / ' + escaped(book), '',
+            '# ' + escaped(label) + ' / ' + escaped(book_label(book)), '',
+            *[prose(name) for name in sorted({r['source'].get('name') or r['source_id'] for r in items})], '',
+            '[Read this edition online](' + download_site['live_url'].rstrip('/') + '/browse/' + directory + '/)', '',
             'Edition: `' + edition + '` · ' + str(len(items)) + ' source occurrences.', '',
             '[Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)', '',
             'Each page contains up to 25 records. Source texts, versions and review flags remain separate.', '',
@@ -559,7 +565,8 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         languages[language].append((book, edition, len(items)))
     for (language, book), entries in sorted(books.items()):
         save(language + '/' + book + '/README.md', '\n'.join([
-            '# ' + escaped(LANGUAGE_NAMES.get(language, language)) + ' / ' + escaped(book), '',
+            '# ' + escaped(language_label(language)) + ' / ' + escaped(book_label(book)), '',
+            '[Read this collection online](' + download_site['live_url'].rstrip('/') + '/browse/' + language + '/' + book + '/)', '',
             '[Language index](../README.md) · [All languages](../../README.md)', '',
             *['- [' + edition + '](' + edition + '/README.md) — ' + str(count) + ' source occurrences'
               for edition, count in entries], '',
@@ -569,8 +576,9 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         for book, edition, count in entries:
             grouped[book] += count
         save(language + '/README.md', '\n'.join([
-            '# ' + escaped(LANGUAGE_NAMES.get(language, language)), '', '[All languages](../README.md)', '',
-            *['- [' + escaped(book) + '](' + book + '/README.md) — ' + str(count) + ' source occurrences'
+            '# ' + escaped(language_label(language)), '', '[All languages](../README.md)', '',
+            '[Browse this language online](' + download_site['live_url'].rstrip('/') + '/browse/' + language + '/)', '',
+            *['- [' + escaped(book_label(book)) + '](' + book + '/README.md) — ' + str(count) + ' source occurrences'
               for book, count in sorted(grouped.items())], '',
         ]))
     catalog = catalog or {}
@@ -618,11 +626,12 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         save('materials/private.md', '\n'.join(private_lines))
     save('README.md', '\n'.join([
         '# Hadith Bank — readable records', '',
+        '[Browse books online](' + download_site['live_url'].rstrip('/') + '/browse/) · [Book and source-edition directory](../catalog/BOOKS.md)', '',
         str(len(records)) + ' source occurrences, organized by language, book and source edition.', '',
         'Open a language, then a book and edition. Every page shows up to 25 narrations with their source, '
         'translator, translation origin and OCR review where applicable. Arabic, commentary and audit details are expandable. '
         'Repeated narrations and source versions are retained.', '',
-        *['- [' + LANGUAGE_NAMES.get(language, language) + '](' + language + '/README.md) — ' +
+        *['- [' + language_label(language) + '](' + language + '/README.md) — ' +
           str(sum(count for _, _, count in entries)) + ' source occurrences'
           for language, entries in sorted(languages.items())], '',
         *(['[Other catalogued materials](materials/README.md) — ' + str(len(legacy)) +
@@ -835,6 +844,36 @@ def render_template(template, replacements):
     return re.sub(pattern, lambda match: replacements[match.group(0)], template)
 
 
+def discovery_navigation(records, site):
+    """Crawlable links in the initial reader HTML, including without JavaScript."""
+    from build_discovery import language_label
+    base = site['live_url'].rstrip('/') + '/'
+    languages = sorted({component(r['language']) for r in records})
+    links = ''.join('<li><a href="' + escaped(base + 'browse/' + code + '/') + '">' +
+                    escaped(language_label(code)) + '</a></li>' for code in languages)
+    return ('<details class="discovery-nav"><summary>Browse languages and source books</summary>'
+            '<p><a href="' + escaped(base + 'browse/') + '">All books and languages</a> · '
+            '<a href="' + escaped(site['repository_url'] + '/blob/main/catalog/BOOKS.md') +
+            '">Book and download directory on GitHub</a></p>'
+            '<ul>' + links + '</ul><p>Each narration has its own reading page and source reference. '
+            'These pages also work without JavaScript.</p></details>')
+
+
+def discovery_head(records, site):
+    names = [LANGUAGE_NAMES.get(code, code) for code in sorted({r['language'] for r in records})]
+    description = ('Search hadith texts and source books in ' + ', '.join(names) +
+                   '. Read source references and available Arabic/English counterparts; download preserved Word and PDF books.')
+    canonical = site['live_url'].rstrip('/') + '/'
+    title = 'Hadith Bank — Multilingual Hadith Texts and Source Books'
+    return ('<title>' + escaped(title) + '</title>\n'
+            '<meta name="description" content="' + escaped(description) + '">\n'
+            '<link rel="canonical" href="' + escaped(canonical) + '">\n'
+            '<meta property="og:type" content="website">\n'
+            '<meta property="og:title" content="' + escaped(title) + '">\n'
+            '<meta property="og:description" content="' + escaped(description) + '">\n'
+            '<meta property="og:url" content="' + escaped(canonical) + '">')
+
+
 def build(root, output, markdown_output=None, compress=True, site=None):
     root = Path(root).resolve()
     output = Path(output).absolute()
@@ -862,7 +901,9 @@ def build(root, output, markdown_output=None, compress=True, site=None):
                     '__HADITH_ENCODING__': 'gzip-base64' if compress else 'json',
                     '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
                     '__HADITH_UI_STYLES__': ui_styles,
-                    '__HADITH_UI_ICONS__': ui_icons}
+                    '__HADITH_UI_ICONS__': ui_icons,
+                    '__HADITH_DISCOVERY_HEAD__': discovery_head(records, metadata['site']),
+                    '__HADITH_DISCOVERY_NAV__': discovery_navigation(records, metadata['site'])}
     # Substitute against the original template once; source text can itself
     # contain either marker and must never be substituted a second time.
     document = render_template(template, replacements)
