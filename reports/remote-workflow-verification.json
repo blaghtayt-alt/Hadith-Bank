@@ -1,0 +1,47 @@
+{
+  "schema": "hadith-bank.remote-workflow-verification.v1",
+  "checked_date": "2026-11-11",
+  "base_commit": "9df9fd2deff9f42287a3a805bf60f5cb85fdf5fb",
+  "scope": "Remote execution, output bounds, duplicate prevention, and repository transport guidance. No hadith source or reader behavior changes.",
+  "implementation": {
+    "runner_sha256": "4af184466a6850977a95b0355c7f4b009defcf8af6aece6c4c0cee4a25ce2ca0",
+    "tests_sha256": "c9b092c43e1d989df2af4453be4d80ea065a453ceda6bed89330b0963894ac77",
+    "console_json_limit_bytes": 8192,
+    "console_terminating_newline_additional": true,
+    "optional_log_tail_limit_bytes": 4096
+  },
+  "observed_causes": {
+    "conversation_limit": "Repeated large encoded transfers and verbose results in the supplied history exhausted conversation context.",
+    "remote_connectivity": "Device online; bounded terminal execution and completed process output retrieval passed.",
+    "recent_large_write": "A prior write with 983172 characters of serialized arguments completed successfully; it was not evidence of a connector outage.",
+    "previous_browser_failure": "Linux Chromium initialization failed with socket() and ptrace Operation not permitted, before a page could load.",
+    "authentication": "Local Git read access worked but local Git push authentication was unavailable. GitHub connector blob writes succeeded and their returned object hashes matched local input. Credentials were not moved."
+  },
+  "validation": {
+    "linux_focused_regressions": {"passed": 15, "failed": 0, "exit_code": 0},
+    "windows_focused_regressions": {"passed": 15, "failed": 0, "exit_code": 0},
+    "repository_software_tests": {
+      "passed": 230,
+      "failed": 0,
+      "exit_code": 0,
+      "log_sha256": "beceb9529177dad05344de0579e63fc9c227212594e00aad659f0f5e6536cff7"
+    },
+    "windows_source_transfer": "Runner and test-file SHA-256 matched their Linux source bytes.",
+    "windows_repeated_invocation": "Returned reused=true with the same job ID, process IDs, start time and finish time; no second test execution.",
+    "large_output_regression": "Two MiB in one line remained in output.log; the console summary was bounded.",
+    "timeouts": "Owned descendant termination and saved timeout status passed on both tested operating systems.",
+    "browser_runtime": {
+      "platform": "Windows",
+      "runtime": "Installed Chrome in headless mode with a separate task profile",
+      "exit_code": 0,
+      "rendered_marker": "remote-browser-ok",
+      "marker_observed_in_dumped_dom": true,
+      "bank_ui_verified_by_this_smoke_test": false
+    }
+  },
+  "limits": [
+    "The runner records the last saved state; a missing final checkpoint requires inspection rather than automatic retry.",
+    "The browser smoke test verifies the replacement runtime only. Each bank import still needs its own rendered-page checks.",
+    "Conversation limits, external outages and source-command defects are not removed by this workflow."
+  ]
+}

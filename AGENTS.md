@@ -13,6 +13,20 @@ This repository contains the standalone Hadith Bank and its generated reader web
 9. Generate the website's language list from the accepted material manifests. The owner requested support for all bank languages and automatic integration of future additions. A new language is accepted through an explicitly authorized material manifest; do not silently publish an unrelated staged package.
 10. Do not rewrite or delete previously copied verbatim source bytes just to normalize style, remove source anomalies, or manufacture a clean QC status. Version changes must preserve before/after evidence.
 
+## Reliable remote execution and transfer
+
+The owner requested fixing or avoiding repeated Remote Desktop Commander failures on 11 November 2026. Large encoded transfers and verbose command output repeatedly exhausted conversation context; a tool returning a running PID or call ID is not itself a failure.
+
+- Prefer direct Git or the GitHub connector for repository operations. Check read access and write authentication separately in the environment that holds the files. Use the authenticated device when needed; do not copy credentials between environments.
+- Keep file bodies, Base64, archives and complete logs out of the conversation. Transfer bytes directly or pass them between tools inside orchestration code without printing them. Return only status, byte counts, hashes, refs and short error summaries. A line limit does not bound a megabyte-long line.
+- Use `scripts/run_logged_task.py` for lengthy or verbose commands. Its job directory stores output and atomic status; reuse that directory to inspect an uncertain execution, not to launch another copy. Keep logs and checkpoints under the ignored `.work/` directory or outside the repository.
+- After a running Remote MCP `call_id`, use `get_tool_result`; after a terminal PID, use `read_process_output` or the saved job status. Inspect the existing result before retrying a write, upload, commit or push. Do not restart a pending mutation.
+- Reuse verified original files, commits and transfer parts. Keep a compact checkpoint with source commit, destination ref, expected hashes, completed stages and any active call ID/PID. Never restart extraction solely because a chat ended.
+- Publish canonical sources and code; the existing `reader-pages.yml` workflow rebuilds generated reader, catalog and search outputs. Preserve concurrent imports by refreshing the destination ref and using a normal fast-forward or an expected-head check.
+- Treat browser launch failures separately from data validation. Record the actual error once, use an available browser runtime, and leave UI verification pending until it really runs. Do not report software tests as browser checks.
+
+Examples and recovery rules are in `docs/REMOTE-WORKFLOW.md`. These are execution guidelines, not changes to access controls, source review policy or publication authorization.
+
 ## Owner-authorized HadeethEnc source snapshot
 
 On 11 November 2026 the owner explicitly requested uploading the six-language HadeethEnc source dataset, and subsequently stated that HadeethEnc needs no separate bank review. The current decision is recorded in `catalog/review-policy.json`. Apply it to HadeethEnc reading/search views, including supplied HadeethEnc workbooks in the private combined package. Keep the original import statuses as history, original text and IDs unchanged, every Arabic-version flag visible, and `certified_release_eligible=false`; no independent review is claimed. The historical upload audit remains in `datasets/hadeethenc/PUBLICATION-STATUS.json` and is not the current review policy. Publisher conditions continue to apply.
