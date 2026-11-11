@@ -1,0 +1,263 @@
+{
+  "status": "passed",
+  "original_transport_baseline": "b4cec559b55236bb2093e4fa6728345fbcf77282",
+  "publication_baseline": "94b8d6f18dbae7ea55054291fd7454515af47fd5",
+  "implementation_commit": "21666d932bfc5c93c377cd212931e80736859890",
+  "head_at_verification": "21666d932bfc5c93c377cd212931e80736859890",
+  "transport_manifest_sha256": "90a391513fdc7704f03f05be6211393b5e76fc06ea10653458f6c954a9aa2967",
+  "transport_entries": 159,
+  "immutable_transport_entries_verified": 156,
+  "original_documents_verified": 9,
+  "transport_code_entries_pinned_to_implementation": 3,
+  "implementation_code_checks": [
+    {
+      "path": "reader/template.html",
+      "in_transport_manifest": true,
+      "original_sha256": "99a0f8a9d6af2df130e97635f5c2e1322f7a5d988069efcafafbb43f6426e321",
+      "current_sha256": "f99b4a98fc309a34472cb1ba81d945037ac7c4e71d61a623e81fe0ab2ea8a581",
+      "implementation_sha256": "f99b4a98fc309a34472cb1ba81d945037ac7c4e71d61a623e81fe0ab2ea8a581",
+      "bytes": 52766,
+      "changed_from_original": true
+    },
+    {
+      "path": "scripts/build_reader.py",
+      "in_transport_manifest": true,
+      "original_sha256": "962506afd003130492b1a6fdce25a3e811eb3bd9123e5b87c826a1f80052ef1a",
+      "current_sha256": "642db360fb11abf832ed3f5156f0f4d4dfcae59a02fa1a98cf8a0e08a6a4ee93",
+      "implementation_sha256": "642db360fb11abf832ed3f5156f0f4d4dfcae59a02fa1a98cf8a0e08a6a4ee93",
+      "bytes": 42323,
+      "changed_from_original": true
+    },
+    {
+      "path": "tests/test_reader.py",
+      "in_transport_manifest": true,
+      "original_sha256": "0520d1e00fd592c29835b6328ef671fa9ef550ec3a3c04798abf28a6db598e8a",
+      "current_sha256": "2ee5b8681fa05556d1e73e2fb16ffa4eb6916b343e183ae4e0646da027f8bb2c",
+      "implementation_sha256": "2ee5b8681fa05556d1e73e2fb16ffa4eb6916b343e183ae4e0646da027f8bb2c",
+      "bytes": 40691,
+      "changed_from_original": true
+    },
+    {
+      "path": "tests/test_hadith_search.py",
+      "in_transport_manifest": false,
+      "original_sha256": "d2145ccdbe9c2972654166194f14f17cd30b76e6ceed953a6d0a6f6dfc17f0ef",
+      "current_sha256": "8fea26d106e140c41e50a5125cb3102cce87e167bb9c3e3997a2e8bd252e5e9d",
+      "implementation_sha256": "8fea26d106e140c41e50a5125cb3102cce87e167bb9c3e3997a2e8bd252e5e9d",
+      "bytes": 27369,
+      "changed_from_original": true
+    }
+  ],
+  "ui_source_files_preserved": [
+    {
+      "path": "docs/READER-DESIGN.md",
+      "bytes": 2889,
+      "sha256": "77f7c6a608f1e5452ed56b7c6bfd9e7071cd92c7b092c945733e26f6b66bb49d"
+    },
+    {
+      "path": "docs/THIRD-PARTY-UI.md",
+      "bytes": 4405,
+      "sha256": "727a9ed26e98966a482c4bff7aced1fe9d2f829ec2c1ebbc0a61a87190958e0e"
+    },
+    {
+      "path": "reader/reading-room.css",
+      "bytes": 27127,
+      "sha256": "87aa1e0546eb7eae6e7a0f407effead76d09f33c843b576a25f000254c569fca"
+    },
+    {
+      "path": "reader/vendor/manifest.json",
+      "bytes": 7109,
+      "sha256": "94ea060e1cf5564d725aad75c5570d86fc1e8acbeb14dae8b41a80f8aa6b7563"
+    },
+    {
+      "path": "reader/vendor/radix-colors/LICENSE",
+      "bytes": 1062,
+      "sha256": "9c400881b9139571aa7acc3bd6e422a4f05223b4519169fb661298fb44bf228e"
+    },
+    {
+      "path": "reader/vendor/radix-colors/gold.css",
+      "bytes": 1039,
+      "sha256": "556d60cefc8b77f52161fe7f8ce96aa815347656d30a540f4c2c493f73f668ae"
+    },
+    {
+      "path": "reader/vendor/radix-colors/jade.css",
+      "bytes": 1039,
+      "sha256": "fd553717d34f71011bee7d5bdde0f9da46f7acbb74b66a5eb022a801a30ccff2"
+    },
+    {
+      "path": "reader/vendor/radix-colors/sand.css",
+      "bytes": 1044,
+      "sha256": "038aa82d732cf2aead2dfa323f5389e62a63b2a7bd9b09a9d78b6e5dd50447f0"
+    },
+    {
+      "path": "reader/vendor/radix-icons/LICENSE",
+      "bytes": 1063,
+      "sha256": "0e80a2d229d2fd4fc7e8636142ec5d0ff0bc031f14c15b682e2ac01dfd5b5138"
+    },
+    {
+      "path": "reader/vendor/radix-icons/arrow-left.svg",
+      "bytes": 608,
+      "sha256": "b4eac352cc26b7b1e1a285da95fbaef8a324a7dd1f60cae5561451d828828513"
+    },
+    {
+      "path": "reader/vendor/radix-icons/arrow-right.svg",
+      "bytes": 566,
+      "sha256": "ba417d48f8b17b0fb8510e88f2ccde2dc14f9da2436279098bb7a2697b0ad756"
+    },
+    {
+      "path": "reader/vendor/radix-icons/check.svg",
+      "bytes": 531,
+      "sha256": "bbac83f5dc6841b05a8a3fd2af879c1b0472889615b80e2d57fea86cb51bf3f5"
+    },
+    {
+      "path": "reader/vendor/radix-icons/chevron-down.svg",
+      "bytes": 483,
+      "sha256": "d5e9b54db553296c6477c06a083409d0dc4120f8889149281396746f3a4f0856"
+    },
+    {
+      "path": "reader/vendor/radix-icons/chevron-right.svg",
+      "bytes": 484,
+      "sha256": "8e6942261135a01d990d9d2556d19045eef5b65aa5320154b585833c22b727ec"
+    },
+    {
+      "path": "reader/vendor/radix-icons/cross-2.svg",
+      "bytes": 725,
+      "sha256": "69cc2cafd20cbdd8270c18b9908fef3f61b54ddd76a7d7d6a4f4b7076ba97a3f"
+    },
+    {
+      "path": "reader/vendor/radix-icons/download.svg",
+      "bytes": 928,
+      "sha256": "7fdf0c9e474ac20933d93858914d2fd8af82f9e0edda987e8f4a1fb3a3624f6f"
+    },
+    {
+      "path": "reader/vendor/radix-icons/external-link.svg",
+      "bytes": 1226,
+      "sha256": "f1a6604605ad92d4bd7aaa4c5579498f740fd68ee32ad85e59d30f70792c26e7"
+    },
+    {
+      "path": "reader/vendor/radix-icons/file-text.svg",
+      "bytes": 974,
+      "sha256": "027d85f04302d4a33481434f424f23b32621739dc11a3259a9bd8109cb157ec8"
+    },
+    {
+      "path": "reader/vendor/radix-icons/globe.svg",
+      "bytes": 2860,
+      "sha256": "64dcafb264c6a8e8a781751514557c7dce2d3fd1607f0ec90b7e16f75e139c69"
+    },
+    {
+      "path": "reader/vendor/radix-icons/magnifying-glass.svg",
+      "bytes": 555,
+      "sha256": "e3971e95cb0dc1f4ad9e0d7597b13326bdc05399f398b599c83bb74f35132498"
+    },
+    {
+      "path": "reader/vendor/radix-icons/mixer-horizontal.svg",
+      "bytes": 1258,
+      "sha256": "ac0d0208b2fe29f2db0fb46e404ec02825d8164186ed170b10192626e29a257a"
+    },
+    {
+      "path": "reader/vendor/radix-icons/reader.svg",
+      "bytes": 2675,
+      "sha256": "9c0645fec2480179f75cc4e0c40b94c6fe8a871529b9502f5e0e465824b4181f"
+    },
+    {
+      "path": "reader/vendor/radix-icons/reset.svg",
+      "bytes": 814,
+      "sha256": "95c59f61dfdc1a1a70a835be4a2cdf65d9954211849b349d5e4845fcb2f92419"
+    },
+    {
+      "path": "reader/vendor/radix-icons/text.svg",
+      "bytes": 1773,
+      "sha256": "8abd4a99022be6f3330cc720eade63ea8589c90e95c90cf639464cfcc197ad7d"
+    },
+    {
+      "path": "tests/test_reader_ui_assets.py",
+      "bytes": 3430,
+      "sha256": "289817894f227f719ade127363082f0c3c69a69e3b8bb64e11619833f39e7021"
+    }
+  ],
+  "ui_generated_or_shared_exclusions": [
+    {
+      "path": "hadith-bank-reader.html",
+      "reason": "regenerated reader or validation report"
+    },
+    {
+      "path": "reader/template.html",
+      "reason": "shared implementation pinned above"
+    },
+    {
+      "path": "reports/portable-validation.json",
+      "reason": "regenerated reader or validation report"
+    },
+    {
+      "path": "reports/site-build.json",
+      "reason": "regenerated reader or validation report"
+    },
+    {
+      "path": "scripts/build_reader.py",
+      "reason": "shared implementation pinned above"
+    }
+  ],
+  "baseline_record_checks": [
+    {
+      "commit": "b4cec559b55236bb2093e4fa6728345fbcf77282",
+      "records": 14653,
+      "payload_sha256": "fbff4cb11ea0263fe2124779b74f4dd17f6166dda1cb12f71739f34c70c81bb7",
+      "unchanged_whole_records": 14653
+    },
+    {
+      "commit": "94b8d6f18dbae7ea55054291fd7454515af47fd5",
+      "records": 14653,
+      "payload_sha256": "fbff4cb11ea0263fe2124779b74f4dd17f6166dda1cb12f71739f34c70c81bb7",
+      "unchanged_whole_records": 14653
+    }
+  ],
+  "total": 21458,
+  "persian": 7078,
+  "new_persian": 6805,
+  "unchanged_existing": 14653,
+  "per_material": {
+    "fa-faiz-al-bari-v1": 412,
+    "fa-faiz-al-bari-v2": 451,
+    "fa-faiz-al-bari-v3": 504,
+    "fa-faiz-al-bari-v4": 466,
+    "fa-faiz-al-bari-v5": 337,
+    "fa-faiz-al-bari-v6": 457,
+    "fa-muslim-mundhiri-tarshabi-v1": 1104,
+    "fa-muslim-mundhiri-tarshabi-v2": 1128,
+    "fa-riyadh-heravi-1394-digital": 1946
+  },
+  "languages": {
+    "fa": 7078,
+    "fil": 2056,
+    "hi": 2584,
+    "ja": 2237,
+    "uz": 552,
+    "vi": 4555,
+    "zh-CN": 2396
+  },
+  "canonical_metadata_fields_checked": {
+    "number": 6805,
+    "narrator": 6805,
+    "translator": 6805,
+    "references": 6805,
+    "grading": 6805,
+    "page": 6805,
+    "rights": 6805,
+    "source_headings": 6805,
+    "topic_tags": 6805,
+    "related_versions": 6805,
+    "record_type": 6805,
+    "content_kind": 6805,
+    "isnad": 6805,
+    "source_structure_tags": 6805,
+    "source_locator": 6805,
+    "source_defects": 6805,
+    "review": 6805,
+    "translation_provenance": 6805,
+    "extraction": 6805
+  },
+  "source_metadata_and_locators_checked": 6805,
+  "embedded_payload_sha256": "2ef3c026a3e89afd59b300feb44d894eab2ea30317d21d7923d4508ca19dd111",
+  "expected_payload_sha256": "2ef3c026a3e89afd59b300feb44d894eab2ea30317d21d7923d4508ca19dd111",
+  "html_sha256": "b3e8dced4e60b2c704e10be6afab5a8a00b4a45a672855680e058748600db68a",
+  "site_and_download_reader_identical": true
+}
