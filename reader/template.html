@@ -376,6 +376,9 @@ function citationList(items){
   for(const item of items){const row=element("li","citation-item"),data=citationData(item);if(data){row.append(element("div","citation-title",data.label),element("div","citation-scope",data.scope));if(data.source_citation){const quote=element("p","citation-verbatim",data.source_citation);quote.dir="auto";row.append(quote);}}else row.append(element("pre","audit-text",typeof item==="string"?item:JSON.stringify(item,null,2)));list.append(row);}
   return list;
 }
+function inlineArabicReading(heading,content,className=""){
+  const section=element("section","arabic-inline"+(className?" "+className:""));section.hidden=!$("show-arabic").checked;section.setAttribute("aria-label",heading);section.append(element("div","meta-label",heading),content);return section;
+}
 function languageDisclosure(record,language){
   const arabic=language==="arabic",label=arabic?"Arabic":"English",data=counterpartData(record,language),content=element("div","counterpart-content");
   const heading=data?label+(data.scope==="full_narration"?" · full narration":""):label+" · not linked yet";
@@ -390,14 +393,16 @@ function languageDisclosure(record,language){
     if(!arabic)credit.append(document.createTextNode(" · Translation origin: "+(data.translation_origin==="human"?"Human":"Unknown")));
     content.append(credit);
   }else content.append(element("p","counterpart-note","No "+label+" counterpart is linked in this snapshot. The original source text and references remain below."));
+  if(arabic)return inlineArabicReading(heading,content,"counterpart-detail");
   const section=detail(heading,content,language+"-detail counterpart-detail");section.open=$("show-"+language).checked;return section;
 }
 function appendLanguageReadings(card,record,hasTranslation){
+  const anchor=card.querySelector(":scope > p.narration").nextSibling,appendArabic=node=>card.insertBefore(node,anchor);
   const arabic=counterpartData(record,"arabic"),sourceArabic=record.text_arabic;
   if(sourceArabic && hasTranslation && (!arabic || sourceArabic!==arabic.text)){
-    const source=detail("Arabic source text",paragraph(sourceArabic,true,"ar"),"arabic-detail");source.open=$("show-arabic").checked;card.append(source);
+    appendArabic(inlineArabicReading("Arabic source text",paragraph(sourceArabic,true,"ar")));
   }
-  if(arabic || !sourceArabic)card.append(languageDisclosure(record,"arabic"));
+  if(arabic || !sourceArabic)appendArabic(languageDisclosure(record,"arabic"));
   card.append(languageDisclosure(record,"english"));
 }
 function card(record,index) {
@@ -517,7 +522,7 @@ window.addEventListener("afterprint",()=>{printDisclosures.splice(0).forEach(nod
 ["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).addEventListener("change",()=>{clearTimeout(state.timer);syncMaterialFilters();applyFilters();}));
 $("include-commentary").addEventListener("change",applyFilters);
 $("all-language-materials").addEventListener("click",()=>chooseCollection(""));
-$("show-arabic").addEventListener("change",()=>document.querySelectorAll(".arabic-detail").forEach(node=>node.open=$("show-arabic").checked));
+$("show-arabic").addEventListener("change",()=>document.querySelectorAll(".arabic-inline").forEach(node=>node.hidden=!$("show-arabic").checked));
 $("show-english").addEventListener("change",()=>document.querySelectorAll(".english-detail").forEach(node=>node.open=$("show-english").checked));
 $("reset").addEventListener("click",()=>{clearTimeout(state.timer);$("query").value="";["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;syncMaterialFilters();applyFilters();});
 function go(delta){state.page+=delta;render();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});}
