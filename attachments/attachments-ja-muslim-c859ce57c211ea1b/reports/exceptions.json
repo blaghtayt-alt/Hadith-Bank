@@ -1,0 +1,134 @@
+{
+  "schema": "hadith-bank-intake-exceptions-v1",
+  "exceptions": [
+    {
+      "id": "SCOPE-001",
+      "scope": "whole_source",
+      "status": "source_scope_identified",
+      "issue": "The supplied body contains volume1 labels only; all three Japanese volumes and full volume1 print completeness are not certified.",
+      "pdf_pages": [
+        1,
+        2,
+        5,
+        7,
+        576,
+        580
+      ]
+    },
+    {
+      "id": "NUMBER-001",
+      "scope": "all_records",
+      "status": "unresolved_metadata",
+      "issue": "No numbered narration structure is supplied. Printed P.x-y labels are section page ranges; canonical Muslim and in-book numbers remain null."
+    },
+    {
+      "id": "TEXT-001",
+      "scope": "all_records",
+      "status": "pending_independent_review",
+      "issue": "Mechanical equality checks cover the embedded PDF text layer. Full original-page glyph and semantic-boundary review remains pending."
+    },
+    {
+      "id": "TRANSLATOR-001",
+      "scope": "all_records",
+      "status": "partial_source_metadata",
+      "issue": "Human translators are explicitly credited in PDF6. Their precise per-occurrence division is unassigned; translator.name remains null, credited_names preserved.",
+      "pdf_pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "ISNAD-001",
+      "scope": "all_records",
+      "status": "source_omission_preserved",
+      "issue": "The source preface states full chains except the initial speaker were omitted. Missing chains and complete Arabic originals are not reconstructed.",
+      "pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "ARABIC-001",
+      "scope": "embedded_arabic_fragments",
+      "status": "pending_glyph_and_logical_order_review",
+      "issue": "Short Arabic terms/verse fragments occur in Japanese text and notes. Raw presentation-form characters and visual token order are preserved; no canonical substitution.",
+      "pdf_pages": [
+        528,
+        543,
+        545,
+        561,
+        564,
+        565
+      ]
+    },
+    {
+      "id": "ORDER-001",
+      "scope": "section_p0470",
+      "status": "source_anomaly_preserved",
+      "issue": "PDF470 cites volume1 pp550-551 between pp463-470 and471-475. Source order and labels remain unchanged.",
+      "pdf_pages": [
+        466,
+        470,
+        471
+      ]
+    },
+    {
+      "id": "DUPLICATE-001",
+      "scope": "sections_p0356_p0358",
+      "status": "source_occurrences_preserved",
+      "issue": "The source repeats the section on lying in front of a person praying. Both occurrences remain; exact-text related versions do not assert canonical identity.",
+      "pdf_pages": [
+        356,
+        357,
+        358,
+        359
+      ]
+    },
+    {
+      "id": "COMPOSITE-001",
+      "scope": "ja-muslim-web-c859ce57c211ea1b-p0121-l023-c000",
+      "status": "source_group_preserved_alignment_pending",
+      "issue": "Continuous ascent account retains embedded chain attributions atPDF122 lines30-35. Fine-grained canonical occurrence alignment remains pending.",
+      "pdf_pages": [
+        121,
+        122,
+        123
+      ]
+    },
+    {
+      "id": "NOTES-001",
+      "scope": "footnotes_and_inline_explanations",
+      "status": "partial_targeted_review",
+      "issue": "Source note text is separate and lossless. Some notes quote ancillary reports or follow wording variants; exhaustive quotation segmentation and semantic note assignment remain pending."
+    },
+    {
+      "id": "SOURCE-DEFECT-001",
+      "scope": "source_text",
+      "status": "preserved_verbatim",
+      "issue": "Visible source spellings/anomalies, including み使いはは and 週末 onPDF8, and literal note marker 注l onPDF151, are retained. No silent spelling repair.",
+      "pdf_pages": [
+        8,
+        151,
+        561,
+        576
+      ]
+    },
+    {
+      "id": "RIGHTS-001",
+      "scope": "source_translation",
+      "status": "not_assessed_for_publication",
+      "issue": "The source describes public web availability but does not establish a reuse license. This intake authorizes no public repository publication."
+    },
+    {
+      "id": "GRADING-001",
+      "scope": "all_records",
+      "status": "unresolved_metadata",
+      "issue": "Collection membership is retained; independent grade, grader, exact canonical reference and variant/route scope are not inferred."
+    },
+    {
+      "id": "TAXONOMY-001",
+      "scope": "all_records",
+      "status": "source_structure_preserved",
+      "issue": "Literal section headings provide search tags. Publisher topical taxonomy is not supplied; topic_tags is empty as required by current attachment schema."
+    }
+  ]
+}

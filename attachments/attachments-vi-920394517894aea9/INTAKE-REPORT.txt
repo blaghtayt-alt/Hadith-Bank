@@ -1,0 +1,57 @@
+VIETNAMESE HADITH BANK INTAKE — 11 NOVEMBER 2026
+
+Prepared from vietnamese(1).zip.
+Input SHA-256: 920394517894aea9455c02f2b8863c7a3d619a4163fed1a0ea4fe82993d2b90c
+
+RESULT: 3,254 structured source occurrences/variants, 45 PDFs, 1,586 pages.
+
+Sahih al-Bukhari: 15 PDFs, 409 pages, 767 records.
+Sahih Muslim: 15 PDFs, 618 pages, 971 records.
+Sunan Abi Dawud: 14 PDFs, 522 pages, 1,316 records.
+200 Golden Hadith: 1 PDF, 37 pages, 200 records.
+
+MAIN FILES
+vietnamese-hadith-bank.json: complete bank-format JSON array.
+vietnamese-hadith-bank.jsonl: identical records for streaming/search.
+languages/vi/books/<collection>/editions/pdf-<hash>/records.json: organized per source.
+sources/: all 45 original PDFs.
+evidence/: all page text, source spans, raw Arabic, original extraction records and logs.
+catalog/: language, book, source and record indexes.
+tools/: search, validation and reproduction commands.
+
+Each record includes source text, book/chapter/printed number, available narrator prefix,
+source/translator/page evidence, separate references/commentary/footnotes/grades, stable
+source-anchor IDs, tags, AI translation status, provenance and review qualifications.
+No new translation was generated. Unknown metadata is not invented.
+
+TRANSLATION PROVENANCE
+2,248 records: ai_translation=false, supported by explicit source-specific human credit.
+1,006 records: ai_translation=unknown, insufficient source-specific role/method evidence.
+0 records: ai_translation=true.
+Unknown is not an assertion that a source is machine translated.
+
+ARABIC
+The PDFs contain Arabic but their text layers have broken glyph mappings/ordering/marks.
+Raw Arabic is preserved separately. Approved text.arabic remains null. Original PDFs
+are included for repair and independent review. Numeric glyph repairs are documented;
+Arabic letters and diacritics were not silently replaced.
+
+SOURCE EXCEPTIONS
+Printed gaps and duplicates remain distinct. Notable examples are Bukhari 54→56,
+219→230, repeated 127/5/15; Abu Dawud 1889→1900; the overlapping note near 1247;
+Muslim Arabic 76 versus Vietnamese 75-(410f); and anthology 188, whose source omits
+the Vietnamese translated body. No unprovided narration was invented to fill a gap.
+
+VERIFICATION
+Mechanical validation passed for schema, unique IDs, original source hashes, every saved
+native page text, JSON/JSONL agreement, per-edition/aggregate agreement, source locators
+and payload hashes. The final machine-readable result is reports/validation.json.
+Targeted visual reviews were performed and their actual scope is logged.
+Complete all-page/character fidelity review and independent Pro final QC remain pending.
+
+MERGE STATUS
+Organized for an additive staged/private import. Every record remains private_candidate,
+independent_pro_qc=pending and release_eligible=false. This deliverable does not merge
+or publish the corpus. The package is self-contained and does not depend on Iman Companion.
+
+Read README.md in the ZIP for exact search, validation, reproduction and merge instructions.

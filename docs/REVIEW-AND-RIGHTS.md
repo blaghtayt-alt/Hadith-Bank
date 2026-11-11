@@ -1,6 +1,6 @@
 # Review, completeness, provenance, and rights
 
-> **Current HadeethEnc policy (11 November 2026):** the owner waived separate bank review. The earlier pending-review statements below describe the historical import. Original source flags, Arabic alignment notes and other materials’ review requirements remain unchanged. See [current policy](CURRENT-REVIEW-POLICY.md).
+> **Current decisions (11 November 2026):** the owner waived separate bank review for HadeethEnc and subsequently authorized public pending-review inclusion of the supplied Japanese Muslim and Vietnamese PDF intakes. Source review, Arabic issues and rights qualifications are preserved. See [current policy](CURRENT-REVIEW-POLICY.md) and [publication scope](../catalog/publication-policy.json).
 
 ## What is transferred
 
@@ -18,7 +18,9 @@ All reading and source envelope bytes live under languages/<code>/books/essentia
 
 ## Publication restrictions
 
-The migrated files were already publicly available in the source repository. That fact alone does not constitute a new license. The repository remains a research corpus with preserved source conditions. Any new PDF-based extraction, full-book OCR or unapproved translation must remain outside the published bank until rights, separate Pro QC and source-fidelity checks are recorded.
+The migrated files were already publicly available in the source repository. That fact alone does not constitute a new license. The repository remains a research corpus with preserved source conditions. Public availability and certified release are separate states. The owner specifically authorized public pending-review inclusion of the Japanese Muslim and Vietnamese packages recorded in `catalog/publication-policy.json`; their original rights assessments and incomplete QC remain visible. This owner decision is not represented as a license granted by a translator or publisher.
+
+New material enters the website through an explicitly authorized manifest. Do not infer approval from a source being present elsewhere, and do not claim certified release before exact-version independent QC and the applicable rights/source-fidelity evidence are recorded. Unknown rights and source defects must remain explicit in the published record.
 
 ## Import audit
 

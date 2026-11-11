@@ -1,0 +1,160 @@
+{
+  "scope": "Independent boundary-pattern advice for initial extraction; not a final textual QC pass.",
+  "source_pdf_sha256": "c859ce57c211ea1bfddb98b268241da25fe077782dd4d6be4cd9e10628b18d6a",
+  "coverage": {
+    "full_page_text_read": [
+      47,
+      48,
+      110,
+      122,
+      153,
+      244,
+      266,
+      291,
+      320,
+      325,
+      378,
+      429,
+      450,
+      451,
+      476,
+      497,
+      516,
+      530,
+      553,
+      565
+    ],
+    "additional_targeted_line_samples": [
+      8,
+      9,
+      14,
+      39,
+      60,
+      91,
+      134,
+      156,
+      180,
+      212,
+      237,
+      300,
+      352,
+      401,
+      479,
+      500,
+      578
+    ],
+    "automated_pattern_scan_pdf_pages": [
+      7,
+      579
+    ],
+    "page_images_viewed": [],
+    "all_character_fidelity_review": false
+  },
+  "recommendations": [
+    {
+      "rule": "Preserve section headings and chapter-level notes separately",
+      "detail": "The short title and expanded title may differ; expanded titles may cover several lines. A chapter note may intervene before the printed page-range line. Do not drop the whole pre-reference region as redundant headers.",
+      "chapter_note_pages": [
+        288,
+        349,
+        443,
+        446,
+        495,
+        497,
+        502,
+        543
+      ]
+    },
+    {
+      "rule": "Use occurrence records for both full narration and explicit route/variant summaries",
+      "detail": "A summary that says the same narration was transmitted by another route is a distinct source occurrence but contains no full matn. Keep it as variant_reference with relationship to preceding account; never expand from the parent or invent route counts."
+    },
+    {
+      "rule": "Distinguish nested speaking from a new narration",
+      "detail": "は伝えている or によると alone cannot determine record boundaries. Continuation qualifiers such as さらにつづけて and さらに must be tested in context; quotation depth is supporting evidence but is unreliable where source quotations are unbalanced."
+    },
+    {
+      "rule": "Scan beyond line starts",
+      "detail": "At least one explicit variant starts immediately after the preceding quote mid-line (PDF 266). New narrator openings also span line/page breaks."
+    },
+    {
+      "rule": "Footnote scope is semantic and cross-page",
+      "detail": "Start at a note-definition marker, continue until the next definition, explicit new occurrence or section boundary. Sentence end alone is insufficient; some notes do not end with punctuation. Source note text can contain cited hadith and Arabic."
+    },
+    {
+      "rule": "Preserve complete raw source-unit text and location spans",
+      "detail": "Retain source_unit_text_verbatim plus start/end line+character offsets so later boundary corrections need no re-extraction. Do not silently normalize spelling/punctuation/quotation imbalance."
+    }
+  ],
+  "examples": [
+    {
+      "pdf_page": 266,
+      "text": "った 「アッラーよ、私を邪悪と忌わしき事々からお護り下さい！」前記と同内容のハディースは",
+      "decision": "Split the explicit variant at 前記と同内容 within the line; body before the variant stays first occurrence."
+    },
+    {
+      "pdf_page": 300,
+      "text": "アーイシャはさらにつづけて次のように伝えている。",
+      "decision": "Continuation of report begun earlier, not a new occurrence."
+    },
+    {
+      "pdf_page": 300,
+      "text": "さらにウバイドッラーは次のように伝えている。",
+      "decision": "Continues the same report with the transmitter verification anecdote; do not blindly split."
+    },
+    {
+      "pdf_page": 578,
+      "text": "ヤズィード・ビン・ルーマーンはザートル・リカーウ（注）の戦で、危険時にアッラーのみ使い\nと礼拝を共にした教友を根拠としたサーリハ・ビン・ハウワートの話を伝えている",
+      "decision": "One multiline narrator opening."
+    },
+    {
+      "pdf_page": 497,
+      "text": "ウンム・ハビーバは言った",
+      "decision": "New occurrence although no 伝えている keyword."
+    },
+    {
+      "pdf_page": 497,
+      "text": "ヌアマーン・ビン・サーリムは「一日に（ナフルの）十二ラカートを行った者は、彼の為に天国\nに家が建てられるであろう」（というハディースを）同一の伝承者経路で伝えている。",
+      "decision": "A quoted variant summary distinct from previous report; avoid losing because keyword is at end."
+    },
+    {
+      "pdf_page": 516,
+      "text": "ジャービルは「アッラーのみ使いが『夜間には、ムスリムがアッラーに現世や来世の幸福を祈願",
+      "decision": "New occurrence starts directly with quote; source first-occurrence rule catches it."
+    },
+    {
+      "pdf_page": 476,
+      "text": "イブン・ウマルは寒くて風の吹く夜、アザーンを唱えた。",
+      "decision": "New source-section first occurrence without explicit transmission formula."
+    },
+    {
+      "pdf_page": 476,
+      "text": "（注2）このハディースに関連して“はき物がぬれる時は住居で礼拝を行う”というのがある",
+      "decision": "Ancillary quotation in source footnote; flag embedded narration; do not imply independently verified source/grade."
+    },
+    {
+      "pdf_page": 291,
+      "text": "「私は自分の見解で真正とするハディースの全てをこの正伝集におさめたわけではありません。",
+      "decision": "Source compiler dialogue/comments surrounding narration; mark in source context, not a fabricated new prophetic narration."
+    },
+    {
+      "pdf_page": 153,
+      "text": "この後半のハディースは前記と同内容であるが、次の表現が付加されている",
+      "decision": "Continuation summary within current explicitly introduced variant, not an additional occurrence on its own."
+    },
+    {
+      "pdf_page": 450,
+      "text": "以下は前記ハディースと同じことを伝えている。",
+      "decision": "Continuation after current narrator opener; do not create separate record for this sentence."
+    },
+    {
+      "pdf_page": 47,
+      "text": "前記と同内容のハディースは、フマイド・ビン・アブドル・ラフマーンやハンマーム・ビン・\nムナッバによっても別々の伝承者経路で伝えられている。",
+      "decision": "Preserve as one aggregate printed occurrence with multiple named routes, rather than inventing full-text copies."
+    }
+  ],
+  "automated_scan_counts": {
+    "line_initial_note_definition_candidates": 382,
+    "note_count_status": "Includes chapter-level notes; not semantic scope audit."
+  }
+}

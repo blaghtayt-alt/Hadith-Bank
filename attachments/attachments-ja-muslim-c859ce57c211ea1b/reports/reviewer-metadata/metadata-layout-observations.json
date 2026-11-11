@@ -1,0 +1,130 @@
+[
+  {
+    "id": "META-001",
+    "type": "scope",
+    "pdf_pages": [
+      7,
+      576,
+      580
+    ],
+    "observation": "All 327 source print labels identify volume 1. The title alone must not be taken as evidence of the whole three-volume translation.",
+    "required_handling": "Label volume 1 web material; overall collection incomplete and volume-level completeness unverified."
+  },
+  {
+    "id": "LAYOUT-001",
+    "type": "title_vs_heading",
+    "pdf_pages": [
+      212,
+      424,
+      470,
+      543
+    ],
+    "observation": "Large top article title and smaller body heading need not be identical. Chapter-level notes can occur before the print-page marker.",
+    "required_handling": "Preserve both titles, and store heading notes separately without treating them as narration."
+  },
+  {
+    "id": "LAYOUT-002",
+    "type": "numbering",
+    "pdf_pages": [
+      7,
+      11,
+      12,
+      576
+    ],
+    "observation": "P.x-y labels belong to the topic section and are not exact page boundaries for individual narrations; body records are not numbered in sampled pages.",
+    "required_handling": "Separate actual PDF pages from inherited section print-page range; canonical/printed hadith numbers null unless verified."
+  },
+  {
+    "id": "LAYOUT-003",
+    "type": "source_sequence_anomaly",
+    "pdf_pages": [
+      466,
+      470,
+      471
+    ],
+    "observation": "PDF470 prints 1巻 P.550-551 between P.463-470 and P.471-475. The print order anomaly is visually confirmed.",
+    "required_handling": "Retain PDF source order, preserve original range, flag; do not silently move or renumber."
+  },
+  {
+    "id": "LAYOUT-004",
+    "type": "source_page_labels",
+    "pdf_pages": [
+      37,
+      38,
+      178,
+      180,
+      267,
+      268
+    ],
+    "observation": "Other programmatic print-label anomalies: PDF37 P.55 then PDF38 P.54-55; PDF178 P.184-185 then PDF180 P.187; PDF267 P.258-259 then PDF268 P.261. These may reflect source organization or book-title pages, not necessarily missing hadiths.",
+    "required_handling": "Preserve raw labels and record uncertainty; no automatic missing-narration claim."
+  },
+  {
+    "id": "TEXT-001",
+    "type": "source_typographic_defects",
+    "pdf_pages": [
+      8,
+      576
+    ],
+    "observation": "Visible source defects include み使いはは and 週末 on PDF8, and み傾い on PDF576.",
+    "required_handling": "Preserve source text verbatim; any optional correction must be a distinct editorial field with evidence."
+  },
+  {
+    "id": "TEXT-002",
+    "type": "arabic_snippet_order",
+    "pdf_pages": [
+      528,
+      543,
+      545,
+      561,
+      564,
+      565
+    ],
+    "observation": "Embedded Arabic includes presentation forms and multiword runs whose extracted token sequence follows visual positioning rather than logical Arabic order. 21 lines / 249 Arabic-block characters found including presentation forms.",
+    "required_handling": "Keep raw evidence; flag logical-order/character review and do not populate a complete Arabic-original field from these snippets."
+  },
+  {
+    "id": "TEXT-003",
+    "type": "possible_source_arabic_defect",
+    "pdf_pages": [
+      561
+    ],
+    "observation": "The displayed quoted phrase contains ماع, corresponding to extracted ﻣﺎع, beside Latin ma'in.",
+    "required_handling": "Do not silently replace it with canonical Quran text; preserve source and mark possible source defect."
+  },
+  {
+    "id": "BOUNDARY-001",
+    "type": "nested_narrator_and_variant",
+    "pdf_pages": [
+      7,
+      8,
+      9,
+      501,
+      576
+    ],
+    "observation": "Narrator headers, nested speech, standalone transmission variants and commentary share normal body font and can look similar. Route notices may consist only of a statement that the same report was transmitted.",
+    "required_handling": "Avoid treating every は言った/伝えている line as a new narration. Preserve separate variant occurrences where source boundaries are established; qualify inferred boundaries."
+  },
+  {
+    "id": "BOUNDARY-002",
+    "type": "notes",
+    "pdf_pages": [
+      501,
+      543,
+      545,
+      576
+    ],
+    "observation": "Notes are interspersed in flow after narrations, may have several paragraphs, and may be numbered or unnumbered; some title notes precede the source range.",
+    "required_handling": "Store full note texts and links distinctly; do not put commentary inside prophetic text."
+  },
+  {
+    "id": "META-002",
+    "type": "translator_scope",
+    "pdf_pages": [
+      5,
+      6
+    ],
+    "observation": "Three human translators and division of work are documented, but individual narration-to-translator attribution is not printed.",
+    "required_handling": "Record all three credits with exact source scopes; leave per-occurrence translator null unless separately established."
+  }
+]

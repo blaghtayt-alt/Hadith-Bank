@@ -10,20 +10,29 @@
 :root{--ink:#173b32;--muted:#64746c;--green:#12644f;--green-dark:#0c4839;--pale:#e8f0e9;--paper:#fbfaf5;--line:#dce3d9;--amber:#875e16;--amber-bg:#fff4d9;--white:#fff;--shadow:0 5px 25px #173b3207}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}button,input,select{font:inherit}button,a,input,select,summary{ -webkit-tap-highlight-color:transparent}button,select,summary{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #43a78a;outline-offset:3px}button{border:1px solid var(--line);background:white;border-radius:8px;padding:9px 14px;color:var(--ink);font-weight:600}button:hover:not(:disabled){background:var(--pale);border-color:#b2cbbd}button:disabled{opacity:.42;cursor:default}a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--green-dark)}.shell{max-width:1180px;margin:auto;padding:0 32px}.masthead{border-bottom:1px solid var(--line);background:#fffdf8}.topline{padding:23px 0;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:750;font-size:19px;letter-spacing:-.4px}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--green);border-radius:8px;color:var(--green);font:25px/1 Georgia,serif}.offline-label{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}.hero{padding:42px 0 30px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:44px;letter-spacing:-1.2px;line-height:1.15;margin:0 0 12px}.intro{margin:0;color:var(--muted);max-width:620px;font-size:16px}.snapshot-count{flex:none;text-align:right;font-size:13px;color:var(--muted)}.snapshot-count strong{display:block;font-size:31px;line-height:1.2;color:var(--green);font-weight:600}.search-panel{padding:26px;background:white;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.search-label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.search-wrap{display:flex;align-items:center;gap:12px;background:#f9fbf8;border:1px solid #bbcfc2;border-radius:9px;padding:0 15px}.search-icon{font-size:25px;color:var(--green);line-height:1}.search-wrap input{width:100%;border:0;background:transparent;padding:14px 0;font-size:17px;color:var(--ink);outline:0}.search-wrap:focus-within{outline:2px solid #43a78a;outline-offset:2px}.search-hint{font-size:12px;color:var(--muted);margin:7px 0 19px}.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.filter label{display:block;margin-bottom:5px;color:var(--muted);font-size:12px;font-weight:650}.filter select{width:100%;padding:9px 30px 9px 10px;border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink);text-overflow:ellipsis}.options{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:19px;padding-top:17px;border-top:1px solid #edf0e9}.checks{display:flex;gap:20px;flex-wrap:wrap}.check{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer}.check input{accent-color:var(--green);width:16px;height:16px;margin:0}.text-button{padding:3px 0;border:0;background:none!important;font-size:13px;color:var(--green)}.results-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:29px 0 17px}.results-toolbar h2{font-size:18px;font-weight:650;margin:0;letter-spacing:-.3px}.result-count{color:var(--muted);font-size:13px;margin-top:2px}.selection-controls{display:flex;align-items:center;gap:13px}.download-button{color:white;background:var(--green);border-color:var(--green);font-size:13px}.download-button:hover:not(:disabled){background:var(--green-dark);color:white;border-color:var(--green-dark)}.record-card{margin-bottom:21px;padding:27px 30px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:13px}.eyebrow{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--green);font-weight:750}.book-line{font-size:13px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}.record-select{font-size:12px;white-space:nowrap;flex:none}.record-title{font-size:17px;font-weight:650;line-height:1.6;margin:12px 0 17px;color:#3b574b;white-space:pre-wrap;overflow-wrap:anywhere}.narration{font-size:18px;line-height:1.9;color:#193d33;margin:0 0 23px;white-space:pre-wrap;overflow-wrap:anywhere}.narration.arabic{font-family:"Amiri","Noto Naskh Arabic","Scheherazade New",serif;font-size:25px;line-height:2;text-align:right}.narration:lang(ja),.narration:lang(zh-CN){line-height:2}.source-headings{border-left:2px solid #cfe0d2;padding-left:12px;color:var(--muted);font-size:12px;margin:0 0 20px;white-space:pre-wrap}.source-block{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 28px;padding:19px 0;border-top:1px solid #e7ece3}.meta-item{min-width:0;font-size:13px;overflow-wrap:anywhere}.meta-label{display:block;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.25px;margin-bottom:3px}.meta-value{white-space:pre-wrap}.meta-item.wide{grid-column:1/-1}.source-url{font-size:11px;color:var(--muted);display:block;word-break:break-all;margin-top:3px}.badges{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 13px}.badge{font-size:11px;padding:3px 8px;border:1px solid #d7e4d7;border-radius:5px;color:#40614e;background:#f3f7f1;overflow-wrap:anywhere}.badge.pending{background:var(--amber-bg);color:var(--amber);border-color:#eddfba}.topic-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}.topic-tag{font-size:11px;color:var(--green);border-radius:20px;background:#edf4ed;padding:3px 9px}.detail{border-top:1px solid #edf0e9;padding-top:11px;margin-top:11px}.detail summary{font-size:12px;font-weight:650;color:var(--muted);padding:3px 0}.detail[open] summary{margin-bottom:13px;color:var(--green)}.detail .narration{font-size:16px;margin-bottom:13px}.detail .narration.arabic{font-size:23px}.audit-text{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#52685b;background:#f8faf6;border:1px solid #e7ece3;border-radius:7px;padding:16px;max-height:400px;overflow:auto}.empty{padding:70px 25px;text-align:center;color:var(--muted);border:1px dashed #cbd9cc;border-radius:12px;background:#fffdf8}.empty h3{margin:0 0 8px;color:var(--ink);font:25px Georgia,serif}.pagination{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:29px 0 42px}.page-meta{font-size:13px;color:var(--muted);text-align:center}.page-buttons{display:flex;gap:8px}.footer{border-top:1px solid var(--line);padding:25px 0 38px;color:var(--muted);font-size:12px}.footer p{margin:0 0 12px;max-width:820px}.about{font-size:12px}.about summary{cursor:pointer;color:var(--green)}.about pre{max-width:100%;overflow-wrap:anywhere;white-space:pre-wrap;font:11px/1.7 ui-monospace,monospace;margin-top:12px}.loading{padding:80px;text-align:center;color:var(--muted)}.error{color:#8b3024;background:#fff3ee;padding:24px;border:1px solid #ebc8be;border-radius:10px}.visually-hidden{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}.no-js{margin:30px;padding:25px;background:#fff4d9;border:1px solid #eddfba} @media(max-width:760px){.shell{padding:0 18px}.hero{padding-top:30px;align-items:flex-start}h1{font-size:35px}.snapshot-count strong{font-size:26px}.snapshot-count{font-size:11px}.intro{font-size:14px}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.search-panel{padding:19px}.record-card{padding:22px 21px}.source-block{grid-template-columns:1fr;gap:13px}.meta-item.wide{grid-column:auto}.results-toolbar{align-items:flex-start}.selection-controls{flex-direction:column;align-items:flex-end;gap:7px}.narration{font-size:17px}.checks{gap:12px}.topline{padding:19px 0}.offline-label{font-size:10px}.pagination{flex-wrap:wrap}.page-meta{order:-1;width:100%}.page-buttons{margin-left:auto}.book-line{font-size:12px}}@media print{.masthead,.search-panel,.selection-controls,.pagination,.footer,.record-select{display:none}.shell{padding:0;max-width:none}.record-card{box-shadow:none;break-inside:avoid}.hero{padding-top:0}.source-url{display:block}.narration{font-size:14px}.record-card details:not([open]){display:none}}
 </style>
 <style>.materials-panel{margin:0 0 35px;border:1px solid var(--line);border-radius:10px;padding:21px 24px;background:#fffdf8}.materials-panel h2{font-size:18px;margin:0 0 8px}.materials-panel p{color:var(--muted);font-size:13px}.material-list{display:grid;gap:12px}.material-item{font-size:12px;padding:12px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}.material-item strong{display:block;color:var(--ink);margin-bottom:5px}.material-item .meta-value{color:var(--muted)}.materials-panel details+details{margin-top:17px}.materials-panel summary{font-size:13px;font-weight:650;color:var(--green)}</style>
+<style>
+.site-nav{display:flex;align-items:center;justify-content:flex-end;gap:15px;flex-wrap:wrap;font-size:12px}.site-nav a{font-weight:600;white-space:nowrap}.site-nav .reader-download{border:1px solid #c6d8cc;border-radius:7px;padding:7px 11px;background:var(--pale);text-decoration:none}.collection-summary{margin-top:12px;color:var(--green);font-size:12px;font-weight:600}.review-notice{border-left:3px solid #c59331;background:var(--amber-bg);color:#73531b;font-size:13px;margin:0 0 20px;padding:12px 16px;border-radius:0 8px 8px 0}.source-file-links{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:8px;font-size:12px}.reader-context{font-size:11px;color:var(--muted);margin-top:4px}.footer-nav{display:flex;gap:17px;flex-wrap:wrap;margin-bottom:15px}@media(max-width:760px){.topline{align-items:flex-start;flex-direction:column;gap:13px}.site-nav{justify-content:flex-start;gap:8px 15px}.hero{gap:15px}.collection-summary{font-size:11px}.review-notice{font-size:12px}}@media print{.review-notice{break-inside:avoid}}
+</style>
+<style>
+.origin-summary{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.6}.available-materials{margin-top:20px;padding-top:19px;border-top:1px solid var(--line)}.available-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.available-heading h2{font-size:14px;margin:0;font-weight:700}.available-summary{margin:6px 0 12px;color:var(--muted);font-size:12px}.available-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.material-choice{min-width:0;text-align:left;font-size:12px;font-weight:500;padding:12px 13px}.material-choice strong{display:block;font-weight:700;margin-bottom:3px;overflow-wrap:anywhere}.material-choice span{display:block;color:var(--muted);font-size:11px}.material-choice[aria-pressed="true"]{background:var(--pale);border-color:var(--green)}.language-choices{display:flex;gap:8px;flex-wrap:wrap}.language-choice{font-size:12px;padding:7px 10px}.available-note{font-size:11px;color:var(--muted);margin:10px 0 0}@media(max-width:760px){.available-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.available-grid{grid-template-columns:1fr}.available-heading{align-items:flex-start}.filters{gap:12px 9px}.filter select{font-size:14px}.hero{flex-wrap:wrap}.snapshot-count{text-align:left}.snapshot-count strong{display:inline;font-size:24px;margin-right:6px}}@media print{.available-materials{display:none}}
+</style>
 </head>
 <body>
-<header class="masthead"><div class="shell"><div class="topline"><div class="brand"><span class="brand-mark" aria-hidden="true">≋</span><span id="brand-title">Hadith Bank</span></div><span class="offline-label">An offline reading collection</span></div></div></header>
+<header class="masthead"><div class="shell"><div class="topline"><div><div class="brand"><span class="brand-mark" aria-hidden="true">≋</span><span id="brand-title">Hadith Bank</span></div><div id="reader-context" class="reader-context">Searchable source editions in every available language</div></div><nav class="site-nav" aria-label="Hadith Bank navigation"><a id="live-reader-link" href="https://blaghtayt-alt.github.io/Hadith-Bank/">Live reader</a><a id="repository-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a><a id="offline-download" class="reader-download" href="hadith-bank-reader.html" download="hadith-bank-reader.html">Download offline reader</a></nav></div></div></header>
 <main class="shell">
-<section class="hero"><div><h1>Read the narrations.</h1><p class="intro">Search the text. Choose a language or collection. Keep the source and translation details in view.</p></div><div class="snapshot-count"><strong id="total-count">—</strong>source occurrences</div></section>
+<section class="hero"><div><h1>Read the narrations.</h1><p class="intro">Search the text. Choose a language or collection. Keep the source and translation details in view.</p><div id="collection-summary" class="collection-summary"></div></div><div class="snapshot-count"><strong id="total-count">—</strong>source occurrences</div></section>
+<p id="review-notice" class="review-notice" hidden></p>
 <section class="search-panel" aria-label="Search and filters">
 <label class="search-label" for="query">Find a narration</label><div class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="query" type="search" placeholder="Words, narrators, translators or source references" autocomplete="off" spellcheck="false"></div><p class="search-hint">All search words must match. Japanese, Chinese and Arabic text can be searched directly.</p>
-<div class="filters"><div class="filter"><label for="language-filter">Language</label><select id="language-filter"><option value="">All languages</option></select></div><div class="filter"><label for="book-filter">Collection</label><select id="book-filter"><option value="">All collections</option></select></div><div class="filter"><label for="source-filter">Source</label><select id="source-filter"><option value="">All sources</option></select></div><div class="filter"><label for="origin-filter">Translation origin</label><select id="origin-filter"><option value="">All origins</option></select></div></div>
+<div class="filters"><div class="filter"><label for="language-filter">Language</label><select id="language-filter"><option value="">All languages</option></select></div><div class="filter"><label for="book-filter">Collection</label><select id="book-filter"><option value="">All collections</option></select></div><div class="filter"><label for="source-filter">Source edition</label><select id="source-filter"><option value="">All source editions</option></select></div><div class="filter"><label for="origin-filter">Translation origin</label><select id="origin-filter" aria-describedby="origin-summary"><option value="">All</option><option value="human">Human</option><option value="ai">AI</option><option value="unknown">Unknown</option></select></div></div>
+<p id="origin-summary" class="origin-summary" role="status" aria-live="polite"></p>
 <div class="options"><div class="checks"><label class="check"><input id="show-arabic" type="checkbox">Show Arabic text</label><label class="check"><input id="include-commentary" type="checkbox">Search commentary, benefits &amp; footnotes</label></div><button id="reset" class="text-button" type="button">Clear filters</button></div>
+<section class="available-materials" aria-labelledby="available-heading"><div class="available-heading"><h2 id="available-heading" tabindex="-1">Available materials</h2><button id="all-language-materials" class="text-button" type="button" hidden>All collections</button></div><p id="available-summary" class="available-summary"></p><div id="available-materials"></div><p id="available-note" class="available-note" hidden>Material totals follow the selected language and translation origin. Search terms and source-edition choices narrow the narration results below.</p></section>
 </section>
 <section aria-label="Search results"><div class="results-toolbar"><div><h2 id="results-heading" tabindex="-1">Narrations</h2><div class="result-count" id="result-count" role="status" aria-live="polite">Preparing the collection…</div></div><div class="selection-controls"><button type="button" id="download" class="download-button" disabled>Download selected JSON (0)</button><button type="button" id="clear-selection" class="text-button" hidden>Clear selection</button></div></div><div id="results"><div class="loading">Preparing the reading view…</div></div><nav class="pagination" aria-label="Result pages"><button id="previous" type="button" disabled>← Previous</button><div id="page-meta" class="page-meta"></div><div class="page-buttons"><button id="next" type="button" disabled>Next →</button></div></nav></section>
 <section id="other-materials" class="materials-panel" hidden aria-label="Other catalogued materials"><h2>Other catalogued materials</h2><p>These document and dataset listings are separate from the narration search and record count above.</p><div id="other-materials-content"></div></section>
 </main>
-<footer class="footer"><div class="shell"><p>Each card is a source occurrence. Repeated narrations, source editions and translation versions remain separate. Current review decisions are shown separately from the preserved import history and source-alignment notes.</p><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
+<footer class="footer"><div class="shell"><p>Each card is a source occurrence. Repeated narrations, source editions and translation versions remain separate. Current review decisions are shown separately from the preserved import history and source-alignment notes.</p><p>Reading and search work offline after you download this page. Local source-file links require the complete bank package; repository links open the preserved source files online. The live reader updates after new material passes the repository build.</p><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
 <noscript><div class="no-js">This offline reader needs JavaScript to search and display the embedded records. No internet connection is required. The accompanying readable Markdown pages provide a script-free view.</div></noscript>
 <script id="hadith-records" type="application/octet-stream" data-encoding="__HADITH_ENCODING__">__HADITH_RECORDS_JSON__</script>
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
@@ -70,31 +79,126 @@ const fold = (value, joinCJK=true) => {
 const element = (tag, className, text) => { const node=document.createElement(tag); if(className) node.className=className; if(text != null) node.textContent=String(text); return node; };
 const sourceURL = source => { for(const input of [source.record_url,source.url]) { if(typeof input !== "string" || /[\u0000-\u001f]/.test(input)) continue; try { const url=new URL(input); if(url.protocol === "https:" || url.protocol === "http:") return input; } catch(_){} } return null; };
 const sourceLabel = record => record.source.name || record.source_id;
-const originLabel = record => record.translation_provenance.label || record.translation_provenance.origin || "Not supplied";
-const bookLabel = key => ({hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","riyadh-al-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing"}[key] || key);
+const originCategory = record => {
+  const provenance=record.translation_provenance || {};
+  const current=provenance.current_policy && provenance.current_policy.classification;
+  if(["human","ai","unknown"].includes(current)) return current;
+  if(provenance.ai_translation===true) return "ai";
+  if(provenance.ai_translation===false) return "human";
+  if(["publisher_human_workflow","human_translator_credited"].includes(provenance.origin)) return "human";
+  return "unknown";
+};
+const originLabel = record => ({human:"Human",ai:"AI",unknown:"Unknown"}[originCategory(record)]);
+const legacyOrigin = item => {const current=item.current_policy && item.current_policy.classification;return ["human","ai","unknown"].includes(current)?current:"unknown";};
+const bookLabel = key => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud","200-golden-hadith":"200 Golden Hadith","riyadh-al-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing"};return Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;};
+const languageLabel = code => {
+  if(Object.prototype.hasOwnProperty.call(names,code) && typeof names[code]==="string") return names[code];
+  try { if(typeof Intl.DisplayNames === "function") return new Intl.DisplayNames(["en"],{type:"language"}).of(code) || code; } catch(_){}
+  return code;
+};
+const recordFileURL = (relative, site, protocol) => {
+  if(typeof relative !== "string" || !relative || /[\\:\u0000-\u001f\u007f]/.test(relative) || relative.startsWith("/")) return null;
+  const parts=relative.split("/");
+  if(parts.some(part=>!part || part==="." || part==="..")) return null;
+  const encoded=parts.map(encodeURIComponent).join("/");
+  if(protocol==="file:") return encoded;
+  const repository=site && site.repository_url, reference=site && site.source_ref;
+  if(typeof repository!=="string" || !/^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/.test(repository)) return null;
+  if(typeof reference!=="string" || !/^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(reference) || reference.split("/").some(part=>!part || part==="." || part==="..")) return null;
+  return repository.replace(/\/$/,"")+"/blob/"+encodeURIComponent(reference)+"/"+encoded;
+};
+const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
+const needsIndependentReview = record => {
+  const review=record.review || {};
+  if(record.publication && record.publication.status==="published_pending_review") return true;
+  if(review.current_policy && review.current_policy.separate_bank_review_required===false) return false;
+  return /pending|unreviewed|unverified/i.test(valueText(review.independent_pro_qc || review.status));
+};
 const editionLabel = record => record.edition.startsWith("sqlite-") ? "SQLite snapshot "+record.edition.slice(7,15) : record.edition.startsWith("xlsx-") ? "XLSX "+record.edition.split("-")[1] : record.edition;
 const numberLabel = record => { const out=[]; if(record.number && record.number.in_book != null) out.push("Book number " + valueText(record.number.in_book)); if(record.provider_entry_id != null) out.push("Source entry " + record.provider_entry_id); return out.join(" · ") || "Book number not supplied"; };
 const pageLabel = record => { const p=record.page || {}, out=[]; if(p.pdf && p.pdf.length) out.push("PDF page " + p.pdf.join(", ")); if(p.printed && p.printed.length) out.push("Printed page " + p.printed.join(", ")); if(p.sheet) out.push("Sheet " + p.sheet); if(p.row != null) out.push("Row " + p.row); return out.join(" · ") || "Page locator not supplied"; };
+const materialSummary = (items, language, origin="") => {
+  const groups=new Map();
+  items.forEach(record=>{if(language && record.language!==language || origin && originCategory(record)!==origin)return;const key=record.book_key;if(!groups.has(key))groups.set(key,{book_key:key,count:0,editions:new Set()});const group=groups.get(key);group.count++;group.editions.add(record.language+"/"+record.book_key+"/"+record.edition);});
+  return [...groups.values()].map(group=>({book_key:group.book_key,count:group.count,edition_count:group.editions.size})).sort((a,b)=>bookLabel(a.book_key).localeCompare(bookLabel(b.book_key)));
+};
+const resolveMaterialFilters = (items, selection) => {
+  const language=selection.language || "",origin=["human","ai","unknown"].includes(selection.origin)?selection.origin:"";
+  const allLanguageRows=items.filter(record=>!language || record.language===language),languageRows=allLanguageRows.filter(record=>!origin || originCategory(record)===origin),books=new Map();
+  languageRows.forEach(record=>books.set(record.book_key,bookLabel(record.book_key)));
+  const book=books.has(selection.book)?selection.book:"",bookRows=languageRows.filter(record=>!book || record.book_key===book),sources=new Map();
+  bookRows.forEach(record=>sources.set(record.source_id,languageLabel(record.language)+" · "+bookLabel(record.book_key)+" · "+editionLabel(record)));
+  const source=sources.has(selection.source)?selection.source:"",rows=bookRows.filter(record=>!source || record.source_id===source),origin_counts={human:0,ai:0,unknown:0};
+  allLanguageRows.filter(record=>(!book || record.book_key===book) && (!source || record.source_id===source)).forEach(record=>origin_counts[originCategory(record)]++);
+  return {language,book,source,origin,books,sources,rows,origin_counts,materials:materialSummary(items,language,origin),language_count:languageRows.length};
+};
 const searchKeys = records.map(r => [r.title,r.text_translation,r.text_arabic,r.id,r.provider_entry_id,r.book_key,r.edition,valueText(r.number),valueText(r.narrator && r.narrator.name),valueText(r.source_headings),valueText(r.topic_tags),valueText(r.editorial_tags),sourceLabel(r),valueText(r.source),valueText(r.translator),valueText(r.references)].filter(Boolean).map(value=>fold(value)).join("\n"));
 const annotationSearchKey = record => [record.commentary,record.benefits,record.footnotes].map(value=>fold(valueText(value))).join("\n");
 let commentaryKeys = null;
-function fillFilter(id, items) { const select=$(id); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; select.append(option); }); }
-const languages=new Map(), books=new Map(), sources=new Map(), origins=new Map();
-records.forEach(r=>{languages.set(r.language,names[r.language] || r.language);books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,(names[r.language]||r.language)+" · "+bookLabel(r.book_key)+" · "+editionLabel(r));origins.set(r.translation_provenance.origin || "",originLabel(r));});
-fillFilter("language-filter",languages); fillFilter("book-filter",books); fillFilter("source-filter",sources); origins.delete(""); fillFilter("origin-filter",origins);
+function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; select.append(option); });select.value=items.has(value)?value:""; }
+const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
+const languages=new Map(), books=new Map(), sources=new Map();
+records.forEach(r=>{languages.set(r.language,languageLabel(r.language));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key)+" · "+editionLabel(r));});
+legacy.forEach(item=>{if(typeof item.language==="string" && item.language)languages.set(item.language,languageLabel(item.language));});
+fillFilter("language-filter",languages,"All languages");
 $("brand-title").textContent=snapshot.title || "Hadith Bank";
 document.title=(snapshot.title || "Hadith Bank")+" · Reader";
 $("total-count").textContent=nf.format(records.length);
-$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:[],scope:"Reading and search only. Translation-origin labels and review statuses are preserved from the supplied records."},null,2);
-const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
-if(legacy.length || unavailable.length){
-  $("other-materials").hidden=false;
-  for(const [items,label,isLegacy] of [[legacy,"Legacy source documents",true],[unavailable,"Private datasets unavailable in this tree",false]]){
-    if(!items.length)continue;
-    const disclosure=element("details"),list=element("div","material-list");disclosure.append(element("summary",null,label+" ("+nf.format(items.length)+")"));
-    items.forEach(item=>{const row=element("div","material-item");row.append(element("strong",null,(names[item.language]||item.language||"")+" · "+(isLegacy?item.path:item.dataset_id)));row.append(element("div","meta-value",isLegacy?"Translation origin: "+(item.translation_origin||"unknown")+"\nSource revision: "+(item.source_revision||"Not supplied")+"\nSHA-256: "+(item.sha256||"Not supplied"):(item.book_key||"")+" · "+(item.edition||"")+"\n"+nf.format(item.count||0)+" source occurrences in the separate package\nRelease: "+(item.release_status||"Not supplied")+"\n"+(item.location_note||"Metadata only; content is not available in this tree.")));list.append(row);});
-    disclosure.append(list);$("other-materials-content").append(disclosure);
+$("collection-summary").textContent=nf.format(languages.size)+" languages · "+nf.format(books.size)+" collections · "+nf.format(sources.size)+" source editions";
+const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Hadith-Bank",live_url:"https://blaghtayt-alt.github.io/Hadith-Bank/",source_ref:"main"};
+$("repository-link").href=site.repository_url;
+$("live-reader-link").href=site.live_url;
+const guideURL=recordFileURL("docs/ADDING-MATERIAL.md",site,"https:");
+if(guideURL) $("add-material-link").href=guideURL;
+$("offline-download").href=window.location.href.split("#")[0];
+const offline=window.location.protocol==="file:";
+$("reader-context").textContent=(offline?"Downloaded snapshot · reading and search work offline":"Live collection · automatically rebuilt from the source repository")+(site.build_commit?" · "+site.build_commit.slice(0,7):"");
+const pendingReviewCount=records.filter(needsIndependentReview).length;
+if(pendingReviewCount){$("review-notice").hidden=false;$("review-notice").textContent=nf.format(pendingReviewCount)+" source occurrences are pending independent review. Their source text, missing fields, and review qualifications remain visible on each record.";}
+$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_editions:sources.size,pending_independent_review:pendingReviewCount,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:[],scope:"Reading and search only. Public availability does not assert independent review or verified reuse rights. Translation-origin labels and source review statuses are preserved."},null,2);
+const matchingLegacy = (language,origin) => legacy.filter(item=>(!language || item.language===language) && (!origin || legacyOrigin(item)===origin));
+function renderOtherMaterials(language,origin){
+  const items=origin?[]:unavailable.filter(item=>!language || item.language===language),container=$("other-materials-content");
+  container.replaceChildren();$("other-materials").hidden=!items.length;
+  if(!items.length)return;
+  const disclosure=element("details"),list=element("div","material-list");disclosure.append(element("summary",null,"Registered datasets unavailable in this reader ("+nf.format(items.length)+")"));
+  items.forEach(item=>{const row=element("div","material-item");row.append(element("strong",null,languageLabel(item.language||"")+" · "+item.dataset_id),element("div","meta-value",(item.book_key||"")+" · "+(item.edition||"")+"\n"+nf.format(item.count||0)+" source occurrences in the separate package\nRelease: "+(item.release_status||"Not supplied")+"\n"+(item.location_note||"Metadata only; content is not available in this reader.")));list.append(row);});
+  disclosure.append(list);container.append(disclosure);
+}
+function chooseCollection(book){
+  clearTimeout(state.timer);$("book-filter").value=book;$("source-filter").value="";
+  syncMaterialFilters();applyFilters();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});
+}
+function renderAvailableMaterials(scope){
+  const container=$("available-materials"),documents=matchingLegacy(scope.language,scope.origin);container.replaceChildren();
+  $("available-heading").textContent="Available materials"+(scope.language?" · "+languageLabel(scope.language):"");
+  $("all-language-materials").hidden=!scope.language || !scope.book;
+  $("available-note").hidden=!scope.language || !scope.materials.length;
+  if(!scope.language){
+    $("available-summary").textContent="Choose a language to see its available collections and copied-bank documents.";
+    const choices=element("div","language-choices");
+    [...languages.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([language,label])=>{const occurrenceCount=records.filter(record=>record.language===language && (!scope.origin || originCategory(record)===scope.origin)).length,documentCount=matchingLegacy(language,scope.origin).length;if(!occurrenceCount && !documentCount)return;const button=element("button","language-choice",label+" · "+nf.format(occurrenceCount)+" occurrences"+(documentCount?" · "+nf.format(documentCount)+" documents":""));button.type="button";button.addEventListener("click",()=>{$("language-filter").value=language;syncMaterialFilters();applyFilters();$("book-filter").focus();});choices.append(button);});
+    if(!choices.childNodes.length)choices.append(element("p","available-note","No material is labeled "+($("origin-filter").selectedOptions[0]?.textContent||"with this origin")+" in this snapshot."));
+    container.append(choices);return;
   }
+  const editions=scope.materials.reduce((total,material)=>total+material.edition_count,0);
+  $("available-summary").textContent=nf.format(scope.language_count)+" source occurrences · "+nf.format(scope.materials.length)+" collections · "+nf.format(editions)+" source editions"+(documents.length?" · "+nf.format(documents.length)+" copied-bank documents":"");
+  const grid=element("div","available-grid");
+  scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");button.append(element("strong",null,bookLabel(material.book_key)),element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
+  if(grid.childNodes.length)container.append(grid);
+  if(documents.length){
+    const disclosure=element("details","available-legacy"),list=element("div","material-list");disclosure.open=scope.origin==="unknown";disclosure.append(element("summary",null,"Copied bank documents ("+nf.format(documents.length)+")"),element("p","available-note","These documents retain their source files. Their translation origin is shown separately, and they are not counted as structured narration occurrences."));
+    documents.forEach(item=>{const row=element("div","material-item"),label=item.path.replace(/^languages\/[^/]+\/books\//,""),href=recordFileURL(item.path,site,window.location.protocol),link=element(href?"a":"span",null,label);if(href){link.href=href;link.target="_blank";link.rel="noopener noreferrer";}row.append(link,element("div","meta-value","Translation origin: "+({human:"Human",ai:"AI",unknown:"Unknown"}[legacyOrigin(item)])+(legacyOrigin(item)==="unknown"?" · awaiting owner confirmation":"")));if(offline){const online=recordFileURL(item.path,site,"https:");if(online){const remote=element("a","source-url","Open document on GitHub");remote.href=online;remote.target="_blank";remote.rel="noopener noreferrer";row.append(remote);}}list.append(row);});
+    disclosure.append(list);container.append(disclosure);
+  }
+  if(!scope.materials.length && !documents.length)container.append(element("p","available-note","No material with this translation origin is available in the selected language."));
+}
+function syncMaterialFilters(){
+  const scope=resolveMaterialFilters(records,{language:$("language-filter").value,book:$("book-filter").value,source:$("source-filter").value,origin:$("origin-filter").value});
+  fillFilter("book-filter",scope.books,"All collections",scope.book);fillFilter("source-filter",scope.sources,"All source editions",scope.source);
+  const counts=scope.origin_counts,unknownDocuments=matchingLegacy(scope.language,"unknown").length;
+  $("origin-summary").textContent="Narration origins in these materials: "+nf.format(counts.human)+" Human · "+nf.format(counts.ai)+" AI · "+nf.format(counts.unknown)+" Unknown."+(unknownDocuments?" "+nf.format(unknownDocuments)+" copied-bank documents have Unknown origin and remain separate from narration counts.":"");
+  renderAvailableMaterials(scope);renderOtherMaterials(scope.language,scope.origin);
 }
 function meta(label, content, wide=false) { const item=element("div","meta-item"+(wide?" wide":"")); item.append(element("span","meta-label",label)); if(content instanceof Node) item.append(content); else item.append(element("div","meta-value",content)); return item; }
 function detail(title, content, className="") { const item=element("details","detail "+className); item.append(element("summary",null,title),content); return item; }
@@ -107,10 +211,20 @@ function suppliedText(value, arabic=false, language=null) {
   }
   return container;
 }
+function sourceFiles(source) {
+  const links=element("div","source-file-links");
+  const appendLink=(label,relative,protocol)=>{const href=recordFileURL(relative,site,protocol);if(!href)return;const link=element("a",null,label);link.href=href;link.target="_blank";link.rel="noopener noreferrer";links.append(link);};
+  if(source.original_file){
+    appendLink(offline?"Local source file":"Source file",source.original_file,window.location.protocol);
+    if(offline)appendLink("Source file on GitHub",source.original_file,"https:");
+  }
+  if(source.record_locator && source.record_locator.path)appendLink(offline?"Local record JSON":"Canonical record file",source.record_locator.path,window.location.protocol);
+  return links;
+}
 function card(record,index) {
   const card=element("article","record-card");
   const top=element("div","card-top"), heading=element("div");
-  heading.append(element("div","eyebrow",names[record.language] || record.language));
+  heading.append(element("div","eyebrow",languageLabel(record.language)));
   heading.append(element("div","book-line",bookLabel(record.book_key)+" · "+numberLabel(record)));
   const select=element("label","check record-select"), checkbox=element("input"); checkbox.type="checkbox"; checkbox.checked=state.selected.has(index); checkbox.setAttribute("aria-label","Select "+record.id); checkbox.addEventListener("change",()=>{checkbox.checked?state.selected.add(index):state.selected.delete(index);updateSelection();}); select.append(checkbox,document.createTextNode("Select")); top.append(heading,select);card.append(top);
   if(record.title) card.append(element("h3","record-title",record.title));
@@ -122,23 +236,25 @@ function card(record,index) {
   const block=element("div","source-block"), source=element("div","meta-value"), url=sourceURL(record.source);
   if(url) { const link=element("a",null,sourceLabel(record));link.href=url;link.target="_blank";link.rel="noopener noreferrer";source.append(link,element("span","source-url",url)); }
   else { source.append(document.createTextNode(sourceLabel(record)),element("span","source-url","Source URL not supplied")); if(record.source.original_file) source.append(element("span","source-url",record.source.original_file)); }
+  const sourceLinks=sourceFiles(record.source);if(sourceLinks.childNodes.length)source.append(sourceLinks);
   block.append(meta("Source",source),meta("Translator",valueText(record.translator.name)||"Not named in the supplied source"));
   const origin=element("div","meta-value",originLabel(record));
-  if(record.translation_provenance.ai_translation != null) origin.append(element("span","source-url","AI translation flag: "+String(record.translation_provenance.ai_translation)));
-  if(record.translation_provenance.scope_note) origin.append(element("span","source-url",record.translation_provenance.scope_note));
   block.append(meta("Translation origin",origin,true));
   block.append(meta("Collection & edition",bookLabel(record.book_key)+" · "+editionLabel(record)),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
   card.append(block);
   const badges=element("div","badges"), review=record.review || {};
   const current=review.current_policy;
+  const publicAuthorization=hasPublicAuthorization(record);
+  if(publicAuthorization)badges.append(element("span","badge"+(needsIndependentReview(record)?" pending":""),needsIndependentReview(record)?"Published · independent review pending":"Public source material"));
   if(current && current.separate_bank_review_required===false){
     badges.append(element("span","badge",current.label));
     if(review.issues && review.issues.length)badges.append(element("span","badge pending","Source-alignment notes: "+review.issues.length));
   } else {
-    [["status","Status"],["independent_pro_qc","Independent Pro QC"],["release_status","Release"]].forEach(([key,label])=>{if(review[key]!=null && review[key]!==""){const literal=valueText(review[key]);const pending=/pending|unreviewed|private|unverified/i.test(literal);badges.append(element("span","badge"+(pending?" pending":""),label+": "+literal));}});
+    [["status","Source review"],["independent_pro_qc","Independent Pro QC"],["release_status",publicAuthorization?"Import history":"Release"]].forEach(([key,label])=>{if(review[key]!=null && review[key]!==""){const literal=valueText(review[key]);const pending=/pending|unreviewed|private|unverified/i.test(literal);badges.append(element("span","badge"+(pending?" pending":""),label+": "+literal));}});
   }
   card.append(badges);
   if(current){const history=element("div");history.append(meta("Historical import status",valueText(review.status)),meta("Historical independent review",valueText(review.independent_pro_qc)),meta("Publication status",valueText(review.release_status)),meta("Current owner decision",current.label));if(review.issues && review.issues.length)history.append(meta("Source-alignment notes",valueText(review.issues)));card.append(detail("Import history & source-alignment notes",history));}
+  if(publicAuthorization){const publication=element("div");publication.append(meta("Public availability",valueText(record.publication.status)),meta("Source review",valueText(review.independent_pro_qc)||"Not supplied"),element("p",null,"Public availability does not certify the source text, canonical alignment, or reuse rights."),element("pre","audit-text",JSON.stringify(record.publication,null,2)));card.append(detail("Publication decision & review scope",publication));}
   if(record.topic_tags && record.topic_tags.length){const tags=element("div","topic-tags");record.topic_tags.forEach(tag=>{const chip=element("span","topic-tag",tag.label || tag.id);chip.title=(tag.path||[]).join(" › ");tags.append(chip);});card.append(tags);}
   if(record.text_arabic && hasTranslation){const arabic=detail("Arabic source text",paragraph(record.text_arabic,true,"ar"),"arabic-detail");arabic.open=$("show-arabic").checked;card.append(arabic);}
   const commentary=record.commentary || {}, footnotes=record.footnotes || [];
@@ -152,7 +268,12 @@ function card(record,index) {
     else if(key==="items" && value && value.length)referenceParts.append(element("pre","audit-text",JSON.stringify(value,null,2)));
   }
   if(referenceParts.childNodes.length)card.append(detail("References",referenceParts));
-  const audit=element("div"), provenance=record.translation_provenance;
+  const audit=element("div"), provenance=record.translation_provenance || {};
+  audit.append(meta("Current translation origin",originLabel(record)));
+  if(provenance.current_policy) audit.append(meta("Current classification decision",valueText(provenance.current_policy.basis)+(provenance.current_policy.decision_date_japan?" · "+provenance.current_policy.decision_date_japan:"")));
+  if(provenance.label || provenance.origin) audit.append(meta("Preserved source-origin label",valueText(provenance.label || provenance.origin)));
+  if(provenance.ai_translation != null) audit.append(meta("Preserved source AI-translation flag",String(provenance.ai_translation)));
+  if(provenance.scope_note) audit.append(meta("Source-origin scope",provenance.scope_note));
   if(provenance.basis) audit.append(meta("Translation-origin basis",valueText(provenance.basis)));
   if(provenance.human_involvement != null) audit.append(meta("Human involvement",valueText(provenance.human_involvement)));
   audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));
@@ -163,7 +284,17 @@ function updateSelection(){const n=state.selected.size;$("download").disabled=!n
 function render(){
   const total=state.matches.length, max=Math.max(0,Math.ceil(total/PAGE_SIZE)-1);state.page=Math.min(state.page,max);
   const start=state.page*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,total), fragment=document.createDocumentFragment();
-  if(!total){const empty=element("div","empty");empty.append(element("h3",null,"No matching narrations"),element("p",null,"Try fewer words or choose a different language, collection or source."));fragment.append(empty);}
+  if(!total){
+    const empty=element("div","empty"),origin=$("origin-filter").value,language=$("language-filter").value,documents=matchingLegacy(language,origin);
+    empty.append(element("h3",null,"No matching narrations"));
+    if(origin==="unknown" && documents.length){
+      empty.append(element("p",null,"No structured narration occurrences match these Unknown-origin filters. "+nf.format(documents.length)+" copied-bank documents with Unknown origin are available above; document contents are separate from narration search."));
+      const show=element("button",null,language?"View copied bank documents":"Choose a language for copied bank documents");show.type="button";
+      show.addEventListener("click",()=>{$("available-heading").scrollIntoView({block:"start"});$("available-heading").focus({preventScroll:true});});empty.append(show);
+    } else if(origin==="ai" && !records.some(record=>(!language || record.language===language) && originCategory(record)==="ai")) empty.append(element("p",null,"No source occurrences are labeled AI in this language selection. Choose All, Human or Unknown to browse available material."));
+    else empty.append(element("p",null,"Try fewer words or choose a different language, collection, source edition or translation origin."));
+    fragment.append(empty);
+  }
   else state.matches.slice(start,end).forEach(index=>fragment.append(card(records[index],index)));
   $("results").replaceChildren(fragment);
   $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" matching source occurrences":"0 matching source occurrences";
@@ -174,18 +305,20 @@ function applyFilters(){
   const query=fold($("query").value,false), terms=query?query.split(" "):[],language=$("language-filter").value,book=$("book-filter").value,source=$("source-filter").value,origin=$("origin-filter").value,include=$("include-commentary").checked;
   if(include && !commentaryKeys)commentaryKeys=records.map(annotationSearchKey);
   state.matches=[];
-  records.forEach((r,index)=>{if(language && r.language!==language || book && r.book_key!==book || source && r.source_id!==source || origin && r.translation_provenance.origin!==origin)return;const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");if(terms.every(term=>haystack.includes(term)))state.matches.push(index);});
+  records.forEach((r,index)=>{if(language && r.language!==language || book && r.book_key!==book || source && r.source_id!==source || origin && originCategory(r)!==origin)return;const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");if(terms.every(term=>haystack.includes(term)))state.matches.push(index);});
   state.page=0;render();
 }
 $("query").addEventListener("input",()=>{clearTimeout(state.timer);state.timer=setTimeout(applyFilters,180);});
-["language-filter","book-filter","source-filter","origin-filter","include-commentary"].forEach(id=>$(id).addEventListener("change",applyFilters));
+["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).addEventListener("change",()=>{clearTimeout(state.timer);syncMaterialFilters();applyFilters();}));
+$("include-commentary").addEventListener("change",applyFilters);
+$("all-language-materials").addEventListener("click",()=>chooseCollection(""));
 $("show-arabic").addEventListener("change",()=>document.querySelectorAll(".arabic-detail").forEach(node=>node.open=$("show-arabic").checked));
-$("reset").addEventListener("click",()=>{clearTimeout(state.timer);$("query").value="";["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;applyFilters();});
+$("reset").addEventListener("click",()=>{clearTimeout(state.timer);$("query").value="";["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;syncMaterialFilters();applyFilters();});
 function go(delta){state.page+=delta;render();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});}
 $("previous").addEventListener("click",()=>go(-1));$("next").addEventListener("click",()=>go(1));
 $("clear-selection").addEventListener("click",()=>{state.selected.clear();render();});
 $("download").addEventListener("click",()=>{const chosen=[...state.selected].sort((a,b)=>a-b).map(i=>records[i]);if(!chosen.length)return;const blob=new Blob([JSON.stringify(chosen,null,2)+"\n"],{type:"application/json;charset=utf-8"}),url=URL.createObjectURL(blob),anchor=element("a");anchor.href=url;anchor.download="hadith-bank-selected-records.json";document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
-applyFilters();
+syncMaterialFilters();applyFilters();
 })();
 </script>
 </body>

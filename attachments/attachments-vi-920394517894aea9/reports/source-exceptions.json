@@ -1,0 +1,142 @@
+{
+  "exceptions": [
+    {
+      "exception_id": "VI-SOURCE-001",
+      "source_id": "chanlyislam:vi:bukhari:pdf-78441dec2bca1ecf",
+      "source_sha256": "78441dec2bca1ecf41ecca2a691b974f515821321c9bd73d5c75a1573e658753",
+      "pdf_pages": [
+        23
+      ],
+      "printed_labels": [
+        "54",
+        "56"
+      ],
+      "issue": "Printed labels jump54to56; do not fabricate55 or infer that a specific canonical narration is absent.",
+      "exception_kind": "printed_numbering_gap",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-002",
+      "source_id": "chanlyislam:vi:bukhari:pdf-878f2186382ad5dc",
+      "source_sha256": "878f2186382ad5dc8111e154afee9f59a2e34705b3adea8be2fb78723de29309",
+      "pdf_pages": [
+        31
+      ],
+      "printed_labels": [
+        "219",
+        "230"
+      ],
+      "issue": "Printed labels jump219to230; keep source numbering and occurrences without inventing220–229.",
+      "exception_kind": "printed_numbering_gap",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-003",
+      "source_id": "chanlyislam:vi:bukhari:pdf-3a1424f3a0f06c85",
+      "source_sha256": "3a1424f3a0f06c85e5da62ab8cf83b678ddb5fb7bb4d4036cad61a1e4a3c1c4f",
+      "pdf_pages": [
+        12
+      ],
+      "printed_labels": [
+        "127",
+        "127"
+      ],
+      "issue": "Printed label127 occurs twice; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-004",
+      "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+      "source_sha256": "5839dff77028420fec76fab3683908c95c677615b7a1e183917abdabb7a5cce4",
+      "pdf_pages": [
+        10
+      ],
+      "printed_labels": [
+        "5",
+        "5"
+      ],
+      "issue": "Printed label5 repeated; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-005",
+      "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+      "source_sha256": "5839dff77028420fec76fab3683908c95c677615b7a1e183917abdabb7a5cce4",
+      "pdf_pages": [
+        17
+      ],
+      "printed_labels": [
+        "15",
+        "15"
+      ],
+      "issue": "Printed label15 repeated; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-006",
+      "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+      "source_sha256": "c7dcc5d2a0abffddba93dc6a3dff6cf3aded8d423958730365d705e00c582272",
+      "pdf_pages": [
+        35
+      ],
+      "printed_labels": [
+        "188"
+      ],
+      "issue": "Entry188 has introductoryformula but no Vietnamese translated hadithbody in suppliedsource; keep the source omission explicit and do not backfill.",
+      "exception_kind": "source_translation_body_omitted",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-DAWUD-2479",
+      "source_id": "chanlyislam:vi:abu-dawud:pdf-9faf8e896d29e2a6",
+      "source_sha256": "9faf8e896d29e2a64a322b416cc15dd84e7568969d79f363838c487a60c3d733",
+      "pdf_pages": [
+        6,
+        7
+      ],
+      "issue": "Printed numbering jumps1889→1900 in both columns; no invented records1890–1899.",
+      "status": "preserved_and_flagged",
+      "evidence_basis": "extracting_agent_targeted_original_pdf_image_check"
+    },
+    {
+      "exception_id": "VI-DAWUD-2335",
+      "source_id": "chanlyislam:vi:abu-dawud:pdf-4ca64d83240573e3",
+      "source_sha256": "4ca64d83240573e3baf7e25f594fcfe551cdfce94427331a0bf3bdc4e9d95fe4",
+      "pdf_pages": [
+        22
+      ],
+      "issue": "Footnote9 overlaps narration text; both embedded layers retained, source image obstructed.",
+      "status": "preserved_and_flagged",
+      "evidence_basis": "extracting_agent_targeted_original_pdf_image_check"
+    },
+    {
+      "exception_id": "VI-MUSLIM-2441-NUMBER",
+      "source_id": "chanlyislam:vi:muslim:pdf-e6f1e921a7497618",
+      "source_sha256": "e6f1e921a74976181d0a997f14a3bc48985e332dc3b2f7cf34cbc52946ddbe07",
+      "pdf_pages": [
+        36
+      ],
+      "issue": "Source Arabic local label76 versus Vietnamese75-(410f). Vietnamese label preserved; no canonical correction inferred.",
+      "status": "preserved_and_flagged",
+      "evidence_basis": "extracting_agent_targeted_original_pdf_image_check"
+    }
+  ],
+  "source_gaps_are_not_canonical_omission_counts": true,
+  "all_original_source_words_preserved_in_page_evidence": true,
+  "no_unprovided_narrations_invented": true
+}

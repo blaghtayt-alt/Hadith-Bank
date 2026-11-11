@@ -1,0 +1,58 @@
+{
+  "review_type": "independent_mechanical_and_targeted_structure_review_not_independent_pro_QC",
+  "records_sha256": "9503da5d9efbd3d0a2286a1e75c97c07511be0a675cecd56ed3206f36d2862ff",
+  "classification_counts": {
+    "narration": 1406,
+    "variant_occurrence": 214,
+    "variant_reference": 191
+  },
+  "count_unit": "source-position occurrences including variant references; not unique canonical hadith",
+  "source_handling": {
+    "canonical_and_printed_hadith_numbers_null": true,
+    "sequence_explicitly_not_hadith_number": true,
+    "printed_range_scope_section": true,
+    "raw_arabic_fragments_not_full_arabic": true,
+    "duplicate_text_occurrences_retained_and_linked": true
+  },
+  "translation_handling": {
+    "ai_translation_false_records": 1811,
+    "human_translator_credits_retained": true,
+    "occurrence_translator_unassigned_records": 1811,
+    "extraction_assistance_distinct_from_translation": true
+  },
+  "review_handling": {
+    "all_pending_independent_qc": true,
+    "all_private_candidates": true,
+    "none_release_eligible": true
+  },
+  "targeted_checks": {
+    "semantic_note_links_checked": 2,
+    "embedded_attribution_items_retained": 2,
+    "reviewed_textual_examples": [
+      "ja-muslim-web-c859ce57c211ea1b-p0007-l004-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0008-l021-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0016-l017-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0121-l023-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0151-l020-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0290-l026-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0331-l004-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0528-l030-c000",
+      "ja-muslim-web-c859ce57c211ea1b-p0579-l003-c000"
+    ],
+    "visual_pages_reviewed_by_this_validator_agent": 0
+  },
+  "integration_notes": [
+    "Attachment candidate schema validates; the source-specific translation_provenance object is allowed by that schema. A future normalized search projection must map its kind/evidence into the distinct search-schema origin/evidence_ids structure.",
+    "A standalone search tool reading records directly can preserve the current object unchanged.",
+    "All local package path fields inspected are relative; source PDF is sources/ja-muslim-web.pdf and source metadata is source.json. Actual final-package existence must be checked after copying.",
+    "Source headings are source_structure_tags, not canonical topic taxonomy. Canonical collection/book numbers and occurrence grades are not asserted."
+  ],
+  "errors": [],
+  "status": "passed",
+  "limitations": [
+    "No independent whole-document visual/character certification.",
+    "No exhaustive semantic narration boundary or narrator identity certification.",
+    "No canonical Arabic/number mapping or authenticity certification.",
+    "No change to existing bank repository or publication authorization."
+  ]
+}

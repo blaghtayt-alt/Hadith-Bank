@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "test": "Japanese keyword with report text",
+      "query_args": [
+        "天国",
+        "--has-report-text",
+        "--limit",
+        "2"
+      ],
+      "matches": 114,
+      "returned": 2,
+      "record_ids": [
+        "ja-muslim-web-c859ce57c211ea1b-p0011-l004-c000",
+        "ja-muslim-web-c859ce57c211ea1b-p0012-l004-c000"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Narrator query",
+      "query_args": [
+        "--narrator",
+        "アーイシャ",
+        "--limit",
+        "2"
+      ],
+      "matches": 206,
+      "returned": 2,
+      "record_ids": [
+        "ja-muslim-web-c859ce57c211ea1b-p0114-l004-c000",
+        "ja-muslim-web-c859ce57c211ea1b-p0132-l014-c000"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Recovered inline reports PDF194",
+      "query_args": [
+        "--pdf-page",
+        "194",
+        "--limit",
+        "0"
+      ],
+      "matches": 5,
+      "returned": 5,
+      "record_ids": [
+        "ja-muslim-web-c859ce57c211ea1b-p0194-l004-c000",
+        "ja-muslim-web-c859ce57c211ea1b-p0194-l009-c042",
+        "ja-muslim-web-c859ce57c211ea1b-p0194-l015-c001",
+        "ja-muslim-web-c859ce57c211ea1b-p0194-l022-c020",
+        "ja-muslim-web-c859ce57c211ea1b-p0194-l033-c008"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Separate abbreviated route references",
+      "query_args": [
+        "--record-type",
+        "variant_reference",
+        "--limit",
+        "1"
+      ],
+      "matches": 191,
+      "returned": 1,
+      "record_ids": [
+        "ja-muslim-web-c859ce57c211ea1b-p0008-l030-c000"
+      ],
+      "passed": true
+    },
+    {
+      "test": "Japanese phrase spans original PDF line break",
+      "matches": 1,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

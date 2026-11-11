@@ -1,6 +1,8 @@
-# Additional supplied JSON intakes — 11 November 2026
+# Japanese and Vietnamese source intakes — 11 November 2026
 
-The newly supplied Vietnamese and Japanese JSON files are incorporated additively into the private combined package. Their exact source records, stable occurrence IDs, original source files and evidence remain intact. The public bank registers their source-edition metadata; public searchable text continues to contain the six authorized HadeethEnc snapshots.
+The owner explicitly requested adding the supplied Vietnamese and Japanese texts to the GitHub bank and hosted reader. Their **5,065 source occurrences** are included alongside the **8,423 HadeethEnc occurrences**, giving **13,488 searchable occurrences**. Their exact source records, stable IDs, original PDFs and evidence remain intact in the two source packages under `attachments/`.
+
+Current public visibility is recorded separately from historical source review in [the publication policy](../catalog/publication-policy.json) and `materials/*/manifest.json`. These are **public pending-review source imports**, not independently certified releases.
 
 ## New source inventory
 
@@ -19,24 +21,26 @@ These are source-occurrence counts. They preserve explicit variants, repeated so
 
 The Japanese source credits 磯崎定基、飯森嘉助、小笠原良治. The source's 1,811 records preserve `ai_translation=false`, while the per-occurrence translator remains unassigned where not established.
 
-The Vietnamese package retains explicit human translation credits for 2,248 records and `ai_translation=unknown` for 1,006. No new translation was generated. Unknown records are not labeled as machine translated. All original source-specific translator evidence remains inside the package.
+The Vietnamese package retains explicit human translation credits for 2,248 records and historical `ai_translation=unknown` for 1,006. Under the owner's later source confirmation, the reader displays all of these website-sourced records as **Human**; the separate [current provenance policy](../catalog/provenance-policy.json) preserves those original flags. No new translation was generated. Unknown metadata is not evidence of machine translation. All original source-specific translator evidence remains inside the package.
 
 The supplied Japanese source does not provide complete original Arabic narrations. The Vietnamese PDFs contain Arabic with broken text-layer glyph mapping and ordering. Approved `text.arabic` stays null in both intakes; extracted fragments/raw Arabic and their evidence remain separate. No generated Arabic is substituted.
 
 ## Local organization and search
 
-Each complete source package occupies a separate private intake root under `attachments/`. Internal paths in unchanged canonical records resolve relative to that intake root. The unified projection adds repository-relative, hash-verified source and record locators.
+Each complete source package occupies a separate intake root under `attachments/`. Internal paths in unchanged canonical records resolve relative to that intake root. The unified projection adds repository-relative, hash-verified source and record locators. The current packages are `attachments-ja-muslim-c859ce57c211ea1b` and `attachments-vi-920394517894aea9`.
 
 The normalized search and reading views remain organized by `language → book → edition`. The edition key identifies the exact source-file checksum; it does not invent a bibliographic edition. Narration text, notes, commentary, references, narrator information and grading remain separate fields.
 
-Use the combined package's `catalog/materials.json` for all 64 source datasets and `catalog/languages/` for per-language lookup. The original 40,723 source occurrences are preserved alongside the 5,065 additions, for 45,788 occurrences in nine languages. The two 281-entry Japanese HadeethEnc snapshots remain separate from this Japanese Muslim source.
+Use `catalog/materials.json`, `catalog/languages/` and the reader's language, collection and source filters. The public dataset contains 52 source datasets: six HadeethEnc snapshots and 46 PDF editions from these two packages. Japanese has 2,092 occurrences (281 HadeethEnc plus 1,811 Muslim); Vietnamese has 4,457 (1,203 HadeethEnc plus 3,254 from the supplied PDFs). Other current bank languages remain available in the same reader.
+
+The earlier private combined export contains 45,788 occurrences across 64 source datasets and nine languages. It is a separate historical export with additional source snapshots; that total must not be presented as the current public website total. Different source versions remain distinct, even when they share a provider entry or printed number.
 
 The additive adapter verifies the source package manifests, IDs and text before registering the new datasets. It records a mechanical integration report and does not promote a source to independently reviewed status. The standalone portable validator checks local source hashes, canonical record equality, catalogs, search shards, reader payload and navigation.
 
 ## Review and publication status
 
-Both new PDF intakes remain `private_candidate`, independent source QC pending, with release eligibility false. Existing source exceptions, incomplete Arabic repair and unresolved canonical alignment stay visible. HadeethEnc's separate-review waiver applies only to HadeethEnc.
+The original PDF-intake records retain their preparation history: `private_candidate`, independent source QC pending, and release eligibility false. The current owner decision authorizes public access while preserving those historical fields and displaying a separate public pending-review label. Existing source exceptions, incomplete Arabic repair, unresolved canonical alignment and unassessed rights remain visible. HadeethEnc's separate-review waiver still applies only to HadeethEnc; the PDF intakes have not acquired a QC pass.
 
 The exact supplied Vietnamese JSON and Japanese ZIP were compared by SHA-256 with the integration inputs and matched. Their source records were not re-extracted. The earlier audit of 40,723 occurrences remains historical evidence for that scope; the expanded package has its own integration and portable validation reports.
 
-The metadata-only inventory is [catalog/additional-private-intakes.json](../catalog/additional-private-intakes.json).
+The registration history and current availability are in [catalog/additional-private-intakes.json](../catalog/additional-private-intakes.json). Its historical filename is retained for stable links; accepted entries now point to actual local source material. See [adding material](ADDING-MATERIAL.md) for automatic integration and [the website guide](WEBSITE.md) for deployment.

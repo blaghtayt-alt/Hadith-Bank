@@ -27,6 +27,11 @@ LANGUAGE_NAMES = {
     'ja': 'Japanese', 'pt': 'Portuguese', 'ur': 'Urdu', 'uz': 'Uzbek',
     'vi': 'Vietnamese', 'zh': 'Chinese', 'zh-CN': 'Chinese (Simplified)',
 }
+DEFAULT_SITE = {
+    'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
+    'live_url': 'https://blaghtayt-alt.github.io/Hadith-Bank/',
+    'source_ref': 'main',
+}
 SHA256 = re.compile(r'[0-9a-fA-F]{64}\Z')
 
 
@@ -499,7 +504,37 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
             'markdown_output': str(output)}
 
 
-def build(root, output, markdown_output=None, compress=True):
+def site_metadata(catalog, override=None):
+    """Keep navigation explicit, safe, and deterministic for hosted/offline builds."""
+    configured = catalog.get('site') or {}
+    if not isinstance(configured, dict) or (override is not None and not isinstance(override, dict)):
+        raise ValueError('Reader site configuration must be an object')
+    site = dict(DEFAULT_SITE)
+    for source in (configured, override or {}):
+        for key in ('repository_url', 'live_url', 'source_ref', 'build_commit'):
+            if key in source:
+                site[key] = source[key]
+    repository = urlsplit(site['repository_url']) if isinstance(site.get('repository_url'), str) else None
+    if (repository is None or repository.scheme != 'https' or repository.netloc != 'github.com' or
+            repository.query or repository.fragment or
+            not re.fullmatch(r'/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/?', repository.path)):
+        raise ValueError('Reader repository_url must identify one HTTPS GitHub repository')
+    site['repository_url'] = site['repository_url'].rstrip('/')
+    live = urlsplit(site['live_url']) if isinstance(site.get('live_url'), str) else None
+    if (live is None or live.scheme != 'https' or not live.netloc or live.username or live.password or
+            live.query or live.fragment or any(ord(c) < 32 for c in site['live_url'])):
+        raise ValueError('Reader live_url must be a plain HTTPS website URL')
+    reference = site.get('source_ref')
+    if (not isinstance(reference, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._/-]*', reference) or
+            any(part in ('', '.', '..') for part in reference.split('/'))):
+        raise ValueError('Reader source_ref must be a safe Git reference')
+    if 'build_commit' in site and (not isinstance(site['build_commit'], str) or
+            not re.fullmatch(r'[0-9a-fA-F]{40,64}', site['build_commit'])):
+        raise ValueError('Reader build_commit must be a full hexadecimal commit ID')
+    return site
+
+
+def build(root, output, markdown_output=None, compress=True, site=None):
     root = Path(root).resolve()
     output = Path(output).absolute()
     records, catalog, info = load_records(root)
@@ -512,6 +547,7 @@ def build(root, output, markdown_output=None, compress=True):
         raise ValueError('Reader output must not use symlinks')
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
                 'materials': catalog.get('materials', []), 'language_names': LANGUAGE_NAMES,
+                'site': site_metadata(catalog, site),
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if compress:

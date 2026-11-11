@@ -1,0 +1,66 @@
+{
+  "scope": "Bounded source-image and parser-boundary review; not full character fidelity certification",
+  "source_findings": [
+    {
+      "source_filename_prefix": "2441",
+      "pdf_page": 36,
+      "printed_page": "579",
+      "reference_label": "410f",
+      "finding": "Arabic-side local ordinal is visibly 76; Vietnamese-side local ordinal is visibly 75. Both occurrences have the same printed reference 410f.",
+      "status": "visually_confirmed_source_disagreement",
+      "action": "Preserve Vietnamese 75 and original Arabic evidence; no silent source correction or canonical inference."
+    },
+    {
+      "source_filename_prefix": "2441",
+      "pdf_page": 46,
+      "printed_page": "589",
+      "finding": "Graphical closing name ABU FADIL is visible. No translation-role text is visible on this page.",
+      "status": "visually_verified_credited_person_only",
+      "action": "Human-translation status remains unknown for this PDF unless separately evidenced."
+    },
+    {
+      "source_filename_prefix": "2416",
+      "pdf_page": 15,
+      "printed_page": "500",
+      "finding": "Blue Arabic chapter heading 25 is a separate source block immediately preceding Vietnamese Chương 25; its raw text-layer number is corrupted as 12.",
+      "status": "visual_boundary_verified_font_digit_derivative_matches_image",
+      "action": "Keep complete source block in chapter metadata; source raw remains preserved, number-decoded derivative shows 25."
+    },
+    {
+      "source_filename_prefix": "2564",
+      "pdf_pages": [
+        29,
+        30,
+        33
+      ],
+      "finding": "Arabic narration bodies for 682a and 682b are black instead of the usual blue.",
+      "status": "visually_verified_boundary_exception",
+      "action": "Associate page29 lower block plus page30 upper block with 682a, and page33 middle block with 682b; approved Arabic stays null."
+    },
+    {
+      "source_filename_prefix": "2441",
+      "pdf_page": 20,
+      "finding": "Eight Vietnamese/transliteration lines use blue text color inside the translated narration.",
+      "status": "text_layer_script_boundary_check",
+      "action": "Keep them in translation according to Latin-script content; do not classify as Arabic solely by color."
+    },
+    {
+      "source_filename_prefix": "2441",
+      "pdf_page": 21,
+      "printed_page": "564",
+      "reference_label": "402b",
+      "finding": "The thirteen Arabic lines in blocks b0001,b0002,b0003 are printed red but constitute narration402b, not a chapter heading.",
+      "status": "visually_verified_boundary_exception",
+      "action": "Associate all thirteen unchanged lines with occurrence025/VI56-(402b); remove from later chapter007. No text rewritten."
+    }
+  ],
+  "unresolved": [
+    "Arabic letters, order, vowel marks and combining characters remain unreliable in embedded text; raw preserved, approved Arabic null.",
+    "Narrator introductions retained verbatim where mechanically detected; canonical narrator identities and isnad alignment not researched.",
+    "Printed reference labels retained separately from canonical numbers, which remain null.",
+    "Inline source explanations and narrator comments have not undergone complete semantic boundary adjudication.",
+    "Private-use honorific glyphs remain unchanged and flagged.",
+    "Malformed label prefixes M and Ô remain unchanged with source-review flags.",
+    "Full source-image comparison is pending; page images viewed are explicitly listed in coverage.json."
+  ]
+}

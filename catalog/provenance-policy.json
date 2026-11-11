@@ -1,0 +1,53 @@
+{
+  "schema": "hadith-bank-provenance-policy-v1",
+  "decision_date_japan": "2026-11-11",
+  "decision_source": "explicit_repository_owner_confirmation",
+  "owner_instruction": "HadeethEnc and the materials obtained from the source websites are human translations; copied old Hadith Bank materials, especially Japanese, remain unknown until the owner confirms them.",
+  "classification_labels": [
+    "human",
+    "ai",
+    "unknown"
+  ],
+  "source_rules": [
+    {
+      "id": "hadeethenc-confirmed-human",
+      "match": {
+        "source_name": "HadeethEnc.com",
+        "book_key": "hadeethenc"
+      },
+      "classification": "human",
+      "basis": "explicit_owner_source_confirmation"
+    },
+    {
+      "id": "japanese-muslim-website-confirmed-human",
+      "match": {
+        "package_root": "attachments/attachments-ja-muslim-c859ce57c211ea1b"
+      },
+      "classification": "human",
+      "basis": "explicit_owner_source_confirmation"
+    },
+    {
+      "id": "vietnamese-website-confirmed-human",
+      "match": {
+        "package_root": "attachments/attachments-vi-920394517894aea9"
+      },
+      "classification": "human",
+      "basis": "explicit_owner_source_confirmation"
+    }
+  ],
+  "legacy_rule": {
+    "match": {
+      "kind": "legacy_source_document"
+    },
+    "classification": "unknown",
+    "basis": "owner_withheld_confirmation_of_old_bank_copies",
+    "languages": "all",
+    "confirmation_required_before_change": true,
+    "automatic_date_based_change": false
+  },
+  "scope_note": "The human confirmation is scoped to the identified source imports. A URL by itself does not classify an arbitrary future material as human. Old-bank copied source documents remain unknown regardless of language until the owner provides confirmation.",
+  "original_source_metadata_preserved": true,
+  "current_display_policy_is_separate_from_historical_ai_flag": true,
+  "human_translation_does_not_imply_independent_qc": true,
+  "unknown_does_not_mean_ai": true
+}

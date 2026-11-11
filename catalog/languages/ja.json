@@ -3,7 +3,7 @@
   "language": "ja",
   "name": "Japanese",
   "scope": "public_source_snapshots",
-  "record_count": 281,
+  "record_count": 2092,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -32,7 +32,13 @@
           "ai-assistance-scope"
         ],
         "scope_note": "Human source classification follows the owner instruction and publisher translation workflow. The individual translator and exact-version AI assistance are not stated; the historic AI flag is preserved.",
-        "policy_path": "catalog/translation-origins.json"
+        "policy_path": "catalog/translation-origins.json",
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
       },
       "current_review_policy": {
         "separate_bank_review_required": false,
@@ -43,6 +49,76 @@
         "historical_status_preserved": true,
         "arabic_alignment_flags_retained": true,
         "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ja-muslim-web-c859ce57c211ea1b",
+      "language": "ja",
+      "book_key": "muslim",
+      "edition": "pdf-c859ce57c211ea1b",
+      "count": 1811,
+      "release_status": "private_candidate",
+      "source_file": "attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf",
+      "source_sha256": "c859ce57c211ea1bfddb98b268241da25fe077782dd4d6be4cd9e10628b18d6a",
+      "canonical_records_path": "attachments/attachments-ja-muslim-c859ce57c211ea1b/languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/records.json",
+      "canonical_records_sha256": "9503da5d9efbd3d0a2286a1e75c97c07511be0a675cecd56ed3206f36d2862ff",
+      "source_metadata_path": "attachments/attachments-ja-muslim-c859ce57c211ea1b/source.json",
+      "intake_root": "attachments/attachments-ja-muslim-c859ce57c211ea1b",
+      "source_pdf_pages": 580,
+      "adapter": "pdf-intake-package-v1",
+      "manifest_path": "materials/japanese-muslim-volume1/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/japanese-muslim-volume1/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "WEB版　日訳サヒーフ・ムスリム",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human translation — 磯崎定基、飯森嘉助、小笠原良治",
+        "basis": "human_translation_credit_in_supplied_source",
+        "human_involvement": "named_human_translator_in_source",
+        "ai_translation": false,
+        "evidence_ids": [
+          "source-translation-c859ce57c211ea1b"
+        ],
+        "scope_note": "Source credit establishes human translation origin; extraction fidelity and exact canonical mapping remain pending. Named volume translators do not establish individual per-occurrence assignment.",
+        "policy_path": "catalog/intake-translation-origins.json",
+        "original_provenance": {
+          "translation_origin": "human_translation",
+          "kind": "human_translator_credited",
+          "ai_translation": false,
+          "evidence": {
+            "pdf_pages": [
+              2,
+              5,
+              6
+            ],
+            "source_metadata_path": "source.json",
+            "basis": "named human translators and historical translation preface"
+          },
+          "human_translation_does_not_certify_web_transcription": true
+        },
+        "evidence_package_root": "attachments/attachments-ja-muslim-c859ce57c211ea1b",
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_source_confirmation",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
       }
     }
   ],
@@ -55,7 +131,13 @@
       "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -65,7 +147,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -75,7 +163,13 @@
       "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -85,7 +179,13 @@
       "source_revision": "76d8b0bbeed05280b9964748b24437ed2dce0191",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -95,7 +195,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -105,7 +211,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -115,7 +227,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -125,7 +243,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -135,7 +259,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -145,7 +275,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     },
     {
       "language": "ja",
@@ -155,7 +291,13 @@
       "source_revision": "1d66abd7a09bde5f6b15a8576e26bb938f94535b",
       "kind": "legacy_source_document",
       "translation_origin": "unknown",
-      "available_locally": true
+      "available_locally": true,
+      "current_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
     }
   ],
   "reading_index": "browse/ja/README.md",

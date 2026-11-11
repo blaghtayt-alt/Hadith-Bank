@@ -8,6 +8,7 @@ import io
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 
@@ -27,17 +28,18 @@ class PortableViewValidationTests(unittest.TestCase):
         with (ROOT / cls.material['canonical_records_path']).open(encoding='utf-8') as stream:
             cls.canonical = [json.loads(next(stream)), json.loads(next(stream))]
         cls.policy = json.loads((ROOT / 'catalog/review-policy.json').read_text())['hadeethenc']
+        cls.provenance_policy = validator.load_provenance_policy(ROOT)
 
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory()
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
         for relative in (self.material['source_file'], self.material['canonical_records_path'],
-                         'catalog/translation-origins.json', 'catalog/review-policy.json'):
+                         'catalog/translation-origins.json', 'catalog/review-policy.json', 'catalog/provenance-policy.json'):
             target = self.root / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text('{}', encoding='utf-8')
-        self.expected = {row['record_id']: validator.expected_record(row, self.material, i, True, self.policy)
+        self.expected = {row['record_id']: validator.expected_record(row, self.material, i, True, self.policy, self.provenance_policy)
                          for i, row in enumerate(self.canonical)}
 
     def shards(self):
@@ -106,6 +108,34 @@ class PortableViewValidationTests(unittest.TestCase):
     def test_duplicate_json_keys_fail_closed(self):
         with self.assertRaisesRegex(validator.ValidationError, 'Duplicate JSON key'):
             validator.parse_json('{"id":"first","id":"second"}')
+
+
+class GitBaselineTests(unittest.TestCase):
+    def test_new_registered_sources_are_distinct_from_unchanged_baseline_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            def git(*args):
+                return subprocess.run(['git', '-C', str(root), *args], check=True, capture_output=True, text=True).stdout.strip()
+            git('init', '--quiet')
+            existing = root / 'source.txt'; existing.write_text('TEST existing')
+            git('add', 'source.txt')
+            git('-c', 'user.name=TEST', '-c', 'user.email=TEST@example.invalid', 'commit', '--quiet', '-m', 'TEST')
+            baseline = git('rev-parse', 'HEAD')
+            added = root / 'materials/test-source/source.txt'
+            added.parent.mkdir(parents=True); added.write_text('TEST added')
+            relative = added.relative_to(root).as_posix()
+            evidence = {'source.txt': {'sha256': validator.file_hash(existing)}, relative: {'sha256': validator.file_hash(added)}}
+            allowed = {relative: validator.file_hash(added)}
+            result = validator.verify_git_baseline(root, baseline, evidence, allowed)
+            self.assertEqual(result['files_compared'], 1)
+            self.assertEqual(result['new_registered_files_absent_from_baseline'], 1)
+            self.assertEqual(result['new_registered_files'], [{'path': relative, 'sha256': allowed[relative]}])
+            with self.assertRaisesRegex(validator.ValidationError, 'Unregistered source absent'):
+                validator.verify_git_baseline(root, baseline, evidence)
+            existing.write_text('TEST changed')
+            evidence['source.txt']['sha256'] = validator.file_hash(existing)
+            with self.assertRaisesRegex(validator.ValidationError, 'Source bytes differ from baseline Git'):
+                validator.verify_git_baseline(root, baseline, evidence, allowed)
 
 
 if __name__ == '__main__':

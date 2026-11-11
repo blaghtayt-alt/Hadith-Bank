@@ -1,0 +1,280 @@
+#!/usr/bin/env python3
+"""Discover explicitly registered public material without changing source records.
+
+Publication authorization is an owner decision. It is never a claim of source
+fidelity, independent review, licensing clearance, or narrational authenticity.
+"""
+import copy
+import datetime
+import hashlib
+import json
+from pathlib import Path, PurePosixPath
+import re
+
+from build_reader import local, parse_json, valid_hash, validate_record
+from build_bank_views import SCHEMA, canonical, digest_file
+from current_provenance import apply_material_policy, apply_policy, load_policy
+
+
+SCHEMA_NAME = 'hadith-bank-material-v1'
+DECISION = 'owner_requested_public_pending_review'
+COMPONENT = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\Z')
+LANGUAGE = re.compile(r'[A-Za-z][A-Za-z0-9-]*\Z')
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def checked_file(root, relative, expected):
+    target = local(root, relative)
+    require(target.is_file(), 'Missing material file: ' + relative)
+    expected = valid_hash(expected, relative + '.sha256')
+    require(digest_file(target) == expected, 'Material checksum mismatch: ' + relative)
+    return target
+
+
+def read_rows(path):
+    if path.suffix == '.jsonl':
+        rows = []
+        with path.open(encoding='utf-8') as stream:
+            for number, line in enumerate(stream, 1):
+                require(bool(line.strip()), 'Blank material JSONL line: ' + str(number))
+                rows.append(parse_json(line))
+    else:
+        require(path.suffix == '.json', 'Records must be .json or .jsonl')
+        rows = parse_json(path.read_text(encoding='utf-8'))
+    require(isinstance(rows, list) and bool(rows), 'Material records must be a nonempty JSON array or JSONL stream')
+    require(all(isinstance(row, dict) for row in rows), 'Every material record must be an object')
+    return rows
+
+
+def publication(manifest, relative):
+    decision = manifest.get('publication')
+    require(isinstance(decision, dict) and decision.get('authorized') is True,
+            'Material needs explicit publication.authorized=true: ' + relative)
+    require(decision.get('decision') == DECISION, 'Unsupported publication decision: ' + relative)
+    date = decision.get('decision_date_japan')
+    require(isinstance(date, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', date), 'Publication decision date must be YYYY-MM-DD')
+    datetime.date.fromisoformat(date)
+    return {'visibility': 'public', 'status': 'published_pending_review', 'authorized': True,
+            'decision': DECISION, 'decision_date_japan': date, 'manifest_path': relative,
+            'independent_qc_asserted': False, 'rights_clearance_asserted': False}
+
+
+def with_publication(record, authorization):
+    record['publication'] = copy.deepcopy(authorization)
+    record['publication']['historical_release_status'] = record['review'].get('release_status')
+    return record
+
+
+def normalized_projection(row, material, position):
+    require(isinstance(row.get('id'), str) and bool(row['id'].strip()), 'Every material occurrence needs a stable id')
+    text = row.get('text')
+    require(isinstance(text, dict) and {'arabic', 'translation'} <= set(text),
+            'Record text requires explicit arabic and translation fields (string or null): ' + row['id'])
+    require(all(text[k] is None or isinstance(text[k], str) for k in ('arabic', 'translation')),
+            'Record text must be a string or null: ' + row['id'])
+    for key, expected in (('language', material['language']), ('book_key', material['book_key']), ('edition', material['edition'])):
+        require(key not in row or row[key] == expected, 'Record/material identity mismatch: ' + key)
+    for key in ('source', 'translator', 'narrator', 'number', 'page', 'review', 'commentary', 'references', 'grading', 'rights'):
+        require(key not in row or isinstance(row[key], dict), 'Record ' + key + ' must be an object')
+    for key in ('footnotes', 'topic_tags', 'source_headings', 'related_versions'):
+        require(key not in row or isinstance(row[key], list), 'Record ' + key + ' must be an array')
+    ai = row.get('ai_translation', 'unknown')
+    require(ai is True or ai is False or ai == 'unknown', 'ai_translation must be true, false, or unknown')
+    translator = copy.deepcopy(row.get('translator', {'name': None, 'evidence': None}))
+    origin = copy.deepcopy(row.get('translation_provenance'))
+    if origin is None:
+        origin = {'origin': 'unknown', 'label': 'Translation origin not established',
+                  'basis': 'No source-specific translation provenance supplied',
+                  'human_involvement': 'not_established', 'ai_translation': ai, 'evidence_ids': []}
+    require(isinstance(origin, dict), 'translation_provenance must be an object')
+    require(origin.get('ai_translation', ai) == ai, 'Conflicting AI translation flags')
+    origin.setdefault('ai_translation', ai)
+    origin.setdefault('origin', 'unknown')
+    review = copy.deepcopy(row.get('review', {}))
+    review.setdefault('status', 'source_review_pending')
+    review.setdefault('issues', [])
+    review.setdefault('independent_pro_qc', 'pending')
+    review.setdefault('release_status', 'source_candidate')
+    review.setdefault('release_eligible', False)
+    # A publication manifest never grants independent certification.
+    review.setdefault('certified_release_eligible', False)
+    descriptor = material['source_descriptor']
+    original_source = copy.deepcopy(row.get('source', {}))
+    locator = {'path': material['canonical_records_path']}
+    if material['canonical_records_path'].endswith('.jsonl'):
+        locator['line'] = position + 1
+    else:
+        locator['json_pointer'] = '/' + str(position)
+    source = {'name': descriptor['name'], 'work_title': original_source.get('title', descriptor['name']),
+              'url': original_source.get('url', descriptor.get('url')), 'record_url': original_source.get('record_url'),
+              'original_file': material['source_file'], 'sha256': material['source_sha256'],
+              'record_locator': locator, 'format': descriptor.get('format', 'unknown'),
+              'original_metadata': original_source}
+    title = row.get('title')
+    if isinstance(title, dict):
+        title = title.get('translation')
+    require(title is None or isinstance(title, str), 'Record title must be text or null')
+    tags = row.get('editorial_tags', [])
+    tags = tags.get('values', []) if isinstance(tags, dict) else tags
+    require(isinstance(tags, list), 'editorial_tags must be an array or values object')
+    result = {
+        'schema_version': SCHEMA, 'id': row['id'], 'language': material['language'],
+        'source_language_code': row.get('source_language_code', material['language']),
+        'book_key': material['book_key'], 'edition': material['edition'], 'source_id': material['dataset_id'],
+        'provider_entry_id': row.get('number', {}).get('source_entry_id'), 'title': title,
+        'text_arabic': text['arabic'], 'text_translation': text['translation'],
+        'number': copy.deepcopy(row.get('number', {'source_entry_id': None, 'in_book': None, 'canonical': None})),
+        'narrator': copy.deepcopy(row.get('narrator', {'name': None})), 'source': source,
+        'translator': translator, 'translation_provenance': origin,
+        'topic_tags': copy.deepcopy(row.get('topic_tags', [])), 'editorial_tags': copy.deepcopy(tags),
+        'source_headings': copy.deepcopy(row.get('source_headings', [])), 'review': review,
+        'commentary': copy.deepcopy(row.get('commentary', {'arabic': None, 'translation': None})),
+        'benefits': copy.deepcopy(row.get('benefits')), 'footnotes': copy.deepcopy(row.get('footnotes', [])),
+        'references': copy.deepcopy(row.get('references', {})), 'grading': copy.deepcopy(row.get('grading', {})),
+        'page': copy.deepcopy(row.get('page', {'pdf': [], 'printed': [], 'sheet': None, 'row': None})),
+        'related_versions': copy.deepcopy(row.get('related_versions', [])),
+        'rights': copy.deepcopy(row.get('rights', {'status': 'not_assessed_for_publication', 'reuse_basis': None})),
+        'record_type': row.get('record_type'), 'content_kind': row.get('content_kind'),
+        'isnad': copy.deepcopy(row.get('isnad')), 'ai_translation': ai,
+        'canonical_record_sha256': hashlib.sha256(canonical(row)).hexdigest(),
+    }
+    with_publication(result, material['publication'])
+    apply_material_policy(result, material)
+    validate_record(result, row['id'])
+    return result
+
+
+def project_for_material(row, material, position):
+    if material.get('adapter') == 'records-v1':
+        return normalized_projection(row, material, position)
+    require(material.get('adapter') == 'pdf-intake-package-v1', 'Unsupported material adapter')
+    from integrate_private_intakes import project
+    prefix = material['intake_root']
+    collection = {'book': material['book_key'], 'edition': material['edition'],
+                  'source_id': material['dataset_id'],
+                  'records_path': str(PurePosixPath(material['canonical_records_path']).relative_to(prefix)),
+                  'source_metadata_path': str(PurePosixPath(material['source_metadata_path']).relative_to(prefix))}
+    return apply_material_policy(with_publication(project(row, collection, position, prefix), material['publication']), material)
+
+
+def load_public_materials(root, validate_attachment_roots=True):
+    """Return verified material descriptors, projections, and allowed source files."""
+    root = Path(root).resolve()
+    provenance_policy = load_policy(root)
+    registry = root / 'materials'
+    require(not registry.is_symlink(), 'Material registry must not be a symlink')
+    if registry.exists():
+        require(registry.is_dir(), 'materials must be a directory')
+        for child in registry.iterdir():
+            require(not child.is_symlink(), 'Material folders must not be symlinks')
+            if child.is_dir():
+                require((child / 'manifest.json').is_file(), 'Material folder needs manifest.json: ' + child.name)
+            else:
+                require(child.name in ('README.md', '.gitkeep'), 'Place material files inside materials/<slug> with manifest.json')
+    manifests = sorted(registry.glob('*/manifest.json')) if registry.exists() else []
+    result = {'materials': [], 'groups': [], 'manifests': [], 'authorized_files': {}, 'package_roots': []}
+    ids, source_ids, occurrence_ids, locations, editions = set(), set(), set(), set(), set()
+    for path in manifests:
+        relative = path.relative_to(root).as_posix()
+        path = local(root, relative)
+        require(path.is_file(), 'Missing material manifest')
+        manifest = parse_json(path.read_text(encoding='utf-8'))
+        require(isinstance(manifest, dict) and manifest.get('schema') == SCHEMA_NAME, 'Invalid material manifest: ' + relative)
+        identifier = manifest.get('id')
+        require(isinstance(identifier, str) and COMPONENT.fullmatch(identifier), 'Unsafe material id')
+        require(identifier not in ids, 'Duplicate material id: ' + identifier)
+        ids.add(identifier)
+        authorization = publication(manifest, relative)
+        adapter = manifest.get('adapter')
+        require(adapter in ('records-v1', 'pdf-intake-package-v1'), 'Unsupported material adapter: ' + str(adapter))
+        result['manifests'].append({'path': relative, 'sha256': digest_file(path), 'id': identifier, 'adapter': adapter,
+                                    'publication': authorization})
+        collection_rows = []
+        if adapter == 'pdf-intake-package-v1':
+            from integrate_private_intakes import describe_package, verify_package
+            prefix = manifest.get('package_root')
+            require(isinstance(prefix, str) and re.fullmatch(r'attachments/[A-Za-z0-9][A-Za-z0-9._-]*', prefix),
+                    'PDF package_root must identify one attachments subdirectory')
+            require(prefix not in result['package_roots'], 'Duplicate registered package root')
+            package = local(root, prefix)
+            require(package.is_dir(), 'Missing package root: ' + prefix)
+            for file in verify_package(package):
+                result['authorized_files'][prefix + '/' + file['path']] = file['sha256']
+            result['package_roots'].append(prefix)
+            package_info = describe_package(package)
+            for collection in package_info['collections']:
+                canonical_path = prefix + '/' + collection['records_path']
+                records_path = checked_file(root, canonical_path, collection['records_sha256'])
+                rows = read_rows(records_path)
+                require(len(rows) == collection['count'], 'Package canonical count mismatch')
+                material = {'dataset_id': collection['source_id'], 'language': collection['language'],
+                            'book_key': collection['book'], 'edition': collection['edition'],
+                            'count': len(rows), 'release_status': collection['release_status'],
+                            'source_file': prefix + '/' + collection['source_file'],
+                            'source_sha256': collection['source_sha256'], 'canonical_records_path': canonical_path,
+                            'canonical_records_sha256': collection['records_sha256'],
+                            'source_metadata_path': prefix + '/' + collection['source_metadata_path'],
+                            'intake_root': prefix, 'source_pdf_pages': collection.get('pdf_pages')}
+                collection_rows.append((material, rows))
+        else:
+            for key in ('language', 'book', 'edition', 'source_id'):
+                require(isinstance(manifest.get(key), str) and bool(manifest[key]), 'Material manifest requires ' + key)
+            require(LANGUAGE.fullmatch(manifest['language']), 'Invalid language code')
+            require(COMPONENT.fullmatch(manifest['book']) and COMPONENT.fullmatch(manifest['edition']), 'Unsafe book or edition key')
+            records, source = manifest.get('records'), manifest.get('source')
+            require(isinstance(records, dict) and isinstance(source, dict), 'Material requires records and source descriptors')
+            require(isinstance(source.get('name'), str) and bool(source['name']), 'Material source name is required')
+            own_prefix = path.parent.relative_to(root).as_posix() + '/'
+            require(all(isinstance(descriptor.get('path'), str) and descriptor['path'].startswith(own_prefix)
+                        for descriptor in (records, source)),
+                    'Material records and source must stay inside their own materials/<slug> directory')
+            records_path = checked_file(root, records.get('path'), records.get('sha256'))
+            checked_file(root, source.get('path'), source.get('sha256'))
+            rows = read_rows(records_path)
+            require(type(records.get('count')) is int and len(rows) == records['count'], 'Material record count mismatch')
+            result['authorized_files'][source['path']] = source['sha256']
+            result['authorized_files'][records['path']] = records['sha256']
+            material = {'dataset_id': manifest['source_id'], 'language': manifest['language'],
+                        'book_key': manifest['book'], 'edition': manifest['edition'], 'count': len(rows),
+                        'release_status': 'source_review_pending', 'source_file': source['path'], 'source_sha256': source['sha256'],
+                        'canonical_records_path': records['path'], 'canonical_records_sha256': records['sha256'],
+                        'source_descriptor': copy.deepcopy(source)}
+            collection_rows.append((material, rows))
+        for material, rows in collection_rows:
+            require(material['dataset_id'] not in source_ids, 'Duplicate registered source id: ' + material['dataset_id'])
+            require(material['canonical_records_path'] not in locations, 'Duplicate registered canonical records path')
+            edition_key = (material['language'], material['book_key'], material['edition'])
+            require(edition_key not in editions, 'Duplicate language/book/edition registration')
+            editions.add(edition_key)
+            source_ids.add(material['dataset_id']); locations.add(material['canonical_records_path'])
+            require(LANGUAGE.fullmatch(material['language']) and COMPONENT.fullmatch(material['book_key']) and COMPONENT.fullmatch(material['edition']),
+                    'Unsafe material language/book/edition path component')
+            material.update({'adapter': adapter, 'manifest_path': relative, 'publication': authorization,
+                             'available_locally': True, 'public_text_published': True})
+            projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
+            for record in projected:
+                apply_policy(record, provenance_policy)
+                require(record['id'] not in occurrence_ids, 'Duplicate material occurrence id: ' + record['id'])
+                occurrence_ids.add(record['id'])
+                require(record['source']['original_file'] == material['source_file'] and
+                        record['source']['sha256'] == material['source_sha256'], 'Canonical source differs from material declaration')
+                checked_file(root, record['source']['original_file'], record['source']['sha256']) if record is projected[0] else None
+            material['source_name'] = projected[0]['source']['name']
+            material['translation_provenance'] = projected[0]['translation_provenance']
+            decision = material['translation_provenance'].get('current_policy')
+            if decision is not None:
+                require(all(record['translation_provenance'].get('current_policy') == decision for record in projected),
+                        'Different current provenance policies within one source dataset')
+                material['current_translation_policy'] = copy.deepcopy(decision)
+            result['materials'].append(material); result['groups'].append(projected)
+    if validate_attachment_roots and (root / 'attachments').exists():
+        actual = set()
+        for path in (root / 'attachments').iterdir():
+            require(path.is_dir() and not path.is_symlink(), 'Unregistered file or symlink in attachments')
+            actual.add(path.relative_to(root).as_posix())
+        require(actual == set(result['package_roots']), 'Unregistered attachment package roots: ' + str(sorted(actual - set(result['package_roots']))))
+    return result

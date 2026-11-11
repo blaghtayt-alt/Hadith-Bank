@@ -10,7 +10,12 @@ Thumbs.db
 # Reproducible whole stream; the public checkout uses verified ordered shards.
 /search/records.jsonl
 .cache/
-# Private attachment sources and combined exports are kept outside this checkout.
-/attachments/
+# Only the two explicitly owner-authorized PDF packages are public here.
+/attachments/*
+!/attachments/attachments-ja-muslim-c859ce57c211ea1b/
+!/attachments/attachments-vi-920394517894aea9/
 /hadith-bank-all-materials/
 /recovered/
+
+# Rebuilt by the reader workflow and deployed as a Pages artifact.
+/_site/

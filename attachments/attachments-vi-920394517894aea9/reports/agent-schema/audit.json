@@ -1,0 +1,731 @@
+{
+  "schema_version": "hadith-bank-targeted-structural-audit-v1",
+  "audit_date_japan": "2026-11-11",
+  "auditor_role": "independent_subagent_structural_audit",
+  "status": "targeted_structural_checks_passed",
+  "scope": {
+    "sources": 16,
+    "records": 967,
+    "pdf_pages_machine_scanned": 446,
+    "distinct_pdf_pages_viewed_this_structural_audit": 6,
+    "full_page_views": 2,
+    "cropped_page_views": 4,
+    "bank_normalization_scope": "Audit hashes bind root-extraction evidence artifacts before parent bank normalization; not the normalized bank JSON bytes."
+  },
+  "source_snapshots": [
+    {
+      "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+      "source_sha256": "c7dcc5d2a0abffddba93dc6a3dff6cf3aded8d423958730365d705e00c582272",
+      "archive_member": "vietnamese/HAI TRĂM HADITH VÀNG CỦA NABI MUHAMMAD.pdf",
+      "source_folder": "200-golden-hadith-c7dcc5d2a0ab",
+      "records": 200,
+      "pdf_pages_machine_scanned": 37,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "c31c2b894dc5c5ff9989943b9657c36fdd0f9a35cc485f7ac720c657f788708c",
+          "bytes": 1150785
+        },
+        "source.json": {
+          "sha256": "c254d0d76cd21669c856ba1dbe4fad22bf5ad4478d95cb8e539377c830b999e4",
+          "bytes": 1833
+        },
+        "pages.jsonl": {
+          "sha256": "e28e792d3cf36715ea051ffe12ccbcac0d5548361b97d39b957ecc043bcc82d8",
+          "bytes": 2825002
+        },
+        "chapters.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "footnotes.json": {
+          "sha256": "f6b6887af22de3879d97310fd699e2148bdecbd3cb3bc6e48ff12dc24028007a",
+          "bytes": 2966
+        },
+        "nonrecord-material.json": {
+          "sha256": "d77520fd060730680c8551ab3945641fcc25b35423d4d730ec2fbf99adb15e2d",
+          "bytes": 109142
+        },
+        "font-repair-log.json": {
+          "sha256": "ac5586141755f52f934c69bf5b7cdbfb151f76b2d0ed30c396fd14093f7a8821",
+          "bytes": 1242
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-50bd57a93d62b78c",
+      "source_sha256": "50bd57a93d62b78cec3a38a1abcd73302f2b00d61821ceeed7b9f1d124dcf924",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2052_SAHIH AL BUKHARY - PHẦN 19 SALAH NHẬT THỰC HAY NGUYỆT THỰC - PHẦN 20 SUJUD ĐỌC KINH QURAN & PHẦN 21 HÀ.pdf",
+      "source_folder": "2052-50bd57a93d62",
+      "records": 73,
+      "pdf_pages_machine_scanned": 26,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "a938dfe76877b1c3c65d557a97e7d9457bb9bd046c82ebc6129b9a32ab6d861c",
+          "bytes": 774574
+        },
+        "source.json": {
+          "sha256": "adec47ede604670e5727d316552616af3716f3cab89bd5859f5b7e81b7d7bdad",
+          "bytes": 1426
+        },
+        "pages.jsonl": {
+          "sha256": "7525bbd386d6d7c3b270e83bee5d1ea600d4ed2117b4572f1e1d7cdd9fc1991e",
+          "bytes": 4029582
+        },
+        "chapters.json": {
+          "sha256": "5281c07912a911e7a82f425baf03656052a2c290febcbb82ebe3b5a238b81303",
+          "bytes": 27549
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "c6d609f92fad441bc7da6929a47c3746ae4712f6329c3f021812c2dbe3913c41",
+          "bytes": 58177
+        },
+        "font-repair-log.json": {
+          "sha256": "23108325fd9b81d5f6e3918985d2893aa951b19ad0d1c25a1402adc6391f2647",
+          "bytes": 22236
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-ef0a8f81d0047651",
+      "source_sha256": "ef0a8f81d00476513bd9314c8e546c73fa8c77defe22c17c52e35e4c4a2f5331",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2062_SAHIH AL BUKHARI PHẦN 22 - LỄ NGUYỆN SALAH BAN ĐÊM TAHAJJUD.pdf",
+      "source_folder": "2062-ef0a8f81d004",
+      "records": 62,
+      "pdf_pages_machine_scanned": 23,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "f1eb8ddbe9232e58287207915302a9816ca318f795cb62a35b7571f64edea8ec",
+          "bytes": 688862
+        },
+        "source.json": {
+          "sha256": "d7c3d44556dd495fe40c70bd2b9371bf7a3d8daf17818c77ca77a5f938b6c1b0",
+          "bytes": 1332
+        },
+        "pages.jsonl": {
+          "sha256": "092fd5db6ccf99c5b7028e884eca4c41e00d18ee7c3ba9db1ced2214ffb31427",
+          "bytes": 3525087
+        },
+        "chapters.json": {
+          "sha256": "51c0f9004da0cf9f440a77049b8723c9387b86ca25e4bf6f36327b48099887b2",
+          "bytes": 17997
+        },
+        "footnotes.json": {
+          "sha256": "4eb18bda3f978afc2b54edb6bd349df191472b511869d4d119d64356ad93d09d",
+          "bytes": 5499
+        },
+        "nonrecord-material.json": {
+          "sha256": "8b4b95ca10451d629ee39eae17e76e5ba086b3f2ad155406361c48936bab2a76",
+          "bytes": 55318
+        },
+        "font-repair-log.json": {
+          "sha256": "eb307507933394d7e04d9dd36c73e7167d2756a55b0a15adc0d60207e119a3b9",
+          "bytes": 64042
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-3b29bcc005bd21c7",
+      "source_sha256": "3b29bcc005bd21c7c096c496532e49e14300c072320ebc1fdaa683f67a93a12a",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2121_SAHIH AL BUKHARI PHẦN 23 - 24 & 25.pdf",
+      "source_folder": "2121-3b29bcc005bd",
+      "records": 42,
+      "pdf_pages_machine_scanned": 19,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "dfa06805b492db09b007951071187502b5aaf9eaf8e6470e4f803364aef7caa0",
+          "bytes": 602192
+        },
+        "source.json": {
+          "sha256": "eff7070c84c256b02fd7b94faec3d583c044df354aa5e50a0c20b98402d047e3",
+          "bytes": 1271
+        },
+        "pages.jsonl": {
+          "sha256": "a74e38265cbcecf540a06aa731431b6018f40db6ded3250c5eb43c22a4418025",
+          "bytes": 3514355
+        },
+        "chapters.json": {
+          "sha256": "424c65ffc8921a459e900d1711639e45c673cf2ac745abc21a529c0c12da1795",
+          "bytes": 13647
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "f5a34670ced01cdbc0e6d3349e6216c330c8c47f077fc6dd8d1426ae8e7e5f0d",
+          "bytes": 30483
+        },
+        "font-repair-log.json": {
+          "sha256": "808cd1412214cdef5d3af2b1766cc1bdac9169af258ec768e82bbb8a747ebd95",
+          "bytes": 3695
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-c94d6ac57f7ac094",
+      "source_sha256": "c94d6ac57f7ac0940eb34871800bee06d21d3a28abd6c6b417250dbda0ee7f39",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2153_SAHIH AL BUKHARI PHẦN 26 NHỮNG VẤN ĐỀ LIÊN QUAN ĐẾN VIỆC AN TÁNG NGƯỜI CHẾT (KỲ 1).pdf",
+      "source_folder": "2153-c94d6ac57f7a",
+      "records": 50,
+      "pdf_pages_machine_scanned": 21,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "67eb0e75619362c08a5b5c9473e9c1b4be1a03ff902821b4c70d92365eaa26cf",
+          "bytes": 660013
+        },
+        "source.json": {
+          "sha256": "3c4edead8d836d0a7c240972e3d71779e7fef6d09287e238bb4dcf24b1b44f6e",
+          "bytes": 1388
+        },
+        "pages.jsonl": {
+          "sha256": "af89e1257e56e667afd09d2267d269bd3d4243ccacf559f0f376a70945272ce5",
+          "bytes": 3783076
+        },
+        "chapters.json": {
+          "sha256": "9c3ba3cb83d115964a86b9117574da81c57d9ab77807c1b318539a57cc1a9599",
+          "bytes": 17752
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "796de746112cf702efb13e5b86425c90609342a81d62b40528dc51fad3dee0fa",
+          "bytes": 39685
+        },
+        "font-repair-log.json": {
+          "sha256": "dc509edf4227c149c92cb8b439cb7490e2f9d3101aec4954e04479eafca54175",
+          "bytes": 10837
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-84d6ff651d909b3a",
+      "source_sha256": "84d6ff651d909b3a3d137e297d599fa0bbf05a8d99d60dfa99ba77cad0903c75",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2175_SAHIH AL BUKHARI PHẦN 26 NHỮNG VẤN ĐỀ LIÊN QUAN ĐẾN VIỆC AN TÁNG NGƯỜI CHẾT (KỲ 2).pdf",
+      "source_folder": "2175-84d6ff651d90",
+      "records": 51,
+      "pdf_pages_machine_scanned": 20,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "ebf3a825a2d640c75d49781c881248aa74f7fa202fe12fe0c29e8d9b8986a751",
+          "bytes": 611172
+        },
+        "source.json": {
+          "sha256": "55f1fceac427fe12d2b935c360e7d1b2c9e7150327892b318b83b0b8ec0085a7",
+          "bytes": 1388
+        },
+        "pages.jsonl": {
+          "sha256": "1480e1b35e9d37eb9b9b57171d85274b44b2555a56eda574f0f5f0da84b4bd86",
+          "bytes": 3537301
+        },
+        "chapters.json": {
+          "sha256": "13e6749850802819993ed3dd0a9b77f5bd2193c0217855d46d0755b1cd8ee7cb",
+          "bytes": 20059
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "65dc1d374bc4d0d5331390d9831c8bb283026da6e6448e963f0e7d1c7f858a93",
+          "bytes": 45646
+        },
+        "font-repair-log.json": {
+          "sha256": "5ef7a575ebe0e25d65c69baa3f0a7477e886090ff5d5e98fc6f3cf32969be8d0",
+          "bytes": 49063
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-b245246c0919356a",
+      "source_sha256": "b245246c0919356a904dcbb0345f0db464a50b7826f2a590c6679c8f539bfa28",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2209_SAHIH AL BUKHARI PHẦN 26 NHỮNG VẤN ĐỀ LIÊN QUAN ĐẾN VIỆC AN TÁNG NGƯỜI CHẾT (KỲ 3 PHẦN CUỐI).pdf",
+      "source_folder": "2209-b245246c0919",
+      "records": 47,
+      "pdf_pages_machine_scanned": 22,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "80d0da7d6f91cd848a8f6293423d8189d42203d571a1b84389f109ca95790b65",
+          "bytes": 777239
+        },
+        "source.json": {
+          "sha256": "4afb6925c0d79a7544222eac16aa427944020c3853ce5174c312710e7f296231",
+          "bytes": 1416
+        },
+        "pages.jsonl": {
+          "sha256": "3881f088946c70411acce45feb958b85985b4e04c85ba659aa1bde7e14d149ba",
+          "bytes": 4400075
+        },
+        "chapters.json": {
+          "sha256": "80f8d19caf3af89c9a578109bea92e2bbdae5216ee85dddc47f45e99734d5a9e",
+          "bytes": 12603
+        },
+        "footnotes.json": {
+          "sha256": "1b36fd636c0c8e2017b22608368f41df5a271bdfb74150371f565b3a9b244d16",
+          "bytes": 4713
+        },
+        "nonrecord-material.json": {
+          "sha256": "5d467c60973818ded4b587a2020a330cf2ebbab8c807f60d4e298754b480ed09",
+          "bytes": 49574
+        },
+        "font-repair-log.json": {
+          "sha256": "40230e4fbe684aeab77c1f1e56d27b94fbf668bc5e85898c9e3dab9c2120dd2e",
+          "bytes": 66311
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-78441dec2bca1ecf",
+      "source_sha256": "78441dec2bca1ecf41ecca2a691b974f515821321c9bd73d5c75a1573e658753",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2223_SAHIH AL BUKHARI CHƯƠNG 27 - NHỮNG VẤN ĐỀ THUẾ AN SINH XÃ HỘI - PHẦN 1.pdf",
+      "source_folder": "2223-78441dec2bca",
+      "records": 56,
+      "pdf_pages_machine_scanned": 24,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "47cda96dae47843812d032d841ef01143c6d9c39994177e7f1786455476a8b4c",
+          "bytes": 791945
+        },
+        "source.json": {
+          "sha256": "66696e9cd80cb59737edaf4796ddd73e02239343f246bc2c5f02a28f2db529ea",
+          "bytes": 1350
+        },
+        "pages.jsonl": {
+          "sha256": "973839706a6f946b40f820eef9efc71cf128cba98f42f53b745a171eaf7fdddc",
+          "bytes": 4645272
+        },
+        "chapters.json": {
+          "sha256": "35bb05c22541f2faea84fbf4b08c2327f0f4ad1a0308c5602232c1d28de558a1",
+          "bytes": 15973
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "5be45d284689b64f970a7e02702bb90ad81912b086c70f9fdead643ba80e4b5e",
+          "bytes": 37948
+        },
+        "font-repair-log.json": {
+          "sha256": "76063bbff86f0c85605a4fbbbbf24beb1e8ff315a86196549ddb7b6cadb2d219",
+          "bytes": 48170
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-c0984fb46f68420f",
+      "source_sha256": "c0984fb46f68420f1d51fac83738e39c9a1209a6a378323ababd6ab696d82c70",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2302_SAHIH AL BUKHARI CHƯƠNG 27 - NHỮNG VẤN ĐỀ THUẾ AN SINH XÃ HỘI - PHẦN 2 HADITHS SỐ 58 ĐẾN 110.pdf",
+      "source_folder": "2302-c0984fb46f68",
+      "records": 53,
+      "pdf_pages_machine_scanned": 22,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "732efe9dfdf8bfcf3408352189df5e3ada9e7f40dad89902344200723ccdb8da",
+          "bytes": 739242
+        },
+        "source.json": {
+          "sha256": "0f370451846df6eb7f2b6662cf4d2a6f8486250820a375fc8f0ed112dc6d0fdb",
+          "bytes": 1404
+        },
+        "pages.jsonl": {
+          "sha256": "e9282f5bb07bc44ee7fcb3a881322bfdf8aacee9bf5f6ad4ebf6dd75d3ac62e5",
+          "bytes": 4339054
+        },
+        "chapters.json": {
+          "sha256": "191eb01b7012af20f52da5f1a1fad4bdf1c0e437317bcc74a682be31bc066a37",
+          "bytes": 16563
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "082f0a31d3d1ff929ef03863d4f0b582d7cbfa619e4552b7a0916d37155d2a82",
+          "bytes": 38069
+        },
+        "font-repair-log.json": {
+          "sha256": "1c6f00b38f92ee6307d5baddf1b06b33679373f0fa678bad1c1b9a8f0f3ca7ab",
+          "bytes": 17213
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-3a140ba35f32f9d8",
+      "source_sha256": "3a140ba35f32f9d85490b7e04b88139312626afbfa6a568de3ab162f38dc3539",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2346_SAHIH BUKHARI PHẦN 28 1 - CHƯƠNG AL HAJJ - HADITH SỐ 1 ĐẾN 54.pdf",
+      "source_folder": "2346-3a140ba35f32",
+      "records": 54,
+      "pdf_pages_machine_scanned": 39,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "e8f26928ec8bae5e19ec57d0f11e78b1d7607d4422a20594b37cb7d80c77933f",
+          "bytes": 732764
+        },
+        "source.json": {
+          "sha256": "67eecd1f4536a123624a761f28942ea259294d73ccd53587feca33ebf1fbdfc4",
+          "bytes": 1326
+        },
+        "pages.jsonl": {
+          "sha256": "f0c8c4a96aa10cc1048973b289c0d000ca847967247bc48b8a7fcebb51e3fb77",
+          "bytes": 4088515
+        },
+        "chapters.json": {
+          "sha256": "b454a9be2c8e45aed31cc72759c9ac7f47c6a5dd68872dc565a2dcd8ee1aa3a6",
+          "bytes": 13977
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "94a58ff513deee5ed721009e5a7c93f73b6d030f635bdcb43c477a2b6f2295a2",
+          "bytes": 34445
+        },
+        "font-repair-log.json": {
+          "sha256": "dc81a57a97bd2a04898222e5cc802c0e59547767c427aa3e4ecbb2840a88a602",
+          "bytes": 6985
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-b39062b83b50270a",
+      "source_sha256": "b39062b83b50270a1fc221017a50d9c77ede17ba2d1e665c70b14da179d996db",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2489_SAHIH BUKHARI PHẦN 28 2 - CHƯƠNG AL HAJJ - HADITH SỐ 55 ĐẾN 116.pdf",
+      "source_folder": "2489-b39062b83b50",
+      "records": 62,
+      "pdf_pages_machine_scanned": 35,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "8ce056e1e08112597ba97e9f029cf1851701d306a929e2ec0c9a66baf2023f88",
+          "bytes": 727839
+        },
+        "source.json": {
+          "sha256": "8c04060edc1582806798c2ecb2cafc193acf9cba4486a1531afd16e1d365895c",
+          "bytes": 1118
+        },
+        "pages.jsonl": {
+          "sha256": "c9fdb2c93b71d188d749094e2c3871f55b08c6fb5a6d0f3abe2e7be175d779c1",
+          "bytes": 4195127
+        },
+        "chapters.json": {
+          "sha256": "b018b83931b9402eae7c2882c58ea3911d7c60cfa6e936fc36296f447a78eee6",
+          "bytes": 16983
+        },
+        "footnotes.json": {
+          "sha256": "b39cfb6c829e8747872a38ccf6730f113ed5810336397c3180c55b7a7db8ce64",
+          "bytes": 2226
+        },
+        "nonrecord-material.json": {
+          "sha256": "d6d5a56a44dfd1ee0ce8fb1e05251bd11638d65d8331e1f933ef6e27bda619a7",
+          "bytes": 43940
+        },
+        "font-repair-log.json": {
+          "sha256": "3983615408e9cfacdc510327978b96c2750d9a630f9a2ee81e435451147faea5",
+          "bytes": 143657
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-3a1424f3a0f06c85",
+      "source_sha256": "3a1424f3a0f06c85e5da62ab8cf83b678ddb5fb7bb4d4036cad61a1e4a3c1c4f",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2498_SAHIH BUKHARI PHẦN 28 3 - CHƯƠNG AL HAJJ - HADITH SỐ 117 ĐẾN 171.pdf",
+      "source_folder": "2498-3a1424f3a0f0",
+      "records": 56,
+      "pdf_pages_machine_scanned": 40,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "c132a209beffeda4054a380f6ae823673a898fccb6b37e123c57799d5ce6af26",
+          "bytes": 846415
+        },
+        "source.json": {
+          "sha256": "0cb7724940dca58636b305beb1a5de146af93b6527d5c56e52a105ebef5ab467",
+          "bytes": 1333
+        },
+        "pages.jsonl": {
+          "sha256": "26493c9b6bbd0b193b5f5f4baf4ae031a143c376241aa3527adecdcf844e791c",
+          "bytes": 4982353
+        },
+        "chapters.json": {
+          "sha256": "9d6b55ecdcaea02a36cc3fc6912c1f9972597ddd2f0bde1e924995e874855185",
+          "bytes": 12691
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "16b56c9843cfc882393e3c25d5fb7b29025c685c177b80127fe8c7f12d154b69",
+          "bytes": 44094
+        },
+        "font-repair-log.json": {
+          "sha256": "6aedebfe76d6c5456b94d87328b2b8dda0e3f41c4f196647e464a86d0175fc89",
+          "bytes": 114597
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-878f2186382ad5dc",
+      "source_sha256": "878f2186382ad5dc8111e154afee9f59a2e34705b3adea8be2fb78723de29309",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2528_SAHIH BUKHARI PHẦN 28 4 - CHƯƠNG AL HAJJ - HADITH SỐ 172 ĐẾN 254.pdf",
+      "source_folder": "2528-878f2186382a",
+      "records": 73,
+      "pdf_pages_machine_scanned": 48,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "237fa84b3c9e59bace3a3f94dc15cef990568dd459fb73c1948df58258ec100c",
+          "bytes": 892513
+        },
+        "source.json": {
+          "sha256": "4e04453f2a5b4f3c73eac7af7ddd2612937bdf810e79ef9c250ab0b3ed808958",
+          "bytes": 1332
+        },
+        "pages.jsonl": {
+          "sha256": "a3a7ea9508d55ddd1056076ea320813b95fd100e85a5d9ebdfbbebfbb5614bf9",
+          "bytes": 5094226
+        },
+        "chapters.json": {
+          "sha256": "9fda16711d2df1dde8f34a782d6685d87965d62236b3db36c757e2af2a951144",
+          "bytes": 22647
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "16094264b5a3024d2e81a77cdce2a14813e6bb91d9b44257981397ff3a1066db",
+          "bytes": 52203
+        },
+        "font-repair-log.json": {
+          "sha256": "621b838c3672f2bf687f8659cde59b5246867c942bd631d9182741d187cadabc",
+          "bytes": 249274
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-645681c4601d6b19",
+      "source_sha256": "645681c4601d6b190718dc34799286bf61083de615dec295a836369a4cdf19cf",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2538_SAHIH BUKHARI - CHƯƠNG 29 AL UMRAH.pdf",
+      "source_folder": "2538-645681c4601d",
+      "records": 30,
+      "pdf_pages_machine_scanned": 26,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "e73746447c58aa7e52bf1f9de60e84af2eb2889d582b8a483a938b9da809d20b",
+          "bytes": 471325
+        },
+        "source.json": {
+          "sha256": "a3c8dc981b33fa73f7aca247c2c7a46eac16826032db097ef9eb2d34db16619b",
+          "bytes": 1258
+        },
+        "pages.jsonl": {
+          "sha256": "774dad33c95e025bd28a0443b9c39e2179ac3683fe42179038a2fe3a3e3e687f",
+          "bytes": 2657403
+        },
+        "chapters.json": {
+          "sha256": "14b21a5840fab90672cf26dc5c5530c0647ebcaf4856d75147dc79e4acebe8a1",
+          "bytes": 9197
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "8b586299942cb2c742b4807bdc790f2c6bd761c6c0fdf95c1e18ddb3c09b981b",
+          "bytes": 21067
+        },
+        "font-repair-log.json": {
+          "sha256": "b5caebf27c4f416f0b9ef3414719d968e97b8db123bb68240eb734f645404f12",
+          "bytes": 15629
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-f1a4e5279a0d6a5b",
+      "source_sha256": "f1a4e5279a0d6a5b20c194a07f2ae647001898f89936ed3750bd368870624610",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2543_SAHIH BUKHARI - CHƯƠNG 30 NHỮNG TRƯỜNG HỢP BỊ NGĂN CẢN KHÔNG THỂ HOÀN THÀNH UMRAH HAY HAJJ.pdf",
+      "source_folder": "2543-f1a4e5279a0d",
+      "records": 14,
+      "pdf_pages_machine_scanned": 10,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "56d8d39d2f23de7a5c82a886c02d40fc54f23ab2b74c4ac5304f2449e7e298a6",
+          "bytes": 179788
+        },
+        "source.json": {
+          "sha256": "163ac05749b06c75de798267e44890dc67c4d96a80f49b527431155032e7e1e1",
+          "bytes": 1405
+        },
+        "pages.jsonl": {
+          "sha256": "ee69a986dd0771987e7ccfb28abfbe5277b200453cf0d46e45d9c203a3e6e36c",
+          "bytes": 967629
+        },
+        "chapters.json": {
+          "sha256": "627ee0dbc037a89d7c8c0aa26e2141a004e46b796d31cfa0c0834a256483c48d",
+          "bytes": 4019
+        },
+        "footnotes.json": {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "bytes": 3
+        },
+        "nonrecord-material.json": {
+          "sha256": "7b7ca2c2488d5998c15bb087c85c6ee799f1e92e0a0d78573589514ee139f419",
+          "bytes": 13050
+        },
+        "font-repair-log.json": {
+          "sha256": "624ef3f7db6ee474659516d46d1be401e5cf3d346b328802bd56fdb00b35bd55",
+          "bytes": 3240
+        }
+      }
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+      "source_sha256": "5839dff77028420fec76fab3683908c95c677615b7a1e183917abdabb7a5cce4",
+      "archive_member": "vietnamese/Sahih Al-Bukhari/2550_SAHIH BUKHARI - CHƯƠNG 31 HÌNH PHẠT KHI SĂN BẮN TRONG THỜI GIAN HÀNH HƯƠNG (HAJJ).pdf",
+      "source_folder": "2550-5839dff77028",
+      "records": 44,
+      "pdf_pages_machine_scanned": 34,
+      "evidence_files": {
+        "records.json": {
+          "sha256": "2da985453ec052cc5208a74042bd8699ebbc67604e1ce3d4bbb06f08d416b191",
+          "bytes": 610515
+        },
+        "source.json": {
+          "sha256": "03bdc598d5e2beaeccf9e6b3335cbd34f90f8138cbed42399bcd10d7d1fe60ea",
+          "bytes": 1375
+        },
+        "pages.jsonl": {
+          "sha256": "3ba91745580d6591a51925517351d409db484b8389db6fd832063aa9f2df0081",
+          "bytes": 3564627
+        },
+        "chapters.json": {
+          "sha256": "0f3d82f0d94cdea1ed653983b592ef9ece2759d8a284bb43f9b6c04d8abac126",
+          "bytes": 17278
+        },
+        "footnotes.json": {
+          "sha256": "2bd6d29fb688f2bb0b462ffb1ac15eb4561da6e9414b76e69409a484c5aa0366",
+          "bytes": 2638
+        },
+        "nonrecord-material.json": {
+          "sha256": "cac788825d088df0e84944ac65b5fd89768f06e1416a1ce707e490deaf75e580",
+          "bytes": 71666
+        },
+        "font-repair-log.json": {
+          "sha256": "5d4fb38812faa414f0390cfccfdc87df537536906e8f055aa595406dd4cb3849",
+          "bytes": 4340
+        }
+      }
+    }
+  ],
+  "targeted_checks": [
+    {
+      "check_id": "ROOT-AUDIT-001",
+      "passed": true,
+      "detail": "Narration18 restored from standalone left-margin label;62records."
+    },
+    {
+      "check_id": "ROOT-AUDIT-002",
+      "passed": true,
+      "detail": "Inline source honorific retained in narration18."
+    },
+    {
+      "check_id": "ROOT-AUDIT-003",
+      "passed": true,
+      "detail": "Both introductory-page footnotes separated and preserved; not assigned to narration1."
+    },
+    {
+      "check_id": "ROOT-AUDIT-004",
+      "passed": true,
+      "detail": "Whole Hijrah footnote separated; full first/last lines preserved."
+    },
+    {
+      "check_id": "ROOT-AUDIT-005",
+      "passed": true,
+      "detail": "Starred source editorial note preserved separately in commentary."
+    },
+    {
+      "check_id": "ROOT-AUDIT-006",
+      "passed": true,
+      "detail": "Next-installment/closing captions removed from narration text; ancillary source material retained."
+    },
+    {
+      "check_id": "ROOT-AUDIT-007",
+      "passed": true,
+      "detail": "All200anthology entries have separated printed-source citation objects, including Mu’jam and Silsilatul forms."
+    },
+    {
+      "check_id": "ROOT-AUDIT-008",
+      "passed": true,
+      "detail": "Additional ruled-note blocks classified as footnotes without global font-size removal."
+    },
+    {
+      "check_id": "ROOT-AUDIT-009",
+      "passed": true,
+      "detail": "8point row tolerance assigns173Arabicto173 and restores200nonempty rawArabic blocks; no Arabic text approval."
+    }
+  ],
+  "mechanical_errors": [],
+  "image_coverage": [
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-ef0a8f81d0047651",
+      "source_sha256": "ef0a8f81d00476513bd9314c8e546c73fa8c77defe22c17c52e35e4c4a2f5331",
+      "pdf_page": 7,
+      "view_scope": "full_page",
+      "purpose": "Narration18 and inline honorific boundary",
+      "full_character_fidelity_certified": false
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-ef0a8f81d0047651",
+      "source_sha256": "ef0a8f81d00476513bd9314c8e546c73fa8c77defe22c17c52e35e4c4a2f5331",
+      "pdf_page": 2,
+      "view_scope": "lower_page_crop",
+      "purpose": "Footnote separation from narration1",
+      "full_character_fidelity_certified": false
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-b39062b83b50270a",
+      "source_sha256": "b39062b83b50270a1fc221017a50d9c77ede17ba2d1e665c70b14da179d996db",
+      "pdf_page": 13,
+      "view_scope": "lower_page_crop",
+      "purpose": "Narration74 / Hijrah footnote separation",
+      "full_character_fidelity_certified": false
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-c0984fb46f68420f",
+      "source_sha256": "c0984fb46f68420f1d51fac83738e39c9a1209a6a378323ababd6ab696d82c70",
+      "pdf_page": 14,
+      "view_scope": "mid_lower_page_crop",
+      "purpose": "Starred editorial note adjacent to narration83",
+      "full_character_fidelity_certified": false
+    },
+    {
+      "source_id": "chanlyislam:vi:bukhari:pdf-878f2186382ad5dc",
+      "source_sha256": "878f2186382ad5dc8111e154afee9f59a2e34705b3adea8be2fb78723de29309",
+      "pdf_page": 47,
+      "view_scope": "lower_page_crop",
+      "purpose": "Narration254 continuation; no full-page fidelity claim",
+      "full_character_fidelity_certified": false
+    },
+    {
+      "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+      "source_sha256": "c7dcc5d2a0abffddba93dc6a3dff6cf3aded8d423958730365d705e00c582272",
+      "pdf_page": 33,
+      "view_scope": "full_page",
+      "purpose": "Anthology row171–177 alignment, especially rawArabic173",
+      "full_character_fidelity_certified": false
+    }
+  ],
+  "limits": [
+    "No full-page-by-page or character-by-character fidelity certification.",
+    "Arabic remains unapproved raw extraction; glyphs, mark ordering, isnad and exact canonical mappings are not certified.",
+    "No genuine independent Pro final-publication QC is claimed.",
+    "Earlier metadata and numeric-font image inspections are separate from these six structural-audit pages.",
+    "Source numbering anomalies reported by parent are separately labeled in root-exceptions.json.",
+    "All raw source/page evidence is retained; mechanical extraction coverage does not imply source completeness or scholarly authenticity."
+  ]
+}

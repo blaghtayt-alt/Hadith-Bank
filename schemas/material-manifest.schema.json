@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hadith-bank/material-manifest.schema.json",
+  "title": "Hadith Bank public material registration",
+  "type": "object",
+  "required": ["schema", "id", "adapter", "publication"],
+  "properties": {
+    "schema": {"const": "hadith-bank-material-v1"},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "adapter": {"enum": ["records-v1", "pdf-intake-package-v1"]},
+    "language": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9-]*$"},
+    "book": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "edition": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "source_id": {"type": "string", "minLength": 1},
+    "package_root": {"type": "string", "pattern": "^attachments/[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "records": {
+      "type": "object", "required": ["path", "sha256", "count"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "source": {
+      "type": "object", "required": ["path", "sha256", "name"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "name": {"type": "string", "minLength": 1},
+        "format": {"type": "string"},
+        "url": {"type": ["string", "null"]}
+      }
+    },
+    "publication": {
+      "type": "object", "required": ["authorized", "decision", "decision_date_japan"],
+      "properties": {
+        "authorized": {"const": true},
+        "decision": {"const": "owner_requested_public_pending_review"},
+        "decision_date_japan": {"type": "string", "format": "date"}
+      }
+    }
+  },
+  "oneOf": [
+    {"properties": {"adapter": {"const": "records-v1"}}, "required": ["language", "book", "edition", "source_id", "records", "source"]},
+    {"properties": {"adapter": {"const": "pdf-intake-package-v1"}}, "required": ["package_root"]}
+  ],
+  "$comment": "Paths are repository-relative, normalized, local, and symlink-free; the Python validator enforces these checks and byte hashes. An authorized publication does not assert independent QC or rights clearance."
+}

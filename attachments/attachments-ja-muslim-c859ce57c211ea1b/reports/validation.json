@@ -1,0 +1,84 @@
+{
+  "validator": "independent-japanese-muslim-mechanical-v1",
+  "scope": "mechanical_source_and_structure_validation_only",
+  "independent_pro_visual_qc_performed": false,
+  "visual_character_coverage_claimed": false,
+  "semantic_boundary_certification_claimed": false,
+  "source_fidelity_status": "embedded_text_and_span_consistency_only",
+  "inputs": {
+    "pdf": {
+      "path": "sources/ja-muslim-web.pdf",
+      "sha256": "c859ce57c211ea1bfddb98b268241da25fe077782dd4d6be4cd9e10628b18d6a",
+      "bytes": 1586298
+    },
+    "lines": {
+      "path": "evidence/lines.jsonl",
+      "sha256": "f574026ef569fdabeb49ffa92495f2fee9b50567e18748323f767a63ab8b9a02",
+      "bytes": 4537720
+    },
+    "pages": {
+      "path": "evidence/raw-pages.json",
+      "sha256": "bd57b82c468006df45328c440c8fb5f239387eca3ddc86b099905d766b4282c7",
+      "bytes": 1302664
+    },
+    "schema": {
+      "path": "schemas/attachment.record.schema.json",
+      "sha256": "21b1419df9a7cc845bf4f14447b0b84247acba0caac491d6b7c4cc9df7a9aaea",
+      "bytes": 10435
+    },
+    "records": {
+      "path": "languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/records.json",
+      "sha256": "9503da5d9efbd3d0a2286a1e75c97c07511be0a675cecd56ed3206f36d2862ff",
+      "bytes": 27275538
+    },
+    "jsonl": {
+      "path": "languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/records.jsonl",
+      "sha256": "61def61af93ad619bb32ea71f5c425da80a5bc709561c22e834ec27328c6e57a",
+      "bytes": 20534731
+    },
+    "ledger": {
+      "path": "evidence/line-attribution.jsonl",
+      "sha256": "536e93bc8a4200d8c1c82dfd32555083f66dac8217419bffae65981f9d8260d7",
+      "bytes": 5547029
+    },
+    "sections": {
+      "path": "languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/sections.json",
+      "sha256": "8a6644850c61ecd92f5d738be2fd029672a9af9135848aae3c73319d74d07428",
+      "bytes": 605755
+    }
+  },
+  "checks": {
+    "pdf_page_count": 580,
+    "fresh_pdf_text_pages_compared": 580,
+    "source_lines_checked": 14819,
+    "source_characters_including_lf": 435835,
+    "printed_reference_lines_detected": 327,
+    "records_checked": 1811,
+    "unique_record_ids": 1811,
+    "json_jsonl_equal": true,
+    "record_schema_validated": true,
+    "ledger_spans_checked": 14843,
+    "attributed_characters": 435835,
+    "unassigned_character_ranges": 0,
+    "overlapping_character_ranges": 0,
+    "ledger_role_counts": {
+      "front_matter": 153,
+      "section_heading": 327,
+      "section_title": 396,
+      "printed_reference": 327,
+      "translation": 12686,
+      "footnote": 890,
+      "section_footnote": 39,
+      "commentary": 14,
+      "colophon": 11
+    },
+    "sections_in_catalog": 327,
+    "record_note_and_commentary_components_checked": 371,
+    "embedded_arabic_fragments_checked": 63,
+    "related_record_links_checked": 90,
+    "section_note_components_checked": 14
+  },
+  "errors": [],
+  "warnings": [],
+  "status": "passed"
+}

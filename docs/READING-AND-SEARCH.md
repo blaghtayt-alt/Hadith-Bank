@@ -2,23 +2,28 @@
 
 ## Choose an entry point
 
-- **[Readable pages](../browse/README.md):** translations and Arabic in normal paragraphs, with source, translator/process label, page/row locator, review state and optional audit details. The Japanese public collection has [281 entries](../browse/ja/hadeethenc/sqlite-a81da9af28f854f6/README.md).
-- **[Materials catalog](../catalog/README.md):** every locally available dataset and all 83 preserved legacy source files. In the public repository, attachment intake is listed as separate metadata; in the combined download, all 64 datasets and their original files are included.
-- **Offline HTML:** download [hadith-bank-reader.html](../hadith-bank-reader.html), then open it locally. Rebuild it with `python scripts/build_reader.py --root . --output hadith-bank-reader.html`. Search/filtering and JSON export work without a server or network. The compressed edition needs a browser with the built-in `DecompressionStream` API; add `--uncompressed` when building for an older browser.
+- **[Live reader](https://blaghtayt-alt.github.io/Hadith-Bank/):** select a language to see its available collections, source editions and copied-bank documents. Search, narrow the translation origin, and read the full indexed source text.
+- **[Readable pages](../browse/README.md):** translations and Arabic in normal paragraphs, with source, translator/process label, page/row locator, review state and optional audit details. The [Japanese public collection](../browse/ja/README.md) has 2,092 source occurrences: 281 HadeethEnc entries and 1,811 Japanese Sahih Muslim volume-one entries.
+- **[Materials catalog](../catalog/README.md):** all 52 public datasets and 83 preserved legacy source documents. The two authorized Japanese and Vietnamese PDF intake packages include their full structured texts and original files. Legacy documents are counted separately from indexed source occurrences.
+- **Offline HTML:** download [hadith-bank-reader.html](../hadith-bank-reader.html), then open it locally. Rebuild all current views with `python scripts/refresh_bank.py --root . --site-output _site`. Search/filtering and JSON export work without a server or network. A downloaded HTML is a snapshot; download it again to receive later additions. The compressed edition needs a browser with the built-in `DecompressionStream` API; add `--uncompressed` when using `scripts/build_reader.py` for an older browser.
 - **Python search:** `python scripts/hadith_search.py '行い' --language ja --limit 5`. It prints readable results by default; `--json` returns structured JSON.
 
-The public repository contains 8,423 HadeethEnc source occurrences in six languages. The private combined package contains those occurrences and 37,365 supplied attachment occurrences, for **45,788 occurrences in nine languages**. This includes the earlier 32,300-record intake plus 3,254 Vietnamese and 1,811 Japanese Muslim source occurrences. A repeated provider ID across languages or snapshots remains a separate record. These totals do not count unique canonical Hadith.
+The public repository contains **13,488 source occurrences in six languages across 52 datasets**: 8,423 HadeethEnc entries, 1,811 Japanese Sahih Muslim volume-one entries, and 3,254 Vietnamese entries. Japanese has 2,092 public entries and Vietnamese has 4,457. A repeated provider ID across languages or snapshots remains a separate record. These totals do not count unique canonical Hadith.
+
+The earlier, separately held combined package contains **45,788 occurrences in nine languages**, including another 32,300-record intake. That historical package has a different scope; the additional 32,300 records are not included in this public release. See [additional intakes](ADDITIONAL-INTAKES.md) for the current publication status and exact package paths.
 
 ## JSON is the main data format
 
 | Layer | Location | Purpose |
 | --- | --- | --- |
 | Canonical source records | `languages/<language>/books/<book>/editions/<edition>/records.jsonl` | Full source wording, evidence and audit fields; unchanged by view generation. |
-| Supplied-file canonical records (combined package) | `attachments/attachments-b53d154fa3622b95/languages/<language>/books/<book>/editions/<edition>/records.json` | Separate PDF/XLSX source occurrences, with the originals and extraction evidence retained in the same intake package. |
+| Registered public intake records | `attachments/attachments-ja-muslim-c859ce57c211ea1b/` and `attachments/attachments-vi-920394517894aea9/` | Original Japanese and Vietnamese intake packages, including full structured records, source files and extraction evidence; authorized through `materials/*/manifest.json`. |
+| Future registered records | `materials/<material-slug>/` | Original source files, structured JSON/JSONL and an explicit material manifest; the refresh command discovers all accepted manifests. |
 | Simplified search records | `search/<language>/<book>/<edition>/part-*.jsonl` | One flat record per source occurrence, in small ordered shards. |
 | Optional whole projection | `search/records.jsonl` | Exact ordered concatenation of the shards; included in generated packages and reproducible locally. |
 | Material inventory | `catalog/materials.json` | Counts, source/canonical-file checksums, availability, translation-origin evidence and search-shard manifest. |
 | Human/AI provenance evidence | `catalog/translation-origins.json` | Evidence, source URLs, credit pages and the scope of each translation label. |
+| Current owner-confirmed origin policy | `catalog/provenance-policy.json` | Human for the confirmed HadeethEnc and Japanese/Vietnamese website imports; Unknown for old-bank copies until explicit later confirmation. Historical metadata remains intact. |
 | Related source snapshots | `catalog/related-snapshots.json` | Links the same publisher IDs across source versions without merging records or asserting canonical equivalence. |
 | Language inventories | `catalog/languages/<language>.json` | Complete local dataset and legacy-document inventory for each language. |
 | Disposable index | `.cache/hadith-search.sqlite` | SQLite full-text cache, rebuilt from verified JSON when needed. |
@@ -74,6 +79,10 @@ Some preserved historical source documents contain old relative links. [The lega
 
 ## Translation labels and sources
 
+The reader's current origin filter uses **Human**, **AI** and **Unknown**. Under the [owner-confirmed policy](../catalog/provenance-policy.json), all 13,488 currently indexed records are Human. The 83 preserved old-bank documents, including Japanese copies, remain Unknown and have separate document counts and links. Unknown does not mean AI. These labels do not certify independent linguistic or scholarly review.
+
+The policy overlay is separate from the original source fields. Existing `ai_translation` values, evidence and historical origin descriptions are preserved, including an original `"unknown"` flag on a record whose current owner-confirmed display category is Human. The historical evidence categories are:
+
 | Origin | Display meaning | AI field |
 | --- | --- | --- |
 | `publisher_human_workflow` | HadeethEnc's publisher describes translators, proofreading and human review. The label applies to the documented publishing process. | Preserved as `"unknown"` for these exported versions. |
@@ -88,16 +97,16 @@ For the private Chinese sources, the credited translators are **艾乃斯·马�
 
 ## Rebuild and verify
 
-Python 3.9 or later and its standard library are enough for the builders and search. Run:
+Python 3.11 or later and its standard library are enough for the builders and search. Run:
 
 ```bash
-python scripts/build_bank_views.py
-python scripts/build_reader.py --root . --output hadith-bank-reader.html --markdown-output browse
+python scripts/refresh_bank.py --root . --site-output _site
 python scripts/validate_hadeethenc_public.py
 python scripts/validate_bank_views.py --root . --report reports/portable-validation.json
-python -m unittest discover -s tests -p 'test_hadith_search.py'
-python -m unittest discover -s tests -p 'test_reader.py'
+python -m unittest discover -s tests
 ```
+
+The refresh command checks registered inputs, rebuilds catalog/search/reading views and the HTML, validates them, and stages the hosted site. The [GitHub Pages workflow](../.github/workflows/reader-pages.yml) runs it for changes to `main` and publishes successful builds. Follow [Adding material](ADDING-MATERIAL.md) to register future sources; adding an unregistered PDF alone does not create structured Hadith records.
 
 To include the separately held attachment package, supply its expanded folder and an **external empty output directory**:
 

@@ -1,0 +1,129 @@
+{
+  "schema_version": "hadith-bank-source-exceptions-v1",
+  "source_exceptions": [
+    {
+      "exception_id": "VI-SOURCE-001",
+      "source_id": "chanlyislam:vi:bukhari:pdf-78441dec2bca1ecf",
+      "source_sha256": "78441dec2bca1ecf41ecca2a691b974f515821321c9bd73d5c75a1573e658753",
+      "pdf_pages": [
+        23
+      ],
+      "printed_labels": [
+        "54",
+        "56"
+      ],
+      "issue": "Printed labels jump54to56; do not fabricate55 or infer that a specific canonical narration is absent.",
+      "exception_kind": "printed_numbering_gap",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-002",
+      "source_id": "chanlyislam:vi:bukhari:pdf-878f2186382ad5dc",
+      "source_sha256": "878f2186382ad5dc8111e154afee9f59a2e34705b3adea8be2fb78723de29309",
+      "pdf_pages": [
+        31
+      ],
+      "printed_labels": [
+        "219",
+        "230"
+      ],
+      "issue": "Printed labels jump219to230; keep source numbering and occurrences without inventing220–229.",
+      "exception_kind": "printed_numbering_gap",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-003",
+      "source_id": "chanlyislam:vi:bukhari:pdf-3a1424f3a0f06c85",
+      "source_sha256": "3a1424f3a0f06c85e5da62ab8cf83b678ddb5fb7bb4d4036cad61a1e4a3c1c4f",
+      "pdf_pages": [
+        12
+      ],
+      "printed_labels": [
+        "127",
+        "127"
+      ],
+      "issue": "Printed label127 occurs twice; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-004",
+      "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+      "source_sha256": "5839dff77028420fec76fab3683908c95c677615b7a1e183917abdabb7a5cce4",
+      "pdf_pages": [
+        10
+      ],
+      "printed_labels": [
+        "5",
+        "5"
+      ],
+      "issue": "Printed label5 repeated; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-005",
+      "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+      "source_sha256": "5839dff77028420fec76fab3683908c95c677615b7a1e183917abdabb7a5cce4",
+      "pdf_pages": [
+        17
+      ],
+      "printed_labels": [
+        "15",
+        "15"
+      ],
+      "issue": "Printed label15 repeated; preserve both source occurrences.",
+      "exception_kind": "duplicate_printed_label",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    },
+    {
+      "exception_id": "VI-SOURCE-006",
+      "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+      "source_sha256": "c7dcc5d2a0abffddba93dc6a3dff6cf3aded8d423958730365d705e00c582272",
+      "pdf_pages": [
+        35
+      ],
+      "printed_labels": [
+        "188"
+      ],
+      "issue": "Entry188 has introductoryformula but no Vietnamese translated hadithbody in suppliedsource; keep the source omission explicit and do not backfill.",
+      "exception_kind": "source_translation_body_omitted",
+      "status": "preserved_and_flagged_not_repaired_by_guess",
+      "evidence_basis": "parent_agent_reported_original_PDF_image_check; this subagent did not independently view these defect pages in the six-page structural audit",
+      "canonical_mapping_inferred": false
+    }
+  ],
+  "resolved_parser_exceptions": [
+    {
+      "exception_id": "VI-PARSER-RESOLVED-001",
+      "source_id": "chanlyislam:vi:bukhari:pdf-ef0a8f81d0047651",
+      "source_sha256": "ef0a8f81d00476513bd9314c8e546c73fa8c77defe22c17c52e35e4c4a2f5331",
+      "pdf_pages": [
+        7
+      ],
+      "printed_labels": [
+        "18"
+      ],
+      "issue": "Earlier apparent17to19jump was a parser omission caused by a standalone18- label.",
+      "status": "resolved_in_hashed_candidate",
+      "evidence_basis": "independent fullpage image check plus exact source line readback",
+      "record_count_after_fix": 62,
+      "must_not_report_as_source_numbering_gap": true
+    }
+  ],
+  "notes": [
+    "Printed-number gaps do not establish missing canonical hadiths.",
+    "Duplicate printed labels never authorize merging occurrences.",
+    "None of these exceptions authorizes silently modifying the printed source."
+  ]
+}

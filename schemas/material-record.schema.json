@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hadith-bank/material-record.schema.json",
+  "title": "Canonical occurrence for the records-v1 adapter",
+  "type": "object", "required": ["id", "text"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "text": {"type": "object", "required": ["arabic", "translation"], "properties": {
+      "arabic": {"type": ["string", "null"]}, "translation": {"type": ["string", "null"]}
+    }},
+    "title": {"type": ["string", "object", "null"]},
+    "language": {"type": "string"}, "book_key": {"type": "string"}, "edition": {"type": "string"},
+    "source": {"type": "object"}, "number": {"type": "object"}, "narrator": {"type": "object"},
+    "translator": {"type": "object"}, "page": {"type": "object"}, "review": {"type": "object"},
+    "rights": {"type": "object"}, "translation_provenance": {"type": "object"},
+    "commentary": {"type": "object"}, "references": {"type": "object"}, "grading": {"type": "object"},
+    "footnotes": {"type": "array"}, "topic_tags": {"type": "array"}, "source_headings": {"type": "array"},
+    "editorial_tags": {"type": ["array", "object"]}, "related_versions": {"type": "array"},
+    "ai_translation": {"enum": [true, false, "unknown"]}
+  },
+  "additionalProperties": true,
+  "$comment": "Keep source text and occurrence IDs exact. Preserve editions/variants separately. Unknown text is null; unknown AI origin is 'unknown'. Publication and independent review are separate. Extra original metadata remains in the canonical file and its content hash."
+}

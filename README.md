@@ -1,85 +1,91 @@
 # Hadith Bank
 
-**8,423 HadeethEnc source occurrences in six languages, with Arabic, source attribution and separate narration fields.**
+## Read and search online
 
-[Read the narrations](browse/README.md) · [Japanese: all 281 entries](browse/ja/hadeethenc/sqlite-a81da9af28f854f6/README.md) · [Complete materials catalog](catalog/README.md) · [Offline reader](hadith-bank-reader.html)
+### [Open the Hadith Bank website](https://blaghtayt-alt.github.io/Hadith-Bank/)
 
-The bank works independently. All public narration text, original source databases, local record locators, schemas and search tools are included. Reading and search work offline after downloading the repository. External source links provide attribution.
+[![Website build](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
-## Read by language
+[All languages and current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Offline HTML](https://blaghtayt-alt.github.io/Hadith-Bank/hadith-bank-reader.html) · [Add material](docs/ADDING-MATERIAL.md)
 
-| Language | Public source occurrences | Read | Structured catalog |
-| --- | ---: | --- | --- |
-| Japanese | 281 | [Read](browse/ja/README.md) | [JSON](catalog/languages/ja.json) |
-| Filipino / Tagalog | 1,949 | [Read](browse/fil/README.md) | [JSON](catalog/languages/fil.json) |
-| Vietnamese | 1,203 | [Read](browse/vi/README.md) | [JSON](catalog/languages/vi.json) |
-| Chinese | 2,256 | [Read](browse/zh-CN/README.md) | [JSON](catalog/languages/zh-CN.json) |
-| Uzbek | 420 | [Read](browse/uz/README.md) | [JSON](catalog/languages/uz.json) |
-| Hindi | 2,314 | [Read](browse/hi/README.md) | [JSON](catalog/languages/hi.json) |
-| **Total** | **8,423** | [All languages](browse/README.md) | [All datasets](catalog/materials.json) |
+The website searches the narration texts in this repository, with language, collection, source-edition and translation-origin filters. It includes the Japanese Sahih Muslim volume-one and Vietnamese PDF-derived texts, alongside the existing HadeethEnc sources. New languages appear automatically when their registered material passes the build checks.
 
-Counts describe source occurrences. Different languages, chains, book occurrences and source editions remain separate. They are not a unique canonical Hadith total.
+This is a standalone bank. Canonical JSON/JSONL records, original source files, source locators, review history, catalogs and search tools are kept here. Source links provide attribution; the reader's search data is embedded in its HTML and does not depend on Iman Companion or an external Hadith API.
 
-## How the material is organized
+**The hosted reader updates after a successful build of `main`.** Use the site's **Download offline reader** button to keep a local copy. A file already saved in your Downloads folder is a snapshot; download it again to get later additions. The website URL above is the shared, automatically refreshed entry point.
+
+## Included source collections
+
+The following source occurrences were included in the 11 November 2026 publication. The [generated catalog](catalog/materials.json) and website show the current totals after later additions.
+
+| Source collection | Occurrences in this publication | Source and review information |
+| --- | ---: | --- |
+| HadeethEnc — Japanese, Filipino, Vietnamese, Chinese, Uzbek and Hindi snapshots | 8,423 | Original source bytes and Arabic-version flags retained; separate bank review waived by the owner. |
+| Japanese Sahih Muslim, supplied volume-one PDF | 1,811 | Full supplied text, variants and shortened references retained; independent source QC remains pending. |
+| Vietnamese Sahih al-Bukhari booklets | 767 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
+| Vietnamese Sahih Muslim booklets | 971 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
+| Vietnamese Sunan Abi Dawud booklets | 1,316 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
+| Vietnamese 200 Golden Hadith | 200 | Source omissions and qualifications retained; independent source QC remains pending. |
+| **Total** | **13,488** | **Source occurrences, not a count of unique canonical Hadiths.** |
+
+Different narrations, chains, translations, repeated source occurrences and editions remain distinct. The Japanese Muslim source includes 191 shortened route/reference occurrences. Missing original Arabic remains null; raw PDF Arabic and its extraction issues are retained separately where supplied. Public availability does not mean that transcription, translation, Arabic alignment or scholarly grading has been independently certified.
+
+Language shortcuts: [Japanese](browse/ja/README.md) · [Filipino](browse/fil/README.md) · [Vietnamese](browse/vi/README.md) · [Chinese](browse/zh-CN/README.md) · [Uzbek](browse/uz/README.md) · [Hindi](browse/hi/README.md). The [all-language index](browse/README.md) is regenerated as languages are added.
+
+## Add material and let the HTML update
+
+1. Create a folder under `materials/`, containing the structured narration records and their original source file.
+2. Run the registration command in [Adding material](docs/ADDING-MATERIAL.md). It records the language, book, edition, source, record count and file hashes in `manifest.json`.
+3. Commit or upload that folder to GitHub and merge it into `main`. The **Update Hadith Bank website** workflow validates the records, rebuilds the catalogs and reader, synchronizes the generated files, and deploys the website.
+
+You do not edit the large HTML file or add language options by hand. JSON arrays and JSONL are supported. A PDF alone supplies evidence; searchable narrations also need structured text records. The build preserves existing review and rights qualifications and does not perform or claim a new scholarly review.
+
+[Full instructions, exact record example and update procedure](docs/ADDING-MATERIAL.md) · [How automatic publication works](docs/WEBSITE.md) · [Build/deployment status](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
+
+## Organization
 
 | Material | Location |
 | --- | --- |
-| Canonical source records | `languages/<language>/books/<book>/editions/<edition>/records.jsonl` |
+| Registered new material and its original files | `materials/<material-slug>/` |
+| Registration manifest | `materials/<material-slug>/manifest.json` |
+| Preserved Japanese and Vietnamese source packages | `attachments/attachments-ja-muslim-c859ce57c211ea1b/` and `attachments/attachments-vi-920394517894aea9/` |
+| Original HadeethEnc records | `languages/<language>/books/hadeethenc/editions/<edition>/records.jsonl` |
 | Readable, paginated text | `browse/<language>/<book>/<edition>/` |
-| Unified JSONL search records | `search/<language>/<book>/<edition>/part-*.jsonl` |
-| Language, source, edition and checksum catalog | `catalog/materials.json` and `catalog/languages/` |
-| Original HadeethEnc databases and download evidence | `sources/hadeethenc/snapshots/2026-11-11/` |
-| Preserved legacy lessons and source documents | [83-file inventory](browse/materials/legacy.md) |
-| Source edition relationships | `catalog/related-snapshots.json` |
-| Current HadeethEnc review decision | `catalog/review-policy.json` |
+| Unified, checksum-verified search shards | `search/<language>/<book>/<edition>/part-*.jsonl` |
+| Language, source, edition, provenance and checksum catalogs | `catalog/` |
+| Hosted build output | `_site/` — built and deployed by the workflow |
+| Self-contained offline reader | `hadith-bank-reader.html` |
 
-JSON is the main machine-readable format. Each search record has separate fields for Arabic, translation, source, book/number, narrator/isnad, translator, page/row locator, tags, commentary, benefits, footnotes, references, grading, source hashes and review history. Missing information stays null or unknown. No new translation or missing source text is invented.
+JSON is the main machine-readable format. Arabic, translation, source collection/number, narrator/isnad, translator, page/row locator, tags, commentary, footnotes, references, grading and review history remain separate fields. Unknown information stays null or unknown. Rebuilding the reader never invents missing text or promotes a record to reviewed status.
 
-**For ordinary reading**, use the paginated links above. **For browser search**, download `hadith-bank-reader.html` and open it locally. It contains its own data, offers language/source filters and exports selected records as JSON. GitHub's file page displays source code; download the HTML to use the reader.
+Some earlier supplied-file datasets are still cataloged as metadata-only. The [material catalog](catalog/materials.json) records availability explicitly; their counts are not included in the website's searchable-record total.
 
-## Search
+## Search offline
 
-Python 3 is sufficient; the search tools use the standard library.
+Python 3.11 or later is sufficient; the bank tools use the standard library.
 
 ```bash
 python scripts/hadith_search.py '礼拝' --language ja --limit 5
-python scripts/hadith_search.py --language ja --id 2758 --json
-python scripts/hadith_search.py 'HadeethEnc.com' --language fil --limit 3
-python scripts/hadith_search.py 'Muslim' --language vi --include-commentary
+python scripts/hadith_search.py --language ja --book muslim --limit 5
+python scripts/hadith_search.py --language vi --book bukhari --limit 5
 python scripts/search.py fulltext '2758' --language ja --limit 5
 ```
 
-Unified search includes narration text, source references, translators and source metadata. Commentary, benefits and footnotes are optional. General document search also reads JSONL. Search verifies the input stream's checksums and uses a disposable local cache; normalization is applied only to search keys, preserving returned text exactly.
+The browser reader offers the same local corpus with filters and JSON export. Search-key normalization does not alter displayed source wording. [Search field guide](docs/READING-AND-SEARCH.md) · [Search record schema](schemas/search.record.schema.json).
 
-[Search examples and field guide](docs/READING-AND-SEARCH.md) · [Search record schema](schemas/search.record.schema.json)
-
-## Human translation, attribution and review
-
-HadeethEnc entries are labeled **Human translation — HadeethEnc**, following the owner's source classification and the provider's [description of its translator workflow](https://hadeethenc.com/en/home/about). The named translator is retained when evidenced; none is invented. The exact imported AI-origin flags remain visible with their original scope. [Translation-origin evidence](catalog/translation-origins.json).
-
-**The owner waived separate bank review for HadeethEnc on 11 November 2026.** This current decision appears in the reader and search alongside the preserved import history. The **267 Arabic-version alignment notes** remain available: Japanese 102, Chinese 103, Hindi 62. The waiver does not assert that review was performed or that those notes were resolved. [Current policy](docs/CURRENT-REVIEW-POLICY.md) · [Original alignment ledger](reports/hadeethenc/2026-11-11/public/exceptions.json).
-
-Original texts, stable IDs, source databases and historical import records remain unchanged. Publisher conditions apply. Translation origin, source-version alignment, transcription fidelity and scholarly authenticity remain separate facts.
-
-## Supplied PDF/XLSX materials
-
-The combined package contains **45,788 source occurrences across nine languages and 64 source datasets**: the 8,423 public occurrences plus **37,365 supplied-file occurrences**. It retains the original attachments and all 83 legacy source documents.
-
-The public catalog registers the supplied-file intake accurately as separate metadata. Its held source files remain in the combined package with their existing publication qualifications. That intake includes Bengali, Urdu and Portuguese alongside the shared language families. See [intake organization](docs/ATTACHMENT-INTAKE.md) and [the metadata inventory](browse/materials/private.md).
-
-The Japanese SQLite snapshot and supplied v1.8.0 workbook each contain the same 281 publisher IDs. Both snapshots are preserved in the combined package; they do not represent 562 distinct Hadiths.
-
-The latest additive intakes contribute **3,254 Vietnamese occurrences from 45 PDFs** and **1,811 Japanese Sahih Muslim volume-one occurrences from the supplied 580-page PDF**. The Japanese intake includes 191 abbreviated route/reference occurrences; its source scope is preserved. These PDF packages retain their private-candidate and pending-review status. Their source editions are registered as metadata in [the additional intake catalog](catalog/additional-private-intakes.json), with details in [the intake guide](docs/ADDITIONAL-INTAKES.md).
-
-## Rebuild and validate
+## Rebuild and validate locally
 
 ```bash
-python scripts/build_bank_views.py
-python scripts/build_reader.py --root . --output hadith-bank-reader.html --markdown-output browse
-python scripts/validate.py
-python scripts/validate_hadeethenc_public.py
-python scripts/validate_bank_views.py --root . --report reports/portable-validation.json
+python scripts/refresh_bank.py --root . --site-output _site
 python -m unittest discover -s tests
 ```
 
-Generated reading/search views preserve canonical text and source IDs. The whole `search/records.jsonl` is optional and reproducible; the published checkout includes its ordered, checksum-verified shards. [Organization validation](reports/organization-final-audit.json).
+The first command discovers every registration manifest, checks the canonical files and their hashes, rebuilds language/book/edition views, validates the complete search stream and reader, and stages the website. Open `_site/index.html` locally to inspect the result. Invalid input stops the build; a failed GitHub build leaves the previously deployed website available.
+
+## Attribution and review
+
+The reader uses three translation-origin labels: **Human**, **AI** and **Unknown**. The owner confirmed the HadeethEnc sources and the currently supplied website-sourced Japanese/Vietnamese materials as **Human**. Material copied from the older bank, especially the legacy Japanese material, stays **Unknown** until the owner confirms its origin. Unknown does not mean AI-generated. The [source-origin policy](catalog/provenance-policy.json) records these decisions separately from the original source flags and review history.
+
+HadeethEnc's human-translation workflow, the owner review decision and source-version alignment notes remain documented in [translation-origin evidence](catalog/translation-origins.json) and [current review policy](docs/CURRENT-REVIEW-POLICY.md).
+
+The Japanese and Vietnamese PDF intakes are public under the owner's explicit instruction. Their original `private_candidate` fields are preserved as import history; independent QC remains pending, and rights/Arabic/source exceptions remain visible. The publication decision is separate from evidence of review or licensing. See [the intake guide](docs/ADDITIONAL-INTAKES.md), [review and rights requirements](docs/REVIEW-AND-RIGHTS.md) and [contributor requirements](AGENTS.md).

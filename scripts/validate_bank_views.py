@@ -2,7 +2,8 @@
 """Validate local bank views without changing canonical files or using a network.
 
 The combined mode derives all totals from its catalog. Public mode additionally
-pins the six source snapshots explicitly authorized by the owner. This validates
+pins the six original snapshots and verifies explicitly registered owner-authorized
+material manifests. This validates
 organization, byte preservation and local dependencies; it is not source-page,
 translation, authenticity, copyright or independent Pro QC.
 """
@@ -19,6 +20,8 @@ import re
 import subprocess
 import sys
 from urllib.parse import unquote, urlsplit
+
+from current_provenance import apply_policy as apply_provenance_policy, classification, decision_for, load_policy as load_provenance_policy
 
 
 PUBLIC_BASELINE = '9688bbfb6e53832169acdc4ef5127ef8fc1fb259'
@@ -133,7 +136,7 @@ def public_materials():
     return expected
 
 
-def public_expected(row, material, position, policy):
+def public_expected(row, material, position, policy, provenance_policy=None):
     """Independently map every public view field to its frozen canonical source.
 
     A full object comparison prevents private commentary, metadata, unknown extra
@@ -169,7 +172,7 @@ def public_expected(row, material, position, policy):
             'independent_review_performed': False, 'historical_status_preserved': True,
             'arabic_alignment_flags_retained': True, 'policy_path': 'catalog/review-policy.json',
         }
-    return {
+    result = {
         'schema_version': 'hadith-bank-search-record-v1', 'id': row['record_id'],
         'language': material['language'], 'source_language_code': source_code,
         'book_key': 'hadeethenc', 'edition': material['edition'], 'source_id': material['dataset_id'],
@@ -200,11 +203,21 @@ def public_expected(row, material, position, policy):
         'page': {'pdf': [], 'printed': [], 'sheet': None, 'row': provenance['source_rowid'], 'row_scope': 'SQLite source row; not a printed page'},
         'related_versions': row['related_versions'], 'canonical_record_sha256': object_hash(row),
     }
+    return apply_provenance_policy(result, provenance_policy)
 
 
-def expected_record(row, material, position, is_jsonl, policy):
+def expected_record(row, material, position, is_jsonl, policy, provenance_policy=None):
+    if material.get('adapter') in ('pdf-intake-package-v1', 'records-v1'):
+        from material_registry import project_for_material
+        projected = project_for_material(row, material, position)
+        return {'id': projected['id'], 'full_projection_sha256': object_hash(projected),
+                'text_arabic': projected['text_arabic'], 'text_translation': projected['text_translation'],
+                'canonical_record_sha256': object_hash(row), 'source_id': material['dataset_id'],
+                'language': material['language'], 'book_key': material['book_key'], 'edition': material['edition'],
+                'locator': projected['source']['record_locator'], 'source_file': material['source_file'],
+                'source_sha256': material['source_sha256'], 'authorized_material': True}
     if 'texts' in row and 'record_id' in row:
-        expected = public_expected(row, material, position, policy)
+        expected = public_expected(row, material, position, policy, provenance_policy)
         return {'id': row['record_id'], 'full_projection_sha256': object_hash(expected),
                 'text_arabic': expected['text_arabic'], 'text_translation': expected['text_translation'],
                 'canonical_record_sha256': expected['canonical_record_sha256'],
@@ -246,17 +259,18 @@ def compare_projection(record, expected, root, public):
             require(record.get('review', {}).get(field) == value, 'Historical review changed for ' + identifier + ': ' + field)
         require(record.get('review', {}).get('certified_release_eligible') is False, 'Private source release status promoted: ' + identifier)
     for relative in (record.get('translation_provenance', {}).get('policy_path'),
+                     record.get('translation_provenance', {}).get('current_policy', {}).get('policy_path'),
                      record.get('review', {}).get('current_policy', {}).get('policy_path')):
         if relative is not None:
             local(root, relative)
-    if public:
+    if public and not expected.get('authorized_material'):
         require('attachments/' not in json.dumps(record, ensure_ascii=False), 'Attachment path appears in public projection: ' + identifier)
 
 
 def verify_shards(root, search, expected, public):
     require(isinstance(search.get('shards'), list) and search['shards'], 'Missing ordered search shards')
     aggregate, seen, paths, projected_hashes = hashlib.sha256(), set(), set(), []
-    by_language, by_dataset, text_codepoints = Counter(), Counter(), 0
+    by_language, by_dataset, current_origins, text_codepoints = Counter(), Counter(), Counter(), 0
     for shard in search['shards']:
         relative = shard['path']
         require(relative not in paths, 'Duplicate search shard path: ' + relative)
@@ -275,6 +289,7 @@ def verify_shards(root, search, expected, public):
                 compare_projection(record, expected[identifier], root, public)
                 seen.add(identifier); rows += 1
                 by_language[record['language']] += 1; by_dataset[record['source_id']] += 1
+                current_origins[classification(record)] += 1
                 text_codepoints += sum(len(record.get(k) or '') for k in ('text_arabic', 'text_translation'))
                 projected_hashes.append((identifier, object_hash(record)))
         require(digest.hexdigest() == shard['sha256'], 'Shard SHA-256 mismatch: ' + relative)
@@ -288,7 +303,7 @@ def verify_shards(root, search, expected, public):
         require(whole.is_file() and file_hash(whole) == search['records_sha256'], 'Whole search stream hash mismatch')
     else:
         require(search.get('whole_file_optional') is True, 'Required whole search stream missing')
-    return projected_hashes, dict(sorted(by_language.items())), dict(sorted(by_dataset.items())), text_codepoints
+    return projected_hashes, dict(sorted(by_language.items())), dict(sorted(by_dataset.items())), text_codepoints, dict(sorted(current_origins.items()))
 
 
 def verify_reader(root, relative, projected_hashes, search):
@@ -344,7 +359,7 @@ def verify_navigation(root, anticipated_report=None):
             'external_links_not_requested': external, 'fragment_anchors_checked': False}
 
 
-def verify_git_baseline(root, baseline, evidence):
+def verify_git_baseline(root, baseline, evidence, registered_files=None):
     require(bool(re.fullmatch(r'[0-9a-f]{40,64}', baseline)), 'Git baseline must be a full hexadecimal commit ID')
     command = ['git', '-C', str(root)]
     location = subprocess.run(command + ['rev-parse', '--show-toplevel'], check=True, capture_output=True, text=True).stdout.strip()
@@ -357,19 +372,34 @@ def verify_git_baseline(root, baseline, evidence):
     prefixes.extend(str(PurePosixPath(m['canonical_records_path']).parent) for m in public_materials().values())
     baseline_files = subprocess.run(command + ['ls-tree', '-r', '--name-only', commit, '--'] + prefixes,
                                     check=True, capture_output=True, text=True).stdout.splitlines()
+    baseline_paths = set(subprocess.run(command + ['ls-tree', '-r', '--name-only', commit],
+                                       check=True, capture_output=True, text=True).stdout.splitlines())
+    registered_files = registered_files or {}
     targets = dict(evidence)
+    for relative, expected_hash in registered_files.items():
+        require(file_hash(local(root, relative)) == expected_hash, 'Registered source checksum differs: ' + relative)
+        require(relative not in targets or targets[relative]['sha256'] == expected_hash,
+                'Registered source differs from catalog source: ' + relative)
+        targets[relative] = {'sha256': expected_hash}
     for relative in baseline_files:
         if relative not in targets:
             path = local(root, relative)
             targets[relative] = {'sha256': file_hash(path)}
-    checked = []
+    checked, additions = [], []
     for relative, item in sorted(targets.items()):
+        if relative not in baseline_paths:
+            require(relative in registered_files, 'Unregistered source absent from baseline Git commit: ' + relative)
+            additions.append({'path': relative, 'sha256': item['sha256']})
+            continue
         result = subprocess.run(command + ['show', commit + ':' + relative], capture_output=True)
         require(result.returncode == 0, 'Source file absent from baseline Git commit: ' + relative)
         require(hashlib.sha256(result.stdout).hexdigest() == item['sha256'], 'Source bytes differ from baseline Git: ' + relative)
         checked.append(relative)
     return {'commit': commit, 'files_compared': len(checked), 'catalog_source_and_legacy_files': len(evidence),
-            'additional_frozen_source_support_files': len(targets) - len(evidence), 'all_bytes_equal': True,
+            'additional_frozen_source_support_files': len(set(baseline_files) - set(evidence)),
+            'all_existing_bytes_equal': True, 'new_registered_files_absent_from_baseline': len(additions),
+            'new_registered_files': additions,
+            'comparison_scope': 'Every existing source byte compared with Git; new registered source files separately checksum-verified.',
             'network_used': False, 'paths': checked}
 
 
@@ -384,17 +414,24 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
     materials = catalog.get('materials')
     require(isinstance(materials, list) and bool(materials), 'Missing source datasets')
     policy = read_json(root, 'catalog/review-policy.json').get('hadeethenc', {})
+    provenance_policy = load_provenance_policy(root)
     require(policy.get('decision') == 'owner_waived_separate_bank_review' and policy.get('separate_bank_review_required') is False and policy.get('independent_review_performed') is False, 'Unrecognized current HadeethEnc policy')
+    registered = {'materials': [], 'authorized_files': {}, 'manifests': []}
     if public:
+        from material_registry import load_public_materials
+        registered = load_public_materials(root)
         require(policy.get('label') == 'No separate bank review required — owner decision' and policy.get('decision_date_japan') == '2026-11-11', 'Public policy text differs from owner decision')
         allowed = public_materials()
-        require(len(materials) == len(allowed) and {m['dataset_id'] for m in materials} == set(allowed), 'Public dataset scope differs from six authorized snapshots')
+        for material in registered['materials']:
+            require(material['dataset_id'] not in allowed, 'Registered source duplicates a frozen snapshot')
+            allowed[material['dataset_id']] = material
+        require(len(materials) == len(allowed) and {m['dataset_id'] for m in materials} == set(allowed), 'Public dataset scope differs from authorized snapshots and material manifests')
         for material in materials:
             require(all(material.get(k) == v for k, v in allowed[material['dataset_id']].items()), 'Public snapshot metadata/hash mismatch: ' + material['dataset_id'])
-        require(not (root / 'attachments').exists(), 'Private attachments directory present in public tree')
         forbidden = [p.relative_to(root).as_posix() for p in root.rglob('*')
-                     if '.git' not in p.parts and p.is_file() and p.suffix.lower() in ('.pdf', '.xlsx', '.xls', '.docx')]
-        require(not forbidden, 'Private source document formats present in public tree: ' + ', '.join(forbidden[:5]))
+                     if '.git' not in p.parts and p.is_file() and p.suffix.lower() in ('.pdf', '.xlsx', '.xls', '.docx')
+                     and p.relative_to(root).as_posix() not in registered['authorized_files']]
+        require(not forbidden, 'Unregistered source documents present in public tree: ' + ', '.join(forbidden[:5]))
     evidence, expected, datasets, canonical_paths, expected_counts = {}, {}, set(), set(), Counter()
     for material in materials:
         identifier, relative = material['dataset_id'], material['canonical_records_path']
@@ -405,7 +442,7 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
         total = 0
         for position, row in source_rows(path):
             require(isinstance(row, dict), 'Canonical record is not an object: ' + relative)
-            item = expected_record(row, material, position, path.suffix == '.jsonl', policy)
+            item = expected_record(row, material, position, path.suffix == '.jsonl', policy, provenance_policy)
             require(isinstance(item['id'], str) and item['id'] not in expected, 'Duplicate/missing canonical occurrence ID')
             expected[item['id']] = item; total += 1
         require(total == count(material['count'], 'material.count'), 'Canonical dataset count mismatch: ' + identifier)
@@ -413,22 +450,26 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
     for legacy in catalog.get('legacy_materials', []):
         path = checked_hash(root, legacy['path'], legacy['sha256'], evidence)
         require(path.stat().st_size == count(legacy['bytes'], 'legacy.bytes'), 'Legacy byte count mismatch: ' + legacy['path'])
+        require(legacy.get('translation_origin') == 'unknown' and legacy.get('current_policy') == decision_for(legacy, provenance_policy),
+                'Legacy origin differs from pending owner confirmation: ' + legacy['path'])
     require(len(expected) == count(catalog['record_count'], 'catalog.record_count') and dict(expected_counts) == catalog['by_language'], 'Catalog counts differ from canonical occurrences')
-    projected_hashes, by_language, by_dataset, codepoints = verify_shards(root, catalog['search'], expected, public)
+    projected_hashes, by_language, by_dataset, codepoints, current_origins = verify_shards(root, catalog['search'], expected, public)
     require(by_language == catalog['by_language'], 'Projected language totals differ from catalog')
     require(by_dataset == {m['dataset_id']: m['count'] for m in materials}, 'Projected dataset totals differ from catalog')
+    require(catalog.get('current_translation_origins') == current_origins, 'Current translation classification totals differ from catalog')
     for language, total in by_language.items():
         language_catalog = read_json(root, 'catalog/languages/' + language + '.json')
         require(language_catalog.get('language') == language and language_catalog.get('record_count') == total and
                 language_catalog.get('datasets') == [m for m in materials if m['language'] == language], 'Language catalog mismatch: ' + language)
     reader_result = verify_reader(root, reader, projected_hashes, catalog['search'])
     navigation = verify_navigation(root, report_path)
-    git_result = verify_git_baseline(root, baseline, evidence) if baseline else {'performed': False, 'reason': 'No local Git baseline requested'}
+    git_result = verify_git_baseline(root, baseline, evidence, registered['authorized_files']) if baseline else {'performed': False, 'reason': 'No local Git baseline requested'}
     # Source files must still match after all view comparisons.
     for relative, item in evidence.items():
         require(file_hash(local(root, relative)) == item['sha256'], 'Source changed during validation: ' + relative)
     return {
         'schema': 'hadith-bank-portable-validation-v1', 'status': 'passed', 'scope': scope,
+        'current_translation_origins': current_origins,
         'checked_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'record_count': len(expected), 'source_dataset_count': len(materials),
         'by_language': by_language, 'by_dataset': by_dataset,
@@ -441,10 +482,12 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
                      'pdf_page_images_reviewed': 0, 'source_glyph_or_linguistic_reviews_performed': 0},
         'source_files': list(evidence.values()), 'search_stream_sha256': catalog['search']['records_sha256'],
         'reader': reader_result, 'navigation': navigation, 'baseline_git': git_result,
-        'public_scope': {'enforced': public, 'authorized_dataset_count': 6 if public else None,
+        'public_scope': {'enforced': public, 'authorized_dataset_count': len(allowed) if public else None,
                          'public_snapshot_hashes_pinned': public,
-                         'private_attachment_paths_and_extra_text_excluded_from_public_projections': public,
-                         'private_source_document_formats_absent': public},
+                         'unregistered_attachment_paths_and_extra_text_excluded': public,
+                         'registered_material_manifests_verified': len(registered['manifests']),
+                         'unregistered_source_documents_absent': public,
+                         'source_review_and_rights_statuses_preserved': True},
         'runtime_source_files_local': True, 'network_requests': 0,
         'source_files_modified': False, 'independent_pro_qc_performed': False,
         'prior_audit_reports_modified': False, 'failures': [],

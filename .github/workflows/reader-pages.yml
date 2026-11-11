@@ -1,0 +1,130 @@
+name: Update Hadith Bank website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Keep main's build, generated commit and deployment in order. A newer PR
+# revision may cancel its older validation; a live deployment is not canceled.
+concurrency:
+  group: hadith-bank-reader-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    name: Validate proposed material and reader
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Check out proposed revision
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Run software tests
+        run: python -m unittest discover -s tests
+      - name: Rebuild and validate all registered material
+        run: python scripts/refresh_bank.py --root . --site-output _site
+
+  build:
+    name: Refresh bank and build website
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    outputs:
+      publish: ${{ steps.sync.outputs.publish }}
+      published_commit: ${{ steps.sync.outputs.published_commit }}
+    steps:
+      - name: Check out requested main revision
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Run software tests
+        run: python -m unittest discover -s tests
+      - name: Rebuild and validate all registered material
+        run: python scripts/refresh_bank.py --root . --site-output _site
+      - name: Keep generated bank files synchronized
+        id: sync
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_main="$(git ls-remote origin refs/heads/main | cut -f1)"
+          if [[ "$current_main" != "$GITHUB_SHA" ]]; then
+            echo "A newer main revision exists; its own run will publish it."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git add -A -- catalog search browse index.json hadith-bank-reader.html \
+            reports/reading-views-validation.json \
+            reports/portable-validation.json reports/site-build.json
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Update generated Hadith Bank reader [skip ci]'
+            # Normal push only: reject a concurrent source change.
+            git push origin HEAD:refs/heads/main
+          fi
+          echo "published_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+      - name: Upload the verified website
+        if: steps.sync.outputs.publish == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    name: Publish verified website
+    if: needs.build.outputs.publish == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check that this is still the current bank
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_COMMIT: ${{ needs.build.outputs.published_commit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_main="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          if [[ "$current_main" == "$EXPECTED_COMMIT" ]]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "A newer bank revision is waiting to deploy."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Configure GitHub Pages
+        if: steps.current.outputs.publish == 'true'
+        uses: actions/configure-pages@v5
+      - name: Deploy the verified artifact
+        if: steps.current.outputs.publish == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4

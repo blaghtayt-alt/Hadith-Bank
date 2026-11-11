@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "search_cases": [
+    {
+      "args": [
+        "--book",
+        "200-golden-hadith",
+        "--number",
+        "188",
+        "--limit",
+        "1"
+      ],
+      "matches_returned": 1,
+      "review_warnings_retained": true
+    },
+    {
+      "args": [
+        "--query",
+        "le nguyen",
+        "--book",
+        "muslim",
+        "--limit",
+        "2"
+      ],
+      "matches_returned": 2,
+      "review_warnings_retained": true
+    },
+    {
+      "args": [
+        "--book",
+        "abu-dawud",
+        "--number",
+        "997",
+        "--limit",
+        "1"
+      ],
+      "matches_returned": 1,
+      "review_warnings_retained": true
+    },
+    {
+      "args": [
+        "--query",
+        "Allah",
+        "--ai-status",
+        "unknown",
+        "--limit",
+        "2"
+      ],
+      "matches_returned": 2,
+      "review_warnings_retained": true
+    }
+  ],
+  "python_script_syntax": "passed",
+  "full_clean_room_reextraction": "not_repeated; source-specific pipelines were executed during creation"
+}
