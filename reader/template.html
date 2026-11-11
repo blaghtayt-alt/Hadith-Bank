@@ -138,7 +138,7 @@ const counterpartTranslationOrigin = data => {
   return ["human","ai","unknown"].includes(data.translation_origin)?data.translation_origin:"unknown";
 };
 const legacyOrigin = item => {const current=item.current_policy && item.current_policy.classification;return ["human","ai","unknown"].includes(current)?current:"unknown";};
-const bookLabel = key => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","targhib-wa-tarhib":"Al-Targhib wa-l-Tarhib (Sahih and Daif)","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};return Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;};
+const bookLabel = (key, language="") => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","targhib-wa-tarhib":"Al-Targhib wa-l-Tarhib (Sahih and Daif)","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};const label=Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;return key==="ibn-majah" && language==="zh-CN"?"伊本·马哲圣训集 — "+label:label;};
 const languageLabel = code => {
   if(Object.prototype.hasOwnProperty.call(names,code) && typeof names[code]==="string") return names[code];
   try { if(typeof Intl.DisplayNames === "function") return new Intl.DisplayNames(["en"],{type:"language"}).of(code) || code; } catch(_){}
@@ -224,12 +224,12 @@ const matchesCounterpartAvailability = (record,choice) => {
 const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
 const isOCR = record => !!(record.extraction && record.extraction.ocr_used===true);
 const needsOCRReview = record => {
-  if(!isOCR(record))return false;
+  if(!isOCR(record) || record.display_policy && record.display_policy.qc_tags===false)return false;
   const review=record.review || {};
   const state=review.ocr_qc || review.independent_pro_qc || review.status;
   return !(typeof state==="string" && ["passed","complete","completed","verified"].includes(state.trim().toLowerCase()));
 };
-const reviewBadges = record => {if(!isOCR(record))return [];const review=record.review || {},state=review.ocr_qc || review.independent_pro_qc || review.status;return [{label:"OCR review: "+(valueText(state)||"not recorded"),pending:needsOCRReview(record)}];};
+const reviewBadges = record => {if(!isOCR(record) || record.display_policy && record.display_policy.qc_tags===false)return [];const review=record.review || {},state=review.ocr_qc || review.independent_pro_qc || review.status;return [{label:"OCR review: "+(valueText(state)||"not recorded"),pending:needsOCRReview(record)}];};
 const recordTypeInfo = record => {
   let kind=record.record_type || record.content_kind;
   const aliases={hadith_occurrence:"hadith",main_hadith_occurrence:"hadith",translation_occurrence:"hadith",quoted_hadith:"hadith_excerpt",hadith_quote:"hadith_excerpt",quoted_companion_report:"companion_report_excerpt"};
@@ -257,14 +257,14 @@ const pageLabel = record => { const p=record.page || {}, out=[]; if(p.pdf && p.p
 const materialSummary = (items, language, origin="") => {
   const groups=new Map();
   items.forEach(record=>{if(language && record.language!==language || origin && originCategory(record)!==origin)return;const key=record.book_key;if(!groups.has(key))groups.set(key,{book_key:key,count:0,editions:new Set()});const group=groups.get(key);group.count++;group.editions.add(record.language+"/"+record.book_key+"/"+record.edition);});
-  return [...groups.values()].map(group=>({book_key:group.book_key,count:group.count,edition_count:group.editions.size})).sort((a,b)=>bookLabel(a.book_key).localeCompare(bookLabel(b.book_key)));
+  return [...groups.values()].map(group=>({book_key:group.book_key,count:group.count,edition_count:group.editions.size})).sort((a,b)=>bookLabel(a.book_key,language).localeCompare(bookLabel(b.book_key,language)));
 };
 const resolveMaterialFilters = (items, selection) => {
   const language=selection.language || "",origin=["human","ai","unknown"].includes(selection.origin)?selection.origin:"";
   const allLanguageRows=items.filter(record=>!language || record.language===language),languageRows=allLanguageRows.filter(record=>!origin || originCategory(record)===origin),books=new Map();
-  languageRows.forEach(record=>books.set(record.book_key,bookLabel(record.book_key)));
+  languageRows.forEach(record=>books.set(record.book_key,bookLabel(record.book_key,language)));
   const book=books.has(selection.book)?selection.book:"",bookRows=languageRows.filter(record=>!book || record.book_key===book),sources=new Map();
-  bookRows.forEach(record=>sources.set(record.source_id,languageLabel(record.language)+" · "+bookLabel(record.book_key)+" · "+editionLabel(record)));
+  bookRows.forEach(record=>sources.set(record.source_id,languageLabel(record.language)+" · "+bookLabel(record.book_key,record.language)+" · "+editionLabel(record)));
   const source=sources.has(selection.source)?selection.source:"",rows=bookRows.filter(record=>!source || record.source_id===source),origin_counts={human:0,ai:0,unknown:0};
   allLanguageRows.filter(record=>(!book || record.book_key===book) && (!source || record.source_id===source)).forEach(record=>origin_counts[originCategory(record)]++);
   return {language,book,source,origin,books,sources,rows,origin_counts,materials:materialSummary(items,language,origin),language_count:languageRows.length};
@@ -367,7 +367,7 @@ function icon(name) {
 const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
 const sourceDownloads=Array.isArray(snapshot.source_downloads)?snapshot.source_downloads:[],sourceDownloadsByPath=new Map(sourceDownloads.map(item=>[item.path,item]));
 const languages=new Map(), books=new Map(), sources=new Map();
-records.forEach(r=>{languages.set(r.language,languageLabel(r.language));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key)+" · "+editionLabel(r));});
+records.forEach(r=>{languages.set(r.language,languageLabel(r.language));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key,r.language)+" · "+editionLabel(r));});
 legacy.forEach(item=>{if(typeof item.language==="string" && item.language)languages.set(item.language,languageLabel(item.language));});
 fillFilter("language-filter",languages,"All languages");
 $("brand-title").textContent=snapshot.title || "Hadith Bank";
@@ -401,7 +401,7 @@ const offline=window.location.protocol==="file:";
 $("reader-context").textContent=offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
 const pendingOCRCount=records.filter(needsOCRReview).length;
 if(pendingOCRCount){$("review-notice").hidden=false;$("review-notice").textContent=nf.format(pendingOCRCount)+" OCR-extracted source occurrences await OCR review. Review details remain available on those records.";}
-$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_editions:sources.size,pending_ocr_review:pendingOCRCount,review_display_policy:snapshot.review_display_policy,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:[],scope:"QC labels apply to evidenced OCR extraction. Original source text, translation-origin metadata and review history remain preserved. Reading views do not perform a new independent review."},null,2);
+$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_editions:sources.size,pending_ocr_review:pendingOCRCount,review_display_policy:snapshot.review_display_policy,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:[],scope:"QC labels apply to evidenced OCR extraction unless an identified source has an owner display decision. Original source text, translation-origin metadata and review history remain preserved. Reading views do not perform a new independent review."},null,2);
 const matchingLegacy = (language,origin) => legacy.filter(item=>(!language || item.language===language) && (!origin || legacyOrigin(item)===origin));
 function renderOtherMaterials(language,origin){
   const items=origin?[]:unavailable.filter(item=>!language || item.language===language),container=$("other-materials-content");
@@ -421,7 +421,7 @@ function bookDownloads(scope){
   const disclosure=element("details","available-downloads"),list=element("div","material-list");
   disclosure.open=!!scope.language && items.length<=4;
   disclosure.append(element("summary",null,"Download books and source materials ("+nf.format(items.length)+")"));
-  for(const item of items){const href=sourceDownloadURL(item.path,site);if(!href)continue;const row=element("div","material-item"),link=element("a","source-url",sourceDownloadLabel(item.path));link.href=href;link.target="_blank";link.rel="noopener noreferrer";link.download=item.path.split("/").pop();row.append(element("strong",null,item.source_name || item.path.split("/").pop()),element("div","meta-value",languageLabel(item.language || "")+(item.book_key?" · "+bookLabel(item.book_key):"")),link);list.append(row);}
+  for(const item of items){const href=sourceDownloadURL(item.path,site);if(!href)continue;const row=element("div","material-item"),link=element("a","source-url",sourceDownloadLabel(item.path));link.href=href;link.target="_blank";link.rel="noopener noreferrer";link.download=item.path.split("/").pop();row.append(element("strong",null,item.source_name || item.path.split("/").pop()),element("div","meta-value",languageLabel(item.language || "")+(item.book_key?" · "+bookLabel(item.book_key,item.language):"")),link);list.append(row);}
   if(!list.childNodes.length)return null;disclosure.append(list);return disclosure;
 }
 function renderAvailableMaterials(scope){
@@ -439,7 +439,7 @@ function renderAvailableMaterials(scope){
   const editions=scope.materials.reduce((total,material)=>total+material.edition_count,0);
   $("available-summary").textContent=nf.format(scope.language_count)+" source occurrences · "+nf.format(scope.materials.length)+" collections · "+nf.format(editions)+" source editions"+(documents.length?" · "+nf.format(documents.length)+" copied-bank documents":"");
   const grid=element("div","available-grid");
-  scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");button.append(element("strong",null,bookLabel(material.book_key)),element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
+  scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key,scope.language)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");button.append(element("strong",null,bookLabel(material.book_key,scope.language)),element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
   if(grid.childNodes.length)container.append(grid);
   const downloads=bookDownloads(scope);if(downloads)container.append(downloads);
   if(documents.length){
@@ -528,7 +528,7 @@ function card(record,index) {
   const card=element("article","record-card");
   const top=element("div","card-top"), heading=element("div","card-heading"),eyebrows=element("div","card-eyebrows");
   eyebrows.append(element("span","eyebrow",languageLabel(record.language)),element("span","origin-badge","Translation: "+originLabel(record)));heading.append(eyebrows);
-  heading.append(element("div","book-line",bookLabel(record.book_key)+" · "+numberLabel(record)));
+  heading.append(element("div","book-line",bookLabel(record.book_key,record.language)+" · "+numberLabel(record)));
   const select=element("label","check record-select"), checkbox=element("input"); checkbox.type="checkbox"; checkbox.checked=state.selected.has(index); checkbox.setAttribute("aria-label","Select "+record.id); checkbox.addEventListener("change",()=>{checkbox.checked?state.selected.add(index):state.selected.delete(index);updateSelection();}); select.append(checkbox,document.createTextNode("Select")); top.append(heading,select);card.append(top);
   if(record.title){const title=element("h3","record-title",record.title);title.dir=textDirection(record.language);title.lang=record.language;card.append(title);}
   const kind=recordTypeInfo(record);if(kind){const info=element("div","source-headings");info.append(element("strong",null,kind.label),document.createTextNode(" · "+kind.note));card.append(info);}
@@ -546,7 +546,7 @@ function card(record,index) {
   block.append(meta("Narrator",valueText(record.narrator && record.narrator.name)||"Not named in the supplied source"));
   const origin=element("div","meta-value",originLabel(record));
   block.append(meta("Translation origin",origin,true));
-  block.append(meta("Collection & edition",bookLabel(record.book_key)+" · "+editionLabel(record)),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
+  block.append(meta("Collection & edition",bookLabel(record.book_key,record.language)+" · "+editionLabel(record)),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
   const sourceSummary=element("div","source-summary"),sourceName=element(url?"a":"span",null,sourceLabel(record));
   if(url){sourceName.href=url;sourceName.target="_blank";sourceName.rel="noopener noreferrer";}
   sourceSummary.append(icon("file-text"),sourceName);card.append(sourceSummary);

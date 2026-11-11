@@ -1,0 +1,529 @@
+{
+  "schema": "hadith-bank-independent-sample-review-v1",
+  "reviewer": {
+    "agent": "/root/pdf_source_review",
+    "model": "GPT-6 Astra Pro (session model declaration)",
+    "reasoning_effort": "not exposed to reviewer",
+    "independent_of": "/root/extract_book extraction implementation",
+    "human_reviewer": false
+  },
+  "review_date": "2026-11-11",
+  "candidate": {
+    "records_path": "materials/zh-cn-ibn-majah-yu-2013/records.jsonl",
+    "records_sha256": "2a3c0b648c9993ec08e544e0f008d4a97e204f1c5c0401684129c6fb4d8fe6e8",
+    "records_utf8_bytes": 20903124,
+    "source_metadata_sha256": "eb32b02213983cc84f353fff29b81d9d4feecd548ef8bb5a9b89ebd9987929b3",
+    "source_pdf_path": "materials/zh-cn-ibn-majah-yu-2013/伊本·马哲圣训集_Sunan_Ibn_Majah.pdf",
+    "source_pdf_sha256": "e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383",
+    "original_upload_bytes_identical": true
+  },
+  "decision": {
+    "status": "partial_independent_source_sample_review_completed",
+    "sampled_structural_checks": "passed after documented fixes",
+    "full_ocr_character_collation": "pending",
+    "independent_pro_qc_full_corpus": "pending",
+    "certified_release_eligible": false,
+    "narrational_authenticity": "not assessed",
+    "publication_authorization": "Separate owner decision; this review does not create authorization or source rights."
+  },
+  "primary_source_policy": {
+    "source": "original uploaded PDF with ABBYY OCR layer",
+    "supplied_txt_consulted": false,
+    "source_images_used_for_all_proposed_repairs": true,
+    "new_translation_generated": false
+  },
+  "metadata_verified": {
+    "display_title": "伊本·马哲圣训集 — Sunan Ibn Majah",
+    "compiler_zh": "伊本·马哲",
+    "translator_zh": "穆萨·余崇仁",
+    "publisher_zh": "宗教文化出版社",
+    "edition": "2013年4月第1版",
+    "printing": "2013年11月第2次印刷",
+    "isbn": "978-7-80254-670-7",
+    "title_page_visually_checked": 2,
+    "colophon_visually_checked": 486,
+    "main_body_pdf_pages": [
+      64,
+      479
+    ],
+    "main_body_printed_pages": [
+      1,
+      416
+    ],
+    "translation_isnad_scope": "PDF15–16 states full transmission chains were abridged by published translator; first narrator generally preserved."
+  },
+  "corpus_structural_audit": {
+    "records": 4354,
+    "chapters": 39,
+    "expected_per_chapter_counts_independently_derived": [
+      263,
+      296,
+      102,
+      38,
+      28,
+      67,
+      629,
+      205,
+      148,
+      61,
+      174,
+      75,
+      47,
+      172,
+      69,
+      15,
+      46,
+      56,
+      10,
+      10,
+      20,
+      81,
+      82,
+      23,
+      33,
+      130,
+      241,
+      44,
+      39,
+      51,
+      119,
+      65,
+      115,
+      107,
+      172,
+      66,
+      35,
+      175,
+      245
+    ],
+    "all_chapter_local_sequences_contiguous": true,
+    "all_occurrence_ids_unique": true,
+    "global_canonical_numbers_inferred": false,
+    "all_records_have_nonempty_chinese": true,
+    "all_pdf_printed_page_mappings_consistent": true,
+    "cross_page_records": 220,
+    "remaining_numbered_heading_or_long_rule_regex_leaks": 0,
+    "excluded_line_counts_observed": {
+      "front_matter_or_end_matter": 71,
+      "running_header": 467,
+      "opening_formula": 1,
+      "chapter_heading": 39,
+      "section_heading": 1535,
+      "page_footnote": 463,
+      "printed_page_footer": 416,
+      "rule_or_scan_noise": 1,
+      "citation_ocr_fragment_replaced_from_page_image": 3
+    },
+    "additional_font_based_heading_sweep": "Eight retained large-font short lines inspected; they are narration fragments or an integral quoted phrase, not missed section headings.",
+    "numbering_discrepancy_note": "Introduction PDF14 gives generic 4,341 collection count. This edition has 4,354 contiguous chapter-local numbered occurrences; the source edition count governs import. No canonical global mapping inferred."
+  },
+  "manual_source_sample": {
+    "whole_narration_visual_samples": [
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n001",
+        "chapter": 1,
+        "local_number": 1,
+        "pdf_pages": [
+          64
+        ],
+        "printed_pages": [
+          1
+        ],
+        "translation_unicode_codepoints": 49,
+        "translation_utf8_bytes": 145,
+        "translation_sha256": "e5400fe7c0af2979d8bd4cdb3f140735e17c98f609d4acb8af1600374597a62f",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n001.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n009",
+        "chapter": 1,
+        "local_number": 9,
+        "pdf_pages": [
+          64,
+          65
+        ],
+        "printed_pages": [
+          1,
+          2
+        ],
+        "translation_unicode_codepoints": 88,
+        "translation_utf8_bytes": 258,
+        "translation_sha256": "df1d2eef09257951a218f190657935862c0052adabf2a5c2bfea3cceb3d66a9f",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n009.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n010",
+        "chapter": 1,
+        "local_number": 10,
+        "pdf_pages": [
+          65
+        ],
+        "printed_pages": [
+          2
+        ],
+        "translation_unicode_codepoints": 54,
+        "translation_utf8_bytes": 156,
+        "translation_sha256": "d0c5d27c8cd1645bc6219221edcf101ec7d0a61aa5f4075d62ec8e148a2f5f2d",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n010.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n011",
+        "chapter": 1,
+        "local_number": 11,
+        "pdf_pages": [
+          65
+        ],
+        "printed_pages": [
+          2
+        ],
+        "translation_unicode_codepoints": 163,
+        "translation_utf8_bytes": 479,
+        "translation_sha256": "4e854c6a95c18cd679c0333978f5f8b763e31044c34143acca070e9ce8db7322",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n011.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n012",
+        "chapter": 1,
+        "local_number": 12,
+        "pdf_pages": [
+          65
+        ],
+        "printed_pages": [
+          2
+        ],
+        "translation_unicode_codepoints": 127,
+        "translation_utf8_bytes": 375,
+        "translation_sha256": "7c0c91f0cddfc90f3401512dfffaadec88e54bcd038f604a7b13fde3746e5d39",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n012.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n128",
+        "chapter": 1,
+        "local_number": 128,
+        "pdf_pages": [
+          76,
+          77
+        ],
+        "printed_pages": [
+          13,
+          14
+        ],
+        "translation_unicode_codepoints": 62,
+        "translation_utf8_bytes": 184,
+        "translation_sha256": "3a98ca19249e7718da48787eb55ac6066dbef34b71ff3440b14b6461e2073ccd",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n128.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c02-n137",
+        "chapter": 2,
+        "local_number": 137,
+        "pdf_pages": [
+          100
+        ],
+        "printed_pages": [
+          37
+        ],
+        "translation_unicode_codepoints": 39,
+        "translation_utf8_bytes": 117,
+        "translation_sha256": "7df9c52b2680b2c67521b74457d533503a4cfec4b9747da48d0d27e9a65b5409",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c02-n137.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c34-n056",
+        "chapter": 34,
+        "local_number": 56,
+        "pdf_pages": [
+          404
+        ],
+        "printed_pages": [
+          341
+        ],
+        "translation_unicode_codepoints": 37,
+        "translation_utf8_bytes": 109,
+        "translation_sha256": "32c9f854dde4ecaa456f823847b243cb04083535f3c4aae5c3967131295257ac",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c34-n056.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c39-n232",
+        "chapter": 39,
+        "local_number": 232,
+        "pdf_pages": [
+          477
+        ],
+        "printed_pages": [
+          414
+        ],
+        "translation_unicode_codepoints": 105,
+        "translation_utf8_bytes": 299,
+        "translation_sha256": "e4a675e440c7e0400ed7d1a76214b27b47dec02793e80f2080f342d59a28952c",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n232.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c39-n243",
+        "chapter": 39,
+        "local_number": 243,
+        "pdf_pages": [
+          478,
+          479
+        ],
+        "printed_pages": [
+          415,
+          416
+        ],
+        "translation_unicode_codepoints": 257,
+        "translation_utf8_bytes": 749,
+        "translation_sha256": "bc98f8e610d3d3a39469349ce31e3527f671dcc43aa6e2f2a7b3b6cb27b77ca5",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n243.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c39-n244",
+        "chapter": 39,
+        "local_number": 244,
+        "pdf_pages": [
+          479
+        ],
+        "printed_pages": [
+          416
+        ],
+        "translation_unicode_codepoints": 84,
+        "translation_utf8_bytes": 248,
+        "translation_sha256": "c4d0dfcb86531702b2362f1a102677af3011dcb4ee0edba728ac7b49e04d7350",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n244.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      },
+      {
+        "record_id": "zh-ibn-majah-e3bc24bcee435894-c39-n245",
+        "chapter": 39,
+        "local_number": 245,
+        "pdf_pages": [
+          479
+        ],
+        "printed_pages": [
+          416
+        ],
+        "translation_unicode_codepoints": 116,
+        "translation_utf8_bytes": 328,
+        "translation_sha256": "f3c7d7c0f4420b55e1aa32320d547799a6cd5cc67b18c41d1718933c2e4172f5",
+        "image": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n245.png",
+        "comparison_scope": "Complete displayed narration compared visually for wording and source boundaries; not a forensic all-glyph/typography certification."
+      }
+    ],
+    "whole_sample_record_count": 12,
+    "characters_in_whole_record_visual_samples": 1181,
+    "utf8_bytes_in_whole_record_visual_samples": 3447,
+    "coverage_definition": "These totals measure exact final candidate text in the twelve visually compared records. They do not claim every Unicode glyph or punctuation mark in the full book was collated. Additional boundary checks and number-marker checks are listed separately and are not added to this character total.",
+    "arabic_hadith_character_coverage": 0,
+    "diacritic_coverage": "Not applicable to Chinese narration samples; no Arabic hadith originals were manufactured.",
+    "separate_boundary_checks": [
+      {
+        "chapter": 2,
+        "local_number": 122,
+        "pdf_pages": [
+          99,
+          100
+        ],
+        "result": "Long footnote region below PDF99 narration excluded; narration continues onto100 without including footnote."
+      },
+      {
+        "chapter": 34,
+        "local_number": 25,
+        "pdf_pages": [
+          401,
+          402
+        ],
+        "result": "Narration ends on401; page402 running title and section heading remain outside its text."
+      },
+      {
+        "chapter": 38,
+        "local_number": 153,
+        "pdf_pages": [
+          451,
+          452,
+          453
+        ],
+        "result": "Narration continuation across451/452 and retained narrator remark on453 checked; source footnote and page-header ornament excluded. Middle portion not fully recollated."
+      }
+    ],
+    "number_marker_repairs": {
+      "count": 17,
+      "evidence_path": "materials/zh-cn-ibn-majah-yu-2013/audit/verified-corrections.json",
+      "scope": "Every listed corrected marker inspected in a rendered original PDF page/crop; continuous sequence check covers all4,354 occurrences."
+    },
+    "supplemental_repairs_independently_confirmed": [
+      {
+        "chapter": 1,
+        "local_number": 201,
+        "pdf_page": 84,
+        "repair": "伊》?兰 → 伊斯兰"
+      },
+      {
+        "chapter": 1,
+        "local_number": 261,
+        "pdf_page": 90,
+        "repair": "Confirmed source glyph 火嚼"
+      },
+      {
+        "chapter": 7,
+        "local_number": 53,
+        "pdf_page": 138,
+        "repair": "Confirmed source glyph 阿悯"
+      },
+      {
+        "chapter": 39,
+        "local_number": 229,
+        "pdf_page": 477,
+        "repair": "Confirmed source glyph 攒枯木"
+      },
+      {
+        "chapter": 39,
+        "local_number": 245,
+        "pdf_page": 479,
+        "repair": "Restored source nested quote delimiters around final Quran quotation"
+      },
+      {
+        "chapter": 38,
+        "local_number": 153,
+        "pdf_page": 453,
+        "repair": "艾布 middle-dot 哈桑 delimiter restored"
+      },
+      {
+        "chapter": 8,
+        "local_number": 92,
+        "pdf_page": 197,
+        "repair": "Integral Quran citations9:80 and9:84 and source closing nested quotes verified; omitted final9:84 and closing quote pair restored."
+      },
+      {
+        "chapter": 8,
+        "local_number": 93,
+        "pdf_page": 197,
+        "repair": "Integral final Quran citation9:84 restored"
+      }
+    ]
+  },
+  "resolved_findings": [
+    {
+      "kind": "section_heading_leakage",
+      "records": [
+        "c01-n200",
+        "c02-n134",
+        "c15-n036"
+      ],
+      "resolution": "Punctuation-leading headings moved out of narration text and section metadata updated."
+    },
+    {
+      "kind": "running_header_and_rule_leakage",
+      "example": "c34-n025 plus header ornaments on continuation pages",
+      "resolution": "Top header/rule blocks excluded by source geometry; no remaining regex-visible heading/rule leaks."
+    },
+    {
+      "kind": "lost_ocr_body_line",
+      "record": "c02-n137",
+      "resolution": "Restored image-visible 鼻。 omitted from PDF OCR text layer."
+    },
+    {
+      "kind": "sampled_word_and_quote_corruption",
+      "records": [
+        "c01-n012",
+        "c01-n201",
+        "c39-n244",
+        "c39-n245"
+      ],
+      "resolution": "Exact source-image-backed repairs applied; original OCR and before/after evidence preserved."
+    }
+  ],
+  "image_evidence": [
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n001.png",
+      "sha256": "27737f2843935b82a2226185f7b23b8282acd8fd97f511df84143054a976a3a9"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n009.png",
+      "sha256": "532d7f46218ccf70755d07680b5957cf68c59d74708c3e2b6e219c8155ca1c1b"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n010.png",
+      "sha256": "442cca6a5b9ff27b58f8c5cccf8002c7260b50c7a27fb52a885ad84a7df6787b"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n011.png",
+      "sha256": "e6cc440cf4277fb876e6d4954808991916e8b1f145b1b4aa099cb9d3dfcbfacc"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n012.png",
+      "sha256": "6fc7c2e4e87c9ef5a0bc79ce16dc83ace47576c84d85907afc46c57a223a3694"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c01-n128.png",
+      "sha256": "80b0bf77479f14d16b96bd31d74d4dd6feda47029daeba53bd4b788dff236dbe"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c02-n137.png",
+      "sha256": "57b75372b0af95628891548ac938d00d35e8dcf42251b941d49b7bee964d408e"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c34-n056.png",
+      "sha256": "7eae24a2f8b2722e5548ccd28e977147d7773ba68548cb70722f9784ed455bc5"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n232.png",
+      "sha256": "bd12b4aa6e4803b85ea3ec8eef5c8e70bbc305308773ebfc8e9252a3a9849978"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n243.png",
+      "sha256": "ce2cc76c6ce91eb826d985292b4e5696aad0a68d3d5c1e6bdbd8f42495e861a6"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n244.png",
+      "sha256": "3ec1afd8ef2518cb4e14a77e0aa17925a74f228c4e541d74b11802231806ed83"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/c39-n245.png",
+      "sha256": "6335d771fb0eafefa07ad20ff3326af4e17877b85766655494ec80c737daf300"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p401-end.png",
+      "sha256": "502f35e41b4112b0baeef511c3979be66ff2beadf8ec670e3759bbae17794f88"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p402-start.png",
+      "sha256": "1b968880d6baa2265eb4a8e545199797dc93067548bc446fa7d0af88c66f1bd0"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p451-end-footnote.png",
+      "sha256": "82bb7a3323d12fcc4908d81bb31f4c190718fa5c96fe5e9ce2cca243597d4878"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p452-end.png",
+      "sha256": "9f035947164695f514813ff8d4761811cf24d79dd64936a56e8b3d26d0e2b753"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p452-start.png",
+      "sha256": "9b76a839d20ca61deedaf1c2d83eabb491dbed13e0172176b645707923cfefb0"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p453-start.png",
+      "sha256": "564a5d58ddf2cebfb8bb4fc76fb9a886f3f83802495d1c750a4f10f7d72abf4f"
+    },
+    {
+      "path": "materials/zh-cn-ibn-majah-yu-2013/audit/source-image-evidence/independent-samples/p99-long-footnote-boundary.png",
+      "sha256": "1528f062c39e0a65772a73e28855a62f1afae9387ab15105e6827a7519659ca6"
+    }
+  ],
+  "remaining_limits": [
+    "This is a targeted independent sample review, not a certified full-book Pro QC pass.",
+    "Unflagged OCR errors may remain in characters, names, punctuation or source headings outside reviewed spans.",
+    "No narrational authenticity grades, missing Arabic originals or canonical global hadith numbers were inferred.",
+    "Publisher rights remain separately unassessed; owner inclusion authorization is not a publisher license."
+  ],
+  "finalization_note": "Final reviewed candidate2a3c0b... follows the final targeted PDF197 closing-quote repair. The12 full-narration sample hashes were rechecked and remain unchanged. Corpus numbering and heading/rule checks were rerun against these exact final bytes."
+}

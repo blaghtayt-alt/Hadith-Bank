@@ -14,7 +14,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
-from review_display_policy import extraction_metadata, review_badges, text_direction
+from review_display_policy import extraction_metadata, needs_ocr_review, review_badges, text_direction
 
 
 def fixture(index=1):
@@ -359,13 +359,21 @@ process.stdout.write(JSON.stringify({hosted,local}));'''
             (4, 'tesseract_ocr', True, 'pending'),
             (5, 'tesseract_ocr', True, 'passed'),
             (6, None, None, 'pending'),
+            (7, 'abbyy_ocr', True, 'pending'),
+            (8, 'tesseract_ocr', True, 'pending'),
         ]:
             item = navigation_fixture(index)
             item['extraction'] = extraction_metadata({'provenance': {'ocr_used': used, 'extraction_method': method}})
             item['review'] = {'status': 'initial_extraction_with_review_pending',
                               'independent_pro_qc': status, 'release_status': 'private_candidate'}
             item['publication'] = {'visibility': 'public', 'authorized': True, 'status': 'published_pending_review'}
+            if index in (7, 8):
+                item['display_policy'] = {
+                    'qc_tags': index != 7,
+                    'decision': 'owner_requested_no_qc_tags_for_published_book' if index == 7 else 'TEST',
+                }
             records.append(item)
+        before = json.loads(json.dumps(records))
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input,names={};
@@ -377,8 +385,13 @@ process.stdout.write(JSON.stringify({badges:records.map(reviewBadges),pending:re
         self.assertEqual(actual['badges'], [review_badges(record) for record in records])
         self.assertEqual(actual['badges'][:3], [[], [], []])
         self.assertEqual(actual['badges'][3], [{'label': 'OCR review: pending', 'pending': True}])
-        self.assertEqual(actual['pending'], ['TEST-4'])
-        self.assertEqual(actual['records'], records)
+        self.assertEqual(actual['badges'][6], [])
+        self.assertEqual(actual['pending'], ['TEST-4', 'TEST-8'])
+        self.assertEqual(actual['pending'], [record['id'] for record in records if needs_ocr_review(record)])
+        self.assertTrue(records[6]['extraction']['ocr_used'])
+        self.assertEqual(records[6]['review']['independent_pro_qc'], 'pending')
+        self.assertEqual(actual['records'], before)
+        self.assertEqual(records, before)
         self.assertNotIn('Published · independent review pending', template)
 
     def test_markdown_hides_non_ocr_qc_but_keeps_original_history(self):
@@ -584,6 +597,8 @@ process.stdout.write(JSON.stringify({references:input.references.items.map(citat
             navigation_fixture(5, language='vi', book='TEST-b', source='TEST-source-vi-b', ai=True),
             navigation_fixture(6, language='vi', book='TEST-c', source='TEST-source-vi-c', ai=False),
             navigation_fixture(7, language='sw', book='TEST-d', source='TEST-source-sw', current='human'),
+            navigation_fixture(8, language='zh-CN', book='ibn-majah', source='TEST-source-zh'),
+            navigation_fixture(9, language='fa', book='ibn-majah', source='TEST-source-fa'),
         ]
         selections = [
             {'language': 'ja', 'book': 'TEST-c', 'source': 'TEST-source-vi-c'},
@@ -592,6 +607,9 @@ process.stdout.write(JSON.stringify({references:input.references.items.map(citat
             {'language': 'ja', 'book': 'TEST-b', 'source': 'TEST-source-c', 'origin': 'human'},
             {'language': 'ja', 'book': 'TEST-a', 'source': 'TEST-source-b', 'origin': 'ai'},
             {'language': 'sw'},
+            {'language': 'zh-CN', 'book': 'ibn-majah'},
+            {'language': 'fa', 'book': 'ibn-majah'},
+            {'book': 'ibn-majah'},
         ]
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
@@ -600,7 +618,7 @@ const records=input.records,names={};
 const valueText = ''' + helpers + '''
 const result=input.selections.map(selection=>{
  const scope=resolveMaterialFilters(records,selection);
- return {...scope,books:[...scope.books.keys()],sources:[...scope.sources.keys()],rows:scope.rows.map(record=>record.id)};
+ return {...scope,books:[...scope.books.keys()],sources:[...scope.sources.keys()],book_labels:[...scope.books.values()],source_labels:[...scope.sources.values()],rows:scope.rows.map(record=>record.id)};
 });
 process.stdout.write(JSON.stringify(result));'''
         result = subprocess.run([shutil.which('node'), '-e', program],
@@ -630,6 +648,16 @@ process.stdout.write(JSON.stringify(result));'''
         self.assertEqual(actual[4]['origin_counts'], {'human': 3, 'ai': 0, 'unknown': 1})
         self.assertEqual(actual[5]['rows'], ['TEST-7'])
         self.assertEqual(actual[5]['materials'], [{'book_key': 'TEST-d', 'count': 1, 'edition_count': 1}])
+        bilingual_title = '伊本·马哲圣训集 — Sunan Ibn Majah'
+        self.assertEqual(actual[6]['book_labels'], [bilingual_title])
+        self.assertIn(bilingual_title, actual[6]['source_labels'][0])
+        self.assertEqual(actual[6]['rows'], ['TEST-8'])
+        self.assertEqual(actual[7]['book_labels'], ['Sunan Ibn Majah'])
+        self.assertNotIn('伊本', actual[7]['source_labels'][0])
+        self.assertEqual(actual[7]['rows'], ['TEST-9'])
+        self.assertIn('Sunan Ibn Majah', actual[8]['book_labels'])
+        self.assertNotIn(bilingual_title, actual[8]['book_labels'])
+        self.assertEqual(actual[8]['rows'], ['TEST-8', 'TEST-9'])
 
     @unittest.skipUnless(shutil.which('node'), 'Node is optional; required for reader JavaScript regression checks')
     def test_origin_categories_keep_unknown_and_preserve_source_history(self):

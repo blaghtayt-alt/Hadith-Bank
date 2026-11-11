@@ -1,4 +1,4 @@
-"""Current reader policy: show QC tags for evidenced OCR extraction only.
+"""Show QC tags for evidenced OCR unless a scoped owner display decision applies.
 
 This module reads structured extraction metadata. It never changes source
 review fields, determines translation origin, or certifies source accuracy.
@@ -10,7 +10,7 @@ DEFAULT_DISPLAY_POLICY = {
     'scope': 'ocr_only',
     'historical_review_metadata_preserved': True,
     'independent_qc_performed': False,
-    'note': 'QC labels apply to OCR extraction. Original review history remains in record details.',
+    'note': 'QC labels apply to OCR extraction unless a source-specific owner display decision suppresses them. Original review history remains preserved.',
 }
 
 _OCR_METHOD = re.compile(r'(^|[\s_-])ocr($|[\s_-])|tesseract|paddleocr|easyocr|ocrmypdf|abbyy', re.I)
@@ -26,7 +26,7 @@ def extraction_metadata(record):
 
 An absent OCR flag is unknown, not false. A PDF extension, human translator,
 or a review warning containing the word OCR is not extraction evidence.
-Conflicting explicit flags remain marked; positive OCR evidence keeps QC visible.
+Conflicting explicit flags remain marked; display decisions do not alter OCR evidence.
 """
     if not isinstance(record, dict):
         raise ValueError('Extraction metadata requires a record object')
@@ -83,7 +83,7 @@ def is_ocr(record):
 
 
 def needs_ocr_review(record):
-    if not is_ocr(record):
+    if not is_ocr(record) or (record.get('display_policy') or {}).get('qc_tags') is False:
         return False
     review = record.get('review') or {}
     state = review.get('ocr_qc') or review.get('independent_pro_qc') or review.get('status')
@@ -91,7 +91,7 @@ def needs_ocr_review(record):
 
 
 def review_badges(record):
-    if not is_ocr(record):
+    if not is_ocr(record) or (record.get('display_policy') or {}).get('qc_tags') is False:
         return []
     review = record.get('review') or {}
     state = review.get('ocr_qc') or review.get('independent_pro_qc') or review.get('status')
