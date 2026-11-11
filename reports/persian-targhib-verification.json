@@ -1,7 +1,7 @@
 {
   "schema": "hadith-bank-persian-targhib-verification-v1",
-  "status": "source_and_build_verified_publication_and_browser_pending",
-  "checked_at_utc": "2026-11-11T13:08:25.231686+00:00",
+  "status": "source_build_publication_and_browser_verified",
+  "checked_at_utc": "2026-11-11T13:38:33.064198+00:00",
   "base_commit": "4083c45eda57070d4941b55450580350fb6249bf",
   "source_documents": 3,
   "records": 7304,
@@ -62,13 +62,18 @@
   },
   "current_software_tests": {
     "status": "passed",
-    "tests": 245,
-    "command": "python -m unittest discover -s tests",
-    "additional_transport_tests": "pending"
+    "tests": 274,
+    "workflow_run": 43029045850,
+    "checked_source_commit": "d3a0142dd3bd9782ae06beab8be1c56fafeed4fb",
+    "pull_request_tests": 257,
+    "pull_request_workflow_run": 43027721917,
+    "additional_transport_tests": "passed"
   },
   "current_build": {
     "status": "passed",
-    "record_count": 31590,
+    "source_commit": "d3a0142dd3bd9782ae06beab8be1c56fafeed4fb",
+    "generated_commit": "96c05dff366e94fd4e1bdf7d9df49a94389d3990",
+    "record_count": 32596,
     "by_language": {
       "fa": 14382,
       "fil": 2056,
@@ -76,24 +81,95 @@
       "ja": 2237,
       "uz": 552,
       "vi": 4555,
-      "zh-CN": 5224
+      "zh-CN": 6230
     },
-    "source_dataset_count": 174,
-    "search_sha256": "e83e0554a6dfac8b4acc76ae2be74258d42220a096d8b9e7326dede46b178133",
-    "reader_sha256": "846fe90b29163a0752863c4d951b07cfa48d107447bbcc0a5c38321bb3129199",
+    "source_dataset_count": 175,
+    "search_sha256": "0ca20b7fe9286ee6f8c94b35bd6c2e40a37a242343b7f865d2430f32e3e2452f",
+    "reader_sha256": "c7857ce6672f58192bc0a9f858c6aa7cae96ab2017da24e15bf7c2a3eff69f77",
+    "reader_bytes": 45837203,
     "canonical_source_bytes_unchanged": true
   },
   "browser": {
-    "status": "pending",
-    "local_chromium_startup": "unavailable_before_page_load",
-    "rendered_ui_verified": false
+    "status": "passed",
+    "rendered_ui_verified": true,
+    "url": "https://blaghtayt-alt.github.io/Hadith-Bank/",
+    "source_commit": "d3a0142dd3bd9782ae06beab8be1c56fafeed4fb",
+    "environment": "cloud Chrome; no Desktop Commander",
+    "observed_total_count": 32596,
+    "persian_count": 14382,
+    "targhib_count": 7304,
+    "volume_counts": {
+      "1": 2416,
+      "2": 2834,
+      "3": 2054
+    },
+    "search_checks": [
+      {
+        "volume": 2,
+        "query": "1716",
+        "target_heading": "Hadith 1716 — source grade: حسن",
+        "target_found": true,
+        "matching_occurrences": 5
+      },
+      {
+        "volume": 3,
+        "query": "نرمی و لطافت",
+        "target_record": "fa-targhib-v3-p00193-u01",
+        "target_found": true,
+        "matching_occurrences": 2
+      },
+      {
+        "volume": 3,
+        "query": "3875 نرمی",
+        "target_record": "fa-targhib-v3-p00193-u01",
+        "matching_occurrences": 1
+      }
+    ],
+    "persian_and_arabic_direction": "rtl in rendered DOM and screenshot",
+    "source_number_and_grade_visible": true,
+    "canonical_reference_unavailable_explicit": true,
+    "source_and_translation_details_expand": true,
+    "ocr_review_badges_in_sample": 0,
+    "docx_download": {
+      "status": "passed",
+      "volume": 3,
+      "method": "download of the rendered original-document link through browser downloadMedia",
+      "url": "https://github.com/blaghtayt-alt/Hadith-Bank/raw/d3a0142dd3bd9782ae06beab8be1c56fafeed4fb/materials/fa-targhib-bazmandegan-v3/source.docx?download=1",
+      "bytes": 2951787,
+      "sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "ordinary_click_event_observation": "The first click did not yield a tracked download event within 30 seconds; downloading the same rendered link with the browser helper succeeded and its bytes matched the original."
+    },
+    "selected_json_export": {
+      "status": "passed",
+      "records": 1,
+      "ids": [
+        "fa-targhib-v3-p00193-u01"
+      ],
+      "method": "UI checkbox and Download selected JSON button; completed download parsed"
+    },
+    "site_error_logs_observed": [],
+    "console_note": "Browser extension metadata errors were observed; no errors attributed to the Hadith Bank page were returned by the site-filtered error log query.",
+    "screenshot": {
+      "path": "reports/assets/persian-targhib-live-reader.jpg",
+      "sha256": "6ef1779470fc98fe04f78f32c281c1327fb12e0bb8a603f4048d9d1233ff33f5",
+      "bytes": 97553
+    }
   },
   "publication": {
-    "status": "candidate_uploaded_publication_pending",
+    "status": "merged_and_live",
     "transport": "direct_github_connector_with_lossless_hash_checked_record_restoration",
     "desktop_commander_used": false,
     "bootstrap_commit": "e776b708a8fd3a5dc670badf5f21b8cb245a5f1f",
-    "candidate_commit": "91f8eef9b7a489928c89a4f4f9d66109b6daa1c1"
+    "candidate_commit": "91f8eef9b7a489928c89a4f4f9d66109b6daa1c1",
+    "merged_commit": "b5936c3584f23a5813465bcab569a0bcdd56f9be",
+    "pull_request": 2,
+    "workflow_run": 43029045850,
+    "live_url": "https://blaghtayt-alt.github.io/Hadith-Bank/",
+    "published_source_commit": "d3a0142dd3bd9782ae06beab8be1c56fafeed4fb",
+    "generated_commit": "96c05dff366e94fd4e1bdf7d9df49a94389d3990",
+    "deploy_job": 130554040892,
+    "deploy_conclusion": "success",
+    "superseded_merge_workflow_run": 43028510243
   },
   "independent_certification_claimed": false,
   "limitations": [
@@ -158,5 +234,14 @@
       "content_type": "application/octet-stream",
       "content_disposition": null
     }
-  ]
+  ],
+  "verification_scope": "The software, generated build and browser evidence in this report is pinned to source commit d3a0142dd3bd9782ae06beab8be1c56fafeed4fb and generated commit 96c05dff366e94fd4e1bdf7d9df49a94389d3990. Later main revisions are not implicitly covered by the recorded browser observations.",
+  "subsequent_source_preservation": {
+    "checked_commit": "5c5d646519f1d17054e40e803ba187690996b3f8",
+    "method": "non-truncated recursive Git tree; original DOCX and records.jsonl blob identities compared to verified import",
+    "original_docx_blobs_unchanged": 3,
+    "canonical_record_blobs_unchanged": 3,
+    "canonical_records": 7304,
+    "status": "passed"
+  }
 }
