@@ -346,3 +346,13 @@ details[open] > summary .disclosure-chevron { transform: rotate(180deg); }
 .discovery-nav ul { display: flex; flex-wrap: wrap; gap: .6rem 1.3rem; padding: 0; margin: .8rem 0; list-style: none; }
 .discovery-nav a, .record-permalink { color: #225c49; text-underline-offset: .2em; }
 .record-permalink { display: inline-block; margin: .65rem 0; font-size: .88rem; }
+.counterpart-coverage { margin-top: .85rem; border-top: 1px solid #d9e0d7; padding-top: .75rem; font-size: .88rem; }
+.counterpart-coverage summary { cursor: pointer; color: #123c32; font-weight: 600; }
+.counterpart-coverage p { line-height: 1.65; margin: .7rem 0; }
+.coverage-table-wrap { max-width: 100%; overflow-x: auto; margin: .8rem 0; }
+.counterpart-coverage table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.counterpart-coverage caption { text-align: left; font-weight: 600; margin-bottom: .5rem; }
+.counterpart-coverage th, .counterpart-coverage td { padding: .55rem .65rem; border-bottom: 1px solid #d9e0d7; text-align: right; }
+.counterpart-coverage th:first-child { text-align: left; }
+.counterpart-coverage thead th { font-size: .8rem; background: #f2f5ef; }
+.counterpart-coverage a { color: #225c49; text-underline-offset: .2em; }

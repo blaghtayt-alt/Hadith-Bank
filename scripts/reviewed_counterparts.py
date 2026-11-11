@@ -14,6 +14,9 @@ from pathlib import Path, PurePosixPath
 import re
 from urllib.parse import urlsplit
 
+from counterpart_review import (CONTRACT, object_hash,
+                                validate_language_decisions, validate_review_evidence, validate_source_binding)
+
 
 MANIFEST = 'sources/counterparts/reviewed/manifest.json'
 SCHEMA = 'hadith-bank-reviewed-counterpart-sources-v1'
@@ -63,6 +66,8 @@ def _local(root, relative):
 
 
 def _citation(references, language):
+    if not references:
+        return '[رقم المصدر غير مذكور]' if language == 'arabic' else '[Source number not supplied]'
     labels = []
     for item in references:
         name = item.get('collection_ar') if language == 'arabic' else item.get('collection')
@@ -93,6 +98,10 @@ class ReviewedCounterpartResolver:
                 continue
             for name in ('provider', 'source_name', 'source_snapshot'):
                 _required_text(bundle.get(name), name)
+            contract = bundle.get('evidence_contract')
+            if contract not in (None, CONTRACT):
+                raise ValueError('Unsupported reviewed counterpart evidence contract')
+            strict = contract == CONTRACT
             source_assets = bundle.get('source_assets')
             if not isinstance(source_assets, list) or not source_assets:
                 raise ValueError('Reviewed counterpart bundle requires immutable source assets')
@@ -103,14 +112,23 @@ class ReviewedCounterpartResolver:
                 target = _required_text(entry.get('id'), 'target entry id')
                 if target in entries:
                     raise ValueError('Duplicate reviewed counterpart target: ' + target)
-                self._validate_entry(entry)
+                self._validate_entry(entry, strict=strict)
                 entries[target] = entry
-            self.bundles[identifier] = {'metadata': copy.deepcopy(bundle), 'entries': entries}
+            review_targets = {}
+            if strict:
+                for item in self._rows(bundle['review_targets']):
+                    key = _required_text(item.get('target_key'), 'review input target key')
+                    if key in review_targets or object_hash(item.get('entry')) != item.get('target_entry_sha256'):
+                        raise ValueError('Invalid or duplicate reviewed input target')
+                    self._validate_entry(item['entry'], strict=True)
+                    review_targets[key] = item
+            self.bundles[identifier] = {'metadata': copy.deepcopy(bundle), 'entries': entries,
+                                        'review_targets': review_targets}
             for mapping in self._rows(bundle['mappings']):
                 # Unreviewed suggestions remain evidence, never a live assignment.
                 if (mapping.get('review') or {}).get('status') != 'verified':
                     continue
-                self._validate_mapping(mapping, entries)
+                self._validate_mapping(mapping, entries, strict=strict, review_targets=review_targets)
                 self.mappings[mapping['record_id']].append((identifier, mapping))
 
     def _asset(self, descriptor):
@@ -140,7 +158,7 @@ class ReviewedCounterpartResolver:
             raise ValueError('Reviewed counterpart records must be objects')
         return values
 
-    def _validate_entry(self, entry):
+    def _validate_entry(self, entry, strict=False):
         supplied = False
         for language in LANGUAGES:
             item = entry.get(language)
@@ -167,7 +185,9 @@ class ReviewedCounterpartResolver:
             if item.get('citation_note') is not None and not isinstance(item['citation_note'], str):
                 raise ValueError('Reviewed counterpart citation note must be text')
             references = item.get('references')
-            if not isinstance(references, list) or not references:
+            if (not isinstance(references, list) or not references and not
+                    (strict and item.get('reference_status') == 'not_supplied_by_source'
+                     and isinstance(item.get('source_record_id'), str) and item['source_record_id'].strip())):
                 raise ValueError('Reviewed counterpart requires its own numbered reference')
             for reference in references:
                 if not isinstance(reference, dict):
@@ -176,13 +196,14 @@ class ReviewedCounterpartResolver:
                     _required_text(reference.get(name), 'reference ' + name)
                 if (type(reference.get('number')) not in (str, int) or
                         not str(reference['number']).strip() or
-                        reference.get('scope') not in ('main_quote', 'source_quotation')):
+                        reference.get('scope') not in (('main_quote', 'source_quotation', 'publisher_entry')
+                                                       if strict else ('main_quote', 'source_quotation'))):
                     raise ValueError('Reviewed counterpart requires a scoped numbered reference')
             supplied = True
         if not supplied:
             raise ValueError('Reviewed counterpart target supplies neither text nor a source link')
 
-    def _validate_mapping(self, mapping, entries):
+    def _validate_mapping(self, mapping, entries, strict=False, review_targets=None):
         for name in ('record_id', 'source_id', 'language', 'target_id'):
             _required_text(mapping.get(name), name)
         if not _hash(mapping.get('source_text_sha256')) or not _hash(mapping.get('source_file_sha256')):
@@ -212,6 +233,24 @@ class ReviewedCounterpartResolver:
             item = target.get(language)
             if item is not None and (language not in hashes or hashes[language] != item.get('text_sha256')):
                 raise ValueError('Reviewed mapping target text checksum mismatch')
+        if strict:
+            if mapping.get('source_text_field') not in ('text_translation', 'text_arabic'):
+                raise ValueError('Reviewed mapping needs its exact source text field')
+            if any(not _hash(mapping.get(key)) for key in
+                   ('source_record_sha256', 'source_locator_sha256', 'target_entry_sha256',
+                    'review_target_entry_sha256')):
+                raise ValueError('Reviewed mapping requires occurrence and complete target hashes')
+            if object_hash(target) != mapping['target_entry_sha256']:
+                raise ValueError('Reviewed mapping complete target checksum mismatch')
+            source_target = (review_targets or {}).get(mapping.get('review_target_key'))
+            if source_target is None or source_target['target_entry_sha256'] != mapping['review_target_entry_sha256']:
+                raise ValueError('Reviewed mapping input target checksum mismatch')
+            selected = validate_language_decisions(source_target['entry'], mapping.get('language_decisions'),
+                                                    review, mapping['review_target_key'])
+            selected['id'] = target['id']
+            if selected != target:
+                raise ValueError('Reviewed mapping language decisions differ from published target')
+            validate_review_evidence(review, None, source_target['entry'])
 
     def _unresolved(self, reason):
         return {'schema': LINK_SCHEMA, 'status': 'unresolved', 'match_method': reason,
@@ -225,18 +264,30 @@ class ReviewedCounterpartResolver:
         if len(candidates) != 1:
             return self._unresolved('ambiguous_reviewed_mapping')
         bundle_id, mapping = candidates[0]
-        text = record.get('text_translation')
+        data = self.bundles[bundle_id]
+        bundle, entry = data['metadata'], data['entries'][mapping['target_id']]
+        strict = bundle.get('evidence_contract') == CONTRACT
+        text_field = mapping.get('source_text_field', 'text_translation') if strict else 'text_translation'
+        text = record.get(text_field)
         if (record.get('source_id') != mapping['source_id'] or record.get('language') != mapping['language'] or
                 not isinstance(text, str) or text_hash(text) != mapping['source_text_sha256'] or
                 (record.get('source') or {}).get('sha256') != mapping['source_file_sha256']):
             return self._unresolved('stale_reviewed_source_binding')
-        data = self.bundles[bundle_id]
-        bundle, entry = data['metadata'], data['entries'][mapping['target_id']]
+        if strict:
+            try:
+                validate_source_binding(record, mapping)
+            except ValueError:
+                return self._unresolved('stale_reviewed_source_binding')
+            try:
+                validate_review_evidence(mapping['review'], record,
+                    data['review_targets'][mapping['review_target_key']]['entry'])
+            except ValueError:
+                return self._unresolved('invalid_reviewed_quotation_evidence')
         result = {'schema': LINK_SCHEMA, 'status': 'reviewed_parallel',
                   'match_method': 'reviewed_source_narration_alignment',
                   'match_note': 'Reviewed source parallel; wording can differ between editions.',
                   'provider_identity': {'provider': bundle['provider'], 'id': entry['id'], 'status': 'linked'},
-                  'quotation_evidence': {'field': 'text_translation', 'relation': mapping['relation'],
+                  'quotation_evidence': {'field': text_field, 'relation': mapping['relation'],
                                          'source_text_sha256': mapping['source_text_sha256'],
                                          'source_file_sha256': mapping['source_file_sha256'],
                                          'target_text_sha256': copy.deepcopy(mapping['target_text_sha256']),
@@ -244,6 +295,13 @@ class ReviewedCounterpartResolver:
                                          'mapping_sha256': bundle['mappings']['sha256'],
                                          'review': copy.deepcopy(mapping['review'])},
                   'arabic': None, 'english': None}
+        if strict:
+            result['quotation_evidence'].update({
+                'evidence_contract': CONTRACT,
+                'source_record_sha256': mapping['source_record_sha256'],
+                'source_locator_sha256': mapping['source_locator_sha256'],
+                'target_entry_sha256': mapping['target_entry_sha256'],
+                'language_decisions': copy.deepcopy(mapping['language_decisions'])})
         for language in LANGUAGES:
             item = entry.get(language)
             if item is None:

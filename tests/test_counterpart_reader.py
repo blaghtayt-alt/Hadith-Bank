@@ -15,7 +15,7 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
 import hadith_search as searcher
-from counterpart_display import counterpart_citation, counterpart_qualification
+from counterpart_display import counterpart_citation, counterpart_qualification, counterpart_alignment_notes
 import test_reader as reader_fixtures
 import test_hadith_search as search_fixtures
 
@@ -83,6 +83,39 @@ class CounterpartReaderTests(unittest.TestCase):
         self.assertNotIn('987654321', counterpart_citation(data, 'arabic'))
         data['references'] = [{'collection': 'TEST source', 'number': None}]
         self.assertEqual(counterpart_citation(data, 'english'), '[TEST source · number not supplied]')
+
+    def test_quality_advisory_survives_withheld_english_and_keeps_review_notes(self):
+        message = 'TEST English withheld: <script>unsafe markup</script> is a source discrepancy.'
+        values = self.record['counterparts']
+        values.update(status='exact', english=None, quality_advisories=[{'message': message}, {'message': ' '}, None])
+        before = copy.deepcopy(self.record)
+        self.assertEqual(counterpart_alignment_notes(self.record), [message])
+        page = reader.markdown_record(self.record, 1)
+        self.assertIn('TEST English withheld:', page)
+        self.assertIn('&lt;script&gt;unsafe markup&lt;/script&gt;', page)
+        self.assertNotIn('<script>unsafe markup</script>', page)
+        self.assertNotIn('English · full narration', page)
+        self.assertEqual(self.record, before)
+        values.update(status='reviewed_parallel', quotation_evidence={'review': {
+            'human_review': False, 'qualifications': ['TEST previous scope limitation']}})
+        notes = counterpart_alignment_notes(self.record)
+        self.assertEqual(notes[0], message)
+        self.assertIn('TEST previous scope limitation', notes)
+        self.assertTrue(any('automated assistant' in note for note in notes))
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for display parity')
+    def test_quality_advisory_javascript_parity_and_search_exclusion(self):
+        message = 'TEST-WITHHELD-ADVISORY source text discrepancy.'
+        self.record['counterparts'].update(status='exact', english=None,
+            quality_advisories=[{'message': message}, {'message': ' '}, None])
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = "const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};const valueText = " + helpers + "\nprocess.stdout.write(JSON.stringify({notes:counterpartAlignmentNotes(records[0]),key:primarySearchKey(records[0])}));"
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([self.record]),
+                                text=True, capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        self.assertEqual(actual['notes'], counterpart_alignment_notes(self.record))
+        self.assertNotIn('test-withheld-advisory', actual['key'])
 
     def test_unsafe_counterpart_source_link_is_not_rendered(self):
         self.record['counterparts']['english']['source_url'] = 'javascript:TEST'

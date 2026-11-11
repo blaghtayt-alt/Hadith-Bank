@@ -86,6 +86,8 @@ jobs:
           fi
           git add -A -- catalog search browse index.json hadith-bank-reader.html \
             sources/counterparts reports/counterpart-coverage.json \
+            reports/counterpart-availability.json reports/counterpart-availability.md \
+            reports/counterpart-review \
             reports/reading-views-validation.json \
             reports/portable-validation.json reports/site-build.json
           if ! git diff --cached --quiet; then

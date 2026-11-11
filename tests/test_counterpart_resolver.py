@@ -10,7 +10,8 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from resolve_counterparts import CounterpartResolver, MANIFEST, source_references
+from resolve_counterparts import (CounterpartResolver, MANIFEST, source_references,
+                                  normalize_arabic_quote, normalize_quote)
 
 ARABIC = 'نص تجريبي للاختبار فقط يحتوي على كلمات عربية متعددة للتحقق من الربط وحفظ النص'
 ENGLISH = 'TEST source translation only; this text tests exact counterpart preservation.'
@@ -146,6 +147,125 @@ class CounterpartResolverTests(unittest.TestCase):
         result = CounterpartResolver(self.root, []).for_record(record)
         self.assertEqual(result['english']['text'], ENGLISH)
         self.assertEqual(result['quotation_evidence']['field'], 'text_arabic')
+
+    def test_persian_keyboard_letters_match_arabic_without_changing_either_source(self):
+        source = ARABIC.replace('ك', 'ک').replace('ي', 'ی')
+        self.assertNotEqual(normalize_quote(source), normalize_quote(ARABIC))
+        record = self.record(book_key='muslim', provider_entry_id=None, text_arabic=source)
+        before = copy.deepcopy(record)
+        result = CounterpartResolver(self.root, []).for_record(record)
+        self.assertEqual(result['status'], 'exact')
+        self.assertEqual(result['english']['text'], ENGLISH)
+        self.assertEqual(result['arabic']['text'], ARABIC)
+        evidence = result['quotation_evidence']
+        self.assertEqual(evidence['relation'], 'normalized_exact')
+        self.assertEqual(evidence['source_text_sha256'], hashlib.sha256(source.encode()).hexdigest())
+        self.assertEqual(evidence['target_text_sha256'], hashlib.sha256(ARABIC.encode()).hexdigest())
+        self.assertIn('Persian kaf and yeh', evidence['normalization'])
+        self.assertEqual(record, before)
+
+    def test_distinct_arabic_letters_are_not_collapsed_with_keyboard_variants(self):
+        self.assertNotEqual(normalize_arabic_quote('على'), normalize_arabic_quote('علي'))
+        self.assertNotEqual(normalize_arabic_quote('أمر'), normalize_arabic_quote('امر'))
+        record = self.record(book_key='muslim', provider_entry_id=None,
+                             text_arabic=ARABIC.replace('على', 'علي'))
+        self.assertIsNone(CounterpartResolver(self.root, []).for_record(record)['english'])
+
+    def test_keyboard_normalization_does_not_choose_between_matching_occurrences(self):
+        variant = ARABIC.replace('ك', 'ک').replace('ي', 'ی')
+        with closing(sqlite3.connect(self.english)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, 'TEST second translation', variant, 7))
+        with closing(sqlite3.connect(self.arabic)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, variant, 7, 'صحيح مسلم (1/ 3) (12346).'))
+        self.manifest()
+        record = self.record(book_key='muslim', provider_entry_id=None)
+        result = CounterpartResolver(self.root, []).for_record(record)
+        self.assertEqual(result['match_method'], 'ambiguous_source_quotation')
+        self.assertIsNone(result['english'])
+
+    def test_reference_supported_shorter_counterpart_is_explicitly_partial(self):
+        source = 'مقدمة تجريبية مطولة من المصدر ' + ARABIC + ' ونهاية تجريبية إضافية محفوظة'
+        references = {'items': [{'book_key': 'muslim', 'number': '12345', 'scope': 'main_quote'}]}
+        record = self.record(book_key='muslim', provider_entry_id=None,
+                             text_arabic=source, references=references)
+        before = copy.deepcopy(record)
+        result = CounterpartResolver(self.root, []).for_record(record)
+        self.assertEqual(result['quotation_evidence']['relation'], 'target_excerpt')
+        self.assertEqual(result['quotation_evidence']['shared_explicit_references'], [['muslim', '12345']])
+        self.assertEqual(result['english']['scope'], 'source_excerpt')
+        self.assertEqual(result['arabic']['scope'], 'source_excerpt')
+        self.assertEqual(result['english']['text'], ENGLISH)
+        self.assertEqual(result['arabic']['text'], ARABIC)
+        self.assertIn('literal excerpt', result['match_note'])
+        self.assertEqual(record, before)
+
+    def test_reverse_containment_needs_a_matching_explicit_collection_reference(self):
+        source = 'مقدمة تجريبية مطولة من المصدر ' + ARABIC + ' ونهاية تجريبية إضافية محفوظة'
+        reference_sets = [{},
+            {'items': [{'book_key': 'muslim', 'number': '99999', 'scope': 'main_quote'}]},
+            {'items': [{'book_key': 'muslim', 'number': '12345', 'scope': 'commentary'}]},
+            {'items': [{'book_key': 'muslim', 'number': '12345', 'scope': 'main_quote',
+                        'numbering_scheme': 'number_within_source_named_book'}]}]
+        for references in reference_sets:
+            with self.subTest(references=references):
+                record = self.record(book_key='muslim', provider_entry_id=None,
+                                     text_arabic=source, references=references)
+                self.assertIsNone(CounterpartResolver(self.root, []).for_record(record)['english'])
+
+    def test_chapter_numbers_and_wrapper_variant_references_cannot_authorize_reverse_match(self):
+        source = 'مقدمة تجريبية مطولة من المصدر ' + ARABIC + ' ونهاية تجريبية إضافية محفوظة'
+        references = [
+            {'book_key': 'muslim', 'number': '12345', 'scope': 'main_quote',
+             'numbering_scheme': 'chapter_number'},
+            {'book_key': 'muslim', 'number': '12345', 'scope': 'main_quote',
+             'citation_scope': 'chapter number, not hadith number'},
+            {'field': 'citations_as_printed',
+             'citation_scope': 'Reference for a variant narration only',
+             'value': [{'book_key': 'muslim', 'number_as_printed': '12345'}]},
+            {'field': 'citations_as_printed', 'numbering_scope': 'Chapter_Number',
+             'value': [{'book_key': 'muslim', 'number_as_printed': '12345'}]},
+            {'field': 'citations_as_printed',
+             'value': [{'book_key': 'muslim', 'number_as_printed': '12345',
+                        'citation_scope': 'chapter number, not hadith number'}]},
+        ]
+        resolver = CounterpartResolver(self.root, [])
+        for reference in references:
+            with self.subTest(reference=reference):
+                record = self.record(book_key='muslim', provider_entry_id=None,
+                    text_arabic=source, references={'items': [reference]})
+                before = copy.deepcopy(record)
+                self.assertEqual(source_references(record), [])
+                self.assertIsNone(resolver.for_record(record)['english'])
+                self.assertEqual(record, before)
+
+    def test_reverse_containment_rejects_short_anchors_even_with_the_same_reference(self):
+        short = 'هذا نص تجريبي قصير لا يمثل حديثا من المصدر'
+        self.assertGreaterEqual(len(normalize_arabic_quote(short)), 32)
+        self.assertLess(len(normalize_arabic_quote(short)), 64)
+        with closing(sqlite3.connect(self.english)) as db, db:
+            db.execute('UPDATE hadeeths SET hadeeth_ar=?', (short,))
+        with closing(sqlite3.connect(self.arabic)) as db, db:
+            db.execute('UPDATE hadeeths SET hadeeth=?', (short,))
+        self.manifest()
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            text_arabic='مقدمة تجريبية طويلة ' + short + ' وتتمة إضافية لا يغطيها النص القصير',
+            references={'items': [{'book_key': 'muslim', 'number': '12345', 'scope': 'main_quote'}]})
+        self.assertIsNone(CounterpartResolver(self.root, []).for_record(record)['english'])
+
+    def test_reverse_containment_does_not_choose_one_of_several_supported_quotes(self):
+        second = 'مثال تجريبي مختلف طويل للتحقق من حفظ كل نص في المصدر دون اختيار إحدى العبارات المتعددة عشوائيا'
+        with closing(sqlite3.connect(self.english)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, 'TEST second source', second, 7))
+        with closing(sqlite3.connect(self.arabic)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, second, 7, 'صحيح مسلم (1/ 3) (12346).'))
+        self.manifest()
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            text_arabic=ARABIC + ' ثم ' + second,
+            references={'items': [{'book_key': 'muslim', 'number': n, 'scope': 'main_quote'}
+                                  for n in ('12345', '12346')]})
+        result = CounterpartResolver(self.root, []).for_record(record)
+        self.assertEqual(result['match_method'], 'ambiguous_source_quotation')
+        self.assertIsNone(result['english'])
 
     def test_ambiguous_text_remains_unresolved(self):
         with closing(sqlite3.connect(self.english)) as db, db:

@@ -1,0 +1,44 @@
+{
+  "schema": "hadith-bank-counterpart-quality-policy-v1",
+  "scope": "Exact source-version decisions for derived Arabic/English counterpart display and search; original sources and translation-origin policy remain unchanged.",
+  "decisions": [
+    {
+      "id": "hadeethenc-65015-english-negation-2026-11-11",
+      "provider": "hadeethenc",
+      "source_record_id": "65015",
+      "language": "english",
+      "text_sha256": "168c8c508f3b3e683d10a9f99a7ada2585161fa42e7d2053a6d6fcf8990d127b",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_negation_reverses_arabic_meaning",
+      "message": "English counterpart withheld: the preserved HadeethEnc 65015 English wording says the deeds were ‘not performed for the sake of Allah’, while its Arabic says they were done for Allah. This negation reverses the source meaning. Arabic and original source records are preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-11",
+      "reviewer": "OpenAI GPT-6 Astra Pro / audit_alignment (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "7cbeb0b1f5eb020d4f4244e4348f91f07d0ab636e4a9ecfa6c0e6ca17f957225",
+        "arabic_quote": "بِحَسَنَاتِ مَا عَمِلَ بِهَا لِلَّهِ فِي الدُّنْيَا",
+        "english_quote": "the good deeds he has not performed for the sake of Allah",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/65015",
+        "official_page_check": {
+          "retrieved_date": "2026-11-11",
+          "retrieval_reference": "turn4view0",
+          "retrieved_page_still_contains_negation": true,
+          "live_uncached_http_timestamp_not_claimed": true
+        },
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584
+        },
+        "provider_arabic_revision": 2,
+        "existing_affected_occurrences_at_review": 6,
+        "affected_source_languages_at_review": ["ja", "fil", "vi", "zh-CN", "uz", "hi"]
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    }
+  ]
+}

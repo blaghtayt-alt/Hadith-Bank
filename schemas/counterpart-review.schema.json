@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "counterpart-review.schema.json",
+  "title": "One explicit source-occurrence counterpart review decision",
+  "description": "JSONL sidecar row. A candidate is not an approval. The offline compiler additionally validates canonical source/target hashes, exact substantive quotation anchors, independent language evidence and supported external-page identity.",
+  "type": "object",
+  "required": ["record_id", "source_id", "language", "source_text_field", "source_text_sha256", "source_file_sha256", "source_record_sha256", "source_locator_sha256", "status"],
+  "properties": {
+    "record_id": {"$ref": "#/$defs/text"},
+    "source_id": {"$ref": "#/$defs/text"},
+    "language": {"$ref": "#/$defs/text"},
+    "source_text_field": {"enum": ["text_arabic", "text_translation"]},
+    "source_text_sha256": {"$ref": "#/$defs/sha256"},
+    "source_file_sha256": {"$ref": "#/$defs/sha256"},
+    "source_record_sha256": {"$ref": "#/$defs/sha256"},
+    "source_locator_sha256": {"$ref": "#/$defs/sha256"},
+    "status": {"enum": ["verified", "unresolved", "rejected"]},
+    "reason": {"$ref": "#/$defs/text"},
+    "target_key": {"$ref": "#/$defs/text"},
+    "target_entry_sha256": {"$ref": "#/$defs/sha256"},
+    "relation": {"enum": ["same_narration", "source_excerpt"]},
+    "review": {"$ref": "#/$defs/review"},
+    "language_decisions": {
+      "type": "object", "required": ["arabic", "english"], "additionalProperties": false,
+      "properties": {
+        "arabic": {"$ref": "#/$defs/languageDecision"},
+        "english": {"$ref": "#/$defs/languageDecision"}
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "verified"}}},
+     "then": {"required": ["target_key", "target_entry_sha256", "relation", "review", "language_decisions"]},
+     "else": {"required": ["reason"]}}
+  ],
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "pageReview": {
+      "type": "object", "required": ["url", "retrieved_date", "retrieval_reference"],
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+        "retrieved_date": {"$ref": "#/$defs/text"},
+        "retrieval_reference": {"$ref": "#/$defs/text"},
+        "arabic_compared": {"type": "boolean"},
+        "english_compared": {"type": "boolean"}
+      }
+    },
+    "languageDecision": {
+      "type": "object", "required": ["decision", "rationale"],
+      "properties": {
+        "decision": {"enum": ["approved_text", "approved_external", "unavailable", "unresolved"]},
+        "rationale": {"$ref": "#/$defs/text"},
+        "reviewed_url": {"type": "string", "format": "uri"},
+        "scope": {"const": "source_excerpt"},
+        "coverage": {"const": "partial"},
+        "citation_note": {"$ref": "#/$defs/text"},
+        "page_review": {"$ref": "#/$defs/pageReview"},
+        "counterpart": {"type": "object"}
+      },
+      "allOf": [
+        {"if": {"properties": {"decision": {"const": "approved_external"}}},
+         "then": {"required": ["reviewed_url"]}},
+        {"if": {"anyOf": [{"required": ["scope"]}, {"required": ["coverage"]}, {"required": ["citation_note"]}]},
+         "then": {"required": ["scope", "coverage", "citation_note"],
+                  "properties": {"decision": {"const": "approved_text"}}}}
+      ]
+    },
+    "review": {
+      "type": "object", "required": ["reviewer", "method", "human_review", "evidence"],
+      "properties": {
+        "reviewer": {"$ref": "#/$defs/text"},
+        "method": {"$ref": "#/$defs/text"},
+        "human_review": {"type": "boolean"},
+        "qualifications": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "official_page_review": {"$ref": "#/$defs/pageReview"},
+        "evidence": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["source_field", "source_quote", "target_language", "target_quote", "rationale"],
+            "properties": {
+              "source_field": {"enum": ["text_arabic", "text_translation"]},
+              "source_quote": {"type": "string", "minLength": 32},
+              "target_language": {"enum": ["arabic", "english"]},
+              "target_quote": {"type": "string", "minLength": 32},
+              "rationale": {"$ref": "#/$defs/text"}
+            }
+          }
+        }
+      }
+    }
+  }
+}

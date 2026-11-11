@@ -18,6 +18,7 @@ from counterpart_identity import provider_identity
 from counterpart_references import parse_provider_references
 from citation_search import reference_pair, reference_pairs
 from reviewed_counterparts import ReviewedCounterpartResolver, MANIFEST as REVIEWED_MANIFEST
+from counterpart_quality import apply_quality_policy, load_quality_policy
 
 MANIFEST = 'sources/counterparts/hadeethenc/manifest.json'
 SCHEMA = 'hadith-bank-counterpart-link-v1'
@@ -39,6 +40,7 @@ BOOK_NAMES = {
     'nawawi40': ('Nawawi Forty', 'الأربعون النووية'),
 }
 ALIASES = {'al-nasai': 'nasai', 'riyad-as-salihin': 'riyadh-al-salihin'}
+ARABIC_LETTER_EQUIVALENTS = str.maketrans({'ک': 'ك', 'ی': 'ي'})
 
 
 def digest(path):
@@ -73,6 +75,15 @@ def normalize_quote(value):
                    and unicodedata.category(c) != 'Cf')
 
 
+def normalize_arabic_quote(value):
+    """Compare Arabic quotations across Persian keyboard letter variants only.
+
+    This is a matching key, never a source-text correction. Alef maqsura,
+    hamza-bearing letters and other distinct Arabic letters remain distinct.
+    """
+    return normalize_quote(value).translate(ARABIC_LETTER_EQUIVALENTS)
+
+
 def quote_relation(quotation, full):
     left, right = normalize_quote(quotation), normalize_quote(full)
     if not left or not right:
@@ -87,6 +98,22 @@ def quote_relation(quotation, full):
     return None
 
 
+def arabic_quote_relation(quotation, full, allow_target_excerpt=False):
+    left, right = normalize_arabic_quote(quotation), normalize_arabic_quote(full)
+    if len(left) < 32 or not right:
+        return None
+    if left == right:
+        return 'normalized_exact'
+    if left in right:
+        return 'source_excerpt'
+    # A longer selected entry can contain the provider's shorter narration.
+    # Such reverse containment needs a substantive anchor and a shared explicit
+    # collection reference; the caller supplies that occurrence-level support.
+    if allow_target_excerpt and len(right) >= 64 and right in left:
+        return 'target_excerpt'
+    return None
+
+
 def reference_key(reference):
     book = reference.get('book_key')
     number = reference.get('number')
@@ -98,13 +125,24 @@ def reference_key(reference):
     return ALIASES.get(book, book), number
 
 
+def narration_reference_scope(reference):
+    """Require narration identity metadata at both wrapper and child levels."""
+    if not isinstance(reference, dict):
+        return False
+    metadata = ' '.join(str(reference.get(field) or '') for field in
+                        ('scope', 'citation_scope', 'numbering_scheme', 'numbering_scope'))
+    # A surrounding chapter or another variant can carry a valid-looking
+    # collection number. Neither is an occurrence reference for this quotation.
+    return re.search(r'chapter|variant', metadata, re.I) is None
+
+
 def source_references(record):
     references = record.get('references') or {}
     result = []
     if isinstance(references, dict):
         result.extend(parse_provider_references(references.get('bibliography_verbatim') or ''))
         for item in references.get('items') or []:
-            if not isinstance(item, dict):
+            if not narration_reference_scope(item):
                 continue
             scope = item.get('scope')
             if scope and scope not in ('main_quote', 'source_citation'):
@@ -119,12 +157,10 @@ def source_references(record):
             if not isinstance(candidates, list):
                 continue
             for reference in candidates:
-                if not isinstance(reference, dict):
+                if not narration_reference_scope(reference):
                     continue
                 child_scope = reference.get('scope')
                 if child_scope and child_scope not in ('main_quote', 'source_citation'):
-                    continue
-                if 'variant' in str(reference.get('citation_scope') or '').casefold():
                     continue
                 number = reference.get('number')
                 scalar = isinstance(number, str) and bool(number) or type(number) in (int, float)
@@ -174,6 +210,7 @@ class CounterpartResolver:
 
         self.root = Path(root).resolve()
         self.provenance_policy = load_policy(self.root)
+        self.quality_policy = load_quality_policy(self.root)
         self._counterpart_decision_for = counterpart_decision_for
         self.reviewed = ReviewedCounterpartResolver(self.root)
         self.provider_enabled = (self.root / MANIFEST).is_file()
@@ -181,6 +218,9 @@ class CounterpartResolver:
         self.entries, self.assets, self.translations = {}, dict(self.reviewed.assets), defaultdict(list)
         self.source_manifests = ([MANIFEST] if self.provider_enabled else []) + (
             [REVIEWED_MANIFEST] if self.reviewed.enabled else [])
+        if self.quality_policy is not None:
+            self.assets[self.quality_policy['policy_path']] = self.quality_policy['policy_sha256']
+            self.source_manifests.append(self.quality_policy['policy_path'])
         self.normalized_translations = defaultdict(list)
         self.normalized_arabic = {}
         self.ref_ids, self.exact_arabic = defaultdict(set), defaultdict(set)
@@ -218,8 +258,8 @@ class CounterpartResolver:
             self.entries[identifier] = {'id': identifier, 'english': row['hadeeth'],
                                         'arabic': row['hadeeth_ar'], 'ar_version': row['ar_version'],
                                         'references': refs, 'arabic_bibliography_aligned': bool(aligned)}
-            self.normalized_arabic[identifier] = normalize_quote(row['hadeeth_ar'])
-            self.exact_arabic[normalize_quote(row['hadeeth_ar'])].add(identifier)
+            self.normalized_arabic[identifier] = normalize_arabic_quote(row['hadeeth_ar'])
+            self.exact_arabic[normalize_arabic_quote(row['hadeeth_ar'])].add(identifier)
             for ref in refs:
                 if reference_key(ref):
                     self.ref_ids[reference_key(ref)].add(identifier)
@@ -302,9 +342,16 @@ class CounterpartResolver:
         target = {reference_key(ref) for ref in entry['references']} - {None}
         if refs and target and not refs.intersection(target):
             return None
-        relation = quote_relation(record.get('text_arabic'), entry['arabic'])
+        relation = arabic_quote_relation(record.get('text_arabic'), entry['arabic'],
+                                        allow_target_excerpt=bool(refs.intersection(target)))
         if relation:
-            return {'field': 'text_arabic', 'relation': relation}
+            return {'field': 'text_arabic', 'relation': relation,
+                    'source_record_id': record.get('id'),
+                    'source_text_sha256': hashlib.sha256(record['text_arabic'].encode('utf-8')).hexdigest(),
+                    'target_text_sha256': hashlib.sha256(entry['arabic'].encode('utf-8')).hexdigest(),
+                    'source_file_sha256': (record.get('source') or {}).get('sha256'),
+                    'normalization': 'NFKC, punctuation/diacritics/spacing/tatweel/format controls removed; Persian kaf and yeh compared as Arabic kaf and yeh; source bytes unchanged',
+                    'shared_explicit_references': [list(value) for value in sorted(refs.intersection(target))]}
         for item in self.translations.get((identifier, record.get('language')), []):
             relation = quote_relation(record.get('text_translation'), item['translation'])
             if relation:
@@ -332,7 +379,7 @@ class CounterpartResolver:
             return None, 'parent_source_link_without_quotation_alignment', identity, None
         refs = {reference_key(ref) for ref in source_references(record)} - {None}
         candidate_ids = set().union(*(self.ref_ids.get(ref, set()) for ref in refs)) if refs else set()
-        normalized = normalize_quote(record.get('text_arabic'))
+        normalized = normalize_arabic_quote(record.get('text_arabic'))
         if normalized:
             candidate_ids.update(self.exact_arabic.get(normalized, set()))
         # Match cached normalized strings before expensive field/provenance work.
@@ -382,7 +429,7 @@ class CounterpartResolver:
         if reviewed is not None:
             # A stale or ambiguous reviewed assignment must not silently fall
             # through to another provider. The original source stays intact.
-            return self._apply_translation_policy(reviewed)
+            return self._finalize_result(reviewed)
         identifier, method, identity, proof = (self._select(record) if self.provider_enabled else
             (None, 'no_verified_source_counterpart', None, None))
         original_refs = source_references(record)
@@ -397,7 +444,7 @@ class CounterpartResolver:
                 (record.get('extraction') or {}).get('is_excerpt') else 'same_provider_entry',
                 origin='unknown', source_record_id=record['id'])
         if identifier is None:
-            return result
+            return self._finalize_result(result)
         entry = self.entries[identifier]
         exact = record.get('text_arabic') == entry['arabic']
         source_version = self._source_version(record) if record.get('book_key') == 'hadeethenc' else None
@@ -405,8 +452,8 @@ class CounterpartResolver:
             not exact or source_version is not None and source_version != entry['ar_version'])
         if proof and proof.get('english_arabic_revision_equal') is False:
             related = True
-        original_arabic = normalize_quote(record.get('text_arabic'))
-        linked_arabic = normalize_quote(entry['arabic'])
+        original_arabic = normalize_arabic_quote(record.get('text_arabic'))
+        linked_arabic = normalize_arabic_quote(entry['arabic'])
         if original_arabic and original_arabic != linked_arabic and original_arabic not in linked_arabic:
             related = True
         status = 'related_version' if related else 'exact'
@@ -419,8 +466,9 @@ class CounterpartResolver:
         snapshot = 'HadeethEnc English ' + str(self.manifest.get('english_version') or 'version not supplied')
         snapshot += '; Arabic revision ' + str(entry['ar_version'])
         snapshot += '; SQLite ' + self.manifest['english_database']['sha256'][:16]
+        target_excerpt = proof is not None and proof.get('relation') == 'target_excerpt'
         common = {'source_name': 'HadeethEnc.com', 'snapshot': snapshot,
-                  'status': status, 'scope': 'full_narration',
+                  'status': status, 'scope': 'source_excerpt' if target_excerpt else 'full_narration',
                   'source_record_id': identifier, 'source_arabic_version': entry['ar_version'],
                   'original_arabic_version': source_version,
                   'database_path': self.manifest['english_database']['path'],
@@ -431,9 +479,14 @@ class CounterpartResolver:
         result['english'] = self._text(entry['english'], 'english', refs,
             source_url='https://hadeethenc.com/en/browse/hadith/' + identifier, **common)
         result['status'] = status
-        if related:
+        if target_excerpt:
+            result['match_note'] = 'The linked Arabic and English cover a literal excerpt of the selected source entry, supported by a shared explicit collection reference. Other source wording remains unchanged and is not covered by this counterpart.'
+        elif related:
             result['match_note'] = 'Same publisher entry; the English-linked Arabic revision differs from the stored source. Original text remains unchanged.'
-        return self._apply_translation_policy(result)
+        return self._finalize_result(result)
+
+    def _finalize_result(self, result):
+        return apply_quality_policy(self._apply_translation_policy(result), self.quality_policy)
 
 
 def enrich_records(root, records):
@@ -482,9 +535,16 @@ def enrich_records(root, records):
               'source_assets': resolver.assets, 'original_record_count_unchanged': True,
               'source_text_unchanged': True, 'new_translations_created': False,
               'matching_policy': 'Publisher version identity, unique literal source-quotation alignment, or explicit reviewed narration evidence bound to source and target hashes; never collection number alone.'}
+    from counterpart_coverage import write_reports
+    availability = write_reports(root, records)
+    report['availability'] = {
+        'totals': availability['totals'], 'by_language': availability['by_language'],
+        'report': 'reports/counterpart-availability.json',
+        'book_report': 'reports/counterpart-availability.md',
+    }
     output = Path(root) / 'reports/counterpart-coverage.json'
     output.parent.mkdir(exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    return {**dict(summary), 'by_language': report['by_language'],
+    return {**dict(summary), 'by_language': report['by_language'], 'availability': report['availability'],
             'report': 'reports/counterpart-coverage.json', 'source_manifest': resolver.source_manifests[0],
             'source_manifests': resolver.source_manifests}

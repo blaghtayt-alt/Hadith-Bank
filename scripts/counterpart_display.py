@@ -108,8 +108,11 @@ def counterpart_qualification(data, record):
 
 def counterpart_alignment_notes(record):
     values = record.get('counterparts') or {}
+    advisories = [item['message'].strip() for item in (values.get('quality_advisories') or [])
+                  if isinstance(item, dict) and isinstance(item.get('message'), str)
+                  and item['message'].strip()]
     if values.get('status') != 'reviewed_parallel':
-        return []
+        return advisories
     review = (values.get('quotation_evidence') or {}).get('review') or {}
     if review.get('human_review') is False:
         notice = 'Narration alignment checked by an automated assistant. No independent scholarly certification is claimed.'
@@ -118,4 +121,4 @@ def counterpart_alignment_notes(record):
     else:
         notice = 'The alignment review process is not specified. No independent scholarly certification is claimed.'
     notes = review.get('qualifications') or []
-    return [notice] + [note for note in notes if isinstance(note, str) and note.strip()]
+    return advisories + [notice] + [note for note in notes if isinstance(note, str) and note.strip()]

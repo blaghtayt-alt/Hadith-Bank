@@ -2,6 +2,8 @@
 
 The reader rebuilds from structured records registered under `materials/`. Add one material folder, register it, then commit or merge it into `main`. The workflow discovers the manifest and updates the website, language/book/edition catalogs, searchable text, reading pages and downloadable HTML automatically.
 
+Arabic and English links use the same pipeline for every registered source. After registration, the build resolves verified provider/source matches, reports missing languages, and regenerates the candidate review queue. For new Chinese Abū Dāwūd installments or any other new source edition, follow [the language-counterpart workflow](LANGUAGE-COUNTERPARTS.md). The original 2002 Chinese compiler and its immutable mappings remain specific to that original source; new files require their own source-bound review decisions.
+
 The folder and its source text become public when uploaded to this public repository. Registration records the owner's publication instruction. The current owner policy classifies newly supplied nonlegacy books as Human unless their own source explicitly states otherwise; it does not certify independent review, invent a named translator, or change reuse rights. Preserve original provenance and remaining qualifications.
 
 ## 1. Prepare one source edition

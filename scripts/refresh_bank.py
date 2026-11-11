@@ -15,10 +15,11 @@ import subprocess
 import tempfile
 
 from build_bank_views import build as build_views, write_json
-from build_reader import build as build_reader
+from build_reader import build as build_reader, load_records
 from build_discovery import build as build_discovery
 from build_book_catalog import write_catalog as write_book_catalog
 from validate_bank_views import validate
+from prepare_counterpart_review import prepare_review
 
 
 def git_revision(root):
@@ -78,11 +79,16 @@ def refresh(root, site_output='_site'):
     if source_commit:
         site['build_commit'] = source_commit
     reader_result = build_reader(root, root / 'hadith-bank-reader.html', root / 'browse', site=site)
+    catalog = json.loads((root / 'catalog/materials.json').read_text(encoding='utf-8'))
+    write_book_catalog(root, catalog, site)
+    # Prepare generated navigation targets before checking README/book links.
+    # Candidates stay outside the reader and cannot approve a language match.
+    review_records, _, _ = load_records(root)
+    review_queue = prepare_review(root, 'reports/counterpart-review', records=review_records)
+    del review_records
     report_path = root / 'reports/portable-validation.json'
     report = validate(root, mode='public', report_path=report_path)
     write_json(report_path, report)
-    catalog = json.loads((root / 'catalog/materials.json').read_text(encoding='utf-8'))
-    write_book_catalog(root, catalog, site)
     info = {'schema': 'hadith-bank-site-build-v1', 'status': 'passed',
             'source_commit': source_commit, 'source_ref': site['source_ref'],
             'record_count': catalog['record_count'], 'by_language': catalog['by_language'],
@@ -90,6 +96,10 @@ def refresh(root, site_output='_site'):
             'search_sha256': catalog['search']['records_sha256'],
             'reader_sha256': report['reader']['sha256'], 'reader_bytes': report['reader']['bytes'],
             'canonical_source_bytes_unchanged': True, 'independent_qc_performed': False,
+            'counterpart_review': {
+                **{key: value for key, value in review_queue.items() if key not in ('output', 'manifest')},
+                'manifest': 'reports/counterpart-review/manifest.json',
+            },
             'registry': 'materials/*/manifest.json',
             'validation_report': 'reports/portable-validation.json'}
     staged = stage_site(root, site_output, info)
