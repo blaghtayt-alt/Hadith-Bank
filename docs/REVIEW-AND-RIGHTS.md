@@ -4,7 +4,7 @@
 
 ## What is transferred
 
-Only language-specific text packages for ja, fil, vi, zh-CN, uz, and hi from the formerly public Hadith-related materials are copied. Each cataloged source file is copied from its pinned Git revision. A SHA-256 mismatch prevents a clean audit claim. Additional public but uncataloged files are placed in a separate revision folder and reported.
+The original migration copied language-specific text packages for ja, fil, vi, zh-CN, uz, and hi from the formerly public Hadith-related materials. The later quotation extraction also includes Persian (fa); see [extraction scope](LEGACY-EXTRACTION.md). Each cataloged source file is copied from its pinned Git revision. A SHA-256 mismatch prevents a clean audit claim. Additional public but uncataloged files are placed in a separate revision folder and reported.
 
 All reading and source envelope bytes live under languages/<code>/books/essential/editions/. The runtime index and local search utility have no dependence on any other source repository.
 
@@ -18,7 +18,7 @@ All reading and source envelope bytes live under languages/<code>/books/essentia
 
 ## Publication restrictions
 
-The migrated files were already publicly available in the source repository. That fact alone does not constitute a new license. The repository remains a research corpus with preserved source conditions. Public availability and certified release are separate states. The owner specifically authorized public pending-review inclusion of the Japanese Muslim and Vietnamese packages recorded in `catalog/publication-policy.json`; their original rights assessments and incomplete QC remain visible. This owner decision is not represented as a license granted by a translator or publisher.
+The migrated files were already publicly available in the source repository. That fact alone does not constitute a new license. The repository remains a research corpus with preserved source conditions. Public availability and certified release are separate states. The owner specifically authorized public pending-review inclusion of the Japanese Muslim and Vietnamese packages recorded in `catalog/publication-policy.json`; their original rights assessments and review history remain available in record details. Normal QC badges apply only to evidenced OCR extraction. This owner decision is not represented as a license granted by a translator or publisher.
 
 New material enters the website through an explicitly authorized manifest. Do not infer approval from a source being present elsewhere, and do not claim certified release before exact-version independent QC and the applicable rights/source-fidelity evidence are recorded. Unknown rights and source defects must remain explicit in the published record.
 

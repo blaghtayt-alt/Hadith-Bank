@@ -1,6 +1,6 @@
 # Japanese and Vietnamese source intakes — 11 November 2026
 
-The owner explicitly requested adding the supplied Vietnamese and Japanese texts to the GitHub bank and hosted reader. Their **5,065 source occurrences** are included alongside the **8,423 HadeethEnc occurrences**, giving **13,488 searchable occurrences**. Their exact source records, stable IDs, original PDFs and evidence remain intact in the two source packages under `attachments/`.
+The owner explicitly requested adding the supplied Vietnamese and Japanese texts to the GitHub bank and hosted reader. Their **5,065 source occurrences** are included alongside the **8,423 HadeethEnc occurrences**, giving **13,488 occurrences in that initial structured publication**. Later old-bank/Qur’an-book quotation additions are documented in [the extraction guide](LEGACY-EXTRACTION.md); the generated catalog shows the complete current total. Their exact source records, stable IDs, original PDFs and evidence remain intact in the two source packages under `attachments/`.
 
 Current public visibility is recorded separately from historical source review in [the publication policy](../catalog/publication-policy.json) and `materials/*/manifest.json`. These are **public pending-review source imports**, not independently certified releases.
 
@@ -31,7 +31,7 @@ Each complete source package occupies a separate intake root under `attachments/
 
 The normalized search and reading views remain organized by `language → book → edition`. The edition key identifies the exact source-file checksum; it does not invent a bibliographic edition. Narration text, notes, commentary, references, narrator information and grading remain separate fields.
 
-Use `catalog/materials.json`, `catalog/languages/` and the reader's language, collection and source filters. The public dataset contains 52 source datasets: six HadeethEnc snapshots and 46 PDF editions from these two packages. Japanese has 2,092 occurrences (281 HadeethEnc plus 1,811 Muslim); Vietnamese has 4,457 (1,203 HadeethEnc plus 3,254 from the supplied PDFs). Other current bank languages remain available in the same reader.
+Use `catalog/materials.json`, `catalog/languages/` and the reader's language, collection and source filters. The original publication contained 52 source datasets: six HadeethEnc snapshots and 46 PDF editions from these two packages. Japanese has 2,092 occurrences (281 HadeethEnc plus 1,811 Muslim); Vietnamese has 4,457 (1,203 HadeethEnc plus 3,254 from the supplied PDFs). Other current bank languages remain available in the same reader.
 
 The earlier private combined export contains 45,788 occurrences across 64 source datasets and nine languages. It is a separate historical export with additional source snapshots; that total must not be presented as the current public website total. Different source versions remain distinct, even when they share a provider entry or printed number.
 
@@ -39,7 +39,7 @@ The additive adapter verifies the source package manifests, IDs and text before 
 
 ## Review and publication status
 
-The original PDF-intake records retain their preparation history: `private_candidate`, independent source QC pending, and release eligibility false. The current owner decision authorizes public access while preserving those historical fields and displaying a separate public pending-review label. Existing source exceptions, incomplete Arabic repair, unresolved canonical alignment and unassessed rights remain visible. HadeethEnc's separate-review waiver still applies only to HadeethEnc; the PDF intakes have not acquired a QC pass.
+The original PDF-intake records retain their preparation history: `private_candidate`, independent source QC pending, and release eligibility false. The current owner decision authorizes public access while preserving those historical fields and keeping that history in record details. The extraction metadata identifies native PDF text without OCR, so normal cards display no pending-QC/import-history badges under the current OCR-only display rule. Existing source exceptions, incomplete Arabic repair, unresolved canonical alignment and unassessed rights remain visible. HadeethEnc's separate-review waiver still applies only to HadeethEnc; the PDF intakes have not acquired a QC pass.
 
 The exact supplied Vietnamese JSON and Japanese ZIP were compared by SHA-256 with the integration inputs and matched. Their source records were not re-extracted. The earlier audit of 40,723 occurrences remains historical evidence for that scope; the expanded package has its own integration and portable validation reports.
 

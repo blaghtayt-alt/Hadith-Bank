@@ -35,4 +35,4 @@ python scripts/validate_hadeethenc_public.py
 python scripts/validate.py
 ```
 
-The search displays pending-review and unknown-authorship warnings. Programmatic validation compares every source row, mapped field and publisher taxonomy with the included raw databases, checks exact Arabic-version alignment and verifies local file hashes. This is a mechanical check, not independent Pro QC.
+The current owner policy displays Human for this source and applies QC badges only to evidenced OCR. Original review and authorship metadata remains in record details. Programmatic validation compares every source row, mapped field and publisher taxonomy with the included raw databases, checks exact Arabic-version alignment and verifies local file hashes. This is a mechanical check, not independent Pro QC.

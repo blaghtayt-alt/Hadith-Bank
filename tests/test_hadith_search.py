@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -13,6 +14,7 @@ from unittest import mock
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / 'scripts/hadith_search.py'
+sys.path.insert(0, str(SCRIPT.parent))
 SPEC = importlib.util.spec_from_file_location('flat_hadith_search', SCRIPT)
 searcher = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(searcher)
@@ -166,6 +168,97 @@ class HadithSearchTests(unittest.TestCase):
                 self.assertEqual(result['matched'], 1)
                 self.assertEqual(result['results'][0]['id'], 'occurrence-ja-2')
                 self.assertEqual(result['results'][0]['references'], self.records[1]['references'])
+
+    def test_current_origin_categories_and_historical_evidence_filters(self):
+        # Owner confirmation overrides historical AI metadata for display/filtering.
+        self.records[0]['translation_provenance'].update(
+            origin='legacy_source_history', ai_translation=True,
+            current_policy={'classification': 'unknown', 'basis': 'TEST owner decision'})
+        self.records[3]['translation_provenance']['current_policy'] = {
+            'classification': 'human', 'basis': 'TEST owner-confirmed source'}
+        original = copy.deepcopy(self.records)
+        self.save()
+        for engine in ('trigram', 'like'):
+            with self.subTest(engine=engine):
+                context = mock.patch.object(searcher, '_create_fts', return_value='like') if engine == 'like' else mock.patch.object(searcher, '_create_fts', wraps=searcher._create_fts)
+                with context:
+                    unknown = self.call(translation_origin='unknown', database=':memory:')
+                    self.assertEqual([x['id'] for x in unknown['results']], ['occurrence-ja-1', 'occurrence-zh'])
+                    self.assertIn('Translation origin: Unknown', searcher.format_results(unknown))
+                    self.assertIn('Preserved source AI translation: true', searcher.format_results(unknown))
+                    human = self.call(translation_origin='human', database=':memory:')
+                    self.assertEqual([x['id'] for x in human['results']], ['occurrence-ja-2', 'occurrence-missing-translation'])
+                    self.assertEqual(self.call(translation_origin='ai', database=':memory:')['matched'], 0)
+                    self.assertEqual(self.call(translation_origin='legacy_source_history', database=':memory:')['matched'], 1)
+                    self.assertEqual(self.call(translation_origin='human_published', database=':memory:')['matched'], 1)
+                    self.assertEqual(self.call(translation_origin='ai_generated', database=':memory:')['matched'], 1)
+        self.assertEqual(self.records, original)
+
+    def test_nested_source_context_is_opt_in_without_losing_citation_search(self):
+        record = self.records[0]
+        record['source']['original_metadata'] = {
+            'original_context': 'TEST-LESSON-CONTEXT-ONLY',
+            'historical_metadata': {'selected_parent': {
+                'full_explanation': 'TEST-PARENT-EXPLANATION-ONLY',
+                'full_translation': 'TEST-PARENT-WORDS-OUTSIDE-QUOTE',
+            }},
+        }
+        record['narrator']['source_context'] = 'TEST-NARRATOR-CONTEXT-ONLY'
+        record['number']['in_book'] = 'TEST-2311'
+        record['references']['items'] = [{'collection': 'TEST COLLECTION', 'number': 'TEST-2311', 'scope': 'main_quote'}]
+        original = copy.deepcopy(record)
+        self.save()
+        for query in ('TEST-LESSON-CONTEXT-ONLY', 'TEST-PARENT-EXPLANATION-ONLY',
+                      'TEST-PARENT-WORDS-OUTSIDE-QUOTE', 'TEST-NARRATOR-CONTEXT-ONLY'):
+            with self.subTest(query=query):
+                self.assertEqual(self.call(query)['matched'], 0)
+                included = self.call(query, include_commentary=True)
+                self.assertEqual([x['id'] for x in included['results']], [record['id']])
+                self.assertEqual(included['results'][0]['source'], original['source'])
+        self.assertEqual(self.call('TEST COLLECTION TEST-2311')['matched'], 1)
+        self.assertEqual(self.call('FIXTURE NARRATOR', entry_id=record['id'])['matched'], 1)
+        self.assertEqual(self.call('Synthetic source', entry_id=record['id'])['matched'], 1)
+        self.assertEqual(record, original)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for reader/search parity')
+    def test_nested_context_and_current_origin_match_reader_behavior(self):
+        first = self.records[0]
+        first['source']['original_metadata'] = {
+            'original_context': 'TEST surrounding lesson text',
+            'historical_metadata': {'selected_parent': {'full_explanation': 'TEST parent explanation'}},
+        }
+        first['translation_provenance'].update(origin='legacy_source_history', ai_translation=True,
+            current_policy={'classification': 'unknown', 'basis': 'TEST'})
+        first['references']['items'] = [{'collection': 'TEST-COLLECTION', 'number': 'TEST-2311'}]
+        self.save()
+        queries = [
+            {'query': 'TEST surrounding', 'commentary': False, 'origin': ''},
+            {'query': 'TEST surrounding', 'commentary': True, 'origin': ''},
+            {'query': 'TEST parent explanation', 'commentary': False, 'origin': ''},
+            {'query': 'TEST parent explanation', 'commentary': True, 'origin': 'unknown'},
+            {'query': 'TEST-COLLECTION TEST-2311', 'commentary': False, 'origin': 'unknown'},
+            {'query': '', 'commentary': False, 'origin': 'unknown'},
+            {'query': '', 'commentary': False, 'origin': 'human'},
+            {'query': '', 'commentary': False, 'origin': 'ai'},
+        ]
+        expected = [[row['id'] for row in self.call(item['query'],
+                    include_commentary=item['commentary'], translation_origin=item['origin'] or None)['results']]
+                    for item in queries]
+        template = (SCRIPT.parents[1] / 'reader/template.html').read_text(encoding='utf-8')
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        filtering = template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+const records=input.records,names={},state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
+const $=id=>fields[id],render=()=>{};
+const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filtering + '''
+const results=input.queries.map(item=>{fields.query.value=item.query;fields['origin-filter'].value=item.origin;fields['include-commentary'].checked=item.commentary;applyFilters();return state.matches.map(index=>records[index].id);});
+process.stdout.write(JSON.stringify({results,records}));'''
+        result = subprocess.run([shutil.which('node'), '-e', program],
+                                input=json.dumps({'records': self.records, 'queries': queries}, ensure_ascii=False),
+                                text=True, capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        self.assertEqual(actual['results'], expected)
+        self.assertEqual(actual['records'], self.records)
 
     def test_sql_fts_and_like_input_is_literal(self):
         for query in ['" OR 1=1 --', 'alpha OR missing', '%not-present%', '_not-present_', '"*) OR *']:

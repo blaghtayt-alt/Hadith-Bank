@@ -39,5 +39,35 @@
     "independent_review_never_inferred": true,
     "unknown_metadata_never_invented": true
   },
-  "historical_package_status": "Original package records and reports retain the status recorded when prepared. Current public visibility is recorded separately in publication manifests and generated projections."
+  "historical_package_status": "Original package records and reports retain the status recorded when prepared. Current public visibility is recorded separately in publication manifests and generated projections.",
+  "authorized_extractions": [
+    {
+      "intake_id": "legacy-and-quran-excerpts-20261111",
+      "owner_instruction": "Extract individual hadiths from all old banks and the selected Quran books, including Persian, into the GitHub Hadith Bank.",
+      "source_repository": "blaghtayt-alt/iman-companion",
+      "source_commit": "ae2c07599767ee7182c40d3ff2264fcdac98d182",
+      "additional_preserved_sources": "Existing 83 legacy files under languages/*/books/essential/editions/",
+      "languages": [
+        "ja",
+        "fil",
+        "vi",
+        "zh-CN",
+        "uz",
+        "hi",
+        "fa"
+      ],
+      "registered_material_prefixes": [
+        "materials/legacy-",
+        "materials/quran-excerpts-"
+      ],
+      "status": "owner_authorized_public_source_excerpts",
+      "source_text_and_historical_metadata_preserved": true,
+      "canonical_numbering_never_inferred": true,
+      "current_translation_classification": "unknown",
+      "translation_confirmation_required_before_change": true,
+      "source_occurrences_not_unique_hadith_count": true,
+      "independent_review_performed": false,
+      "source_repository_modified": false
+    }
+  ]
 }

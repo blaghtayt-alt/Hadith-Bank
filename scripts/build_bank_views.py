@@ -17,11 +17,12 @@ import shutil
 import sys
 
 from current_provenance import POLICY_PATH as CURRENT_PROVENANCE_PATH, apply_policy as apply_provenance_policy, classification, load_policy as load_provenance_policy
+from review_display_policy import extraction_metadata
 
 
 LANG_NAMES = {'ja': 'Japanese', 'fil': 'Filipino / Tagalog', 'vi': 'Vietnamese',
               'zh-CN': 'Chinese', 'uz': 'Uzbek', 'hi': 'Hindi', 'ur': 'Urdu',
-              'bn': 'Bengali', 'pt': 'Portuguese'}
+              'bn': 'Bengali', 'pt': 'Portuguese', 'fa': 'Persian'}
 POLICY_PATH = 'catalog/translation-origins.json'
 REVIEW_POLICY_PATH = 'catalog/review-policy.json'
 EVIDENCE_PATH = 'sources/translation-origin-evidence/2026-11-11/evidence.json'
@@ -147,6 +148,7 @@ def public_projection(record, collection, line_number):
         'translator': {'name': record['publication']['translator'], 'evidence': None,
                        'publisher': record['publication']['publisher']},
         'translation_provenance': translation_info(record, 'hadeethenc', 'hadeethenc'),
+        'extraction': extraction_metadata(record),
         'topic_tags': tags,
         'editorial_tags': list(record.get('editorial_tags', {}).get('values', [])),
         'source_headings': [],
@@ -187,6 +189,7 @@ def attachment_projection(record, collection, index, prefix):
                    'format': record['source']['format']},
         'translator': copy.deepcopy(record['translator']),
         'translation_provenance': translation_info(record, 'hadeethenc' if collection['book'] == 'hadeethenc' else 'pdf', collection['book']),
+        'extraction': extraction_metadata(record),
         'topic_tags': [],
         'editorial_tags': list(record.get('editorial_tags', {}).get('values', [])),
         'source_headings': [x['value_verbatim'] for x in record.get('source_structure_tags', [])],
@@ -288,7 +291,7 @@ def write_catalog_readme(output, catalog):
     for origin, count in catalog['current_translation_origins'].items():
         lines.append('| ' + origin.title() + ' | ' + format(count, ',') + ' |')
     lines += ['', 'The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. '
-              'Copied old-bank source documents remain Unknown pending owner confirmation.', '',
+              'Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.', '',
               '### Preserved source attribution history', '',
               '| Original evidence category | Source occurrences |', '| --- | ---: |']
     for origin, count in catalog['translation_origins'].items():
@@ -299,7 +302,7 @@ def write_catalog_readme(output, catalog):
               'The existing organization contains ' + str(catalog['legacy_organization']['packages']) +
               ' packages, ' + str(catalog['legacy_organization']['reading_only']) +
               ' reading-only items and ' + str(catalog['legacy_organization']['source_metadata_records']) +
-              ' source metadata records. These are preserved document-level materials, not newly inferred narration counts.', '',
+              ' source metadata records. Original documents remain preserved; their extracted quotation occurrences are indexed separately in the registered datasets above. Document counts are not added to quotation counts.', '',
               'Use `python scripts/search.py fulltext QUERY --language ja` for their existing local document search.', '']
     if catalog['private_materials_not_in_this_tree']:
         pending_count = sum(item['count'] for item in catalog['private_materials_not_in_this_tree'])
@@ -312,9 +315,9 @@ def write_catalog_readme(output, catalog):
                          ' | `' + item['edition'] + '` | ' + format(item['count'], ',') + ' |')
         lines += ['', '[Private intake organization and review status](../docs/ATTACHMENT-INTAKE.md).', '']
     lines += ['## Review state', '',
-              'The owner waived separate bank review for HadeethEnc. The reader shows this current decision '
-              'alongside preserved historical import statuses and Arabic-version alignment notes. '
-              'Owner-authorized additional sources are publicly readable with original pending-review and rights qualifications preserved. '
+              'The reader shows QC labels only for text with explicit OCR extraction evidence. '
+              'Digital source imports, native PDF text and structured quotations do not receive pending-QC badges. '
+              'Original import/review history, source-alignment notes and rights metadata remain preserved in record details. '
               '[Current review policy](review-policy.json). '
               '[Mechanical fidelity report](../reports/reading-views-validation.json).', '']
     (output / 'catalog/README.md').write_text('\n'.join(lines), encoding='utf-8')

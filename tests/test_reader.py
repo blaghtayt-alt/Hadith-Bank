@@ -13,6 +13,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
+from review_display_policy import extraction_metadata, review_badges, text_direction
 
 
 def fixture(index=1):
@@ -192,7 +193,8 @@ class ReaderTests(unittest.TestCase):
         self.assertEqual(metadata['site']['build_commit'], commit)
         self.assertIn('Download offline reader', document)
         self.assertIn('window.location.href.split("#")[0]', document)
-        self.assertIn('Published · independent review pending', document)
+        self.assertNotIn('Published · independent review pending', document)
+        self.assertEqual(metadata['review_display_policy']['scope'], 'ocr_only')
         self.assertIn('languageLabel(r.language)', document)
         self.assertIn('new Intl.DisplayNames', document)
 
@@ -220,7 +222,7 @@ process.stdout.write(JSON.stringify({
   local:recordFileURL('attachments/TEST/TEST #.pdf',site,'file:'),
   encoded:recordFileURL('%2e%2e/TEST.pdf',site,'https:'),
   invalid:input.invalid.map(path=>recordFileURL(path,site,'https:')),
-  review:input.review.map(record=>({pending:needsIndependentReview(record),published:hasPublicAuthorization(record)})),
+  review:input.review.map(record=>({pending:needsOCRReview(record),published:hasPublicAuthorization(record)})),
   language:languageLabel('sw')
 }));'''
         sample = {'site': {'repository_url': 'https://github.com/TEST/TEST', 'source_ref': 'a' * 40},
@@ -241,10 +243,160 @@ process.stdout.write(JSON.stringify({
         self.assertEqual(actual['local'], 'attachments/TEST/TEST%20%23.pdf')
         self.assertEqual(actual['encoded'], base + '%252e%252e/TEST.pdf')
         self.assertEqual(actual['invalid'], [None] * len(sample['invalid']))
-        self.assertEqual(actual['review'], [{'pending': True, 'published': True},
+        self.assertEqual(actual['review'], [{'pending': False, 'published': True},
                                              {'pending': False, 'published': False},
                                              {'pending': False, 'published': False}])
         self.assertEqual(actual['language'], 'Swahili')
+
+    def test_extraction_evidence_is_separate_from_review_and_translation_origin(self):
+        samples = [
+            {'provenance': {'ocr_used': False, 'extraction_method': 'embedded_pdf_text_pymupdf'}},
+            {'provenance': {'ocr_used': False, 'acquisition_method': 'official_digital_sqlite_export'}},
+            {'extraction': {'method': 'digital_quote_extraction', 'ocr_used': False},
+             'translation_provenance': {'origin': 'unknown'}},
+            {'provenance': {'ocr_used': True, 'extraction_method': 'tesseract_ocr'}},
+            {'extraction': {'method': 'embedded_pdf_text_with_ocr_fallback'}},
+            {'source': {'format': 'pdf'}, 'review': {'issues': ['OCR review may be needed']}},
+            {'extraction': {'method': 'native_pdf_text_without_ocr'}},
+            {'provenance': {'ocr_used': False, 'extraction_method': 'tesseract_ocr'}},
+        ]
+        before = json.loads(json.dumps(samples))
+        metadata = [extraction_metadata(record) for record in samples]
+        self.assertEqual([item['ocr_used'] for item in metadata], [False, False, False, True, True, None, False, True])
+        self.assertEqual(metadata[0]['evidence_fields'], ['provenance.ocr_used', 'provenance.extraction_method'])
+        self.assertTrue(metadata[-1]['conflicting_evidence'])
+        self.assertEqual(samples, before)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for browser-policy parity')
+    def test_ocr_only_badges_match_python_and_preserve_historical_flags(self):
+        records = []
+        for index, method, used, status in [
+            (1, 'embedded_pdf_text_pymupdf', False, 'pending'),
+            (2, 'official_digital_sqlite_export', False, 'pending'),
+            (3, 'digital_quote_extraction', False, 'pending'),
+            (4, 'tesseract_ocr', True, 'pending'),
+            (5, 'tesseract_ocr', True, 'passed'),
+            (6, None, None, 'pending'),
+        ]:
+            item = navigation_fixture(index)
+            item['extraction'] = extraction_metadata({'provenance': {'ocr_used': used, 'extraction_method': method}})
+            item['review'] = {'status': 'initial_extraction_with_review_pending',
+                              'independent_pro_qc': status, 'release_status': 'private_candidate'}
+            item['publication'] = {'visibility': 'public', 'authorized': True, 'status': 'published_pending_review'}
+            records.append(item)
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input,names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify({badges:records.map(reviewBadges),pending:records.filter(needsOCRReview).map(r=>r.id),records}));'''
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(records),
+                                text=True, capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        self.assertEqual(actual['badges'], [review_badges(record) for record in records])
+        self.assertEqual(actual['badges'][:3], [[], [], []])
+        self.assertEqual(actual['badges'][3], [{'label': 'OCR review: pending', 'pending': True}])
+        self.assertEqual(actual['pending'], ['TEST-4'])
+        self.assertEqual(actual['records'], records)
+        self.assertNotIn('Published · independent review pending', template)
+
+    def test_markdown_hides_non_ocr_qc_but_keeps_original_history(self):
+        record = navigation_fixture(1)
+        record['extraction'] = {'ocr_used': False, 'method': 'digital_quote_extraction'}
+        record['review'] = {'status': 'TEST_pending', 'independent_pro_qc': 'pending',
+                            'release_status': 'private_candidate'}
+        rendered = reader.markdown_record(record, 1)
+        normal = re.sub(r'<details>.*?</details>', '', rendered, flags=re.S)
+        self.assertNotIn('QC', normal)
+        self.assertNotIn('private_candidate', normal)
+        self.assertIn('Original import and review history', rendered)
+        self.assertIn('TEST_pending', rendered)
+        record['extraction']['ocr_used'] = True
+        self.assertIn('<strong>OCR review: pending</strong>', reader.markdown_record(record, 1))
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for record-type browser parity')
+    def test_source_classifications_distinguish_excerpts_and_companion_reports(self):
+        classifications = [
+            {'record_type': 'hadith', 'extraction': {'is_excerpt': False}},
+            {'record_type': 'hadith', 'extraction': {'is_excerpt': True}},
+            {'record_type': 'hadith_excerpt'},
+            {'record_type': 'hadith_meaning_excerpt'},
+            {'record_type': 'companion_report'},
+            {'record_type': 'companion_report_excerpt'},
+            {'content_kind': 'companion_report', 'extraction': {'is_excerpt': True}},
+            {'content_kind': 'hadith'},
+            {'record_type': 'unclassified'},
+            {'record_type': '__proto__'},
+            {},
+        ]
+        expected_labels = ['Hadith', 'Hadith excerpt', 'Hadith excerpt', 'Reported meaning',
+                           'Companion report', 'Companion report', 'Companion report',
+                           'Hadith', None, None, None]
+        before = json.loads(json.dumps(classifications))
+        actual = [reader.record_type_info(record) for record in classifications]
+        self.assertEqual([item['label'] if item else None for item in actual], expected_labels)
+        self.assertNotIn('excerpt', actual[0]['note'].lower())
+        self.assertNotIn('excerpt', actual[4]['note'].lower())
+        self.assertIn('excerpt', actual[5]['note'].lower())
+        for index, (classification, label) in enumerate(zip(classifications, expected_labels)):
+            record = navigation_fixture(index)
+            record.update(classification)
+            rendered = reader.markdown_record(record, index)
+            if label:
+                self.assertIn('<strong>' + label + '</strong>', rendered)
+            else:
+                self.assertNotIn('<strong>Hadith', rendered)
+                self.assertNotIn('<strong>Companion report', rendered)
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify(input.map(recordTypeInfo)));'''
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(classifications),
+                                text=True, capture_output=True, check=True)
+        self.assertEqual(json.loads(result.stdout), actual)
+        self.assertEqual(classifications, before)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for direction and citation browser checks')
+    def test_persian_direction_and_scoped_references_are_readable(self):
+        record = navigation_fixture(1, language='fa', book='muslim')
+        record['source_language_code'] = 'fa'
+        record['narrator'] = {'name': 'TEST narrator'}
+        record['number'] = {'in_book': 'TEST-101', 'canonical': None}
+        record['references'] = {'items': [
+            {'book_key': 'muslim', 'collection': 'Sahih Muslim', 'number': 'TEST-101',
+             'scope': 'main_quote', 'source_citation': 'TEST citation'},
+            {'book_key': 'bukhari', 'collection': 'Sahih al-Bukhari', 'number': 'TEST-202',
+             'scope': 'variant', 'source_citation': 'TEST variant citation'},
+            {'book_key': 'unclassified', 'number': None, 'scope': 'unresolved',
+             'source_citation': 'TEST unresolved citation'},
+        ]}
+        record['commentary'] = {'translation': 'TEST commentary'}
+        self.save([record]);reader.build(self.root, self.output, compress=False)
+        embedded, document = self.embedded_records()
+        self.assertEqual(embedded, [record])
+        metadata = json.loads(re.search(r'<script id="hadith-snapshot" type="application/json">(.*?)</script>',document,re.S).group(1))
+        self.assertEqual(metadata['language_names']['fa'], 'Persian')
+        rendered = reader.markdown_record(record, 1)
+        self.assertIn('<p dir="rtl">TEST</p>', rendered)
+        self.assertIn('<p dir="rtl">TEST commentary</p>', rendered)
+        self.assertIn('Narrator:</strong> TEST narrator', rendered)
+        self.assertIn('Sahih Muslim · TEST-101', rendered)
+        self.assertIn('Reference to a variant', rendered)
+        self.assertIn('Reference not fully resolved', rendered)
+        helpers = document.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify({directions:input.languages.map(x=>textDirection(x)),references:input.references.map(citationData)}));'''
+        languages=['fa','fa-IR','ur','ar','ja','vi']
+        result = subprocess.run([shutil.which('node'), '-e', program],
+                                input=json.dumps({'languages':languages,'references':record['references']['items']}),
+                                text=True,capture_output=True,check=True)
+        actual=json.loads(result.stdout)
+        self.assertEqual(actual['directions'],[text_direction(language) for language in languages])
+        self.assertEqual(actual['directions'],['rtl','rtl','rtl','rtl','auto','auto'])
+        self.assertEqual(actual['references'][0]['label'],'Sahih Muslim · TEST-101')
+        self.assertEqual(actual['references'][1]['scope'],'Reference to a variant')
+        self.assertEqual(actual['references'][2]['label'],'Collection not established · number not established')
 
     @unittest.skipUnless(shutil.which('node'), 'Node is optional; required for reader JavaScript regression checks')
     def test_language_scoped_materials_reset_only_incompatible_filters(self):

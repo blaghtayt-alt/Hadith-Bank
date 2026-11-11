@@ -8,7 +8,7 @@
 
 [All languages and current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Offline HTML](https://blaghtayt-alt.github.io/Hadith-Bank/hadith-bank-reader.html) · [Add material](docs/ADDING-MATERIAL.md)
 
-The website searches the narration texts in this repository, with language, collection, source-edition and translation-origin filters. It includes the Japanese Sahih Muslim volume-one and Vietnamese PDF-derived texts, alongside the existing HadeethEnc sources. New languages appear automatically when their registered material passes the build checks.
+The website searches the narration texts in this repository, with language, collection, source-edition and translation-origin filters. It includes HadeethEnc, Japanese Sahih Muslim volume one, Vietnamese PDF-derived texts, and individual quotations extracted from the old banks and Qur’an-study materials. Persian is included alongside Japanese, Filipino, Vietnamese, Chinese, Uzbek and Hindi. New languages appear automatically when their registered material passes the build checks.
 
 This is a standalone bank. Canonical JSON/JSONL records, original source files, source locators, review history, catalogs and search tools are kept here. Source links provide attribution; the reader's search data is embedded in its HTML and does not depend on Iman Companion or an external Hadith API.
 
@@ -16,21 +16,29 @@ This is a standalone bank. Canonical JSON/JSONL records, original source files, 
 
 ## Included source collections
 
-The following source occurrences were included in the 11 November 2026 publication. The [generated catalog](catalog/materials.json) and website show the current totals after later additions.
+The following imports form the original structured collection. The [generated catalog](catalog/materials.json) and website include the additional old-bank and Qur’an-book quotation extractions described below and show the complete current totals.
 
 | Source collection | Occurrences in this publication | Source and review information |
 | --- | ---: | --- |
 | HadeethEnc — Japanese, Filipino, Vietnamese, Chinese, Uzbek and Hindi snapshots | 8,423 | Original source bytes and Arabic-version flags retained; separate bank review waived by the owner. |
-| Japanese Sahih Muslim, supplied volume-one PDF | 1,811 | Full supplied text, variants and shortened references retained; independent source QC remains pending. |
-| Vietnamese Sahih al-Bukhari booklets | 767 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
-| Vietnamese Sahih Muslim booklets | 971 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
-| Vietnamese Sunan Abi Dawud booklets | 1,316 | Full supplied text and source-specific provenance retained; independent source QC remains pending. |
-| Vietnamese 200 Golden Hadith | 200 | Source omissions and qualifications retained; independent source QC remains pending. |
-| **Total** | **13,488** | **Source occurrences, not a count of unique canonical Hadiths.** |
+| Japanese Sahih Muslim, supplied volume-one PDF | 1,811 | Native PDF text; original text, variants and shortened references retained. |
+| Vietnamese Sahih al-Bukhari booklets | 767 | Native PDF text; full supplied text and source-specific provenance retained. |
+| Vietnamese Sahih Muslim booklets | 971 | Native PDF text; full supplied text and source-specific provenance retained. |
+| Vietnamese Sunan Abi Dawud booklets | 1,316 | Native PDF text; full supplied text and source-specific provenance retained. |
+| Vietnamese 200 Golden Hadith | 200 | Native PDF text; source omissions and qualifications retained. |
+| **Original structured imports** | **13,488** | **Source occurrences; additional extracted quotations are included in the current catalog.** |
 
 Different narrations, chains, translations, repeated source occurrences and editions remain distinct. The Japanese Muslim source includes 191 shortened route/reference occurrences. Missing original Arabic remains null; raw PDF Arabic and its extraction issues are retained separately where supplied. Public availability does not mean that transcription, translation, Arabic alignment or scholarly grading has been independently certified.
 
-Language shortcuts: [Japanese](browse/ja/README.md) · [Filipino](browse/fil/README.md) · [Vietnamese](browse/vi/README.md) · [Chinese](browse/zh-CN/README.md) · [Uzbek](browse/uz/README.md) · [Hindi](browse/hi/README.md). The [all-language index](browse/README.md) is regenerated as languages are added.
+### Individual quotations from the old bank and Qur’an books
+
+The earlier Japanese count of **281** counted the Japanese HadeethEnc snapshot. It did not count the quotations embedded in the older lessons and articles. Those documents did contain hadiths. Their explicitly bounded quotations now have individual records, organized by the cited collection and number when the source provides them. The original articles remain available as evidence.
+
+The same extraction covers the selected old-bank and Qur’an-study sources in all seven bank languages. Quotations, reported meanings and Companion reports are labeled separately. Qur’an verses, explanations, proverbs and historical remarks are excluded from hadith quotation counts. Missing collection numbers remain unknown; source references are not silently converted into verified canonical numbering. Old-bank translation origin remains **Unknown**, including Japanese and Persian, until the owner confirms it.
+
+[Extraction scope, evidence and validation](docs/LEGACY-EXTRACTION.md) explains the source snapshot, quotation boundaries, mirror handling and remaining source limitations. Counts represent source occurrences, including partial quotations and repeated appearances in different lessons; they are not unique canonical Hadith totals.
+
+Language shortcuts: [Japanese](browse/ja/README.md) · [Filipino](browse/fil/README.md) · [Vietnamese](browse/vi/README.md) · [Chinese](browse/zh-CN/README.md) · [Uzbek](browse/uz/README.md) · [Hindi](browse/hi/README.md) · [Persian](browse/fa/README.md). The [all-language index](browse/README.md) is regenerated as languages are added.
 
 ## Add material and let the HTML update
 
@@ -88,4 +96,4 @@ The reader uses three translation-origin labels: **Human**, **AI** and **Unknown
 
 HadeethEnc's human-translation workflow, the owner review decision and source-version alignment notes remain documented in [translation-origin evidence](catalog/translation-origins.json) and [current review policy](docs/CURRENT-REVIEW-POLICY.md).
 
-The Japanese and Vietnamese PDF intakes are public under the owner's explicit instruction. Their original `private_candidate` fields are preserved as import history; independent QC remains pending, and rights/Arabic/source exceptions remain visible. The publication decision is separate from evidence of review or licensing. See [the intake guide](docs/ADDITIONAL-INTAKES.md), [review and rights requirements](docs/REVIEW-AND-RIGHTS.md) and [contributor requirements](AGENTS.md).
+**QC labels apply to OCR materials only.** The website imports, native PDF text and structured quotation extractions do not receive the four generic pending-QC/import-history badges. Original review history stays available in record details; source-alignment and missing-attribution information remain visible. This display rule does not claim that a new independent review occurred. See [current review policy](docs/CURRENT-REVIEW-POLICY.md), [the intake guide](docs/ADDITIONAL-INTAKES.md) and [contributor requirements](AGENTS.md).

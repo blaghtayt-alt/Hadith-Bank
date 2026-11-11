@@ -20,10 +20,13 @@ import re
 import sys
 from urllib.parse import urlsplit
 
+from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
+
 
 PAGE_SIZE = 25
 LANGUAGE_NAMES = {
-    'ar': 'Arabic', 'bn': 'Bengali', 'fil': 'Filipino', 'hi': 'Hindi',
+    'ar': 'Arabic', 'bn': 'Bengali', 'fa': 'Persian', 'fa-IR': 'Persian',
+    'fil': 'Filipino', 'hi': 'Hindi',
     'ja': 'Japanese', 'pt': 'Portuguese', 'ur': 'Urdu', 'uz': 'Uzbek',
     'vi': 'Vietnamese', 'zh': 'Chinese', 'zh-CN': 'Chinese (Simplified)',
 }
@@ -203,10 +206,10 @@ def number_label(record):
     number = record.get('number') or {}
     items = []
     if isinstance(number, dict) and number.get('in_book') is not None:
-        items.append('Book number ' + text(number['in_book']))
+        items.append('Number in collection ' + text(number['in_book']))
     if record.get('provider_entry_id') is not None:
         items.append('Source entry ' + text(record['provider_entry_id']))
-    return ' · '.join(items) or 'Book number not supplied'
+    return ' · '.join(items) or 'Collection number not supplied'
 
 
 def page_label(record):
@@ -245,6 +248,22 @@ def prose(value, direction='auto'):
     return '<p dir="' + direction + '">' + escaped(value).replace('\n', '<br>\n') + '</p>'
 
 
+def citation_parts(item):
+    if not isinstance(item, dict) or not any(item.get(k) for k in ('book_key', 'collection', 'source_citation')):
+        return ['<pre>' + escaped(json.dumps(item, ensure_ascii=False, indent=2)) + '</pre>', '']
+    collection = next((item[k] for k in ('collection', 'book_key')
+                       if isinstance(item.get(k), str) and item[k]), 'Collection not established')
+    number = item.get('number')
+    number = str(number) if type(number) in (str, int, float) else 'number not established'
+    scope = {'main_quote': 'Citation for this quotation', 'variant': 'Reference to a variant',
+             'commentary': 'Reference in commentary', 'unresolved': 'Reference not fully resolved'}.get(
+                 item.get('scope'), text(item.get('scope')) or 'Citation scope not supplied')
+    result = ['<p><strong>' + escaped(collection) + ' · ' + escaped(number) + '</strong><br>' + escaped(scope) + '</p>', '']
+    if isinstance(item.get('source_citation'), str) and item['source_citation']:
+        result += [prose(item['source_citation']), '']
+    return result
+
+
 def source_link(relative, bank_root, page_directory):
     if not relative:
         return 'Not supplied'
@@ -257,19 +276,43 @@ def source_link(relative, bank_root, page_directory):
     return '<code>' + label + '</code>'
 
 
+def record_type_info(record):
+    """Display an explicit source classification without inferring completeness."""
+    kind = record.get('record_type') or record.get('content_kind')
+    if not isinstance(kind, str):
+        return None
+    if (record.get('extraction') or {}).get('is_excerpt') is True:
+        kind = {'hadith': 'hadith_excerpt', 'companion_report': 'companion_report_excerpt'}.get(kind, kind)
+    kinds = {
+        'hadith': ('Hadith', 'A narration preserved from the source.'),
+        'hadith_excerpt': ('Hadith excerpt', 'A quotation preserved from the source; it may contain only part of the narration.'),
+        'hadith_meaning_excerpt': ('Reported meaning', 'The source presents this passage as the meaning of a hadith.'),
+        'companion_report': ('Companion report', 'Words or a report attributed to a Companion in the source.'),
+        'companion_report_excerpt': ('Companion report', 'An excerpt of words or a report attributed to a Companion in the source.'),
+    }
+    if kind not in kinds:
+        return None
+    label, note = kinds[kind]
+    return {'label': label, 'note': note}
+
+
 def markdown_record(record, index, bank_root=None, page_directory=None):
+    from current_provenance import classification
     source = record['source']
     provenance = record['translation_provenance']
     translator = record['translator']
     lines = ['## Narration ' + str(index), '']
     if record.get('title'):
-        lines += ['<p><strong>' + escaped(record['title']) + '</strong></p>', '']
+        lines += ['<p dir="' + text_direction(record.get('language')) + '"><strong>' + escaped(record['title']) + '</strong></p>', '']
+    kind = record_type_info(record)
+    if kind:
+        lines += ['<p><strong>' + escaped(kind['label']) + '</strong> · ' + escaped(kind['note']) + '</p>', '']
     primary = record.get('text_translation')
     primary_arabic = not primary and bool(record.get('text_arabic'))
     if primary_arabic:
         primary = record['text_arabic']
     if primary is not None:
-        lines += [prose(primary, 'rtl' if primary_arabic else 'auto'), '']
+        lines += [prose(primary, text_direction(record.get('language'), primary_arabic)), '']
     else:
         lines += ['Text not supplied in this projection.', '']
     if record.get('text_arabic') and not primary_arabic:
@@ -281,7 +324,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
     source_display = ('<a href="' + escaped(url) + '">' + escaped(source_name) + '</a>'
                       if url else escaped(source_name) + ' — source URL not supplied')
     translator_name = text(translator.get('name')) or 'Not named in the supplied source'
-    label = provenance.get('label') or provenance.get('origin') or 'Not supplied'
+    label = {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[classification(record)]
     lines += [
         '<p><strong>Source:</strong> ' + source_display + '<br>',
         '<strong>Collection:</strong> ' + escaped(record['book_key']) +
@@ -289,11 +332,14 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
         '<strong>Number:</strong> ' + escaped(number_label(record)) + '<br>',
         '<strong>Page:</strong> ' + escaped(page_label(record)) + '<br>',
         '<strong>Translator:</strong> ' + escaped(translator_name) + '<br>',
-        '<strong>Translation origin:</strong> ' + escaped(label) +
-        ('<br><strong>AI translation flag:</strong> ' + escaped(provenance['ai_translation'])
-         if 'ai_translation' in provenance else '') +
-        ('<br>' + escaped(provenance['scope_note']) if provenance.get('scope_note') else '') + '</p>', '',
+        '<strong>Narrator:</strong> ' + escaped(text((record.get('narrator') or {}).get('name')) or 'Not named in the supplied source') + '<br>',
+        '<strong>Translation origin:</strong> ' + escaped(label) + '</p>', '',
     ]
+    lines += ['<details><summary>Source translation-origin history</summary>', '',
+              prose('Preserved source label: ' + text(provenance.get('label') or provenance.get('origin'))),
+              prose('Preserved source AI-translation flag: ' + text(provenance.get('ai_translation'))),
+              prose(provenance.get('scope_note') or 'No additional source-origin note supplied.'),
+              '', '</details>', '']
     if record.get('source_headings'):
         lines += ['<p><strong>Source headings:</strong> ' + escaped(record['source_headings']) + '</p>', '']
     review = record.get('review') or {}
@@ -301,21 +347,21 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
     review_fields = ['Historical import status: ' + text(review.get('status')),
                      'Historical independent Pro QC: ' + text(review.get('independent_pro_qc')),
                      'Release: ' + text(review.get('release_status'))]
-    if current.get('separate_bank_review_required') is False:
-        lines += ['<p><strong>Bank review:</strong> ' + escaped(current['label']) + '</p>', '',
-                  '<details><summary>Import history and source-alignment notes</summary>', '',
-                  '<p>' + escaped(' · '.join(review_fields)) + '</p>', '',
-                  prose('\n'.join(text(issue) for issue in review.get('issues', [])) or 'No source-alignment issues listed.'),
-                  '', '</details>', '']
-    else:
-        lines += ['<p>' + escaped(' · '.join(review_fields)) + '</p>', '']
+    for badge in review_badges(record):
+        lines += ['<p><strong>' + escaped(badge['label']) + '</strong></p>', '']
+    if current.get('label'):
+        review_fields.append('Recorded owner decision: ' + text(current['label']))
+    lines += ['<details><summary>Original import and review history</summary>', '',
+              '<p>' + escaped(' · '.join(review_fields)) + '</p>', '',
+              prose('\n'.join(text(issue) for issue in review.get('issues', [])) or 'No source-alignment issues listed.'),
+              '', '</details>', '']
     commentary = record.get('commentary') or {}
     footnotes = record.get('footnotes') or []
     if any(commentary.values()) or footnotes:
         lines += ['<details>', '<summary>Commentary and footnotes</summary>', '']
         for language in ('translation', 'arabic'):
             if commentary.get(language):
-                lines += [prose(commentary[language], 'rtl' if language == 'arabic' else 'auto'), '']
+                lines += [prose(commentary[language], text_direction(record.get('language'), language == 'arabic')), '']
         for note in footnotes:
             if isinstance(note, str):
                 lines += [prose(note), '']
@@ -329,7 +375,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
             value = benefits.get(language)
             for item in value if isinstance(value, list) else [value]:
                 if isinstance(item, str):
-                    lines += [prose(item, 'rtl' if language == 'arabic' else 'auto'), '']
+                    lines += [prose(item, text_direction(record.get('language'), language == 'arabic')), '']
                 elif item is not None:
                     lines += ['<pre>' + escaped(json.dumps(item, ensure_ascii=False, indent=2)) + '</pre>', '']
         if benefits.get('scope'):
@@ -347,8 +393,12 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
             if isinstance(value, str) and value:
                 reference_parts += ['<p><strong>' + escaped(labels.get(key, key.replace('_', ' '))) + '</strong></p>',
                                     prose(value), '']
-            elif key == 'items' and value:
-                reference_parts += ['<pre>' + escaped(json.dumps(value, ensure_ascii=False, separators=(',', ':'))) + '</pre>', '']
+            elif key == 'items' and isinstance(value, list):
+                for item in value:
+                    reference_parts += citation_parts(item)
+            elif isinstance(value, (dict, list)) and value:
+                reference_parts += ['<p><strong>' + escaped(labels.get(key, key.replace('_', ' '))) + '</strong></p>',
+                                    '<pre>' + escaped(json.dumps(value, ensure_ascii=False, indent=2)) + '</pre>', '']
         if reference_parts:
             lines += ['<details>', '<summary>References</summary>', '', *reference_parts, '</details>', '']
     narrator = record.get('narrator')
@@ -486,7 +536,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
         '# Hadith Bank — readable records', '',
         str(len(records)) + ' source occurrences, organized by language, book and source edition.', '',
         'Open a language, then a book and edition. Every page shows up to 25 narrations with their source, '
-        'translator, translation origin and review status. Arabic, commentary and audit details are expandable. '
+        'translator, translation origin and OCR review where applicable. Arabic, commentary and audit details are expandable. '
         'Repeated narrations and source versions are retained.', '',
         *['- [' + LANGUAGE_NAMES.get(language, language) + '](' + language + '/README.md) — ' +
           str(sum(count for _, _, count in entries)) + ' source occurrences'
@@ -534,6 +584,18 @@ def site_metadata(catalog, override=None):
     return site
 
 
+def review_display_metadata(root):
+    """Expose the current display decision separately from source review history."""
+    path = local(root, 'catalog/review-policy.json')
+    if not path.exists():
+        return dict(DEFAULT_DISPLAY_POLICY)
+    policy = parse_json(path.read_text(encoding='utf-8'))
+    display = policy.get('reader_display', DEFAULT_DISPLAY_POLICY)
+    if not isinstance(display, dict) or display.get('scope') != 'ocr_only':
+        raise ValueError('Reader review policy must declare scope ocr_only')
+    return display
+
+
 def build(root, output, markdown_output=None, compress=True, site=None):
     root = Path(root).resolve()
     output = Path(output).absolute()
@@ -548,6 +610,7 @@ def build(root, output, markdown_output=None, compress=True, site=None):
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
                 'materials': catalog.get('materials', []), 'language_names': LANGUAGE_NAMES,
                 'site': site_metadata(catalog, site),
+                'review_display_policy': review_display_metadata(root),
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if compress:

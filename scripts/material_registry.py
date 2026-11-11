@@ -14,6 +14,7 @@ import re
 from build_reader import local, parse_json, valid_hash, validate_record
 from build_bank_views import SCHEMA, canonical, digest_file
 from current_provenance import apply_material_policy, apply_policy, load_policy
+from review_display_policy import extraction_metadata
 
 
 SCHEMA_NAME = 'hadith-bank-material-v1'
@@ -78,8 +79,15 @@ def normalized_projection(row, material, position):
             'Record text must be a string or null: ' + row['id'])
     for key, expected in (('language', material['language']), ('book_key', material['book_key']), ('edition', material['edition'])):
         require(key not in row or row[key] == expected, 'Record/material identity mismatch: ' + key)
-    for key in ('source', 'translator', 'narrator', 'number', 'page', 'review', 'commentary', 'references', 'grading', 'rights'):
+    for key in ('source', 'translator', 'narrator', 'number', 'page', 'review', 'commentary', 'references', 'grading', 'rights', 'extraction'):
         require(key not in row or isinstance(row[key], dict), 'Record ' + key + ' must be an object')
+    extraction = row.get('extraction', {})
+    require(extraction.get('ocr_used') is None or type(extraction.get('ocr_used')) is bool,
+            'extraction.ocr_used must be true, false, or null')
+    require(extraction.get('method') is None or isinstance(extraction.get('method'), str),
+            'extraction.method must be text or null')
+    require(extraction.get('is_excerpt') is None or type(extraction.get('is_excerpt')) is bool,
+            'extraction.is_excerpt must be true, false, or null')
     for key in ('footnotes', 'topic_tags', 'source_headings', 'related_versions'):
         require(key not in row or isinstance(row[key], list), 'Record ' + key + ' must be an array')
     ai = row.get('ai_translation', 'unknown')
@@ -94,6 +102,14 @@ def normalized_projection(row, material, position):
     require(origin.get('ai_translation', ai) == ai, 'Conflicting AI translation flags')
     origin.setdefault('ai_translation', ai)
     origin.setdefault('origin', 'unknown')
+    origin.setdefault('label', 'Unknown' if origin['origin'] in ('unknown', 'legacy_source_history') else 'Source attribution supplied')
+    origin.setdefault('basis', (origin.get('current_policy') or {}).get('basis', 'Original source attribution metadata; no additional evidence inferred'))
+    origin.setdefault('human_involvement', 'not_established')
+    origin.setdefault('evidence_ids', [])
+    origin.setdefault('scope_note', 'Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.')
+    # A standalone registered material need not have a bank policy file. Source
+    # paths stay explicit; a bank decision carries its own current_policy path.
+    origin.setdefault('policy_path', None)
     review = copy.deepcopy(row.get('review', {}))
     review.setdefault('status', 'source_review_pending')
     review.setdefault('issues', [])
@@ -130,6 +146,8 @@ def normalized_projection(row, material, position):
         'number': copy.deepcopy(row.get('number', {'source_entry_id': None, 'in_book': None, 'canonical': None})),
         'narrator': copy.deepcopy(row.get('narrator', {'name': None})), 'source': source,
         'translator': translator, 'translation_provenance': origin,
+        'extraction': {**extraction_metadata(row),
+                       **({'is_excerpt': extraction['is_excerpt']} if type(extraction.get('is_excerpt')) is bool else {})},
         'topic_tags': copy.deepcopy(row.get('topic_tags', [])), 'editorial_tags': copy.deepcopy(tags),
         'source_headings': copy.deepcopy(row.get('source_headings', [])), 'review': review,
         'commentary': copy.deepcopy(row.get('commentary', {'arabic': None, 'translation': None})),
@@ -158,7 +176,9 @@ def project_for_material(row, material, position):
                   'source_id': material['dataset_id'],
                   'records_path': str(PurePosixPath(material['canonical_records_path']).relative_to(prefix)),
                   'source_metadata_path': str(PurePosixPath(material['source_metadata_path']).relative_to(prefix))}
-    return apply_material_policy(with_publication(project(row, collection, position, prefix), material['publication']), material)
+    projected = project(row, collection, position, prefix)
+    projected['extraction'] = extraction_metadata(row)
+    return apply_material_policy(with_publication(projected, material['publication']), material)
 
 
 def load_public_materials(root, validate_attachment_roots=True):

@@ -3,12 +3,12 @@
 ## Choose an entry point
 
 - **[Live reader](https://blaghtayt-alt.github.io/Hadith-Bank/):** select a language to see its available collections, source editions and copied-bank documents. Search, narrow the translation origin, and read the full indexed source text.
-- **[Readable pages](../browse/README.md):** translations and Arabic in normal paragraphs, with source, translator/process label, page/row locator, review state and optional audit details. The [Japanese public collection](../browse/ja/README.md) has 2,092 source occurrences: 281 HadeethEnc entries and 1,811 Japanese Sahih Muslim volume-one entries.
-- **[Materials catalog](../catalog/README.md):** all 52 public datasets and 83 preserved legacy source documents. The two authorized Japanese and Vietnamese PDF intake packages include their full structured texts and original files. Legacy documents are counted separately from indexed source occurrences.
+- **[Readable pages](../browse/README.md):** translations and Arabic in normal paragraphs, with source, translator/process label, page/row locator and optional audit details. The [Japanese public collection](../browse/ja/README.md) includes HadeethEnc, Sahih Muslim volume one, and the newly extracted old-bank/Qur’an-book quotations.
+- **[Materials catalog](../catalog/README.md):** all registered datasets and 83 preserved legacy source documents. Original lessons remain available alongside their individually indexed quotation records. Document totals are counted separately from quotation occurrences.
 - **Offline HTML:** download [hadith-bank-reader.html](../hadith-bank-reader.html), then open it locally. Rebuild all current views with `python scripts/refresh_bank.py --root . --site-output _site`. Search/filtering and JSON export work without a server or network. A downloaded HTML is a snapshot; download it again to receive later additions. The compressed edition needs a browser with the built-in `DecompressionStream` API; add `--uncompressed` when using `scripts/build_reader.py` for an older browser.
 - **Python search:** `python scripts/hadith_search.py '行い' --language ja --limit 5`. It prints readable results by default; `--json` returns structured JSON.
 
-The public repository contains **13,488 source occurrences in six languages across 52 datasets**: 8,423 HadeethEnc entries, 1,811 Japanese Sahih Muslim volume-one entries, and 3,254 Vietnamese entries. Japanese has 2,092 public entries and Vietnamese has 4,457. A repeated provider ID across languages or snapshots remains a separate record. These totals do not count unique canonical Hadith.
+The original structured publication contained **13,488 source occurrences**: 8,423 HadeethEnc entries, 1,811 Japanese Sahih Muslim volume-one entries, and 3,254 Vietnamese entries. The current bank adds bounded quotation records from the older banks and Qur’an-study sources, and includes **Persian** as a seventh language. See the [generated language index](../browse/README.md) for current totals and the [extraction report guide](LEGACY-EXTRACTION.md) for the additional scope. These totals count source occurrences, including partial quotations and distinct appearances in lessons; they do not count unique canonical Hadith.
 
 The earlier, separately held combined package contains **45,788 occurrences in nine languages**, including another 32,300-record intake. That historical package has a different scope; the additional 32,300 records are not included in this public release. See [additional intakes](ADDITIONAL-INTAKES.md) for the current publication status and exact package paths.
 
@@ -18,7 +18,7 @@ The earlier, separately held combined package contains **45,788 occurrences in n
 | --- | --- | --- |
 | Canonical source records | `languages/<language>/books/<book>/editions/<edition>/records.jsonl` | Full source wording, evidence and audit fields; unchanged by view generation. |
 | Registered public intake records | `attachments/attachments-ja-muslim-c859ce57c211ea1b/` and `attachments/attachments-vi-920394517894aea9/` | Original Japanese and Vietnamese intake packages, including full structured records, source files and extraction evidence; authorized through `materials/*/manifest.json`. |
-| Future registered records | `materials/<material-slug>/` | Original source files, structured JSON/JSONL and an explicit material manifest; the refresh command discovers all accepted manifests. |
+| Registered records and extracted quotations | `materials/<material-slug>/` | Original source files or exact source bundles, structured JSON/JSONL and an explicit material manifest; the refresh command discovers all accepted manifests. |
 | Simplified search records | `search/<language>/<book>/<edition>/part-*.jsonl` | One flat record per source occurrence, in small ordered shards. |
 | Optional whole projection | `search/records.jsonl` | Exact ordered concatenation of the shards; included in generated packages and reproducible locally. |
 | Material inventory | `catalog/materials.json` | Counts, source/canonical-file checksums, availability, translation-origin evidence and search-shard manifest. |
@@ -46,6 +46,8 @@ The [search schema](../schemas/search.record.schema.json) defines the projection
 | `topic_tags`, `source_headings`, `editorial_tags` | Publisher topics, supplied book headings and bank workflow labels kept in separate fields. |
 | `commentary`, `benefits`, `footnotes`, `references` | Supplementary material kept outside narration text. |
 | `review` | Existing review state and issues; a readable view never promotes a source to QC-passed status. |
+| `extraction` | Evidence of digital text or OCR extraction. Only evidenced OCR produces normal QC labels. |
+| `record_type` | Where applicable, distinguishes a Hadith excerpt, a source-reported meaning, and a Companion report. |
 
 The view removes duplicate citation-line objects while retaining the complete bibliography; generation verifies their exact concatenation. Source-encoded benefits are decoded for display. All full original fields remain in the canonical records. No translation, paraphrase, narrator name, grade or missing Arabic was generated.
 
@@ -67,7 +69,7 @@ Normal search includes source references, translator and publisher metadata, nar
 
 The SQLite cache uses FTS5 trigram when available and a literal substring fallback. Every invocation verifies the input aggregate checksum/count, and resolved original source files are checked against their supplied SHA-256. The cache is an accelerator, never the authoritative text. It can be deleted and rebuilt.
 
-Legacy lessons, source envelopes and readings are separately cataloged because they have not all been segmented into narration records. Their existing offline search remains available:
+The old lesson/article documents remain separately cataloged as source evidence. Their extracted quotations are searchable in the unified reader by collection, number and text. Whole-document search remains useful for the surrounding explanations and other material that is intentionally not indexed as a Hadith quotation:
 
 ```bash
 python scripts/search.py fulltext '2654' --language hi
@@ -79,7 +81,7 @@ Some preserved historical source documents contain old relative links. [The lega
 
 ## Translation labels and sources
 
-The reader's current origin filter uses **Human**, **AI** and **Unknown**. Under the [owner-confirmed policy](../catalog/provenance-policy.json), all 13,488 currently indexed records are Human. The 83 preserved old-bank documents, including Japanese copies, remain Unknown and have separate document counts and links. Unknown does not mean AI. These labels do not certify independent linguistic or scholarly review.
+The reader's current origin filter uses **Human**, **AI** and **Unknown**. Under the [owner-confirmed policy](../catalog/provenance-policy.json), the original 13,488 HadeethEnc and website-sourced PDF records are Human. Copied old-bank documents and the new old-bank/Qur’an-book quotation records remain Unknown pending owner confirmation. Unknown does not mean AI. These labels do not certify independent linguistic or scholarly review.
 
 The policy overlay is separate from the original source fields. Existing `ai_translation` values, evidence and historical origin descriptions are preserved, including an original `"unknown"` flag on a record whose current owner-confirmed display category is Human. The historical evidence categories are:
 
@@ -117,8 +119,8 @@ python scripts/build_reader.py --root /path/to/private-combined-bank --output /p
 
 The combined package keeps the original attachment intake under `attachments/attachments-b53d154fa3622b95/`. Later intakes occupy separate roots under `attachments/` and use the additive intake adapter described in [ADDITIONAL-INTAKES.md](ADDITIONAL-INTAKES.md). Language/book/edition catalogs and reading views cover every included source family. Public/private availability, source snapshots and all review flags remain explicit.
 
-Integration checks compare exact text/IDs and source hashes. They do not replace independent linguistic or scholarly review. The existing pending QC status and Arabic-alignment exceptions continue to apply.
+Integration checks compare exact text/IDs and source hashes. Extraction checks also reproduce the original quotation slices and their reference evidence. They do not replace independent linguistic or scholarly review. Original review history and Arabic-alignment exceptions remain preserved; normal QC labels are limited to evidenced OCR extraction.
 
 ## Current HadeethEnc decision
 
-The owner waived separate bank review for HadeethEnc. The reader and commands show this current decision separately from the unchanged historical import fields and Arabic alignment notes. See the [current policy](CURRENT-REVIEW-POLICY.md). Other materials retain their existing source-specific qualifications.
+The owner waived separate bank review for HadeethEnc and requested OCR-only QC labels in the reader. Historical import fields and Arabic alignment notes remain preserved. See the [current policy](CURRENT-REVIEW-POLICY.md).

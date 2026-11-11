@@ -23,7 +23,7 @@
   },
   "other_materials": {
     "existing_review_and_publication_status_preserved": true,
-    "note": "Apart from the exact PDF-intake visibility decision above, existing source-specific review and publication qualifications are unchanged. Future explicit publication manifests are separate visibility decisions, not QC certifications."
+    "note": "Source-specific history is preserved. Authorized PDF and quotation-extraction publication manifests record public visibility, not a new independent review. The current reader display policy limits QC labels to evidenced OCR."
   },
   "pdf_intakes": {
     "decision": "owner_authorized_public_pending_review",
@@ -39,5 +39,20 @@
     "historical_review_status_preserved": true,
     "rights_assessment_unchanged": true,
     "note": "Owner-approved public access is recorded separately from original private-candidate history. No source fidelity, Arabic repair, translation accuracy, or reuse license is newly certified."
+  },
+  "reader_display": {
+    "scope": "ocr_only",
+    "decision": "owner_requested_qc_tags_for_ocr_only",
+    "decision_date_japan": "2026-11-11",
+    "decision_source": "explicit_owner_instruction",
+    "normal_cards": {
+      "show_qc_for_evidenced_ocr": true,
+      "show_qc_for_native_pdf_or_digital_imports": false,
+      "show_historical_import_status_badges": false
+    },
+    "ocr_classification_basis": "Explicit ocr_used flags and structured extraction-method evidence; a PDF file type or translation origin is not OCR evidence.",
+    "historical_review_metadata_preserved": true,
+    "independent_qc_performed": false,
+    "note": "The reader shows QC labels only for OCR-derived text. Outsourced website text, native PDF text and exact digital quotation extraction do not receive generic pending-QC badges. Original source review, publication and rights fields remain preserved in record details."
   }
 }

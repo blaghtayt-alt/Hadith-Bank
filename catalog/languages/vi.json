@@ -3,7 +3,7 @@
   "language": "vi",
   "name": "Vietnamese",
   "scope": "public_source_snapshots",
-  "record_count": 4457,
+  "record_count": 4555,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -49,6 +49,854 @@
         "historical_status_preserved": true,
         "arabic_alignment_flags_retained": true,
         "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-abu-dawud",
+      "language": "vi",
+      "book_key": "abu-dawud",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-abu-dawud/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-abu-dawud/records.json",
+      "canonical_records_sha256": "9ba4cbfb4a242e978cd83392ff82408e6346c2f55a481ba17e8261292dcf996e",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-abu-dawud/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Sunan Abi Dawud",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-abu-dawud/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-abu-dawud/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Sunan Abi Dawud",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-bukhari",
+      "language": "vi",
+      "book_key": "bukhari",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 21,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-bukhari/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-bukhari/records.json",
+      "canonical_records_sha256": "2e5100476603aa167d7d6b98f63161e629f076d5827697814abd04be26864117",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-bukhari/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Sahih al-Bukhari",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-bukhari/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-bukhari/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Sahih al-Bukhari",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-ibn-hibban",
+      "language": "vi",
+      "book_key": "ibn-hibban",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-ibn-hibban/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-ibn-hibban/records.json",
+      "canonical_records_sha256": "c60029744ee0a798f35ae32fd0394920807359335b0a686ba97c8c225e7ac097",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-ibn-hibban/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Sahih Ibn Hibban",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-ibn-hibban/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-ibn-hibban/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Sahih Ibn Hibban",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-muslim",
+      "language": "vi",
+      "book_key": "muslim",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 24,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-muslim/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-muslim/records.json",
+      "canonical_records_sha256": "78cc71e8fd5872f463331756aa053fe76b7b2f23de66cfb6913a74142056f9a0",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-muslim/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Sahih Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Sahih Muslim",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-tabarani",
+      "language": "vi",
+      "book_key": "tabarani",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-tabarani/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-tabarani/records.json",
+      "canonical_records_sha256": "f8a8ea2c4dc77970c8ae988d14de04bd44c357fb5420bed3c6b2bed5f6ada436",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-tabarani/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Al-Tabarani",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-tabarani/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-tabarani/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Al-Tabarani",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-tirmidhi",
+      "language": "vi",
+      "book_key": "tirmidhi",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 5,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-tirmidhi/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-tirmidhi/records.json",
+      "canonical_records_sha256": "3cefa6d6e613f075672621a04749683f14fb2261d15078237c50fe30dda15f89",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-tirmidhi/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Jami al-Tirmidhi",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-tirmidhi/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-tirmidhi/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Jami al-Tirmidhi",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": true,
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [
+          {
+            "pointer": "/original_article_provenance/independentFinal/MAIN",
+            "value": "Actual different gpt-6.1-sol high657 on672"
+          },
+          {
+            "pointer": "/original_article_provenance/independentFinal/reviewer",
+            "value": "Actual gpt-6.1-sol high565 on674"
+          }
+        ],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-vi-unclassified",
+      "language": "vi",
+      "book_key": "unclassified",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 4,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-vi-unclassified/source-bundle.json",
+      "source_sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+      "canonical_records_path": "materials/legacy-vi-unclassified/records.json",
+      "canonical_records_sha256": "4b2941e7b0c07acafeda62f3ed619a63702510a5a51911b86265ebd932645272",
+      "source_descriptor": {
+        "path": "materials/legacy-vi-unclassified/source-bundle.json",
+        "sha256": "147baf56b68479bf5a535af955f572fbffde8a34f02211e83534ce6f99492d26",
+        "name": "Older Hadith Bank — vi — Unclassified source citations",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-vi-unclassified/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-vi-unclassified/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — vi — Unclassified source citations",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-abu-dawud",
+      "language": "vi",
+      "book_key": "abu-dawud",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-abu-dawud/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-abu-dawud/records.json",
+      "canonical_records_sha256": "32fd475202079d93cdfceff8dfd4bd7d8a9e027cd13bf8663acb5aee25f51404",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-abu-dawud/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Sunan Abi Dawud",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-abu-dawud/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-abu-dawud/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Sunan Abi Dawud",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-adab-al-mufrad",
+      "language": "vi",
+      "book_key": "adab-al-mufrad",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-adab-al-mufrad/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-adab-al-mufrad/records.json",
+      "canonical_records_sha256": "b5b0df07af6ef2ebe2b43f34a12f6ac4ccf8efd1187e0249cf4ea03b6e2db3eb",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-adab-al-mufrad/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Al-Adab al-Mufrad",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-adab-al-mufrad/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-adab-al-mufrad/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Al-Adab al-Mufrad",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-ahmad",
+      "language": "vi",
+      "book_key": "ahmad",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-ahmad/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-ahmad/records.json",
+      "canonical_records_sha256": "b1e8e35461df9ebb6a73d87b977e4bea8f752ebaa97365ad71448433235c8285",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-ahmad/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Musnad Ahmad",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-ahmad/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-ahmad/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Musnad Ahmad",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-bukhari",
+      "language": "vi",
+      "book_key": "bukhari",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 11,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-bukhari/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-bukhari/records.json",
+      "canonical_records_sha256": "ce1396279fb4ddca05310e493306676ea4a298c4a7ba19c5e7efe95be315e5e2",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-bukhari/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Sahih al-Bukhari",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-bukhari/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-bukhari/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Sahih al-Bukhari",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-hisn-al-muslim",
+      "language": "vi",
+      "book_key": "hisn-al-muslim",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-hisn-al-muslim/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-hisn-al-muslim/records.json",
+      "canonical_records_sha256": "8398a752b28128bdb0565d9f95b03fe255a9354fb3807c6ab3f4a3079f4ce064",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-hisn-al-muslim/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Hisn al-Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-hisn-al-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-hisn-al-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Hisn al-Muslim",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-ibn-majah",
+      "language": "vi",
+      "book_key": "ibn-majah",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-ibn-majah/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-ibn-majah/records.json",
+      "canonical_records_sha256": "9b75e3f8054cf6ebc5d89372b7a157ea0feaedda52aab2ba900aec6ea2bbf3f0",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-ibn-majah/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Sunan Ibn Majah",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-ibn-majah/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-ibn-majah/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Sunan Ibn Majah",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-muslim",
+      "language": "vi",
+      "book_key": "muslim",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 14,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-muslim/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-muslim/records.json",
+      "canonical_records_sha256": "5086f1933cf4f0e0d9d3d6503f7dc9e8f58910d05cdf04fc545f00dbb95aaff5",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-muslim/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Sahih Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Sahih Muslim",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-riyad-as-salihin",
+      "language": "vi",
+      "book_key": "riyad-as-salihin",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-riyad-as-salihin/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-riyad-as-salihin/records.json",
+      "canonical_records_sha256": "b4a5d3c61b9b69016c0e7c13e96a5316b97706dac041f25724dd743c752efa87",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-riyad-as-salihin/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Riyad as-Salihin",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-riyad-as-salihin/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-riyad-as-salihin/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Riyad as-Salihin",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-tirmidhi",
+      "language": "vi",
+      "book_key": "tirmidhi",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 5,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-tirmidhi/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-tirmidhi/records.json",
+      "canonical_records_sha256": "aadb721b7b64808e19197a21bdda16e085a1a758a9a9644448a588ffcf49ec88",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-tirmidhi/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Jami al-Tirmidhi",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-tirmidhi/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-tirmidhi/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Jami al-Tirmidhi",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-vi-unclassified",
+      "language": "vi",
+      "book_key": "unclassified",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-vi-unclassified/source-bundle.json",
+      "source_sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+      "canonical_records_path": "materials/quran-excerpts-vi-unclassified/records.json",
+      "canonical_records_sha256": "0fd1172c9db018bc7e5b39b1c59c1cb02e750a2777b51cd67a557fcccdc40bcd",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-vi-unclassified/source-bundle.json",
+        "sha256": "36d1b34f29300f4d84fd9817f224c4b8be19be0214d868f31051ed5fa73a26c9",
+        "name": "Vietnamese Quran-study Hadith excerpts — Unresolved collection",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-vi-unclassified/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-vi-unclassified/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Vietnamese Quran-study Hadith excerpts — Unresolved collection",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
       }
     },
     {

@@ -3,7 +3,7 @@
   "language": "ja",
   "name": "Japanese",
   "scope": "public_source_snapshots",
-  "record_count": 2092,
+  "record_count": 2237,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -119,6 +119,981 @@
         "basis": "explicit_owner_source_confirmation",
         "decision_date_japan": "2026-11-11",
         "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-abu-dawud",
+      "language": "ja",
+      "book_key": "abu-dawud",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-abu-dawud/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-abu-dawud/records.json",
+      "canonical_records_sha256": "857a78245d34ddd5ff3bfaf8d43b43ac233d0024faaf97cb7017e879328b5e4b",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-abu-dawud/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Sunan Abi Dawud",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-abu-dawud/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-abu-dawud/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Sunan Abi Dawud",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-ahmad",
+      "language": "ja",
+      "book_key": "ahmad",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-ahmad/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-ahmad/records.json",
+      "canonical_records_sha256": "47d9e96c804b296d0a6711cdbf88b6f0c7ed51e91c22a3f32730687409d71813",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-ahmad/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Musnad Ahmad",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-ahmad/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-ahmad/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Musnad Ahmad",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-bukhari",
+      "language": "ja",
+      "book_key": "bukhari",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 21,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-bukhari/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-bukhari/records.json",
+      "canonical_records_sha256": "d9f6f2f540c928bd8d8cf1397527c3837355e66a3e82b761e0716e940a5a6bae",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-bukhari/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Sahih al-Bukhari",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-bukhari/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-bukhari/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Sahih al-Bukhari",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-hakim",
+      "language": "ja",
+      "book_key": "hakim",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-hakim/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-hakim/records.json",
+      "canonical_records_sha256": "2d8dbb23397c18e26e7d3b1a5a938b9c512aaf1e9b0a5e518397ed247120a616",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-hakim/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Al-Hakim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-hakim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-hakim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Al-Hakim",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-ibn-majah",
+      "language": "ja",
+      "book_key": "ibn-majah",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-ibn-majah/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-ibn-majah/records.json",
+      "canonical_records_sha256": "ca41cd60af25201fe46d76d33a06f92de705eb819534cf2e28fda66000111e24",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-ibn-majah/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Sunan Ibn Majah",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-ibn-majah/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-ibn-majah/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Sunan Ibn Majah",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-mishkat-al-masabih",
+      "language": "ja",
+      "book_key": "mishkat-al-masabih",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-mishkat-al-masabih/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-mishkat-al-masabih/records.json",
+      "canonical_records_sha256": "208401a48e6feab7dcef2a9b6c413253855fc4a724b8bf705ce0f081806ab6fe",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-mishkat-al-masabih/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Mishkat al-Masabih",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-mishkat-al-masabih/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-mishkat-al-masabih/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Mishkat al-Masabih",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-muslim",
+      "language": "ja",
+      "book_key": "muslim",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 39,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-muslim/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-muslim/records.json",
+      "canonical_records_sha256": "1b9a5d412865be95385f32dde0dd5f2457264a0a9d75f77319509622af8bf48f",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-muslim/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Sahih Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Sahih Muslim",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-tabarani",
+      "language": "ja",
+      "book_key": "tabarani",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-tabarani/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-tabarani/records.json",
+      "canonical_records_sha256": "1ab5de38d91f18d100610c38e78ce1a083742abe1ec4b96225ad3d2a6d73b688",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-tabarani/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Al-Tabarani",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-tabarani/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-tabarani/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Al-Tabarani",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-tirmidhi",
+      "language": "ja",
+      "book_key": "tirmidhi",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 6,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-tirmidhi/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-tirmidhi/records.json",
+      "canonical_records_sha256": "bec6b5859fb0bd0ce9c60b98ab87b90e01b515c2595126e483d46166a785079e",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-tirmidhi/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Jami al-Tirmidhi",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-tirmidhi/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-tirmidhi/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Jami al-Tirmidhi",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": true,
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [
+          {
+            "pointer": "/historical_provenance/actualModel",
+            "value": "gpt-6.1-sol"
+          },
+          {
+            "pointer": "/historical_provenance/distinctIndependentFinal/model",
+            "value": "gpt-6.1-sol"
+          }
+        ],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "legacy-ja-unclassified",
+      "language": "ja",
+      "book_key": "unclassified",
+      "edition": "legacy-embedded-ae2c075-v1",
+      "count": 18,
+      "release_status": "source_review_pending",
+      "source_file": "materials/legacy-ja-unclassified/source-bundle.json",
+      "source_sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+      "canonical_records_path": "materials/legacy-ja-unclassified/records.json",
+      "canonical_records_sha256": "1b234a6d38f8b0a87de94c4245b2fcfbe35da7eb38a2795a0726015d8c7a93ea",
+      "source_descriptor": {
+        "path": "materials/legacy-ja-unclassified/source-bundle.json",
+        "sha256": "d062f1512fcca931202b9713806c309fce720f90c5f9b0ad96cc00c6ae00d0d3",
+        "name": "Older Hadith Bank — ja — Unclassified source citations",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/legacy-ja-unclassified/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/legacy-ja-unclassified/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Older Hadith Bank — ja — Unclassified source citations",
+      "translation_provenance": {
+        "origin": "legacy_source_history",
+        "ai_translation": "unknown",
+        "current_policy": {
+          "classification": "unknown",
+          "basis": "owner_withheld_confirmation_of_old_bank_copies",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        },
+        "historical_evidence": [],
+        "scope_note": "Segmentation does not create a new translation. Historical source assertions remain separate from the owner-required Unknown display classification.",
+        "label": "Unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "policy_path": null
+      },
+      "current_translation_policy": {
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-abu-dawud",
+      "language": "ja",
+      "book_key": "abu-dawud",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-abu-dawud/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-abu-dawud/records.json",
+      "canonical_records_sha256": "5199307c980176284ddae1d05db92cd0a07d097b01e8e9896ea8f07e70485f8d",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-abu-dawud/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Sunan Abi Dawud",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-abu-dawud/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-abu-dawud/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Sunan Abi Dawud",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-adab-al-mufrad",
+      "language": "ja",
+      "book_key": "adab-al-mufrad",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-adab-al-mufrad/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-adab-al-mufrad/records.json",
+      "canonical_records_sha256": "bd853eb0f9d782ac1b70ec7c1910a601b21e14aaffabc3935f0b8bca15a901c5",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-adab-al-mufrad/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Al-Adab al-Mufrad",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-adab-al-mufrad/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-adab-al-mufrad/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Al-Adab al-Mufrad",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-ahmad",
+      "language": "ja",
+      "book_key": "ahmad",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-ahmad/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-ahmad/records.json",
+      "canonical_records_sha256": "74e051b9a4a068786658695eb010a4cc188b82669d866c3b2bd410335f4113eb",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-ahmad/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Musnad Ahmad",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-ahmad/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-ahmad/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Musnad Ahmad",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-bukhari",
+      "language": "ja",
+      "book_key": "bukhari",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 15,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-bukhari/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-bukhari/records.json",
+      "canonical_records_sha256": "f9f97e7d85f031f8883c3682ad0bb6a6ae87d52e8cba135f047a70fd4c9b1975",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-bukhari/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Sahih al-Bukhari",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-bukhari/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-bukhari/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Sahih al-Bukhari",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-hisn-al-muslim",
+      "language": "ja",
+      "book_key": "hisn-al-muslim",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-hisn-al-muslim/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-hisn-al-muslim/records.json",
+      "canonical_records_sha256": "5fcb8e52c026feca9594cf52fa2189f05798907efdbe5c5cf07ea218b46055de",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-hisn-al-muslim/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Hisn al-Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-hisn-al-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-hisn-al-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Hisn al-Muslim",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-ibn-majah",
+      "language": "ja",
+      "book_key": "ibn-majah",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-ibn-majah/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-ibn-majah/records.json",
+      "canonical_records_sha256": "581241d86a4f862375415d126b5c76111157c0f00ddcd695a2acbf253444228d",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-ibn-majah/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Sunan Ibn Majah",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-ibn-majah/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-ibn-majah/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Sunan Ibn Majah",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-muslim",
+      "language": "ja",
+      "book_key": "muslim",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 16,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-muslim/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-muslim/records.json",
+      "canonical_records_sha256": "3b4e7f916bdba7a68d29b6b22975a7e438b793e33f43d9c581d2054b7378cabf",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-muslim/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Sahih Muslim",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-muslim/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-muslim/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Sahih Muslim",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-tirmidhi",
+      "language": "ja",
+      "book_key": "tirmidhi",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 8,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-tirmidhi/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-tirmidhi/records.json",
+      "canonical_records_sha256": "842c91dfe6092865c02f4a731502982f5d9dcd31f956d33e9eee058595dd3eaa",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-tirmidhi/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Jami al-Tirmidhi",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-tirmidhi/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-tirmidhi/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Jami al-Tirmidhi",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "quran-excerpts-ja-unclassified",
+      "language": "ja",
+      "book_key": "unclassified",
+      "edition": "iman-quran-excerpts-ae2c075",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/quran-excerpts-ja-unclassified/source-bundle.json",
+      "source_sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+      "canonical_records_path": "materials/quran-excerpts-ja-unclassified/records.json",
+      "canonical_records_sha256": "dd48e3395e09dce8afd125169aff7b048033dfaeddf4f129b4a8be0ae5477c83",
+      "source_descriptor": {
+        "path": "materials/quran-excerpts-ja-unclassified/source-bundle.json",
+        "sha256": "e4b6bd8778276f9e59c7ab59f4fa81522ef7bcabc429f0b9522edc3d741b9c6c",
+        "name": "Japanese Quran-study Hadith excerpts — Unresolved collection",
+        "format": "json",
+        "url": "https://github.com/blaghtayt-alt/iman-companion/tree/ae2c07599767ee7182c40d3ff2264fcdac98d182"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/quran-excerpts-ja-unclassified/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/quran-excerpts-ja-unclassified/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "Japanese Quran-study Hadith excerpts — Unresolved collection",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Unknown",
+        "ai_translation": "unknown",
+        "basis": "Copied Iman/old-bank material: owner confirmation pending. Historical source wording and authorship metadata remain preserved.",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null
       }
     }
   ],

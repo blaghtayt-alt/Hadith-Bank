@@ -59,6 +59,10 @@ For an actual addition, replace the TEST values with the exact source wording an
 
 Keep IDs stable across corrections to the same occurrence. Use a different ID for a different occurrence or source edition. Do not infer human/AI translation from the fact that a file was scanned or OCR-extracted: use `false` only where human translation is established, `true` where AI translation is established, and `"unknown"` otherwise. The reader displays these as **Human**, **AI** and **Unknown**; Unknown is not a claim of AI translation.
 
+Record extraction evidence separately, for example `"extraction": {"ocr_used": false, "method": "structured_json_quote_extraction"}` for quotations sliced from structured digital text, or `"ocr_used": true` with the actual OCR method for scanned text. Leave it unknown when the method is not established. QC labels appear only for evidenced OCR. Do not mark a source non-OCR merely to hide a badge.
+
+For quotations extracted from an article, keep the exact original article or a byte-preserving source bundle. Include the source JSON pointer or text position, exact quotation bounds, and the literal citation. A collection number belongs in `number.in_book` only when that source cites it for this quotation. Related commentary and variant citations should retain their own scope in `references.items`; do not turn a page number, year, app entry ID or parallel report's reference into this quotation's collection number. The [extraction guide](LEGACY-EXTRACTION.md) documents the existing old-bank imports.
+
 The current [source-origin policy](../catalog/provenance-policy.json) also records the owner's source confirmations. It labels the HadeethEnc and currently supplied website-sourced Japanese/Vietnamese materials **Human**, while material copied from the older bank stays **Unknown** until the owner confirms it. This display policy preserves the original import flags and review history. New sources do not inherit the current sources' Human classification merely because they use the same language or book.
 
 ## 2. Register the folder
@@ -74,7 +78,7 @@ For JSONL, use `--records records.jsonl`. An optional `--source-url` records the
 | Argument | Meaning |
 | --- | --- |
 | `--directory` | This material's folder under `materials/`. |
-| `--language` | Language code, such as `ja`, `vi`, `fil`, `zh-CN`, `hi` or `ar`. A new code becomes available in the reader automatically. |
+| `--language` | Language code, such as `ja`, `vi`, `fil`, `zh-CN`, `uz`, `hi`, `fa` or `ar`. A new code becomes available in the reader automatically. Persian (`fa`) displays right to left. |
 | `--book` | Stable collection/book slug, such as `muslim`, `bukhari` or `abu-dawud`. |
 | `--edition` | Stable identifier for this source edition or snapshot. |
 | `--name` | Actual title/name of the supplied source. |

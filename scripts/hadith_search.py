@@ -16,10 +16,14 @@ characters when available; escaped LIKE remains the authoritative match test.
 
 Filters are exact: language (zh/tl aliases accepted), book_key, source_id,
 occurrence/provider entry ID, topic ID/label or editorial tag, and translation
-origin. No records or versions are merged. Commentary, supplied benefits and
-footnotes are searched and returned only with include_commentary=True /
---include-commentary. Optional benefits may be null or an object containing
-original strings or decoded lists of strings; supplied values remain unchanged.
+origin. Human/AI/Unknown use the current source classification; other origin
+filters retain their historical evidence-specific meaning. No records or
+versions are merged. Commentary, supplied benefits, footnotes and preserved
+source context are searched only with include_commentary=True /
+--include-commentary. Top-level annotation fields are returned only with that
+option; original source metadata remains preserved for provenance. Optional
+benefits may be null or an object containing original strings or decoded lists
+of strings; supplied values remain unchanged.
 
 The entire input stream is hash-verified before any cache is used. Results are
 read from that verified input, never from cached text. The cache is disposable,
@@ -37,9 +41,11 @@ import sys
 import tempfile
 import unicodedata
 
+from current_provenance import classification as current_translation_origin
+
 
 VERSION = 'hadith-bank-search-v1'
-CACHE_VERSION = '3:literal-substrings:nfkc-casefold-arabic-cjk:benefits:record-metadata'
+CACHE_VERSION = '4:literal-substrings:nfkc-casefold-arabic-cjk:scoped-source-metadata:current-origin'
 CATALOG_PATH = 'catalog/materials.json'
 DEFAULT_DATABASE = '.cache/hadith-search.sqlite'
 LANGUAGE_ALIASES = {'zh': 'zh-CN', 'tl': 'fil'}
@@ -54,6 +60,18 @@ _REQUIRED_FIELDS = (
     'references', 'page',
 )
 _ANNOTATION_FIELDS = frozenset(('commentary', 'footnotes', 'benefits'))
+_PRIMARY_SEARCH_FIELDS = (
+    'id', 'language', 'source_language_code', 'book_key', 'edition', 'source_id',
+    'provider_entry_id', 'title', 'text_arabic', 'text_translation', 'number',
+    'translator', 'references', 'topic_tags', 'editorial_tags', 'source_headings',
+    'page', 'isnad', 'record_type', 'content_kind', 'grading',
+)
+_SOURCE_SEARCH_FIELDS = (
+    'name', 'work_title', 'title', 'publisher', 'edition', 'isbn', 'url',
+    'record_url', 'original_file', 'record_locator', 'format', 'sha256',
+)
+_NARRATOR_SEARCH_FIELDS = ('name', 'names', 'verbatim', 'chain', 'isnad')
+_SOURCE_CONTEXT_FIELDS = ('original_metadata', 'original_context', 'context', 'historical_metadata')
 
 
 def _object(pairs):
@@ -268,15 +286,20 @@ def _tag_values(record):
 
 
 def _keys(record):
-    # Every non-annotation field is searchable, including nested bibliographic
-    # references, translator evidence, source names/URLs, stable IDs and editions.
-    # Keeping annotations separate preserves the --include-commentary contract.
-    values = [value for field, value in record.items() if field not in _ANNOTATION_FIELDS]
+    # Explicit bibliographic fields keep complete parent narrations and lesson
+    # explanations in source.original_metadata out of quotation-only searches.
+    # This changes disposable search keys, never the preserved source object.
+    source, narrator = record.get('source') or {}, record.get('narrator') or {}
+    values = [record.get(field) for field in _PRIMARY_SEARCH_FIELDS]
+    values += [source.get(field) for field in _SOURCE_SEARCH_FIELDS]
+    values += [narrator.get(field) for field in _NARRATOR_SEARCH_FIELDS]
     # Normalize within each source field, then separate fields so a CJK substring
     # cannot be manufactured by joining a title to the start of the narration.
     body = '\n'.join(_fold(s) for value in values for s in _strings(value))
-    annotations = '\n'.join(_fold(s) for field in ('commentary', 'benefits', 'footnotes')
-                            for s in _strings(record.get(field)))
+    annotation_values = [record.get(field) for field in ('commentary', 'benefits', 'footnotes')]
+    annotation_values += [source.get(field) for field in _SOURCE_CONTEXT_FIELDS]
+    annotation_values.append(narrator.get('source_context'))
+    annotations = '\n'.join(_fold(s) for value in annotation_values for s in _strings(value))
     return body, annotations
 
 
@@ -381,7 +404,8 @@ def _build_cache(connection, stream):
         CREATE TABLE records(
             line INTEGER PRIMARY KEY, id TEXT NOT NULL, language TEXT NOT NULL,
             book_key TEXT NOT NULL, source_id TEXT NOT NULL, provider_entry_id TEXT,
-            translation_origin TEXT NOT NULL, body TEXT NOT NULL, annotations TEXT NOT NULL
+            translation_origin TEXT NOT NULL, current_translation_origin TEXT NOT NULL,
+            body TEXT NOT NULL, annotations TEXT NOT NULL
         );
         CREATE TABLE tags(record_line INTEGER NOT NULL, value TEXT NOT NULL,
             PRIMARY KEY(record_line, value), FOREIGN KEY(record_line) REFERENCES records(line));
@@ -391,6 +415,7 @@ def _build_cache(connection, stream):
         CREATE INDEX records_book ON records(book_key);
         CREATE INDEX records_source ON records(source_id);
         CREATE INDEX records_origin ON records(translation_origin);
+        CREATE INDEX records_current_origin ON records(current_translation_origin);
         CREATE INDEX tags_value ON tags(value, record_line);
     ''')
     engine = _create_fts(connection)
@@ -398,9 +423,10 @@ def _build_cache(connection, stream):
         for line, record in stream.records():
             _validate_record(stream.root, record)
             body, annotations = _keys(record)
-            connection.execute('INSERT INTO records VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', (
+            connection.execute('INSERT INTO records VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (
                 line, record['id'], record['language'], record['book_key'], record['source_id'],
-                record['provider_entry_id'], record['translation_provenance']['origin'], body, annotations,
+                record['provider_entry_id'], record['translation_provenance']['origin'],
+                current_translation_origin(record), body, annotations,
             ))
             connection.executemany('INSERT INTO tags VALUES (?, ?)',
                                    ((line, tag) for tag in sorted(_tag_values(record))))
@@ -480,10 +506,15 @@ def _like(value):
 
 def _where(terms, filters, include_commentary, engine):
     clauses, parameters = [], []
-    for key in ('language', 'book_key', 'source_id', 'translation_origin'):
+    for key in ('language', 'book_key', 'source_id'):
         if filters.get(key) is not None:
             clauses.append('r.' + key + ' = ?')
             parameters.append(filters[key])
+    if filters.get('translation_origin') is not None:
+        origin = filters['translation_origin']
+        column = 'current_translation_origin' if origin in ('human', 'ai', 'unknown') else 'translation_origin'
+        clauses.append('r.' + column + ' = ?')
+        parameters.append(origin)
     if filters['entry_id'] is not None:
         clauses.append('(r.id = ? OR r.provider_entry_id = ?)')
         parameters.extend([filters['entry_id'], filters['entry_id']])
@@ -506,9 +537,11 @@ def _where(terms, filters, include_commentary, engine):
 
 
 def _matches(record, terms, filters, include_commentary):
+    origin = (current_translation_origin(record) if filters['translation_origin'] in ('human', 'ai', 'unknown')
+              else record['translation_provenance']['origin'])
     for key, value in [('language', record['language']), ('book_key', record['book_key']),
                        ('source_id', record['source_id']),
-                       ('translation_origin', record['translation_provenance']['origin'])]:
+                       ('translation_origin', origin)]:
         if filters[key] is not None and value != filters[key]:
             return False
     if filters['entry_id'] is not None and filters['entry_id'] not in (record['id'], record['provider_entry_id']):
@@ -614,12 +647,14 @@ def format_results(result):
             lines.extend(['', 'Narrator: ' + str(narrator['name'])])
         translator = item['translator'].get('name')
         provenance = item['translation_provenance']
-        origin = provenance.get('label') or provenance['origin']
+        origin = current_translation_origin(item).title()
+        historical_origin = provenance.get('label') or provenance['origin']
         lines.extend(['', 'Source: ' + (item['source'].get('name') or item['source_id']),
                       'URL: ' + (item['url'] or '(not supplied)'),
                       'Translator: ' + (str(translator) if translator is not None else '(not named in supplied source)'),
-                      'Translation origin: ' + origin + ' [' + provenance['origin'] + ']',
-                      'AI translation: ' + str(provenance['ai_translation']).lower()])
+                      'Translation origin: ' + origin,
+                      'Source-origin history: ' + historical_origin + ' [' + provenance['origin'] + ']',
+                      'Preserved source AI translation: ' + str(provenance['ai_translation']).lower()])
         page = item['page']
         locations = []
         if page.get('pdf'):
@@ -668,11 +703,12 @@ def main(argv=None):
     parser.add_argument('--source')
     parser.add_argument('--id', dest='entry_id', help='Exact provider entry ID or occurrence ID')
     parser.add_argument('--tag', help='Exact topic ID, topic label or editorial tag')
-    parser.add_argument('--translation-origin')
+    parser.add_argument('--translation-origin',
+                        help='Current human/ai/unknown category, or an exact historical origin label')
     parser.add_argument('--limit', type=int, default=10)
     parser.add_argument('--json', action='store_true', help='Return structured JSON instead of reading text')
     parser.add_argument('--include-commentary', action='store_true',
-                        help='Also search and display commentary, supplied benefits and footnotes')
+                        help='Also search preserved source context and search/display commentary, benefits and footnotes')
     parser.add_argument('--database', help='Disposable database under root/.cache, or :memory:')
     args = parser.parse_args(argv)
     try:

@@ -2,6 +2,8 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
+- [iman-quran-excerpts-ae2c075](iman-quran-excerpts-ae2c075/README.md) — 14 source occurrences
+- [legacy-embedded-ae2c075-v1](legacy-embedded-ae2c075-v1/README.md) — 24 source occurrences
 - [pdf-2396484964ec0ef4](pdf-2396484964ec0ef4/README.md) — 89 source occurrences
 - [pdf-2d0d4e8c08d8cca8](pdf-2d0d4e8c08d8cca8/README.md) — 87 source occurrences
 - [pdf-34ee23f4f6cce34b](pdf-34ee23f4f6cce34b/README.md) — 71 source occurrences

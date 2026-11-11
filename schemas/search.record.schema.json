@@ -7,7 +7,7 @@
   "properties": {
     "schema_version": {"const": "hadith-bank-search-record-v1"},
     "id": {"type": "string", "minLength": 1},
-    "language": {"enum": ["ja", "fil", "vi", "zh-CN", "uz", "hi", "ur", "bn", "pt"]},
+    "language": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9-]*$", "description": "Language code from an accepted source or material manifest; includes Persian (fa)."},
     "source_language_code": {"type": "string"},
     "book_key": {"type": "string", "minLength": 1},
     "edition": {"type": "string", "minLength": 1},
@@ -46,20 +46,21 @@
       "type": "object",
       "required": ["origin", "label", "basis", "human_involvement", "ai_translation", "evidence_ids", "scope_note", "policy_path"],
       "properties": {
-        "origin": {"enum": ["publisher_human_workflow", "human_translator_credited", "unknown"]},
+        "origin": {"enum": ["publisher_human_workflow", "human_translator_credited", "legacy_source_history", "unknown"]},
         "label": {"type": "string"},
         "basis": {"type": "string"},
         "human_involvement": {"type": "string"},
         "ai_translation": {"enum": [true, false, "unknown"]},
         "evidence_ids": {"type": "array", "items": {"type": "string"}},
         "scope_note": {"type": "string"},
-        "policy_path": {"type": "string"}
+        "policy_path": {"type": ["string", "null"]}
       }
     },
     "topic_tags": {"type": "array", "items": {"type": "object"}},
     "editorial_tags": {"type": "array", "items": {"type": "string"}},
     "source_headings": {"type": "array", "items": {"type": "string"}},
     "review": {"type": "object", "required": ["status", "issues", "independent_pro_qc", "release_status", "certified_release_eligible"]},
+    "extraction": {"type": "object", "properties": {"ocr_used": {"type": ["boolean", "null"]}, "method": {"type": ["string", "null"]}, "is_excerpt": {"type": ["boolean", "null"]}, "classification": {"enum": ["ocr", "digital_text", "not_recorded"]}, "evidence_fields": {"type": "array", "items": {"type": "string"}}, "conflicting_evidence": {"type": "boolean"}}},
     "commentary": {"type": "object"},
     "benefits": {"type": ["object", "null"]},
     "footnotes": {"type": "array"},

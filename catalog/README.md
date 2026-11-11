@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **13,488 source occurrences** in 6 languages, plus **83 preserved legacy source files**.
+This public bank contains **14,653 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -17,6 +17,115 @@ Counts describe source occurrences across translations and editions. They are no
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
 | Japanese | muslim | `pdf-c859ce57c211ea1b` | 1,811 | [Read](../browse/ja/muslim/pdf-c859ce57c211ea1b/README.md) | [Original file](../attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf) |
+| Persian | abu-dawud | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-abu-dawud/source-bundle.json) |
+| Persian | ahmad | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fa/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ahmad/source-bundle.json) |
+| Persian | bukhari | `legacy-embedded-ae2c075-v1` | 89 | [Read](../browse/fa/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-bukhari/source-bundle.json) |
+| Persian | ibn-majah | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/ibn-majah/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ibn-majah/source-bundle.json) |
+| Persian | muslim | `legacy-embedded-ae2c075-v1` | 114 | [Read](../browse/fa/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-muslim/source-bundle.json) |
+| Persian | tirmidhi | `legacy-embedded-ae2c075-v1` | 7 | [Read](../browse/fa/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-tirmidhi/source-bundle.json) |
+| Persian | unclassified | `legacy-embedded-ae2c075-v1` | 17 | [Read](../browse/fa/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-unclassified/source-bundle.json) |
+| Filipino / Tagalog | abu-dawud | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fil/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-abu-dawud/source-bundle.json) |
+| Filipino / Tagalog | ahmad | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fil/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-ahmad/source-bundle.json) |
+| Filipino / Tagalog | bukhari | `legacy-embedded-ae2c075-v1` | 23 | [Read](../browse/fil/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-bukhari/source-bundle.json) |
+| Filipino / Tagalog | hakim | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fil/hakim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-hakim/source-bundle.json) |
+| Filipino / Tagalog | ibn-hibban | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fil/ibn-hibban/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-ibn-hibban/source-bundle.json) |
+| Filipino / Tagalog | muslim | `legacy-embedded-ae2c075-v1` | 22 | [Read](../browse/fil/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-muslim/source-bundle.json) |
+| Filipino / Tagalog | tabarani | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fil/tabarani/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-tabarani/source-bundle.json) |
+| Filipino / Tagalog | tirmidhi | `legacy-embedded-ae2c075-v1` | 6 | [Read](../browse/fil/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-tirmidhi/source-bundle.json) |
+| Filipino / Tagalog | unclassified | `legacy-embedded-ae2c075-v1` | 6 | [Read](../browse/fil/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fil-unclassified/source-bundle.json) |
+| Hindi | bukhari | `legacy-embedded-ae2c075-v1` | 90 | [Read](../browse/hi/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-hi-bukhari/source-bundle.json) |
+| Hindi | ibn-majah | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/hi/ibn-majah/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-hi-ibn-majah/source-bundle.json) |
+| Hindi | muslim | `legacy-embedded-ae2c075-v1` | 106 | [Read](../browse/hi/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-hi-muslim/source-bundle.json) |
+| Hindi | tirmidhi | `legacy-embedded-ae2c075-v1` | 2 | [Read](../browse/hi/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-hi-tirmidhi/source-bundle.json) |
+| Hindi | unclassified | `legacy-embedded-ae2c075-v1` | 28 | [Read](../browse/hi/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-hi-unclassified/source-bundle.json) |
+| Japanese | abu-dawud | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/ja/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-abu-dawud/source-bundle.json) |
+| Japanese | ahmad | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/ja/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-ahmad/source-bundle.json) |
+| Japanese | bukhari | `legacy-embedded-ae2c075-v1` | 21 | [Read](../browse/ja/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-bukhari/source-bundle.json) |
+| Japanese | hakim | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/ja/hakim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-hakim/source-bundle.json) |
+| Japanese | ibn-majah | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/ja/ibn-majah/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-ibn-majah/source-bundle.json) |
+| Japanese | mishkat-al-masabih | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/ja/mishkat-al-masabih/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-mishkat-al-masabih/source-bundle.json) |
+| Japanese | muslim | `legacy-embedded-ae2c075-v1` | 39 | [Read](../browse/ja/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-muslim/source-bundle.json) |
+| Japanese | tabarani | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/ja/tabarani/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-tabarani/source-bundle.json) |
+| Japanese | tirmidhi | `legacy-embedded-ae2c075-v1` | 6 | [Read](../browse/ja/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-tirmidhi/source-bundle.json) |
+| Japanese | unclassified | `legacy-embedded-ae2c075-v1` | 18 | [Read](../browse/ja/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-ja-unclassified/source-bundle.json) |
+| Uzbek | ahmad | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/uz/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-ahmad/source-bundle.json) |
+| Uzbek | bukhari | `legacy-embedded-ae2c075-v1` | 26 | [Read](../browse/uz/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-bukhari/source-bundle.json) |
+| Uzbek | hakim | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/uz/hakim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-hakim/source-bundle.json) |
+| Uzbek | ibn-majah | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/uz/ibn-majah/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-ibn-majah/source-bundle.json) |
+| Uzbek | muslim | `legacy-embedded-ae2c075-v1` | 34 | [Read](../browse/uz/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-muslim/source-bundle.json) |
+| Uzbek | tirmidhi | `legacy-embedded-ae2c075-v1` | 10 | [Read](../browse/uz/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-tirmidhi/source-bundle.json) |
+| Uzbek | unclassified | `legacy-embedded-ae2c075-v1` | 13 | [Read](../browse/uz/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-uz-unclassified/source-bundle.json) |
+| Vietnamese | abu-dawud | `legacy-embedded-ae2c075-v1` | 2 | [Read](../browse/vi/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-abu-dawud/source-bundle.json) |
+| Vietnamese | bukhari | `legacy-embedded-ae2c075-v1` | 21 | [Read](../browse/vi/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-bukhari/source-bundle.json) |
+| Vietnamese | ibn-hibban | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/vi/ibn-hibban/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-ibn-hibban/source-bundle.json) |
+| Vietnamese | muslim | `legacy-embedded-ae2c075-v1` | 24 | [Read](../browse/vi/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-muslim/source-bundle.json) |
+| Vietnamese | tabarani | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/vi/tabarani/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-tabarani/source-bundle.json) |
+| Vietnamese | tirmidhi | `legacy-embedded-ae2c075-v1` | 5 | [Read](../browse/vi/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-tirmidhi/source-bundle.json) |
+| Vietnamese | unclassified | `legacy-embedded-ae2c075-v1` | 4 | [Read](../browse/vi/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-vi-unclassified/source-bundle.json) |
+| Chinese | bukhari | `legacy-embedded-ae2c075-v1` | 38 | [Read](../browse/zh-CN/bukhari/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-bukhari/source-bundle.json) |
+| Chinese | muslim | `legacy-embedded-ae2c075-v1` | 45 | [Read](../browse/zh-CN/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-muslim/source-bundle.json) |
+| Chinese | tirmidhi | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/zh-CN/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-tirmidhi/source-bundle.json) |
+| Chinese | unclassified | `legacy-embedded-ae2c075-v1` | 16 | [Read](../browse/zh-CN/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-unclassified/source-bundle.json) |
+| Persian | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fa/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-abu-dawud/source-bundle.json) |
+| Persian | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/fa/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-adab-al-mufrad/source-bundle.json) |
+| Persian | ahmad | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fa/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-ahmad/source-bundle.json) |
+| Persian | bukhari | `iman-quran-excerpts-ae2c075` | 12 | [Read](../browse/fa/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-bukhari/source-bundle.json) |
+| Persian | ibn-majah | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/fa/ibn-majah/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-ibn-majah/source-bundle.json) |
+| Persian | muslim | `iman-quran-excerpts-ae2c075` | 16 | [Read](../browse/fa/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-muslim/source-bundle.json) |
+| Persian | tirmidhi | `iman-quran-excerpts-ae2c075` | 5 | [Read](../browse/fa/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-tirmidhi/source-bundle.json) |
+| Persian | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fa/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-unclassified/source-bundle.json) |
+| Filipino / Tagalog | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fil/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-abu-dawud/source-bundle.json) |
+| Filipino / Tagalog | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/fil/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-adab-al-mufrad/source-bundle.json) |
+| Filipino / Tagalog | ahmad | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/fil/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-ahmad/source-bundle.json) |
+| Filipino / Tagalog | bukhari | `iman-quran-excerpts-ae2c075` | 13 | [Read](../browse/fil/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-bukhari/source-bundle.json) |
+| Filipino / Tagalog | hisn-al-muslim | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fil/hisn-al-muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-hisn-al-muslim/source-bundle.json) |
+| Filipino / Tagalog | muslim | `iman-quran-excerpts-ae2c075` | 14 | [Read](../browse/fil/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-muslim/source-bundle.json) |
+| Filipino / Tagalog | tirmidhi | `iman-quran-excerpts-ae2c075` | 4 | [Read](../browse/fil/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-tirmidhi/source-bundle.json) |
+| Filipino / Tagalog | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fil/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fil-unclassified/source-bundle.json) |
+| Hindi | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/hi/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-abu-dawud/source-bundle.json) |
+| Hindi | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/hi/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-adab-al-mufrad/source-bundle.json) |
+| Hindi | ahmad | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/hi/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-ahmad/source-bundle.json) |
+| Hindi | bukhari | `iman-quran-excerpts-ae2c075` | 15 | [Read](../browse/hi/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-bukhari/source-bundle.json) |
+| Hindi | hisn-al-muslim | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/hi/hisn-al-muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-hisn-al-muslim/source-bundle.json) |
+| Hindi | ibn-majah | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/hi/ibn-majah/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-ibn-majah/source-bundle.json) |
+| Hindi | muslim | `iman-quran-excerpts-ae2c075` | 14 | [Read](../browse/hi/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-muslim/source-bundle.json) |
+| Hindi | tirmidhi | `iman-quran-excerpts-ae2c075` | 5 | [Read](../browse/hi/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-hi-tirmidhi/source-bundle.json) |
+| Japanese | abu-dawud | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/ja/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-abu-dawud/source-bundle.json) |
+| Japanese | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/ja/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-adab-al-mufrad/source-bundle.json) |
+| Japanese | ahmad | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/ja/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-ahmad/source-bundle.json) |
+| Japanese | bukhari | `iman-quran-excerpts-ae2c075` | 15 | [Read](../browse/ja/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-bukhari/source-bundle.json) |
+| Japanese | hisn-al-muslim | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/ja/hisn-al-muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-hisn-al-muslim/source-bundle.json) |
+| Japanese | ibn-majah | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/ja/ibn-majah/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-ibn-majah/source-bundle.json) |
+| Japanese | muslim | `iman-quran-excerpts-ae2c075` | 16 | [Read](../browse/ja/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-muslim/source-bundle.json) |
+| Japanese | tirmidhi | `iman-quran-excerpts-ae2c075` | 8 | [Read](../browse/ja/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-tirmidhi/source-bundle.json) |
+| Japanese | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/ja/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-ja-unclassified/source-bundle.json) |
+| Uzbek | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/uz/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-abu-dawud/source-bundle.json) |
+| Uzbek | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/uz/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-adab-al-mufrad/source-bundle.json) |
+| Uzbek | ahmad | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/uz/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-ahmad/source-bundle.json) |
+| Uzbek | bukhari | `iman-quran-excerpts-ae2c075` | 13 | [Read](../browse/uz/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-bukhari/source-bundle.json) |
+| Uzbek | ibn-majah | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/uz/ibn-majah/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-ibn-majah/source-bundle.json) |
+| Uzbek | muslim | `iman-quran-excerpts-ae2c075` | 15 | [Read](../browse/uz/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-muslim/source-bundle.json) |
+| Uzbek | riyad-as-salihin | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/uz/riyad-as-salihin/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-riyad-as-salihin/source-bundle.json) |
+| Uzbek | tirmidhi | `iman-quran-excerpts-ae2c075` | 5 | [Read](../browse/uz/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-uz-tirmidhi/source-bundle.json) |
+| Vietnamese | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/vi/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-abu-dawud/source-bundle.json) |
+| Vietnamese | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/vi/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-adab-al-mufrad/source-bundle.json) |
+| Vietnamese | ahmad | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/vi/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-ahmad/source-bundle.json) |
+| Vietnamese | bukhari | `iman-quran-excerpts-ae2c075` | 11 | [Read](../browse/vi/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-bukhari/source-bundle.json) |
+| Vietnamese | hisn-al-muslim | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/vi/hisn-al-muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-hisn-al-muslim/source-bundle.json) |
+| Vietnamese | ibn-majah | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/vi/ibn-majah/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-ibn-majah/source-bundle.json) |
+| Vietnamese | muslim | `iman-quran-excerpts-ae2c075` | 14 | [Read](../browse/vi/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-muslim/source-bundle.json) |
+| Vietnamese | riyad-as-salihin | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/vi/riyad-as-salihin/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-riyad-as-salihin/source-bundle.json) |
+| Vietnamese | tirmidhi | `iman-quran-excerpts-ae2c075` | 5 | [Read](../browse/vi/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-tirmidhi/source-bundle.json) |
+| Vietnamese | unclassified | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/vi/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-vi-unclassified/source-bundle.json) |
+| Chinese | abu-dawud | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-abu-dawud/source-bundle.json) |
+| Chinese | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-adab-al-mufrad/source-bundle.json) |
+| Chinese | ahmad | `iman-quran-excerpts-ae2c075` | 3 | [Read](../browse/zh-CN/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-ahmad/source-bundle.json) |
+| Chinese | bukhari | `iman-quran-excerpts-ae2c075` | 10 | [Read](../browse/zh-CN/bukhari/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-bukhari/source-bundle.json) |
+| Chinese | hisn-al-muslim | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/hisn-al-muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-hisn-al-muslim/source-bundle.json) |
+| Chinese | muslim | `iman-quran-excerpts-ae2c075` | 15 | [Read](../browse/zh-CN/muslim/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-muslim/source-bundle.json) |
+| Chinese | nasai | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/nasai/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-nasai/source-bundle.json) |
+| Chinese | tirmidhi | `iman-quran-excerpts-ae2c075` | 6 | [Read](../browse/zh-CN/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-tirmidhi/source-bundle.json) |
+| Chinese | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/zh-CN/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-unclassified/source-bundle.json) |
 | Vietnamese | 200-golden-hadith | `pdf-c7dcc5d2a0abffdd` | 200 | [Read](../browse/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-d9b954eb26087bf4` | 84 | [Read](../browse/vi/abu-dawud/pdf-d9b954eb26087bf4/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-d9b954eb26087bf4/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-f3309a8aac2dc05c` | 81 | [Read](../browse/vi/abu-dawud/pdf-f3309a8aac2dc05c/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-f3309a8aac2dc05c/source.pdf) |
@@ -68,8 +177,9 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Human | 13,488 |
+| Unknown | 1,165 |
 
-The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents remain Unknown pending owner confirmation.
+The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
 
 ### Preserved source attribution history
 
@@ -77,13 +187,14 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
 | `human_translator_credited` | 4,059 |
-| `unknown` | 1,006 |
+| `legacy_source_history` | 867 |
+| `unknown` | 1,304 |
 
 Human involvement is displayed with its source and scope. Individual AI-use flags and bank review status remain separate.
 
 ## Legacy lessons, readings and source packages
 
-[Browse all 83 source files](../browse/materials/legacy.md). The existing organization contains 8 packages, 6 reading-only items and 182 source metadata records. These are preserved document-level materials, not newly inferred narration counts.
+[Browse all 83 source files](../browse/materials/legacy.md). The existing organization contains 8 packages, 6 reading-only items and 182 source metadata records. Original documents remain preserved; their extracted quotation occurrences are indexed separately in the registered datasets above. Document counts are not added to quotation counts.
 
 Use `python scripts/search.py fulltext QUERY --language ja` for their existing local document search.
 
@@ -110,4 +221,4 @@ The following **32,300 occurrences** are registered here as metadata. Their full
 
 ## Review state
 
-The owner waived separate bank review for HadeethEnc. The reader shows this current decision alongside preserved historical import statuses and Arabic-version alignment notes. Owner-authorized additional sources are publicly readable with original pending-review and rights qualifications preserved. [Current review policy](review-policy.json). [Mechanical fidelity report](../reports/reading-views-validation.json).
+The reader shows QC labels only for text with explicit OCR extraction evidence. Digital source imports, native PDF text and structured quotations do not receive pending-QC badges. Original import/review history, source-alignment notes and rights metadata remain preserved in record details. [Current review policy](review-policy.json). [Mechanical fidelity report](../reports/reading-views-validation.json).

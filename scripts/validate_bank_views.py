@@ -22,6 +22,7 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 from current_provenance import apply_policy as apply_provenance_policy, classification, decision_for, load_policy as load_provenance_policy
+from review_display_policy import extraction_metadata
 
 
 PUBLIC_BASELINE = '9688bbfb6e53832169acdc4ef5127ef8fc1fb259'
@@ -196,6 +197,7 @@ def public_expected(row, material, position, policy, provenance_policy=None):
             'policy_path': 'catalog/translation-origins.json'},
         'topic_tags': topic_tags, 'editorial_tags': row.get('editorial_tags', {}).get('values', []), 'source_headings': [],
         'review': review,
+        'extraction': extraction_metadata(row),
         'commentary': {'arabic': commentary.get('arabic_explanation_verbatim'), 'translation': commentary.get('translation_explanation_verbatim')},
         'benefits': {'translation': commentary.get('translation_benefits_decoded'), 'arabic': arabic_benefits},
         'footnotes': [], 'footnote_status': row['footnotes'], 'references': references,
