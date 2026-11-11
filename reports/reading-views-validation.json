@@ -1,8 +1,8 @@
 {
   "schema": "hadith-bank-reading-views-validation-v1",
   "status": "passed",
-  "records_compared": 24286,
-  "unique_occurrence_ids": 24286,
+  "records_compared": 32596,
+  "unique_occurrence_ids": 32596,
   "source_record_files": [
     {
       "path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
@@ -102,6 +102,27 @@
       "records": 1946,
       "arabic_and_translation_equal": true,
       "publication_manifest": "materials/fa-riyadh-heravi-1394-digital/manifest.json"
+    },
+    {
+      "path": "materials/fa-targhib-bazmandegan-v1/records.jsonl",
+      "sha256": "fce410bf6c8d9bac9d992af2b07f3dd6720f5ecdd4c17c63fc922acbda2bf8ef",
+      "records": 2416,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/fa-targhib-bazmandegan-v1/manifest.json"
+    },
+    {
+      "path": "materials/fa-targhib-bazmandegan-v2/records.jsonl",
+      "sha256": "bcccb32360e8bd0b140aa278fd83ba1007cbd4d356c4bb5fc53d19d2606b2176",
+      "records": 2834,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/fa-targhib-bazmandegan-v2/manifest.json"
+    },
+    {
+      "path": "materials/fa-targhib-bazmandegan-v3/records.jsonl",
+      "sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+      "records": 2054,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/fa-targhib-bazmandegan-v3/manifest.json"
     },
     {
       "path": "attachments/attachments-ja-muslim-c859ce57c211ea1b/languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/records.json",
@@ -1194,23 +1215,30 @@
       "records": 2828,
       "arabic_and_translation_equal": true,
       "publication_manifest": "materials/zh-abu-dawud-yu-2002-doc/manifest.json"
+    },
+    {
+      "path": "materials/zh-muwatta-shaybani-yu-2000-docx/records.jsonl",
+      "sha256": "a5e2a99892a57688d24d3f6a4a5559fe3748a77871ac3430ee7bec5407becfe7",
+      "records": 1006,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json"
     }
   ],
-  "source_assets_hashed": 171,
+  "source_assets_hashed": 175,
   "canonical_sources_unchanged": true,
   "text_normalization": "none in stored/display values",
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "human_translator_credited": 13692,
+    "human_translator_credited": 22002,
     "legacy_source_history": 867,
     "unknown": 1304
   },
-  "search_sha256": "d4befd1a1e136949d9ee0a57065da3417a5f71fd46aaf793198e7aee79911e24",
+  "search_sha256": "0ca20b7fe9286ee6f8c94b35bd6c2e40a37a242343b7f865d2430f32e3e2452f",
   "current_translation_origins": {
-    "human": 23121,
+    "human": 31431,
     "unknown": 1165
   },
-  "shards": 374,
+  "shards": 460,
   "review_status_promoted": false,
   "provenance_note": "Translation process evidence is scoped separately from exact-record AI-origin and bank QC."
 }

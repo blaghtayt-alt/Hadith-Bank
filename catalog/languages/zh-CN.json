@@ -3,7 +3,7 @@
   "language": "zh-CN",
   "name": "Chinese",
   "scope": "public_source_snapshots",
-  "record_count": 5224,
+  "record_count": 6230,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -725,6 +725,52 @@
         "ai_translation": false,
         "evidence_ids": [
           "materials/zh-abu-dawud-yu-2002-doc/source-metadata.json"
+        ],
+        "scope_note": "Existing Chinese translation; no new translation generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "zh-muwatta-shaybani-yu-2000-docx",
+      "language": "zh-CN",
+      "book_key": "malik",
+      "edition": "docx-cf65c0e865be95a7",
+      "count": 1006,
+      "release_status": "source_imported",
+      "source_file": "materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx",
+      "source_sha256": "cf65c0e865be95a709f228b021e23b94dbc2e3a88d52139330b623a070f5d1b3",
+      "canonical_records_path": "materials/zh-muwatta-shaybani-yu-2000-docx/records.jsonl",
+      "canonical_records_sha256": "a5e2a99892a57688d24d3f6a4a5559fe3748a77871ac3430ee7bec5407becfe7",
+      "source_descriptor": {
+        "path": "materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx",
+        "sha256": "cf65c0e865be95a709f228b021e23b94dbc2e3a88d52139330b623a070f5d1b3",
+        "name": "穆宛塔圣训集 — Muwatta of Imam Malik (al-Shaybani recension)",
+        "format": "docx",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "穆宛塔圣训集 — Muwatta of Imam Malik (al-Shaybani recension)",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Source preface credits 译者：穆萨·余崇仁 and dates the translation 2000年十月二十三日于韦州.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/zh-muwatta-shaybani-yu-2000-docx/source-metadata.json"
         ],
         "scope_note": "Existing Chinese translation; no new translation generated.",
         "policy_path": null

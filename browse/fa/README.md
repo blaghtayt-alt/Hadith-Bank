@@ -9,5 +9,6 @@
 - [ibn-majah](ibn-majah/README.md) — 2 source occurrences
 - [muslim](muslim/README.md) — 2362 source occurrences
 - [riyadh-al-salihin](riyadh-al-salihin/README.md) — 1946 source occurrences
+- [targhib-wa-tarhib](targhib-wa-tarhib/README.md) — 7304 source occurrences
 - [tirmidhi](tirmidhi/README.md) — 12 source occurrences
 - [unclassified](unclassified/README.md) — 19 source occurrences

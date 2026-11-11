@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **24,286 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **32,596 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -25,6 +25,9 @@ Counts describe source occurrences across translations and editions. They are no
 | Persian | muslim | `mukhtasar-mundhiri-tarshabi-v1` | 1,104 | [Read](../browse/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/README.md) | [Original file](../materials/fa-muslim-mundhiri-tarshabi-v1/source.docx) |
 | Persian | muslim | `mukhtasar-mundhiri-tarshabi-v2` | 1,128 | [Read](../browse/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/README.md) | [Original file](../materials/fa-muslim-mundhiri-tarshabi-v2/source.docx) |
 | Persian | riyadh-al-salihin | `heravi-1394-digital` | 1,946 | [Read](../browse/fa/riyadh-al-salihin/heravi-1394-digital/README.md) | [Original file](../materials/fa-riyadh-heravi-1394-digital/source.docx) |
+| Persian | targhib-wa-tarhib | `bazmandegan-1397-v1` | 2,416 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v1/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v1/source.docx) |
+| Persian | targhib-wa-tarhib | `bazmandegan-1397-v2` | 2,834 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v2/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v2/source.docx) |
+| Persian | targhib-wa-tarhib | `bazmandegan-1397-v3` | 2,054 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v3/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v3/source.docx) |
 | Japanese | muslim | `pdf-c859ce57c211ea1b` | 1,811 | [Read](../browse/ja/muslim/pdf-c859ce57c211ea1b/README.md) | [Original file](../attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf) |
 | Persian | abu-dawud | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-abu-dawud/source-bundle.json) |
 | Persian | ahmad | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fa/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ahmad/source-bundle.json) |
@@ -181,12 +184,13 @@ Counts describe source occurrences across translations and editions. They are no
 | Vietnamese | muslim | `pdf-4aa2f9c722e62418` | 49 | [Read](../browse/vi/muslim/pdf-4aa2f9c722e62418/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-4aa2f9c722e62418/source.pdf) |
 | Vietnamese | muslim | `pdf-668a54bc30222150` | 83 | [Read](../browse/vi/muslim/pdf-668a54bc30222150/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-668a54bc30222150/source.pdf) |
 | Chinese | abu-dawud | `doc-cbff2d2c521e553c` | 2,828 | [Read](../browse/zh-CN/abu-dawud/doc-cbff2d2c521e553c/README.md) | [Original file](../materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc) |
+| Chinese | malik | `docx-cf65c0e865be95a7` | 1,006 | [Read](../browse/zh-CN/malik/docx-cf65c0e865be95a7/README.md) | [Original file](../materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx) |
 
 ## Current translation classification
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 23,121 |
+| Human | 31,431 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -196,7 +200,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `human_translator_credited` | 13,692 |
+| `human_translator_credited` | 22,002 |
 | `legacy_source_history` | 867 |
 | `unknown` | 1,304 |
 

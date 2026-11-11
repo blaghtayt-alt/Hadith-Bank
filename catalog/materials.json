@@ -2,25 +2,25 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 24286,
+  "record_count": 32596,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
-    "fa": 7078,
+    "fa": 14382,
     "fil": 2056,
     "hi": 2584,
     "ja": 2237,
     "uz": 552,
     "vi": 4555,
-    "zh-CN": 5224
+    "zh-CN": 6230
   },
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "human_translator_credited": 13692,
+    "human_translator_credited": 22002,
     "legacy_source_history": 867,
     "unknown": 1304
   },
   "current_translation_origins": {
-    "human": 23121,
+    "human": 31431,
     "unknown": 1165
   },
   "materials": [
@@ -750,6 +750,159 @@
           "materials/fa-riyadh-heravi-1394-digital/source-metadata.json"
         ],
         "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-targhib-bazmandegan-v1",
+      "language": "fa",
+      "book_key": "targhib-wa-tarhib",
+      "edition": "bazmandegan-1397-v1",
+      "count": 2416,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-targhib-bazmandegan-v1/source.docx",
+      "source_sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+      "canonical_records_path": "materials/fa-targhib-bazmandegan-v1/records.jsonl",
+      "canonical_records_sha256": "fce410bf6c8d9bac9d992af2b07f3dd6720f5ecdd4c17c63fc922acbda2bf8ef",
+      "source_descriptor": {
+        "path": "materials/fa-targhib-bazmandegan-v1/source.docx",
+        "sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+        "name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 1",
+        "format": "docx",
+        "url": "https://www.qalamlib.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-targhib-bazmandegan-v1/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-targhib-bazmandegan-v1/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Current owner OCR-only display policy; these are verified native OOXML extractions with no OCR."
+      },
+      "source_name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 1",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Translator credit printed in all three supplied source volumes.",
+        "evidence_ids": [
+          "materials/fa-targhib-bazmandegan-v1/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was produced.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-targhib-bazmandegan-v2",
+      "language": "fa",
+      "book_key": "targhib-wa-tarhib",
+      "edition": "bazmandegan-1397-v2",
+      "count": 2834,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-targhib-bazmandegan-v2/source.docx",
+      "source_sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+      "canonical_records_path": "materials/fa-targhib-bazmandegan-v2/records.jsonl",
+      "canonical_records_sha256": "bcccb32360e8bd0b140aa278fd83ba1007cbd4d356c4bb5fc53d19d2606b2176",
+      "source_descriptor": {
+        "path": "materials/fa-targhib-bazmandegan-v2/source.docx",
+        "sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+        "name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 2",
+        "format": "docx",
+        "url": "https://www.qalamlib.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-targhib-bazmandegan-v2/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-targhib-bazmandegan-v2/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Current owner OCR-only display policy; these are verified native OOXML extractions with no OCR."
+      },
+      "source_name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 2",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Translator credit printed in all three supplied source volumes.",
+        "evidence_ids": [
+          "materials/fa-targhib-bazmandegan-v2/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was produced.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-targhib-bazmandegan-v3",
+      "language": "fa",
+      "book_key": "targhib-wa-tarhib",
+      "edition": "bazmandegan-1397-v3",
+      "count": 2054,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-targhib-bazmandegan-v3/source.docx",
+      "source_sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "canonical_records_path": "materials/fa-targhib-bazmandegan-v3/records.jsonl",
+      "canonical_records_sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+      "source_descriptor": {
+        "path": "materials/fa-targhib-bazmandegan-v3/source.docx",
+        "sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+        "name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 3",
+        "format": "docx",
+        "url": "https://www.qalamlib.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-targhib-bazmandegan-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-targhib-bazmandegan-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Current owner OCR-only display policy; these are verified native OOXML extractions with no OCR."
+      },
+      "source_name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 3",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Translator credit printed in all three supplied source volumes.",
+        "evidence_ids": [
+          "materials/fa-targhib-bazmandegan-v3/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was produced.",
         "policy_path": null
       }
     },
@@ -9069,6 +9222,52 @@
         "scope_note": "Existing Chinese translation; no new translation generated.",
         "policy_path": null
       }
+    },
+    {
+      "dataset_id": "zh-muwatta-shaybani-yu-2000-docx",
+      "language": "zh-CN",
+      "book_key": "malik",
+      "edition": "docx-cf65c0e865be95a7",
+      "count": 1006,
+      "release_status": "source_imported",
+      "source_file": "materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx",
+      "source_sha256": "cf65c0e865be95a709f228b021e23b94dbc2e3a88d52139330b623a070f5d1b3",
+      "canonical_records_path": "materials/zh-muwatta-shaybani-yu-2000-docx/records.jsonl",
+      "canonical_records_sha256": "a5e2a99892a57688d24d3f6a4a5559fe3748a77871ac3430ee7bec5407becfe7",
+      "source_descriptor": {
+        "path": "materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx",
+        "sha256": "cf65c0e865be95a709f228b021e23b94dbc2e3a88d52139330b623a070f5d1b3",
+        "name": "穆宛塔圣训集 — Muwatta of Imam Malik (al-Shaybani recension)",
+        "format": "docx",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "穆宛塔圣训集 — Muwatta of Imam Malik (al-Shaybani recension)",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Source preface credits 译者：穆萨·余崇仁 and dates the translation 2000年十月二十三日于韦州.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/zh-muwatta-shaybani-yu-2000-docx/source-metadata.json"
+        ],
+        "scope_note": "Existing Chinese translation; no new translation generated.",
+        "policy_path": null
+      }
     }
   ],
   "private_materials_not_in_this_tree": [
@@ -10543,8 +10742,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "d4befd1a1e136949d9ee0a57065da3417a5f71fd46aaf793198e7aee79911e24",
-    "count": 24286,
+    "records_sha256": "0ca20b7fe9286ee6f8c94b35bd6c2e40a37a242343b7f865d2430f32e3e2452f",
+    "count": 32596,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -11517,6 +11716,456 @@
         "sha256": "a160d1a26f37a389aca20d92780143fcfad316ca6c52637202ae1dd655fa906a",
         "count": 46,
         "bytes": 285404
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0001.jsonl",
+        "sha256": "62e3a582b4551cde7d067a99b71098608a44ec97196368f88126308846aa22c6",
+        "count": 100,
+        "bytes": 1016492
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0002.jsonl",
+        "sha256": "131e0448e41f160dbd3d126c8a40959d1fa4e4457c6d859b08871c0bc5bf425f",
+        "count": 100,
+        "bytes": 947903
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0003.jsonl",
+        "sha256": "676a2a87810a753776312a773b94980b7e1fc9f140e0cc7937a9569fdc07801d",
+        "count": 100,
+        "bytes": 930719
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0004.jsonl",
+        "sha256": "0ae0eb472ce2a1542038949e749a3280fc9e7854186b183403942fb949c7c1ca",
+        "count": 100,
+        "bytes": 930259
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0005.jsonl",
+        "sha256": "bb28130fc0eaf9c888209f1429b7cf49e36fe3daaf03a9f3157f0503946c228b",
+        "count": 100,
+        "bytes": 912175
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0006.jsonl",
+        "sha256": "72478b387a707597bba76ab539ea35642bc1232a30439967eee687ab67467b3d",
+        "count": 100,
+        "bytes": 947053
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0007.jsonl",
+        "sha256": "f656d0a2de209f6aeddeceb1950ce963c49bbaddb725580ad4271da7aa039159",
+        "count": 100,
+        "bytes": 965588
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0008.jsonl",
+        "sha256": "b0e19786cb7e4c7f90c7b3f5869258b4890a58f1e250d02f77558555378851ff",
+        "count": 100,
+        "bytes": 947179
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0009.jsonl",
+        "sha256": "85435fe4a95ca5fc5626381c777e7a5e9e4a3315c4775be9ac3de513a1eed60a",
+        "count": 100,
+        "bytes": 946893
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0010.jsonl",
+        "sha256": "59d33bb5511264c715d6d56a2d3f21e5cdb021eadf29ae19f5780be79a3f24f0",
+        "count": 100,
+        "bytes": 959262
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0011.jsonl",
+        "sha256": "f16d9c3360bec68a925207dea42af546d356e2e6446fd1279f15ba0ea454d714",
+        "count": 100,
+        "bytes": 918003
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0012.jsonl",
+        "sha256": "452d597f56e5c7a69b7ef5b776accfe7528e219c3f42cc7d97f2081e8741b428",
+        "count": 100,
+        "bytes": 994831
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0013.jsonl",
+        "sha256": "64cc5acd610e5b27fb21bcbc9cfb90700233e934a72380343437a13e454260b2",
+        "count": 100,
+        "bytes": 1022709
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0014.jsonl",
+        "sha256": "740d6fcd625eff9636e0ad711cb45a79ff860c73eb8ae3559618db374366a6d4",
+        "count": 100,
+        "bytes": 956242
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0015.jsonl",
+        "sha256": "1aeec23a0971fa68a4d5b81660908861d00bc315dd1556177c693810ac030b22",
+        "count": 100,
+        "bytes": 1012459
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0016.jsonl",
+        "sha256": "000964fe2aa65921527d23eb097de19598d6dfcd124384f48af8dc255a6d1a71",
+        "count": 100,
+        "bytes": 1023130
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0017.jsonl",
+        "sha256": "661a258bdbef66281896d5605a23e6f508ea8b05e933d154aee22806b4143f2e",
+        "count": 100,
+        "bytes": 995108
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0018.jsonl",
+        "sha256": "902221ce1137567bc4fa0b5464ebd422718700374c350c89984f6bb5e4601558",
+        "count": 100,
+        "bytes": 968661
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0019.jsonl",
+        "sha256": "164ed9a17ef208bd41c8b46b3287fff808df3498be2f82999a7acac4be847596",
+        "count": 100,
+        "bytes": 999430
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0020.jsonl",
+        "sha256": "67a7b412ee5b1f6d8d8a58ff96bf5b0af1d8801fea451e7ba467e3f2c4a100e3",
+        "count": 100,
+        "bytes": 947249
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0021.jsonl",
+        "sha256": "7ca1f29da7c79bc54e79b6f50d7d23ffc92ac38156dda1063542afbeca3357e9",
+        "count": 100,
+        "bytes": 909443
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0022.jsonl",
+        "sha256": "773758fdfef163d9cf6efb9ec2ea7adb78640355cd1c876aac6bd389503985d4",
+        "count": 100,
+        "bytes": 944878
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0023.jsonl",
+        "sha256": "425bc82c86d3dc58a1444a541c03872b20b0e68d8f4ee2bc14a13bb6f2ac647a",
+        "count": 100,
+        "bytes": 890965
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0024.jsonl",
+        "sha256": "d4ca04abe3a5bc44fc606cab94f16e663e6e79533c0d0e887a0b00c694ee2b2b",
+        "count": 100,
+        "bytes": 637085
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v1/part-0025.jsonl",
+        "sha256": "67fcbd536e26a1947a422a90bab4b67c965dcd5c62947e3c4f3d2868cfe78cf9",
+        "count": 16,
+        "bytes": 100447
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0001.jsonl",
+        "sha256": "0ef16b73e4bafc7f0907df94ad51dd16c78d4ca7a08818bf1680f077e21f46a9",
+        "count": 100,
+        "bytes": 913105
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0002.jsonl",
+        "sha256": "77e2ca96e382e16857062f5b545335cc14274ab463029366b2fc547e2c84d478",
+        "count": 100,
+        "bytes": 977754
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0003.jsonl",
+        "sha256": "058186b86898d1bd39d9de19dc18ed4412330d56ce1b8ee469518125b6f10550",
+        "count": 100,
+        "bytes": 998445
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0004.jsonl",
+        "sha256": "94e9c113e50f32495f9900987c46db49ab59f7fe8a939211d65bc7c7d65b0ba5",
+        "count": 100,
+        "bytes": 1056125
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0005.jsonl",
+        "sha256": "8c325b307cada4a1d3a9ecfec6a717fe5751ef9bf39b64415ab633c5b69f9963",
+        "count": 100,
+        "bytes": 1004603
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0006.jsonl",
+        "sha256": "38139901583c8d6a2e24cb9b5f214cb1db8ed4f04adb81f591d9c92bc5cdedf8",
+        "count": 100,
+        "bytes": 1001070
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0007.jsonl",
+        "sha256": "e3680da37b6be93987f91bc9f680ebe5ed03fadb604b82749b8cdb5afbb32959",
+        "count": 100,
+        "bytes": 964383
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0008.jsonl",
+        "sha256": "7347ae8c4f2988b1c2616b9633386b70ef016ee1e7cda86f38d2d9d6e40ae8a5",
+        "count": 100,
+        "bytes": 986944
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0009.jsonl",
+        "sha256": "ba4dc508428ef9ae97c3445294691d7a8c84cda1a5d7b519a49f5ed4cdfd603e",
+        "count": 100,
+        "bytes": 977846
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0010.jsonl",
+        "sha256": "0f4c37ce87bdb995d72c292884d2b4dc13583adb8795f89cf7ef82ac14d7326b",
+        "count": 100,
+        "bytes": 970420
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0011.jsonl",
+        "sha256": "a7d1bb21fca0716a4eaad9e12d6347e2faab436696f5ddd18db2f0aad5f9a647",
+        "count": 100,
+        "bytes": 959556
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0012.jsonl",
+        "sha256": "b9d7e0c16f905b7264a7150097b945c81ec5c3d4dde0d1ab772f21aaa0ea839e",
+        "count": 100,
+        "bytes": 963705
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0013.jsonl",
+        "sha256": "47ce7d79c45c0d23338ae7f32b02e36ad12b3e124221874e3b45c1f6db291219",
+        "count": 100,
+        "bytes": 941964
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0014.jsonl",
+        "sha256": "3ed080432d3f8834ed164fc36ac45b842243b9de85bba5dedca07984e7890c89",
+        "count": 100,
+        "bytes": 944568
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0015.jsonl",
+        "sha256": "52d06ef92703c6812cc48289137666907dd86c1b267b08b3db50628a21ff0aa6",
+        "count": 100,
+        "bytes": 999712
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0016.jsonl",
+        "sha256": "f20401bdefc242e007ecd7274006797b8c8945f0751be4b448c96d676b8f992e",
+        "count": 100,
+        "bytes": 967568
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0017.jsonl",
+        "sha256": "c18fd73f44c4875bbc20c2fe6e79887893ac19ab58c022352bf3dab55cafb557",
+        "count": 100,
+        "bytes": 966538
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0018.jsonl",
+        "sha256": "b04b46b45a98d465205cfc3e3900d598ed03d53272638f22b686f8902f6493f3",
+        "count": 100,
+        "bytes": 928316
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0019.jsonl",
+        "sha256": "a0a4b1eaf05fb1ea74b0e124c22d62f3bf6be2060bb7b1df06d59eba25a50cb6",
+        "count": 100,
+        "bytes": 1033616
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0020.jsonl",
+        "sha256": "46020b36ce97dbb9bc39794ea73212c423b6f1844aa1309130a951a4da9bb297",
+        "count": 100,
+        "bytes": 990685
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0021.jsonl",
+        "sha256": "f7ba6e6648dd0bc9c943447e04d5e543732ce2a7747fde9f34b6926b746fff73",
+        "count": 100,
+        "bytes": 1051665
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0022.jsonl",
+        "sha256": "e7628ce38625a93bbf91a4d0e506c2d5d640b6f266a31486bb01dbcfba833c59",
+        "count": 100,
+        "bytes": 994149
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0023.jsonl",
+        "sha256": "c8952c213895bcb869b6c704b843a9310d04ec8ef9052fe580ebaa7d88d3d897",
+        "count": 100,
+        "bytes": 961485
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0024.jsonl",
+        "sha256": "e22e012c987fc9b58990148f3303a68a065b12f5710652c74f94ac75c9c2283b",
+        "count": 100,
+        "bytes": 950806
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0025.jsonl",
+        "sha256": "c2e825ae105a03e7fb29870e73eb006178262f6f35e1f2612f6da56f278ac0bf",
+        "count": 100,
+        "bytes": 979677
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0026.jsonl",
+        "sha256": "5062111596bb530f82fb68c87c58bfb35f45d995edf5b7cf96843128f249f454",
+        "count": 100,
+        "bytes": 977174
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0027.jsonl",
+        "sha256": "43ab7b7bb32f1b49c62821cb1c7e643b117352fb0bad69e9bc1e3e3d74bf93ea",
+        "count": 100,
+        "bytes": 937125
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0028.jsonl",
+        "sha256": "f16efbcd9d3370aec294adcc2122bee23484ce18d9bebbf2503dece0432f202d",
+        "count": 100,
+        "bytes": 748114
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v2/part-0029.jsonl",
+        "sha256": "011cdf0b9dcbe18ef76a4bfb8081d557f9cd80d71a4ee85955c01af75b64f3fa",
+        "count": 34,
+        "bytes": 220137
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0001.jsonl",
+        "sha256": "2582d17598cded779dd0097408850bb671f265700be0fac869648e1a1730da86",
+        "count": 100,
+        "bytes": 892330
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0002.jsonl",
+        "sha256": "32cf82c5e302971e385f98f414691d8a744d2dc04da33e2a052699158a38890d",
+        "count": 100,
+        "bytes": 949012
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0003.jsonl",
+        "sha256": "1e3c851e184a85e65387ed8572ab119159cd3834a17e4333e65984a73576c646",
+        "count": 100,
+        "bytes": 898795
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0004.jsonl",
+        "sha256": "6c7de3147c4cd8cab169759f7d5338f96ad07a0db5423e0db3a15ad51f897569",
+        "count": 100,
+        "bytes": 917989
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0005.jsonl",
+        "sha256": "ec8cdf2350fb1bd4133c71ac081abda7c36694ead1cc4fe5efb4ce4118f8dca4",
+        "count": 100,
+        "bytes": 974394
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0006.jsonl",
+        "sha256": "64c0394c1d639ebc49a4253a19ce32e0ea05986388e3b87281fec8cb3288f9a9",
+        "count": 100,
+        "bytes": 941690
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0007.jsonl",
+        "sha256": "892370e3f88b94642b283ced3aa01545cf79193a7610a05ef81e626bcb7c132c",
+        "count": 100,
+        "bytes": 947973
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0008.jsonl",
+        "sha256": "090ff6d272daf44f67c712b29376f5969026bb44a7707b66c429d7d67dedf1b3",
+        "count": 100,
+        "bytes": 902332
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0009.jsonl",
+        "sha256": "e0d3c3fc93c17e2ae9d363f4a954783129f6da68549316d702960fa46ba43268",
+        "count": 100,
+        "bytes": 1003037
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0010.jsonl",
+        "sha256": "cf6e137ada13ed72848f3fc4d6fc9d7f5ae05b0de9cde6548a26baafefa0efc2",
+        "count": 100,
+        "bytes": 1033289
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0011.jsonl",
+        "sha256": "a7fcbbb7abb6183c16204ed3cfbab87465da992e41648b0acf4de7b73bc1ca23",
+        "count": 100,
+        "bytes": 960852
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0012.jsonl",
+        "sha256": "3dad6f794814ec0ba831da8ca5b7b72ca3a5d42fba97c2c8e32908812cc68caf",
+        "count": 100,
+        "bytes": 971764
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0013.jsonl",
+        "sha256": "9a9321edb0942f91ff8456f8b019871aabb70b4b04ae5a9c272ae5f671dab05a",
+        "count": 100,
+        "bytes": 988089
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0014.jsonl",
+        "sha256": "a574328b921e16a3488066f27472731b71648ec1479602248abda7abe0fac371",
+        "count": 100,
+        "bytes": 963036
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0015.jsonl",
+        "sha256": "e12e8b0a5bfc4e6d2ba2e63a4913b37ac5646a8af8c3af826ea7e1ff0a03e32f",
+        "count": 100,
+        "bytes": 966246
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0016.jsonl",
+        "sha256": "7a0b410262c1f7e635b65125aed3812f03d5cfe8bfad325df87e77478d58b7fd",
+        "count": 100,
+        "bytes": 1045221
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0017.jsonl",
+        "sha256": "74d63090728d8e96ecf704fb925c39b2b078e1f0bfec169fb526717d1c068a26",
+        "count": 100,
+        "bytes": 1185033
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0018.jsonl",
+        "sha256": "800cac6094dafd228f67d649f2e961b8675b3da1fc5b12810f4ed17932e69baf",
+        "count": 100,
+        "bytes": 941544
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0019.jsonl",
+        "sha256": "6630a60661f68cd1373ff3004bdf5e0fee2374df0c0e5002b301559ae6cc3513",
+        "count": 100,
+        "bytes": 987435
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0020.jsonl",
+        "sha256": "66509baf694c88d0649fc176d4b1ed6dda9a701749e09d91cc861ab439d9f404",
+        "count": 100,
+        "bytes": 1022351
+      },
+      {
+        "path": "search/fa/targhib-wa-tarhib/bazmandegan-1397-v3/part-0021.jsonl",
+        "sha256": "9cabb411a1a0fe37ab8be3225fd4ee579330aae1b2b73e34ac7e298de8e37d99",
+        "count": 54,
+        "bytes": 382651
       },
       {
         "path": "search/ja/muslim/pdf-c859ce57c211ea1b/part-0001.jsonl",
@@ -12789,6 +13438,72 @@
         "sha256": "b6d70b10532600bea0a695e6cbcd07d2a2822a80a12f9550e2d3a0539f4268a5",
         "count": 28,
         "bytes": 171876
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0001.jsonl",
+        "sha256": "f151ffd6d625d7592bf1c74da0c03e921d406cbd4f7200f741b836d5c7409e5f",
+        "count": 100,
+        "bytes": 640864
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0002.jsonl",
+        "sha256": "51069b43e87ccc97ddfd54eee20faaff8648fd50709e8a3379fa80bb5c98c284",
+        "count": 100,
+        "bytes": 643334
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0003.jsonl",
+        "sha256": "fead4eb40dbf90b04ce672c6833859ee3da8ea9e50dcce9f52aaca73bb5a804e",
+        "count": 100,
+        "bytes": 642247
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0004.jsonl",
+        "sha256": "16f608d39378ea38fb38eef726d2b6668a3aa3b2b1a06d2174a3fc187695bc93",
+        "count": 100,
+        "bytes": 645314
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0005.jsonl",
+        "sha256": "77fe4811d99101593579e537fa9f6dd231cec7c0d170177076263b5cf7607b45",
+        "count": 100,
+        "bytes": 649626
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0006.jsonl",
+        "sha256": "c5a334d5a56da6c9f4eaff6be4791e367eef09084cf65f22ab7caa7dee9b98f0",
+        "count": 100,
+        "bytes": 651074
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0007.jsonl",
+        "sha256": "fa96f458a187f2128d6d6325607aca2a6882d3d02dafacab209e29bd5f98a3c1",
+        "count": 100,
+        "bytes": 649689
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0008.jsonl",
+        "sha256": "5e1c9cf91e83126229a01cba67eff382310d9b9779345a5f136947c1aa16cd70",
+        "count": 100,
+        "bytes": 647696
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0009.jsonl",
+        "sha256": "1478163fa589b2944e1b4835f2c7166014bf70470403fe07abb05a5c3c77da1c",
+        "count": 100,
+        "bytes": 653254
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0010.jsonl",
+        "sha256": "3e81201dc38a0839c3b71336cf00a7a57f512a2cdaa6c5c9f7a74a0c869f27a0",
+        "count": 100,
+        "bytes": 645683
+      },
+      {
+        "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0011.jsonl",
+        "sha256": "fd0a36d99a8193d97a43263a878a1ec0bbcbe8ac78b2e7f4884309b972dec00e",
+        "count": 6,
+        "bytes": 37923
       }
     ],
     "whole_file_optional": true,
@@ -12804,19 +13519,19 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 24286,
-    "arabic_available": 15703,
-    "english_available": 9039,
-    "exact_links": 8710,
+    "total": 32596,
+    "arabic_available": 22960,
+    "english_available": 9085,
+    "exact_links": 8756,
     "related_version_links": 329,
-    "unresolved": 15247,
-    "with_numbered_references": 4373,
+    "unresolved": 23511,
+    "with_numbered_references": 4399,
     "by_language": {
       "fa": {
-        "total": 7078,
-        "arabic_available": 6653,
-        "unresolved": 6762,
-        "english_available": 316
+        "total": 14382,
+        "arabic_available": 13910,
+        "unresolved": 14020,
+        "english_available": 362
       },
       "fil": {
         "total": 2056,
@@ -12849,10 +13564,10 @@
         "unresolved": 3310
       },
       "zh-CN": {
-        "total": 5224,
+        "total": 6230,
         "arabic_available": 2365,
         "english_available": 2307,
-        "unresolved": 2917
+        "unresolved": 3923
       }
     },
     "report": "reports/counterpart-coverage.json",
