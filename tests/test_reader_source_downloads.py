@@ -13,7 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
 from counterpart_display import counterpart_qualification, counterpart_translation_origin
 from citation_search import record_citation_pairs
-from test_reader import fixture
+from test_reader import fixture, READER_SNAPSHOT_JS
 
 
 class ReaderSourceDownloadsTests(unittest.TestCase):
@@ -33,7 +33,7 @@ class ReaderSourceDownloadsTests(unittest.TestCase):
 
     def node(self, body, sample):
         helpers = self.template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = "const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};\nconst valueText = " + helpers + body
+        program = READER_SNAPSHOT_JS + "const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};\nconst valueText = " + helpers + body
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(sample),
                                 text=True, capture_output=True, check=True)
         return json.loads(result.stdout)

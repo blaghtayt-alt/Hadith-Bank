@@ -10,6 +10,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from counterpart_coverage import availability_for, build_report, write_reports
+from test_reader import READER_SNAPSHOT_JS
 
 
 def samples():
@@ -81,7 +82,7 @@ class CounterpartCoverageTests(unittest.TestCase):
         records = samples()
         template = (Path(__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = "const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};\nconst valueText = " + helpers + '''
+        program = READER_SNAPSHOT_JS + "const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};\nconst valueText = " + helpers + '''
 const choices=['','both-text','both-available','arabic-text','english-text','english-link','missing-arabic','missing-english','neither'];
 process.stdout.write(JSON.stringify({states:records.map(counterpartAvailability),matches:choices.map(choice=>records.filter(record=>matchesCounterpartAvailability(record,choice)).map(record=>record.id))}));
 '''

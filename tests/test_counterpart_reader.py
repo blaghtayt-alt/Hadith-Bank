@@ -110,7 +110,7 @@ class CounterpartReaderTests(unittest.TestCase):
             quality_advisories=[{'message': message}, {'message': ' '}, None])
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = "const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};const valueText = " + helpers + "\nprocess.stdout.write(JSON.stringify({notes:counterpartAlignmentNotes(records[0]),key:primarySearchKey(records[0])}));"
+        program = reader_fixtures.READER_SNAPSHOT_JS + "const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};const valueText = " + helpers + "\nprocess.stdout.write(JSON.stringify({notes:counterpartAlignmentNotes(records[0]),key:primarySearchKey(records[0])}));"
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([self.record]),
                                 text=True, capture_output=True, check=True)
         actual = json.loads(result.stdout)
@@ -146,7 +146,7 @@ class CounterpartReaderTests(unittest.TestCase):
             'field': 'text_arabic', 'relation': 'source_excerpt'}
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input.records,names={};
+        program = reader_fixtures.READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=input.records,names={};
 const valueText = ''' + helpers + '''
 process.stdout.write(JSON.stringify({keys:records.map(primarySearchKey),queries:input.queries.map(q=>fold(q,false)),
  citations:['arabic','english'].map(lang=>counterpartCitation(records[0].counterparts[lang],lang)),

@@ -44,7 +44,7 @@ def write_catalog(root, catalog=None, site=None):
         for lang, book in sorted(grouped):
             if lang != language:
                 continue
-            lines += ['### ' + escaped(book_label(book)), '',
+            lines += ['### ' + escaped(book_label(book, language)), '',
                       '[Browse collection](' + base + 'browse/' + lang + '/' + book + '/)', '',
                       '| Source edition as recorded | Occurrences | Read | Original source |',
                       '| --- | ---: | --- | --- |']
