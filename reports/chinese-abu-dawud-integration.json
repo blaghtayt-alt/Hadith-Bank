@@ -1,0 +1,1152 @@
+{
+  "schema": "hadith-bank-source-integration-verification-v1",
+  "material": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+  "status": "canonical_source_and_global_build_checks_passed",
+  "source_sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+  "records_sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8",
+  "record_count": 2828,
+  "native_text_characters_verified_against_original_bytes": 304619,
+  "retained_translation_characters_verified_against_source_spans": 259145,
+  "source_fidelity_checks": {
+    "original_doc_bytes_preserved": true,
+    "native_text_exact_utf16le_match_after_removing_physical_FAT_sectors": true,
+    "original_word_CR_to_native_LF_one_to_one_only": true,
+    "all_imported_characters_reconstruct_from_half_open_source_spans": true,
+    "included_source_spans_nonoverlapping": true,
+    "reviewed_excluded_spans_retained_verbatim": true,
+    "excluded_spans_do_not_overlap_narration_spans": true,
+    "explicit_note_markers_heading_markers_decoding_replacements_and_word_control_characters_absent_from_narration_fields": true
+  },
+  "numbering": {
+    "source_numbered_occurrences": 2834,
+    "retained_occurrences": 2828,
+    "excluded_numbered_commentary": [
+      "1432",
+      "1434",
+      "1440",
+      "2604",
+      "2847",
+      "2866"
+    ],
+    "embedded_entries_kept_separate": [
+      "763",
+      "1000",
+      "1250",
+      "2070",
+      "2201"
+    ],
+    "repeated_printed_numbers_kept_as_distinct_occurrences": {
+      "1599": 2,
+      "2455": 2,
+      "2489": 2,
+      "2505": 2
+    },
+    "canonical_number_mapping_asserted": false,
+    "false_canonical_or_publisher_id_pairs": 0,
+    "fragment": {
+      "id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp253672",
+      "printed_local_number": "2455",
+      "content_kind": "source_fragment",
+      "is_excerpt": true,
+      "ends_mid_sentence_in_original": true,
+      "source_text_completed_or_invented": false
+    }
+  },
+  "commentary_audit": {
+    "path": "materials/zh-abu-dawud-yu-2002-doc/excluded-commentary.json.gz",
+    "excluded_span_reasons": {
+      "front_matter": 20,
+      "section_invocation": 1,
+      "explicit_editorial_note": 106,
+      "editorial_legal_explanation": 1,
+      "editorial_legal_insertion": 1,
+      "editorial_note_continuation": 11,
+      "ancillary_explanation_or_compiler_comment": 36,
+      "editorial_explanatory_gloss": 2,
+      "editorial_historical_explanation": 1,
+      "explicit_inline_editorial_note": 1,
+      "numbered_lexical_or_explanatory_comment": 6
+    }
+  },
+  "provenance": {
+    "human_translator_evidence": "materials/zh-abu-dawud-yu-2002-doc/source-metadata.json",
+    "ocr_used": false,
+    "arabic_reconstructed": false,
+    "independent_authenticity_grade_asserted": false,
+    "rights_status": "not_assessed_for_publication",
+    "partial_source": true
+  },
+  "existing_source_preservation": {
+    "baseline_commit": "f2b4027852abb423d2c323aba2164a3e46b6430d",
+    "canonical_files_checked": 170,
+    "changed_or_missing_files": [],
+    "canonical_sources": [
+      {
+        "source_id": "hadeethenc-ja-sqlite-a81da9af28f854f6",
+        "path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
+        "sha256": "35650ff990760029aaa3f7f03b5c94c55759aa104a3dc0c8e35d9c24dc3359c9",
+        "count": 281
+      },
+      {
+        "source_id": "hadeethenc-tl-sqlite-e8fa6e4c26c11c06",
+        "path": "languages/fil/books/hadeethenc/editions/sqlite-e8fa6e4c26c11c06/records.jsonl",
+        "sha256": "4329ff9582d8c88e9f394078b80acd354f5d0e83ffb5fcbfc9e4e372a5c97f63",
+        "count": 1949
+      },
+      {
+        "source_id": "hadeethenc-vi-sqlite-3fb9e549494ff0f6",
+        "path": "languages/vi/books/hadeethenc/editions/sqlite-3fb9e549494ff0f6/records.jsonl",
+        "sha256": "edcea9fc2017d45c9803cdbea873755da4c820126692824a85359d3f22837c8d",
+        "count": 1203
+      },
+      {
+        "source_id": "hadeethenc-zh-sqlite-a22a0e545c70b320",
+        "path": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/records.jsonl",
+        "sha256": "d7aa6c6d2d6d74685e66e4ddbb40fb5f7c2d091894d708d3b1f6799b3754dcff",
+        "count": 2256
+      },
+      {
+        "source_id": "hadeethenc-uz-sqlite-8241193c5ac1f3bc",
+        "path": "languages/uz/books/hadeethenc/editions/sqlite-8241193c5ac1f3bc/records.jsonl",
+        "sha256": "3c9e01b66288242ad61b1ebc8d94e0c49c098492e057de4df8e7a1c2b27f48bf",
+        "count": 420
+      },
+      {
+        "source_id": "hadeethenc-hi-sqlite-3b74b6c4da6dc883",
+        "path": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
+        "sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9",
+        "count": 2314
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v1",
+        "path": "materials/fa-faiz-al-bari-v1/records.jsonl",
+        "sha256": "6fb854f98e5884c120e8d2168f7c9792adda6c900baf54deb11fcb6def87121f",
+        "count": 412
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v2",
+        "path": "materials/fa-faiz-al-bari-v2/records.jsonl",
+        "sha256": "88fa5ce225858c2c2dd0299c7ccd6446eeeac390334c48cce9126628f0325471",
+        "count": 451
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v3",
+        "path": "materials/fa-faiz-al-bari-v3/records.jsonl",
+        "sha256": "ecbdd30f655fab5af1cbdf852be719a565d4c2866f3e9ddb5224adb93082c0f4",
+        "count": 504
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v4",
+        "path": "materials/fa-faiz-al-bari-v4/records.jsonl",
+        "sha256": "3b09a0af3842d8af1e9142939dd065cacccb2b7f5a50b400690694552970866a",
+        "count": 466
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v5",
+        "path": "materials/fa-faiz-al-bari-v5/records.jsonl",
+        "sha256": "87c402316cdb661c7bcbf0ee9ecd7f1f11175225d71cadca6201d0e0a8711a09",
+        "count": 337
+      },
+      {
+        "source_id": "fa-faiz-al-bari-v6",
+        "path": "materials/fa-faiz-al-bari-v6/records.jsonl",
+        "sha256": "325d59c2bde37c76b8d66bac3d3c0df24cebedd5b2b8ba21b09c30c05a68faf2",
+        "count": 457
+      },
+      {
+        "source_id": "fa-muslim-mundhiri-tarshabi-v1",
+        "path": "materials/fa-muslim-mundhiri-tarshabi-v1/records.jsonl",
+        "sha256": "c6cf38a52fd52852a9da2e309b4353e182b8313a1226ac1d776800fcc21a3134",
+        "count": 1104
+      },
+      {
+        "source_id": "fa-muslim-mundhiri-tarshabi-v2",
+        "path": "materials/fa-muslim-mundhiri-tarshabi-v2/records.jsonl",
+        "sha256": "9ca7bc7a388d520df80703039848cc5a8b2038be4251403529c007fd8cad05cb",
+        "count": 1128
+      },
+      {
+        "source_id": "fa-riyadh-heravi-1394-digital",
+        "path": "materials/fa-riyadh-heravi-1394-digital/records.jsonl",
+        "sha256": "6e1a7167ca21c6ef4c8604e941a33f5c9579ba1e526bbbcaa64c0499d9e12247",
+        "count": 1946
+      },
+      {
+        "source_id": "ja-muslim-web-c859ce57c211ea1b",
+        "path": "attachments/attachments-ja-muslim-c859ce57c211ea1b/languages/ja/books/muslim/editions/pdf-c859ce57c211ea1b/records.json",
+        "sha256": "9503da5d9efbd3d0a2286a1e75c97c07511be0a675cecd56ed3206f36d2862ff",
+        "count": 1811
+      },
+      {
+        "source_id": "legacy-fa-abu-dawud",
+        "path": "materials/legacy-fa-abu-dawud/records.json",
+        "sha256": "a343d3807cfffbcd35330900dfd4e2aa4365fba779ca5c60520bff89cc614516",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-fa-ahmad",
+        "path": "materials/legacy-fa-ahmad/records.json",
+        "sha256": "21d0754ebf6f240dccf5be4c883f6a0dc79d3e87affdd9f131b6714d9844bd16",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-fa-bukhari",
+        "path": "materials/legacy-fa-bukhari/records.json",
+        "sha256": "af47afe062a78d91d9a0afb3742af0c0427b8de4b94d5b4c1045dfec786de238",
+        "count": 89
+      },
+      {
+        "source_id": "legacy-fa-ibn-majah",
+        "path": "materials/legacy-fa-ibn-majah/records.json",
+        "sha256": "6d279aea08476664aea6bc2ef131ca832a070fa417d785eccdb9885730e34c0e",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-fa-muslim",
+        "path": "materials/legacy-fa-muslim/records.json",
+        "sha256": "bc7dece9e78e3ecba4f5eef0db1b9d5f3915c61d70f77e3ad92015a256209570",
+        "count": 114
+      },
+      {
+        "source_id": "legacy-fa-tirmidhi",
+        "path": "materials/legacy-fa-tirmidhi/records.json",
+        "sha256": "6df01e6b2e773d89a3530049f4ff700a011940a404f2deb718b5f141372ab66b",
+        "count": 7
+      },
+      {
+        "source_id": "legacy-fa-unclassified",
+        "path": "materials/legacy-fa-unclassified/records.json",
+        "sha256": "885dc37059569181c665ebd72ce8e7bb22900cb43e3a39db16fd993a3b4c85e6",
+        "count": 17
+      },
+      {
+        "source_id": "legacy-fil-abu-dawud",
+        "path": "materials/legacy-fil-abu-dawud/records.json",
+        "sha256": "f6f9643e6d07f89b5cf823bac592625f1c1e2d2397a9d9483a97e5abf52c7d88",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-fil-ahmad",
+        "path": "materials/legacy-fil-ahmad/records.json",
+        "sha256": "cfffdc515aea07081ff135d0d335f00c41f08af63d3db470314e3e65671f8542",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-fil-bukhari",
+        "path": "materials/legacy-fil-bukhari/records.json",
+        "sha256": "dae3ac417eb7999fd57cd4f4cb9c8ebded327ea544f694b92c2794e996b659aa",
+        "count": 23
+      },
+      {
+        "source_id": "legacy-fil-hakim",
+        "path": "materials/legacy-fil-hakim/records.json",
+        "sha256": "38046e7fd99c9b7df65f38202e834d2a5b1c66cbe1ca4bf932fe48196e56aa90",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-fil-ibn-hibban",
+        "path": "materials/legacy-fil-ibn-hibban/records.json",
+        "sha256": "4588135150d5cf31594e641b1a4880540e40a117db6845ccf97ebe0a2a0d9752",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-fil-muslim",
+        "path": "materials/legacy-fil-muslim/records.json",
+        "sha256": "145a45a7dfcfe3dc9a63cc1c909f184ed1e11f50cd4a7f2ecaa056859f5caa68",
+        "count": 22
+      },
+      {
+        "source_id": "legacy-fil-tabarani",
+        "path": "materials/legacy-fil-tabarani/records.json",
+        "sha256": "544b9085ed05838a27f7229d20c0ed12040b16ddf160f197b4bfa4f3df03e389",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-fil-tirmidhi",
+        "path": "materials/legacy-fil-tirmidhi/records.json",
+        "sha256": "df2025fcdffa0c1d5272715d75c5cb584cfddf343916c5034ab4196018cad7f0",
+        "count": 6
+      },
+      {
+        "source_id": "legacy-fil-unclassified",
+        "path": "materials/legacy-fil-unclassified/records.json",
+        "sha256": "775771a21945ccb6a7b39b053438ca00c9d11b9e08da7dd913d86d9e2d8fa7e2",
+        "count": 6
+      },
+      {
+        "source_id": "legacy-hi-bukhari",
+        "path": "materials/legacy-hi-bukhari/records.json",
+        "sha256": "5a4309db144300a3d576ad719dbe88b2421959e15dfe4652de3c335295a9aaac",
+        "count": 90
+      },
+      {
+        "source_id": "legacy-hi-ibn-majah",
+        "path": "materials/legacy-hi-ibn-majah/records.json",
+        "sha256": "47e49178fafd64c8952ad1ac520fd801af2bb69498d35a1e1001cdfdd34943ca",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-hi-muslim",
+        "path": "materials/legacy-hi-muslim/records.json",
+        "sha256": "712000956591ba753a20a9d74f44049f411ac6af4fb603b57998ed23e54c6538",
+        "count": 106
+      },
+      {
+        "source_id": "legacy-hi-tirmidhi",
+        "path": "materials/legacy-hi-tirmidhi/records.json",
+        "sha256": "e804320c544d4393a896cfcffb622301a961636c4c6ae7c9cc5584e4be43f81a",
+        "count": 2
+      },
+      {
+        "source_id": "legacy-hi-unclassified",
+        "path": "materials/legacy-hi-unclassified/records.json",
+        "sha256": "9294facb3e3ff68faa1afde71327d9ca35abc40fa0d9dc3f96073a2b1ea38670",
+        "count": 28
+      },
+      {
+        "source_id": "legacy-ja-abu-dawud",
+        "path": "materials/legacy-ja-abu-dawud/records.json",
+        "sha256": "857a78245d34ddd5ff3bfaf8d43b43ac233d0024faaf97cb7017e879328b5e4b",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-ja-ahmad",
+        "path": "materials/legacy-ja-ahmad/records.json",
+        "sha256": "47d9e96c804b296d0a6711cdbf88b6f0c7ed51e91c22a3f32730687409d71813",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-ja-bukhari",
+        "path": "materials/legacy-ja-bukhari/records.json",
+        "sha256": "d9f6f2f540c928bd8d8cf1397527c3837355e66a3e82b761e0716e940a5a6bae",
+        "count": 21
+      },
+      {
+        "source_id": "legacy-ja-hakim",
+        "path": "materials/legacy-ja-hakim/records.json",
+        "sha256": "2d8dbb23397c18e26e7d3b1a5a938b9c512aaf1e9b0a5e518397ed247120a616",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-ja-ibn-majah",
+        "path": "materials/legacy-ja-ibn-majah/records.json",
+        "sha256": "ca41cd60af25201fe46d76d33a06f92de705eb819534cf2e28fda66000111e24",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-ja-mishkat-al-masabih",
+        "path": "materials/legacy-ja-mishkat-al-masabih/records.json",
+        "sha256": "208401a48e6feab7dcef2a9b6c413253855fc4a724b8bf705ce0f081806ab6fe",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-ja-muslim",
+        "path": "materials/legacy-ja-muslim/records.json",
+        "sha256": "1b9a5d412865be95385f32dde0dd5f2457264a0a9d75f77319509622af8bf48f",
+        "count": 39
+      },
+      {
+        "source_id": "legacy-ja-tabarani",
+        "path": "materials/legacy-ja-tabarani/records.json",
+        "sha256": "1ab5de38d91f18d100610c38e78ce1a083742abe1ec4b96225ad3d2a6d73b688",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-ja-tirmidhi",
+        "path": "materials/legacy-ja-tirmidhi/records.json",
+        "sha256": "bec6b5859fb0bd0ce9c60b98ab87b90e01b515c2595126e483d46166a785079e",
+        "count": 6
+      },
+      {
+        "source_id": "legacy-ja-unclassified",
+        "path": "materials/legacy-ja-unclassified/records.json",
+        "sha256": "1b234a6d38f8b0a87de94c4245b2fcfbe35da7eb38a2795a0726015d8c7a93ea",
+        "count": 18
+      },
+      {
+        "source_id": "legacy-uz-ahmad",
+        "path": "materials/legacy-uz-ahmad/records.json",
+        "sha256": "7430d0ec7ec68285400cac4b0356799476ce5aa805359ae283b683549f95e088",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-uz-bukhari",
+        "path": "materials/legacy-uz-bukhari/records.json",
+        "sha256": "168ec8c98f3cc28abf77b822b700c2c95f9986830cdec32d83dab86274191fe2",
+        "count": 26
+      },
+      {
+        "source_id": "legacy-uz-hakim",
+        "path": "materials/legacy-uz-hakim/records.json",
+        "sha256": "264c706193377c1da3eace854cd77e4da28a06ef49722414bf7a17a9464f895b",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-uz-ibn-majah",
+        "path": "materials/legacy-uz-ibn-majah/records.json",
+        "sha256": "e5fd95142645a7a4051b71d7014bb0b135dd1a6126cd2edcb62866ccb79da640",
+        "count": 3
+      },
+      {
+        "source_id": "legacy-uz-muslim",
+        "path": "materials/legacy-uz-muslim/records.json",
+        "sha256": "2439bfe9dff59d593d8b5664c7b44cc8372af400ed84874145910f6d339ef86e",
+        "count": 34
+      },
+      {
+        "source_id": "legacy-uz-tirmidhi",
+        "path": "materials/legacy-uz-tirmidhi/records.json",
+        "sha256": "0fde5fd10fb140a479d32bdf0919286f199976febf4bb17775aa71ed284f20d3",
+        "count": 10
+      },
+      {
+        "source_id": "legacy-uz-unclassified",
+        "path": "materials/legacy-uz-unclassified/records.json",
+        "sha256": "eecd4fd735e58fe4e2cf2a5265ec4d3d2ab65bf31fefc39735b851b28fea1404",
+        "count": 13
+      },
+      {
+        "source_id": "legacy-vi-abu-dawud",
+        "path": "materials/legacy-vi-abu-dawud/records.json",
+        "sha256": "9ba4cbfb4a242e978cd83392ff82408e6346c2f55a481ba17e8261292dcf996e",
+        "count": 2
+      },
+      {
+        "source_id": "legacy-vi-bukhari",
+        "path": "materials/legacy-vi-bukhari/records.json",
+        "sha256": "2e5100476603aa167d7d6b98f63161e629f076d5827697814abd04be26864117",
+        "count": 21
+      },
+      {
+        "source_id": "legacy-vi-ibn-hibban",
+        "path": "materials/legacy-vi-ibn-hibban/records.json",
+        "sha256": "c60029744ee0a798f35ae32fd0394920807359335b0a686ba97c8c225e7ac097",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-vi-muslim",
+        "path": "materials/legacy-vi-muslim/records.json",
+        "sha256": "78cc71e8fd5872f463331756aa053fe76b7b2f23de66cfb6913a74142056f9a0",
+        "count": 24
+      },
+      {
+        "source_id": "legacy-vi-tabarani",
+        "path": "materials/legacy-vi-tabarani/records.json",
+        "sha256": "f8a8ea2c4dc77970c8ae988d14de04bd44c357fb5420bed3c6b2bed5f6ada436",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-vi-tirmidhi",
+        "path": "materials/legacy-vi-tirmidhi/records.json",
+        "sha256": "3cefa6d6e613f075672621a04749683f14fb2261d15078237c50fe30dda15f89",
+        "count": 5
+      },
+      {
+        "source_id": "legacy-vi-unclassified",
+        "path": "materials/legacy-vi-unclassified/records.json",
+        "sha256": "4b2941e7b0c07acafeda62f3ed619a63702510a5a51911b86265ebd932645272",
+        "count": 4
+      },
+      {
+        "source_id": "legacy-zh-CN-bukhari",
+        "path": "materials/legacy-zh-CN-bukhari/records.json",
+        "sha256": "98456028ba98630f5f8ff99e260234bcb26410d96180a7b25545db0f25bb84cd",
+        "count": 38
+      },
+      {
+        "source_id": "legacy-zh-CN-muslim",
+        "path": "materials/legacy-zh-CN-muslim/records.json",
+        "sha256": "2e65bef35e662320bbb9d9d8264e63cf754449d281b0f1aeb27609c2f22dc25f",
+        "count": 45
+      },
+      {
+        "source_id": "legacy-zh-CN-tirmidhi",
+        "path": "materials/legacy-zh-CN-tirmidhi/records.json",
+        "sha256": "ef8a5cb0e003ccfde656177b03ee1e069f5acec290fdd936bd7efe0d158bc530",
+        "count": 1
+      },
+      {
+        "source_id": "legacy-zh-CN-unclassified",
+        "path": "materials/legacy-zh-CN-unclassified/records.json",
+        "sha256": "384d52cccc46a2af3b0d836d58a0008c4c4144f1ff20daade8839e3fc6ad3810",
+        "count": 16
+      },
+      {
+        "source_id": "quran-excerpts-fa-abu-dawud",
+        "path": "materials/quran-excerpts-fa-abu-dawud/records.json",
+        "sha256": "5836166a27e7a90c98b0309f02ee5f695bf347b4ec381805dd727e87169a9c39",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-fa-adab-al-mufrad",
+        "path": "materials/quran-excerpts-fa-adab-al-mufrad/records.json",
+        "sha256": "fbb4d39f0249d2b2f0648049007fb26d4331e8896e04060b26efbb33b49aca8a",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-fa-ahmad",
+        "path": "materials/quran-excerpts-fa-ahmad/records.json",
+        "sha256": "ec8ebc8a7841e56eddab9345fed309b6937362a5f322be202921b9a3503d6ac2",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-fa-bukhari",
+        "path": "materials/quran-excerpts-fa-bukhari/records.json",
+        "sha256": "34e79780364f1c9e6c64bdd54b677021b5bec25a50d180af51ccab3643ec0029",
+        "count": 12
+      },
+      {
+        "source_id": "quran-excerpts-fa-ibn-majah",
+        "path": "materials/quran-excerpts-fa-ibn-majah/records.json",
+        "sha256": "bc4fee6739c5954012d13a6ef99dc6771b65e2fe7ee2cab56c557338589898a5",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-fa-muslim",
+        "path": "materials/quran-excerpts-fa-muslim/records.json",
+        "sha256": "d20c48348f62135b6df6edc1b7a36906f1f086f68427f463353f7f3ce548fcc2",
+        "count": 16
+      },
+      {
+        "source_id": "quran-excerpts-fa-tirmidhi",
+        "path": "materials/quran-excerpts-fa-tirmidhi/records.json",
+        "sha256": "59674c542232d73f3c2826244f1eef987269fdba0b2bf5af8d9e4c8da0c76c7f",
+        "count": 5
+      },
+      {
+        "source_id": "quran-excerpts-fa-unclassified",
+        "path": "materials/quran-excerpts-fa-unclassified/records.json",
+        "sha256": "a2c393d349e76534921e304e3e8f86664cff65f0cea05eea714cc366e05112ad",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-fil-abu-dawud",
+        "path": "materials/quran-excerpts-fil-abu-dawud/records.json",
+        "sha256": "662d0d45094f538860ebc5653732a37977b7bf030eb91a5c4e8b4c1ef2d2fab9",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-fil-adab-al-mufrad",
+        "path": "materials/quran-excerpts-fil-adab-al-mufrad/records.json",
+        "sha256": "ff17d0d48729e0984f30bec0f479fb58ef612abe77b50ce99141f04683b1a2f5",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-fil-ahmad",
+        "path": "materials/quran-excerpts-fil-ahmad/records.json",
+        "sha256": "508c06074fea419be3ec1b2b15b46da0c05ae2d04fb42e8e36d7bb82a95101e5",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-fil-bukhari",
+        "path": "materials/quran-excerpts-fil-bukhari/records.json",
+        "sha256": "3c04a087f5904647ea477bce6ab146223ee77b2c6031a23da44179e1db441511",
+        "count": 13
+      },
+      {
+        "source_id": "quran-excerpts-fil-hisn-al-muslim",
+        "path": "materials/quran-excerpts-fil-hisn-al-muslim/records.json",
+        "sha256": "6f50f03b7c8e933e2e39bdcccc5cda310e578e698431825391ed3087ab7e344b",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-fil-muslim",
+        "path": "materials/quran-excerpts-fil-muslim/records.json",
+        "sha256": "d10d132b489f1b62012087dae22d7c32ba80154c5a957642bf9238f544662e34",
+        "count": 14
+      },
+      {
+        "source_id": "quran-excerpts-fil-tirmidhi",
+        "path": "materials/quran-excerpts-fil-tirmidhi/records.json",
+        "sha256": "2d979e750f96026eb10cc308638a638772a9fe68711d76453c1a0a8723fcbcaf",
+        "count": 4
+      },
+      {
+        "source_id": "quran-excerpts-fil-unclassified",
+        "path": "materials/quran-excerpts-fil-unclassified/records.json",
+        "sha256": "e2f73d4f80d5b841f91018e1cd0ce2afb4d37da0a9a461862329c8269e1e5c41",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-hi-abu-dawud",
+        "path": "materials/quran-excerpts-hi-abu-dawud/records.json",
+        "sha256": "1bb1d30977fe405ce6b6658ca9748c04d5ca96743262dcedb6dc5eeb98f51ae8",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-hi-adab-al-mufrad",
+        "path": "materials/quran-excerpts-hi-adab-al-mufrad/records.json",
+        "sha256": "e2109bb5624b0a8ac6143264cda13adcc1ce942f00edae0d89e42b4791c77dd3",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-hi-ahmad",
+        "path": "materials/quran-excerpts-hi-ahmad/records.json",
+        "sha256": "a7991b2a60dc1be09dcfdc8ab0d0eff396853cbb8be1b760b98425f1f06f12dc",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-hi-bukhari",
+        "path": "materials/quran-excerpts-hi-bukhari/records.json",
+        "sha256": "d28dc10f9d738c803785ba5f1fcee257b13d933d165548b56bd9597ef8f8f6d6",
+        "count": 15
+      },
+      {
+        "source_id": "quran-excerpts-hi-hisn-al-muslim",
+        "path": "materials/quran-excerpts-hi-hisn-al-muslim/records.json",
+        "sha256": "addd54a541611ab52ab14f112f2af9a67a4ed4defe95e0c2ccc43128e94acd56",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-hi-ibn-majah",
+        "path": "materials/quran-excerpts-hi-ibn-majah/records.json",
+        "sha256": "d6c7e9463d1484d1f5f2911727f245907fedae533c1e0e49c7abb4859611b485",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-hi-muslim",
+        "path": "materials/quran-excerpts-hi-muslim/records.json",
+        "sha256": "1edc7b0eb378e83e453af6cd00fa851c2a94fea44dab3e2ce75146b636981af8",
+        "count": 14
+      },
+      {
+        "source_id": "quran-excerpts-hi-tirmidhi",
+        "path": "materials/quran-excerpts-hi-tirmidhi/records.json",
+        "sha256": "b8f562151822eb0e2502c046a97304f10f868de5f08042a40c9d825052b775d0",
+        "count": 5
+      },
+      {
+        "source_id": "quran-excerpts-ja-abu-dawud",
+        "path": "materials/quran-excerpts-ja-abu-dawud/records.json",
+        "sha256": "5199307c980176284ddae1d05db92cd0a07d097b01e8e9896ea8f07e70485f8d",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-ja-adab-al-mufrad",
+        "path": "materials/quran-excerpts-ja-adab-al-mufrad/records.json",
+        "sha256": "bd853eb0f9d782ac1b70ec7c1910a601b21e14aaffabc3935f0b8bca15a901c5",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-ja-ahmad",
+        "path": "materials/quran-excerpts-ja-ahmad/records.json",
+        "sha256": "74e051b9a4a068786658695eb010a4cc188b82669d866c3b2bd410335f4113eb",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-ja-bukhari",
+        "path": "materials/quran-excerpts-ja-bukhari/records.json",
+        "sha256": "f9f97e7d85f031f8883c3682ad0bb6a6ae87d52e8cba135f047a70fd4c9b1975",
+        "count": 15
+      },
+      {
+        "source_id": "quran-excerpts-ja-hisn-al-muslim",
+        "path": "materials/quran-excerpts-ja-hisn-al-muslim/records.json",
+        "sha256": "5fcb8e52c026feca9594cf52fa2189f05798907efdbe5c5cf07ea218b46055de",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-ja-ibn-majah",
+        "path": "materials/quran-excerpts-ja-ibn-majah/records.json",
+        "sha256": "581241d86a4f862375415d126b5c76111157c0f00ddcd695a2acbf253444228d",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-ja-muslim",
+        "path": "materials/quran-excerpts-ja-muslim/records.json",
+        "sha256": "3b4e7f916bdba7a68d29b6b22975a7e438b793e33f43d9c581d2054b7378cabf",
+        "count": 16
+      },
+      {
+        "source_id": "quran-excerpts-ja-tirmidhi",
+        "path": "materials/quran-excerpts-ja-tirmidhi/records.json",
+        "sha256": "842c91dfe6092865c02f4a731502982f5d9dcd31f956d33e9eee058595dd3eaa",
+        "count": 8
+      },
+      {
+        "source_id": "quran-excerpts-ja-unclassified",
+        "path": "materials/quran-excerpts-ja-unclassified/records.json",
+        "sha256": "dd48e3395e09dce8afd125169aff7b048033dfaeddf4f129b4a8be0ae5477c83",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-uz-abu-dawud",
+        "path": "materials/quran-excerpts-uz-abu-dawud/records.json",
+        "sha256": "b3fe3f3115bc895b24e40d84e6190963b44caaddae0df438a3927d155c48b33f",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-uz-adab-al-mufrad",
+        "path": "materials/quran-excerpts-uz-adab-al-mufrad/records.json",
+        "sha256": "a46ee033d93b74cf994ca3fbf947b422aa07ee9847c120610cee29454dbb5d0e",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-uz-ahmad",
+        "path": "materials/quran-excerpts-uz-ahmad/records.json",
+        "sha256": "450c9dc8fa72e274aa9f25b2bf76b86d00b5ad06d5043f0705613ce6029515c3",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-uz-bukhari",
+        "path": "materials/quran-excerpts-uz-bukhari/records.json",
+        "sha256": "43ab07711bf5549a0becf4c9fc5e89b13cdf53aab57ca73b51840c6997bce114",
+        "count": 13
+      },
+      {
+        "source_id": "quran-excerpts-uz-ibn-majah",
+        "path": "materials/quran-excerpts-uz-ibn-majah/records.json",
+        "sha256": "dae706662dc93232488d5621fda8b66883a56e5674842a22206e0cefe91df09f",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-uz-muslim",
+        "path": "materials/quran-excerpts-uz-muslim/records.json",
+        "sha256": "77258d4d0b45dc40424870b534710f9c157d448b6078c012c2a89874ed5cf1f9",
+        "count": 15
+      },
+      {
+        "source_id": "quran-excerpts-uz-riyad-as-salihin",
+        "path": "materials/quran-excerpts-uz-riyad-as-salihin/records.json",
+        "sha256": "0498f592b4892d99a1992ce3a1e4d685b2f5ec98a7fbab2cfa8af55903958a33",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-uz-tirmidhi",
+        "path": "materials/quran-excerpts-uz-tirmidhi/records.json",
+        "sha256": "3a909e96fb3edfd014c9601940e56d3c021e889c58ff982e669bdac951d21ffe",
+        "count": 5
+      },
+      {
+        "source_id": "quran-excerpts-vi-abu-dawud",
+        "path": "materials/quran-excerpts-vi-abu-dawud/records.json",
+        "sha256": "32fd475202079d93cdfceff8dfd4bd7d8a9e027cd13bf8663acb5aee25f51404",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-vi-adab-al-mufrad",
+        "path": "materials/quran-excerpts-vi-adab-al-mufrad/records.json",
+        "sha256": "b5b0df07af6ef2ebe2b43f34a12f6ac4ccf8efd1187e0249cf4ea03b6e2db3eb",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-vi-ahmad",
+        "path": "materials/quran-excerpts-vi-ahmad/records.json",
+        "sha256": "b1e8e35461df9ebb6a73d87b977e4bea8f752ebaa97365ad71448433235c8285",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-vi-bukhari",
+        "path": "materials/quran-excerpts-vi-bukhari/records.json",
+        "sha256": "ce1396279fb4ddca05310e493306676ea4a298c4a7ba19c5e7efe95be315e5e2",
+        "count": 11
+      },
+      {
+        "source_id": "quran-excerpts-vi-hisn-al-muslim",
+        "path": "materials/quran-excerpts-vi-hisn-al-muslim/records.json",
+        "sha256": "8398a752b28128bdb0565d9f95b03fe255a9354fb3807c6ab3f4a3079f4ce064",
+        "count": 2
+      },
+      {
+        "source_id": "quran-excerpts-vi-ibn-majah",
+        "path": "materials/quran-excerpts-vi-ibn-majah/records.json",
+        "sha256": "9b75e3f8054cf6ebc5d89372b7a157ea0feaedda52aab2ba900aec6ea2bbf3f0",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-vi-muslim",
+        "path": "materials/quran-excerpts-vi-muslim/records.json",
+        "sha256": "5086f1933cf4f0e0d9d3d6503f7dc9e8f58910d05cdf04fc545f00dbb95aaff5",
+        "count": 14
+      },
+      {
+        "source_id": "quran-excerpts-vi-riyad-as-salihin",
+        "path": "materials/quran-excerpts-vi-riyad-as-salihin/records.json",
+        "sha256": "b4a5d3c61b9b69016c0e7c13e96a5316b97706dac041f25724dd743c752efa87",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-vi-tirmidhi",
+        "path": "materials/quran-excerpts-vi-tirmidhi/records.json",
+        "sha256": "aadb721b7b64808e19197a21bdda16e085a1a758a9a9644448a588ffcf49ec88",
+        "count": 5
+      },
+      {
+        "source_id": "quran-excerpts-vi-unclassified",
+        "path": "materials/quran-excerpts-vi-unclassified/records.json",
+        "sha256": "0fd1172c9db018bc7e5b39b1c59c1cb02e750a2777b51cd67a557fcccdc40bcd",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-abu-dawud",
+        "path": "materials/quran-excerpts-zh-cn-abu-dawud/records.json",
+        "sha256": "5309bd3ac69ffed0ccd516acac4292e1749203062009f89d43e73219d2444da3",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-adab-al-mufrad",
+        "path": "materials/quran-excerpts-zh-cn-adab-al-mufrad/records.json",
+        "sha256": "4c540bcb0819818118ef755df6c3676b3b9e7009f5e67d30780e8833a7fe6f24",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-ahmad",
+        "path": "materials/quran-excerpts-zh-cn-ahmad/records.json",
+        "sha256": "003a7c58ad12b342c08a70725c0ba464a0b167fea15c25515c113a44f16d0bd5",
+        "count": 3
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-bukhari",
+        "path": "materials/quran-excerpts-zh-cn-bukhari/records.json",
+        "sha256": "f8b7871ecd1861990036b90d743c4a754482852e5cc6102033a9046a75e7f71f",
+        "count": 10
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-hisn-al-muslim",
+        "path": "materials/quran-excerpts-zh-cn-hisn-al-muslim/records.json",
+        "sha256": "8eb27d12c37cda6319bb0e2bec99e9402f6542f51a095be7eb10ac71af85ace7",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-muslim",
+        "path": "materials/quran-excerpts-zh-cn-muslim/records.json",
+        "sha256": "a54f401fc2247bc6add8aec1e7bc8ab81d3b1127242694291c29c7292c2aae9b",
+        "count": 15
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-nasai",
+        "path": "materials/quran-excerpts-zh-cn-nasai/records.json",
+        "sha256": "e7951f6e7ab18ef53dc8a1ee4bf747756db67d8c3953d9032b6e267f89b583d2",
+        "count": 1
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-tirmidhi",
+        "path": "materials/quran-excerpts-zh-cn-tirmidhi/records.json",
+        "sha256": "640385ed78e6da994f98ed7fef3c8fa9f97ccf08969551e69b7a5368f953ea8b",
+        "count": 6
+      },
+      {
+        "source_id": "quran-excerpts-zh-cn-unclassified",
+        "path": "materials/quran-excerpts-zh-cn-unclassified/records.json",
+        "sha256": "fa2bfe49d677b3679f2f9980f2f6d27e000b67691bed284c8cd33f090b6b741c",
+        "count": 2
+      },
+      {
+        "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/200-golden-hadith/editions/pdf-c7dcc5d2a0abffdd/records.json",
+        "sha256": "866ac4663d0ca8c274f3383fd28053c9b82c0138bf9798332c806e2bf3d813a4",
+        "count": 200
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-d9b954eb26087bf4",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-d9b954eb26087bf4/records.json",
+        "sha256": "38bb04806cc40a82a0114acd6afbc3cdac2325d979b26a49ff549106da3c4d44",
+        "count": 84
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-f3309a8aac2dc05c",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-f3309a8aac2dc05c/records.json",
+        "sha256": "a8177eeb6a1bd821b1bb559a728f67adc4fb7394c5d016dbb7e1fe3d78223ddd",
+        "count": 81
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-e9db3d7bc2c18787",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-e9db3d7bc2c18787/records.json",
+        "sha256": "5294bf5973aa7d3219bd052146085342d83b0df754641e1539c6f5511775e0c5",
+        "count": 37
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-4ca64d83240573e3",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-4ca64d83240573e3/records.json",
+        "sha256": "88ea8a71aae93eaa9df072c678d5c2968401460ac5f5aa4f2110d92d6ee14f7a",
+        "count": 52
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-3de5bd8199555734",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-3de5bd8199555734/records.json",
+        "sha256": "ddc5be5c2fa80511be71b5be3af81de5303debd1931d81d0597229dadfdcc266",
+        "count": 121
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-75cc56f03a7e7953",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-75cc56f03a7e7953/records.json",
+        "sha256": "8ea70eb35064c6eb6abf746da16c83695f64e43742a94e927becef26789049a4",
+        "count": 30
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-e7fbe286c2bca50c",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-e7fbe286c2bca50c/records.json",
+        "sha256": "09393e00b3efec3bbbfbf5c6faeaa866eaba8d90682267c693f7b0d5dd9eb86c",
+        "count": 15
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-03e704068cea5733",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-03e704068cea5733/records.json",
+        "sha256": "dc120d76d6654e799366ee59bac8045bb3a9dc635466944ecddbb65edb965f71",
+        "count": 140
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-0a15d0d1891beb6b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-0a15d0d1891beb6b/records.json",
+        "sha256": "ad32d21377ad988915d1b561fd082d22bacd09b6c3edbe05a332e523ae5b83e6",
+        "count": 145
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-7ddabd560590e2d2",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-7ddabd560590e2d2/records.json",
+        "sha256": "1557207fb0a91e5a725d1d647c46c03ff648c1b2063bc61de7214c59641e1e9d",
+        "count": 20
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-cb63d11a5f95aec8",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-cb63d11a5f95aec8/records.json",
+        "sha256": "52fd148c0ad1aa848bb272616cf8725cf5bc63cfdbbd016db149b82638777d2e",
+        "count": 155
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-9faf8e896d29e2a6",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-9faf8e896d29e2a6/records.json",
+        "sha256": "9a840104cb1c5458f1e34511538c3e77ac5e5f9e9e721de466d05f89c628ccca",
+        "count": 169
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-6eca93af081874f7",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-6eca93af081874f7/records.json",
+        "sha256": "6563f667d80381e38e1cada6d95c2f500707c910a33b06dd8ebaef3fa934fa7b",
+        "count": 129
+      },
+      {
+        "source_id": "chanlyislam:vi:abu-dawud:pdf-3a8ed94e7b53ee9c",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/abu-dawud/editions/pdf-3a8ed94e7b53ee9c/records.json",
+        "sha256": "ad3e3d36355f9cf2e97c21132e8b754107e719c0c86b00eb262b478758bfb7aa",
+        "count": 138
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-50bd57a93d62b78c",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-50bd57a93d62b78c/records.json",
+        "sha256": "035cd3007ae5f2004f5312db65093bb5063f788bc69c87508a97eb88aceda79b",
+        "count": 73
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-ef0a8f81d0047651",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-ef0a8f81d0047651/records.json",
+        "sha256": "f8308966e493d5e10369b1c3a65832aed822300fa5851b70e3312bf76dce5133",
+        "count": 62
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-3b29bcc005bd21c7",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-3b29bcc005bd21c7/records.json",
+        "sha256": "aaa4d41545c216528d158ea157ce99c7f4b7984f03396c33f44707a3f6bca9be",
+        "count": 42
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-c94d6ac57f7ac094",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-c94d6ac57f7ac094/records.json",
+        "sha256": "a66a8446f26a6df88b5f70890795ab985fbf6edeacf598dc16a2f6379a78a46d",
+        "count": 50
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-84d6ff651d909b3a",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-84d6ff651d909b3a/records.json",
+        "sha256": "aa6aa248a456ef0f2d84d1aba69136d141f7597c74712183fd168370c376abb2",
+        "count": 51
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-b245246c0919356a",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-b245246c0919356a/records.json",
+        "sha256": "1ace600de549e5941e34b90c8d5a610478aa8dd7a375742127e1a708feca1e94",
+        "count": 47
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-78441dec2bca1ecf",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-78441dec2bca1ecf/records.json",
+        "sha256": "8c5b855e75558540b41831f5ed65ec66867593948ab19affd51ca376d1c01fb0",
+        "count": 56
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-c0984fb46f68420f",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-c0984fb46f68420f/records.json",
+        "sha256": "6ab08599ce5a2724d8bb1999017165edb2babca22c2e2cbe4804507578d117d9",
+        "count": 53
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-3a140ba35f32f9d8",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-3a140ba35f32f9d8/records.json",
+        "sha256": "ba2fa2a2f864f5afabc9ffbb882a92e4f6f011c338d84f3cd4ab573297b35248",
+        "count": 54
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-b39062b83b50270a",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-b39062b83b50270a/records.json",
+        "sha256": "678b438e2e96bd326d409a23d50097c2020ee5ca36f8828dcc56b082e9ea82e6",
+        "count": 62
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-3a1424f3a0f06c85",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-3a1424f3a0f06c85/records.json",
+        "sha256": "8ac313ee99d7288a75112a1a480e1020ae7411b4008934b3796e61e0235aca04",
+        "count": 56
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-878f2186382ad5dc",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-878f2186382ad5dc/records.json",
+        "sha256": "1d33c9411caaa3c84b4d8aa1d3588fecc181157199fd2e9a2afae82823a4a324",
+        "count": 73
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-645681c4601d6b19",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-645681c4601d6b19/records.json",
+        "sha256": "f0c4b9970a6bb694bb7f4bfa12afb19e65e2695727d9d011b0488f00a3296e2b",
+        "count": 30
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-f1a4e5279a0d6a5b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-f1a4e5279a0d6a5b/records.json",
+        "sha256": "396637929e6822c89c1a5838ad19a619643c751d28459aefa033f31bbaa10fac",
+        "count": 14
+      },
+      {
+        "source_id": "chanlyislam:vi:bukhari:pdf-5839dff77028420f",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/bukhari/editions/pdf-5839dff77028420f/records.json",
+        "sha256": "59d6307dd91effca15c6c48fbf7c43f0fdb4022db55acb431720be72d2a7cb05",
+        "count": 44
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-b833a8eb65d3085b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-b833a8eb65d3085b/records.json",
+        "sha256": "68ea754bd2260d8991144c312153cf9c6ecafab0f45db895617e9e9a05b19c28",
+        "count": 61
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-79ebae014e0afc4f",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-79ebae014e0afc4f/records.json",
+        "sha256": "ba2204a48b7e185018159ed1bb89ceb7c6b525c908daa829198dd6718dbf4dbf",
+        "count": 35
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-b18ab3b5da92dd17",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-b18ab3b5da92dd17/records.json",
+        "sha256": "36030e80b50f69fc82105d74bfde7f7242114377961ff5db61d5288e6021a2a0",
+        "count": 61
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-44012acfef50800b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-44012acfef50800b/records.json",
+        "sha256": "db1e98caaf7c4fdbf5f90219a2ad54e936d9902bb3f0f8a873b1dee48f3c02d8",
+        "count": 37
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-e6f1e921a7497618",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-e6f1e921a7497618/records.json",
+        "sha256": "b42f8f0424c937fba0b3cbcc78268d3fa52768e5c253143dfeebe5bbf24fb19c",
+        "count": 62
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-bdadee3939e953f0",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-bdadee3939e953f0/records.json",
+        "sha256": "8ff85e894b6a4554524f20610f616dcb3d771ec14900cc21a7870d4a4a389f40",
+        "count": 65
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-ffab02a08fcdf0a1/records.json",
+        "sha256": "6ce6a03f50d543923feee97d00348af26e6e97eac0c7396a8e596abab61d8993",
+        "count": 73
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-2d0d4e8c08d8cca8",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-2d0d4e8c08d8cca8/records.json",
+        "sha256": "e7c4f0bda94207e967b5bbe4a9167a882bff6f84c162f59926e1325252eba2d5",
+        "count": 87
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-7adbb0385eda80e2",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-7adbb0385eda80e2/records.json",
+        "sha256": "f0ead08df4847794dc4f2b180a8ba1fa40ca58b5a5df939f6e8f4a75ee0b0c4c",
+        "count": 57
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-2396484964ec0ef4",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-2396484964ec0ef4/records.json",
+        "sha256": "f874eb5261da918bdfce84aa9c62970f001d03df956abbc13d337dd697aa0489",
+        "count": 89
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-34ee23f4f6cce34b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-34ee23f4f6cce34b/records.json",
+        "sha256": "17eae97e1934c4a1ba8cec00cc3910b6afd6ead394fdd66015410686290a5730",
+        "count": 71
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-ebc95d437900d31b",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-ebc95d437900d31b/records.json",
+        "sha256": "c3a875df2b50fcc4c394c7fa1a96aaaa1e9c30d31772a585b9806ac8b9667e7d",
+        "count": 85
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-be8d818c8ae2dd0c",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-be8d818c8ae2dd0c/records.json",
+        "sha256": "f5e591c6717a49b79bf36807447b085002a82f5582a900aabda98dc9710761bd",
+        "count": 56
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-4aa2f9c722e62418",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-4aa2f9c722e62418/records.json",
+        "sha256": "439817ce0c6ee5563dc9b19e26dd1b3537e50884d8213a4353908755c88f717b",
+        "count": 49
+      },
+      {
+        "source_id": "chanlyislam:vi:muslim:pdf-668a54bc30222150",
+        "path": "attachments/attachments-vi-920394517894aea9/languages/vi/books/muslim/editions/pdf-668a54bc30222150/records.json",
+        "sha256": "7045b937834937995554b6560342020d5fd42a9ed5311ed403bda57f4ae4c3f0",
+        "count": 83
+      }
+    ]
+  },
+  "software_regressions": {
+    "test_file": "tests/test_chinese_abu_dawud_import.py",
+    "command": "python -m unittest discover -s tests -p test_chinese_abu_dawud_import.py -v",
+    "tests": 10,
+    "result": "passed",
+    "full_suite": {
+      "command": "python -m unittest discover -s tests",
+      "tests": 215,
+      "result": "passed",
+      "saved_log_sha256": "95b53fc27f4b2808f8334d47c1cefbd7ecc1d66df32e0413ba3f8bc10fffb3a0",
+      "base_commit": "f2b4027852abb423d2c323aba2164a3e46b6430d",
+      "candidate_blobs_reverified": 13
+    }
+  },
+  "expected_derived_counts_against_baseline": {
+    "total": 24286,
+    "zh-CN": 5224
+  },
+  "build_and_browser_checks": {
+    "local_build": {
+      "status": "passed",
+      "command": "python scripts/refresh_bank.py --root . --site-output _site",
+      "base_commit": "f2b4027852abb423d2c323aba2164a3e46b6430d",
+      "record_count": 24286,
+      "by_language": {
+        "fa": 7078,
+        "fil": 2056,
+        "hi": 2584,
+        "ja": 2237,
+        "uz": 552,
+        "vi": 4555,
+        "zh-CN": 5224
+      },
+      "canonical_source_bytes_unchanged": true,
+      "reader_sha256": "36b0e136b8165fe28f38df4b8fd197dbd45dbd11f45c95749579c99fc39b9055",
+      "search_sha256": "d4befd1a1e136949d9ee0a57065da3417a5f71fd46aaf793198e7aee79911e24"
+    },
+    "browser_check": {
+      "status": "not_performed_in_local_executor",
+      "reason": "Local browser launch was unavailable in the prior executor; no browser-pass claim is made by this source integration report."
+    },
+    "publication_route": "Canonical material, importer, regression tests and this report only. GitHub Actions rebuilds and deploys the derived website."
+  },
+  "independent_pro_qc_performed": false,
+  "certification_asserted": false,
+  "scope": "Software/source-span verification only. No independent translation, narrational authenticity, canonical numbering or rights certification is asserted."
+}
