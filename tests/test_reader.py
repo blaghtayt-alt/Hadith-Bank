@@ -308,6 +308,7 @@ const valueText = ''' + helpers + '''
 const document={createElement:tag=>({tag,children:[],append(...nodes){this.children.push(...nodes);}})};
 const site={repository_url:'https://github.com/TEST/TEST',source_ref:'main'};
 const source={original_file:'materials/TEST/source.docx',record_locator:{path:'materials/TEST/records.jsonl'}};
+const sourceDownloadsByPath=new Map([[source.original_file,{path:source.original_file}]]);
 let offline=false;const window={location:{protocol:'https:'}};
 ''' + source_files + '''
 const hosted=sourceFiles(source).children;
@@ -318,13 +319,13 @@ process.stdout.write(JSON.stringify({hosted,local}));'''
                                 capture_output=True, check=True)
         actual = json.loads(result.stdout)
         self.assertEqual([x['textContent'] for x in actual['hosted']],
-                         ['Source file', 'Download DOCX', 'Canonical record file'])
+                         ['Source file', 'Download Word (.docx)', 'Canonical record file'])
         self.assertEqual([x['textContent'] for x in actual['local']],
-                         ['Local source file', 'Source file on GitHub', 'Download DOCX from GitHub', 'Local record JSON'])
+                         ['Local source file', 'Source file on GitHub', 'Download Word (.docx)', 'Local record JSON'])
         self.assertEqual(actual['local'][0]['href'], 'materials/TEST/source.docx')
         self.assertEqual(actual['hosted'][0]['href'], 'https://github.com/TEST/TEST/blob/main/materials/TEST/source.docx')
         hosted_download, offline_download = actual['hosted'][1], actual['local'][2]
-        self.assertEqual(hosted_download['href'], 'https://github.com/TEST/TEST/raw/main/materials/TEST/source.docx?download=1')
+        self.assertEqual(hosted_download['href'], 'https://github.com/TEST/TEST/raw/main/materials/TEST/source.docx')
         self.assertEqual(hosted_download['href'], offline_download['href'])
         self.assertEqual(hosted_download['download'], 'source.docx')
         self.assertEqual(hosted_download['rel'], 'noopener noreferrer')

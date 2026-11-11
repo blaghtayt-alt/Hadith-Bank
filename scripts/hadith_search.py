@@ -42,8 +42,8 @@ import tempfile
 import unicodedata
 
 from current_provenance import classification as current_translation_origin
-from counterpart_display import (counterpart_data, counterpart_search_values,
-                                 counterpart_citation, counterpart_qualification)
+from counterpart_display import (counterpart_source_data, counterpart_search_values,
+                                 counterpart_citation, counterpart_qualification, counterpart_alignment_notes)
 from citation_search import has_noncanonical_numbering, record_citation_pairs, split_citation_query
 
 
@@ -666,19 +666,25 @@ def format_results(result):
         lines.extend(['', 'Arabic:', item['text_arabic'] or '(not supplied)',
                       '', 'Translation:', item['text_translation'] or '(not supplied)'])
         for language in ('arabic', 'english'):
-            counterpart = counterpart_data(item, language)
+            counterpart = counterpart_source_data(item, language)
             if counterpart is None:
                 continue
-            lines.extend(['', language.title() + ' counterpart:', counterpart['text'],
-                          counterpart_citation(counterpart, language)])
+            lines.extend(['', language.title() + (' · read at source:' if counterpart.get('scope') == 'external_source'
+                                                  else ' source entry:' if counterpart.get('scope') == 'source_entry'
+                                                  else ' source excerpt:' if counterpart.get('scope') == 'source_excerpt'
+                                                  else ' counterpart:')])
+            if counterpart.get('text'):
+                lines.append(counterpart['text'])
+            lines.append(counterpart_citation(counterpart, language))
             qualification = counterpart_qualification(counterpart, item)
             if qualification:
                 lines.append(qualification)
+            lines.extend('Alignment note: ' + note for note in counterpart_alignment_notes(item))
             lines.append('Counterpart source: ' + (counterpart.get('source_name') or '(not named)'))
             if counterpart.get('source_url'):
                 lines.append('Counterpart URL: ' + counterpart['source_url'])
             if language == 'english':
-                lines.append('Counterpart translation origin: ' + ('Human' if counterpart.get('translation_origin') == 'human' else 'Unknown'))
+                lines.append('Counterpart translation origin: ' + {'human': 'Human', 'ai': 'AI'}.get(counterpart.get('translation_origin'), 'Unknown'))
         narrator = item['narrator'] or {}
         if narrator.get('name'):
             lines.extend(['', 'Narrator: ' + str(narrator['name'])])

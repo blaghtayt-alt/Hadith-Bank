@@ -17,6 +17,7 @@ import unicodedata
 from counterpart_identity import provider_identity
 from counterpart_references import parse_provider_references
 from citation_search import reference_pair, reference_pairs
+from reviewed_counterparts import ReviewedCounterpartResolver, MANIFEST as REVIEWED_MANIFEST
 
 MANIFEST = 'sources/counterparts/hadeethenc/manifest.json'
 SCHEMA = 'hadith-bank-counterpart-link-v1'
@@ -168,14 +169,18 @@ def citation(references, language):
 class CounterpartResolver:
     def __init__(self, root, records=None):
         self.root = Path(root).resolve()
-        self.enabled = (self.root / MANIFEST).is_file()
-        self.entries, self.assets, self.translations = {}, {}, defaultdict(list)
+        self.reviewed = ReviewedCounterpartResolver(self.root)
+        self.provider_enabled = (self.root / MANIFEST).is_file()
+        self.enabled = self.provider_enabled or self.reviewed.enabled
+        self.entries, self.assets, self.translations = {}, dict(self.reviewed.assets), defaultdict(list)
+        self.source_manifests = ([MANIFEST] if self.provider_enabled else []) + (
+            [REVIEWED_MANIFEST] if self.reviewed.enabled else [])
         self.normalized_translations = defaultdict(list)
         self.normalized_arabic = {}
         self.ref_ids, self.exact_arabic = defaultdict(set), defaultdict(set)
         self.source_versions = {}
         self.manifest = None
-        if not self.enabled:
+        if not self.provider_enabled:
             return
         self.manifest = json.loads(local(self.root, MANIFEST).read_text(encoding='utf-8'))
         if self.manifest.get('schema') != 'hadith-bank-hadeethenc-counterpart-sources-v1':
@@ -357,7 +362,13 @@ class CounterpartResolver:
     def for_record(self, record):
         if not self.enabled:
             return None
-        identifier, method, identity, proof = self._select(record)
+        reviewed = self.reviewed.for_record(record)
+        if reviewed is not None:
+            # A stale or ambiguous reviewed assignment must not silently fall
+            # through to another provider. The original source stays intact.
+            return reviewed
+        identifier, method, identity, proof = (self._select(record) if self.provider_enabled else
+            (None, 'no_verified_source_counterpart', None, None))
         original_refs = source_references(record)
         result = {'schema': SCHEMA, 'status': 'unresolved', 'match_method': method,
                   'match_note': None, 'provider_identity': identity, 'quotation_evidence': proof,
@@ -414,7 +425,8 @@ def enrich_records(root, records):
     if not resolver.enabled:
         return None
     summary = Counter(total=0, arabic_available=0, english_available=0,
-                      exact_links=0, related_version_links=0, unresolved=0,
+                      arabic_external_links=0, english_external_links=0,
+                      exact_links=0, related_version_links=0, reviewed_parallel_links=0, unresolved=0,
                       with_numbered_references=0)
     languages, reasons, unresolved = defaultdict(Counter), Counter(), []
     for record in records:
@@ -424,12 +436,21 @@ def enrich_records(root, records):
         language = languages[record['language']]
         language['total'] += 1
         for key, field in [('arabic_available', 'arabic'), ('english_available', 'english')]:
-            if value[field]:
+            if value[field] and value[field].get('text'):
                 summary[key] += 1
                 language[key] += 1
-        if value['english']:
+            elif value[field] and value[field].get('source_url'):
+                external_key = field + '_external_links'
+                summary[external_key] += 1
+                language[external_key] += 1
+        if value['status'] == 'reviewed_parallel':
+            summary['reviewed_parallel_links'] += 1
+            language['reviewed_parallel_links'] += 1
+            if any(value[field] and value[field].get('references') for field in ('arabic', 'english')):
+                summary['with_numbered_references'] += 1
+        elif value['english'] and value['english'].get('text'):
             summary['related_version_links' if value['status'] == 'related_version' else 'exact_links'] += 1
-            if value['english']['references']:
+            if value['english'].get('references'):
                 summary['with_numbered_references'] += 1
         else:
             summary['unresolved'] += 1
@@ -439,12 +460,15 @@ def enrich_records(root, records):
     report = {'schema': 'hadith-bank-counterpart-coverage-v1', 'status': 'passed',
               **dict(summary), 'by_language': {k: dict(v) for k, v in sorted(languages.items())},
               'unresolved_reasons': dict(reasons), 'unresolved_records': unresolved,
-              'provider_entries_available': len(resolver.entries), 'source_manifest': MANIFEST,
+              'provider_entries_available': len(resolver.entries),
+              'reviewed_entries_available': sum(len(value['entries']) for value in resolver.reviewed.bundles.values()),
+              'source_manifest': resolver.source_manifests[0], 'source_manifests': resolver.source_manifests,
               'source_assets': resolver.assets, 'original_record_count_unchanged': True,
               'source_text_unchanged': True, 'new_translations_created': False,
-              'matching_policy': 'Publisher version identity or unique literal source-quotation alignment; never collection number alone.'}
+              'matching_policy': 'Publisher version identity, unique literal source-quotation alignment, or explicit reviewed narration evidence bound to source and target hashes; never collection number alone.'}
     output = Path(root) / 'reports/counterpart-coverage.json'
     output.parent.mkdir(exist_ok=True)
     output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return {**dict(summary), 'by_language': report['by_language'],
-            'report': 'reports/counterpart-coverage.json', 'source_manifest': MANIFEST}
+            'report': 'reports/counterpart-coverage.json', 'source_manifest': resolver.source_manifests[0],
+            'source_manifests': resolver.source_manifests}

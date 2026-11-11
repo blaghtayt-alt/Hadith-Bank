@@ -14,6 +14,18 @@ This is a standalone bank. Canonical JSON/JSONL records, original source files, 
 
 **The hosted reader updates after a successful build of `main`.** Use the site's **Download offline reader** button to keep a local copy. A file already saved in your Downloads folder is a snapshot; download it again to get later additions. The website URL above is the shared, automatically refreshed entry point.
 
+## Download original books
+
+In the reader, open **Browse available materials → Download books and source materials**. Choose **Download Word (.doc)**, **Download Word (.docx)** or **Download PDF** for the source you want. The same download links appear in each applicable narration card under **Source & translation details**.
+
+Downloads preserve the supplied file format:
+
+- Chinese Sunan Abī Dāwūd: [original Word document (.doc)](materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc).
+- Persian books: original `.docx` files in their respective [material folders](materials/).
+- Japanese and Vietnamese PDF sources: the preserved [Japanese package](attachments/attachments-ja-muslim-c859ce57c211ea1b/) and [Vietnamese package](attachments/attachments-vi-920394517894aea9/).
+
+You can also open these folders on GitHub, select a source file and download its raw contents. The reader offers only Word or PDF files actually preserved in the repository. Its offline HTML contains searchable narration data; original-book downloads use GitHub, while a complete downloaded repository also retains the source files locally.
+
 ## Included source collections
 
 The following imports form the original structured collection. The [generated catalog](catalog/materials.json) and website include the additional old-bank and Qur’an-book quotation extractions described below and show the complete current totals.

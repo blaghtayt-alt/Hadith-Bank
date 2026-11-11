@@ -6,6 +6,7 @@ reference objects (or clearly scoped collection-number fields) create matches.
 import re
 import unicodedata
 from functools import lru_cache
+from counterpart_display import counterpart_source_data
 
 
 COLLECTION_ALIASES = [
@@ -140,10 +141,9 @@ def has_noncanonical_numbering(number):
 
 def record_citation_pairs(record):
     pairs = set()
-    counterparts = record.get('counterparts') or {}
     for language in ('arabic', 'english'):
-        item = counterparts.get(language) if isinstance(counterparts, dict) else None
-        if not isinstance(item, dict) or not item.get('text'):
+        item = counterpart_source_data(record, language)
+        if item is None:
             continue
         references = item.get('references')
         for reference in references if isinstance(references, list) else []:

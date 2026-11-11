@@ -19,11 +19,12 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import sys
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 import xml.etree.ElementTree as ET
 
 from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
-from counterpart_display import counterpart_data, counterpart_citation, counterpart_qualification
+from counterpart_display import (counterpart_data, counterpart_source_data,
+                                 counterpart_citation, counterpart_qualification, counterpart_alignment_notes)
 from citation_search import has_noncanonical_numbering
 
 
@@ -339,7 +340,7 @@ def record_type_info(record):
     return {'label': label, 'note': note}
 
 
-def markdown_record(record, index, bank_root=None, page_directory=None):
+def markdown_record(record, index, bank_root=None, page_directory=None, downloads=None, site=None):
     from current_provenance import classification
     source = record['source']
     provenance = record['translation_provenance']
@@ -365,23 +366,33 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
                   prose(record['text_arabic'], 'rtl'),
                   '', '</details>', '']
     for language in ('arabic', 'english'):
-        counterpart = counterpart_data(record, language)
+        counterpart = counterpart_source_data(record, language)
         if counterpart is None:
             continue
-        label = language.title() + (' · full narration' if counterpart.get('scope') == 'full_narration' else '')
+        label = language.title() + (' · read at source' if counterpart.get('scope') == 'external_source' else
+                                    ' · full narration' if counterpart.get('scope') == 'full_narration' else
+                                    ' source entry' if counterpart.get('scope') == 'source_entry' else
+                                    ' source excerpt' if counterpart.get('scope') == 'source_excerpt' else '')
         direction = 'rtl' if language == 'arabic' else 'ltr'
         lines += ['<details>', '<summary>' + label + '</summary>', '']
         qualification = counterpart_qualification(counterpart, record)
         if qualification:
             lines += [prose(qualification), '']
-        lines += [prose(counterpart['text'], direction),
-                  prose(counterpart_citation(counterpart, language), direction), '']
+        if counterpart.get('text'):
+            lines += [prose(counterpart['text'], direction)]
+        lines += [prose(counterpart_citation(counterpart, language), direction), '']
+        alignment_notes = counterpart_alignment_notes(record)
+        if alignment_notes:
+            lines += ['<details>', '<summary>Alignment notes</summary>', '']
+            lines += [prose(note) for note in alignment_notes]
+            lines += ['', '</details>', '']
         counterpart_url = safe_url(counterpart.get('source_url'))
-        credit = counterpart.get('source_name') or 'Source not named'
+        credit = (('Read ' + language.title() + ' at source · ') if counterpart.get('scope') == 'external_source'
+                  else '') + (counterpart.get('source_name') or 'Source not named')
         counterpart_credit = ('<a href="' + escaped(counterpart_url) + '">' + escaped(credit) + '</a>'
                               if counterpart_url else escaped(credit))
         if language == 'english':
-            counterpart_credit += ' · Translation origin: ' + ('Human' if counterpart.get('translation_origin') == 'human' else 'Unknown')
+            counterpart_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI'}.get(counterpart.get('translation_origin'), 'Unknown')
         lines += ['<p>' + counterpart_credit + '</p>', '', '</details>', '']
     url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_name = source.get('name') or record['source_id']
@@ -483,6 +494,10 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
         locator_parts.append('<br><strong>JSON pointer:</strong> <code>' + escaped(locator['json_pointer']) + '</code>')
     locator_parts += ['<br><strong>Original file:</strong> ' + source_link(source.get('original_file'), bank_root, page_directory),
                       '<br><strong>Original SHA-256:</strong> <code>' + escaped(source.get('sha256')) + '</code></p>']
+    download = (downloads or {}).get(source.get('original_file'))
+    if download:
+        locator_parts.append('<p><a href="' + escaped(source_download_url(download['path'], site)) + '">' +
+                             escaped(download['label']) + '</a></p>')
     issues = review.get('issues') or []
     lines += ['<details>', '<summary>' + ('Source locators and source notes' if hide_qc else 'Source locators and review issues') + '</summary>', '',
               ''.join(locator_parts), '',
@@ -502,6 +517,8 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
     books = collections.defaultdict(list)
     written = []
     page_count = 0
+    downloads = {item['path']: item for item in source_downloads(bank_root, records, catalog or {})} if bank_root else {}
+    download_site = site_metadata(catalog or {})
 
     def save(relative, content):
         target = local(output, relative)
@@ -524,7 +541,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
             body = ['# ' + escaped(label) + ' / ' + escaped(book), '',
                     'Edition: `' + edition + '` · Narrations ' + str(start + 1) + '–' + str(end) +
                     ' of ' + str(len(items)) + '.', '', ' · '.join(nav), '']
-            body.extend(markdown_record(r, start + i + 1, bank_root, output / directory)
+            body.extend(markdown_record(r, start + i + 1, bank_root, output / directory, downloads, download_site)
                         for i, r in enumerate(items[start:end]))
             body += ['', ' · '.join(nav), '']
             save(directory + '/' + name, '\n'.join(body))
@@ -650,6 +667,81 @@ def site_metadata(catalog, override=None):
     return site
 
 
+def source_download_label(relative):
+    extension = PurePosixPath(relative).suffix.lower() if isinstance(relative, str) else ''
+    return {'.doc': 'Download Word (.doc)', '.docx': 'Download Word (.docx)',
+            '.pdf': 'Download PDF'}.get(extension)
+
+
+def source_download_url(relative, site):
+    """A direct GitHub file URL; validate both the ref and each path segment."""
+    if (not isinstance(relative, str) or not relative or
+            re.search(r'[\\:\x00-\x1f\x7f]', relative) or relative.startswith('/') or
+            any(part in ('', '.', '..') for part in relative.split('/'))):
+        raise ValueError('Unsafe source download path')
+    if source_download_label(relative) is None:
+        raise ValueError('Source download is not a Word or PDF file')
+    settings = site_metadata({}, site)
+    return (settings['repository_url'] + '/raw/' + quote(settings['source_ref'], safe='') + '/' +
+            '/'.join(quote(part, safe='') for part in relative.split('/')))
+
+
+def source_downloads(root, records, catalog):
+    """List real preserved books; no inferred conversions or missing files."""
+    root = Path(root).resolve()
+    candidates = {}
+
+    def origin(provenance):
+        provenance = provenance or {}
+        current = (provenance.get('current_policy') or {}).get('classification')
+        if current in ('human', 'ai', 'unknown'):
+            return current
+        if provenance.get('ai_translation') is True:
+            return 'ai'
+        if provenance.get('ai_translation') is False or provenance.get('origin') in (
+                'publisher_human_workflow', 'human_translator_credited'):
+            return 'human'
+        return 'unknown'
+
+    def add(relative, sha256, language, book, name, origin):
+        label = source_download_label(relative)
+        if label is None:
+            return
+        item = candidates.setdefault(relative, {'path': relative, 'label': label, 'sha256': sha256,
+            'language': language, 'book_key': book, 'source_name': name or PurePosixPath(relative).name,
+            'translation_origin': origin})
+        if sha256 and item.get('sha256') and sha256 != item['sha256']:
+            raise ValueError('Conflicting source download hashes: ' + relative)
+        if sha256:
+            item['sha256'] = sha256
+
+    for item in catalog.get('materials', []):
+        if item.get('available_locally') is not False:
+            add(item.get('source_file'), item.get('source_sha256'), item.get('language'),
+                item.get('book_key'), item.get('source_name'),
+                origin(item.get('translation_provenance')))
+    for item in catalog.get('legacy_materials', []):
+        if item.get('available_locally') is not False:
+            add(item.get('path'), item.get('sha256'), item.get('language'), item.get('book_key'),
+                item.get('source_name'), (item.get('current_policy') or {}).get('classification', 'unknown'))
+    for record in records:
+        source = record.get('source') or {}
+        add(source.get('original_file'), source.get('sha256'), record.get('language'),
+            record.get('book_key'), source.get('name'),
+            origin(record.get('translation_provenance')))
+    result = []
+    for relative, item in sorted(candidates.items()):
+        path = local(root, relative)
+        if not path.is_file():
+            continue
+        with path.open('rb') as stream:
+            checksum = hashlib.file_digest(stream, 'sha256').hexdigest()
+        if item.get('sha256') and item['sha256'] != checksum:
+            raise ValueError('Source download checksum mismatch: ' + relative)
+        result.append({**item, 'sha256': checksum, 'bytes': path.stat().st_size})
+    return result
+
+
 def review_display_metadata(root):
     """Expose the current display decision separately from source review history."""
     path = local(root, 'catalog/review-policy.json')
@@ -756,6 +848,7 @@ def build(root, output, markdown_output=None, compress=True, site=None):
                 'site': site_metadata(catalog, site),
                 'review_display_policy': review_display_metadata(root),
                 'counterparts': catalog.get('counterparts'),
+                'source_downloads': source_downloads(root, records, catalog),
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if compress:

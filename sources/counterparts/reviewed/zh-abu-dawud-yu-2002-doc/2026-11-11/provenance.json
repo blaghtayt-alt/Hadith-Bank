@@ -1,0 +1,81 @@
+{
+  "schema": "hadith-bank-chinese-abu-dawud-counterpart-provenance-v1",
+  "date": "2026-11-11",
+  "original_source": {
+    "source_id": "zh-abu-dawud-yu-2002-doc",
+    "original_file": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+    "sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+    "records_path": "materials/zh-abu-dawud-yu-2002-doc/records.jsonl",
+    "records_sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8",
+    "records": 2828,
+    "original_text_and_occurrence_ids_unchanged": true,
+    "local_numbers_are_not_canonical": true
+  },
+  "publication": {
+    "authorized": true,
+    "basis": "Owner requested Arabic and English links for this Chinese source and direct GitHub downloads of books and source materials.",
+    "scope": "Additive source-linked views; exact original Chinese and source bytes retained. Classical Arabic source entries and authorized HadeethEnc English quotations; external English links otherwise.",
+    "independent_scholarly_certification": false,
+    "human_alignment_review": false,
+    "translation_fidelity_certified": false,
+    "review_model": "ChatGPT GPT-6 Astra Pro",
+    "no_new_translation_generated": true
+  },
+  "arabic_source": {
+    "provider": "fawazahmed0/hadith-api",
+    "revision": "df57907be35291c91ad6a6691180e22ca9920784",
+    "edition": "ara-abudawud",
+    "url": "https://raw.githubusercontent.com/fawazahmed0/hadith-api/df57907be35291c91ad6a6691180e22ca9920784/editions/ara-abudawud.json",
+    "raw_sha256": "216139c5f40a8147e700d62ffa3b5b2fe45d0e034f86941a193c598c10056189",
+    "raw_bytes": 7345422,
+    "rights_basis": "Classical Arabic work in the public domain. Upstream repository uses the Unlicense; that is not treated as a license for third-party modern translations.",
+    "printed_edition": "Unknown; upstream edition does not identify it.",
+    "text_scope": "Exact complete upstream Arabic source entry, including isnad and compiler notes. Not all its content is a prophetic quotation. No segmentation or authenticity grading is inferred.",
+    "supplements": [
+      {
+        "id": "907",
+        "url": "https://sunnah.com/abudawud:907",
+        "reason": "Upstream row907 is empty. Literal Arabic bounded from one individually consulted source page; page footer retained separately in capture audit."
+      },
+      {
+        "id": "907b",
+        "url": "https://sunnah.com/urn/809070",
+        "reason": "Separate Ibn Umar/Ubayy report on an individually consulted source page. Preserve distinct occurrence; the abudawud:907b URL does not resolve."
+      }
+    ]
+  },
+  "research_english": {
+    "provider": "fawazahmed0/hadith-api",
+    "revision": "df57907be35291c91ad6a6691180e22ca9920784",
+    "edition": "eng-abudawud",
+    "sha256": "f6bcf73ad96d2f28296232e201e12963e7b3dd5325572fb88365edbbfb0ecd40",
+    "url": "https://raw.githubusercontent.com/fawazahmed0/hadith-api/df57907be35291c91ad6a6691180e22ca9920784/editions/eng-abudawud.json",
+    "distributed": false,
+    "translator": "Unknown in upstream edition metadata",
+    "reason": "Paired English used for content review only. Full-book offline republication rights not established; do not copy this translation into public assets.",
+    "publisher_terms_url": "https://sunnah.com/about",
+    "external_links": "Individual corresponding source pages, with linked source numbers; no English text supplied by these links."
+  },
+  "authorized_english": {
+    "provider": "HadeethEnc.com",
+    "english_version": "v1.25.0",
+    "english_database": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+    "english_database_sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+    "arabic_database": "sources/hadeethenc/snapshots/2026-11-11/raw/ar.sqlite",
+    "arabic_database_sha256": "0eaec8283524c4d2bf9fb8cf1d0c0a77c753d472ac962cb51413a2c3cd8da70a",
+    "reuse_conditions": "Keep wording unchanged, credit HadeethEnc and version, maintain current publisher versions, and observe the publisher distribution conditions retained in sources/counterparts/hadeethenc/manifest.json.",
+    "scope": "Only separately reviewed, occurrence-compatible English parallels. Publisher references and reviewed Arabic-source cross-references remain distinct."
+  },
+  "known_unresolved": {
+    "source_local_number": "2440",
+    "source_record_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp251075",
+    "reason": "Short Chinese report and candidate2666 differ in narrator and wording; identity is not settled."
+  },
+  "english_omissions": [
+    {
+      "canonical_number": "2319",
+      "reason": "Arabic matches Chinese2116, but paired English on the source page is a different narration. No English counterpart is assigned unless a separately reviewed authorized source covers the occurrence."
+    }
+  ],
+  "review_method": "AI-assisted individual narration-content comparison, with exact source anchors and byte hashes, narrator/context checks, and explicit qualifications for differences. Sequence/embedding candidates helped locate passages but were never acceptance evidence. No number-only assignments."
+}

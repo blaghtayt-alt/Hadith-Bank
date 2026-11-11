@@ -163,6 +163,23 @@ const sourceDownloadInfo = (source, site) => {
   return {href:download.href,filename:download.filename,label,
           title:(typeof source.name==="string" && source.name?source.name:download.filename)+" — "+label};
 };
+const sourceDownloadLabel = relative => {
+  const extension=typeof relative==="string"?(relative.match(/\.(docx?|pdf)$/i)||[])[1]:null;
+  return extension?extension.toLowerCase()==="pdf"?"Download PDF":"Download Word (."+extension.toLowerCase()+")":null;
+};
+const sourceDownloadURL = (relative,site) => {
+  if(!sourceDownloadLabel(relative))return null;
+  const url=recordFileURL(relative,site,"https:");
+  return url?url.replace(/^(https:\/\/github\.com\/[^/]+\/[^/]+)\/blob\//,"$1/raw/"):null;
+};
+const counterpartData = (record,language) => {const data=record.counterparts && record.counterparts[language];return data && typeof data==="object" && typeof data.text==="string" && data.text.trim()?data:null;};
+const counterpartSourceData = (record,language) => {
+  const text=counterpartData(record,language);if(text)return text;
+  const data=record.counterparts && record.counterparts[language];
+  if(!data || typeof data!=="object" || data.scope!=="external_source")return null;
+  const url=sourceURL({record_url:data.source_url});if(!url)return null;
+  const parsed=new URL(url);return !parsed.username && !parsed.password?data:null;
+};
 const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
 const isOCR = record => !!(record.extraction && record.extraction.ocr_used===true);
 const needsOCRReview = record => {
@@ -253,7 +270,7 @@ const citationReferencePairs=(reference,printed=false)=>{
 };
 const recordCitationPairs=record=>{
   const pairs=new Set(),counterparts=record.counterparts || {};
-  for(const language of ["arabic","english"]){const data=counterparts[language];if(!data || typeof data.text!=="string" || !data.text)continue;for(const reference of Array.isArray(data.references)?data.references:[])for(const pair of citationReferencePairs(reference))pairs.add(pair);}
+  for(const language of ["arabic","english"]){const data=counterpartSourceData(record,language);if(!data)continue;for(const reference of Array.isArray(data.references)?data.references:[])for(const pair of citationReferencePairs(reference))pairs.add(pair);}
   const references=record.references || {};
   for(const reference of Array.isArray(references.items)?references.items:[])for(const pair of citationReferencePairs(reference))pairs.add(pair);
   const number=record.number || {};
@@ -272,8 +289,7 @@ const splitCitationQuery=query=>{
 const citationPairKeys=records.map(recordCitationPairs);
 
 const searchStrings = value => typeof value==="string" || typeof value==="number"?[String(value)]:Array.isArray(value)?value.flatMap(searchStrings):value && typeof value==="object"?Object.values(value).flatMap(searchStrings):[];
-const counterpartData = (record,language) => {const data=record.counterparts && record.counterparts[language];return data && typeof data==="object" && typeof data.text==="string" && data.text.trim()?data:null;};
-const counterpartSearchValues = record => ["arabic","english"].flatMap(language=>{const data=counterpartData(record,language);if(!data)return [];const refs=Array.isArray(data.references)?data.references:[];return [data.text,data.citation,...refs.flatMap(ref=>ref && typeof ref==="object"?[ref.book_key,ref.collection,ref.collection_ar,ref.number,ref.source_citation]:[])];});
+const counterpartSearchValues = record => ["arabic","english"].flatMap(language=>{const data=counterpartSourceData(record,language);if(!data)return [];const refs=Array.isArray(data.references)?data.references:[];return [data.text,data.citation,...refs.flatMap(ref=>ref && typeof ref==="object"?[ref.book_key,ref.collection,ref.collection_ar,ref.number,ref.source_citation]:[])];});
 const counterpartCitation = (data,language) => {
   let citation=typeof data.citation==="string"?data.citation.trim():"";
   if(!citation && Array.isArray(data.references))citation=data.references.filter(ref=>ref && typeof ref==="object").map(ref=>{const name=language==="arabic" && typeof ref.collection_ar==="string"?ref.collection_ar:typeof ref.collection==="string"?ref.collection:typeof ref.book_key==="string"?bookLabel(ref.book_key):"";if(!name)return "";const number=typeof ref.number==="string" || typeof ref.number==="number"?String(ref.number):null;return name+" · "+(number || (language==="arabic"?"الرقم غير متوفر":"number not supplied"));}).filter(Boolean).join("; ");
@@ -283,10 +299,20 @@ const counterpartCitation = (data,language) => {
 const counterpartQualification = (data,record) => {
   const notes=[];
   if(data.match_status==="related_version")notes.push("Related publisher version: Arabic wording or revision differs from the linked source version.");
+  if(data.match_status==="reviewed_parallel")notes.push("Reviewed source parallel; wording can differ between editions.");
   const quotationEvidence=record.counterparts && record.counterparts.quotation_evidence || {};
   const excerpt=record.extraction && record.extraction.is_excerpt===true || /excerpt/.test(String(record.record_type || record.content_kind || "")) || quotationEvidence.relation==="source_excerpt";
-  if(data.scope==="full_narration" && excerpt)notes.push("Full narration; the selected source preserves an excerpt or reported meaning.");
+  if(data.scope==="source_entry")notes.push("May include the compiler's notes; the "+(String(record.language || "").toLowerCase().startsWith("zh")?"Chinese source":"selected source")+" can be an excerpt.");
+  if(data.scope==="source_excerpt")notes.push("Source excerpt; this parallel does not supply the complete source entry.");
+  if(["full_narration","external_source"].includes(data.scope) && excerpt)notes.push((data.scope==="external_source"?"Linked source entry":"Full narration")+"; the selected source preserves an excerpt or reported meaning.");
+  if(typeof data.citation_note==="string" && data.citation_note.trim())notes.push(data.citation_note.trim());
   return notes.join(" ");
+};
+const counterpartAlignmentNotes = record => {
+  const values=record.counterparts || {};if(values.status!=="reviewed_parallel")return [];
+  const review=values.quotation_evidence && values.quotation_evidence.review || {};
+  const notice=review.human_review===false?"Narration alignment checked by an automated assistant. No independent scholarly certification is claimed.":review.human_review===true?"Narration alignment checked by a human reviewer. No independent scholarly certification is claimed.":"The alignment review process is not specified. No independent scholarly certification is claimed.";
+  return [notice,...(Array.isArray(review.qualifications)?review.qualifications:[]).filter(note=>typeof note==="string" && note.trim())];
 };
 const primarySearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [...primarySearchFields.map(key=>record[key]),...sourceSearchFields.map(key=>source[key]),...narratorSearchFields.map(key=>narrator[key]),...counterpartSearchValues(record)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 const searchKeys = records.map(primarySearchKey);
@@ -298,6 +324,7 @@ function icon(name) {
   svg.setAttribute("class","icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("focusable","false");use.setAttribute("href","#icon-"+name);svg.append(use);return svg;
 }
 const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
+const sourceDownloads=Array.isArray(snapshot.source_downloads)?snapshot.source_downloads:[],sourceDownloadsByPath=new Map(sourceDownloads.map(item=>[item.path,item]));
 const languages=new Map(), books=new Map(), sources=new Map();
 records.forEach(r=>{languages.set(r.language,languageLabel(r.language));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key)+" · "+editionLabel(r));});
 legacy.forEach(item=>{if(typeof item.language==="string" && item.language)languages.set(item.language,languageLabel(item.language));});
@@ -308,7 +335,7 @@ $("total-count").textContent=nf.format(records.length);
 $("language-count").textContent=nf.format(languages.size);
 $("book-count").textContent=nf.format(books.size);
 $("collection-summary").textContent=nf.format(languages.size)+" languages · "+nf.format(books.size)+" collections · "+nf.format(sources.size)+" source editions";
-if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total)){const coverage=snapshot.counterparts;$("counterpart-summary").hidden=false;$("counterpart-summary").textContent="Arabic text available for "+nf.format(coverage.arabic_available || 0)+" source occurrences · English text for "+nf.format(coverage.english_available || 0)+". Open either language on a narration to see its source and reference.";}
+if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total)){const coverage=snapshot.counterparts;$("counterpart-summary").hidden=false;$("counterpart-summary").textContent="Arabic text available for "+nf.format(coverage.arabic_available || 0)+" source occurrences · English text for "+nf.format(coverage.english_available || 0)+(coverage.english_external_links?" · English source links for "+nf.format(coverage.english_external_links):"")+". Open either language on a narration to see its source and reference.";}
 const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Hadith-Bank",live_url:"https://blaghtayt-alt.github.io/Hadith-Bank/",source_ref:"main"};
 $("repository-link").href=site.repository_url;
 $("footer-sources-link").href=site.repository_url;
@@ -334,6 +361,15 @@ function chooseCollection(book){
   clearTimeout(state.timer);$("book-filter").value=book;$("source-filter").value="";
   syncMaterialFilters();applyFilters();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});
 }
+function bookDownloads(scope){
+  const items=sourceDownloads.filter(item=>(!scope.language || item.language===scope.language) && (!scope.book || !item.book_key || item.book_key===scope.book) && (!scope.origin || item.translation_origin===scope.origin));
+  if(!items.length)return null;
+  const disclosure=element("details","available-downloads"),list=element("div","material-list");
+  disclosure.open=!!scope.language && items.length<=4;
+  disclosure.append(element("summary",null,"Download books and source materials ("+nf.format(items.length)+")"));
+  for(const item of items){const href=sourceDownloadURL(item.path,site);if(!href)continue;const row=element("div","material-item"),link=element("a","source-url",sourceDownloadLabel(item.path));link.href=href;link.target="_blank";link.rel="noopener noreferrer";link.download=item.path.split("/").pop();row.append(element("strong",null,item.source_name || item.path.split("/").pop()),element("div","meta-value",languageLabel(item.language || "")+(item.book_key?" · "+bookLabel(item.book_key):"")),link);list.append(row);}
+  if(!list.childNodes.length)return null;disclosure.append(list);return disclosure;
+}
 function renderAvailableMaterials(scope){
   const container=$("available-materials"),documents=matchingLegacy(scope.language,scope.origin);container.replaceChildren();
   $("available-heading").textContent="Available materials"+(scope.language?" · "+languageLabel(scope.language):"");
@@ -344,13 +380,14 @@ function renderAvailableMaterials(scope){
     const choices=element("div","language-choices");
     [...languages.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([language,label])=>{const occurrenceCount=records.filter(record=>record.language===language && (!scope.origin || originCategory(record)===scope.origin)).length,documentCount=matchingLegacy(language,scope.origin).length;if(!occurrenceCount && !documentCount)return;const button=element("button","language-choice");button.append(element("span","language-name",label),element("span","language-total",nf.format(occurrenceCount)+" occurrences"+(documentCount?" · "+nf.format(documentCount)+" documents":"")));button.type="button";button.addEventListener("click",()=>{$("language-filter").value=language;syncMaterialFilters();applyFilters();$("book-filter").focus();});choices.append(button);});
     if(!choices.childNodes.length)choices.append(element("p","available-note","No material is labeled "+($("origin-filter").selectedOptions[0]?.textContent||"with this origin")+" in this snapshot."));
-    container.append(choices);return;
+    container.append(choices);const downloads=bookDownloads(scope);if(downloads)container.append(downloads);return;
   }
   const editions=scope.materials.reduce((total,material)=>total+material.edition_count,0);
   $("available-summary").textContent=nf.format(scope.language_count)+" source occurrences · "+nf.format(scope.materials.length)+" collections · "+nf.format(editions)+" source editions"+(documents.length?" · "+nf.format(documents.length)+" copied-bank documents":"");
   const grid=element("div","available-grid");
   scope.materials.forEach(material=>{const button=element("button","material-choice");button.type="button";button.setAttribute("aria-pressed",String(scope.book===material.book_key));button.setAttribute("aria-label","Read "+bookLabel(material.book_key)+", "+nf.format(material.count)+" source occurrences in "+nf.format(material.edition_count)+" editions");button.append(element("strong",null,bookLabel(material.book_key)),element("span",null,nf.format(material.count)+" source occurrences · "+nf.format(material.edition_count)+" "+(material.edition_count===1?"edition":"editions")));button.addEventListener("click",()=>chooseCollection(material.book_key));grid.append(button);});
   if(grid.childNodes.length)container.append(grid);
+  const downloads=bookDownloads(scope);if(downloads)container.append(downloads);
   if(documents.length){
     const disclosure=element("details","available-legacy"),list=element("div","material-list");disclosure.open=scope.origin==="unknown";disclosure.append(element("summary",null,"Original copied-bank documents ("+nf.format(documents.length)+")"),element("p","available-note","Original lessons and articles remain available here. Their extracted hadith quotations appear in the collection results above; document totals and quotation totals are counted separately."));
     documents.forEach(item=>{const row=element("div","material-item"),label=item.path.replace(/^languages\/[^/]+\/books\//,""),href=recordFileURL(item.path,site,window.location.protocol),link=element(href?"a":"span",null,label);if(href){link.href=href;link.target="_blank";link.rel="noopener noreferrer";}row.append(link,element("div","meta-value","Translation origin: "+({human:"Human",ai:"AI",unknown:"Unknown"}[legacyOrigin(item)])+(legacyOrigin(item)==="unknown"?" · awaiting owner confirmation":"")));if(offline){const online=recordFileURL(item.path,site,"https:");if(online){const remote=element("a","source-url","Open document on GitHub");remote.href=online;remote.target="_blank";remote.rel="noopener noreferrer";row.append(remote);}}list.append(row);});
@@ -382,8 +419,7 @@ function sourceFiles(source) {
   if(source.original_file){
     appendLink(offline?"Local source file":"Source file",source.original_file,window.location.protocol);
     if(offline)appendLink("Source file on GitHub",source.original_file,"https:");
-    const download=sourceDocumentDownload(source,site);
-    if(download){const link=element("a",null,"Download "+download.format+(offline?" from GitHub":""));link.href=download.href;link.download=download.filename;link.target="_blank";link.rel="noopener noreferrer";links.append(link);}
+    if(sourceDownloadsByPath.has(source.original_file)){const href=sourceDownloadURL(source.original_file,site);if(href){const download=element("a",null,sourceDownloadLabel(source.original_file));download.href=href;download.target="_blank";download.rel="noopener noreferrer";download.download=source.original_file.split("/").pop();links.append(download);}}
   }
   if(source.record_locator && source.record_locator.path)appendLink(offline?"Local record JSON":"Canonical record file",source.record_locator.path,window.location.protocol);
   return links;
@@ -405,17 +441,18 @@ function inlineArabicReading(heading,content,className=""){
   const section=element("section","arabic-inline"+(className?" "+className:""));section.hidden=!$("show-arabic").checked;section.setAttribute("aria-label",heading);section.append(element("div","meta-label",heading),content);return section;
 }
 function languageDisclosure(record,language){
-  const arabic=language==="arabic",label=arabic?"Arabic":"English",data=counterpartData(record,language),content=element("div","counterpart-content");
-  const heading=data?label+(data.scope==="full_narration"?" · full narration":""):label+" · not linked yet";
+  const arabic=language==="arabic",label=arabic?"Arabic":"English",data=counterpartSourceData(record,language),content=element("div","counterpart-content");
+  const heading=data?label+(data.scope==="external_source"?" · read at source":data.scope==="full_narration"?" · full narration":data.scope==="source_entry"?" source entry":data.scope==="source_excerpt"?" source excerpt":""):label+" · not linked yet";
   if(data){
     const qualification=counterpartQualification(data,record);
     if(qualification)content.append(element("p","counterpart-note",qualification));
-    content.append(paragraph(data.text,arabic,arabic?"ar":"en"));
+    if(data.text)content.append(paragraph(data.text,arabic,arabic?"ar":"en"));
     const citation=element("p","counterpart-citation",counterpartCitation(data,language));citation.dir=arabic?"rtl":"auto";citation.lang=arabic?"ar":"en";content.append(citation);
+    const alignmentNotes=counterpartAlignmentNotes(record);if(alignmentNotes.length){const notes=element("div","alignment-notes");for(const note of alignmentNotes)notes.append(element("p","counterpart-note",note));content.append(detail("Alignment notes",notes,"counterpart-alignment-notes"));}
     const credit=element("p","counterpart-source"),url=sourceURL({record_url:data.source_url});
-    const source=element(url?"a":"span",null,typeof data.source_name==="string" && data.source_name?data.source_name:"Source not named");
+    const source=element(url?"a":"span",null,(data.scope==="external_source"?"Read "+label+" at source · ":"")+(typeof data.source_name==="string" && data.source_name?data.source_name:"Source not named"));
     if(url){source.href=url;source.target="_blank";source.rel="noopener noreferrer";}credit.append(source);
-    if(!arabic)credit.append(document.createTextNode(" · Translation origin: "+(data.translation_origin==="human"?"Human":"Unknown")));
+    if(!arabic)credit.append(document.createTextNode(" · Translation origin: "+({human:"Human",ai:"AI",unknown:"Unknown"}[data.translation_origin] || "Unknown")));
     content.append(credit);
   }else content.append(element("p","counterpart-note","No "+label+" counterpart is linked in this snapshot. The original source text and references remain below."));
   if(arabic)return inlineArabicReading(heading,content,"counterpart-detail");

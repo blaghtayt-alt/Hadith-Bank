@@ -1,0 +1,148 @@
+{
+  "snapshot_status": "Completed Chinese source-reference review sidecars",
+  "source_count": 2828,
+  "source_records_sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8",
+  "unique_reviewed_sources": 2827,
+  "sidecars": {
+    "water-reviewed.jsonl": {
+      "rows": 322,
+      "sha256": "4158fedfacb9bb707dde8a7d07ad9cf05d68d573ca252b4eb8b077938381edcd"
+    },
+    "prayer-early-reviewed.jsonl": {
+      "rows": 577,
+      "sha256": "6c288745b1221e29751f57b3b0d164a6eea6adbb8c307a9f711b13adce015e71"
+    },
+    "prayer-late-reviewed.jsonl": {
+      "rows": 503,
+      "sha256": "d459ed8138410d2e29b9604557676eacac7860c1a0d08ce3ff74af084f6273e0"
+    },
+    "post-prayer-reviewed.jsonl": {
+      "rows": 1141,
+      "sha256": "b09d938d9e4d021545013cf6fbcf3686ee3de68164ef652cb102aedff7d27737"
+    },
+    "jihad-reviewed.jsonl": {
+      "rows": 290,
+      "sha256": "aa3be577f962441ad37625a917d18c16b56ccb153435bacdce98bd7cef6cbebc"
+    }
+  },
+  "errors": [],
+  "duplicate_conflicts": [],
+  "agreeing_duplicates": [
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp253249",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2681"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2681"
+        ]
+      ]
+    },
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp253672",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2682"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2682"
+        ]
+      ]
+    },
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp258492",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2717"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2717"
+        ]
+      ]
+    },
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp258971",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2718"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2718"
+        ]
+      ]
+    },
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp261125",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2735"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2735"
+        ]
+      ]
+    },
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp261160",
+      "entries": [
+        [
+          "post-prayer-reviewed.jsonl",
+          "2736"
+        ],
+        [
+          "jihad-reviewed.jsonl",
+          "2736"
+        ]
+      ]
+    }
+  ],
+  "currently_unreviewed": [
+    {
+      "source_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp251075",
+      "local": "2440",
+      "book": "吉哈德部"
+    }
+  ],
+  "unresolved": [
+    {
+      "chinese_record_id": "zh-abu-dawud:doc-cbff2d2c521e553c:cp251075",
+      "source_local_number": 2440,
+      "source_occurrence_key": "2440",
+      "candidates": [
+        2666
+      ],
+      "reason": "Likely thematic paraphrase in the mutilation chapter, but Chinese names Ibn Abbas and states believers do not mutilate; target2666 is Abdullah via Alqamah and states believers are most restrained/merciful in killing. Wording and narrator do not independently settle occurrence identity; retain as candidate pending source-edition/isnad review.",
+      "source_text_sha256": "f5ec9d70904eb2ff2bf0cf3a40d8c0a53e5a7b2f37cea80ace7b7ebbac4656dc",
+      "reviewer": "/root/counterpart_sources",
+      "human_review": false
+    }
+  ],
+  "supplement_checks": [
+    {
+      "asset": "/workspace/scratch/a25ff99e9249/counterpart-research/sources/supplements/907.json",
+      "target": "907",
+      "arabic_length": 751,
+      "arabic_sha256": "5ed74a5ab020a3528f4860a979639a66b03faf46e65bd4e110eae7fb9e2adaba",
+      "has_page_footer": false
+    },
+    {
+      "asset": "/workspace/scratch/a25ff99e9249/counterpart-research/sources/supplements/907b.json",
+      "target": "907b",
+      "arabic_length": 448,
+      "arabic_sha256": "fe2ff5e52d27940a4f83d5ee7d15c24a1d472ed442fa43a45325bf6c8ffb5b0e",
+      "has_page_footer": false
+    }
+  ],
+  "limitations": "Integrity and duplicate agreement only; individual narrative-content review remains attributable to each actual reviewer, and translation fidelity is not certified."
+}
