@@ -95,6 +95,68 @@ class MaterialRegistryTests(unittest.TestCase):
         self.assertEqual(first_html, second_html)
         self.assertEqual(len({row['id'] for row in second_records}), 1)
 
+    def test_owner_docx_import_preserves_text_without_qc_display_labels(self):
+        source = self.folder / 'source.docx'
+        source.write_bytes(b'TEST source fixture')
+        manifest = self.manifest()
+        manifest['source'].update(path='materials/test-source/source.docx', format='docx',
+                                  sha256=hashlib.sha256(source.read_bytes()).hexdigest())
+        manifest['publication']['decision'] = material_registry.SOURCE_IMPORT_DECISION
+        manifest['display_policy'] = {'qc_tags': False,
+                                     'decision': 'owner_requested_no_qc_tags_for_non_ocr',
+                                     'basis': 'TEST explicit owner source decision'}
+        self.save_manifest(manifest)
+        registry = material_registry.load_public_materials(self.root)
+        record = registry['groups'][0][0]
+        self.assertEqual(record['text_translation'], self.record['text']['translation'])
+        self.assertFalse(record['display_policy']['qc_tags'])
+        self.assertEqual(record['publication']['status'], 'published_source_import')
+        self.assertFalse(record['publication']['independent_qc_asserted'])
+        self.assertEqual(record['review']['independent_pro_qc'], 'pending')
+        self.assertEqual(record['review']['issues'], ['TEST'])
+
+    def test_digital_quote_keeps_normalized_extraction_evidence(self):
+        self.record['extraction'] = {
+            'method': 'digital_quote_extraction', 'ocr_used': False,
+            'is_excerpt': True, 'source_span': 'TEST',
+        }
+        self.write_records([self.record])
+        self.register(replace=True)
+        record = material_registry.load_public_materials(self.root)['groups'][0][0]
+        self.assertEqual(record['extraction'], {
+            'method': 'digital_quote_extraction', 'ocr_used': False,
+            'classification': 'digital_text',
+            'evidence_fields': ['extraction.ocr_used', 'extraction.method'],
+            'conflicting_evidence': False, 'is_excerpt': True,
+        })
+
+    def test_native_docx_retains_source_details_and_normalized_evidence(self):
+        self.record['extraction'] = {
+            'method': 'direct_ooxml', 'ocr_used': False,
+            'is_excerpt': False, 'source_paragraph': 7,
+        }
+        self.write_records([self.record])
+        self.register(replace=True)
+        record = material_registry.load_public_materials(self.root)['groups'][0][0]
+        self.assertEqual(record['extraction'], {
+            'method': 'direct_ooxml', 'ocr_used': False,
+            'classification': 'digital_text',
+            'evidence_fields': ['extraction.ocr_used'],
+            'conflicting_evidence': False, 'is_excerpt': False,
+            'source_paragraph': 7,
+        })
+
+    def test_no_qc_display_policy_cannot_be_applied_to_pdf_intake(self):
+        manifest = self.manifest()
+        manifest['source']['format'] = 'pdf'
+        manifest['publication']['decision'] = material_registry.SOURCE_IMPORT_DECISION
+        manifest['display_policy'] = {'qc_tags': False,
+                                     'decision': 'owner_requested_no_qc_tags_for_non_ocr',
+                                     'basis': 'TEST'}
+        self.save_manifest(manifest)
+        with self.assertRaisesRegex(ValueError, 'direct DOCX source import'):
+            material_registry.load_public_materials(self.root)
+
     def test_invalid_input_leaves_previously_staged_site_untouched(self):
         site = self.root / '_site'
         site.mkdir()

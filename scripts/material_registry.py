@@ -19,6 +19,8 @@ from review_display_policy import extraction_metadata
 
 SCHEMA_NAME = 'hadith-bank-material-v1'
 DECISION = 'owner_requested_public_pending_review'
+SOURCE_IMPORT_DECISION = 'owner_requested_public_source_import'
+PUBLICATION_DECISIONS = (DECISION, SOURCE_IMPORT_DECISION)
 COMPONENT = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\Z')
 LANGUAGE = re.compile(r'[A-Za-z][A-Za-z0-9-]*\Z')
 
@@ -55,12 +57,13 @@ def publication(manifest, relative):
     decision = manifest.get('publication')
     require(isinstance(decision, dict) and decision.get('authorized') is True,
             'Material needs explicit publication.authorized=true: ' + relative)
-    require(decision.get('decision') == DECISION, 'Unsupported publication decision: ' + relative)
+    require(decision.get('decision') in PUBLICATION_DECISIONS, 'Unsupported publication decision: ' + relative)
     date = decision.get('decision_date_japan')
     require(isinstance(date, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', date), 'Publication decision date must be YYYY-MM-DD')
     datetime.date.fromisoformat(date)
-    return {'visibility': 'public', 'status': 'published_pending_review', 'authorized': True,
-            'decision': DECISION, 'decision_date_japan': date, 'manifest_path': relative,
+    status = 'published_pending_review' if decision['decision'] == DECISION else 'published_source_import'
+    return {'visibility': 'public', 'status': status, 'authorized': True,
+            'decision': decision['decision'], 'decision_date_japan': date, 'manifest_path': relative,
             'independent_qc_asserted': False, 'rights_clearance_asserted': False}
 
 
@@ -161,6 +164,15 @@ def normalized_projection(row, material, position):
         'canonical_record_sha256': hashlib.sha256(canonical(row)).hexdigest(),
     }
     with_publication(result, material['publication'])
+    if material.get('display_policy') is not None:
+        result['display_policy'] = copy.deepcopy(material['display_policy'])
+    for key in ('source_structure_tags', 'source_locator', 'source_defects'):
+        if key in row:
+            result[key] = copy.deepcopy(row[key])
+    if extraction.get('method') == 'direct_ooxml' and extraction.get('ocr_used') is False:
+        # Keep the native DOCX extraction details without replacing the common
+        # evidence-backed OCR projection used by existing registered sources.
+        result['extraction'] = {**copy.deepcopy(extraction), **result['extraction']}
     apply_material_policy(result, material)
     validate_record(result, row['id'])
     return result
@@ -211,6 +223,15 @@ def load_public_materials(root, validate_attachment_roots=True):
         authorization = publication(manifest, relative)
         adapter = manifest.get('adapter')
         require(adapter in ('records-v1', 'pdf-intake-package-v1'), 'Unsupported material adapter: ' + str(adapter))
+        display_policy = manifest.get('display_policy')
+        if display_policy is not None:
+            require(isinstance(display_policy, dict) and display_policy.get('qc_tags') is False and
+                    display_policy.get('decision') == 'owner_requested_no_qc_tags_for_non_ocr' and
+                    isinstance(display_policy.get('basis'), str) and bool(display_policy['basis']),
+                    'Invalid explicit non-OCR display policy: ' + relative)
+            require(adapter == 'records-v1' and manifest.get('source', {}).get('format') == 'docx' and
+                    authorization['decision'] == SOURCE_IMPORT_DECISION,
+                    'No-QC display policy requires an authorized direct DOCX source import')
         result['manifests'].append({'path': relative, 'sha256': digest_file(path), 'id': identifier, 'adapter': adapter,
                                     'publication': authorization})
         collection_rows = []
@@ -260,7 +281,8 @@ def load_public_materials(root, validate_attachment_roots=True):
             result['authorized_files'][records['path']] = records['sha256']
             material = {'dataset_id': manifest['source_id'], 'language': manifest['language'],
                         'book_key': manifest['book'], 'edition': manifest['edition'], 'count': len(rows),
-                        'release_status': 'source_review_pending', 'source_file': source['path'], 'source_sha256': source['sha256'],
+                        'release_status': ('source_imported' if authorization['decision'] == SOURCE_IMPORT_DECISION
+                                           else 'source_review_pending'), 'source_file': source['path'], 'source_sha256': source['sha256'],
                         'canonical_records_path': records['path'], 'canonical_records_sha256': records['sha256'],
                         'source_descriptor': copy.deepcopy(source)}
             collection_rows.append((material, rows))
@@ -275,6 +297,8 @@ def load_public_materials(root, validate_attachment_roots=True):
                     'Unsafe material language/book/edition path component')
             material.update({'adapter': adapter, 'manifest_path': relative, 'publication': authorization,
                              'available_locally': True, 'public_text_published': True})
+            if display_policy is not None:
+                material['display_policy'] = copy.deepcopy(display_policy)
             projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
             for record in projected:
                 apply_policy(record, provenance_policy)

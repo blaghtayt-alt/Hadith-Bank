@@ -1,8 +1,10 @@
 """Synthetic search fixtures only: no fixture passage is religious source text."""
 import copy
+from contextlib import closing
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import shutil
 import sqlite3
@@ -255,7 +257,7 @@ const results=input.queries.map(item=>{fields.query.value=item.query;fields['ori
 process.stdout.write(JSON.stringify({results,records}));'''
         result = subprocess.run([shutil.which('node'), '-e', program],
                                 input=json.dumps({'records': self.records, 'queries': queries}, ensure_ascii=False),
-                                text=True, capture_output=True, check=True)
+                                text=True, encoding='utf-8', capture_output=True, check=True)
         actual = json.loads(result.stdout)
         self.assertEqual(actual['results'], expected)
         self.assertEqual(actual['records'], self.records)
@@ -346,8 +348,11 @@ process.stdout.write(JSON.stringify({results,records}));'''
     def test_modified_cache_is_discarded_and_results_remain_original(self):
         self.call('alpha')
         database = self.root / '.cache/hadith-search.sqlite'
-        with sqlite3.connect(database) as connection:
-            connection.execute("UPDATE records SET body = 'tampered-cache-only' WHERE line=1")
+        # A connection's transaction context commits, but does not close its
+        # file handle; close it before the cache is replaced on Windows.
+        with closing(sqlite3.connect(database)) as connection:
+            with connection:
+                connection.execute("UPDATE records SET body = 'tampered-cache-only' WHERE line=1")
         result = self.call('alpha')
         self.assertTrue(result['cache']['rebuilt'])
         self.assertEqual(result['matched'], 2)
@@ -442,7 +447,8 @@ process.stdout.write(JSON.stringify({results,records}));'''
     def test_cli_json_and_limits(self):
         completed = subprocess.run([sys.executable, str(SCRIPT), '礼拝', '--root', str(self.root),
                                     '--language', 'ja', '--limit', '1', '--json'],
-                                   capture_output=True, text=True, check=True)
+                                   capture_output=True, text=True, encoding='utf-8', check=True,
+                                   env={**os.environ, 'PYTHONUTF8': '1', 'PYTHONIOENCODING': 'utf-8'})
         value = json.loads(completed.stdout)
         self.assertEqual((value['matched'], value['shown']), (2, 1))
         self.assertEqual(self.call(limit=0)['results'], [])

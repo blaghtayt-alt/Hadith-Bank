@@ -35,7 +35,7 @@
       "type": "object", "required": ["authorized", "decision", "decision_date_japan"],
       "properties": {
         "authorized": {"const": true},
-        "decision": {"const": "owner_requested_public_pending_review"},
+        "decision": {"enum": ["owner_requested_public_pending_review", "owner_requested_public_source_import"]},
         "decision_date_japan": {"type": "string", "format": "date"}
       }
     }

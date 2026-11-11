@@ -14,6 +14,7 @@ import gzip
 import hashlib
 import html
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath
 import re
@@ -213,7 +214,10 @@ def number_label(record):
     number = record.get('number') or {}
     items = []
     if isinstance(number, dict) and number.get('in_book') is not None:
-        items.append('Number in collection ' + text(number['in_book']))
+        prefix = 'Source number ' if number.get('numbering_system') else 'Number in collection '
+        items.append(prefix + text(number['in_book']))
+    if isinstance(number, dict) and number.get('source_cited'):
+        items.append('Cited: ' + text(number['source_cited']))
     if record.get('provider_entry_id') is not None:
         items.append('Source entry ' + text(record['provider_entry_id']))
     return ' · '.join(items) or 'Collection number not supplied'
@@ -232,6 +236,8 @@ def page_label(record):
         items.append('Sheet ' + str(page['sheet']))
     if page.get('row') is not None:
         items.append('Row ' + str(page['row']))
+    if page.get('docx_paragraphs'):
+        items.append('DOCX paragraph ' + ', '.join(map(str, page['docx_paragraphs'])))
     return ' · '.join(items) or 'Page locator not supplied'
 
 
@@ -256,18 +262,31 @@ def prose(value, direction='auto'):
 
 
 def citation_parts(item):
-    if not isinstance(item, dict) or not any(item.get(k) for k in ('book_key', 'collection', 'source_citation')):
+    if not isinstance(item, dict) or not any(item.get(k) for k in ('book_key', 'collection', 'source_citation', 'citation_raw')):
         return ['<pre>' + escaped(json.dumps(item, ensure_ascii=False, indent=2)) + '</pre>', '']
     collection = next((item[k] for k in ('collection', 'book_key')
                        if isinstance(item.get(k), str) and item[k]), 'Collection not established')
-    number = item.get('number')
-    number = str(number) if type(number) in (str, int, float) else 'number not established'
-    scope = {'main_quote': 'Citation for this quotation', 'variant': 'Reference to a variant',
-             'commentary': 'Reference in commentary', 'unresolved': 'Reference not fully resolved'}.get(
-                 item.get('scope'), text(item.get('scope')) or 'Citation scope not supplied')
+    def is_number(value):
+        return (isinstance(value, str) and bool(value) or type(value) is int or
+                type(value) is float and math.isfinite(value))
+    # Citation numbers only: do not infer a canonical reference from a record's
+    # local numbering, unparsed number_raw, or separately scoped cross-references.
+    numbers = [item['number']] if is_number(item.get('number')) else item.get('numbers')
+    number = ', '.join(str(value) for value in numbers if is_number(value)) if isinstance(numbers, list) else ''
+    number = number or 'number not established'
+    scope = item.get('scope')
+    if isinstance(scope, str) and scope:
+        scope = {'main_quote': 'Citation for this quotation', 'variant': 'Reference to a variant',
+                 'commentary': 'Reference in commentary', 'unresolved': 'Reference not fully resolved'}.get(
+                     scope, scope.replace('_', ' '))
+    else:
+        scope = item.get('citation_scope')
+        scope = scope if isinstance(scope, str) and scope else 'Citation scope not supplied'
     result = ['<p><strong>' + escaped(collection) + ' · ' + escaped(number) + '</strong><br>' + escaped(scope) + '</p>', '']
-    if isinstance(item.get('source_citation'), str) and item['source_citation']:
-        result += [prose(item['source_citation']), '']
+    source_citation = next((item[k] for k in ('source_citation', 'citation_raw')
+                            if isinstance(item.get(k), str) and item[k]), None)
+    if source_citation:
+        result += [prose(source_citation), '']
     return result
 
 
@@ -288,10 +307,23 @@ def record_type_info(record):
     kind = record.get('record_type') or record.get('content_kind')
     if not isinstance(kind, str):
         return None
+    aliases = {'hadith_occurrence': 'hadith', 'main_hadith_occurrence': 'hadith',
+               'translation_occurrence': 'hadith', 'quoted_hadith': 'hadith_excerpt',
+               'hadith_quote': 'hadith_excerpt', 'quoted_companion_report': 'companion_report_excerpt'}
+    kind = aliases.get(kind, kind)
+    content_kind = record.get('content_kind')
+    if content_kind == 'source_fragment':
+        kind = 'source_fragment'
+    elif content_kind == 'unnumbered_source_variant':
+        kind = 'hadith_variant'
+    elif content_kind == 'quoted_companion_saying':
+        kind = 'companion_report_excerpt'
     if (record.get('extraction') or {}).get('is_excerpt') is True:
         kind = {'hadith': 'hadith_excerpt', 'companion_report': 'companion_report_excerpt'}.get(kind, kind)
     kinds = {
         'hadith': ('Hadith', 'A narration preserved from the source.'),
+        'hadith_variant': ('Hadith variant', 'A separately preserved variant narration in the source.'),
+        'source_fragment': ('Source fragment', 'An incomplete narration fragment preserved as supplied by the source.'),
         'hadith_excerpt': ('Hadith excerpt', 'A quotation preserved from the source; it may contain only part of the narration.'),
         'hadith_meaning_excerpt': ('Reported meaning', 'The source presents this passage as the meaning of a hadith.'),
         'companion_report': ('Companion report', 'Words or a report attributed to a Companion in the source.'),
@@ -354,14 +386,16 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
     review_fields = ['Historical import status: ' + text(review.get('status')),
                      'Historical independent Pro QC: ' + text(review.get('independent_pro_qc')),
                      'Release: ' + text(review.get('release_status'))]
-    for badge in review_badges(record):
-        lines += ['<p><strong>' + escaped(badge['label']) + '</strong></p>', '']
-    if current.get('label'):
-        review_fields.append('Recorded owner decision: ' + text(current['label']))
-    lines += ['<details><summary>Original import and review history</summary>', '',
-              '<p>' + escaped(' · '.join(review_fields)) + '</p>', '',
-              prose('\n'.join(text(issue) for issue in review.get('issues', [])) or 'No source-alignment issues listed.'),
-              '', '</details>', '']
+    hide_qc = (record.get('display_policy') or {}).get('qc_tags') is False
+    if not hide_qc:
+        for badge in review_badges(record):
+            lines += ['<p><strong>' + escaped(badge['label']) + '</strong></p>', '']
+        if current.get('label'):
+            review_fields.append('Recorded owner decision: ' + text(current['label']))
+        lines += ['<details><summary>Original import and review history</summary>', '',
+                  '<p>' + escaped(' · '.join(review_fields)) + '</p>', '',
+                  prose('\n'.join(text(issue) for issue in review.get('issues', [])) or 'No source-alignment issues listed.'),
+                  '', '</details>', '']
     commentary = record.get('commentary') or {}
     footnotes = record.get('footnotes') or []
     if any(commentary.values()) or footnotes:
@@ -425,9 +459,9 @@ def markdown_record(record, index, bank_root=None, page_directory=None):
     locator_parts += ['<br><strong>Original file:</strong> ' + source_link(source.get('original_file'), bank_root, page_directory),
                       '<br><strong>Original SHA-256:</strong> <code>' + escaped(source.get('sha256')) + '</code></p>']
     issues = review.get('issues') or []
-    lines += ['<details>', '<summary>Source locators and review issues</summary>', '',
+    lines += ['<details>', '<summary>' + ('Source locators and source notes' if hide_qc else 'Source locators and review issues') + '</summary>', '',
               ''.join(locator_parts), '',
-              '<p><strong>Review issues:</strong></p>',
+              '<p><strong>' + ('Source notes:' if hide_qc else 'Review issues:') + '</strong></p>',
               prose('\n'.join(text(issue) for issue in issues) if issues else 'None listed in this record.'),
               '', '</details>', '', '---', '']
     return '\n'.join(lines)

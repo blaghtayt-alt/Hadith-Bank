@@ -1,0 +1,70 @@
+{
+  "schema": "docx-font-decoding-evidence-v1",
+  "ctraditional": {
+    "font_family_verified": "CTraditional Arabic",
+    "source_url": "https://arbfonts.com//wp-content/fonts/islamic-fonts//C_saud5.ttf",
+    "font_sha256": "d6cd8b2dca3ce04b155e4c4ffb6af5c1d7ce1738520678ca102ad5bcdc24c52e",
+    "glyph_chart_sha256": "d99fbd6c252c4411e91f08107008d92220400e969c4b2a0b781435d01e2c55e0",
+    "verification": "Each used code point rendered through the actual CTraditional Arabic font using System.Drawing PrivateFontCollection on Windows and read visually; no system font installation. Applies only to runs explicitly using this font, not ordinary Arabic letters.",
+    "map": {
+      "ج": "صلى الله عليه وسلم",
+      "س": "رضي الله عنه",
+      "ب": "رضي الله عنهما",
+      "ل": "رضي الله عنها",
+      "/": "رحمه الله",
+      "÷": "عليه السلام",
+      "ش": "رضي الله عنهم",
+      "†": "عليهم السلام",
+      "أ": "جل جلاله",
+      "ص": "صلى الله عليه وآله وسلم",
+      "ﻷ": "عز وجل",
+      "‡": "عليهم السلام",
+      "إ": "عليهما السلام",
+      "+": "﴿",
+      "_": "﴾"
+    },
+    "extra_glyph_charts": [
+      {
+        "file": "ctraditional-glyphs.png",
+        "sha256": "d99fbd6c252c4411e91f08107008d92220400e969c4b2a0b781435d01e2c55e0"
+      },
+      {
+        "file": "ctraditional-extra-glyphs.png",
+        "sha256": "17a0b77af0674ae71ba65e510606baed229a60f07b46fe8825f67cf456896399"
+      },
+      {
+        "file": "ctraditional-brackets.png",
+        "sha256": "3c8cc9419be961a3cff53fcf8ffa3f610d5ef86c865700e14aa2b27359b0a1d6"
+      },
+      {
+        "file": "ctraditional-plural-dual.png",
+        "sha256": "75c514bb66872c729796477a5df0c7ba52b6c37ce9360ec54d36d3446a07aa7a"
+      }
+    ]
+  },
+  "aga": {
+    "source_url": "https://hadithmv.github.io/tools/textEditor",
+    "evidence_sha256": "053a653daf07574f1ffed409814faf0fc3a9618ee2d996592e56b618aa44073b",
+    "verification": "Explicit data-text codepoint-to-label mapping in AGA Arabesque Regular section of the primary application HTML.",
+    "map": {
+      "F049": "سبحانه وتعالى",
+      "F072": "ﷺ",
+      "F074": "رضي الله عنه",
+      "F079": "رضي الله عنهم",
+      "F075": "عليه السلام",
+      "F055": "عز وجل"
+    }
+  },
+  "original_docx_bytes_modified": false,
+  "font_file_redistributed": false,
+  "aga_lowcode_alias": {
+    "font_family": "AGA Arabesque",
+    "font_url": "https://arbfonts.com//wp-content/fonts/arabic-fonts/new//AGA-Arabesque-2.ttf",
+    "font_sha256": "1db4a5751e05d9b6e5608f1ef7b351d3040d4bbec316bab3c23c26262823aa77",
+    "raw_code": "0074",
+    "equivalent_code": "F074",
+    "unicode": "رضي الله عنه",
+    "basis": "Actual font rendered with System.Drawing PrivateFontCollection; U0074 and UF074 visually identical, both read رضي الله عنه. Only explicit AGA font runs.",
+    "glyph_image_sha256": "00f10b7531165c5391aa55b5e477b25170b57b85a549981f36cfa86b39287507"
+  }
+}

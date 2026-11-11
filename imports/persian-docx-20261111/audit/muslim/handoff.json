@@ -1,0 +1,74 @@
+{
+  "status": "complete_validated_no_unresolved_consuming_glyph_tokens",
+  "volume_1": {
+    "main": 1072,
+    "ancillary": 32,
+    "total": 1104
+  },
+  "volume_2": {
+    "main": 1118,
+    "ancillary": 10,
+    "total": 1128
+  },
+  "total_records": 2232,
+  "consume_text_fields": [
+    "text.arabic",
+    "text.translation"
+  ],
+  "retain_only_as_audit_not_display": [
+    "source_text",
+    "excluded_side_commentary_spans",
+    "excluded_note_ids",
+    "font_decoding_events"
+  ],
+  "source_book": "Mukhtasar Sahih Muslim by al-Mundhiri; Persian translation attributed to Abd al-Qadir Tarshabi",
+  "human_label_evidence": "Named translator in supplied title pages",
+  "main_payloads": [
+    "muslim-v1.main.jsonl",
+    "muslim-v2.main.jsonl"
+  ],
+  "ancillary_payloads": [
+    "muslim-v1.confirmed-ancillary-hadiths.jsonl",
+    "muslim-v2.confirmed-ancillary-hadiths.jsonl"
+  ],
+  "validation": "validation-results.json",
+  "doctrinal_screen": "doctrinal-screening.json",
+  "cross_references": "internal-cross-references.jsonl",
+  "source_page_policy": "Printed pages unknown; exact OOXML paragraph locators supplied",
+  "unmapped_glyph_records": [],
+  "regeneration": [
+    "extract_muslim.py",
+    "extract_ancillary.py",
+    "validate_muslim.py"
+  ],
+  "font_mapping_extension": "Verified shared mappings only; AGA0074 uses actual-font alias evidence. HQPB remains unguessed in source ledger; source-specific publisher recovery affects local285 consuming text only.",
+  "source_specific_publisher_recoveries": "publisher-text-recoveries.json",
+  "publisher_recovery_count": 1,
+  "all_2232_display_records_have_no_unmapped_source_symbols": true,
+  "inside_hadith_screen_records": 2232,
+  "explicit_shia_doctrinal_endorsements_found": [],
+  "screening_scope": "Normalized targeted scan of Arabic and Persian in all 2190 main plus42 ancillary records; candidate contexts read with source attribution. No assertion of independent sentence-by-sentence theological certification.",
+  "excluded_annotation_counts": {
+    "standalone_commentary_paragraphs": 150,
+    "separable_editorial_tails": 22,
+    "source_content_footnotes": 54
+  },
+  "source_integrity": {
+    "source_body_paragraphs_accounted_for": 9794,
+    "source_w_t_characters_verified": 2563261,
+    "source_w_sym_events_preserved": 75
+  },
+  "canonical_citations_missing_on_main_records": 36,
+  "all_2232_display_records_have_no_private_use_characters": true,
+  "contextual_symbol_recoveries": "contextual-symbol-recoveries.json",
+  "contextual_symbol_recovery_count": 7,
+  "ordinary_font_abbreviations_policy": "Preserve source ص and ÷ when the run does not explicitly use the verified symbol font. No global Arabic-letter substitution.",
+  "ordinary_font_abbreviations_evidence": "font-review-explicit-targets.json",
+  "final_font_verification": "font-residual-final-verification.json",
+  "final_payload_sha256": {
+    "muslim-v1.main.jsonl": "d5fcddec6cd500aa242cccf89e5d4848647c849ffb5b53bea3d642d0fc11649c",
+    "muslim-v2.main.jsonl": "035966aa8f533c72e7e650abe2c5b3127c5e786daec395491e4efb39ca78a35a",
+    "muslim-v1.confirmed-ancillary-hadiths.jsonl": "41f68581b0c77062ed1e181e7302d2ab11028a7a834916ff24e7664582cc5ac0",
+    "muslim-v2.confirmed-ancillary-hadiths.jsonl": "5e4eb02990caa871c64507bf2796231b4bd6105da5aac12038e40922087e94fa"
+  }
+}

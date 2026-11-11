@@ -12,7 +12,7 @@ from pathlib import Path
 
 from build_bank_views import digest_file, write_json
 from build_reader import local, parse_json
-from material_registry import COMPONENT, LANGUAGE, DECISION, read_rows
+from material_registry import COMPONENT, LANGUAGE, DECISION, PUBLICATION_DECISIONS, read_rows
 
 
 def register(root, directory, language, book, edition, name, records, source,
@@ -64,7 +64,7 @@ def register(root, directory, language, book, edition, name, records, source,
         japan = datetime.timezone(datetime.timedelta(hours=9))
         manifest['publication'] = {'authorized': True, 'decision': DECISION,
                                    'decision_date_japan': datetime.datetime.now(japan).date().isoformat()}
-    elif manifest['publication'].get('authorized') is not True or manifest['publication'].get('decision') != DECISION:
+    elif manifest['publication'].get('authorized') is not True or manifest['publication'].get('decision') not in PUBLICATION_DECISIONS:
         raise ValueError('Existing publication decision is unsupported; it has not been overwritten')
     write_json(target, manifest)
     return {'manifest': target.relative_to(root).as_posix(), 'records': len(rows),

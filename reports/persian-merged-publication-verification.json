@@ -1,0 +1,184 @@
+{
+  "schema": "persian-merged-integration-verification-v1",
+  "baseline_commit": "b4cec559b55236bb2093e4fa6728345fbcf77282",
+  "original_persian_candidate": "3aff9a1678a359dc5d0e8c5052e58e711b3451c6",
+  "head_at_review": "b4cec559b55236bb2093e4fa6728345fbcf77282",
+  "scope": "Read-only comparison of merged HTML with entire current-main baseline and pinned original Persian canonical records, source files and audits. No new DOCX extraction or theological certification.",
+  "expected_total_records": 21458,
+  "total_records": 21458,
+  "unique_total_ids": 21458,
+  "by_language": {
+    "fa": 7078,
+    "fil": 2056,
+    "hi": 2584,
+    "ja": 2237,
+    "uz": 552,
+    "vi": 4555,
+    "zh-CN": 2396
+  },
+  "baseline_records": 14653,
+  "baseline_unique_ids": 14653,
+  "baseline_records_by_language": {
+    "fa": 273,
+    "fil": 2056,
+    "hi": 2584,
+    "ja": 2237,
+    "uz": 552,
+    "vi": 4555,
+    "zh-CN": 2396
+  },
+  "original_import_records": 6805,
+  "unique_original_import_ids": 6805,
+  "embedded_import_records": 6805,
+  "projected_import_records": 6805,
+  "per_material_counts": {
+    "fa-faiz-al-bari-v1": 412,
+    "fa-faiz-al-bari-v2": 451,
+    "fa-faiz-al-bari-v3": 504,
+    "fa-faiz-al-bari-v4": 466,
+    "fa-faiz-al-bari-v5": 337,
+    "fa-faiz-al-bari-v6": 457,
+    "fa-muslim-mundhiri-tarshabi-v1": 1104,
+    "fa-muslim-mundhiri-tarshabi-v2": 1128,
+    "fa-riyadh-heravi-1394-digital": 1946
+  },
+  "pinned_data_files_checked": 141,
+  "pinned_file_errors": [],
+  "source_documents": [
+    {
+      "material": "fa-faiz-al-bari-v1",
+      "path": "materials/fa-faiz-al-bari-v1/source.docx",
+      "expected_sha256": "3912f5be6bae7b67fd4eae1f5708430a89d45786082b73f7ddd5d85152ea4720",
+      "actual_sha256": "3912f5be6bae7b67fd4eae1f5708430a89d45786082b73f7ddd5d85152ea4720",
+      "passed": true
+    },
+    {
+      "material": "fa-faiz-al-bari-v2",
+      "path": "materials/fa-faiz-al-bari-v2/source.docx",
+      "expected_sha256": "10f4a7f83c6450ab45499aac96cc682d64aa060e13b5a85b5a47b9daf3eed139",
+      "actual_sha256": "10f4a7f83c6450ab45499aac96cc682d64aa060e13b5a85b5a47b9daf3eed139",
+      "passed": true
+    },
+    {
+      "material": "fa-faiz-al-bari-v3",
+      "path": "materials/fa-faiz-al-bari-v3/source.docx",
+      "expected_sha256": "3c98fe0a54dcbb34350538a9b1c96f1ad496ff0c5e3b789e7b89101e4f3fe3c9",
+      "actual_sha256": "3c98fe0a54dcbb34350538a9b1c96f1ad496ff0c5e3b789e7b89101e4f3fe3c9",
+      "passed": true
+    },
+    {
+      "material": "fa-faiz-al-bari-v4",
+      "path": "materials/fa-faiz-al-bari-v4/source.docx",
+      "expected_sha256": "d8c1614489d079775ab65c7b6eb1ec5513acda79bb0389725b99033ce91fc8a6",
+      "actual_sha256": "d8c1614489d079775ab65c7b6eb1ec5513acda79bb0389725b99033ce91fc8a6",
+      "passed": true
+    },
+    {
+      "material": "fa-faiz-al-bari-v5",
+      "path": "materials/fa-faiz-al-bari-v5/source.docx",
+      "expected_sha256": "f1da87fa45fbbb1a9af9569da0f06eb57eec668428cf901f334c894d6818c441",
+      "actual_sha256": "f1da87fa45fbbb1a9af9569da0f06eb57eec668428cf901f334c894d6818c441",
+      "passed": true
+    },
+    {
+      "material": "fa-faiz-al-bari-v6",
+      "path": "materials/fa-faiz-al-bari-v6/source.docx",
+      "expected_sha256": "0e828b498a92a4abf16bbab1bd7ec0a3bd37fa53021c023234cf58468b54cbde",
+      "actual_sha256": "0e828b498a92a4abf16bbab1bd7ec0a3bd37fa53021c023234cf58468b54cbde",
+      "passed": true
+    },
+    {
+      "material": "fa-muslim-mundhiri-tarshabi-v1",
+      "path": "materials/fa-muslim-mundhiri-tarshabi-v1/source.docx",
+      "expected_sha256": "c07e6800232683ea2552e271414a46589462f23410ba0a09c0041d7d8a3a5792",
+      "actual_sha256": "c07e6800232683ea2552e271414a46589462f23410ba0a09c0041d7d8a3a5792",
+      "passed": true
+    },
+    {
+      "material": "fa-muslim-mundhiri-tarshabi-v2",
+      "path": "materials/fa-muslim-mundhiri-tarshabi-v2/source.docx",
+      "expected_sha256": "1ae9bc9bd246c2b84db4b9b44255ff08ed17da5fb5e9254696bd5c784c1c3f98",
+      "actual_sha256": "1ae9bc9bd246c2b84db4b9b44255ff08ed17da5fb5e9254696bd5c784c1c3f98",
+      "passed": true
+    },
+    {
+      "material": "fa-riyadh-heravi-1394-digital",
+      "path": "materials/fa-riyadh-heravi-1394-digital/source.docx",
+      "expected_sha256": "51d6e594600a9ce225bf1562d2202f17b95f7e2707b714ee951713d2e2c379fd",
+      "actual_sha256": "51d6e594600a9ce225bf1562d2202f17b95f7e2707b714ee951713d2e2c379fd",
+      "passed": true
+    }
+  ],
+  "missing_import_ids": [],
+  "missing_projected_ids": [],
+  "import_text_differences": [],
+  "import_full_projection_differences": [],
+  "baseline_dropped_ids": [],
+  "baseline_whole_record_differences": [],
+  "unexpected_new_ids": [],
+  "overlap_with_baseline_ids": [],
+  "qc_policy_errors": [],
+  "annotation_errors": [],
+  "translation_origin_errors": [],
+  "excluded_note_leaks": [],
+  "source_stated_weak_assessments": {
+    "fa-faiz-al-bari-v5-fn324-p2-q001": {
+      "preserved": true,
+      "source_assessment": {
+        "as_printed": "ضعیف",
+        "normalized": "weak",
+        "scope": "isnad of this quoted report",
+        "attributor": "source commentator citing Ibn Kathir",
+        "named_authority_as_printed": "امام ابن کثیر",
+        "evidence_text": "این حدیث از نگاه سند ضعیف است",
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "324",
+          "paragraph_index": 2,
+          "start": 179,
+          "end": 208
+        },
+        "independently_verified": false
+      }
+    },
+    "fa-faiz-al-bari-v6-fn353-p2-q001": {
+      "preserved": true,
+      "source_assessment": {
+        "as_printed": "به سند ضعیفی",
+        "normalized": "weak",
+        "scope": "isnad of this quoted report",
+        "attributor": "source commentator",
+        "named_authority_as_printed": null,
+        "evidence_text": "بیهقی به سند ضعیفی روایت می‌کند",
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "353",
+          "paragraph_index": 2,
+          "start": 213,
+          "end": 244
+        },
+        "independently_verified": false
+      }
+    }
+  },
+  "html_files": [
+    {
+      "path": "hadith-bank-reader.html",
+      "bytes": 31219951,
+      "sha256": "226f1f12fc93cfe99ef4628077ce1978ce673ee8a34ae9bf388d6ec138c0c4ac",
+      "embedded_payload_sha256": "2ef3c026a3e89afd59b300feb44d894eab2ea30317d21d7923d4508ca19dd111"
+    },
+    {
+      "path": "_site/index.html",
+      "bytes": 31219951,
+      "sha256": "226f1f12fc93cfe99ef4628077ce1978ce673ee8a34ae9bf388d6ec138c0c4ac",
+      "embedded_payload_sha256": "2ef3c026a3e89afd59b300feb44d894eab2ea30317d21d7923d4508ca19dd111"
+    }
+  ],
+  "baseline_embedded_payload_sha256": "fbff4cb11ea0263fe2124779b74f4dd17f6166dda1cb12f71739f34c70c81bb7",
+  "html_files_identical": true,
+  "both_payloads_identical": true,
+  "files_stable_during_review": true,
+  "snapshot_record_count": 21458,
+  "passed": true
+}

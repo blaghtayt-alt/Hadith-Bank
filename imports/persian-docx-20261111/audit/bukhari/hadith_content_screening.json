@@ -1,0 +1,1607 @@
+{
+  "schema": "hadith-content-screening-audit/v1",
+  "source_family": "Persian Faiz al-Bari, six uploaded DOCX volumes",
+  "final_integration_inputs": [
+    {
+      "file": "hadith_only_primary_records.jsonl",
+      "sha256": "a214ddaec0219dddadcff382053834e29416cbe8f6e21b489595101ad4f4b99e",
+      "records": 2225
+    },
+    {
+      "file": "variant_records.jsonl",
+      "sha256": "156c92b2178a47d59db48a7e75261091343e696ef3c4ff8abaa571c578ab8379",
+      "records": 2
+    },
+    {
+      "file": "explicit_hadith_quotation_records.jsonl",
+      "sha256": "8c8f7b96a6cab810404249a43c449a31ff5b9d94ba39f996dccd06566b45c714",
+      "records": 400
+    }
+  ],
+  "integration_record_count": 2627,
+  "record_type_counts": {
+    "hadith_occurrence": 2225,
+    "translation_occurrence": 2,
+    "quoted_hadith": 399,
+    "companion_report": 1
+  },
+  "scope": "All final primary, unnumbered-variant and ancillary-excerpt Arabic and Persian text fields were mechanically scanned. All 108 resulting localized matches in 79 distinct records were contextually reviewed. Source chapters and relevant excluded commentary were consulted where they resolve the matched topic.",
+  "mechanical_candidate_ledger": {
+    "file": "hadith_content_screen_candidates.json",
+    "sha256": "2e262364aac051624d6b8717d2c3573a06355853f2bf217d1c512f222193e0a0",
+    "candidate_match_count": 108,
+    "distinct_record_count": 79,
+    "all_matches_revalidated_against_final_text": true
+  },
+  "screened_topic_families": [
+    "explicit sect or doctrinal identifiers",
+    "succession and infallibility terminology",
+    "family virtues, Mahdi, twelve rulers and Ghadir terms",
+    "temporary marriage and Hajj tamattu terms",
+    "possible curse/companion combinations"
+  ],
+  "confirmed_explicit_shia_specific_assertions_identified": 0,
+  "records_omitted_or_rewritten_for_ideology": 0,
+  "limitations": [
+    "This is a targeted semantic screening of machine-selected matches, not a claim of line-by-line theological certification of every sentence.",
+    "Keyword screening can miss expressions that do not use the selected terms.",
+    "Printed canonical references and hadith grades were not independently authenticated.",
+    "Persian language, origin, Ali or Ahl al-Bayt virtues, family-inclusive blessings, Mahdi references and twelve-rulers wording alone do not establish Shia-specific doctrine."
+  ],
+  "findings_inside_integrated_narrations_or_excerpts": [
+    {
+      "finding_id": "BKH-CONTEXT-001",
+      "kind": "source_context_warning",
+      "is_explicit_shia_doctrine": false,
+      "record": {
+        "id": "fa-faiz-al-bari-v6-p00506",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-6-Word (1).docx",
+        "source_volume": 6,
+        "source_local_number": "1844",
+        "source_sequence_position": 1844,
+        "text": {
+          "arabic": "عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ، وَسَلَمَةَ بْنِ الأَكْوَعِ رَضِيَ اللَّهُ عَنْهُمْ قَالاَ: كُنَّا فِي جَيْشٍ، فَأَتَانَا رَسُولُ رَسُولِ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فَقَالَ: «إِنَّهُ قَدْ أُذِنَ لَكُمْ أَنْ تَسْتَمْتِعُوا فَاسْتَمْتِعُوا»",
+          "translation": "از جابر بن عبدالله و سلمه بن أَکْوع رضي الله عنهم  روایت است که گفتند: در یکی از لشکرها بودیم، که پیامبر خدا  صلى الله عليه وسلم  نزد ما آمده و فرمودند: «برای شما اجازه داده شده است که متعه کنید، پس متعه کنید»."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "5117",
+              "5118"
+            ],
+            "numbers": [
+              "5117",
+              "5118"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 5117،5118].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 5117،5118]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              506
+            ],
+            "translation": [
+              507
+            ],
+            "additional_arabic": []
+          }
+        },
+        "source_headings": [
+          {
+            "index": 424,
+            "style": "2-",
+            "text": "کتاب [60]- نکاح",
+            "raw_text": "کتاب [60]- نکاح"
+          },
+          {
+            "index": 504,
+            "style": "2-0",
+            "text": "10- باب: نَهْيِ النَّبِيِّ  صلى الله عليه وسلم  عَنْ نِكَاحِ المُتْعَةِ أَخِيراً",
+            "raw_text": "10- باب: نَهْيِ النَّبِيِّ ج عَنْ نِكَاحِ المُتْعَةِ أَخِيراً"
+          },
+          {
+            "index": 505,
+            "style": "4-",
+            "text": "باب [10]: نهی پیامبر خدا  صلى الله عليه وسلم  در آخر امر، از نکاح متعه",
+            "raw_text": "باب [10]: نهی پیامبر خدا ج در آخر امر، از نکاح متعه"
+          }
+        ]
+      },
+      "exact_permission_quote": "«برای شما اجازه داده شده است که متعه کنید، پس متعه کنید»",
+      "assessment": "The narration reports permission for temporary marriage. Its own source chapter explicitly states the final prohibition. The six-volume upload also contains an explicit prohibition narration from Ali. Presenting only the permission excerpt without its source heading may give a misleading impression of the edition’s position; this is not evidence of a Shia interpolation.",
+      "related_prohibition_record": {
+        "id": "fa-faiz-al-bari-v5-p01085",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": "1651",
+        "source_sequence_position": 1651,
+        "text": {
+          "arabic": "عَنْ عَلِيِّ بْنِ أَبِي طَالِبٍ رَضِيَ اللَّهُ عَنْهُ، أَنَّ رَسُولَ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: «نَهَى عَنْ مُتْعَةِ النِّسَاءِ يَوْمَ خَيْبَرَ، وَعَنْ أَكْلِ لُحُومِ الحُمُرِ الإِنْسِيَّةِ»",
+          "translation": "از علی بن ابی طالب رضي الله عنه  روایت است که گفت: پیامبر خدا  صلى الله عليه وسلم  در روز خیبر، از متعه زن‌ها و از خوردن گوشت خرهای اهلی، نهی فرمودند."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "4216"
+            ],
+            "numbers": [
+              "4216"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 4216].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 4216]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1085
+            ],
+            "translation": [
+              1086
+            ],
+            "additional_arabic": []
+          }
+        },
+        "source_headings": [
+          {
+            "index": 782,
+            "style": "1-",
+            "text": "57- كتاب المغازي",
+            "raw_text": "57- كتاب المغازي"
+          },
+          {
+            "index": 783,
+            "style": "2-",
+            "text": "کتاب [57]: غزوات",
+            "raw_text": "کتاب [57]: غزوات"
+          },
+          {
+            "index": 1023,
+            "style": "2-0",
+            "text": "23- باب: غَزوَةِ خَيْبَر",
+            "raw_text": "23- باب: غَزوَةِ خَيْبَر"
+          },
+          {
+            "index": 1024,
+            "style": "4-",
+            "text": "باب [23]: غزوۀ خیبر",
+            "raw_text": "باب [23]: غزوۀ خیبر()"
+          }
+        ]
+      },
+      "action": "Preserve the exact narration and chapter metadata. Do not omit, rewrite, or label it as Shia on this evidence."
+    },
+    {
+      "finding_id": "BKH-SOURCE-GRADE-001",
+      "kind": "source_stated_weak_isnad",
+      "is_explicit_shia_doctrine": false,
+      "record": {
+        "id": "fa-faiz-al-bari-v5-fn324-p2-q001",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": null,
+        "source_sequence_position": null,
+        "text": {
+          "arabic": null,
+          "translation": "«فاطمه و دو فرزندش»"
+        },
+        "references": [],
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "324",
+          "paragraph_index": 2,
+          "start": 154,
+          "end": 173
+        }
+      },
+      "grade_as_stated_by_source": {
+        "as_printed": "ضعیف",
+        "normalized": "weak",
+        "scope": "isnad of this quoted report",
+        "attributor": "source commentator citing Ibn Kathir",
+        "named_authority_as_printed": "امام ابن کثیر",
+        "evidence_text": "این حدیث از نگاه سند ضعیف است",
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "324",
+          "paragraph_index": 2,
+          "start": 179,
+          "end": 208
+        },
+        "independently_verified": false
+      },
+      "assessment": "The uploaded commentary explicitly grades the chain of this quoted report as weak. This grading is preserved as scoped source metadata and has not been independently authenticated. Its presence in a commentary on Bukhari does not make it a canonical Bukhari narration or give it a blanket sahih grade.",
+      "action": "Retain the exact quoted excerpt with its source-stated weak-chain metadata, and report the warning separately from ideology screening."
+    },
+    {
+      "finding_id": "BKH-SOURCE-GRADE-002",
+      "kind": "source_stated_weak_isnad",
+      "is_explicit_shia_doctrine": false,
+      "record": {
+        "id": "fa-faiz-al-bari-v6-fn353-p2-q001",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-6-Word (1).docx",
+        "source_volume": 6,
+        "source_local_number": null,
+        "source_sequence_position": null,
+        "text": {
+          "arabic": null,
+          "translation": "«حاکم نباید جز در حالتی که سیر و سیراب باشد، قضاوت نماید»"
+        },
+        "references": [],
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "353",
+          "paragraph_index": 2,
+          "start": 270,
+          "end": 327
+        }
+      },
+      "grade_as_stated_by_source": {
+        "as_printed": "به سند ضعیفی",
+        "normalized": "weak",
+        "scope": "isnad of this quoted report",
+        "attributor": "source commentator",
+        "named_authority_as_printed": null,
+        "evidence_text": "بیهقی به سند ضعیفی روایت می‌کند",
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "353",
+          "paragraph_index": 2,
+          "start": 213,
+          "end": 244
+        },
+        "independently_verified": false
+      },
+      "assessment": "The uploaded commentary explicitly grades the chain of this quoted report as weak. This grading is preserved as scoped source metadata and has not been independently authenticated. Its presence in a commentary on Bukhari does not make it a canonical Bukhari narration or give it a blanket sahih grade.",
+      "action": "Retain the exact quoted excerpt with its source-stated weak-chain metadata, and report the warning separately from ideology screening."
+    }
+  ],
+  "reviewed_shared_material_and_false_positive_examples": [
+    {
+      "kind": "twelve_rulers",
+      "record": {
+        "id": "fa-faiz-al-bari-v6-p02274",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-6-Word (1).docx",
+        "source_volume": 6,
+        "source_local_number": "2209",
+        "source_sequence_position": 2209,
+        "text": {
+          "arabic": "عَنْ جَابِرَ بْنَ سَمُرَةَ رَضِيَ اللَّهُ عَنْهُ، قَالَ: سَمِعْتُ النَّبِيَّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ، يَقُولُ: «يَكُونُ اثْنَا عَشَرَ أَمِيرًا»، فَقَالَ كَلِمَةً لَمْ أَسْمَعْهَا، فَقَالَ أَبِي: إِنَّهُ قَالَ: «كُلُّهُمْ مِنْ قُرَيْشٍ»",
+          "translation": "از جابر بن سمره رضي الله عنه  روایت است که گفت: از پیامبر خدا  صلى الله عليه وسلم  شنیدم که فرمودند: «دوازده امیر می‌باشند» بعد از آن کلمۀ دیگری را گفتند که آن را نشنیدم، ولی پدرم گفت: آن کلمه این بود که: «همۀ آن‌ها از قریش هستند».\n"
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "7222",
+              "7223"
+            ],
+            "numbers": [
+              "7222",
+              "7223"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 7222، 7223].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 7222، 7223]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              2274
+            ],
+            "translation": [
+              2275,
+              2276
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The text says twelve rulers, all from Quraysh; it does not name twelve imams or assert their infallibility or divine designation.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "divine_protection",
+      "record": {
+        "id": "fa-faiz-al-bari-v6-p01943",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-6-Word (1).docx",
+        "source_volume": 6,
+        "source_local_number": "2140",
+        "source_sequence_position": 2140,
+        "text": {
+          "arabic": "عَنْ أَبِي سَعِيدٍ الخُدْرِيِّ رَضِيَ اللَّهُ عَنْهُ، عَنِ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ: «مَا اسْتُخْلِفَ خَلِيفَةٌ إِلَّا لَهُ بِطَانَتَانِ: بِطَانَةٌ تَأْمُرُهُ بِالخَيْرِ وَتَحُضُّهُ عَلَيْهِ، وَبِطَانَةٌ تَأْمُرُهُ بِالشَّرِّ وَتَحُضُّهُ عَلَيْهِ، وَالمَعْصُومُ مَنْ عَصَمَ اللَّهُ»",
+          "translation": "از ابو سعید خدری رضي الله عنه  از پیامبر خدا  صلى الله عليه وسلم  روایت است که فرمودند: «هیچ خلیفۀ به خلافت نمی‌رسد، مگر آنکه برایش دو مشاور است، مشاوری که او را به کار نیک امر و تشجیع می‌کند، و مشاوری که او را به کار بد امر و تجیع می‌نماید، و معصوم کسی است که خدا او را از گناه کردن حفظ کرده است»."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "6611"
+            ],
+            "numbers": [
+              "6611"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 6611].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 6611]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1943
+            ],
+            "translation": [
+              1944
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The maxim that the protected person is the one God protects is not an assertion about the infallibility of specific Shia imams.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "jesus_and_prayer_leader",
+      "record": {
+        "id": "fa-faiz-al-bari-v4-p02089",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-4-Word.docx",
+        "source_volume": 4,
+        "source_local_number": "1440",
+        "source_sequence_position": 1440,
+        "text": {
+          "arabic": "عَنْ أَبِي هُرَيْرَةَ رَضِيَ اللَّهُ عَنْهُ قَالَ: قَالَ رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: «كَيْفَ أَنْتُمْ إِذَا نَزَلَ ابْنُ مَرْيَمَ فِيكُمْ، وَإِمَامُكُمْ مِنْكُمْ»",
+          "translation": "از ابوهریره رضي الله عنه  روایت است که گفت: پیامبر خدا  صلى الله عليه وسلم  فرمودند: «در زمانی که عیسی عليه السلام  در بین شما بیاید، و امام شما [در نماز] از خود شما باشد، حال شما چگونه خواهد بود»؟."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "3449"
+            ],
+            "numbers": [
+              "3449"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 3449].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 3449]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              2089
+            ],
+            "translation": [
+              2090
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The text describes Jesus returning and a prayer leader from the community. It does not specify a Shia doctrinal identification.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "succession_conversation",
+      "record": {
+        "id": "fa-faiz-al-bari-v5-p01454",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": "1707",
+        "source_sequence_position": 1707,
+        "text": {
+          "arabic": "عَنْ ابْنِ عَبَّاسٍ رَضِيَ اللَّهُ عَنْهُمَا: أَنَّ عَلِيَّ بْنَ أَبِي طَالِبٍ رَضِيَ اللَّهُ عَنْهُ، خَرَجَ مِنْ عِنْدِ رَسُولِ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فِي وَجَعِهِ الَّذِي تُوُفِّيَ فِيهِ، فَقَالَ النَّاسُ: يَا أَبَا حَسَنٍ، «كَيْفَ أَصْبَحَ رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ؟، فَقَالَ: أَصْبَحَ بِحَمْدِ اللَّهِ بَارِئًا»، فَأَخَذَ بِيَدِهِ عَبَّاسُ بْنُ عَبْدِ المُطَّلِبِ فَقَالَ لَهُ: أَنْتَ وَاللَّهِ بَعْدَ ثَلاَثٍ عَبْدُ العَصَا، وَإِنِّي وَاللَّهِ لَأَرَى رَسُولَ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ سَوْفَ يُتَوَفَّى مِنْ وَجَعِهِ هَذَا، إِنِّي لَأَعْرِفُ وُجُوهَ بَنِي عَبْدِ المُطَّلِبِ عِنْدَ المَوْتِ، اذْهَبْ بِنَا إِلَى رَسُولِ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فَلْنَسْأَلْهُ فِيمَنْ هَذَا الأَمْرُ، إِنْ كَانَ فِينَا عَلِمْنَا ذَلِكَ، وَإِنْ كَانَ فِي غَيْرِنَا عَلِمْنَاهُ، فَأَوْصَى بِنَا، فَقَالَ عَلِيٌّ: إِنَّا وَاللَّهِ لَئِنْ سَأَلْنَاهَا رَسُولَ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فَمَنَعَنَاهَا لاَ يُعْطِينَاهَا النَّاسُ بَعْدَهُ، وَإِنِّي وَاللَّهِ لاَ أَسْأَلُهَا رَسُولَ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ",
+          "translation": "از ابن عباس رضي الله عنهما  روایت است که گفت: هنگامی که پیامبر خدا  صلى الله عليه وسلم  به مریضی که از آن وفات یافتند گرفتار بودند، علی بن ابی طالب رضي الله عنه  از نزدشان برآمد، و مردم از وی پرسیدند: ای ابا الحسن! پیامبر خدا  صلى الله عليه وسلم  چه حال دارند؟ گفت: الحمد الله حال‌شان خوب است.\nدر این وقت عباس بن عبدالمطلب رضي الله عنه  دست او را گرفت و گفت: تو بعد از سه روز تابع شخص دیگری خواهی بود، و به خداوند قسم من می‌دانم که پیامبر خدا  صلى الله عليه وسلم  از این درد خود وفات خواهند یافت، و من علائم مرگ را در اولاد عبدالمطلب می‌شناسم، بیا تا نزد پیامبر خدا  صلى الله عليه وسلم  برویم و از وی بپرسیم که بعد از ایشان خلافت از کیست؟ اگر از ما باشد، هم بدانیم، و اگر از دیگران باشد هم بدانیم، که برای ما وصیت نمایند.\nعلی رضي الله عنه  گفت: اگر این موضوع را از پیامبر خدا  صلى الله عليه وسلم  بپرسیم و ما را از آن منع نمایند، بعد از ایشان مردمان خلافت را هرگز برای ما نخواهند داد، و به خداوند سوگند است که این موضوع را از پیامبر خدا  صلى الله عليه وسلم  نخواهم پرسید."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "4447"
+            ],
+            "numbers": [
+              "4447"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 4447].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 4447]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1454
+            ],
+            "translation": [
+              1455,
+              1456,
+              1457
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "This is a historical conversation involving Abbas and Ali about asking the Prophet regarding succession. It does not itself assert a divinely appointed infallible line of imams.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "companion_speech",
+      "record": {
+        "id": "fa-faiz-al-bari-v5-fn225-p0-q001",
+        "record_type": "companion_report",
+        "content_kind": "quoted_companion_saying",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": null,
+        "source_sequence_position": null,
+        "text": {
+          "arabic": null,
+          "translation": "«اگر این موضوع را از پیامبر خدا  صلى الله عليه وسلم  بپرسیم و ما را از آن منع نمایند، بعد از ایشان مردمان خلافت را هرگز برای ما نخواهند داد»"
+        },
+        "references": [],
+        "source_locator": {
+          "part": "word/footnotes.xml",
+          "footnote_id": "225",
+          "paragraph_index": 0,
+          "start": 209,
+          "end": 330
+        }
+      },
+      "assessment": "This speech is attributed to Ali, not to the Prophet. It is retained as a companion_report. The surrounding excluded commentary argues against a designation claim.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "family_report",
+      "record": {
+        "id": "fa-faiz-al-bari-v5-p01437",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": "1701",
+        "source_sequence_position": 1701,
+        "text": {
+          "arabic": "عَنْ عَائِشَةَ رَضِيَ اللَّهُ عَنْهَا، قَالَتْ: دَعَا النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ فَاطِمَةَ عَلَيْهَا السَّلاَمُ فِي شَكْوَاهُ الَّذِي قُبِضَ فِيهِ، فَسَارَّهَا بِشَيْءٍ فَبَكَتْ، ثُمَّ دَعَاهَا فَسَارَّهَا بِشَيْءٍ فَضَحِكَتْ، فَسَأَلْنَا عَنْ ذَلِكَ فَقَالَتْ: «سَارَّنِي النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ أَنَّهُ يُقْبَضُ فِي وَجَعِهِ الَّذِي تُوُفِّيَ فِيهِ فَبَكَيْتُ، ثُمَّ سَارَّنِي فَأَخْبَرَنِي أَنِّي أَوَّلُ أَهْلِهِ يَتْبَعُهُ فَضَحِكْتُ»",
+          "translation": "از عائشه رضي الله عنها  روایت است که گفت: پیامبر خدا  صلى الله عليه وسلم  در مرضی که از آن وفات نمودند، فاطمه رضي الله عنها  را طلب نمودند و چیزی به گوشش گفتند: و او به گریه افتاد، و باز دوباره او را طلب نمودند و چیزی به گوشش گفتند و او خندید.\nاز وی سبب را پرسیدیم گفت: پیامبر خدا  صلى الله عليه وسلم  در مرتبه اول به گوشم گفتند که ایشان از همین مرض خود وفات خواهند یافت، و به همین سبب به گریه افتادم، بعد از آن بگوشم و برایم خبر دادند که: من اولین کسی که از اهل بیت‌شان هستم که به ایشان خواهم پیوست، از این سبب خندیدم."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "4433",
+              "4434"
+            ],
+            "numbers": [
+              "4433",
+              "4434"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 4433، 4434].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 4433، 4434]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1437
+            ],
+            "translation": [
+              1438,
+              1439
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "A report about Fatimah being the first of the Prophet’s family to follow him in death is not on its own an explicitly Shia doctrinal assertion.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "geographic_name",
+      "record": {
+        "id": "fa-faiz-al-bari-v5-p01007",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-5-Word.docx",
+        "source_volume": 5,
+        "source_local_number": "1640",
+        "source_sequence_position": 1640,
+        "text": {
+          "arabic": "عَنِ المِسْوَرِ بْنِ مَخْرَمَةَ رَضِيَ اللهُ عَنْهُمَا قَالَ: لَمَّا خَرَجَ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ عَامَ الحُدَيْبِيَةِ فِي بِضْعَ عَشْرَةَ مِائَةً مِنْ أَصْحَابِهِ، فَلَمَّا أَتَى ذَا الحُلَيْفَةِ، قَلَّدَ الهَدْيَ وَأَشْعَرَهُ وَأَحْرَمَ مِنْهَا بِعُمْرَةٍ، وَبَعَثَ عَيْنًا لَهُ مِنْ خُزَاعَةَ، وَسَارَ النَّبِيُّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ حَتَّى كَانَ بِغَدِيرِ الأَشْطَاطِ أَتَاهُ عَيْنُهُ، قَالَ: إِنَّ قُرَيْشًا جَمَعُوا لَكَ جُمُوعًا، وَقَدْ جَمَعُوا لَكَ الأَحَابِيشَ، وَهُمْ مُقَاتِلُوكَ، وَصَادُّوكَ عَنِ البَيْتِ، وَمَانِعُوكَ، فَقَالَ: «أَشِيرُوا أَيُّهَا النَّاسُ عَلَيَّ، أَتَرَوْنَ أَنْ أَمِيلَ إِلَى عِيَالِهِمْ وَذَرَارِيِّ هَؤُلاَءِ الَّذِينَ يُرِيدُونَ أَنْ يَصُدُّونَا عَنِ البَيْتِ، فَإِنْ يَأْتُونَا كَانَ اللَّهُ عَزَّ وَجَلَّ قَدْ قَطَعَ عَيْنًا مِنَ المُشْرِكِينَ، وَإِلَّا تَرَكْنَاهُمْ مَحْرُوبِينَ»، قَالَ أَبُو بَكْرٍ: يَا رَسُولَ اللَّهِ، خَرَجْتَ عَامِدًا لِهَذَا البَيْتِ، لاَ تُرِيدُ قَتْلَ أَحَدٍ، وَلاَ حَرْبَ أَحَدٍ، فَتَوَجَّهْ لَهُ، فَمَنْ صَدَّنَا عَنْهُ قَاتَلْنَاهُ. قَالَ: «امْضُوا عَلَى اسْمِ اللَّهِ»",
+          "translation": "از مسور بن مخرمه رضي الله عنهما  روایت است که گفت: هنگامی که پیامبر خدا  صلى الله عليه وسلم  در سال حدیبیه با یک هزار و چند صد نفر از صحابه‌های خود بیرون شدند، چون به ذوالحلَیفه رسیدند، هدی را قلاده نموده و نشانی کردند، و از همان‌جا برای ادای عمره احرام بستند، و جاسوسی را از مردم خُزاعه [جهت اطلاع آوردن از قریش] فرستادند.\nو پیامبر خدا  صلى الله عليه وسلم  به راه افتادند، و هنگامی که به (غدیر اشطاط) رسیدند، جاسوسی را که فرستاده بودند آمد و گفت: قریش مردم را برای جنگ کردن با شما جمع آوری کرده‌اند، و از آن جمله قبایلی را که با آن‌ها هم پیمان هستند، از این جهت به طور قطع با شما جنگ می‌کنند و مانع رفتن شما به خانه کعبه می‌شوند.\nپیامبر خدا  صلى الله عليه وسلم  گفتند: «ای مردم برایم نظر بدهید؟ آیا می‌خواهید که به طرف اهل و عیال این مردمی که می‌خواهند مانع رفتن ما به سوی خانه کعبه گردند حرکت نمائیم، اگر با ما به مقابله برخواستند، این طور می‌شود که گویا جاسوسی نفرستاده بودیم، و با آن‌ها به جنگ می‌پردازیم، و اگر به مقابل ما نیامدند، مال و عیال آن‌ها را به دست می‌آوریم».\nابوبکر رضي الله عنه  گفت: یا رسول الله! شما به قصد خانه کعبه بیرون شده‌اید، و اراده کشتن کسی و جنگ کردن با کسی را ندارید، به همین هدف به سفر خود ادامه دهید، اگر کسی مانع رفتن ما شد، با او جنگ خواهیم کرد، فرمودند: «به نام خدا به پیش بروید»."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "4178",
+              "4179"
+            ],
+            "numbers": [
+              "4178",
+              "4179"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 4178، 4179].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 4178، 4179]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1007
+            ],
+            "translation": [
+              1008,
+              1009,
+              1010,
+              1011
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The matched Ghadir refers to Ghadir al-Ashtat in the travel narrative. A place-name match is not a Ghadir Khumm doctrinal assertion.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "ordinary_adjective",
+      "record": {
+        "id": "fa-faiz-al-bari-v4-p01310",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-4-Word.docx",
+        "source_volume": 4,
+        "source_local_number": "1296",
+        "source_sequence_position": 1296,
+        "text": {
+          "arabic": "عَنْ جَرِيرِ بْنِ عَبْدِاللهِ رَضِيَ اللَّهُ عَنْهُ قَال: قَالَ لِي رَسُولُ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ: «أَلاَ تُرِيحُنِي مِنْ ذِي الخَلَصَةِ» وَكَانَ بَيْتًا فِي خَثْعَمَ يُسَمَّى كَعْبَةَ اليَمَانِيَةِ، قَالَ: فَانْطَلَقْتُ فِي خَمْسِينَ وَمِائَةِ فَارِسٍ مِنْ أَحْمَسَ، وَكَانُوا أَصْحَابَ خَيْلٍ، قَالَ: وَكُنْتُ لاَ أَثْبُتُ عَلَى الخَيْلِ، فَضَرَبَ فِي صَدْرِي حَتَّى رَأَيْتُ أَثَرَ أَصَابِعِهِ فِي صَدْرِي، وَقَالَ: «اللَّهُمَّ ثَبِّتْهُ، وَاجْعَلْهُ هَادِيًا مَهْدِيًّا» ، فَانْطَلَقَ إِلَيْهَا فَكَسَرَهَا وَحَرَّقَهَا، ثُمَّ بَعَثَ إِلَى رَسُولِ اللَّهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ يُخْبِرُهُ، فَقَالَ رَسُولُ جَرِيرٍ: وَالَّذِي بَعَثَكَ بِالحَقِّ، مَا جِئْتُكَ حَتَّى تَرَكْتُهَا كَأَنَّهَا جَمَلٌ أَجْوَفُ أَوْ أَجْرَبُ، قَالَ: فَبَارَكَ فِي خَيْلِ أَحْمَسَ، وَرِجَالِهَا خَمْسَ مَرَّاتٍ",
+          "translation": "از جریر بن عبدالله رضي الله عنه  روایت است که گفت: پیامبر خدا  صلى الله عليه وسلم  به من گفتند: «مرا از [بتخانۀ] ذی الخلصه راحت نمی‌سازی»؟ و [بتخانۀ ذو الخلصله] عبارت از خانۀ در قبیلۀ (خَثعم] بود که به نام کعبۀ یمانی یاد می‌شد، [و آن را مشابه کعبه ساخته بودند].\n[جریر] گفت: که با یکصد و پنجاه سوار از مردم (اَحمس) که سواران ماهری بودند، به آن طرف حرکت کردم، و من خود را [از مریضی و ضعفی که داشتم] بر بالای اسپ گرفته نمی‌توانستم، [پیامبر خدا  صلى الله عليه وسلم ] با دست خود چنین بر سینه‌ام زدند که آثار انگشتان‌شان را بر سینه‌ام مشاهده نمودم، و دعا کردند که: «خدایا! او را ثابت قدم بساز، و او را هدایت کن و سبب هدایت دیگران بگردان».\nجریر رضي الله عنه  به طرف آن بتخانه رفت، و آن بتخانه را [با بتی که در آن بود] منهدم ساخت و به آتش کشید، و شخصی را فرستاد که خبر را برای پیامبر خدا  صلى الله عليه وسلم  برساند.\nفرستادۀ جریر [نزد پیامبر خدا  صلى الله عليه وسلم  آمد] و گفت: قسم به ذاتی که شما را به حق فرستاده است تا هنگامی که [آن بتخانه را] مانند شتر درون خالی و یا شتر (گر) [شک از راوی است]، ندیدم، نزد شما نیامدم، و پیامبر خدا  صلى الله عليه وسلم  برای افراد و اسپ‌های قبیلۀ (اَحمس) پنج باری دعای خیر و برکت نمودند."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "3020"
+            ],
+            "numbers": [
+              "3020"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 3020].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 3020]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              1310
+            ],
+            "translation": [
+              1311,
+              1312,
+              1313,
+              1314
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The Arabic phrase هاديا مهديا uses a word meaning guided; the match does not assert an eschatological Mahdi doctrine.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "hajj_tamattu",
+      "record": {
+        "id": "fa-faiz-al-bari-v3-p00973",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-3-Word.docx",
+        "source_volume": 3,
+        "source_local_number": "793",
+        "source_sequence_position": 793,
+        "text": {
+          "arabic": "عَن عُثْمَانُ رَضِيَ اللَّهُ عَنْهُ أنَّه نَهی عَنِ المُتْعَةِ، وَأَنْ يُجْمَعَ بَيْنَهُمَا، فَلَمَّا «رَأَى عَلِيٌّ أَهَلَّ بِهِمَا، لَبَّيْكَ بِعُمْرَةٍ وَحَجَّةٍ»، قَالَ: «مَا كُنْتُ لِأَدَعَ سُنَّةَ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ لِقَوْلِ أَحَدٍ»",
+          "translation": "روایت است که عثمان رضي الله عنه  از متعه، و از جمع کردن بین عمره و حج، نهی نمود، چون علی رضي الله عنه  این چیز رادید، حج و عمره را باهم نیت نموده و گفت: سنت پیامبر خدا  صلى الله عليه وسلم  را به گفتۀ هیچ کسی ترک نمی‌کنم."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "1563"
+            ],
+            "numbers": [
+              "1563"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 1563].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 1563]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              973
+            ],
+            "translation": [
+              974
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The mutah/tamattu terminology is in a Hajj narrative, not a temporary-marriage permission.",
+      "is_explicit_shia_doctrine": false
+    },
+    {
+      "kind": "hajj_tamattu",
+      "record": {
+        "id": "fa-faiz-al-bari-v3-p00988",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "source_filename": "faiz-albari-sharh-sahih-bokhari-3-Word.docx",
+        "source_volume": 3,
+        "source_local_number": "797",
+        "source_sequence_position": 797,
+        "text": {
+          "arabic": "عَن جَابِرُ بْنُ عَبْدِ اللَّهِ رَضِيَ اللَّهُ عَنْهُمَا: أَنَّهُ حَجَّ مَعَ النَّبِيِّ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ يَوْمَ سَاقَ البُدْنَ مَعَهُ، وَقَدْ أَهَلُّوا بِالحَجِّ مُفْرَدًا، فَقَالَ لَهُمْ: «أَحِلُّوا مِنْ إِحْرَامِكُمْ بِطَوَافِ البَيْتِ، وَبَيْنَ الصَّفَا وَالمَرْوَةِ، وَقَصِّرُوا، ثُمَّ أَقِيمُوا حَلاَلًا، حَتَّى إِذَا كَانَ يَوْمُ التَّرْوِيَةِ فَأَهِلُّوا بِالحَجِّ، وَاجْعَلُوا الَّتِي قَدِمْتُمْ بِهَا مُتْعَةً»، فَقَالُوا: كَيْفَ نَجْعَلُهَا مُتْعَةً، وَقَدْ سَمَّيْنَا الحَجَّ؟ فَقَالَ: «افْعَلُوا مَا أَمَرْتُكُمْ، فَلَوْلاَ أَنِّي سُقْتُ الهَدْيَ لَفَعَلْتُ مِثْلَ الَّذِي أَمَرْتُكُمْ، وَلَكِنْ لاَ يَحِلُّ مِنِّي حَرَامٌ حَتَّى يَبْلُغَ الهَدْيُ مَحِلَّهُ» فَفَعَلُوا",
+          "translation": "از جابر بن عبدالله رضي الله عنهما  روایت است که [گفت]: با پیامبر خدا  صلى الله عليه وسلم  در همان روزی که شتران هدی با خود برده بودند حج نمودم، پیامبر خدا  صلى الله عليه وسلم  برای مردم گفتند:\nبعد از طواف به خانۀ کعبه، و سعی بین صفا و مروه، خود را حلال سازید، و موی سر خود را کوتاه کنید، بعد از آن همین طور در حالت حلال تا روز (ترویه) [روز هشتم ذو الحجه] باقی بماند، و در این روز تلبیه بگوئید و نیت حج نمائید، و به این طریق حج مفردی را که نیت کرده بودید، به حج تمتع تبدیل کند».\nصحابه رضي الله عنهم  گفتند:\nچگونه حج را به عمره تبدیل کنیم در حالی که به نیت حج، احرام بسته بودیم؟\nفرمودند: «آنچه را که به شما امر می‌کنم، انجام دهید، و اگر من هم (هدی) را قبلا نفرستاده بودم، همین کاری را که به شما می‌گویم [انجام دهید]، انجام می‌دادم، ولی اکنون تا هنگامی که (هدی) در جای معینش [که منی باشد] نرسد، آنچه که بر من حرام بود، حلال نمی‌شود».\n[صحابه چون این را شنیدند، موافق امر پیامبر خدا  صلى الله عليه وسلم ] عمل نمودند."
+        },
+        "references": [
+          {
+            "collection": "Sahih al-Bukhari",
+            "collection_id": "sahih-al-bukhari",
+            "number_raw": [
+              "1568"
+            ],
+            "numbers": [
+              "1568"
+            ],
+            "cross_reference_number_raw": [],
+            "cross_reference_numbers": [],
+            "citation_label_raw": "البخاری",
+            "citation_raw": "[رواه البخاری: 1568].",
+            "status": "as_cited_in_uploaded_source",
+            "collection_basis": "Identified source edition and printed Bukhari citation label; label typos are preserved.",
+            "externally_verified": false,
+            "citation_token_raw": "رواه البخاری: 1568]",
+            "citation_scope": "Exact terminal citation for this source narration; moved from reader text to metadata."
+          }
+        ],
+        "source_locator": {
+          "part": "word/document.xml",
+          "zero_based_body_paragraphs": {
+            "arabic": [
+              988
+            ],
+            "translation": [
+              989,
+              990,
+              991,
+              992,
+              993,
+              994
+            ],
+            "additional_arabic": []
+          }
+        }
+      },
+      "assessment": "The mutah/tamattu terminology is in a Hajj narrative, not a temporary-marriage permission.",
+      "is_explicit_shia_doctrine": false
+    }
+  ],
+  "candidate_record_decisions": [
+    {
+      "id": "fa-faiz-al-bari-v1-p01009",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p01194",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p01692",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p01756",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p02066",
+      "matched_categories": [
+        "explicit_sect_or_theology"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "Substring false positive: normalized تقیه occurs within another Arabic word (such as عاتقيه, يرتقيه, or أعتقيها), not a doctrinal taqiyyah assertion."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p02251",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v1-p02378",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00510",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00593",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 4,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00671",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00674",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00698",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00757",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00797",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00804",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00810",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 3,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00822",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 4,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00844",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00856",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00865",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00871",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p00955",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01037",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01073",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01161",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01168",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01217",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01252",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01281",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01423",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01484",
+      "matched_categories": [
+        "explicit_sect_or_theology"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "Substring false positive: normalized تقیه occurs within another Arabic word (such as عاتقيه, يرتقيه, or أعتقيها), not a doctrinal taqiyyah assertion."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p01738",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v2-p02337",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p00453",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p00973",
+      "matched_categories": [
+        "mutah_context"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The mutah/tamattu terminology is in a Hajj narrative, not a temporary-marriage permission."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p00988",
+      "matched_categories": [
+        "mutah_context"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The mutah/tamattu terminology is in a Hajj narrative, not a temporary-marriage permission."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p01296",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p01520",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p01738",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p02616",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v3-p02626",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p00387",
+      "matched_categories": [
+        "explicit_sect_or_theology"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "Substring false positive: normalized تقیه occurs within another Arabic word (such as عاتقيه, يرتقيه, or أعتقيها), not a doctrinal taqiyyah assertion."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p00541",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p00572",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p00687",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p00906",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01310",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The Arabic phrase هاديا مهديا uses a word meaning guided; the match does not assert an eschatological Mahdi doctrine."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01323",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01477",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01519",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01588",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p01635",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p02089",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The text describes Jesus returning and a prayer leader from the community. It does not specify a Shia doctrinal identification."
+    },
+    {
+      "id": "fa-faiz-al-bari-v4-p02186",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p00622",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p00709",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p00824",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01007",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The matched Ghadir refers to Ghadir al-Ashtat in the travel narrative. A place-name match is not a Ghadir Khumm doctrinal assertion."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01064",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01079",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01085",
+      "matched_categories": [
+        "mutah_context"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01113",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01161",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01310",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01343",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01375",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01437",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "A report about Fatimah being the first of the Prophet’s family to follow him in death is not on its own an explicitly Shia doctrinal assertion."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01454",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "This is a historical conversation involving Abbas and Ali about asking the Prophet regarding succession. It does not itself assert a divinely appointed infallible line of imams."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-p01641",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p00506",
+      "matched_categories": [
+        "mutah_context"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts.",
+      "related_finding": "BKH-CONTEXT-001"
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p00933",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p00935",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p01273",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p01316",
+      "matched_categories": [
+        "curse_companions"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p01943",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 3,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The maxim that the protected person is the one God protects is not an assertion about the infallibility of specific Shia imams."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p02049",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts."
+    },
+    {
+      "id": "fa-faiz-al-bari-v6-p02274",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 2,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "The text says twelve rulers, all from Quraysh; it does not name twelve imams or assert their infallibility or divine designation."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-fn225-p0-q001",
+      "matched_categories": [
+        "succession_or_infallibility"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "This speech is attributed to Ali, not to the Prophet. It is retained as a companion_report. The surrounding excluded commentary argues against a designation claim."
+    },
+    {
+      "id": "fa-faiz-al-bari-v5-fn324-p2-q001",
+      "matched_categories": [
+        "shared_family_or_leadership"
+      ],
+      "matched_context_count": 1,
+      "explicit_shia_doctrine_identified": false,
+      "review_status": "matched_contexts_reviewed",
+      "assessment": "No explicitly Shia-specific doctrinal assertion identified in the reviewed matched contexts.",
+      "related_finding": "BKH-SOURCE-GRADE-001"
+    }
+  ],
+  "common_false_positive_classes": [
+    "تقیه within unrelated Arabic words",
+    "خم within زخم, تخم, ضخم, jars, or bending",
+    "علی matching parts of عليه honorifics",
+    "prayer leadership described as امامت",
+    "twelve people, months, animals, or troop numbers",
+    "العنز or العنب matching broad curse patterns",
+    "narrators named Ibn Umar or Ibn Amr narrating general curses, rather than a curse directed at those narrators"
+  ],
+  "separate_excluded_commentary_review": {
+    "file": "doctrinal_review.json",
+    "sha256": "434d1eaa7b7478ed592b889c13ca4b3324754d4db3e831de72f33bdc7020dc20",
+    "commentary_prose_in_integrated_reader": false,
+    "note": "The excluded commentary discusses some Shia positions and disputes them; these source discussions are kept separate from findings in the extracted narration text."
+  },
+  "user_warning_policy": "Report concrete context and source-grade findings with exact citations/locators. Do not convert shared religious material, unfamiliar Persian wording, or keyword matches into sect accusations."
+}

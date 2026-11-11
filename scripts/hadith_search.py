@@ -45,7 +45,7 @@ from current_provenance import classification as current_translation_origin
 
 
 VERSION = 'hadith-bank-search-v1'
-CACHE_VERSION = '4:literal-substrings:nfkc-casefold-arabic-cjk:scoped-source-metadata:current-origin'
+CACHE_VERSION = '5:literal-substrings:nfkc-casefold-arabic-persian-cjk:scoped-source-metadata:current-origin:record-metadata'
 CATALOG_PATH = 'catalog/materials.json'
 DEFAULT_DATABASE = '.cache/hadith-search.sqlite'
 LANGUAGE_ALIASES = {'zh': 'zh-CN', 'tl': 'fil'}
@@ -260,6 +260,7 @@ def _fold(value, *, join_cjk=True):
          '\u064b' <= char <= '\u065f' or char == '\u0670' or
          '\u06d6' <= char <= '\u06ed' or '\u08d3' <= char <= '\u08ff')
     ))
+    value = value.translate(str.maketrans({'\u064a': '\u06cc', '\u0643': '\u06a9', '\u200c': '', '\u200d': ''}))
     if join_cjk:
         value = _CJK_SPACING.sub('', value)
     return ' '.join(value.split())
@@ -665,20 +666,24 @@ def format_results(result):
             locations.append('sheet ' + str(page['sheet']))
         if page.get('row') is not None:
             locations.append('row ' + str(page['row']))
+        if page.get('docx_paragraphs'):
+            locations.append('DOCX paragraph ' + ', '.join(str(p) for p in page['docx_paragraphs']))
         if locations:
             lines.append('Location: ' + '; '.join(locations))
         review = item['review']
         current_policy = review.get('current_policy')
         current_label = current_policy.get('label') if isinstance(current_policy, dict) else None
-        if current_label:
-            lines.append('Current review policy: ' + str(current_label))
-        review_prefix = 'Historical import review: ' if current_label else 'Review: '
-        lines.append(review_prefix + str(review.get('status', 'unknown')) +
-                     '; independent Pro QC: ' + str(review.get('independent_pro_qc', 'unknown')) +
-                     '; release: ' + str(review.get('release_status', 'unknown')))
+        hide_qc = item.get('display_policy', {}).get('qc_tags') is False
+        if not hide_qc:
+            if current_label:
+                lines.append('Current review policy: ' + str(current_label))
+            review_prefix = 'Historical import review: ' if current_label else 'Review: '
+            lines.append(review_prefix + str(review.get('status', 'unknown')) +
+                         '; independent Pro QC: ' + str(review.get('independent_pro_qc', 'unknown')) +
+                         '; release: ' + str(review.get('release_status', 'unknown')))
         issues = review.get('issues')
         if issues:
-            lines.append('Recorded issues: ' + '; '.join(_strings(issues)))
+            lines.append(('Source notes: ' if hide_qc else 'Recorded issues: ') + '; '.join(_strings(issues)))
         if result['include_commentary']:
             commentary = item['commentary']
             for field, label in [('arabic', 'Arabic commentary'), ('translation', 'Translated commentary')]:

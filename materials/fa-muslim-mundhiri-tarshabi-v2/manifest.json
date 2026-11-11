@@ -1,0 +1,37 @@
+{
+  "schema": "hadith-bank-material-v1",
+  "id": "fa-muslim-mundhiri-tarshabi-v2",
+  "adapter": "records-v1",
+  "language": "fa",
+  "book": "muslim",
+  "edition": "mukhtasar-mundhiri-tarshabi-v2",
+  "source_id": "fa-muslim-mundhiri-tarshabi-v2",
+  "records": {
+    "path": "materials/fa-muslim-mundhiri-tarshabi-v2/records.jsonl",
+    "sha256": "9ca7bc7a388d520df80703039848cc5a8b2038be4251403529c007fd8cad05cb",
+    "count": 1128
+  },
+  "source": {
+    "path": "materials/fa-muslim-mundhiri-tarshabi-v2/source.docx",
+    "sha256": "1ae9bc9bd246c2b84db4b9b44255ff08ed17da5fb5e9254696bd5c784c1c3f98",
+    "name": "مختصر صحیح مسلم — منذری / ترشابی، جلد 2",
+    "format": "docx",
+    "url": "https://www.aqeedeh.com/book_files/html/1743.html"
+  },
+  "publication": {
+    "authorized": true,
+    "decision": "owner_requested_public_source_import",
+    "decision_date_japan": "2026-11-11"
+  },
+  "display_policy": {
+    "qc_tags": false,
+    "decision": "owner_requested_no_qc_tags_for_non_ocr",
+    "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+  },
+  "extraction_scope": {
+    "source_file_count": 1,
+    "no_batch_limit": true,
+    "side_commentary_included": false,
+    "audit_root": "imports/persian-docx-20261111/audit/muslim"
+  }
+}

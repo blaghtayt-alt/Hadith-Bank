@@ -1,0 +1,37 @@
+{
+  "schema": "hadith-bank-material-v1",
+  "id": "fa-faiz-al-bari-v6",
+  "adapter": "records-v1",
+  "language": "fa",
+  "book": "bukhari",
+  "edition": "faiz-al-bari-heravi-v6",
+  "source_id": "fa-faiz-al-bari-v6",
+  "records": {
+    "path": "materials/fa-faiz-al-bari-v6/records.jsonl",
+    "sha256": "325d59c2bde37c76b8d66bac3d3c0df24cebedd5b2b8ba21b09c30c05a68faf2",
+    "count": 457
+  },
+  "source": {
+    "path": "materials/fa-faiz-al-bari-v6/source.docx",
+    "sha256": "0e828b498a92a4abf16bbab1bd7ec0a3bd37fa53021c023234cf58468b54cbde",
+    "name": "فیض الباری — مختصر صحیح البخاری، جلد 6",
+    "format": "docx",
+    "url": "https://www.aqeedeh.com/"
+  },
+  "publication": {
+    "authorized": true,
+    "decision": "owner_requested_public_source_import",
+    "decision_date_japan": "2026-11-11"
+  },
+  "display_policy": {
+    "qc_tags": false,
+    "decision": "owner_requested_no_qc_tags_for_non_ocr",
+    "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+  },
+  "extraction_scope": {
+    "source_file_count": 1,
+    "no_batch_limit": true,
+    "side_commentary_included": false,
+    "audit_root": "imports/persian-docx-20261111/audit/bukhari"
+  }
+}

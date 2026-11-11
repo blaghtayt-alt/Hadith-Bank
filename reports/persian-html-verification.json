@@ -1,0 +1,1215 @@
+{
+  "schema": "independent-html-integration-review/v1",
+  "reviewer_scope": "Independent agent read-only embedded-payload and rendering-code comparison; this is not a certified theological or source-authenticity QC release.",
+  "passed": true,
+  "checks": {
+    "nine_canonical_material_files": true,
+    "canonical_count_6805": true,
+    "embedded_count_6805": true,
+    "all_ids_unique": true,
+    "no_missing_or_extra_ids": true,
+    "all_arabic_and_persian_text_equal": true,
+    "metadata_classifications_references_and_tags_equal": true,
+    "no_commentary_footnotes_or_benefits": true,
+    "qc_display_disabled_and_no_qc_tags": true,
+    "all_human_origin": true,
+    "both_html_artifacts_identical": true,
+    "both_embedded_persian_payloads_identical": true,
+    "snapshot_counts_match": true,
+    "all_6805_card_functions_rendered_without_errors": true,
+    "both_weak_chain_assessments_rendered_in_references": true,
+    "zero_private_use_or_replacement_characters_in_narrations_and_headings": true,
+    "no_unexplained_custom_font_placeholder_hints": true
+  },
+  "html_artifacts": [
+    {
+      "path": "hadith-bank-reader.html",
+      "html_sha256": "e1e1ef9677ffea356284793d996d018acd4fff5138a7b4b2431318fc6bc6d5a3",
+      "html_bytes": 29127325,
+      "uncompressed_payload_sha256": "63bd4db516e3707dc59304f08bf5dd80abd5b37a030f4a70dcd586594e4fafef",
+      "all_records": 20293,
+      "persian_records": 6805,
+      "snapshot_record_count": 20293,
+      "snapshot_count_matches": true
+    },
+    {
+      "path": "_site/index.html",
+      "html_sha256": "e1e1ef9677ffea356284793d996d018acd4fff5138a7b4b2431318fc6bc6d5a3",
+      "html_bytes": 29127325,
+      "uncompressed_payload_sha256": "63bd4db516e3707dc59304f08bf5dd80abd5b37a030f4a70dcd586594e4fafef",
+      "all_records": 20293,
+      "persian_records": 6805,
+      "snapshot_record_count": 20293,
+      "snapshot_count_matches": true
+    }
+  ],
+  "canonical_inputs": [
+    {
+      "path": "materials/fa-faiz-al-bari-v1/records.jsonl",
+      "sha256": "6fb854f98e5884c120e8d2168f7c9792adda6c900baf54deb11fcb6def87121f",
+      "records": 412,
+      "role_counts": {
+        "primary": 323,
+        "quotation_excerpt": 89
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 323,
+        "quoted_hadith": 89
+      }
+    },
+    {
+      "path": "materials/fa-faiz-al-bari-v2/records.jsonl",
+      "sha256": "88fa5ce225858c2c2dd0299c7ccd6446eeeac390334c48cce9126628f0325471",
+      "records": 451,
+      "role_counts": {
+        "primary": 376,
+        "variant": 1,
+        "quotation_excerpt": 74
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 377,
+        "quoted_hadith": 74
+      }
+    },
+    {
+      "path": "materials/fa-faiz-al-bari-v3/records.jsonl",
+      "sha256": "ecbdd30f655fab5af1cbdf852be719a565d4c2866f3e9ddb5224adb93082c0f4",
+      "records": 504,
+      "role_counts": {
+        "primary": 427,
+        "variant": 1,
+        "quotation_excerpt": 76
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 428,
+        "quoted_hadith": 76
+      }
+    },
+    {
+      "path": "materials/fa-faiz-al-bari-v4/records.jsonl",
+      "sha256": "3b09a0af3842d8af1e9142939dd065cacccb2b7f5a50b400690694552970866a",
+      "records": 466,
+      "role_counts": {
+        "primary": 389,
+        "quotation_excerpt": 77
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 389,
+        "quoted_hadith": 77
+      }
+    },
+    {
+      "path": "materials/fa-faiz-al-bari-v5/records.jsonl",
+      "sha256": "87c402316cdb661c7bcbf0ee9ecd7f1f11175225d71cadca6201d0e0a8711a09",
+      "records": 337,
+      "role_counts": {
+        "primary": 307,
+        "quotation_excerpt": 29,
+        "companion_excerpt": 1
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 305,
+        "translation_occurrence": 2,
+        "quoted_hadith": 29,
+        "companion_report": 1
+      }
+    },
+    {
+      "path": "materials/fa-faiz-al-bari-v6/records.jsonl",
+      "sha256": "325d59c2bde37c76b8d66bac3d3c0df24cebedd5b2b8ba21b09c30c05a68faf2",
+      "records": 457,
+      "role_counts": {
+        "primary": 403,
+        "quotation_excerpt": 54
+      },
+      "record_type_counts": {
+        "hadith_occurrence": 403,
+        "quoted_hadith": 54
+      }
+    },
+    {
+      "path": "materials/fa-muslim-mundhiri-tarshabi-v1/records.jsonl",
+      "sha256": "c6cf38a52fd52852a9da2e309b4353e182b8313a1226ac1d776800fcc21a3134",
+      "records": 1104,
+      "role_counts": {
+        "primary": 1072,
+        "quotation_excerpt": 30,
+        "companion_excerpt": 2
+      },
+      "record_type_counts": {
+        "main_hadith_occurrence": 1072,
+        "quoted_hadith": 30,
+        "quoted_companion_report": 2
+      }
+    },
+    {
+      "path": "materials/fa-muslim-mundhiri-tarshabi-v2/records.jsonl",
+      "sha256": "9ca7bc7a388d520df80703039848cc5a8b2038be4251403529c007fd8cad05cb",
+      "records": 1128,
+      "role_counts": {
+        "primary": 1118,
+        "quotation_excerpt": 10
+      },
+      "record_type_counts": {
+        "main_hadith_occurrence": 1118,
+        "quoted_hadith": 10
+      }
+    },
+    {
+      "path": "materials/fa-riyadh-heravi-1394-digital/records.jsonl",
+      "sha256": "6e1a7167ca21c6ef4c8604e941a33f5c9579ba1e526bbbcaa64c0499d9e12247",
+      "records": 1946,
+      "role_counts": {
+        "primary": 1896,
+        "quotation_excerpt": 50
+      },
+      "record_type_counts": {
+        "hadith": 1896,
+        "hadith_quote": 50
+      }
+    }
+  ],
+  "expected_persian_records": 6805,
+  "actual_persian_records": 6805,
+  "source_boundary_checks": [
+    {
+      "source_id": "fa-faiz-al-bari-v1",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v1-p00705",
+        "title": "Hadith 1",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 1"
+          ],
+          "source_sequence_position": 1,
+          "printed_labels": {
+            "arabic": "1",
+            "translation": "1"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4a16207e06f6f8db6cbffe0f6891502b6bf34759417a56d42bfc7c1de7728479",
+        "translation_sha256": "4b0f78b5a7c210e097f1bd93a819da4ccd00e26646420db01cc7b9133c06e261"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v1-p694-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "382947e9e1bba8b89d739222dafae206ca5d1f3df164b33533d0051fd52d25e5"
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v1-p00705",
+        "title": "Hadith 1",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 1"
+          ],
+          "source_sequence_position": 1,
+          "printed_labels": {
+            "arabic": "1",
+            "translation": "1"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4a16207e06f6f8db6cbffe0f6891502b6bf34759417a56d42bfc7c1de7728479",
+        "translation_sha256": "4b0f78b5a7c210e097f1bd93a819da4ccd00e26646420db01cc7b9133c06e261"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v1-p02544",
+        "title": "Hadith 324",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "324",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 520"
+          ],
+          "source_sequence_position": 324,
+          "printed_labels": {
+            "arabic": "324",
+            "translation": "324"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "9729cc3806e8c3f64b1fbcf41b9d264f86f85a6f24e1781f38009f2065800652",
+        "translation_sha256": "ab61b36711a011c0050af42124642f7df4a3a593e1a5ba528fc6c0b9cff4c334"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-faiz-al-bari-v2",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v2-p00375",
+        "title": "Hadith 325",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "325",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 521"
+          ],
+          "source_sequence_position": 325,
+          "printed_labels": {
+            "arabic": "325",
+            "translation": "325"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "44fc6823b6597082672f6248c364ff1b40395fcb0485096167873227854bcfbe",
+        "translation_sha256": "2c6d6161078893bdfb647e22aa02b320bac7ea918a279fb2884dbad52ea455f5"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v2-fn484-p1-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "0681585632f3d539dad029d9f4f0d9794c7cbcb510cd1c52439cc2dec6f318cc"
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v2-p00375",
+        "title": "Hadith 325",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "325",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 521"
+          ],
+          "source_sequence_position": 325,
+          "printed_labels": {
+            "arabic": "325",
+            "translation": "325"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "44fc6823b6597082672f6248c364ff1b40395fcb0485096167873227854bcfbe",
+        "translation_sha256": "2c6d6161078893bdfb647e22aa02b320bac7ea918a279fb2884dbad52ea455f5"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v2-p02445",
+        "title": "Hadith 701",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "701",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 1393"
+          ],
+          "source_sequence_position": 701,
+          "printed_labels": {
+            "arabic": "701",
+            "translation": "701"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "2a93566438cf0fc00a6f886d509799aa8c33446f13275740e9c28a2a11f8e014",
+        "translation_sha256": "4b2c20270e92fb7361a4050c35342fbbad31db1ac02159fa1715b56165775700"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-faiz-al-bari-v3",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v3-p00439",
+        "title": "Hadith 702",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "702",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 1395"
+          ],
+          "source_sequence_position": 702,
+          "printed_labels": {
+            "arabic": "702",
+            "translation": "702"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "5a59c43afd6724dfe499cec06e4c9ae82e83b60bc4377b65bf649bc67aa6b0c9",
+        "translation_sha256": "fbe1773248c7fa76626e9b2e7a341839b2275b31b9c3e771e2a28c06a8ba0c1e"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v3-fn504-p2-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": "4b5e906dcb66a51cb8e1bf128752b3a5ac8264721c1a9744e29cb9442db6e536",
+        "translation_sha256": null
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v3-p00439",
+        "title": "Hadith 702",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "702",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 1395"
+          ],
+          "source_sequence_position": 702,
+          "printed_labels": {
+            "arabic": "702",
+            "translation": "702"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "5a59c43afd6724dfe499cec06e4c9ae82e83b60bc4377b65bf649bc67aa6b0c9",
+        "translation_sha256": "fbe1773248c7fa76626e9b2e7a341839b2275b31b9c3e771e2a28c06a8ba0c1e"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v3-p02888",
+        "title": "Hadith 1130",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1130",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 2481"
+          ],
+          "source_sequence_position": 1130,
+          "printed_labels": {
+            "arabic": "1130",
+            "translation": "1130"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "7e90f79bb0c819bc6334ce8322d62a112df8c9a184d30a265284aaa0f30e7508",
+        "translation_sha256": "d69e377eaeebb1a4fefe93b935060326e82d9e3ae6eec1a58d661e996b9ec453"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-faiz-al-bari-v4",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v4-p00298",
+        "title": "Hadith 1131",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1131",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 2484"
+          ],
+          "source_sequence_position": 1131,
+          "printed_labels": {
+            "arabic": "1131",
+            "translation": "1131"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4880d1d887d21e833f6c84e8d0e7b2970897e039b00c90c5a7e7b8bd6cca0d5e",
+        "translation_sha256": "db46057d5927a8cfcbac2ddf19c925838847be27e319c07ad9f7fe33af595b1b"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v4-fn439-p1-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "3a8e2fcdfdd008d45cef86960c80bafdfe8d6e444c439f280ee28e2826871ce5"
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v4-p00298",
+        "title": "Hadith 1131",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1131",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 2484"
+          ],
+          "source_sequence_position": 1131,
+          "printed_labels": {
+            "arabic": "1131",
+            "translation": "1131"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4880d1d887d21e833f6c84e8d0e7b2970897e039b00c90c5a7e7b8bd6cca0d5e",
+        "translation_sha256": "db46057d5927a8cfcbac2ddf19c925838847be27e319c07ad9f7fe33af595b1b"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v4-p02447",
+        "title": "Hadith 1519",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1519",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 3642"
+          ],
+          "source_sequence_position": 1519,
+          "printed_labels": {
+            "arabic": "1519",
+            "translation": "1519"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "bacc91b3d9b768329e5b8cd5bc4f6861764da7cb8f46a34e0279fea40bb27340",
+        "translation_sha256": "a8c6c8ebf998839f64af160b695e2c0e31e3cb909f90179749bcdf0e481c911a"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-faiz-al-bari-v5",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v5-p00312",
+        "title": "Hadith 1520",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1520",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 3659"
+          ],
+          "source_sequence_position": 1520,
+          "printed_labels": {
+            "arabic": "1520",
+            "translation": "1520"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "3c7b7d19394952a95b0a948385bb679f6fc38288ba31271a56a0ef7077874b5a",
+        "translation_sha256": "12f1be83d533e6225025c6cef3dbcacc42f29eb773ee0b1522f9dfd66a336f7c"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v5-fn395-p1-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "83d5deba500c51ee2d60c454e23db00064be86bd7c85e4a05522cc3da9d18c28"
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v5-p00312",
+        "title": "Hadith 1520",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1520",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 3659"
+          ],
+          "source_sequence_position": 1520,
+          "printed_labels": {
+            "arabic": "1520",
+            "translation": "1520"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "3c7b7d19394952a95b0a948385bb679f6fc38288ba31271a56a0ef7077874b5a",
+        "translation_sha256": "12f1be83d533e6225025c6cef3dbcacc42f29eb773ee0b1522f9dfd66a336f7c"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v5-p02203",
+        "title": "Hadith 1827",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1827",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 5060"
+          ],
+          "source_sequence_position": 1827,
+          "printed_labels": {
+            "arabic": "1827",
+            "translation": "1827"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "bfd0fbf01ffecf39ad97350daedf31220bd10f885cf0119aee05ed041ff16a26",
+        "translation_sha256": "c098bedff2d52d80b83b925f5d3e01528c1f831a1a7de96bc76c66ccfb06f6dd"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-faiz-al-bari-v6",
+      "file_first": {
+        "id": "fa-faiz-al-bari-v6-p00427",
+        "title": "Hadith 1828",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1828",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 5063"
+          ],
+          "source_sequence_position": 1828,
+          "printed_labels": {
+            "arabic": "1828",
+            "translation": "1828"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4898ac56090f0b21723aab33bc6b5f5874810855c9845905186611f9cb2116da",
+        "translation_sha256": "de55f59b0431955aa8fc815a866d1c6d0fe2580a4caf022f05682bd9ff5d58c6"
+      },
+      "file_last": {
+        "id": "fa-faiz-al-bari-v6-fn364-p2-q001",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith_excerpt",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "221d92928ebf01322d5c5c9ad3fc087cf10697c287cf2308fc50dab73f4801f4"
+      },
+      "primary_first": {
+        "id": "fa-faiz-al-bari-v6-p00427",
+        "title": "Hadith 1828",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1828",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 5063"
+          ],
+          "source_sequence_position": 1828,
+          "printed_labels": {
+            "arabic": "1828",
+            "translation": "1828"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "4898ac56090f0b21723aab33bc6b5f5874810855c9845905186611f9cb2116da",
+        "translation_sha256": "de55f59b0431955aa8fc815a866d1c6d0fe2580a4caf022f05682bd9ff5d58c6"
+      },
+      "primary_last": {
+        "id": "fa-faiz-al-bari-v6-p02388",
+        "title": "Hadith 2230",
+        "record_type": "hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "2230",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih al-Bukhari 7563"
+          ],
+          "source_sequence_position": 2230,
+          "printed_labels": {
+            "arabic": "2230",
+            "translation": "2230"
+          },
+          "numbering_system": "Faiz al-Bari abridgment local numbering"
+        },
+        "arabic_sha256": "e7f1803e4b0072fd84036177449c9edc9c614e422b69d873f56a0f0e09875432",
+        "translation_sha256": "bc16134ee304b0987eae19c62ce5dbbe46cc2bb1cd927189441551eb87ba87ba"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-muslim-mundhiri-tarshabi-v1",
+      "file_first": {
+        "id": "fa-muslim-mundhiri-tarshabi-v1-p01106",
+        "title": "Hadith 1",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih Muslim 17"
+          ],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "1",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "f346330a04abc857c516cfb36a3aee2f01d577299484b87e309c5898a87c465a",
+        "translation_sha256": "af9ae1fa1a991b826c524ed4c8227e3c1fa66b7c0eceab5a66c1d4ee9d0da183"
+      },
+      "file_last": {
+        "id": "fa-muslim-mundhiri-tarshabi-v1-note33-q1",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Unnumbered quotation in source apparatus"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "9b0fd0e9d60baab5370404919bc00cc8696bbf0f8810fe46175033b77f473311"
+      },
+      "primary_first": {
+        "id": "fa-muslim-mundhiri-tarshabi-v1-p01106",
+        "title": "Hadith 1",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih Muslim 17"
+          ],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "1",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "f346330a04abc857c516cfb36a3aee2f01d577299484b87e309c5898a87c465a",
+        "translation_sha256": "af9ae1fa1a991b826c524ed4c8227e3c1fa66b7c0eceab5a66c1d4ee9d0da183"
+      },
+      "primary_last": {
+        "id": "fa-muslim-mundhiri-tarshabi-v1-p04772",
+        "title": "Hadith 1067",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1067",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih Muslim 1729"
+          ],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "1067",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "3e6ba761ec4418e1f5f4a7d69b6538032b86db8680280aef642f8b08b3a056ed",
+        "translation_sha256": "0739953ab358fc60dbe9a455fa7db0135abbd7839f261278fe41bbcb6c4dd48f"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-muslim-mundhiri-tarshabi-v2",
+      "file_first": {
+        "id": "fa-muslim-mundhiri-tarshabi-v2-p01012",
+        "title": "Hadith 1068",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1068",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih Muslim 1877"
+          ],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "1068",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "56980fdf9da2c2653f0ceaf99efa524e4aea1b420390b9924bd0b4847ee41610",
+        "translation_sha256": "6e58bf1a0bd8c38efe698b225f042ffcc25b6db636244226c84f45d45f229321"
+      },
+      "file_last": {
+        "id": "fa-muslim-mundhiri-tarshabi-v2-p01999-q1",
+        "title": "Hadith quotation excerpt",
+        "record_type": "quoted_hadith",
+        "content_kind": "quoted_hadith",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Unnumbered quotation in source apparatus"
+        },
+        "arabic_sha256": null,
+        "translation_sha256": "129295d8d0c95ab728a1347d6ac59f82854a105afba24d14d27b8cd3ba5c606b"
+      },
+      "primary_first": {
+        "id": "fa-muslim-mundhiri-tarshabi-v2-p01012",
+        "title": "Hadith 1068",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "1068",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [
+            "Sahih Muslim 1877"
+          ],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "1068",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "56980fdf9da2c2653f0ceaf99efa524e4aea1b420390b9924bd0b4847ee41610",
+        "translation_sha256": "6e58bf1a0bd8c38efe698b225f042ffcc25b6db636244226c84f45d45f229321"
+      },
+      "primary_last": {
+        "id": "fa-muslim-mundhiri-tarshabi-v2-p05015",
+        "title": "Hadith 2179",
+        "record_type": "main_hadith_occurrence",
+        "content_kind": "numbered_source_narration",
+        "number": {
+          "in_book": "2179",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": "2179",
+            "translation": null
+          },
+          "numbering_system": "Mukhtasar Sahih Muslim as printed; not canonical Muslim numbering"
+        },
+        "arabic_sha256": "b8bddb0a6be2f58bee2a6830df2fb924a177bc505851115b3386187b8e03beeb",
+        "translation_sha256": "f291f80e04910d81c70974e3eb384595d5745588a50cec46a571764a1a8dce82"
+      },
+      "all_four_boundary_texts_checked": true
+    },
+    {
+      "source_id": "fa-riyadh-heravi-1394-digital",
+      "file_first": {
+        "id": "fa-riyadh-heravi-0001",
+        "title": "Hadith 1",
+        "record_type": "hadith",
+        "content_kind": "numbered_source_occurrence",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": 1,
+          "printed_labels": {
+            "arabic": 1,
+            "translation": 1
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": "dafe338b94fd8c7ca050aa60f57e3b62eea817105cc28d08eacef214889c8cb8",
+        "translation_sha256": "9019b5b5afbd59888e3d32400f4b6adc4eca397e40b24ff65dd2589704ddaef5"
+      },
+      "file_last": {
+        "id": "fa-riyadh-heravi-extra-p9551-c",
+        "title": "Hadith quotation excerpt",
+        "record_type": "hadith_quote",
+        "content_kind": "hadith_quote_fragment",
+        "number": {
+          "in_book": null,
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": null,
+          "printed_labels": {
+            "arabic": null,
+            "translation": null
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": "156f2b17473d46c1bd183a2eca8e0f4cf113d0a8d8d088af6b769ef238102e64",
+        "translation_sha256": "ca3466da68f7765b14297b0cb2c4bd6ba8c692c6732bb942816d614dab0988b1"
+      },
+      "primary_first": {
+        "id": "fa-riyadh-heravi-0001",
+        "title": "Hadith 1",
+        "record_type": "hadith",
+        "content_kind": "numbered_source_occurrence",
+        "number": {
+          "in_book": "1",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": 1,
+          "printed_labels": {
+            "arabic": 1,
+            "translation": 1
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": "dafe338b94fd8c7ca050aa60f57e3b62eea817105cc28d08eacef214889c8cb8",
+        "translation_sha256": "9019b5b5afbd59888e3d32400f4b6adc4eca397e40b24ff65dd2589704ddaef5"
+      },
+      "primary_last": {
+        "id": "fa-riyadh-heravi-1896",
+        "title": "Hadith 1896",
+        "record_type": "hadith",
+        "content_kind": "numbered_source_occurrence",
+        "number": {
+          "in_book": "1896",
+          "source_entry_id": null,
+          "canonical": null,
+          "source_cited": [],
+          "source_sequence_position": 1896,
+          "printed_labels": {
+            "arabic": 1896,
+            "translation": 1896
+          },
+          "numbering_system": "Source-local numbering; not canonical Bukhari/Muslim numbering"
+        },
+        "arabic_sha256": "e61c41ca18ff169b57f8426f15df2c7031fe2f3492ba6dd15a1d7d0ff07a07e9",
+        "translation_sha256": "9ecc983b24355734202e1a2ce1e7d06fdcdbf63cd53a9ab36fc24af13281adea"
+      },
+      "all_four_boundary_texts_checked": true
+    }
+  ],
+  "missing_ids": [],
+  "extra_ids": [],
+  "duplicate_ids": [],
+  "text_mismatches": [],
+  "metadata_mismatches": [],
+  "commentary_payload_violations": [],
+  "qc_tag_policy_violations": [],
+  "origin_violations": [],
+  "record_type_counts": {
+    "hadith_occurrence": 2225,
+    "quoted_hadith": 439,
+    "translation_occurrence": 2,
+    "companion_report": 1,
+    "main_hadith_occurrence": 2190,
+    "quoted_companion_report": 2,
+    "hadith": 1896,
+    "hadith_quote": 50
+  },
+  "content_kind_counts": {
+    "numbered_source_narration": 4411,
+    "quoted_hadith_excerpt": 399,
+    "unnumbered_source_variant": 2,
+    "source_fragment": 1,
+    "quoted_companion_saying": 1,
+    "unnumbered_source_narration": 3,
+    "quoted_hadith": 40,
+    "quoted_companion_report": 2,
+    "numbered_source_occurrence": 1896,
+    "explicit_hadith_quotation": 9,
+    "hadith_quote_fragment": 28,
+    "reported_prophetic_action": 1,
+    "attributed_hadith_quote": 12
+  },
+  "private_use_and_replacement_character_findings": [],
+  "other_possible_glyph_or_source_abbreviation_findings": [
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v1-p04522",
+      "field": "translation",
+      "kind": "possible_honorific_abbreviation",
+      "position": 67,
+      "match": "رسول اللهص",
+      "context": "ه رضي الله عنه می‌گوید: هر گاه، جنازه‌ی‌ شخص بدهکاری را نزد رسول اللهص می‌آوردند، می‌پرسید: «آیا به اندازه‌ای که دینش پرداخت شود، مال گذاشته است»؟ اگر",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 4523,
+            "run": 5,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v1-p04554",
+      "field": "translation",
+      "kind": "possible_honorific_abbreviation",
+      "position": 1303,
+      "match": "رسول الله ص",
+      "context": "له شد.\nهمچنین زنی از انصار به اسارت گرفته شدو عضباء (ناقه‌ی رسول الله ص) نیز به تاراج، برده شد. گفتنی است که آن زن در زنجیر بسر می‌برد و اسیر کنندگان و",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 4556,
+            "run": 1,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          },
+          {
+            "paragraph": 4558,
+            "run": 1,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v1-p04554",
+      "field": "translation",
+      "kind": "possible_honorific_abbreviation",
+      "position": 1972,
+      "match": "رسول الله ص",
+      "context": " وارد مدینه شد و مردم او را دیدند، گفتند: این عضباء ؛ناقه‌ی رسول الله ص؛ می‌باشد. آن زن گفت: من نذر کرده‌ام که اگر الله متعال مرا به وسیله‌ی آن، نجات د",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 4556,
+            "run": 1,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          },
+          {
+            "paragraph": 4558,
+            "run": 1,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v1-p04696",
+      "field": "translation",
+      "kind": "possible_honorific_abbreviation",
+      "position": 277,
+      "match": "رسول الله ص",
+      "context": "ت می‌کند؟ عده‌ای جواب دادند: چه کسی بجز اسامه بن زید؛ محبوب رسول الله ص؛ چنین جسارتی دارد؟ اینجا بود که اسامه بن زید رضي الله عنهما را آوردند. او دربار",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 4697,
+            "run": 4,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          },
+          {
+            "paragraph": 4697,
+            "run": 11,
+            "raw_text": "ص",
+            "effective_complex_script_font": "IRNazli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v2-p02988",
+      "field": "heading:2",
+      "kind": "possible_glyph_code",
+      "position": 33,
+      "match": "÷",
+      "context": "باب (4): در مورد این سخن ابراهیم ÷ که گفت: ﴿رَبِّ أَرِنِي كَيۡفَ تُحۡيِ ٱلۡمَوۡتَىٰ﴾ (پرودگارا! به من نشان بده که ",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 2987,
+            "run": 1,
+            "raw_text": " ÷ ",
+            "effective_complex_script_font": "IRZar"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fa-muslim-mundhiri-tarshabi-v2-p02992",
+      "field": "heading:2",
+      "kind": "possible_glyph_code",
+      "position": 35,
+      "match": "÷",
+      "context": "باب (5): در مورد این سخنان ابراهیم ÷ که گفت: ﴿إِنِّي سَقِيمٞ﴾ «من مریض هستم». ﴿قَالَ بَلۡ فَعَلَهُۥ كَبِيرُهُمۡ هَٰذ",
+      "assessment": "Source-run inspection confirms an ordinary-font source abbreviation; retained exactly under the parent task’s source-preservation policy. It is not an unresolved custom-font glyph.",
+      "status": "retained_ordinary_font_source_abbreviation",
+      "source_font_evidence": {
+        "path": "/workspace/scratch/f6d62e46a697/work/muslim/font-review-explicit-targets.json",
+        "sha256": "55266833568743f06eb48cca94c038e6f7a47c1a2129c5a2830fe9c0ba84f964",
+        "matching_source_runs": [
+          {
+            "paragraph": 2991,
+            "run": 2,
+            "raw_text": " ÷ ",
+            "effective_complex_script_font": "IRZar"
+          }
+        ]
+      }
+    }
+  ],
+  "actual_html_card_execution": {
+    "method": "Exact built-HTML card() and helper functions executed using a minimal DOM; no live-browser or visual-layout claim.",
+    "cards_rendered": 6805,
+    "errors": [],
+    "weak_grade_reference_checks": [
+      {
+        "id": "fa-faiz-al-bari-v5-fn324-p2-q001",
+        "source_grade": "weak",
+        "evidence": "این حدیث از نگاه سند ضعیف است",
+        "rendered_in_references": true
+      },
+      {
+        "id": "fa-faiz-al-bari-v6-fn353-p2-q001",
+        "source_grade": "weak",
+        "evidence": "بیهقی به سند ضعیفی روایت می‌کند",
+        "rendered_in_references": true
+      }
+    ],
+    "special_record_rendering": [
+      {
+        "id": "fa-faiz-al-bari-v5-p00697",
+        "title": "Hadith 1590",
+        "record_type": "translation_occurrence",
+        "content_kind": "numbered_source_narration",
+        "arabic_detail_present": false,
+        "number_label": "Book number 1590"
+      },
+      {
+        "id": "fa-faiz-al-bari-v5-p01882",
+        "title": "Source narration fragment",
+        "record_type": "translation_occurrence",
+        "content_kind": "source_fragment",
+        "arabic_detail_present": false,
+        "number_label": "Book number not supplied"
+      },
+      {
+        "id": "fa-faiz-al-bari-v5-fn225-p0-q001",
+        "title": "Companion report excerpt",
+        "record_type": "companion_report",
+        "content_kind": "quoted_companion_saying",
+        "arabic_detail_present": false,
+        "number_label": "Book number not supplied"
+      }
+    ],
+    "all_card_ids_sha256": "6f8508a1d868787ce7374f6b594cc3739d103637bda3d777f5031979d003356a"
+  },
+  "limits": [
+    "Canonical and embedded text equality does not independently establish translation accuracy or narration authenticity.",
+    "The rendering check executes the exact final card function with a minimal DOM; a real browser is still needed for visual and live-publication verification.",
+    "Ordinary Arabic letters are not globally replaced or automatically called glyph errors. Suspicious honorific abbreviations require source font/run inspection."
+  ]
+}

@@ -107,7 +107,9 @@ const valueText = value => {
 };
 const fold = (value, joinCJK=true) => {
   let folded=String(value || "").normalize("NFKC").toLowerCase()
-    .replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,"");
+    .replace(/[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]/g,"")
+    .replace(/\u064a/g,"\u06cc").replace(/\u0643/g,"\u06a9")
+    .replace(/[\u200c\u200d]/g,"");
   if(joinCJK)folded=folded.replace(/([\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff])\s+(?=[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff])/g,"$1");
   return folded.replace(/\s+/g," ").trim();
 };
@@ -153,21 +155,27 @@ const needsOCRReview = record => {
 const reviewBadges = record => {if(!isOCR(record))return [];const review=record.review || {},state=review.ocr_qc || review.independent_pro_qc || review.status;return [{label:"OCR review: "+(valueText(state)||"not recorded"),pending:needsOCRReview(record)}];};
 const recordTypeInfo = record => {
   let kind=record.record_type || record.content_kind;
+  const aliases={hadith_occurrence:"hadith",main_hadith_occurrence:"hadith",translation_occurrence:"hadith",quoted_hadith:"hadith_excerpt",hadith_quote:"hadith_excerpt",quoted_companion_report:"companion_report_excerpt"};
+  if(typeof kind==="string" && Object.prototype.hasOwnProperty.call(aliases,kind))kind=aliases[kind];
+  if(record.content_kind==="source_fragment")kind="source_fragment";else if(record.content_kind==="unnumbered_source_variant")kind="hadith_variant";else if(record.content_kind==="quoted_companion_saying")kind="companion_report_excerpt";
   if(record.extraction && record.extraction.is_excerpt===true){if(kind==="hadith")kind="hadith_excerpt";else if(kind==="companion_report")kind="companion_report_excerpt";}
-  const kinds={hadith:{label:"Hadith",note:"A narration preserved from the source."},hadith_excerpt:{label:"Hadith excerpt",note:"A quotation preserved from the source; it may contain only part of the narration."},hadith_meaning_excerpt:{label:"Reported meaning",note:"The source presents this passage as the meaning of a hadith."},companion_report:{label:"Companion report",note:"Words or a report attributed to a Companion in the source."},companion_report_excerpt:{label:"Companion report",note:"An excerpt of words or a report attributed to a Companion in the source."}};
+  const kinds={hadith:{label:"Hadith",note:"A narration preserved from the source."},hadith_variant:{label:"Hadith variant",note:"A separately preserved variant narration in the source."},source_fragment:{label:"Source fragment",note:"An incomplete narration fragment preserved as supplied by the source."},hadith_excerpt:{label:"Hadith excerpt",note:"A quotation preserved from the source; it may contain only part of the narration."},hadith_meaning_excerpt:{label:"Reported meaning",note:"The source presents this passage as the meaning of a hadith."},companion_report:{label:"Companion report",note:"Words or a report attributed to a Companion in the source."},companion_report_excerpt:{label:"Companion report",note:"An excerpt of words or a report attributed to a Companion in the source."}};
   return typeof kind==="string" && Object.prototype.hasOwnProperty.call(kinds,kind)?kinds[kind]:null;
 };
 const textDirection = (language,arabic=false) => arabic || ["ar","fa","ur"].includes(String(language||"").toLowerCase().replace(/_/g,"-").split("-")[0])?"rtl":"auto";
 const citationData = item => {
-  if(!item || typeof item!=="object" || Array.isArray(item) || !(item.book_key || item.collection || item.source_citation))return null;
+  if(!item || typeof item!=="object" || Array.isArray(item) || !(item.book_key || item.collection || item.source_citation || item.citation_raw))return null;
   const collection=typeof item.collection==="string" && item.collection?item.collection:typeof item.book_key==="string" && item.book_key?bookLabel(item.book_key):"Collection not established";
-  const number=typeof item.number==="string" || typeof item.number==="number"?String(item.number):null;
+  const isNumber=value=>typeof value==="string" && value!=="" || typeof value==="number" && Number.isFinite(value);
+  const numbers=(isNumber(item.number)?[item.number]:Array.isArray(item.numbers)?item.numbers:[]).filter(isNumber).map(String);
   const labels={main_quote:"Citation for this quotation",variant:"Reference to a variant",commentary:"Reference in commentary",unresolved:"Reference not fully resolved"};
-  return {label:collection+" · "+(number||"number not established"),scope:labels[item.scope] || (typeof item.scope==="string"?item.scope.replace(/_/g," "):"Citation scope not supplied"),source_citation:typeof item.source_citation==="string"?item.source_citation:null};
+  const scope=typeof item.scope==="string" && item.scope?(Object.prototype.hasOwnProperty.call(labels,item.scope)?labels[item.scope]:item.scope.replace(/_/g," ")):typeof item.citation_scope==="string" && item.citation_scope?item.citation_scope:"Citation scope not supplied";
+  const sourceCitation=typeof item.source_citation==="string" && item.source_citation?item.source_citation:typeof item.citation_raw==="string"?item.citation_raw:null;
+  return {label:collection+" · "+(numbers.join(", ")||"number not established"),scope,source_citation:sourceCitation};
 };
 const editionLabel = record => record.edition.startsWith("sqlite-") ? "SQLite snapshot "+record.edition.slice(7,15) : record.edition.startsWith("xlsx-") ? "XLSX "+record.edition.split("-")[1] : record.edition;
-const numberLabel = record => { const out=[]; if(record.number && record.number.in_book != null) out.push("Number in collection " + valueText(record.number.in_book)); if(record.provider_entry_id != null) out.push("Source entry " + record.provider_entry_id); return out.join(" · ") || "Collection number not supplied"; };
-const pageLabel = record => { const p=record.page || {}, out=[]; if(p.pdf && p.pdf.length) out.push("PDF page " + p.pdf.join(", ")); if(p.printed && p.printed.length) out.push("Printed page " + p.printed.join(", ")); if(p.sheet) out.push("Sheet " + p.sheet); if(p.row != null) out.push("Row " + p.row); return out.join(" · ") || "Page locator not supplied"; };
+const numberLabel = record => { const out=[], number=record.number || {}; if(number.in_book != null) out.push((number.numbering_system?"Source number ":"Number in collection ") + valueText(number.in_book)); if(valueText(number.source_cited)) out.push("Cited: " + valueText(number.source_cited)); if(record.provider_entry_id != null) out.push("Source entry " + record.provider_entry_id); return out.join(" · ") || "Collection number not supplied"; };
+const pageLabel = record => { const p=record.page || {}, out=[]; if(p.pdf && p.pdf.length) out.push("PDF page " + p.pdf.join(", ")); if(p.printed && p.printed.length) out.push("Printed page " + p.printed.join(", ")); if(p.sheet) out.push("Sheet " + p.sheet); if(p.row != null) out.push("Row " + p.row); if(p.docx_paragraphs && p.docx_paragraphs.length) out.push("DOCX paragraph " + p.docx_paragraphs.join(", ")); return out.join(" · ") || "Page locator not supplied"; };
 const materialSummary = (items, language, origin="") => {
   const groups=new Map();
   items.forEach(record=>{if(language && record.language!==language || origin && originCategory(record)!==origin)return;const key=record.book_key;if(!groups.has(key))groups.set(key,{book_key:key,count:0,editions:new Set()});const group=groups.get(key);group.count++;group.editions.add(record.language+"/"+record.book_key+"/"+record.edition);});
@@ -319,6 +327,7 @@ function card(record,index) {
   const badges=element("div","badges"), review=record.review || {};
   reviewBadges(record).forEach(item=>badges.append(element("span","badge"+(item.pending?" pending":""),item.label)));
   if(badges.childNodes.length)card.append(badges);
+  if(record.display_policy && record.display_policy.qc_tags===false && review.issues && review.issues.length)card.append(detail("Source notes",element("div","meta-value",valueText(review.issues))));
   if(record.topic_tags && record.topic_tags.length){const tags=element("div","topic-tags");record.topic_tags.forEach(tag=>{const chip=element("span","topic-tag",tag.label || tag.id);chip.title=(tag.path||[]).join(" › ");tags.append(chip);});card.append(tags);}
   if(record.text_arabic && hasTranslation){const arabic=detail("Arabic source text",paragraph(record.text_arabic,true,"ar"),"arabic-detail");arabic.open=$("show-arabic").checked;card.append(arabic);}
   const commentary=record.commentary || {}, footnotes=record.footnotes || [];

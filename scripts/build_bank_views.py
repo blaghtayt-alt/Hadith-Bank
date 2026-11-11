@@ -407,8 +407,9 @@ def write_entry_points(output, catalog):
             members = [item for item in catalog['materials'] if item.get('manifest_path') == manifest['path']]
             previous.append({'id': manifest['id'], 'kind': manifest['adapter'],
                              'materialManifest': manifest['path'], 'count': sum(item['count'] for item in members),
-                             'status': 'published_pending_review', 'publicTextPublished': True,
-                             'independentProQC': 'pending', 'sourceReviewHistoryPreserved': True,
+                             'status': manifest['publication']['status'], 'publicTextPublished': True,
+                             'independentProQC': ('pending' if manifest['publication']['status'] == 'published_pending_review'
+                                                  else 'not_asserted'), 'sourceReviewHistoryPreserved': True,
                              'publication': manifest['publication']})
         index['publicIntakes'] = previous
     if catalog['scope'] == 'private_combined_sources':

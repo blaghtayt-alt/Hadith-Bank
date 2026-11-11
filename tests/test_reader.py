@@ -2,6 +2,7 @@
 import base64
 import gzip
 import hashlib
+import html
 import json
 from pathlib import Path
 import re
@@ -234,7 +235,10 @@ process.stdout.write(JSON.stringify({
                                        'status': 'published_pending_review', 'independent_qc_asserted': False}},
                       {'review': {'independent_pro_qc': 'pending',
                                   'current_policy': {'separate_bank_review_required': False}}},
-                      {'review': {'independent_pro_qc': 'passed'}}]}
+                      {'review': {'independent_pro_qc': 'passed'}},
+                      {'review': {'independent_pro_qc': 'pending'},
+                       'publication': {'visibility': 'public', 'authorized': True, 'status': 'published_source_import'},
+                       'display_policy': {'qc_tags': False}}]}
         result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(sample),
                                 text=True, capture_output=True, check=True)
         actual = json.loads(result.stdout)
@@ -245,7 +249,8 @@ process.stdout.write(JSON.stringify({
         self.assertEqual(actual['invalid'], [None] * len(sample['invalid']))
         self.assertEqual(actual['review'], [{'pending': False, 'published': True},
                                              {'pending': False, 'published': False},
-                                             {'pending': False, 'published': False}])
+                                             {'pending': False, 'published': False},
+                                             {'pending': False, 'published': True}])
         self.assertEqual(actual['language'], 'Swahili')
 
     def test_extraction_evidence_is_separate_from_review_and_translation_origin(self):
@@ -327,10 +332,20 @@ process.stdout.write(JSON.stringify({badges:records.map(reviewBadges),pending:re
             {'record_type': 'unclassified'},
             {'record_type': '__proto__'},
             {},
+            {'record_type': 'hadith_occurrence', 'content_kind': 'numbered_source_narration'},
+            {'record_type': 'main_hadith_occurrence'},
+            {'record_type': 'quoted_hadith', 'content_kind': 'quoted_hadith_excerpt'},
+            {'record_type': 'hadith_quote'},
+            {'record_type': 'quoted_companion_report'},
+            {'record_type': 'companion_report', 'content_kind': 'quoted_companion_saying'},
+            {'record_type': 'hadith_occurrence', 'content_kind': 'unnumbered_source_variant'},
+            {'record_type': 'translation_occurrence', 'content_kind': 'source_fragment'},
         ]
         expected_labels = ['Hadith', 'Hadith excerpt', 'Hadith excerpt', 'Reported meaning',
                            'Companion report', 'Companion report', 'Companion report',
-                           'Hadith', None, None, None]
+                           'Hadith', None, None, None,
+                           'Hadith', 'Hadith', 'Hadith excerpt', 'Hadith excerpt',
+                           'Companion report', 'Companion report', 'Hadith variant', 'Source fragment']
         before = json.loads(json.dumps(classifications))
         actual = [reader.record_type_info(record) for record in classifications]
         self.assertEqual([item['label'] if item else None for item in actual], expected_labels)
@@ -397,6 +412,89 @@ process.stdout.write(JSON.stringify({directions:input.languages.map(x=>textDirec
         self.assertEqual(actual['references'][0]['label'],'Sahih Muslim · TEST-101')
         self.assertEqual(actual['references'][1]['scope'],'Reference to a variant')
         self.assertEqual(actual['references'][2]['label'],'Collection not established · number not established')
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for citation browser parity checks')
+    def test_plural_source_citations_preserve_scope_and_local_numbering(self):
+        # Citation metadata observed on fa-faiz-al-bari-v1-p00705; the fixture
+        # narration remains TEST and does not reproduce religious source text.
+        scope = 'Exact terminal citation for this source narration; moved from reader text to metadata.'
+        items = [
+            {'collection': 'Sahih al-Bukhari', 'collection_id': 'sahih-al-bukhari',
+             'number_raw': ['1'], 'numbers': ['1'], 'cross_reference_numbers': [],
+             'citation_raw': '[رواه البخاری: 1].', 'citation_scope': scope,
+             'status': 'as_cited_in_uploaded_source', 'externally_verified': False},
+            {'collection': 'Sahih al-Bukhari', 'numbers': ['3741', '3740'],
+             'cross_reference_numbers': ['TEST-CROSS-REFERENCE'],
+             'citation_raw': 'TEST multiple citation', 'citation_scope': scope},
+            {'collection': 'Sahih al-Bukhari', 'numbers': [],
+             'number_raw': ['TEST-UNPARSED'], 'cross_reference_numbers': ['TEST-CROSS-REFERENCE'],
+             'citation_raw': 'TEST unresolved <citation>', 'citation_scope': 'TEST exact_source scope'},
+            {'collection': 'Sahih Muslim', 'number': 'TEST-101', 'numbers': ['TEST-OTHER'],
+             'scope': 'variant', 'citation_scope': 'TEST alternate scope',
+             'source_citation': 'TEST legacy citation', 'citation_raw': 'TEST alternate citation'},
+            {'collection': None, 'numbers': ['TEST-11'], 'citation_raw': 'TEST unidentified collection'},
+        ]
+        expected = [
+            {'label': 'Sahih al-Bukhari · 1', 'scope': scope, 'source_citation': '[رواه البخاری: 1].'},
+            {'label': 'Sahih al-Bukhari · 3741, 3740', 'scope': scope,
+             'source_citation': 'TEST multiple citation'},
+            {'label': 'Sahih al-Bukhari · number not established', 'scope': 'TEST exact_source scope',
+             'source_citation': 'TEST unresolved <citation>'},
+            {'label': 'Sahih Muslim · TEST-101', 'scope': 'Reference to a variant',
+             'source_citation': 'TEST legacy citation'},
+            {'label': 'Collection not established · TEST-11', 'scope': 'Citation scope not supplied',
+             'source_citation': 'TEST unidentified collection'},
+        ]
+        record = navigation_fixture(1, language='fa', book='bukhari')
+        record['number'] = {'in_book': 'TEST-LOCAL-77', 'canonical': None,
+                            'numbering_system': 'TEST source-local numbering'}
+        record['references'] = {'items': items, 'canonical_mapping_status':
+                                'Source citations preserved as printed; no independent canonical matching asserted.'}
+        before = json.loads(json.dumps(record))
+        self.save([record])
+        reader.build(self.root, self.output, compress=False)
+        embedded, document = self.embedded_records()
+        self.assertEqual(embedded, [before])
+        rendered = reader.markdown_record(record, 1)
+        self.assertIn('Source number TEST-LOCAL-77', rendered)
+        self.assertIn(record['references']['canonical_mapping_status'], rendered)
+        for item, data in zip(items, expected):
+            with self.subTest(label=data['label']):
+                parts = '\n'.join(reader.citation_parts(item))
+                self.assertIn('<strong>' + html.escape(data['label']) + '</strong>', parts)
+                self.assertIn('<br>' + html.escape(data['scope']) + '</p>', parts)
+                self.assertIn('<p dir="auto">' + html.escape(data['source_citation']) + '</p>', parts)
+        helpers = document.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));const records=[],names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify({references:input.references.items.map(citationData),number:numberLabel(input),record:input}));'''
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(record),
+                                text=True, encoding='utf-8', capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        self.assertEqual(actual['references'], expected)
+        self.assertEqual(actual['number'], 'Source number TEST-LOCAL-77')
+        self.assertEqual(actual['record'], before)
+        self.assertEqual(record, before)
+
+    def test_docx_reading_page_omits_qc_labels_but_keeps_source_notes(self):
+        record = fixture()
+        record['language'] = 'fa'
+        record['text_translation'] = 'TEST'
+        record['commentary'] = {'arabic': None, 'translation': None}
+        record['display_policy'] = {'qc_tags': False}
+        record['review']['issues'] = ['TEST source fragment']
+        record['page']['docx_paragraphs'] = [10, 11]
+        record['number'] = {'in_book': 'TEST-7', 'canonical': None,
+                            'source_cited': ['TEST canonical citation'],
+                            'numbering_system': 'Source-local abridgment numbering'}
+        page = reader.markdown_record(record, 1)
+        self.assertNotIn('Pro QC', page)
+        self.assertNotIn('Historical import status', page)
+        self.assertNotIn('Commentary and footnotes', page)
+        self.assertIn('TEST source fragment', page)
+        self.assertIn('DOCX paragraph 10, 11', page)
+        self.assertIn('Source number TEST-7', page)
+        self.assertIn('Cited: TEST canonical citation', page)
 
     @unittest.skipUnless(shutil.which('node'), 'Node is optional; required for reader JavaScript regression checks')
     def test_language_scoped_materials_reset_only_incompatible_filters(self):
