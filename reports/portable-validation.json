@@ -3,12 +3,12 @@
   "status": "passed",
   "scope": "public_source_snapshots",
   "current_translation_origins": {
-    "human": 20293,
+    "human": 23121,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-11T11:07:14.127780+00:00",
-  "record_count": 21458,
-  "source_dataset_count": 170,
+  "checked_at_utc": "2026-11-11T12:30:07.765652+00:00",
+  "record_count": 24286,
+  "source_dataset_count": 171,
   "by_language": {
     "fa": 7078,
     "fil": 2056,
@@ -16,7 +16,7 @@
     "ja": 2237,
     "uz": 552,
     "vi": 4555,
-    "zh-CN": 2396
+    "zh-CN": 5224
   },
   "by_dataset": {
     "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd": 200,
@@ -188,17 +188,18 @@
     "quran-excerpts-zh-cn-muslim": 15,
     "quran-excerpts-zh-cn-nasai": 1,
     "quran-excerpts-zh-cn-tirmidhi": 6,
-    "quran-excerpts-zh-cn-unclassified": 2
+    "quran-excerpts-zh-cn-unclassified": 2,
+    "zh-abu-dawud-yu-2002-doc": 2828
   },
   "coverage": {
-    "canonical_occurrences_compared": 21458,
-    "projection_objects_compared": 21458,
-    "exact_arabic_and_translation_codepoints_compared": 14355875,
-    "canonical_record_files_hashed": 170,
-    "source_and_legacy_files_hashed": 423,
-    "ordered_search_shards_hashed": 345,
-    "canonical_record_digest_checks": 21458,
-    "complete_public_projection_objects_reconstructed": 21458,
+    "canonical_occurrences_compared": 24286,
+    "projection_objects_compared": 24286,
+    "exact_arabic_and_translation_codepoints_compared": 14615020,
+    "canonical_record_files_hashed": 171,
+    "source_and_legacy_files_hashed": 425,
+    "ordered_search_shards_hashed": 374,
+    "canonical_record_digest_checks": 24286,
+    "complete_public_projection_objects_reconstructed": 24286,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -1904,6 +1905,16 @@
       "sha256": "7045b937834937995554b6560342020d5fd42a9ed5311ed403bda57f4ae4c3f0"
     },
     {
+      "path": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+      "bytes": 794112,
+      "sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8"
+    },
+    {
+      "path": "materials/zh-abu-dawud-yu-2002-doc/records.jsonl",
+      "bytes": 13510335,
+      "sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8"
+    },
+    {
       "path": "languages/ja/books/essential/editions/published-76d8b0bb/002.json",
       "bytes": 74522,
       "sha256": "38d248d4f64675909100391e434892afd8974770148851a95617661b9c169e18"
@@ -2319,18 +2330,18 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "1491a6bc0b30ec8a982972094c1fc5c442ba45052532bb990c86e77f26445d53",
+  "search_stream_sha256": "d4befd1a1e136949d9ee0a57065da3417a5f71fd46aaf793198e7aee79911e24",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "5850bd595cfcc5bf4a27d45a82553da3d1d8effba24dc1e55a17070a7ca22d34",
-    "bytes": 38553587,
-    "embedded_objects_compared": 21458,
+    "sha256": "addef8a75790efdfc3fd8bb0b295b981994dd48ee0edf8adec09a1ccf0a99e31",
+    "bytes": 39641424,
+    "embedded_objects_compared": 24286,
     "external_script_or_stylesheet_dependencies": false
   },
   "navigation": {
-    "markdown_files_checked": 1234,
-    "local_targets_checked": 50434,
-    "external_links_not_requested": 42950,
+    "markdown_files_checked": 1349,
+    "local_targets_checked": 56890,
+    "external_links_not_requested": 45778,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -2339,10 +2350,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 170,
+    "authorized_dataset_count": 171,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 120,
+    "registered_material_manifests_verified": 121,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

@@ -2,7 +2,7 @@
 
 [All languages](../README.md)
 
-- [abu-dawud](abu-dawud/README.md) — 1 source occurrences
+- [abu-dawud](abu-dawud/README.md) — 2829 source occurrences
 - [adab-al-mufrad](adab-al-mufrad/README.md) — 1 source occurrences
 - [ahmad](ahmad/README.md) — 3 source occurrences
 - [bukhari](bukhari/README.md) — 48 source occurrences

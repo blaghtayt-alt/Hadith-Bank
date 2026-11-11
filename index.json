@@ -106,8 +106,8 @@
       ],
       "hadeethenc_manifest": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json",
       "materials_catalog": "catalog/languages/zh-CN.json",
-      "record_count": 2396,
-      "source_dataset_count": 14,
+      "record_count": 5224,
+      "source_dataset_count": 15,
       "readingIndex": "browse/zh-CN/README.md"
     },
     {
@@ -2610,13 +2610,33 @@
         "independent_qc_asserted": false,
         "rights_clearance_asserted": false
       }
+    },
+    {
+      "id": "zh-abu-dawud-yu-2002-doc",
+      "kind": "records-v1",
+      "materialManifest": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+      "count": 2828,
+      "status": "published_source_import",
+      "publicTextPublished": true,
+      "independentProQC": "not_asserted",
+      "sourceReviewHistoryPreserved": true,
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      }
     }
   ],
   "scope": "public_source_snapshots",
-  "recordCount": 21458,
+  "recordCount": 24286,
   "languageCount": 7,
   "countUnit": "source narration/entry occurrences across editions; not unique canonical Hadith",
-  "sourceDatasetCount": 170,
+  "sourceDatasetCount": 171,
   "sourceDatasets": [
     {
       "dataset_id": "hadeethenc-ja-sqlite-a81da9af28f854f6",
@@ -11616,6 +11636,52 @@
         "basis": "explicit_owner_source_confirmation",
         "decision_date_japan": "2026-11-11",
         "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "zh-abu-dawud-yu-2002-doc",
+      "language": "zh-CN",
+      "book_key": "abu-dawud",
+      "edition": "doc-cbff2d2c521e553c",
+      "count": 2828,
+      "release_status": "source_imported",
+      "source_file": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+      "source_sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+      "canonical_records_path": "materials/zh-abu-dawud-yu-2002-doc/records.jsonl",
+      "canonical_records_sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8",
+      "source_descriptor": {
+        "path": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+        "sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+        "name": "艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)",
+        "format": "doc",
+        "url": "https://www.scribd.com/document/1039713868/艾布达吾德圣训"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "The supplied source has a translator preface signed 穆萨·余崇仁书 and dated 2002年8月于银川新城.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/zh-abu-dawud-yu-2002-doc/source-metadata.json"
+        ],
+        "scope_note": "Existing Chinese translation; no new translation generated.",
+        "policy_path": null
       }
     }
   ],

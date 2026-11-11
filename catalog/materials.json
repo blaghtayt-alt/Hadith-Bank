@@ -2,7 +2,7 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 21458,
+  "record_count": 24286,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
     "fa": 7078,
@@ -11,16 +11,16 @@
     "ja": 2237,
     "uz": 552,
     "vi": 4555,
-    "zh-CN": 2396
+    "zh-CN": 5224
   },
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "human_translator_credited": 10864,
+    "human_translator_credited": 13692,
     "legacy_source_history": 867,
     "unknown": 1304
   },
   "current_translation_origins": {
-    "human": 20293,
+    "human": 23121,
     "unknown": 1165
   },
   "materials": [
@@ -9023,6 +9023,52 @@
         "decision_date_japan": "2026-11-11",
         "policy_path": "catalog/provenance-policy.json"
       }
+    },
+    {
+      "dataset_id": "zh-abu-dawud-yu-2002-doc",
+      "language": "zh-CN",
+      "book_key": "abu-dawud",
+      "edition": "doc-cbff2d2c521e553c",
+      "count": 2828,
+      "release_status": "source_imported",
+      "source_file": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+      "source_sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+      "canonical_records_path": "materials/zh-abu-dawud-yu-2002-doc/records.jsonl",
+      "canonical_records_sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8",
+      "source_descriptor": {
+        "path": "materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc",
+        "sha256": "cbff2d2c521e553c6eb11a75d6079fe526930295b7a3fc4726cc8e7a4e0a42c8",
+        "name": "艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)",
+        "format": "doc",
+        "url": "https://www.scribd.com/document/1039713868/艾布达吾德圣训"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-abu-dawud-yu-2002-doc/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "source_name": "艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd (partial Chinese edition)",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "The supplied source has a translator preface signed 穆萨·余崇仁书 and dated 2002年8月于银川新城.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/zh-abu-dawud-yu-2002-doc/source-metadata.json"
+        ],
+        "scope_note": "Existing Chinese translation; no new translation generated.",
+        "policy_path": null
+      }
     }
   ],
   "private_materials_not_in_this_tree": [
@@ -10497,8 +10543,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "1491a6bc0b30ec8a982972094c1fc5c442ba45052532bb990c86e77f26445d53",
-    "count": 21458,
+    "records_sha256": "d4befd1a1e136949d9ee0a57065da3417a5f71fd46aaf793198e7aee79911e24",
+    "count": 24286,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -12569,6 +12615,180 @@
         "sha256": "81304c61296259a90c55e078b8314875c56ddc6dca00f4f460a82628f4f69e89",
         "count": 83,
         "bytes": 591203
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0001.jsonl",
+        "sha256": "263d054bde4f52f76f01903217b39d18ce67e2e2be1186892a7623120a64a3cc",
+        "count": 100,
+        "bytes": 581962
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0002.jsonl",
+        "sha256": "09e219cf480885507bc0b8d4b9c6e51ea42c59be1a84fa38295769c7404d1ec0",
+        "count": 100,
+        "bytes": 583797
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0003.jsonl",
+        "sha256": "c4ad6283b69151b733df725fbcf6654226b3541d74bc9c74c9e8f8e6fc345885",
+        "count": 100,
+        "bytes": 590464
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0004.jsonl",
+        "sha256": "61f406c16b4cc9b38939c9b0cc87d4f2a3aab5138c445cb0ffd56251b27f6cb4",
+        "count": 100,
+        "bytes": 589965
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0005.jsonl",
+        "sha256": "f11121c165c9bd814d448b29fb002f28512430bf778f956b400c32c6f32adedc",
+        "count": 100,
+        "bytes": 597909
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0006.jsonl",
+        "sha256": "acf955d21ca359861d98c15372f3d1194e57beb1be3dc2c18977889185ae3ea7",
+        "count": 100,
+        "bytes": 584658
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0007.jsonl",
+        "sha256": "bb4f208ceb9af2a04d0b2e996815c4bb6e46edca22c985e984016b1c972df020",
+        "count": 100,
+        "bytes": 591777
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0008.jsonl",
+        "sha256": "73d858cc625949dd3be87d06c28d666570c692fba60894d86a05f55545ddf20b",
+        "count": 100,
+        "bytes": 591217
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0009.jsonl",
+        "sha256": "bff67a907bfce56dd9525d1525c076a5d8653562c9c5e55eb316572b8e5f6634",
+        "count": 100,
+        "bytes": 592031
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0010.jsonl",
+        "sha256": "7e15ff93392f26291d2b5767af742303874c4e100efea40c5043cde64c05477d",
+        "count": 100,
+        "bytes": 588171
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0011.jsonl",
+        "sha256": "9f11da1f94a9b054346bfc20f54d966b5d85ee67fb9c780d2c786066e6f5e944",
+        "count": 100,
+        "bytes": 591551
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0012.jsonl",
+        "sha256": "3cc90048c30273e1fc23daaa65da7a2f9f2c321cba6205a08e5d41d1949e797f",
+        "count": 100,
+        "bytes": 592977
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0013.jsonl",
+        "sha256": "c8d0687560e09917fab75bf78812eef405b8fa742c15aa7e14f0bd55e938a3e4",
+        "count": 100,
+        "bytes": 599250
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0014.jsonl",
+        "sha256": "95f61e414c504ef545a3df0c2ae7d05bec4623bd6ca61b6c1eeb7e6862bd382f",
+        "count": 100,
+        "bytes": 592518
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0015.jsonl",
+        "sha256": "7ed6a83f80fd415e00abe44eb7addf632ac047599d1e1ad7e102a638d4016d77",
+        "count": 100,
+        "bytes": 601726
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0016.jsonl",
+        "sha256": "2d8fd040e6dcfdff6dd5bfa41fd000b8d108ed7766eb3f043a7bfcb7146fad22",
+        "count": 100,
+        "bytes": 590548
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0017.jsonl",
+        "sha256": "f27fe2242871e4eaba48b1e25d42e52cfc67d1ec98e616a4e45f27865e0ba97b",
+        "count": 100,
+        "bytes": 593562
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0018.jsonl",
+        "sha256": "9ba5f6bf78053d88c205767739ab2c0dc66644951e5137b625787d1f7a4fd36b",
+        "count": 100,
+        "bytes": 599028
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0019.jsonl",
+        "sha256": "56bd5564de31de2410320f45c0d89dd7461db673ac6255dcc7b30ecaac6779ef",
+        "count": 100,
+        "bytes": 596841
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0020.jsonl",
+        "sha256": "4d2a63e710424d23c509dc7622020f57d86b2a9da792b519c8faecee559814f3",
+        "count": 100,
+        "bytes": 594126
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0021.jsonl",
+        "sha256": "808e871770c1d71492b02748def9c1d2bb44f71e009c1e744b36eaa4dd240865",
+        "count": 100,
+        "bytes": 607142
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0022.jsonl",
+        "sha256": "b7725097a5014db5e9e24a6ab1ac4e749b3d98d238538247c849ade3ec728051",
+        "count": 100,
+        "bytes": 592145
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0023.jsonl",
+        "sha256": "e77f3b9878f2f65f84f0f4a7ef5a7e6ef30861b67bd5f627221fd7905c815888",
+        "count": 100,
+        "bytes": 594528
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0024.jsonl",
+        "sha256": "eae8fbec49776182f2a3ca0d5990b0ff4382535eb1c9eb8a2951ac1711298eb0",
+        "count": 100,
+        "bytes": 589801
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0025.jsonl",
+        "sha256": "bf521503296418874bd7fc552ceed29e6682cde5cc13bdf58e8aeecf71951ce9",
+        "count": 100,
+        "bytes": 610207
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0026.jsonl",
+        "sha256": "33f9f4386833be1fc26cd2f7ee39096166c7438a1e58c9d5f5f305f0ba06fc76",
+        "count": 100,
+        "bytes": 599113
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0027.jsonl",
+        "sha256": "f5f0f94568187d200e36c43bbf10ac504e6235926288a1446d77184d4bed8ab7",
+        "count": 100,
+        "bytes": 598830
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0028.jsonl",
+        "sha256": "0b4a8d0e1441a549a691c21cb5bebaceeefc344ecb9b59b350c0cc53fa846c27",
+        "count": 100,
+        "bytes": 620473
+      },
+      {
+        "path": "search/zh-CN/abu-dawud/doc-cbff2d2c521e553c/part-0029.jsonl",
+        "sha256": "b6d70b10532600bea0a695e6cbcd07d2a2822a80a12f9550e2d3a0539f4268a5",
+        "count": 28,
+        "bytes": 171876
       }
     ],
     "whole_file_optional": true,
@@ -12584,12 +12804,12 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 21458,
+    "total": 24286,
     "arabic_available": 15703,
     "english_available": 9039,
     "exact_links": 8710,
     "related_version_links": 329,
-    "unresolved": 12419,
+    "unresolved": 15247,
     "with_numbered_references": 4373,
     "by_language": {
       "fa": {
@@ -12629,10 +12849,10 @@
         "unresolved": 3310
       },
       "zh-CN": {
-        "total": 2396,
+        "total": 5224,
         "arabic_available": 2365,
         "english_available": 2307,
-        "unresolved": 89
+        "unresolved": 2917
       }
     },
     "report": "reports/counterpart-coverage.json",

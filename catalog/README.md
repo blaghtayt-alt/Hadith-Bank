@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **21,458 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **24,286 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -180,12 +180,13 @@ Counts describe source occurrences across translations and editions. They are no
 | Vietnamese | muslim | `pdf-be8d818c8ae2dd0c` | 56 | [Read](../browse/vi/muslim/pdf-be8d818c8ae2dd0c/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-be8d818c8ae2dd0c/source.pdf) |
 | Vietnamese | muslim | `pdf-4aa2f9c722e62418` | 49 | [Read](../browse/vi/muslim/pdf-4aa2f9c722e62418/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-4aa2f9c722e62418/source.pdf) |
 | Vietnamese | muslim | `pdf-668a54bc30222150` | 83 | [Read](../browse/vi/muslim/pdf-668a54bc30222150/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-668a54bc30222150/source.pdf) |
+| Chinese | abu-dawud | `doc-cbff2d2c521e553c` | 2,828 | [Read](../browse/zh-CN/abu-dawud/doc-cbff2d2c521e553c/README.md) | [Original file](../materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc) |
 
 ## Current translation classification
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 20,293 |
+| Human | 23,121 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -195,7 +196,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `human_translator_credited` | 10,864 |
+| `human_translator_credited` | 13,692 |
 | `legacy_source_history` | 867 |
 | `unknown` | 1,304 |
 
