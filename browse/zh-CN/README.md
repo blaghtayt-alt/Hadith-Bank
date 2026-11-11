@@ -10,6 +10,7 @@
 - [Sahih al-Bukhari](bukhari/README.md) — 48 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 2256 source occurrences
 - [Hisn al-Muslim](hisn-al-muslim/README.md) — 1 source occurrences
+- [Sunan Ibn Majah](ibn-majah/README.md) — 4354 source occurrences
 - [Muwatta of Imam Malik](malik/README.md) — 1006 source occurrences
 - [Sahih Muslim](muslim/README.md) — 60 source occurrences
 - [Sunan al-Nasai](nasai/README.md) — 1 source occurrences

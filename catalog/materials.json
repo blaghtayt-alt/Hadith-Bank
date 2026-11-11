@@ -2,7 +2,7 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 32596,
+  "record_count": 36950,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
     "fa": 14382,
@@ -11,16 +11,16 @@
     "ja": 2237,
     "uz": 552,
     "vi": 4555,
-    "zh-CN": 6230
+    "zh-CN": 10584
   },
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "human_translator_credited": 22002,
+    "human_translator_credited": 26356,
     "legacy_source_history": 867,
     "unknown": 1304
   },
   "current_translation_origins": {
-    "human": 31431,
+    "human": 35785,
     "unknown": 1165
   },
   "materials": [
@@ -10100,6 +10100,76 @@
       }
     },
     {
+      "dataset_id": "zh-cn-ibn-majah-yu-2013",
+      "language": "zh-CN",
+      "book_key": "ibn-majah",
+      "edition": "yu-2013-pdf-e3bc24bcee435894",
+      "count": 4354,
+      "release_status": "source_review_pending",
+      "source_file": "materials/zh-cn-ibn-majah-yu-2013/伊本·马哲圣训集_Sunan_Ibn_Majah.pdf",
+      "source_sha256": "e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383",
+      "canonical_records_path": "materials/zh-cn-ibn-majah-yu-2013/records.jsonl",
+      "canonical_records_sha256": "2a3c0b648c9993ec08e544e0f008d4a97e204f1c5c0401684129c6fb4d8fe6e8",
+      "source_descriptor": {
+        "path": "materials/zh-cn-ibn-majah-yu-2013/伊本·马哲圣训集_Sunan_Ibn_Majah.pdf",
+        "sha256": "e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383",
+        "name": "伊本·马哲圣训集 — Sunan Ibn Majah",
+        "format": "pdf",
+        "url": null,
+        "title_zh": "伊本·马哲圣训集",
+        "title_en": "Sunan Ibn Majah",
+        "translator": "穆萨·余崇仁",
+        "publisher": "宗教文化出版社",
+        "edition_year": 2013,
+        "original_filename": "736950612-1.pdf",
+        "metadata_path": "materials/zh-cn-ibn-majah-yu-2013/source-metadata.json"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-cn-ibn-majah-yu-2013/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/zh-cn-ibn-majah-yu-2013/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_published_book",
+        "basis": "Owner instruction on 2026-11-11: 'we got it from a book outsoruce so no need for ocr'. Suppress OCR/QC display badges for this identified published-book import; preserve original extraction evidence and review history."
+      },
+      "source_name": "伊本·马哲圣训集 — Sunan Ibn Majah",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Named Chinese translator credited on PDF title page 2 and 2013 printed edition colophon page 486.",
+        "evidence_ids": [
+          "materials/zh-cn-ibn-majah-yu-2013/source-metadata.json"
+        ],
+        "scope_note": "Published Chinese source wording; no new translation generated. OCR fidelity is separately pending.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "zh-muwatta-shaybani-yu-2000-docx",
       "language": "zh-CN",
       "book_key": "malik",
@@ -11630,8 +11700,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "261f36414ef0c2d4905573f9a761bc030725d3eb2549c876535b25e4dd0bb43d",
-    "count": 32596,
+    "records_sha256": "794c6f403dd91bbca33e3a1f577cc73abe50980e83d1dc1fb07e3f9dd4e61243",
+    "count": 36950,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -14328,6 +14398,270 @@
         "bytes": 318823
       },
       {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0001.jsonl",
+        "sha256": "d4dd25f49b28160ab8387887ab4f03e930d77b92adb325c954899968069633cc",
+        "count": 100,
+        "bytes": 634429
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0002.jsonl",
+        "sha256": "d245172da10434e462dfa626c1f6eb0126d6a62a3473ec67ddd4d50f8fa98801",
+        "count": 100,
+        "bytes": 629635
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0003.jsonl",
+        "sha256": "73b33ed7a0706bb2d6912b2b985b6d6c5fd685999230f0788e746b147951114a",
+        "count": 100,
+        "bytes": 620297
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0004.jsonl",
+        "sha256": "4b610fe1d33c8763a91000a9af4bfa026251adf3602f4dd3fc387dfc382311c7",
+        "count": 100,
+        "bytes": 608560
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0005.jsonl",
+        "sha256": "f0fafe60deb5d633bf099443e452b8709ef0e5d71665bc602b03d46743cd0529",
+        "count": 100,
+        "bytes": 604399
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0006.jsonl",
+        "sha256": "c18b4e2f0ed3510412c5d8aa4b740c8feede7428efd5702596352a6129bd7ea4",
+        "count": 100,
+        "bytes": 615313
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0007.jsonl",
+        "sha256": "d9269a0492bbb563700bc0e05337d99780aa22abd3594ec0a44e371918385337",
+        "count": 100,
+        "bytes": 617489
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0008.jsonl",
+        "sha256": "6cb0325d4cda35de5761cf6054290b8f4616b45e6eec8c39de1dc8fda3eae6fc",
+        "count": 100,
+        "bytes": 620216
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0009.jsonl",
+        "sha256": "efd7e7c24479dce102c82e17ffdb8abd4f0595fe4bf67e66e584f1753e8603c1",
+        "count": 100,
+        "bytes": 618895
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0010.jsonl",
+        "sha256": "b15124fef68d9b52fdb2274a7ba1c2636e93acf8124a40d4aea70885da2f49fd",
+        "count": 100,
+        "bytes": 615598
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0011.jsonl",
+        "sha256": "0546ab483e97289360ccc858f09bd9bda0a81ede9aa917950b68138d5025f9c4",
+        "count": 100,
+        "bytes": 623683
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0012.jsonl",
+        "sha256": "cc5ad4698b4a7aa2a3c2ec77ecfe15bbc8198e62e9550cad359378c227db24a7",
+        "count": 100,
+        "bytes": 616207
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0013.jsonl",
+        "sha256": "31d11b2c8845fcdbc8bda2be0b0031b0a35f75559104bd575d7cd91223a05ee2",
+        "count": 100,
+        "bytes": 634386
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0014.jsonl",
+        "sha256": "cfef4030d6520df8b9e37e568b093c6ebb9e1dea7a27cd8c8913759cf5f62be4",
+        "count": 100,
+        "bytes": 632950
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0015.jsonl",
+        "sha256": "e9952e7733ba677c33b1a01f34ff4e1374f5b370546515b7c9297e037bef233e",
+        "count": 100,
+        "bytes": 619125
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0016.jsonl",
+        "sha256": "dafa2769f93b4b89197c5ce9fd82fbd17c7c7f406262a0689d5fc6b574b53f5d",
+        "count": 100,
+        "bytes": 620815
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0017.jsonl",
+        "sha256": "a89ac35719665ae044b83052bf5fb0b234817031927672cb95dfca16d8bf2258",
+        "count": 100,
+        "bytes": 618781
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0018.jsonl",
+        "sha256": "52b9bdaa19fe499cbf567020b7e86372aacc1cfd9dd2d8e51fae0da4096d9f6d",
+        "count": 100,
+        "bytes": 623109
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0019.jsonl",
+        "sha256": "8a6eee3073a33e23db1b18b85e458445826841e4efb1b27dd6363b1494861195",
+        "count": 100,
+        "bytes": 624347
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0020.jsonl",
+        "sha256": "a3a9e6c464eeb87b3f7b08cf698964ec4daac863cd3207ec1eff1227906b32ed",
+        "count": 100,
+        "bytes": 620680
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0021.jsonl",
+        "sha256": "deb2a24300596586e3251abc540e75c30752a6d879ca3f33c42fafbe5b1d2ce9",
+        "count": 100,
+        "bytes": 627868
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0022.jsonl",
+        "sha256": "b310e080c58466077972b2b7547fe16e6e17506ee33979e97b37c9e4bdaca270",
+        "count": 100,
+        "bytes": 615013
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0023.jsonl",
+        "sha256": "7edf0a898d3efa918610ffbb07399340e8b599f632d0a875c3379f04ad7f009c",
+        "count": 100,
+        "bytes": 619094
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0024.jsonl",
+        "sha256": "d0f97ebebce20969194d0e9b6bb260c38cedeb0a4797cf9f02b15196cec090da",
+        "count": 100,
+        "bytes": 616905
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0025.jsonl",
+        "sha256": "e8f1653093384c14f251c0488912feca96ed095559d1987b90ed8a01cbd35b61",
+        "count": 100,
+        "bytes": 621493
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0026.jsonl",
+        "sha256": "f6c68d851fb351b69a8e5f6d05a8b18121829cfd885b8d273da7206357628307",
+        "count": 100,
+        "bytes": 622505
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0027.jsonl",
+        "sha256": "d2357b9e97a883544e17134e4f6745f10e9a113027bfdad23c19df9841578a46",
+        "count": 100,
+        "bytes": 626364
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0028.jsonl",
+        "sha256": "350a76dc90375906a97e9df58c68490987c8394b6c39f822a926c87fe426aa26",
+        "count": 100,
+        "bytes": 630057
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0029.jsonl",
+        "sha256": "ca9d4424966bee3a6cd2a98182e6fc497ea4c5673b89a01124de400dacde3907",
+        "count": 100,
+        "bytes": 627089
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0030.jsonl",
+        "sha256": "0b862312a537ad6d62e699334f0f91c1c123b2c207a0b89c1abb9c61be4906fd",
+        "count": 100,
+        "bytes": 626819
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0031.jsonl",
+        "sha256": "3b1b5a813423a8f4001e30c9c49b8f890b9d22bfad3dfd2e6a061885d0724df5",
+        "count": 100,
+        "bytes": 638141
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0032.jsonl",
+        "sha256": "ad5d90b02d5fdef7ba4ee7bd41b272576f857bfa56e76b670a961b66d09ece9a",
+        "count": 100,
+        "bytes": 614680
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0033.jsonl",
+        "sha256": "c2b9b84ba5d8d280c111bb56267b25409bb0cdf9bb2ceee196ef4be8ba5902d4",
+        "count": 100,
+        "bytes": 614096
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0034.jsonl",
+        "sha256": "5f2b35db7e9dda279f6b8bb42ee745131b833d66ca519f65c6a4a581d5732642",
+        "count": 100,
+        "bytes": 608829
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0035.jsonl",
+        "sha256": "08bad568a0bdf00d76c24ea8f11d662aef205dbcf3bd3d83b4c86d2ed11f3d6e",
+        "count": 100,
+        "bytes": 611513
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0036.jsonl",
+        "sha256": "380fd285af3f8e20dbf67e2a0442822dd70a12a0cf91371605ef1dd6ef013fcc",
+        "count": 100,
+        "bytes": 618399
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0037.jsonl",
+        "sha256": "a8b4dc5757fd409f662beb49621c22e1bd42438e23d68e376649659c4501475a",
+        "count": 100,
+        "bytes": 609380
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0038.jsonl",
+        "sha256": "aa4f2fc0b26cb61c35f7011adf1add51f92397e53bd5d8d413947a9c569434c1",
+        "count": 100,
+        "bytes": 611472
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0039.jsonl",
+        "sha256": "297dd90f0de5d9a28e1151026d346aecf654f5ba76f9be2686a7827b64ea0863",
+        "count": 100,
+        "bytes": 631560
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0040.jsonl",
+        "sha256": "c7beb860c03cb06e8f9d66e681d3f5b7d59afe0f8ac313d6654af208e0f13e4e",
+        "count": 100,
+        "bytes": 637175
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0041.jsonl",
+        "sha256": "d4e3f5d620ad720a799be5e51177390fddcf1ecc72945d9636050d82ee9750e5",
+        "count": 100,
+        "bytes": 665236
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0042.jsonl",
+        "sha256": "dff0ed2ad9de9c8bb30fa9708648bdc67d65f7bff3240c7babad29d83a720ad6",
+        "count": 100,
+        "bytes": 624202
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0043.jsonl",
+        "sha256": "54778d8c816632c313bbaf097d1872f30e41223aa4923c923ac0d6cd290a30d6",
+        "count": 100,
+        "bytes": 631754
+      },
+      {
+        "path": "search/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/part-0044.jsonl",
+        "sha256": "5ae1accfc1a723582362f5418fc57f1891f2d166e3e8d588f32b66df450d6196",
+        "count": 54,
+        "bytes": 346617
+      },
+      {
         "path": "search/zh-CN/malik/docx-cf65c0e865be95a7/part-0001.jsonl",
         "sha256": "185d2b75087166f40a686bf08fb11b56e6dab1cbf04c078a8b71cf96fb36d217",
         "count": 100,
@@ -14407,7 +14741,7 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 32596,
+    "total": 36950,
     "arabic_available": 25787,
     "english_available": 9342,
     "arabic_external_links": 0,
@@ -14415,7 +14749,7 @@
     "exact_links": 8756,
     "related_version_links": 330,
     "reviewed_parallel_links": 2935,
-    "unresolved": 20575,
+    "unresolved": 24929,
     "with_numbered_references": 7331,
     "by_language": {
       "fa": {
@@ -14457,30 +14791,30 @@
         "unresolved": 3311
       },
       "zh-CN": {
-        "total": 6230,
+        "total": 10584,
         "arabic_available": 5192,
         "english_available": 2468,
-        "unresolved": 1097,
+        "unresolved": 5451,
         "english_external_links": 2664,
         "reviewed_parallel_links": 2827
       }
     },
     "availability": {
       "totals": {
-        "total": 32596,
+        "total": 36950,
         "arabic_text": 25787,
         "arabic_link": 0,
         "arabic_available": 25787,
         "english_text": 9342,
         "english_link": 2677,
         "english_available": 12019,
-        "missing_arabic": 6809,
-        "missing_english": 20577,
+        "missing_arabic": 11163,
+        "missing_english": 24931,
         "both_text": 9342,
         "both_available": 12019,
         "arabic_only": 13768,
         "english_only": 0,
-        "neither_available": 6809
+        "neither_available": 11163
       },
       "by_language": {
         "fa": {
@@ -14580,20 +14914,20 @@
           "neither_available": 3293
         },
         "zh-CN": {
-          "total": 6230,
+          "total": 10584,
           "arabic_text": 5192,
           "arabic_link": 0,
           "arabic_available": 5192,
           "english_text": 2468,
           "english_link": 2664,
           "english_available": 5132,
-          "missing_arabic": 1038,
-          "missing_english": 1098,
+          "missing_arabic": 5392,
+          "missing_english": 5452,
           "both_text": 2468,
           "both_available": 5132,
           "arabic_only": 60,
           "english_only": 0,
-          "neither_available": 1038
+          "neither_available": 5392
         }
       },
       "report": "reports/counterpart-availability.json",
