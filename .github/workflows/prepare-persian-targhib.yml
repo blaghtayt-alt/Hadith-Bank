@@ -1,0 +1,60 @@
+name: Restore preserved Persian Targhib records
+
+# The direct GitHub connector has a bounded request size. This import-only
+# workflow restores the three exact canonical files from verified gzip bytes.
+# It never extracts text, changes source wording, or publishes to main.
+on:
+  push:
+    branches: [import/persian-targhib-direct-20261111]
+    paths:
+      - imports/persian-targhib-20261111/transport/**
+      - scripts/restore_persian_targhib_records.py
+      - .github/workflows/prepare-persian-targhib.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: restore-persian-targhib-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    if: github.ref == 'refs/heads/import/persian-targhib-direct-20261111'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Verify and restore exact saved record bytes
+        run: python scripts/restore_persian_targhib_records.py --root .
+      - name: Run transfer integrity and source fidelity tests
+        run: |
+          python -m unittest discover -s tests -p test_persian_targhib_transport.py
+          python -m unittest discover -s tests -p test_persian_targhib_source.py
+      - name: Save restored records on the import branch
+        env:
+          IMPORT_BRANCH: import/persian-targhib-direct-20261111
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_head="$(git ls-remote origin "refs/heads/$IMPORT_BRANCH" | cut -f1)"
+          if [[ "$current_head" != "$GITHUB_SHA" ]]; then
+            echo "The import branch changed; refusing to overwrite newer work."
+            exit 1
+          fi
+          git add -- materials/fa-targhib-bazmandegan-v1/records.jsonl \
+            materials/fa-targhib-bazmandegan-v2/records.jsonl \
+            materials/fa-targhib-bazmandegan-v3/records.jsonl
+          if ! git diff --cached --quiet; then
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'Restore verified Persian Targhib canonical records'
+            git push origin "HEAD:refs/heads/$IMPORT_BRANCH"
+          fi

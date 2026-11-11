@@ -1,0 +1,63 @@
+{
+  "schema": "hadith-bank-persian-targhib-integration-v1",
+  "source_documents": 3,
+  "records": 7304,
+  "source_occurrences_not_unique_hadiths": true,
+  "deduplicated": false,
+  "ocr_used": false,
+  "commentary_in_payload": false,
+  "independent_certification_claimed": false,
+  "inline_patches_applied": 81,
+  "inline_patches_outside_imported_spans": [],
+  "additional_quotation_selections": 34,
+  "already_included_physical_quotes": [],
+  "omitted_non_hadith_or_uncertain_attribution_units": 11,
+  "records_with_unresolved_source_glyphs": 3,
+  "sources": [
+    {
+      "volume": 1,
+      "source_id": "fa-targhib-bazmandegan-v1",
+      "records": 2416,
+      "source_sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+      "records_sha256": "fce410bf6c8d9bac9d992af2b07f3dd6720f5ecdd4c17c63fc922acbda2bf8ef",
+      "by_record_type": {
+        "hadith_occurrence": 1777,
+        "hadith_excerpt": 577,
+        "companion_report": 51,
+        "companion_report_excerpt": 11
+      },
+      "missing_arabic": 21,
+      "missing_translation": 153
+    },
+    {
+      "volume": 2,
+      "source_id": "fa-targhib-bazmandegan-v2",
+      "records": 2834,
+      "source_sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+      "records_sha256": "bcccb32360e8bd0b140aa278fd83ba1007cbd4d356c4bb5fc53d19d2606b2176",
+      "by_record_type": {
+        "hadith_occurrence": 2243,
+        "hadith_excerpt": 527,
+        "companion_report": 57,
+        "companion_report_excerpt": 7
+      },
+      "missing_arabic": 6,
+      "missing_translation": 127
+    },
+    {
+      "volume": 3,
+      "source_id": "fa-targhib-bazmandegan-v3",
+      "records": 2054,
+      "source_sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "records_sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+      "by_record_type": {
+        "hadith_occurrence": 1598,
+        "hadith_excerpt": 385,
+        "companion_report": 65,
+        "companion_report_excerpt": 6
+      },
+      "missing_arabic": 20,
+      "missing_translation": 701
+    }
+  ]
+}

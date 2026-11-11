@@ -1,0 +1,162 @@
+{
+  "schema": "hadith-bank-persian-targhib-verification-v1",
+  "status": "source_and_build_verified_publication_and_browser_pending",
+  "checked_at_utc": "2026-11-11T13:08:25.231686+00:00",
+  "base_commit": "4083c45eda57070d4941b55450580350fb6249bf",
+  "source_documents": 3,
+  "records": 7304,
+  "source_hashes_verified": true,
+  "record_hashes_verified": true,
+  "unique_occurrence_ids": 7304,
+  "evidence_files_verified": 90,
+  "sources": [
+    {
+      "volume": 1,
+      "source_id": "fa-targhib-bazmandegan-v1",
+      "records": 2416,
+      "source_sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+      "records_sha256": "fce410bf6c8d9bac9d992af2b07f3dd6720f5ecdd4c17c63fc922acbda2bf8ef",
+      "by_record_type": {
+        "hadith_occurrence": 1777,
+        "hadith_excerpt": 577,
+        "companion_report": 51,
+        "companion_report_excerpt": 11
+      },
+      "missing_arabic": 21,
+      "missing_translation": 153
+    },
+    {
+      "volume": 2,
+      "source_id": "fa-targhib-bazmandegan-v2",
+      "records": 2834,
+      "source_sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+      "records_sha256": "bcccb32360e8bd0b140aa278fd83ba1007cbd4d356c4bb5fc53d19d2606b2176",
+      "by_record_type": {
+        "hadith_occurrence": 2243,
+        "hadith_excerpt": 527,
+        "companion_report": 57,
+        "companion_report_excerpt": 7
+      },
+      "missing_arabic": 6,
+      "missing_translation": 127
+    },
+    {
+      "volume": 3,
+      "source_id": "fa-targhib-bazmandegan-v3",
+      "records": 2054,
+      "source_sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "records_sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+      "by_record_type": {
+        "hadith_occurrence": 1598,
+        "hadith_excerpt": 385,
+        "companion_report": 65,
+        "companion_report_excerpt": 6
+      },
+      "missing_arabic": 20,
+      "missing_translation": 701
+    }
+  ],
+  "source_replay_tests": {
+    "passed": true,
+    "tests": 13
+  },
+  "current_software_tests": {
+    "status": "passed",
+    "tests": 245,
+    "command": "python -m unittest discover -s tests",
+    "additional_transport_tests": "pending"
+  },
+  "current_build": {
+    "status": "passed",
+    "record_count": 31590,
+    "by_language": {
+      "fa": 14382,
+      "fil": 2056,
+      "hi": 2584,
+      "ja": 2237,
+      "uz": 552,
+      "vi": 4555,
+      "zh-CN": 5224
+    },
+    "source_dataset_count": 174,
+    "search_sha256": "e83e0554a6dfac8b4acc76ae2be74258d42220a096d8b9e7326dede46b178133",
+    "reader_sha256": "846fe90b29163a0752863c4d951b07cfa48d107447bbcc0a5c38321bb3129199",
+    "canonical_source_bytes_unchanged": true
+  },
+  "browser": {
+    "status": "pending",
+    "local_chromium_startup": "unavailable_before_page_load",
+    "rendered_ui_verified": false
+  },
+  "publication": {
+    "status": "candidate_uploaded_publication_pending",
+    "transport": "direct_github_connector_with_lossless_hash_checked_record_restoration",
+    "desktop_commander_used": false,
+    "bootstrap_commit": "e776b708a8fd3a5dc670badf5f21b8cb245a5f1f",
+    "candidate_commit": "91f8eef9b7a489928c89a4f4f9d66109b6daa1c1"
+  },
+  "independent_certification_claimed": false,
+  "limitations": [
+    "Counts are source quotation units, including excerpts and separately typed Companion reports, not unique canonical hadiths.",
+    "47 units lack securely extracted/aligned Arabic; 981 lack securely extracted/aligned Persian. No missing wording was synthesized.",
+    "Three unresolved source-font records retain warnings.",
+    "Targeted editorial and ideological screening does not certify every semantic translation choice."
+  ],
+  "transport_integrity_tests": {
+    "status": "passed",
+    "tests": 12
+  },
+  "transport_existing_records_replay": {
+    "status": "passed",
+    "restored": 0,
+    "reused": 3,
+    "records": 7304
+  },
+  "remote_source_tree_verification": {
+    "status": "passed",
+    "commit": "91f8eef9b7a489928c89a4f4f9d66109b6daa1c1",
+    "tree": "01c97a5b16456577a12fa02d784afa7275742e3f",
+    "uploaded_and_restored_files_verified": 125,
+    "baseline_files_preserved": 3300,
+    "truncated": false
+  },
+  "transport_restoration": {
+    "status": "passed",
+    "workflow_run": 43027211123,
+    "commit": "91f8eef9b7a489928c89a4f4f9d66109b6daa1c1",
+    "source_replay_tests": 13,
+    "transport_integrity_tests": 12
+  },
+  "source_download_checks": [
+    {
+      "volume": 1,
+      "requested_url": "https://github.com/blaghtayt-alt/Hadith-Bank/raw/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v1/source.docx?download=1",
+      "final_url": "https://raw.githubusercontent.com/blaghtayt-alt/Hadith-Bank/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v1/source.docx",
+      "status": 200,
+      "bytes": 3681390,
+      "sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+      "content_type": "application/octet-stream",
+      "content_disposition": null
+    },
+    {
+      "volume": 2,
+      "requested_url": "https://github.com/blaghtayt-alt/Hadith-Bank/raw/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v2/source.docx?download=1",
+      "final_url": "https://raw.githubusercontent.com/blaghtayt-alt/Hadith-Bank/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v2/source.docx",
+      "status": 200,
+      "bytes": 3864647,
+      "sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+      "content_type": "application/octet-stream",
+      "content_disposition": null
+    },
+    {
+      "volume": 3,
+      "requested_url": "https://github.com/blaghtayt-alt/Hadith-Bank/raw/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v3/source.docx?download=1",
+      "final_url": "https://raw.githubusercontent.com/blaghtayt-alt/Hadith-Bank/e776b708a8fd3a5dc670badf5f21b8cb245a5f1f/materials/fa-targhib-bazmandegan-v3/source.docx",
+      "status": 200,
+      "bytes": 2951787,
+      "sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "content_type": "application/octet-stream",
+      "content_disposition": null
+    }
+  ]
+}

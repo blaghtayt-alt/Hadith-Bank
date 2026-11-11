@@ -1,0 +1,38 @@
+{
+  "schema": "hadith-bank-material-v1",
+  "id": "fa-targhib-bazmandegan-v3",
+  "adapter": "records-v1",
+  "language": "fa",
+  "book": "targhib-wa-tarhib",
+  "edition": "bazmandegan-1397-v3",
+  "source_id": "fa-targhib-bazmandegan-v3",
+  "records": {
+    "path": "materials/fa-targhib-bazmandegan-v3/records.jsonl",
+    "sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+    "count": 2054
+  },
+  "source": {
+    "path": "materials/fa-targhib-bazmandegan-v3/source.docx",
+    "sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+    "name": "ترغیب و ترهیب صحیح و ضعیف — موسی بازماندگان، جلد 3",
+    "format": "docx",
+    "url": "https://www.qalamlib.com/"
+  },
+  "publication": {
+    "authorized": true,
+    "decision": "owner_requested_public_source_import",
+    "decision_date_japan": "2026-11-11",
+    "owner_instruction": "Add these three uploaded Persian volumes; hadiths only, exclude comments, flag ideological insertions."
+  },
+  "display_policy": {
+    "qc_tags": false,
+    "decision": "owner_requested_no_qc_tags_for_non_ocr",
+    "basis": "Current owner OCR-only display policy; these are verified native OOXML extractions with no OCR."
+  },
+  "extraction_scope": {
+    "source_file_count": 1,
+    "side_commentary_included": false,
+    "audit_root": "imports/persian-targhib-20261111/audit",
+    "no_batch_limit": true
+  }
+}

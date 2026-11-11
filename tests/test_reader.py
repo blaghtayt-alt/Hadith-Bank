@@ -253,6 +253,82 @@ process.stdout.write(JSON.stringify({
                                              {'pending': False, 'published': True}])
         self.assertEqual(actual['language'], 'Swahili')
 
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for document download link checks')
+    def test_document_downloads_use_preserved_paths_and_safe_github_raw_urls(self):
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+const records=[],names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify({
+  documents:input.documents.map(source=>sourceDocumentDownload(source,input.site)),
+  invalidPaths:input.invalidPaths.map(original_file=>sourceDocumentDownload({original_file},input.site)),
+  invalidSites:input.invalidSites.map(site=>sourceDocumentDownload({original_file:'materials/TEST/source.docx'},site)),
+  encoded:sourceDocumentDownload({original_file:'%2e%2e/TEST.pdf'},input.site)
+}));'''
+        sample = {
+            'site': {'repository_url': 'https://github.com/TEST/blob', 'source_ref': 'import/TEST'},
+            'documents': [
+                {'original_file': 'materials/TEST/source.docx'},
+                {'original_file': 'attachments/TEST/TEST #.PDF'},
+                {'original_file': 'materials/TEST/原本.doc'},
+                {'original_file': 'materials/TEST/source.txt', 'format': 'pdf'},
+                {'original_file': None}, None,
+            ],
+            'invalidPaths': ['../TEST.pdf', '/TEST.pdf', 'TEST\\TEST.doc', 'TEST//TEST.docx',
+                             'TEST/./TEST.pdf', 'javascript:TEST.pdf', 'TEST\nTEST.pdf',
+                             'TEST.pdf.exe', 'TEST.pdf?download=1', 'TEST.docx#part'],
+            'invalidSites': [None, {},
+                             {'repository_url': 'https://example.invalid/TEST/TEST', 'source_ref': 'main'},
+                             {'repository_url': 'https://github.com/TEST/TEST?x=1', 'source_ref': 'main'},
+                             {'repository_url': 'https://github.com/TEST/TEST', 'source_ref': '../main'}],
+        }
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(sample),
+                                text=True, capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        base = 'https://github.com/TEST/blob/raw/import%2FTEST/'
+        expected = [
+            {'href': base + 'materials/TEST/source.docx?download=1', 'format': 'DOCX', 'filename': 'source.docx'},
+            {'href': base + 'attachments/TEST/TEST%20%23.PDF?download=1', 'format': 'PDF', 'filename': 'TEST #.PDF'},
+            {'href': base + 'materials/TEST/%E5%8E%9F%E6%9C%AC.doc?download=1', 'format': 'DOC', 'filename': '原本.doc'},
+            None, None, None,
+        ]
+        self.assertEqual(actual['documents'], expected)
+        self.assertEqual(actual['invalidPaths'], [None] * len(sample['invalidPaths']))
+        self.assertEqual(actual['invalidSites'], [None] * len(sample['invalidSites']))
+        self.assertEqual(actual['encoded']['href'], base + '%252e%252e/TEST.pdf?download=1')
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for source download presentation checks')
+    def test_source_download_links_preserve_inspection_and_offline_links(self):
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text(encoding='utf-8')
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        source_files = 'function sourceFiles(' + template.split('function sourceFiles(', 1)[1].split('function citationList(', 1)[0]
+        program = '''const records=[],names={};
+const valueText = ''' + helpers + '''
+const document={createElement:tag=>({tag,children:[],append(...nodes){this.children.push(...nodes);}})};
+const site={repository_url:'https://github.com/TEST/TEST',source_ref:'main'};
+const source={original_file:'materials/TEST/source.docx',record_locator:{path:'materials/TEST/records.jsonl'}};
+let offline=false;const window={location:{protocol:'https:'}};
+''' + source_files + '''
+const hosted=sourceFiles(source).children;
+offline=true;window.location.protocol='file:';
+const local=sourceFiles(source).children;
+process.stdout.write(JSON.stringify({hosted,local}));'''
+        result = subprocess.run([shutil.which('node'), '-e', program], text=True,
+                                capture_output=True, check=True)
+        actual = json.loads(result.stdout)
+        self.assertEqual([x['textContent'] for x in actual['hosted']],
+                         ['Source file', 'Download DOCX', 'Canonical record file'])
+        self.assertEqual([x['textContent'] for x in actual['local']],
+                         ['Local source file', 'Source file on GitHub', 'Download DOCX from GitHub', 'Local record JSON'])
+        self.assertEqual(actual['local'][0]['href'], 'materials/TEST/source.docx')
+        self.assertEqual(actual['hosted'][0]['href'], 'https://github.com/TEST/TEST/blob/main/materials/TEST/source.docx')
+        hosted_download, offline_download = actual['hosted'][1], actual['local'][2]
+        self.assertEqual(hosted_download['href'], 'https://github.com/TEST/TEST/raw/main/materials/TEST/source.docx?download=1')
+        self.assertEqual(hosted_download['href'], offline_download['href'])
+        self.assertEqual(hosted_download['download'], 'source.docx')
+        self.assertEqual(hosted_download['rel'], 'noopener noreferrer')
+
     def test_extraction_evidence_is_separate_from_review_and_translation_origin(self):
         samples = [
             {'provenance': {'ocr_used': False, 'extraction_method': 'embedded_pdf_text_pymupdf'}},
