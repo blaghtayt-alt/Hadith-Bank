@@ -1,10 +1,10 @@
 # Hadith Bank — readable records
 
-14653 source occurrences, organized by language, book and source edition.
+21458 source occurrences, organized by language, book and source edition.
 
 Open a language, then a book and edition. Every page shows up to 25 narrations with their source, translator, translation origin and OCR review where applicable. Arabic, commentary and audit details are expandable. Repeated narrations and source versions are retained.
 
-- [Persian](fa/README.md) — 273 source occurrences
+- [Persian](fa/README.md) — 7078 source occurrences
 - [Filipino](fil/README.md) — 2056 source occurrences
 - [Hindi](hi/README.md) — 2584 source occurrences
 - [Japanese](ja/README.md) — 2237 source occurrences
@@ -14,6 +14,6 @@ Open a language, then a book and edition. Every page shows up to 25 narrations w
 
 [Other catalogued materials](materials/README.md) — 83 legacy documents and 12 private datasets listed separately.
 
-Source stream SHA-256: `b6a8746342ceb0d464cda51cb2e12abf196ec49915ec52d706f21ad34cbeb2a0`.
+Source stream SHA-256: `4f3529dedb89f7065f0426073a2051d6f05cb256be6b14c72526b6063d24128c`.
 
 These reading views do not change the source review status or certify narration authenticity.

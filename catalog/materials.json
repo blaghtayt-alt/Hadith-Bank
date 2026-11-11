@@ -2,10 +2,10 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 14653,
+  "record_count": 21458,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
-    "fa": 273,
+    "fa": 7078,
     "fil": 2056,
     "hi": 2584,
     "ja": 2237,
@@ -15,12 +15,12 @@
   },
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "human_translator_credited": 4059,
+    "human_translator_credited": 10864,
     "legacy_source_history": 867,
     "unknown": 1304
   },
   "current_translation_origins": {
-    "human": 13488,
+    "human": 20293,
     "unknown": 1165
   },
   "materials": [
@@ -292,6 +292,465 @@
         "historical_status_preserved": true,
         "arabic_alignment_flags_retained": true,
         "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v1",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v1",
+      "count": 412,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v1/source.docx",
+      "source_sha256": "3912f5be6bae7b67fd4eae1f5708430a89d45786082b73f7ddd5d85152ea4720",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v1/records.jsonl",
+      "canonical_records_sha256": "6fb854f98e5884c120e8d2168f7c9792adda6c900baf54deb11fcb6def87121f",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v1/source.docx",
+        "sha256": "3912f5be6bae7b67fd4eae1f5708430a89d45786082b73f7ddd5d85152ea4720",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 1",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v1/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v1/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 1",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v1/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v2",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v2",
+      "count": 451,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v2/source.docx",
+      "source_sha256": "10f4a7f83c6450ab45499aac96cc682d64aa060e13b5a85b5a47b9daf3eed139",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v2/records.jsonl",
+      "canonical_records_sha256": "88fa5ce225858c2c2dd0299c7ccd6446eeeac390334c48cce9126628f0325471",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v2/source.docx",
+        "sha256": "10f4a7f83c6450ab45499aac96cc682d64aa060e13b5a85b5a47b9daf3eed139",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 2",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v2/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v2/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 2",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v2/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v3",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v3",
+      "count": 504,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v3/source.docx",
+      "source_sha256": "3c98fe0a54dcbb34350538a9b1c96f1ad496ff0c5e3b789e7b89101e4f3fe3c9",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v3/records.jsonl",
+      "canonical_records_sha256": "ecbdd30f655fab5af1cbdf852be719a565d4c2866f3e9ddb5224adb93082c0f4",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v3/source.docx",
+        "sha256": "3c98fe0a54dcbb34350538a9b1c96f1ad496ff0c5e3b789e7b89101e4f3fe3c9",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 3",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 3",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v3/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v4",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v4",
+      "count": 466,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v4/source.docx",
+      "source_sha256": "d8c1614489d079775ab65c7b6eb1ec5513acda79bb0389725b99033ce91fc8a6",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v4/records.jsonl",
+      "canonical_records_sha256": "3b09a0af3842d8af1e9142939dd065cacccb2b7f5a50b400690694552970866a",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v4/source.docx",
+        "sha256": "d8c1614489d079775ab65c7b6eb1ec5513acda79bb0389725b99033ce91fc8a6",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 4",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v4/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v4/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 4",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v4/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v5",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v5",
+      "count": 337,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v5/source.docx",
+      "source_sha256": "f1da87fa45fbbb1a9af9569da0f06eb57eec668428cf901f334c894d6818c441",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v5/records.jsonl",
+      "canonical_records_sha256": "87c402316cdb661c7bcbf0ee9ecd7f1f11175225d71cadca6201d0e0a8711a09",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v5/source.docx",
+        "sha256": "f1da87fa45fbbb1a9af9569da0f06eb57eec668428cf901f334c894d6818c441",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 5",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v5/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v5/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 5",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v5/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-faiz-al-bari-v6",
+      "language": "fa",
+      "book_key": "bukhari",
+      "edition": "faiz-al-bari-heravi-v6",
+      "count": 457,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-faiz-al-bari-v6/source.docx",
+      "source_sha256": "0e828b498a92a4abf16bbab1bd7ec0a3bd37fa53021c023234cf58468b54cbde",
+      "canonical_records_path": "materials/fa-faiz-al-bari-v6/records.jsonl",
+      "canonical_records_sha256": "325d59c2bde37c76b8d66bac3d3c0df24cebedd5b2b8ba21b09c30c05a68faf2",
+      "source_descriptor": {
+        "path": "materials/fa-faiz-al-bari-v6/source.docx",
+        "sha256": "0e828b498a92a4abf16bbab1bd7ec0a3bd37fa53021c023234cf58468b54cbde",
+        "name": "فیض الباری — مختصر صحیح البخاری، جلد 6",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-faiz-al-bari-v6/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-faiz-al-bari-v6/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "فیض الباری — مختصر صحیح البخاری، جلد 6",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-faiz-al-bari-v6/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-muslim-mundhiri-tarshabi-v1",
+      "language": "fa",
+      "book_key": "muslim",
+      "edition": "mukhtasar-mundhiri-tarshabi-v1",
+      "count": 1104,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-muslim-mundhiri-tarshabi-v1/source.docx",
+      "source_sha256": "c07e6800232683ea2552e271414a46589462f23410ba0a09c0041d7d8a3a5792",
+      "canonical_records_path": "materials/fa-muslim-mundhiri-tarshabi-v1/records.jsonl",
+      "canonical_records_sha256": "c6cf38a52fd52852a9da2e309b4353e182b8313a1226ac1d776800fcc21a3134",
+      "source_descriptor": {
+        "path": "materials/fa-muslim-mundhiri-tarshabi-v1/source.docx",
+        "sha256": "c07e6800232683ea2552e271414a46589462f23410ba0a09c0041d7d8a3a5792",
+        "name": "مختصر صحیح مسلم — منذری / ترشابی، جلد 1",
+        "format": "docx",
+        "url": "https://aqeedeh.com/book_files/orig-html/1661.html"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-muslim-mundhiri-tarshabi-v1/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-muslim-mundhiri-tarshabi-v1/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "مختصر صحیح مسلم — منذری / ترشابی، جلد 1",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-muslim-mundhiri-tarshabi-v1/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-muslim-mundhiri-tarshabi-v2",
+      "language": "fa",
+      "book_key": "muslim",
+      "edition": "mukhtasar-mundhiri-tarshabi-v2",
+      "count": 1128,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-muslim-mundhiri-tarshabi-v2/source.docx",
+      "source_sha256": "1ae9bc9bd246c2b84db4b9b44255ff08ed17da5fb5e9254696bd5c784c1c3f98",
+      "canonical_records_path": "materials/fa-muslim-mundhiri-tarshabi-v2/records.jsonl",
+      "canonical_records_sha256": "9ca7bc7a388d520df80703039848cc5a8b2038be4251403529c007fd8cad05cb",
+      "source_descriptor": {
+        "path": "materials/fa-muslim-mundhiri-tarshabi-v2/source.docx",
+        "sha256": "1ae9bc9bd246c2b84db4b9b44255ff08ed17da5fb5e9254696bd5c784c1c3f98",
+        "name": "مختصر صحیح مسلم — منذری / ترشابی، جلد 2",
+        "format": "docx",
+        "url": "https://www.aqeedeh.com/book_files/html/1743.html"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-muslim-mundhiri-tarshabi-v2/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-muslim-mundhiri-tarshabi-v2/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "مختصر صحیح مسلم — منذری / ترشابی، جلد 2",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-muslim-mundhiri-tarshabi-v2/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
+      }
+    },
+    {
+      "dataset_id": "fa-riyadh-heravi-1394-digital",
+      "language": "fa",
+      "book_key": "riyadh-al-salihin",
+      "edition": "heravi-1394-digital",
+      "count": 1946,
+      "release_status": "source_imported",
+      "source_file": "materials/fa-riyadh-heravi-1394-digital/source.docx",
+      "source_sha256": "51d6e594600a9ce225bf1562d2202f17b95f7e2707b714ee951713d2e2c379fd",
+      "canonical_records_path": "materials/fa-riyadh-heravi-1394-digital/records.jsonl",
+      "canonical_records_sha256": "6e1a7167ca21c6ef4c8604e941a33f5c9579ba1e526bbbcaa64c0499d9e12247",
+      "source_descriptor": {
+        "path": "materials/fa-riyadh-heravi-1394-digital/source.docx",
+        "sha256": "51d6e594600a9ce225bf1562d2202f17b95f7e2707b714ee951713d2e2c379fd",
+        "name": "ترجمه فارسی ریاض الصالحین — عبد الله خاموش هروی",
+        "format": "docx",
+        "url": "https://aqeedeh.com/book_files/html/444.html"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fa-riyadh-heravi-1394-digital/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-11",
+        "manifest_path": "materials/fa-riyadh-heravi-1394-digital/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "display_policy": {
+        "qc_tags": false,
+        "decision": "owner_requested_no_qc_tags_for_non_ocr",
+        "basis": "Owner instruction on 2026-11-11: these native Persian DOCX imports do not need QC tags."
+      },
+      "source_name": "ترجمه فارسی ریاض الصالحین — عبد الله خاموش هروی",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "basis": "Named translator printed in the supplied source edition.",
+        "human_involvement": "named_human_translator",
+        "ai_translation": false,
+        "evidence_ids": [
+          "materials/fa-riyadh-heravi-1394-digital/source-metadata.json"
+        ],
+        "scope_note": "Existing published Persian wording; no new translation was generated.",
+        "policy_path": null
       }
     },
     {
@@ -10038,8 +10497,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "b6a8746342ceb0d464cda51cb2e12abf196ec49915ec52d706f21ad34cbeb2a0",
-    "count": 14653,
+    "records_sha256": "4f3529dedb89f7065f0426073a2051d6f05cb256be6b14c72526b6063d24128c",
+    "count": 21458,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -10568,6 +11027,450 @@
         "sha256": "7bbf3811ee0515a3efc86abb60b2c5a01262d6b5fc00a69254be3c7aa5839d68",
         "count": 14,
         "bytes": 222393
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v1/part-0001.jsonl",
+        "sha256": "09d98628a1ca12a1fd868100d5d8269c3e7b87728e9d2b8a1d895959abce5972",
+        "count": 100,
+        "bytes": 967430
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v1/part-0002.jsonl",
+        "sha256": "1e7cd0d8f56bbef9ef762ae4ad3c9e6663ccfa0aff6dac8fbfa5034986ef2777",
+        "count": 100,
+        "bytes": 909734
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v1/part-0003.jsonl",
+        "sha256": "f5a44510456bb24e483ff466aa5c8c43ef000f794374116631be8eb0241cb401",
+        "count": 100,
+        "bytes": 959450
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v1/part-0004.jsonl",
+        "sha256": "1c7e15654be8e7d8f6ab878b355d9d499944b755217cad010f0889b5971466db",
+        "count": 100,
+        "bytes": 643815
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v1/part-0005.jsonl",
+        "sha256": "b22859515eb8ba6a3f2622e1b03ffda696442b1fd8125b74595d64ffba4fc055",
+        "count": 12,
+        "bytes": 63932
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v2/part-0001.jsonl",
+        "sha256": "084c20d7fdfbf4ceb63503e4e33cc7914bc4d5cae412efd97413446b02f53fb4",
+        "count": 100,
+        "bytes": 899466
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v2/part-0002.jsonl",
+        "sha256": "fe43f0ba2e3c6fb3ec9efe17b4060e0590a3bed4883f32b3de72bb348398ef25",
+        "count": 100,
+        "bytes": 927797
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v2/part-0003.jsonl",
+        "sha256": "d1a403b7ad114b89853991a6432e331491f6f4cb26723a78cb822e9c3feef8d7",
+        "count": 100,
+        "bytes": 908143
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v2/part-0004.jsonl",
+        "sha256": "5f1c68cece6898de1a00333d070f57a6784d17676a0665577ab28678605ef690",
+        "count": 100,
+        "bytes": 872067
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v2/part-0005.jsonl",
+        "sha256": "11ad9e4909ad169df7e7fde843143197a0e6659a9a9e07bb59e396a3bab3bd1b",
+        "count": 51,
+        "bytes": 277588
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0001.jsonl",
+        "sha256": "6e18a6fcaf4371c0f64f46fbae79667e61e2e274c4e6fbb53bea609fb0c1cad4",
+        "count": 100,
+        "bytes": 912287
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0002.jsonl",
+        "sha256": "5ff4f7c3141199d1c867e85883c7355a23805006a8e12b9f91eb4642fbd287b6",
+        "count": 100,
+        "bytes": 899226
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0003.jsonl",
+        "sha256": "b914f4b3dabdb91eb2e5756f0466050399bcef354d0fa1e2bc0a68d88180ad38",
+        "count": 100,
+        "bytes": 919901
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0004.jsonl",
+        "sha256": "785c13eb3e050d6b29b15054a19147cd40c10565bb41f0dbe229b0ce7e7ab45f",
+        "count": 100,
+        "bytes": 962643
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0005.jsonl",
+        "sha256": "b5ff10e22240db0de21900d59e51f58e28f7bc898246f08ea14f85275610289f",
+        "count": 100,
+        "bytes": 648489
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v3/part-0006.jsonl",
+        "sha256": "4fad6ddfc18580fbfd5743a1f667b5bdcba561d1389d36bb686413a77ddece02",
+        "count": 4,
+        "bytes": 21583
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v4/part-0001.jsonl",
+        "sha256": "577287d9469c1240daddd15d59e5a9356a33503f450b825c277716379f287631",
+        "count": 100,
+        "bytes": 1042419
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v4/part-0002.jsonl",
+        "sha256": "d3aabb5d11bc81f616b6e836b24524127e50be9e2221a7e215b2e09209f78888",
+        "count": 100,
+        "bytes": 927130
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v4/part-0003.jsonl",
+        "sha256": "588e497122045875dfb8c174a5650c543b153a0d6e8cad322164c807efc1d8b5",
+        "count": 100,
+        "bytes": 976753
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v4/part-0004.jsonl",
+        "sha256": "6d37926aa7888540d0f0b4a5d1c1b9ebea88a079d559df76d2143b82f5c14c58",
+        "count": 100,
+        "bytes": 907191
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v4/part-0005.jsonl",
+        "sha256": "0fc0db2b32667bf9542e134677c6bd51de79a80b60839fc0a44ad57892ac764a",
+        "count": 66,
+        "bytes": 359350
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v5/part-0001.jsonl",
+        "sha256": "e1540420bed744d75250cab964028d5e7b87936795bbb3860166c2e5f7f8fd95",
+        "count": 100,
+        "bytes": 940450
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v5/part-0002.jsonl",
+        "sha256": "be628c13a5f992a7c76f4095d4a890cd979ca11007c0e68af3003a2460a8c486",
+        "count": 100,
+        "bytes": 1059484
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v5/part-0003.jsonl",
+        "sha256": "f32ce8c854e31e554ec53edb3c6fc597ecf5477b11613cb209ee472155745220",
+        "count": 100,
+        "bytes": 991307
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v5/part-0004.jsonl",
+        "sha256": "c98e87f137b14af244a6a7391e1687f6cf6c74e9a44386fa8d1b535de2de20b6",
+        "count": 37,
+        "bytes": 232205
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v6/part-0001.jsonl",
+        "sha256": "24431a0547339ccc4a1f3113921c751bf9da2817bc32a736e0ddab4cfe18ecf4",
+        "count": 100,
+        "bytes": 899185
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v6/part-0002.jsonl",
+        "sha256": "4b8daf5f283999f1fc70ec15d2c51f869846221168879b883fc71d3c2bafff02",
+        "count": 100,
+        "bytes": 869136
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v6/part-0003.jsonl",
+        "sha256": "c1c1f890bb9f35658becb7e4c4116c7a8761426b652f0fc4c496c4a78d6afce7",
+        "count": 100,
+        "bytes": 907672
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v6/part-0004.jsonl",
+        "sha256": "5fac9a586bc514a60f45b1eb99a584df4f6859b22192e1177210662dca7a052e",
+        "count": 100,
+        "bytes": 902126
+      },
+      {
+        "path": "search/fa/bukhari/faiz-al-bari-heravi-v6/part-0005.jsonl",
+        "sha256": "f5370fa000230a9b5e068c14052b6f2f939c2cd449832620d83b4594983c7f87",
+        "count": 57,
+        "bytes": 329129
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0001.jsonl",
+        "sha256": "7e7ad836f1c54b71db4182352ea55249418b02b1cc62df5b9502f9bc2c8e1027",
+        "count": 100,
+        "bytes": 971137
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0002.jsonl",
+        "sha256": "03bf162b7b9a7b31c9cd1df4aaf529a6d92eaa934902f404f4d87c712782af47",
+        "count": 100,
+        "bytes": 838039
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0003.jsonl",
+        "sha256": "08aa6efd0ee5abb5484ed4c8c0a197b1c90a198de001c8517e31440f928e2dcc",
+        "count": 100,
+        "bytes": 858125
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0004.jsonl",
+        "sha256": "8fc8ba125926ecaa19d7d2fc44f7473df3f0478f0d6cdcc7c72761627b1cb4a0",
+        "count": 100,
+        "bytes": 857547
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0005.jsonl",
+        "sha256": "41c7784f66c09e70b835222a7057c3e255bc0b03509f76d540226b921c2ecca4",
+        "count": 100,
+        "bytes": 846035
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0006.jsonl",
+        "sha256": "6065a8267b4c489e8c5ae1232a0645e83377e39d79f87565e7a7e29d0318c853",
+        "count": 100,
+        "bytes": 871716
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0007.jsonl",
+        "sha256": "3549a73b2cea4a4b79c8572c41f5ecef8ffb16678f4e3cff3b99727b6808dfa5",
+        "count": 100,
+        "bytes": 839972
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0008.jsonl",
+        "sha256": "43516aca70de5e5b875ef5974b1b2ef8eb6c6189e779a3564148e05efcb18146",
+        "count": 100,
+        "bytes": 860368
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0009.jsonl",
+        "sha256": "633f304893dae4eb947c8a5285d477693744c0890562b675fda4929d6e0bc31a",
+        "count": 100,
+        "bytes": 895774
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0010.jsonl",
+        "sha256": "13296aa616b7aa21d68f035f41c658996d733d16868527c75b79d985a319d6e2",
+        "count": 100,
+        "bytes": 820256
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0011.jsonl",
+        "sha256": "b59ac4af652164fd66f5051e16dcc11d9358ed0125c37275dbae4fc85431c3e7",
+        "count": 100,
+        "bytes": 816351
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/part-0012.jsonl",
+        "sha256": "aa068202fcc3286178544fa3655f5f79e887475fa71a6a565b28c6f1d2a95c63",
+        "count": 4,
+        "bytes": 22643
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0001.jsonl",
+        "sha256": "de357104e6664cf612037993f74ca198c71f4bc1a9f557a7395b7102d733d6d1",
+        "count": 100,
+        "bytes": 960121
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0002.jsonl",
+        "sha256": "f3002c576437d581cc9fd4c9a5b0a3932b3e6120a638085f0e39ad2f66dee69e",
+        "count": 100,
+        "bytes": 955463
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0003.jsonl",
+        "sha256": "8f1454462c7358c49d125d82caf691d4ee38bfa84c85bd6954b785037d12d9a7",
+        "count": 100,
+        "bytes": 827171
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0004.jsonl",
+        "sha256": "68261489ea22f026a54acbab7e073c5b9fa794bee4c93d38abbd43e0ea6b746b",
+        "count": 100,
+        "bytes": 831384
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0005.jsonl",
+        "sha256": "85429e5b763e6337a05777652b07567e3beece092b6ef049d29ab3fc4ac03a23",
+        "count": 100,
+        "bytes": 939388
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0006.jsonl",
+        "sha256": "7b5f30b1247cb483d8c8a41bb66ecda8cbb436eca395d4802609bd8fd89c735d",
+        "count": 100,
+        "bytes": 988864
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0007.jsonl",
+        "sha256": "937be63bee133b93637d82ce4e5495a6011e40458fb4ca2b877408182156327b",
+        "count": 100,
+        "bytes": 1003848
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0008.jsonl",
+        "sha256": "d0980262c1f76cdbe7e97614c5953d85d93bca02c3d7b5cda07ed7a9e38bf012",
+        "count": 100,
+        "bytes": 843239
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0009.jsonl",
+        "sha256": "fb47ef4b85ac484badc1e7dda3816d2411d2e1e8b18b6665b2c0e3460561079e",
+        "count": 100,
+        "bytes": 941807
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0010.jsonl",
+        "sha256": "dd49b9b1d0020a76d631b32e20397bdddfc920408ab28477505e325495e88f99",
+        "count": 100,
+        "bytes": 920994
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0011.jsonl",
+        "sha256": "0864a0a24e961c3ba4cc17ad013aaa1cc2d9179af885a3f8313a09800b316552",
+        "count": 100,
+        "bytes": 977619
+      },
+      {
+        "path": "search/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/part-0012.jsonl",
+        "sha256": "1410085ce0ab3165b91ede6dd49e3f6c6597c75682d713e07acb60f10501a7c1",
+        "count": 28,
+        "bytes": 246110
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0001.jsonl",
+        "sha256": "c93ee16c53d5ebe36f1d5b0ba9c9f7410301ae5fff29a857e4c753d4b5ac9097",
+        "count": 100,
+        "bytes": 942139
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0002.jsonl",
+        "sha256": "7538bde2554a7124636549b6ac96ed08cd36a6b7d3e7bc5340e9d317147d84c6",
+        "count": 100,
+        "bytes": 868494
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0003.jsonl",
+        "sha256": "018000b311ea3ee01979a5944f63134d34139d9d0dfef954287a1184e7bee9aa",
+        "count": 100,
+        "bytes": 862669
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0004.jsonl",
+        "sha256": "744a3b4d5cebc47b1051d12f49587257b2b247179411c5b1f18ed268400f0d96",
+        "count": 100,
+        "bytes": 884899
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0005.jsonl",
+        "sha256": "0510be55e473e7018d749b4008df1e7a5d1877a72c547402ae00cfec7a4f6823",
+        "count": 100,
+        "bytes": 862917
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0006.jsonl",
+        "sha256": "ec7a95899120e6d0bd4e703333e0bca8ba91bf5f1ab0415a23b41ade26256b22",
+        "count": 100,
+        "bytes": 876050
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0007.jsonl",
+        "sha256": "844564771e02491e9ce2fe5d9fba19189f5febfa0236224b39b6f02b117355cf",
+        "count": 100,
+        "bytes": 827119
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0008.jsonl",
+        "sha256": "56816f8966d5909f1f72fcfbd961b86774748d67aece85e5028a83b6ccc751c3",
+        "count": 100,
+        "bytes": 950250
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0009.jsonl",
+        "sha256": "5e869c06f1beeda01a0cfbe23661fa49be2f3f3a2388a1a5e2794d37763f1bb5",
+        "count": 100,
+        "bytes": 905792
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0010.jsonl",
+        "sha256": "3d7c70a3364956d7cd3c553c45398db7f11833145b3f94f3f32f9959f2a9bcf9",
+        "count": 100,
+        "bytes": 906162
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0011.jsonl",
+        "sha256": "f8cfaec975474bf4e8bd8bbecfff51f73f6a7247eb8332c3f149b0f15f029a7f",
+        "count": 100,
+        "bytes": 880114
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0012.jsonl",
+        "sha256": "53c6acecd24cb6eb85ceb3d31516914608f38e41ea54062dff9ee8097fb882de",
+        "count": 100,
+        "bytes": 869737
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0013.jsonl",
+        "sha256": "33bc554568ae48652b9b904b0615ad837a3781e19d1a5616e6534240d51fa66b",
+        "count": 100,
+        "bytes": 893065
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0014.jsonl",
+        "sha256": "7d4421f8169ed5df28314a3468279c51f0de331a9f823b9d0d3e4749a47d1e00",
+        "count": 100,
+        "bytes": 885141
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0015.jsonl",
+        "sha256": "7a4bbaf9c6a65252bf2ceeb10ff12c0071879a3038af55049f1ac3ceb91061e7",
+        "count": 100,
+        "bytes": 905373
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0016.jsonl",
+        "sha256": "809a1c04250db95e12750c068a7832b855951f7c5341b844d40bec6419d19584",
+        "count": 100,
+        "bytes": 946389
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0017.jsonl",
+        "sha256": "634d5092f80a2105c322f3136dee0e76d11484ee1973744a4ceb671cd1636246",
+        "count": 100,
+        "bytes": 913401
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0018.jsonl",
+        "sha256": "af0871ebd1070ce2760cb829546c05154095bd31f3576c5b70c0de1234d740a9",
+        "count": 100,
+        "bytes": 921143
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0019.jsonl",
+        "sha256": "e04a228cdde64e13f145fb4db032e3ba7bc042cc003180c0efb1bf88d24843a5",
+        "count": 100,
+        "bytes": 962934
+      },
+      {
+        "path": "search/fa/riyadh-al-salihin/heravi-1394-digital/part-0020.jsonl",
+        "sha256": "669e72955f8eedc5eea1972125a00ee069375597dbbddb55ecf4e07f5f12e53b",
+        "count": 46,
+        "bytes": 241167
       },
       {
         "path": "search/ja/muslim/pdf-c859ce57c211ea1b/part-0001.jsonl",

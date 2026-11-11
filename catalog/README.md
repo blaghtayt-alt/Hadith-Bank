@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **14,653 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **21,458 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -16,6 +16,15 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | hadeethenc | `sqlite-a22a0e545c70b320` | 2,256 | [Read](../browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite) |
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
+| Persian | bukhari | `faiz-al-bari-heravi-v1` | 412 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v1/README.md) | [Original file](../materials/fa-faiz-al-bari-v1/source.docx) |
+| Persian | bukhari | `faiz-al-bari-heravi-v2` | 451 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v2/README.md) | [Original file](../materials/fa-faiz-al-bari-v2/source.docx) |
+| Persian | bukhari | `faiz-al-bari-heravi-v3` | 504 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v3/README.md) | [Original file](../materials/fa-faiz-al-bari-v3/source.docx) |
+| Persian | bukhari | `faiz-al-bari-heravi-v4` | 466 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v4/README.md) | [Original file](../materials/fa-faiz-al-bari-v4/source.docx) |
+| Persian | bukhari | `faiz-al-bari-heravi-v5` | 337 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v5/README.md) | [Original file](../materials/fa-faiz-al-bari-v5/source.docx) |
+| Persian | bukhari | `faiz-al-bari-heravi-v6` | 457 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v6/README.md) | [Original file](../materials/fa-faiz-al-bari-v6/source.docx) |
+| Persian | muslim | `mukhtasar-mundhiri-tarshabi-v1` | 1,104 | [Read](../browse/fa/muslim/mukhtasar-mundhiri-tarshabi-v1/README.md) | [Original file](../materials/fa-muslim-mundhiri-tarshabi-v1/source.docx) |
+| Persian | muslim | `mukhtasar-mundhiri-tarshabi-v2` | 1,128 | [Read](../browse/fa/muslim/mukhtasar-mundhiri-tarshabi-v2/README.md) | [Original file](../materials/fa-muslim-mundhiri-tarshabi-v2/source.docx) |
+| Persian | riyadh-al-salihin | `heravi-1394-digital` | 1,946 | [Read](../browse/fa/riyadh-al-salihin/heravi-1394-digital/README.md) | [Original file](../materials/fa-riyadh-heravi-1394-digital/source.docx) |
 | Japanese | muslim | `pdf-c859ce57c211ea1b` | 1,811 | [Read](../browse/ja/muslim/pdf-c859ce57c211ea1b/README.md) | [Original file](../attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf) |
 | Persian | abu-dawud | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-abu-dawud/source-bundle.json) |
 | Persian | ahmad | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fa/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ahmad/source-bundle.json) |
@@ -176,7 +185,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 13,488 |
+| Human | 20,293 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -186,7 +195,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `human_translator_credited` | 4,059 |
+| `human_translator_credited` | 10,864 |
 | `legacy_source_history` | 867 |
 | `unknown` | 1,304 |
 

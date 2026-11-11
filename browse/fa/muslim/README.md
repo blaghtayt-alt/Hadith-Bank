@@ -4,3 +4,5 @@
 
 - [iman-quran-excerpts-ae2c075](iman-quran-excerpts-ae2c075/README.md) — 16 source occurrences
 - [legacy-embedded-ae2c075-v1](legacy-embedded-ae2c075-v1/README.md) — 114 source occurrences
+- [mukhtasar-mundhiri-tarshabi-v1](mukhtasar-mundhiri-tarshabi-v1/README.md) — 1104 source occurrences
+- [mukhtasar-mundhiri-tarshabi-v2](mukhtasar-mundhiri-tarshabi-v2/README.md) — 1128 source occurrences
