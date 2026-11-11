@@ -11,7 +11,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
-from counterpart_display import counterpart_qualification
+from counterpart_display import counterpart_qualification, counterpart_translation_origin
 from citation_search import record_citation_pairs
 from test_reader import fixture
 
@@ -167,6 +167,35 @@ process.stdout.write(JSON.stringify({closed,opened,key:primarySearchKey(input.re
         self.assertIn('TEST source and target differ in narrator attribution.', markdown)
         self.assertIn(source['citation_note'], markdown)
         self.assertNotIn('English · not linked yet', markdown)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for counterpart controls')
+    def test_english_uses_own_current_origin_and_arabic_has_no_translation_label(self):
+        english = {'text': None, 'scope': 'external_source',
+            'source_url': 'https://example.invalid/TEST/en/123',
+            'source_name': 'TEST English source', 'translation_origin': 'unknown',
+            'current_translation_policy': {'classification': 'human', 'basis': 'TEST source policy'},
+            'references': []}
+        arabic = {'text': 'TEST نص عربي', 'scope': 'source_entry',
+            'source_url': 'https://example.invalid/TEST/ar/123',
+            'source_name': 'TEST Arabic source', 'translation_origin': 'unknown', 'references': []}
+        self.record['counterparts'] = {'english': english, 'arabic': arabic}
+        before = copy.deepcopy(self.record)
+        presentation = 'function detail(' + self.template.split('function detail(', 1)[1].split('function suppliedText(', 1)[0]
+        disclosure = 'function inlineArabicReading(' + self.template.split('function inlineArabicReading(', 1)[1].split('function appendLanguageReadings(', 1)[0]
+        actual = self.node(self.dom() + 'const $=()=>({checked:true});\n' + presentation + disclosure + '''
+process.stdout.write(JSON.stringify({english:languageDisclosure(input.record,"english"),
+ arabic:languageDisclosure(input.record,"arabic"),origin:counterpartTranslationOrigin(input.record.counterparts.english)}));''',
+            {'record': self.record})
+        self.assertEqual(actual['origin'], counterpart_translation_origin(english))
+        self.assertIn('Translation origin: Human', json.dumps(actual['english']))
+        self.assertNotIn('Translation origin: Unknown', json.dumps(actual['english']))
+        self.assertNotIn('Translation origin:', json.dumps(actual['arabic']))
+        markdown = reader.markdown_record(self.record, 1)
+        english_section = markdown.split('<summary>English · read at source</summary>', 1)[1].split('</details>', 1)[0]
+        arabic_section = markdown.split('<summary>Arabic source entry</summary>', 1)[1].split('</details>', 1)[0]
+        self.assertIn('Translation origin: Human', english_section)
+        self.assertNotIn('Translation origin:', arabic_section)
+        self.assertEqual(self.record, before)
 
     @unittest.skipUnless(shutil.which('node'), 'Node is required for source-entry rendering')
     def test_arabic_source_entry_label_distinguishes_compiler_notes_from_narration(self):

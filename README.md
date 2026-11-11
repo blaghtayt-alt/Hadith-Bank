@@ -104,7 +104,7 @@ The first command discovers every registration manifest, checks the canonical fi
 
 ## Attribution and review
 
-The reader uses three translation-origin labels: **Human**, **AI** and **Unknown**. The owner confirmed the HadeethEnc sources and the currently supplied website-sourced Japanese/Vietnamese materials as **Human**. Material copied from the older bank, especially the legacy Japanese material, stays **Unknown** until the owner confirms its origin. Unknown does not mean AI-generated. The [source-origin policy](catalog/provenance-policy.json) records these decisions separately from the original source flags and review history.
+The reader uses three translation-origin labels: **Human**, **AI** and **Unknown**. Under the owner's current rule, **all newly added books and separately acquired English counterparts are Human unless their own source explicitly states otherwise**. **Unknown is reserved for copied old-bank resources**, including quotations extracted from the old Iman/Quran-study material. An explicit source declaration of AI translation is retained and displayed as AI. OCR, AI extraction, AI review and an unnamed translator do not make a new book's translation Unknown. The [source-origin policy](catalog/provenance-policy.json) records this automatic rule separately from original flags and review history.
 
 HadeethEnc's human-translation workflow, the owner review decision and source-version alignment notes remain documented in [translation-origin evidence](catalog/translation-origins.json) and [current review policy](docs/CURRENT-REVIEW-POLICY.md).
 

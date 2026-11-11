@@ -168,7 +168,13 @@ def citation(references, language):
 
 class CounterpartResolver:
     def __init__(self, root, records=None):
+        # Import lazily: provenance helpers also support the reader builder.
+        # Each linked translation has its own source policy, never its parent's.
+        from current_provenance import counterpart_decision_for, load_policy
+
         self.root = Path(root).resolve()
+        self.provenance_policy = load_policy(self.root)
+        self._counterpart_decision_for = counterpart_decision_for
         self.reviewed = ReviewedCounterpartResolver(self.root)
         self.provider_enabled = (self.root / MANIFEST).is_file()
         self.enabled = self.provider_enabled or self.reviewed.enabled
@@ -359,6 +365,16 @@ class CounterpartResolver:
                 'source_snapshot': snapshot, 'text_sha256': hashlib.sha256(text.encode('utf-8')).hexdigest(),
                 'match_status': status, 'scope': scope, 'translation_origin': origin, **extra}
 
+    def _apply_translation_policy(self, result):
+        """Add current English-source display policy; retain all source evidence."""
+        english = result.get('english')
+        if isinstance(english, dict):
+            decision = self._counterpart_decision_for(english, self.provenance_policy)
+            if decision is not None:
+                english['current_translation_policy'] = decision
+        # Arabic originals are not translations and receive no origin overlay.
+        return result
+
     def for_record(self, record):
         if not self.enabled:
             return None
@@ -366,7 +382,7 @@ class CounterpartResolver:
         if reviewed is not None:
             # A stale or ambiguous reviewed assignment must not silently fall
             # through to another provider. The original source stays intact.
-            return reviewed
+            return self._apply_translation_policy(reviewed)
         identifier, method, identity, proof = (self._select(record) if self.provider_enabled else
             (None, 'no_verified_source_counterpart', None, None))
         original_refs = source_references(record)
@@ -417,7 +433,7 @@ class CounterpartResolver:
         result['status'] = status
         if related:
             result['match_note'] = 'Same publisher entry; the English-linked Arabic revision differs from the stored source. Original text remains unchanged.'
-        return result
+        return self._apply_translation_policy(result)
 
 
 def enrich_records(root, records):

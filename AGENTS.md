@@ -39,7 +39,11 @@ Record this visibility decision separately in `catalog/publication-policy.json` 
 
 ## Current owner translation-origin decision
 
-The owner confirmed on 11 November 2026 that HadeethEnc and the identified website-sourced Japanese/Vietnamese materials are human translations. Apply the scoped current display classification in `catalog/provenance-policy.json`, preserving original source AI-origin flags and evidence separately. Material copied from the old Hadith Bank, especially Japanese and including other legacy languages, remains **Unknown** until the owner explicitly confirms it. Do not change that status automatically on a calendar date. Use Human, AI and Unknown as reader categories; unknown is neither an AI assertion nor a QC failure. The source confirmation does not complete independent review.
+On 11 November 2026 the owner clarified that **only copied old-bank resources are labelled Unknown**, and **all newly added books are Human translations unless their own source explicitly states otherwise**. Apply this rule automatically to current and future registered nonlegacy books and to separately acquired English counterparts. The current policy is recorded in `catalog/provenance-policy.json`.
+
+Keep copied legacy-bank and Iman/Quran-study quotations, including the `legacy-*` and `quran-excerpts-*` source families and the original old-bank source documents, in their current Unknown group. A later import date does not turn an old-bank copy into a new publisher source. Classify each English counterpart from its own source, independently of the parent Chinese or legacy translation. Arabic originals are source texts and must not receive a translation-origin label.
+
+A source's explicit contrary translation declaration takes precedence over the new-book Human default. Preserve its wording or precise locator in `translation_provenance.source_declaration` with a classification and evidence. Do not infer AI translation from OCR, AI extraction, an AI reviewer, alignment work, a missing translator name, or missing metadata. Preserve original AI-origin flags, translator fields and historical evidence separately; the current owner display decision does not rewrite source records or assert new review, authenticity, or rights clearance.
 
 ## Owner-authorized embedded hadith extraction and Persian
 

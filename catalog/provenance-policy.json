@@ -2,7 +2,7 @@
   "schema": "hadith-bank-provenance-policy-v1",
   "decision_date_japan": "2026-11-11",
   "decision_source": "explicit_repository_owner_confirmation",
-  "owner_instruction": "HadeethEnc and the materials obtained from the source websites are human translations; copied old Hadith Bank materials, especially Japanese, remain unknown until the owner confirms them.",
+  "owner_instruction": "Only old-bank resources should be labelled translation Unknown. All newly added books are Human translated unless their source explicitly states otherwise.",
   "classification_labels": [
     "human",
     "ai",
@@ -33,6 +33,124 @@
       },
       "classification": "human",
       "basis": "explicit_owner_source_confirmation"
+    },
+    {
+      "id": "old-bank-and-iman-excerpts-remain-unknown",
+      "match": {
+        "source_ids": [
+          "legacy-fa-abu-dawud",
+          "legacy-fa-ahmad",
+          "legacy-fa-bukhari",
+          "legacy-fa-ibn-majah",
+          "legacy-fa-muslim",
+          "legacy-fa-tirmidhi",
+          "legacy-fa-unclassified",
+          "legacy-fil-abu-dawud",
+          "legacy-fil-ahmad",
+          "legacy-fil-bukhari",
+          "legacy-fil-hakim",
+          "legacy-fil-ibn-hibban",
+          "legacy-fil-muslim",
+          "legacy-fil-tabarani",
+          "legacy-fil-tirmidhi",
+          "legacy-fil-unclassified",
+          "legacy-hi-bukhari",
+          "legacy-hi-ibn-majah",
+          "legacy-hi-muslim",
+          "legacy-hi-tirmidhi",
+          "legacy-hi-unclassified",
+          "legacy-ja-abu-dawud",
+          "legacy-ja-ahmad",
+          "legacy-ja-bukhari",
+          "legacy-ja-hakim",
+          "legacy-ja-ibn-majah",
+          "legacy-ja-mishkat-al-masabih",
+          "legacy-ja-muslim",
+          "legacy-ja-tabarani",
+          "legacy-ja-tirmidhi",
+          "legacy-ja-unclassified",
+          "legacy-uz-ahmad",
+          "legacy-uz-bukhari",
+          "legacy-uz-hakim",
+          "legacy-uz-ibn-majah",
+          "legacy-uz-muslim",
+          "legacy-uz-tirmidhi",
+          "legacy-uz-unclassified",
+          "legacy-vi-abu-dawud",
+          "legacy-vi-bukhari",
+          "legacy-vi-ibn-hibban",
+          "legacy-vi-muslim",
+          "legacy-vi-tabarani",
+          "legacy-vi-tirmidhi",
+          "legacy-vi-unclassified",
+          "legacy-zh-CN-bukhari",
+          "legacy-zh-CN-muslim",
+          "legacy-zh-CN-tirmidhi",
+          "legacy-zh-CN-unclassified",
+          "quran-excerpts-fa-abu-dawud",
+          "quran-excerpts-fa-adab-al-mufrad",
+          "quran-excerpts-fa-ahmad",
+          "quran-excerpts-fa-bukhari",
+          "quran-excerpts-fa-ibn-majah",
+          "quran-excerpts-fa-muslim",
+          "quran-excerpts-fa-tirmidhi",
+          "quran-excerpts-fa-unclassified",
+          "quran-excerpts-fil-abu-dawud",
+          "quran-excerpts-fil-adab-al-mufrad",
+          "quran-excerpts-fil-ahmad",
+          "quran-excerpts-fil-bukhari",
+          "quran-excerpts-fil-hisn-al-muslim",
+          "quran-excerpts-fil-muslim",
+          "quran-excerpts-fil-tirmidhi",
+          "quran-excerpts-fil-unclassified",
+          "quran-excerpts-hi-abu-dawud",
+          "quran-excerpts-hi-adab-al-mufrad",
+          "quran-excerpts-hi-ahmad",
+          "quran-excerpts-hi-bukhari",
+          "quran-excerpts-hi-hisn-al-muslim",
+          "quran-excerpts-hi-ibn-majah",
+          "quran-excerpts-hi-muslim",
+          "quran-excerpts-hi-tirmidhi",
+          "quran-excerpts-ja-abu-dawud",
+          "quran-excerpts-ja-adab-al-mufrad",
+          "quran-excerpts-ja-ahmad",
+          "quran-excerpts-ja-bukhari",
+          "quran-excerpts-ja-hisn-al-muslim",
+          "quran-excerpts-ja-ibn-majah",
+          "quran-excerpts-ja-muslim",
+          "quran-excerpts-ja-tirmidhi",
+          "quran-excerpts-ja-unclassified",
+          "quran-excerpts-uz-abu-dawud",
+          "quran-excerpts-uz-adab-al-mufrad",
+          "quran-excerpts-uz-ahmad",
+          "quran-excerpts-uz-bukhari",
+          "quran-excerpts-uz-ibn-majah",
+          "quran-excerpts-uz-muslim",
+          "quran-excerpts-uz-riyad-as-salihin",
+          "quran-excerpts-uz-tirmidhi",
+          "quran-excerpts-vi-abu-dawud",
+          "quran-excerpts-vi-adab-al-mufrad",
+          "quran-excerpts-vi-ahmad",
+          "quran-excerpts-vi-bukhari",
+          "quran-excerpts-vi-hisn-al-muslim",
+          "quran-excerpts-vi-ibn-majah",
+          "quran-excerpts-vi-muslim",
+          "quran-excerpts-vi-riyad-as-salihin",
+          "quran-excerpts-vi-tirmidhi",
+          "quran-excerpts-vi-unclassified",
+          "quran-excerpts-zh-cn-abu-dawud",
+          "quran-excerpts-zh-cn-adab-al-mufrad",
+          "quran-excerpts-zh-cn-ahmad",
+          "quran-excerpts-zh-cn-bukhari",
+          "quran-excerpts-zh-cn-hisn-al-muslim",
+          "quran-excerpts-zh-cn-muslim",
+          "quran-excerpts-zh-cn-nasai",
+          "quran-excerpts-zh-cn-tirmidhi",
+          "quran-excerpts-zh-cn-unclassified"
+        ]
+      },
+      "classification": "unknown",
+      "basis": "explicit_owner_classification_of_copied_old_bank_materials"
     }
   ],
   "legacy_rule": {
@@ -45,9 +163,67 @@
     "confirmation_required_before_change": true,
     "automatic_date_based_change": false
   },
-  "scope_note": "The human confirmation is scoped to the identified source imports. A URL by itself does not classify an arbitrary future material as human. Old-bank copied source documents remain unknown regardless of language until the owner provides confirmation.",
+  "scope_note": "Registered newly supplied books and separately acquired English counterparts are Human under the owner decision unless their own source explicitly declares otherwise. Copied old-bank and Iman/Quran-study translations remain Unknown regardless of language, import date, or extraction method. Arabic originals are source texts, not translations. Missing translator names, OCR, AI extraction, and AI review do not change the current translation classification. Original flags and evidence remain preserved separately.",
   "original_source_metadata_preserved": true,
   "current_display_policy_is_separate_from_historical_ai_flag": true,
   "human_translation_does_not_imply_independent_qc": true,
-  "unknown_does_not_mean_ai": true
+  "unknown_does_not_mean_ai": true,
+  "owner_instruction_verbatim": "only old bank resources should labelled as translation unkown , all new books are human translated unless the sources said other wise (which i doubt )",
+  "new_material_rule": {
+    "id": "new-books-human-unless-source-declares-otherwise",
+    "classification": "human",
+    "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+    "scope": "registered_nonlegacy_materials_and_counterparts",
+    "source_declarations_take_precedence": true
+  },
+  "source_declaration_format": {
+    "field": "translation_provenance.source_declaration",
+    "classification": "human, ai, or unknown",
+    "evidence": "A nonempty source statement or precise source location; absent metadata is not a contrary source declaration."
+  },
+  "decision_history": [
+    {
+      "decision_date_japan": "2026-11-11",
+      "decision_source": "explicit_repository_owner_confirmation",
+      "owner_instruction": "HadeethEnc and the materials obtained from the source websites are human translations; copied old Hadith Bank materials, especially Japanese, remain unknown until the owner confirms them.",
+      "source_rules": [
+        {
+          "id": "hadeethenc-confirmed-human",
+          "match": {
+            "source_name": "HadeethEnc.com",
+            "book_key": "hadeethenc"
+          },
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation"
+        },
+        {
+          "id": "japanese-muslim-website-confirmed-human",
+          "match": {
+            "package_root": "attachments/attachments-ja-muslim-c859ce57c211ea1b"
+          },
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation"
+        },
+        {
+          "id": "vietnamese-website-confirmed-human",
+          "match": {
+            "package_root": "attachments/attachments-vi-920394517894aea9"
+          },
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation"
+        }
+      ],
+      "legacy_rule": {
+        "match": {
+          "kind": "legacy_source_document"
+        },
+        "classification": "unknown",
+        "basis": "owner_withheld_confirmation_of_old_bank_copies",
+        "languages": "all",
+        "confirmation_required_before_change": true,
+        "automatic_date_based_change": false
+      },
+      "scope_note": "The human confirmation is scoped to the identified source imports. A URL by itself does not classify an arbitrary future material as human. Old-bank copied source documents remain unknown regardless of language until the owner provides confirmation."
+    }
+  ]
 }

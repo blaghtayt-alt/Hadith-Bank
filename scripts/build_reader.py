@@ -24,7 +24,8 @@ import xml.etree.ElementTree as ET
 
 from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
 from counterpart_display import (counterpart_data, counterpart_source_data,
-                                 counterpart_citation, counterpart_qualification, counterpart_alignment_notes)
+                                 counterpart_citation, counterpart_qualification, counterpart_alignment_notes,
+                                 counterpart_translation_origin)
 from citation_search import has_noncanonical_numbering
 
 
@@ -392,7 +393,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
         counterpart_credit = ('<a href="' + escaped(counterpart_url) + '">' + escaped(credit) + '</a>'
                               if counterpart_url else escaped(credit))
         if language == 'english':
-            counterpart_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI'}.get(counterpart.get('translation_origin'), 'Unknown')
+            counterpart_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[counterpart_translation_origin(counterpart)]
         lines += ['<p>' + counterpart_credit + '</p>', '', '</details>', '']
     url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_name = source.get('name') or record['source_id']

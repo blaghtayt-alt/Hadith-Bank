@@ -8,11 +8,13 @@ import sqlite3
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from reviewed_counterparts import ReviewedCounterpartResolver, MANIFEST, SCHEMA, text_hash
 from resolve_counterparts import CounterpartResolver, enrich_records, MANIFEST as PROVIDER_MANIFEST
-from counterpart_display import counterpart_data, counterpart_source_data, counterpart_qualification
+from counterpart_display import (counterpart_data, counterpart_source_data, counterpart_qualification,
+                                 counterpart_translation_origin)
 from citation_search import record_citation_pairs
 
 
@@ -175,6 +177,64 @@ class ReviewedCounterpartTests(unittest.TestCase):
         self.assertIn('Linked source entry', counterpart_qualification(source, self.record))
         self.assertEqual(record_citation_pairs(self.record), {('abu-dawud', '987654')})
         self.assertEqual({k: v for k, v in self.record.items() if k != 'counterparts'}, before)
+
+    def owner_translation_policy(self):
+        policy = {'schema': 'hadith-bank-provenance-policy-v1',
+            'decision_date_japan': '2026-11-11', 'source_rules': [],
+            'new_material_rule': {'scope': 'registered_nonlegacy_materials_and_counterparts',
+                'classification': 'human', 'basis': 'TEST owner source default',
+                'source_declarations_take_precedence': True}}
+        self.asset('catalog/provenance-policy.json', json.dumps(policy).encode())
+
+    def test_external_english_current_origin_is_independent_and_preserves_source_history(self):
+        self.owner_translation_policy()
+        self.entry['english'].update(text=None, text_sha256=None,
+                                     translation_origin='unknown', scope='external_source')
+        self.mapping['target_text_sha256']['english'] = None
+        self.write_bundle()
+        before = copy.deepcopy(self.record)
+        immutable = {path: (self.root / path).read_bytes()
+                     for path in ('TEST-entries.jsonl', 'TEST-mappings.jsonl', 'TEST-source.txt')}
+        import current_provenance
+        with patch('current_provenance.load_policy', wraps=current_provenance.load_policy) as loader:
+            resolver = CounterpartResolver(self.root)
+            for parent_origin in ('unknown', 'ai', 'human'):
+                parent = copy.deepcopy(self.record)
+                parent['translation_provenance']['current_policy']['classification'] = parent_origin
+                value = resolver.for_record(parent)
+                english = value['english']
+                self.assertEqual(counterpart_translation_origin(english), 'human')
+                self.assertEqual(english['translation_origin'], 'unknown')
+                self.assertEqual(english['current_translation_policy']['policy_path'],
+                                 'catalog/provenance-policy.json')
+                self.assertEqual(english['scope'], 'external_source')
+                self.assertIsNone(english['text'])
+                self.assertIsNone(english['text_sha256'])
+                self.assertNotIn('current_translation_policy', value['arabic'])
+                self.assertEqual(parent['translation_provenance']['current_policy']['classification'], parent_origin)
+            self.assertEqual(loader.call_count, 1)
+        self.assertEqual(self.record, before)
+        self.assertEqual({path: (self.root / path).read_bytes() for path in immutable}, immutable)
+
+    def test_counterpart_own_ai_declaration_overrides_human_default(self):
+        self.owner_translation_policy()
+        declarations = [
+            {'translation_origin': 'ai'},
+            {'translation_origin': 'unknown', 'source_declaration': {
+                'classification': 'ai', 'evidence': 'TEST publisher explicitly identifies an AI translation'}},
+        ]
+        for declaration in declarations:
+            with self.subTest(declaration=declaration):
+                original = copy.deepcopy(self.entry['english'])
+                self.entry['english'].update(declaration)
+                self.write_bundle()
+                raw = (self.root / 'TEST-entries.jsonl').read_bytes()
+                value = CounterpartResolver(self.root).for_record(self.record)
+                self.assertEqual(counterpart_translation_origin(value['english']), 'ai')
+                self.assertEqual(value['english']['translation_origin'], declaration['translation_origin'])
+                self.assertEqual(value['english']['text'], ENGLISH)
+                self.assertEqual((self.root / 'TEST-entries.jsonl').read_bytes(), raw)
+                self.entry['english'] = original
 
     def test_null_language_does_not_become_a_source_or_translation(self):
         self.entry['english'] = None

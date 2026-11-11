@@ -43,7 +43,10 @@ class PortableViewValidationTests(unittest.TestCase):
                          'catalog/translation-origins.json', 'catalog/review-policy.json', 'catalog/provenance-policy.json'):
             target = self.root / relative
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text('{}', encoding='utf-8')
+            # Counterpart source labels now read the same validated provenance
+            # policy used to reconstruct these source projections.
+            fixture = self.provenance_policy if relative == 'catalog/provenance-policy.json' else {}
+            target.write_text(json.dumps(fixture), encoding='utf-8')
         self.expected = {row['record_id']: validator.expected_record(row, self.material, i, True, self.policy, self.provenance_policy)
                          for i, row in enumerate(self.canonical)}
 

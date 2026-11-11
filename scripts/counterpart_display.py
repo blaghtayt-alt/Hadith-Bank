@@ -2,6 +2,16 @@
 from urllib.parse import urlsplit
 
 
+def counterpart_translation_origin(data):
+    """Read only this translation's current classification and source history."""
+    current = data.get('current_translation_policy') or {}
+    classification = current.get('classification')
+    if classification in ('human', 'ai', 'unknown'):
+        return classification
+    original = data.get('translation_origin')
+    return original if original in ('human', 'ai', 'unknown') else 'unknown'
+
+
 def counterpart_data(record, language):
     values = record.get('counterparts') or {}
     value = values.get(language) if isinstance(values, dict) else None

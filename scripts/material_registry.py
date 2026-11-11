@@ -10,10 +10,11 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+from collections import Counter
 
 from build_reader import local, parse_json, valid_hash, validate_record
 from build_bank_views import SCHEMA, canonical, digest_file
-from current_provenance import apply_material_policy, apply_policy, load_policy
+from current_provenance import apply_material_policy, apply_policy, classification, decision_for, load_policy
 from review_display_policy import extraction_metadata
 
 
@@ -71,6 +72,25 @@ def with_publication(record, authorization):
     record['publication'] = copy.deepcopy(authorization)
     record['publication']['historical_release_status'] = record['review'].get('release_status')
     return record
+
+
+def preserve_translation_declarations(projected, row, material):
+    """Keep accepted attribution evidence available after normalization.
+
+    Manifest declarations and canonical occurrence declarations stay separate
+    so conflicting source assertions are detected instead of overwritten.
+    """
+    if 'source_declaration' in row:
+        projected['source_declaration'] = copy.deepcopy(row['source_declaration'])
+    source = projected['source']
+    descriptor = material.get('source_descriptor') or {}
+    original_source = row.get('source') or {}
+    for key in ('translation_declaration', 'source_declaration'):
+        if key in descriptor:
+            source[key] = copy.deepcopy(descriptor[key])
+        if key in original_source:
+            source.setdefault('original_metadata', {})[key] = copy.deepcopy(original_source[key])
+    return projected
 
 
 def normalized_projection(row, material, position):
@@ -173,6 +193,7 @@ def normalized_projection(row, material, position):
         # Keep the native DOCX extraction details without replacing the common
         # evidence-backed OCR projection used by existing registered sources.
         result['extraction'] = {**copy.deepcopy(extraction), **result['extraction']}
+    preserve_translation_declarations(result, row, material)
     apply_material_policy(result, material)
     validate_record(result, row['id'])
     return result
@@ -190,6 +211,7 @@ def project_for_material(row, material, position):
                   'source_metadata_path': str(PurePosixPath(material['source_metadata_path']).relative_to(prefix))}
     projected = project(row, collection, position, prefix)
     projected['extraction'] = extraction_metadata(row)
+    preserve_translation_declarations(projected, row, material)
     return apply_material_policy(with_publication(projected, material['publication']), material)
 
 
@@ -301,18 +323,33 @@ def load_public_materials(root, validate_attachment_roots=True):
                 material['display_policy'] = copy.deepcopy(display_policy)
             projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
             for record in projected:
-                apply_policy(record, provenance_policy)
+                apply_policy(record, provenance_policy, registered_material=True)
                 require(record['id'] not in occurrence_ids, 'Duplicate material occurrence id: ' + record['id'])
                 occurrence_ids.add(record['id'])
                 require(record['source']['original_file'] == material['source_file'] and
                         record['source']['sha256'] == material['source_sha256'], 'Canonical source differs from material declaration')
                 checked_file(root, record['source']['original_file'], record['source']['sha256']) if record is projected[0] else None
             material['source_name'] = projected[0]['source']['name']
-            material['translation_provenance'] = projected[0]['translation_provenance']
-            decision = material['translation_provenance'].get('current_policy')
+            decisions = [record['translation_provenance'].get('current_policy') for record in projected]
+            decision = decisions[0]
+            material['translation_provenance'] = copy.deepcopy(projected[0]['translation_provenance'])
+            if not all(item == decision for item in decisions):
+                # A source can explicitly identify an AI-translated passage in
+                # an otherwise Human-default book. Keep occurrence decisions
+                # separate; the validator reconstructs each exact projection.
+                descriptor = {key: value for key, value in material.items() if key != 'translation_provenance'}
+                decision = decision_for(descriptor, provenance_policy, registered_material=True) or decision
+                material['current_translation_policy_overrides'] = {
+                    record['id']: copy.deepcopy(item)
+                    for record, item in zip(projected, decisions) if item != decision}
+                material['current_translation_origin_counts'] = dict(sorted(Counter(
+                    classification(record) for record in projected).items()))
+                material['translation_provenance']['classification_scope'] = 'dataset_default_with_record_overrides'
+                if decision is None:
+                    material['translation_provenance'].pop('current_policy', None)
+                else:
+                    material['translation_provenance']['current_policy'] = copy.deepcopy(decision)
             if decision is not None:
-                require(all(record['translation_provenance'].get('current_policy') == decision for record in projected),
-                        'Different current provenance policies within one source dataset')
                 material['current_translation_policy'] = copy.deepcopy(decision)
             result['materials'].append(material); result['groups'].append(projected)
     if validate_attachment_roots and (root / 'attachments').exists():

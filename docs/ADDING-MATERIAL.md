@@ -2,7 +2,7 @@
 
 The reader rebuilds from structured records registered under `materials/`. Add one material folder, register it, then commit or merge it into `main`. The workflow discovers the manifest and updates the website, language/book/edition catalogs, searchable text, reading pages and downloadable HTML automatically.
 
-The folder and its source text become public when uploaded to this public repository. Registration records the owner's publication instruction; it does not certify independent review or change an unknown reuse/translation status into a verified one. Preserve the actual provenance, permission evidence and remaining qualifications.
+The folder and its source text become public when uploaded to this public repository. Registration records the owner's publication instruction. The current owner policy classifies newly supplied nonlegacy books as Human unless their own source explicitly states otherwise; it does not certify independent review, invent a named translator, or change reuse rights. Preserve original provenance and remaining qualifications.
 
 ## 1. Prepare one source edition
 
@@ -57,13 +57,15 @@ This is a **literal TEST example of the format**, not Hadith material:
 
 For an actual addition, replace the TEST values with the exact source wording and evidence. Preserve separate fields for available source numbers, narrator/isnad, translator, pages, commentary, notes, references, grading, topic/source-structure tags, variants, corrections and review history. The canonical JSON retains additional supplied metadata.
 
-Keep IDs stable across corrections to the same occurrence. Use a different ID for a different occurrence or source edition. Do not infer human/AI translation from the fact that a file was scanned or OCR-extracted: use `false` only where human translation is established, `true` where AI translation is established, and `"unknown"` otherwise. The reader displays these as **Human**, **AI** and **Unknown**; Unknown is not a claim of AI translation.
+Keep IDs stable across corrections to the same occurrence. Use a different ID for a different occurrence or source edition. Do not infer human/AI translation from the fact that a file was scanned or OCR-extracted: use `false` only where human translation is established, `true` where AI translation is established, and `"unknown"` otherwise. These original flags remain source history. The reader's current **Human**, **AI** and **Unknown** grouping also applies the owner policy below; Unknown is not a claim of AI translation.
 
 Record extraction evidence separately, for example `"extraction": {"ocr_used": false, "method": "structured_json_quote_extraction"}` for quotations sliced from structured digital text, or `"ocr_used": true` with the actual OCR method for scanned text. Leave it unknown when the method is not established. QC labels appear only for evidenced OCR. Do not mark a source non-OCR merely to hide a badge.
 
 For quotations extracted from an article, keep the exact original article or a byte-preserving source bundle. Include the source JSON pointer or text position, exact quotation bounds, and the literal citation. A collection number belongs in `number.in_book` only when that source cites it for this quotation. Related commentary and variant citations should retain their own scope in `references.items`; do not turn a page number, year, app entry ID or parallel report's reference into this quotation's collection number. The [extraction guide](LEGACY-EXTRACTION.md) documents the existing old-bank imports.
 
-The current [source-origin policy](../catalog/provenance-policy.json) also records the owner's source confirmations. It labels the HadeethEnc and currently supplied website-sourced Japanese/Vietnamese materials **Human**, while material copied from the older bank stays **Unknown** until the owner confirms it. This display policy preserves the original import flags and review history. New sources do not inherit the current sources' Human classification merely because they use the same language or book.
+The current [source-origin policy](../catalog/provenance-policy.json) automatically labels **newly supplied nonlegacy books as Human unless their own source explicitly states otherwise**. This applies to future registered books and separately acquired English counterparts. **Copied old-bank and Iman/Quran-study translations remain Unknown**, including when imported later. Original import flags and review history remain unchanged. Missing translator names or missing metadata do not override the new-book Human classification.
+
+If a new source explicitly declares a different translation origin, retain its statement or a precise source locator in `translation_provenance.source_declaration`, with `classification` (`human`, `ai` or `unknown`) and a nonempty `evidence` string. The source declaration takes precedence over the default. OCR, AI extraction, alignment or review is not evidence that the source translation was AI-generated.
 
 ## 2. Register the folder
 

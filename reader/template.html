@@ -49,7 +49,7 @@ __HADITH_UI_ICONS__
             <div class="filter"><label for="source-filter">Source edition</label><select id="source-filter"><option value="">All source editions</option></select></div>
             <div class="filter"><label for="origin-filter">Translation origin</label><select id="origin-filter" aria-describedby="origin-summary"><option value="">All origins</option><option value="human">Human</option><option value="ai">AI</option><option value="unknown">Unknown</option></select></div>
           </div>
-          <details class="origin-info"><summary>About these translations</summary><p id="origin-summary" class="origin-summary" role="status" aria-live="polite"></p></details>
+          <details class="origin-info"><summary>About these translations</summary><p>Newly supplied sources are classified as Human unless the source explicitly states otherwise. Copies from the old bank remain Unknown until confirmed. Each English counterpart follows its own source classification.</p><p id="origin-summary" class="origin-summary" role="status" aria-live="polite"></p></details>
           <div class="options"><p class="section-label">Reading options</p><div class="checks"><label class="check"><input id="show-arabic" type="checkbox"><span>Show Arabic text</span></label><label class="check"><input id="show-english" type="checkbox"><span>Show English text</span></label><label class="check" title="Includes commentary, benefits, footnotes and preserved source context"><input id="include-commentary" type="checkbox"><span>Search commentary &amp; source context</span></label></div></div>
           <details id="material-disclosure" class="material-disclosure"><summary><svg class="icon" aria-hidden="true"><use href="#icon-reader"></use></svg>Browse available materials<svg class="icon disclosure-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg></summary><section class="available-materials" aria-labelledby="available-heading"><div class="available-heading"><h2 id="available-heading" tabindex="-1">Available materials</h2><button id="all-language-materials" class="text-button" type="button" hidden>All collections</button></div><p id="available-summary" class="available-summary"></p><div id="available-materials"></div><p id="available-note" class="available-note" hidden>Material totals follow the selected language and translation origin. Search terms and source-edition choices narrow the narration results.</p></section></details>
           <p class="sidebar-note"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"></use></svg><span>Each result preserves its own source edition and translation.</span></p>
@@ -130,6 +130,11 @@ const originCategory = record => {
   return "unknown";
 };
 const originLabel = record => ({human:"Human",ai:"AI",unknown:"Unknown"}[originCategory(record)]);
+const counterpartTranslationOrigin = data => {
+  const current=data.current_translation_policy && data.current_translation_policy.classification;
+  if(["human","ai","unknown"].includes(current))return current;
+  return ["human","ai","unknown"].includes(data.translation_origin)?data.translation_origin:"unknown";
+};
 const legacyOrigin = item => {const current=item.current_policy && item.current_policy.classification;return ["human","ai","unknown"].includes(current)?current:"unknown";};
 const bookLabel = key => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","targhib-wa-tarhib":"Al-Targhib wa-l-Tarhib (Sahih and Daif)","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};return Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;};
 const languageLabel = code => {
@@ -452,7 +457,7 @@ function languageDisclosure(record,language){
     const credit=element("p","counterpart-source"),url=sourceURL({record_url:data.source_url});
     const source=element(url?"a":"span",null,(data.scope==="external_source"?"Read "+label+" at source · ":"")+(typeof data.source_name==="string" && data.source_name?data.source_name:"Source not named"));
     if(url){source.href=url;source.target="_blank";source.rel="noopener noreferrer";}credit.append(source);
-    if(!arabic)credit.append(document.createTextNode(" · Translation origin: "+({human:"Human",ai:"AI",unknown:"Unknown"}[data.translation_origin] || "Unknown")));
+    if(!arabic)credit.append(document.createTextNode(" · Translation origin: "+({human:"Human",ai:"AI",unknown:"Unknown"}[counterpartTranslationOrigin(data)])));
     content.append(credit);
   }else content.append(element("p","counterpart-note","No "+label+" counterpart is linked in this snapshot. The original source text and references remain below."));
   if(arabic)return inlineArabicReading(heading,content,"counterpart-detail");
