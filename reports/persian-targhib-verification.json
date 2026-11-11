@@ -1,0 +1,99 @@
+{
+  "schema": "hadith-bank-persian-targhib-verification-v1",
+  "status": "source_verified_publication_and_browser_pending",
+  "checked_at_utc": "2026-11-11T13:08:25.231686+00:00",
+  "base_commit": "4083c45eda57070d4941b55450580350fb6249bf",
+  "source_documents": 3,
+  "records": 7304,
+  "source_hashes_verified": true,
+  "record_hashes_verified": true,
+  "unique_occurrence_ids": 7304,
+  "evidence_files_verified": 90,
+  "sources": [
+    {
+      "volume": 1,
+      "source_id": "fa-targhib-bazmandegan-v1",
+      "records": 2416,
+      "source_sha256": "e63b6f070089e91d013f8e4e5757871701d54a4d7aa487c8f98e0e994c7304a4",
+      "records_sha256": "fce410bf6c8d9bac9d992af2b07f3dd6720f5ecdd4c17c63fc922acbda2bf8ef",
+      "by_record_type": {
+        "hadith_occurrence": 1777,
+        "hadith_excerpt": 577,
+        "companion_report": 51,
+        "companion_report_excerpt": 11
+      },
+      "missing_arabic": 21,
+      "missing_translation": 153
+    },
+    {
+      "volume": 2,
+      "source_id": "fa-targhib-bazmandegan-v2",
+      "records": 2834,
+      "source_sha256": "613679de5d9b9bd579c1a79aa6647bf845f239b2887e3736f21d510a906bbede",
+      "records_sha256": "bcccb32360e8bd0b140aa278fd83ba1007cbd4d356c4bb5fc53d19d2606b2176",
+      "by_record_type": {
+        "hadith_occurrence": 2243,
+        "hadith_excerpt": 527,
+        "companion_report": 57,
+        "companion_report_excerpt": 7
+      },
+      "missing_arabic": 6,
+      "missing_translation": 127
+    },
+    {
+      "volume": 3,
+      "source_id": "fa-targhib-bazmandegan-v3",
+      "records": 2054,
+      "source_sha256": "f1b4f5afb2c227350e0fb634aa177e0ce080bd31e4da421592c01206907ca33e",
+      "records_sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558",
+      "by_record_type": {
+        "hadith_occurrence": 1598,
+        "hadith_excerpt": 385,
+        "companion_report": 65,
+        "companion_report_excerpt": 6
+      },
+      "missing_arabic": 20,
+      "missing_translation": 701
+    }
+  ],
+  "source_replay_tests": {
+    "passed": true,
+    "tests": 13
+  },
+  "current_software_tests": {
+    "status": "passed",
+    "tests": 245,
+    "command": "python -m unittest discover -s tests",
+    "additional_transport_tests": "pending"
+  },
+  "current_build": {
+    "status": "pending"
+  },
+  "browser": {
+    "status": "pending",
+    "local_chromium_startup": "unavailable_before_page_load",
+    "rendered_ui_verified": false
+  },
+  "publication": {
+    "status": "pending",
+    "transport": "direct_github_connector_with_lossless_hash_checked_record_restoration",
+    "desktop_commander_used": false
+  },
+  "independent_certification_claimed": false,
+  "limitations": [
+    "Counts are source quotation units, including excerpts and separately typed Companion reports, not unique canonical hadiths.",
+    "47 units lack securely extracted/aligned Arabic; 981 lack securely extracted/aligned Persian. No missing wording was synthesized.",
+    "Three unresolved source-font records retain warnings.",
+    "Targeted editorial and ideological screening does not certify every semantic translation choice."
+  ],
+  "transport_integrity_tests": {
+    "status": "passed",
+    "tests": 12
+  },
+  "transport_existing_records_replay": {
+    "status": "passed",
+    "restored": 0,
+    "reused": 3,
+    "records": 7304
+  }
+}

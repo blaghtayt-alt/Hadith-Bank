@@ -1,0 +1,29 @@
+{
+  "schema": "persian-targhib-content-review-v1",
+  "source_documents": 3,
+  "source_records": 7304,
+  "flagged_editorial_footnotes": 25,
+  "exact_inline_spans_removed": 81,
+  "inline_source_paragraphs": 62,
+  "whole_commentary_handling": "Excluded from narration payload; exact originals and decisions preserved in source audits.",
+  "independent_earlier_prophet_sayings_excluded": 2,
+  "additional_non_hadith_or_uncertain_attribution_units_excluded": 11,
+  "unresolved_original_source_font_records": 3,
+  "sectarian_finding": "The supplied edition contains explicit theological/sectarian/polemical commentary, especially in footnotes, including anti-Shia, anti-Sufi and anti-ta’wil statements. These are attributed editorial views, not words of the hadith. Targeted review did not establish a Shia doctrinal insertion in the quoted matn. Several Persian inline glosses expand the Arabic and should be separated as commentary. Absence of a detected insertion is not full translation certification.",
+  "review_scope_and_limits": "All three DOCX body and footnote XML parts inventoried and searched for theological, sectarian, commentator and explanatory markers. Strong sectarian keyword candidates and selected long/explicit inline gloss candidates examined against adjacent Arabic. Not full character-by-character or semantic verification of every narration; not narrational authenticity assessment or certified release review.",
+  "certified_release_eligible": false,
+  "new_translation_produced": false,
+  "notes": "Original source translation concerns remain attached to affected records. Missing language fields are extracted-unit availability/alignment, not necessarily whole-source absence.",
+  "evidence": "imports/persian-targhib-20261111/evidence-manifest.json",
+  "documentation": "docs/PERSIAN-TARGHIB.md",
+  "retained_translation_qualifications": [
+    {
+      "record_id": "fa-targhib-v1-p00921-u01",
+      "volume": 1,
+      "source_number": "38",
+      "persian_gloss": "(به حلم و فرصت دادن من)",
+      "arabic_context": "أَبِي يَغْتَرُّونَ",
+      "decision": "Preserve supplied translator wording and record its interpretive character separately; not a verbatim Arabic phrase or an exhaustive claim that all translation glosses were removed."
+    }
+  ]
+}

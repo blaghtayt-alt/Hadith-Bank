@@ -131,13 +131,13 @@ const originCategory = record => {
 };
 const originLabel = record => ({human:"Human",ai:"AI",unknown:"Unknown"}[originCategory(record)]);
 const legacyOrigin = item => {const current=item.current_policy && item.current_policy.classification;return ["human","ai","unknown"].includes(current)?current:"unknown";};
-const bookLabel = key => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};return Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;};
+const bookLabel = key => {const labels={hadeethenc:"HadeethEnc",bukhari:"Sahih al-Bukhari",muslim:"Sahih Muslim","abu-dawud":"Sunan Abi Dawud",tirmidhi:"Jami al-Tirmidhi",nasai:"Sunan al-Nasai","al-nasai":"Sunan al-Nasai","ibn-majah":"Sunan Ibn Majah",ahmad:"Musnad Ahmad",malik:"Muwatta Malik",darimi:"Sunan al-Darimi","ibn-hibban":"Sahih Ibn Hibban","adab-al-mufrad":"Al-Adab al-Mufrad","hisn-al-muslim":"Hisn al-Muslim","mishkat-al-masabih":"Mishkat al-Masabih",tabarani:"Al-Tabarani",hakim:"Al-Hakim","200-golden-hadith":"200 Golden Hadith","targhib-wa-tarhib":"Al-Targhib wa-l-Tarhib (Sahih and Daif)","riyadh-al-salihin":"Riyadh al-Salihin","riyad-as-salihin":"Riyadh al-Salihin",shengxunjing:"Shengxunjing",unclassified:"Collection not established"};return Object.prototype.hasOwnProperty.call(labels,key)?labels[key]:key;};
 const languageLabel = code => {
   if(Object.prototype.hasOwnProperty.call(names,code) && typeof names[code]==="string") return names[code];
   try { if(typeof Intl.DisplayNames === "function") return new Intl.DisplayNames(["en"],{type:"language"}).of(code) || code; } catch(_){}
   return code;
 };
-const recordFileURL = (relative, site, protocol) => {
+const recordFileURL = (relative, site, protocol, download=false) => {
   if(typeof relative !== "string" || !relative || /[\\:\u0000-\u001f\u007f]/.test(relative) || relative.startsWith("/")) return null;
   const parts=relative.split("/");
   if(parts.some(part=>!part || part==="." || part==="..")) return null;
@@ -146,7 +146,15 @@ const recordFileURL = (relative, site, protocol) => {
   const repository=site && site.repository_url, reference=site && site.source_ref;
   if(typeof repository!=="string" || !/^https:\/\/github\.com\/[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+\/?$/.test(repository)) return null;
   if(typeof reference!=="string" || !/^[A-Za-z0-9][A-Za-z0-9._/-]*$/.test(reference) || reference.split("/").some(part=>!part || part==="." || part==="..")) return null;
-  return repository.replace(/\/$/,"")+"/blob/"+encodeURIComponent(reference)+"/"+encoded;
+  return repository.replace(/\/$/,"")+(download?"/raw/":"/blob/")+encodeURIComponent(reference)+"/"+encoded+(download?"?download=1":"");
+};
+const sourceDocumentDownload = (source, site) => {
+  const relative=source && source.original_file;
+  if(typeof relative!=="string")return null;
+  const format=relative.match(/\.(docx|doc|pdf)$/i);
+  if(!format)return null;
+  const href=recordFileURL(relative,site,"https:",true);
+  return href?{href,format:format[1].toUpperCase(),filename:relative.split("/").pop()}:null;
 };
 const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
 const isOCR = record => !!(record.extraction && record.extraction.ocr_used===true);
@@ -367,6 +375,8 @@ function sourceFiles(source) {
   if(source.original_file){
     appendLink(offline?"Local source file":"Source file",source.original_file,window.location.protocol);
     if(offline)appendLink("Source file on GitHub",source.original_file,"https:");
+    const download=sourceDocumentDownload(source,site);
+    if(download){const link=element("a",null,"Download "+download.format+(offline?" from GitHub":""));link.href=download.href;link.download=download.filename;link.target="_blank";link.rel="noopener noreferrer";links.append(link);}
   }
   if(source.record_locator && source.record_locator.path)appendLink(offline?"Local record JSON":"Canonical record file",source.record_locator.path,window.location.protocol);
   return links;
