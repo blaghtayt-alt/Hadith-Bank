@@ -79,6 +79,49 @@ class LocalSearchTests(unittest.TestCase):
         self.assertEqual(result['shown'], 1)
         self.assertEqual(result['match_unit'], 'source_line')
 
+    def register_persian(self):
+        path = self.root / 'materials/persian-fixture/records.json'
+        path.parent.mkdir(parents=True)
+        path.write_text('["TEST Persian source"]\n', encoding='utf-8')
+        catalog = self.root / 'catalog/materials.json'
+        catalog.parent.mkdir(parents=True)
+        catalog.write_text(json.dumps({
+            'schema': 'hadith-bank-materials-v1',
+            'materials': [
+                {'language': language, 'canonical_records_path': source.relative_to(self.root).as_posix(),
+                 'canonical_records_sha256': hashlib.sha256(source.read_bytes()).hexdigest()}
+                for language, source in [('ja', self.path), ('fa', path)]
+            ],
+        }), encoding='utf-8')
+        return path, catalog
+
+    def test_registered_language_is_searched_by_default_and_explicitly(self):
+        path, _ = self.register_persian()
+        staged = self.root / 'materials/unaccepted-fixture/records.json'
+        staged.parent.mkdir(parents=True)
+        staged.write_text('["TEST Persian source"]\n', encoding='utf-8')
+        for language in (None, 'fa'):
+            with self.subTest(language=language):
+                result = general_search.fulltext_search(self.root, 'TEST Persian source', language=language)
+                self.assertEqual(result['matched'], 1)
+                self.assertEqual(result['results'][0]['path'], path.relative_to(self.root).as_posix())
+        # The Japanese canonical file is also found through its old language tree.
+        self.assertEqual(general_search.fulltext_search(self.root, 'Distinct collection reference 123')['matched'], 1)
+
+    def test_registered_source_corruption_is_rejected_even_at_zero_limit(self):
+        path, _ = self.register_persian()
+        path.write_bytes(path.read_bytes() + b' ')
+        with self.assertRaisesRegex(ValueError, 'SHA-256 mismatch'):
+            general_search.fulltext_search(self.root, 'TEST', language='fa', limit=0)
+
+    def test_registered_source_cannot_escape_repository(self):
+        _, catalog = self.register_persian()
+        data = json.loads(catalog.read_text(encoding='utf-8'))
+        data['materials'][1]['canonical_records_path'] = '../outside.json'
+        catalog.write_text(json.dumps(data), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Unsafe collection path'):
+            general_search.fulltext_search(self.root, 'TEST', language='fa')
+
     def test_hadeethenc_search_includes_source_translator_and_record_metadata(self):
         for query in ('misri', 'Example source archive', 'Distinct collection reference 123', self.record['record_id']):
             with self.subTest(query=query):

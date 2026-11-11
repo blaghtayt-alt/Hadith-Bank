@@ -1,7 +1,42 @@
 #!/usr/bin/env python3
 """Offline search and source resolution for the independent Hadith Bank."""
-import argparse,hashlib,json,pathlib,sys,unicodedata
+import argparse,hashlib,json,pathlib,re,sys,unicodedata
+from search_hadeethenc import local
 ROOT=pathlib.Path(__file__).resolve().parents[1]
+def source_materials(root):
+ """Read accepted source locations, including material folders outside languages/."""
+ root=pathlib.Path(root).resolve()
+ if (root/'catalog/materials.json').is_file():
+  catalog=json.loads(local(root,'catalog/materials.json').read_text(encoding='utf-8'))
+  if catalog.get('schema')!='hadith-bank-materials-v1':raise ValueError('Unrecognized material catalog')
+  return [{'language':row['language'],'path':row['canonical_records_path'],'sha256':row['canonical_records_sha256']} for row in catalog['materials']]
+ if (root/'datasets/hadeethenc/collections.json').is_file():
+  catalog=json.loads(local(root,'datasets/hadeethenc/collections.json').read_text(encoding='utf-8'))
+  return [{'language':row['language'],'path':row['records_path'],'sha256':row['records_sha256']} for row in catalog['collections']]
+ return []
+def available_languages(root,materials=None):
+ root=pathlib.Path(root).resolve();materials=source_materials(root) if materials is None else materials
+ languages={row['language'] for row in materials}
+ if (root/'organized/INDEX.json').is_file():
+  languages.update(json.loads(local(root,'organized/INDEX.json').read_text(encoding='utf-8'))['languages'])
+ if any(not isinstance(lang,str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9-]*',lang) for lang in languages):raise ValueError('Unsafe source language')
+ return sorted(languages)
+def fulltext_paths(root,language=None):
+ """Keep legacy source formats and include each registered canonical file once."""
+ materials=source_materials(root);languages=available_languages(root,materials);paths=[];seen=set()
+ if language is not None and language not in languages:raise ValueError('Unknown source language: '+str(language))
+ for lang in ([language] if language else languages):
+  for path in sorted((root/'languages'/lang/'books').rglob('*')):
+   if not path.is_file() or path.suffix not in ('.txt','.md','.json','.jsonl'):continue
+   path=local(root,path.relative_to(root).as_posix())
+   if path not in seen:paths.append(path);seen.add(path)
+ for row in materials:
+  if language and row['language']!=language:continue
+  path=local(root,row['path']);expected=row['sha256']
+  if not isinstance(expected,str) or not re.fullmatch(r'[0-9a-fA-F]{64}',expected):raise ValueError('Missing/invalid source SHA-256: '+row['path'])
+  if hashlib.sha256(path.read_bytes()).hexdigest()!=expected.lower():raise ValueError('Source SHA-256 mismatch: '+row['path'])
+  if path not in seen:paths.append(path);seen.add(path)
+ return paths
 def norm(s):return "".join(c for c in unicodedata.normalize("NFKD",str(s)).casefold() if not unicodedata.combining(c))
 def matching_excerpt(text, query, width=350):
  """Show the actual matched characters, even far into a long JSONL record."""
@@ -23,24 +58,21 @@ def matching_excerpt(text, query, width=350):
 def fulltext_search(root,query,language=None,limit=20):
  """Search local source lines; JSONL remains one narration per source line."""
  root=pathlib.Path(root).resolve();matches=[];files=0;matched=0;needle=norm(query)
- for lang in ([language] if language else ["ja","fil","vi","zh-CN","uz","hi"]):
-  for path in sorted((root/"languages"/lang/"books").rglob("*")):
-   if not path.is_file() or path.suffix not in (".txt",".md",".json",".jsonl"):continue
-   if not path.resolve().is_relative_to(root):raise ValueError("Unsafe local search file "+str(path))
-   files+=1
-   with path.open(encoding="utf-8",errors="replace") as stream:
-    for i,line in enumerate(stream,1):
-     line=line.rstrip("\r\n")
-     if needle not in norm(line):continue
-     matched+=1
-     if len(matches)>=max(0,limit):continue
-     hit={"path":path.relative_to(root).as_posix(),"line":i,"excerpt":matching_excerpt(line,query)}
-     if path.suffix==".jsonl":
-      try:
-       record=json.loads(line)
-       if isinstance(record,dict) and record.get("record_id"):hit["record_id"]=record["record_id"]
-      except json.JSONDecodeError:pass
-     matches.append(hit)
+ for path in fulltext_paths(root,language):
+  files+=1
+  with path.open(encoding="utf-8",errors="replace") as stream:
+   for i,line in enumerate(stream,1):
+    line=line.rstrip("\r\n")
+    if needle not in norm(line):continue
+    matched+=1
+    if len(matches)>=max(0,limit):continue
+    hit={"path":path.relative_to(root).as_posix(),"line":i,"excerpt":matching_excerpt(line,query)}
+    if path.suffix==".jsonl":
+     try:
+      record=json.loads(line)
+      if isinstance(record,dict) and record.get("record_id"):hit["record_id"]=record["record_id"]
+     except json.JSONDecodeError:pass
+    matches.append(hit)
  return {"searched_files":files,"matched":matched,"shown":len(matches),"match_unit":"source_line","results":matches}
 def emit(obj):print(json.dumps(obj,ensure_ascii=False,indent=2))
 def verified(loc):
@@ -64,9 +96,10 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);sp=p.add_subparsers(dest="action",required=True)
  q=sp.add_parser("search");q.add_argument("query",nargs="?",default="")
  q.add_argument("--kind",choices=["package","reading","source","lesson","chapter"])
- q.add_argument("--language",choices=["ja","fil","vi","zh-CN","uz","hi"]);q.add_argument("--limit",type=int,default=15)
+ languages=available_languages(ROOT)
+ q.add_argument("--language",choices=languages);q.add_argument("--limit",type=int,default=15)
  r=sp.add_parser("resolve");r.add_argument("id");r.add_argument("--pointer");r.add_argument("--reading",action="store_true")
- f=sp.add_parser("fulltext");f.add_argument("query");f.add_argument("--language",choices=["ja","fil","vi","zh-CN","uz","hi"]);f.add_argument("--limit",type=int,default=20)
+ f=sp.add_parser("fulltext");f.add_argument("query");f.add_argument("--language",choices=languages);f.add_argument("--limit",type=int,default=20)
  a=p.parse_args()
  if a.action=="fulltext":
   emit(fulltext_search(ROOT,a.query,a.language,a.limit));return
