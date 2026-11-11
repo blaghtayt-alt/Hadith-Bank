@@ -156,6 +156,13 @@ const sourceDocumentDownload = (source, site) => {
   const href=recordFileURL(relative,site,"https:",true);
   return href?{href,format:format[1].toUpperCase(),filename:relative.split("/").pop()}:null;
 };
+const sourceDownloadInfo = (source, site) => {
+  const download=sourceDocumentDownload(source,site);
+  if(!download)return null;
+  const label=download.format==="PDF"?"Download original PDF":"Download original Word ("+download.format+")";
+  return {href:download.href,filename:download.filename,label,
+          title:(typeof source.name==="string" && source.name?source.name:download.filename)+" — "+label};
+};
 const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
 const isOCR = record => !!(record.extraction && record.extraction.ocr_used===true);
 const needsOCRReview = record => {
@@ -381,6 +388,14 @@ function sourceFiles(source) {
   if(source.record_locator && source.record_locator.path)appendLink(offline?"Local record JSON":"Canonical record file",source.record_locator.path,window.location.protocol);
   return links;
 }
+function sourceDownloadLink(source) {
+  const download=sourceDownloadInfo(source,site);
+  if(!download)return null;
+  const link=element("a","source-original-download",download.label);
+  link.href=download.href;link.download=download.filename;link.title=download.title;
+  link.target="_blank";link.rel="noopener noreferrer";
+  return link;
+}
 function citationList(items){
   const list=element("ul","citation-list");
   for(const item of items){const row=element("li","citation-item"),data=citationData(item);if(data){row.append(element("div","citation-title",data.label),element("div","citation-scope",data.scope));if(data.source_citation){const quote=element("p","citation-verbatim",data.source_citation);quote.dir="auto";row.append(quote);}}else row.append(element("pre","audit-text",typeof item==="string"?item:JSON.stringify(item,null,2)));list.append(row);}
@@ -441,6 +456,8 @@ function card(record,index) {
   const sourceSummary=element("div","source-summary"),sourceName=element(url?"a":"span",null,sourceLabel(record));
   if(url){sourceName.href=url;sourceName.target="_blank";sourceName.rel="noopener noreferrer";}
   sourceSummary.append(icon("file-text"),sourceName);card.append(sourceSummary);
+  const originalDownload=sourceDownloadLink(record.source);
+  if(originalDownload){const downloads=element("div","source-file-links");downloads.append(originalDownload);card.append(downloads);}
   const sourceDetails=element("details","source-details");sourceDetails.append(element("summary",null,"Source & translation details"),block);card.append(sourceDetails);
   const badges=element("div","badges"), review=record.review || {};
   reviewBadges(record).forEach(item=>badges.append(element("span","badge"+(item.pending?" pending":""),item.label)));
