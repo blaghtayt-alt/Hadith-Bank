@@ -4,36 +4,69 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
+<meta name="theme-color" content="#123c32">
 <meta name="referrer" content="no-referrer">
+<meta name="description" content="Explore Hadith Bank across languages. Search narrations, read original texts, and keep source editions and translation details close at hand.">
 <title>Hadith Bank · Reader</title>
-<style>
-:root{--ink:#173b32;--muted:#64746c;--green:#12644f;--green-dark:#0c4839;--pale:#e8f0e9;--paper:#fbfaf5;--line:#dce3d9;--amber:#875e16;--amber-bg:#fff4d9;--white:#fff;--shadow:0 5px 25px #173b3207}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",sans-serif}button,input,select{font:inherit}button,a,input,select,summary{ -webkit-tap-highlight-color:transparent}button,select,summary{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #43a78a;outline-offset:3px}button{border:1px solid var(--line);background:white;border-radius:8px;padding:9px 14px;color:var(--ink);font-weight:600}button:hover:not(:disabled){background:var(--pale);border-color:#b2cbbd}button:disabled{opacity:.42;cursor:default}a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:var(--green-dark)}.shell{max-width:1180px;margin:auto;padding:0 32px}.masthead{border-bottom:1px solid var(--line);background:#fffdf8}.topline{padding:23px 0;display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:750;font-size:19px;letter-spacing:-.4px}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--green);border-radius:8px;color:var(--green);font:25px/1 Georgia,serif}.offline-label{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}.hero{padding:42px 0 30px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:44px;letter-spacing:-1.2px;line-height:1.15;margin:0 0 12px}.intro{margin:0;color:var(--muted);max-width:620px;font-size:16px}.snapshot-count{flex:none;text-align:right;font-size:13px;color:var(--muted)}.snapshot-count strong{display:block;font-size:31px;line-height:1.2;color:var(--green);font-weight:600}.search-panel{padding:26px;background:white;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.search-label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.search-wrap{display:flex;align-items:center;gap:12px;background:#f9fbf8;border:1px solid #bbcfc2;border-radius:9px;padding:0 15px}.search-icon{font-size:25px;color:var(--green);line-height:1}.search-wrap input{width:100%;border:0;background:transparent;padding:14px 0;font-size:17px;color:var(--ink);outline:0}.search-wrap:focus-within{outline:2px solid #43a78a;outline-offset:2px}.search-hint{font-size:12px;color:var(--muted);margin:7px 0 19px}.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.filter label{display:block;margin-bottom:5px;color:var(--muted);font-size:12px;font-weight:650}.filter select{width:100%;padding:9px 30px 9px 10px;border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink);text-overflow:ellipsis}.options{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-top:19px;padding-top:17px;border-top:1px solid #edf0e9}.checks{display:flex;gap:20px;flex-wrap:wrap}.check{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer}.check input{accent-color:var(--green);width:16px;height:16px;margin:0}.text-button{padding:3px 0;border:0;background:none!important;font-size:13px;color:var(--green)}.results-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:29px 0 17px}.results-toolbar h2{font-size:18px;font-weight:650;margin:0;letter-spacing:-.3px}.result-count{color:var(--muted);font-size:13px;margin-top:2px}.selection-controls{display:flex;align-items:center;gap:13px}.download-button{color:white;background:var(--green);border-color:var(--green);font-size:13px}.download-button:hover:not(:disabled){background:var(--green-dark);color:white;border-color:var(--green-dark)}.record-card{margin-bottom:21px;padding:27px 30px;background:white;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:13px}.eyebrow{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--green);font-weight:750}.book-line{font-size:13px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}.record-select{font-size:12px;white-space:nowrap;flex:none}.record-title{font-size:17px;font-weight:650;line-height:1.6;margin:12px 0 17px;color:#3b574b;white-space:pre-wrap;overflow-wrap:anywhere}.narration{font-size:18px;line-height:1.9;color:#193d33;margin:0 0 23px;white-space:pre-wrap;overflow-wrap:anywhere}.narration.arabic{font-family:"Amiri","Noto Naskh Arabic","Scheherazade New",serif;font-size:25px;line-height:2;text-align:right}.narration:lang(ja),.narration:lang(zh-CN){line-height:2}.source-headings{border-left:2px solid #cfe0d2;padding-left:12px;color:var(--muted);font-size:12px;margin:0 0 20px;white-space:pre-wrap}.source-block{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 28px;padding:19px 0;border-top:1px solid #e7ece3}.meta-item{min-width:0;font-size:13px;overflow-wrap:anywhere}.meta-label{display:block;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.25px;margin-bottom:3px}.meta-value{white-space:pre-wrap}.meta-item.wide{grid-column:1/-1}.source-url{font-size:11px;color:var(--muted);display:block;word-break:break-all;margin-top:3px}.badges{display:flex;flex-wrap:wrap;gap:7px;margin:2px 0 13px}.badge{font-size:11px;padding:3px 8px;border:1px solid #d7e4d7;border-radius:5px;color:#40614e;background:#f3f7f1;overflow-wrap:anywhere}.badge.pending{background:var(--amber-bg);color:var(--amber);border-color:#eddfba}.topic-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}.topic-tag{font-size:11px;color:var(--green);border-radius:20px;background:#edf4ed;padding:3px 9px}.detail{border-top:1px solid #edf0e9;padding-top:11px;margin-top:11px}.detail summary{font-size:12px;font-weight:650;color:var(--muted);padding:3px 0}.detail[open] summary{margin-bottom:13px;color:var(--green)}.detail .narration{font-size:16px;margin-bottom:13px}.detail .narration.arabic{font-size:23px}.audit-text{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#52685b;background:#f8faf6;border:1px solid #e7ece3;border-radius:7px;padding:16px;max-height:400px;overflow:auto}.empty{padding:70px 25px;text-align:center;color:var(--muted);border:1px dashed #cbd9cc;border-radius:12px;background:#fffdf8}.empty h3{margin:0 0 8px;color:var(--ink);font:25px Georgia,serif}.pagination{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:29px 0 42px}.page-meta{font-size:13px;color:var(--muted);text-align:center}.page-buttons{display:flex;gap:8px}.footer{border-top:1px solid var(--line);padding:25px 0 38px;color:var(--muted);font-size:12px}.footer p{margin:0 0 12px;max-width:820px}.about{font-size:12px}.about summary{cursor:pointer;color:var(--green)}.about pre{max-width:100%;overflow-wrap:anywhere;white-space:pre-wrap;font:11px/1.7 ui-monospace,monospace;margin-top:12px}.loading{padding:80px;text-align:center;color:var(--muted)}.error{color:#8b3024;background:#fff3ee;padding:24px;border:1px solid #ebc8be;border-radius:10px}.visually-hidden{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}.no-js{margin:30px;padding:25px;background:#fff4d9;border:1px solid #eddfba} @media(max-width:760px){.shell{padding:0 18px}.hero{padding-top:30px;align-items:flex-start}h1{font-size:35px}.snapshot-count strong{font-size:26px}.snapshot-count{font-size:11px}.intro{font-size:14px}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.search-panel{padding:19px}.record-card{padding:22px 21px}.source-block{grid-template-columns:1fr;gap:13px}.meta-item.wide{grid-column:auto}.results-toolbar{align-items:flex-start}.selection-controls{flex-direction:column;align-items:flex-end;gap:7px}.narration{font-size:17px}.checks{gap:12px}.topline{padding:19px 0}.offline-label{font-size:10px}.pagination{flex-wrap:wrap}.page-meta{order:-1;width:100%}.page-buttons{margin-left:auto}.book-line{font-size:12px}}@media print{.masthead,.search-panel,.selection-controls,.pagination,.footer,.record-select{display:none}.shell{padding:0;max-width:none}.record-card{box-shadow:none;break-inside:avoid}.hero{padding-top:0}.source-url{display:block}.narration{font-size:14px}.record-card details:not([open]){display:none}}
-.narration[dir="rtl"],.record-title[dir="rtl"],.source-headings[dir="rtl"]{text-align:right;unicode-bidi:plaintext}.narration:lang(fa),.narration:lang(ur){line-height:2}.source-headings[dir="rtl"]{border-left:0;border-right:2px solid #cfe0d2;padding-left:0;padding-right:12px}.citation-list{margin:0;padding-left:20px}.citation-item{margin:0 0 15px;overflow-wrap:anywhere}.citation-title{font-size:13px;font-weight:650}.citation-scope{font-size:11px;color:var(--muted);margin:3px 0}.citation-verbatim{font-size:13px;line-height:1.8;white-space:pre-wrap;margin:6px 0}
-</style>
-<style>.materials-panel{margin:0 0 35px;border:1px solid var(--line);border-radius:10px;padding:21px 24px;background:#fffdf8}.materials-panel h2{font-size:18px;margin:0 0 8px}.materials-panel p{color:var(--muted);font-size:13px}.material-list{display:grid;gap:12px}.material-item{font-size:12px;padding:12px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}.material-item strong{display:block;color:var(--ink);margin-bottom:5px}.material-item .meta-value{color:var(--muted)}.materials-panel details+details{margin-top:17px}.materials-panel summary{font-size:13px;font-weight:650;color:var(--green)}</style>
-<style>
-.site-nav{display:flex;align-items:center;justify-content:flex-end;gap:15px;flex-wrap:wrap;font-size:12px}.site-nav a{font-weight:600;white-space:nowrap}.site-nav .reader-download{border:1px solid #c6d8cc;border-radius:7px;padding:7px 11px;background:var(--pale);text-decoration:none}.collection-summary{margin-top:12px;color:var(--green);font-size:12px;font-weight:600}.review-notice{border-left:3px solid #c59331;background:var(--amber-bg);color:#73531b;font-size:13px;margin:0 0 20px;padding:12px 16px;border-radius:0 8px 8px 0}.source-file-links{display:flex;flex-wrap:wrap;gap:5px 12px;margin-top:8px;font-size:12px}.reader-context{font-size:11px;color:var(--muted);margin-top:4px}.footer-nav{display:flex;gap:17px;flex-wrap:wrap;margin-bottom:15px}@media(max-width:760px){.topline{align-items:flex-start;flex-direction:column;gap:13px}.site-nav{justify-content:flex-start;gap:8px 15px}.hero{gap:15px}.collection-summary{font-size:11px}.review-notice{font-size:12px}}@media print{.review-notice{break-inside:avoid}}
-</style>
-<style>
-.origin-summary{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.6}.available-materials{margin-top:20px;padding-top:19px;border-top:1px solid var(--line)}.available-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.available-heading h2{font-size:14px;margin:0;font-weight:700}.available-summary{margin:6px 0 12px;color:var(--muted);font-size:12px}.available-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.material-choice{min-width:0;text-align:left;font-size:12px;font-weight:500;padding:12px 13px}.material-choice strong{display:block;font-weight:700;margin-bottom:3px;overflow-wrap:anywhere}.material-choice span{display:block;color:var(--muted);font-size:11px}.material-choice[aria-pressed="true"]{background:var(--pale);border-color:var(--green)}.language-choices{display:flex;gap:8px;flex-wrap:wrap}.language-choice{font-size:12px;padding:7px 10px}.available-note{font-size:11px;color:var(--muted);margin:10px 0 0}@media(max-width:760px){.available-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.available-grid{grid-template-columns:1fr}.available-heading{align-items:flex-start}.filters{gap:12px 9px}.filter select{font-size:14px}.hero{flex-wrap:wrap}.snapshot-count{text-align:left}.snapshot-count strong{display:inline;font-size:24px;margin-right:6px}}@media print{.available-materials{display:none}}
-</style>
+<style>__HADITH_UI_STYLES__</style>
 </head>
 <body>
-<header class="masthead"><div class="shell"><div class="topline"><div><div class="brand"><span class="brand-mark" aria-hidden="true">≋</span><span id="brand-title">Hadith Bank</span></div><div id="reader-context" class="reader-context">Searchable source editions in every available language</div></div><nav class="site-nav" aria-label="Hadith Bank navigation"><a id="live-reader-link" href="https://blaghtayt-alt.github.io/Hadith-Bank/">Live reader</a><a id="repository-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a><a id="offline-download" class="reader-download" href="hadith-bank-reader.html" download="hadith-bank-reader.html">Download offline reader</a></nav></div></div></header>
-<main class="shell">
-<section class="hero"><div><h1>Read the narrations.</h1><p class="intro">Search the text. Choose a language or collection. Keep the source and translation details in view.</p><div id="collection-summary" class="collection-summary"></div></div><div class="snapshot-count"><strong id="total-count">—</strong>source occurrences</div></section>
-<p id="review-notice" class="review-notice" hidden></p>
-<section class="search-panel" aria-label="Search and filters">
-<label class="search-label" for="query">Find a narration</label><div class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="query" type="search" placeholder="Words, narrators, translators or source references" autocomplete="off" spellcheck="false"></div><p class="search-hint">All search words must match. Japanese, Chinese and Arabic text can be searched directly.</p>
-<div class="filters"><div class="filter"><label for="language-filter">Language</label><select id="language-filter"><option value="">All languages</option></select></div><div class="filter"><label for="book-filter">Collection</label><select id="book-filter"><option value="">All collections</option></select></div><div class="filter"><label for="source-filter">Source edition</label><select id="source-filter"><option value="">All source editions</option></select></div><div class="filter"><label for="origin-filter">Translation origin</label><select id="origin-filter" aria-describedby="origin-summary"><option value="">All</option><option value="human">Human</option><option value="ai">AI</option><option value="unknown">Unknown</option></select></div></div>
-<p id="origin-summary" class="origin-summary" role="status" aria-live="polite"></p>
-<div class="options"><div class="checks"><label class="check"><input id="show-arabic" type="checkbox">Show Arabic text</label><label class="check" title="Includes commentary, benefits, footnotes and preserved source context"><input id="include-commentary" type="checkbox">Search commentary &amp; source context</label></div><button id="reset" class="text-button" type="button">Clear filters</button></div>
-<section class="available-materials" aria-labelledby="available-heading"><div class="available-heading"><h2 id="available-heading" tabindex="-1">Available materials</h2><button id="all-language-materials" class="text-button" type="button" hidden>All collections</button></div><p id="available-summary" class="available-summary"></p><div id="available-materials"></div><p id="available-note" class="available-note" hidden>Material totals follow the selected language and translation origin. Search terms and source-edition choices narrow the narration results below.</p></section>
-</section>
-<section aria-label="Search results"><div class="results-toolbar"><div><h2 id="results-heading" tabindex="-1">Narrations</h2><div class="result-count" id="result-count" role="status" aria-live="polite">Preparing the collection…</div></div><div class="selection-controls"><button type="button" id="download" class="download-button" disabled>Download selected JSON (0)</button><button type="button" id="clear-selection" class="text-button" hidden>Clear selection</button></div></div><div id="results"><div class="loading">Preparing the reading view…</div></div><nav class="pagination" aria-label="Result pages"><button id="previous" type="button" disabled>← Previous</button><div id="page-meta" class="page-meta"></div><div class="page-buttons"><button id="next" type="button" disabled>Next →</button></div></nav></section>
-<section id="other-materials" class="materials-panel" hidden aria-label="Other catalogued materials"><h2>Other catalogued materials</h2><p>These document and dataset listings are separate from the narration search and record count above.</p><div id="other-materials-content"></div></section>
+__HADITH_UI_ICONS__
+<a class="skip-link" href="#results-heading">Skip to narrations</a>
+<header class="masthead">
+  <div class="shell topline">
+    <a class="brand" href="#top" aria-label="Hadith Bank, top of page"><span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-reader"></use></svg></span><span id="brand-title">Hadith Bank</span></a>
+    <nav class="site-nav" aria-label="Hadith Bank navigation">
+      <a id="live-reader-link" class="nav-current" href="https://blaghtayt-alt.github.io/Hadith-Bank/">Read &amp; explore</a>
+      <a id="repository-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Sources<svg class="icon" aria-hidden="true"><use href="#icon-external-link"></use></svg></a>
+      <a id="add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a>
+      <a id="offline-download" class="reader-download" href="hadith-bank-reader.html" download="hadith-bank-reader.html"><svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Download offline reader</span></a>
+    </nav>
+  </div>
+</header>
+<main id="top" class="shell">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-copy"><p class="hero-eyebrow"><span aria-hidden="true"></span>A collection across languages</p><h1 id="page-title">Find a narration.<br><em>Follow its source.</em></h1><p class="intro">A space for thoughtful reading, with original texts, translations and references close at hand.</p></div>
+    <div class="collection-stats"><div class="snapshot-count"><strong id="total-count">—</strong><span>preserved source occurrences</span></div><div class="secondary-stats"><div><strong id="language-count">—</strong><span>languages</span></div><div><strong id="book-count">—</strong><span>collections</span></div></div><p id="reader-context" class="reader-context">Read online. Take your library offline.</p></div>
+    <div id="collection-summary" class="visually-hidden"></div>
+  </section>
+  <section class="search-panel" aria-label="Search narrations">
+    <label class="visually-hidden" for="query">Find a narration</label>
+    <div class="search-wrap"><svg class="icon search-icon" aria-hidden="true"><use href="#icon-magnifying-glass"></use></svg><input id="query" aria-keyshortcuts="Control+K Meta+K" type="search" dir="auto" placeholder="Search words, narrators or source references…" autocomplete="off" spellcheck="false" aria-describedby="search-hint"><button id="clear-query" class="icon-button" type="button" aria-label="Clear search" hidden><svg class="icon" aria-hidden="true"><use href="#icon-cross-2"></use></svg></button><kbd id="search-shortcut" class="search-shortcut" aria-hidden="true">Ctrl K</kbd></div>
+    <p id="search-hint" class="search-hint">Search in any available language. All search words must match.</p>
+  </section>
+  <div class="workspace">
+    <aside class="filter-panel" aria-label="Refine the collection">
+      <details id="filter-disclosure" class="filter-disclosure" open>
+        <summary><span><svg class="icon" aria-hidden="true"><use href="#icon-mixer-horizontal"></use></svg>Refine your reading</span><span class="filter-summary-end"><span id="filter-count" class="filter-count" hidden></span><svg class="icon disclosure-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg></span></summary>
+        <div class="filter-body">
+          <div class="filter-heading"><h2>Filters</h2><button id="reset" class="text-button" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-reset"></use></svg>Reset</button></div>
+          <div class="filters">
+            <div class="filter"><label for="language-filter">Language</label><select id="language-filter"><option value="">All languages</option></select></div>
+            <div class="filter"><label for="book-filter">Collection</label><select id="book-filter"><option value="">All collections</option></select></div>
+            <div class="filter"><label for="source-filter">Source edition</label><select id="source-filter"><option value="">All source editions</option></select></div>
+            <div class="filter"><label for="origin-filter">Translation origin</label><select id="origin-filter" aria-describedby="origin-summary"><option value="">All origins</option><option value="human">Human</option><option value="ai">AI</option><option value="unknown">Unknown</option></select></div>
+          </div>
+          <details class="origin-info"><summary>About these translations</summary><p id="origin-summary" class="origin-summary" role="status" aria-live="polite"></p></details>
+          <div class="options"><p class="section-label">Reading options</p><div class="checks"><label class="check"><input id="show-arabic" type="checkbox"><span>Show Arabic text</span></label><label class="check" title="Includes commentary, benefits, footnotes and preserved source context"><input id="include-commentary" type="checkbox"><span>Search commentary &amp; source context</span></label></div></div>
+          <details id="material-disclosure" class="material-disclosure"><summary><svg class="icon" aria-hidden="true"><use href="#icon-reader"></use></svg>Browse available materials<svg class="icon disclosure-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg></summary><section class="available-materials" aria-labelledby="available-heading"><div class="available-heading"><h2 id="available-heading" tabindex="-1">Available materials</h2><button id="all-language-materials" class="text-button" type="button" hidden>All collections</button></div><p id="available-summary" class="available-summary"></p><div id="available-materials"></div><p id="available-note" class="available-note" hidden>Material totals follow the selected language and translation origin. Search terms and source-edition choices narrow the narration results.</p></section></details>
+          <p class="sidebar-note"><svg class="icon" aria-hidden="true"><use href="#icon-file-text"></use></svg><span>Each result preserves its own source edition and translation.</span></p>
+        </div>
+      </details>
+    </aside>
+    <div class="reading-column">
+      <p id="review-notice" class="review-notice" hidden></p>
+      <section aria-label="Search results">
+        <div class="results-toolbar"><div><p class="section-label results-eyebrow">The reading room</p><h2 id="results-heading" tabindex="-1">Narrations</h2><div class="result-count" id="result-count" role="status" aria-live="polite">Preparing the collection…</div></div><div class="reading-tools"><label class="text-size-label" for="text-size"><svg class="icon" aria-hidden="true"><use href="#icon-text"></use></svg><span class="visually-hidden">Reading text size</span><select id="text-size"><option value="standard">Standard text</option><option value="large">Larger text</option></select></label><div class="selection-controls"><button type="button" id="download" class="download-button" disabled>Download selected JSON (0)</button><button type="button" id="clear-selection" class="text-button" hidden>Clear selection</button></div></div></div>
+        <div id="active-filters" class="active-filters" aria-label="Active filters" hidden></div>
+        <div id="results" aria-busy="true"><div class="loading"><span class="loading-mark" aria-hidden="true"></span><p>Opening the collection…</p><span>Preparing the texts and their sources.</span></div></div>
+        <nav class="pagination" aria-label="Result pages"><button id="previous" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>Previous</button><div id="page-meta" class="page-meta"></div><button id="next" type="button" disabled>Next<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button></nav>
+      </section>
+      <section id="other-materials" class="materials-panel" hidden aria-label="Other catalogued materials"><h2>Other catalogued materials</h2><p>These document and dataset listings are separate from the narration search and record count above.</p><div id="other-materials-content"></div></section>
+    </div>
+  </div>
 </main>
-<footer class="footer"><div class="shell"><p>Each card is a source occurrence. Repeated narrations, source editions and translation versions remain separate. Current review decisions are shown separately from the preserved import history and source-alignment notes.</p><p>Reading and search work offline after you download this page. Local source-file links require the complete bank package; repository links open the preserved source files online. The live reader updates after new material passes the repository build.</p><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Hadith Bank</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each card is a source occurrence. Repeated narrations, source editions and translation versions remain separate. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>Reading and search work offline after you download this page. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
 <noscript><div class="no-js">This offline reader needs JavaScript to search and display the embedded records. No internet connection is required. The accompanying readable Markdown pages provide a script-free view.</div></noscript>
 <script id="hadith-records" type="application/octet-stream" data-encoding="__HADITH_ENCODING__">__HADITH_RECORDS_JSON__</script>
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
@@ -59,6 +92,7 @@ try {
   const message=error && error.message ? error.message : "The embedded data could not be read. Rebuild this reader from the verified source stream.";
   $("results").replaceChildren(Object.assign(document.createElement("div"),{className:"error",textContent:message}));
   $("result-count").textContent="Reader could not load";
+  $("results").setAttribute("aria-busy","false");
   return;
 }
 const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null };
@@ -159,6 +193,10 @@ const searchKeys = records.map(primarySearchKey);
 const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,...sourceContextFields.map(key=>source[key]),narrator.source_context].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 let commentaryKeys = null;
 function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; select.append(option); });select.value=items.has(value)?value:""; }
+function icon(name) {
+  const svg=document.createElementNS("http://www.w3.org/2000/svg","svg"),use=document.createElementNS("http://www.w3.org/2000/svg","use");
+  svg.setAttribute("class","icon");svg.setAttribute("aria-hidden","true");svg.setAttribute("focusable","false");use.setAttribute("href","#icon-"+name);svg.append(use);return svg;
+}
 const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
 const languages=new Map(), books=new Map(), sources=new Map();
 records.forEach(r=>{languages.set(r.language,languageLabel(r.language));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key)+" · "+editionLabel(r));});
@@ -167,15 +205,18 @@ fillFilter("language-filter",languages,"All languages");
 $("brand-title").textContent=snapshot.title || "Hadith Bank";
 document.title=(snapshot.title || "Hadith Bank")+" · Reader";
 $("total-count").textContent=nf.format(records.length);
+$("language-count").textContent=nf.format(languages.size);
+$("book-count").textContent=nf.format(books.size);
 $("collection-summary").textContent=nf.format(languages.size)+" languages · "+nf.format(books.size)+" collections · "+nf.format(sources.size)+" source editions";
 const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Hadith-Bank",live_url:"https://blaghtayt-alt.github.io/Hadith-Bank/",source_ref:"main"};
 $("repository-link").href=site.repository_url;
+$("footer-sources-link").href=site.repository_url;
 $("live-reader-link").href=site.live_url;
 const guideURL=recordFileURL("docs/ADDING-MATERIAL.md",site,"https:");
-if(guideURL) $("add-material-link").href=guideURL;
+if(guideURL){$("add-material-link").href=guideURL;$("footer-add-material-link").href=guideURL;}
 $("offline-download").href=window.location.href.split("#")[0];
 const offline=window.location.protocol==="file:";
-$("reader-context").textContent=(offline?"Downloaded snapshot · reading and search work offline":"Live collection · automatically rebuilt from the source repository")+(site.build_commit?" · "+site.build_commit.slice(0,7):"");
+$("reader-context").textContent=offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
 const pendingOCRCount=records.filter(needsOCRReview).length;
 if(pendingOCRCount){$("review-notice").hidden=false;$("review-notice").textContent=nf.format(pendingOCRCount)+" OCR-extracted source occurrences await OCR review. Review details remain available on those records.";}
 $("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_editions:sources.size,pending_ocr_review:pendingOCRCount,review_display_policy:snapshot.review_display_policy,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:[],scope:"QC labels apply to evidenced OCR extraction. Original source text, translation-origin metadata and review history remain preserved. Reading views do not perform a new independent review."},null,2);
@@ -200,7 +241,7 @@ function renderAvailableMaterials(scope){
   if(!scope.language){
     $("available-summary").textContent="Choose a language to see its available collections and copied-bank documents.";
     const choices=element("div","language-choices");
-    [...languages.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([language,label])=>{const occurrenceCount=records.filter(record=>record.language===language && (!scope.origin || originCategory(record)===scope.origin)).length,documentCount=matchingLegacy(language,scope.origin).length;if(!occurrenceCount && !documentCount)return;const button=element("button","language-choice",label+" · "+nf.format(occurrenceCount)+" occurrences"+(documentCount?" · "+nf.format(documentCount)+" documents":""));button.type="button";button.addEventListener("click",()=>{$("language-filter").value=language;syncMaterialFilters();applyFilters();$("book-filter").focus();});choices.append(button);});
+    [...languages.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([language,label])=>{const occurrenceCount=records.filter(record=>record.language===language && (!scope.origin || originCategory(record)===scope.origin)).length,documentCount=matchingLegacy(language,scope.origin).length;if(!occurrenceCount && !documentCount)return;const button=element("button","language-choice");button.append(element("span","language-name",label),element("span","language-total",nf.format(occurrenceCount)+" occurrences"+(documentCount?" · "+nf.format(documentCount)+" documents":"")));button.type="button";button.addEventListener("click",()=>{$("language-filter").value=language;syncMaterialFilters();applyFilters();$("book-filter").focus();});choices.append(button);});
     if(!choices.childNodes.length)choices.append(element("p","available-note","No material is labeled "+($("origin-filter").selectedOptions[0]?.textContent||"with this origin")+" in this snapshot."));
     container.append(choices);return;
   }
@@ -251,8 +292,8 @@ function citationList(items){
 }
 function card(record,index) {
   const card=element("article","record-card");
-  const top=element("div","card-top"), heading=element("div");
-  heading.append(element("div","eyebrow",languageLabel(record.language)));
+  const top=element("div","card-top"), heading=element("div","card-heading"),eyebrows=element("div","card-eyebrows");
+  eyebrows.append(element("span","eyebrow",languageLabel(record.language)),element("span","origin-badge","Translation: "+originLabel(record)));heading.append(eyebrows);
   heading.append(element("div","book-line",bookLabel(record.book_key)+" · "+numberLabel(record)));
   const select=element("label","check record-select"), checkbox=element("input"); checkbox.type="checkbox"; checkbox.checked=state.selected.has(index); checkbox.setAttribute("aria-label","Select "+record.id); checkbox.addEventListener("change",()=>{checkbox.checked?state.selected.add(index):state.selected.delete(index);updateSelection();}); select.append(checkbox,document.createTextNode("Select")); top.append(heading,select);card.append(top);
   if(record.title){const title=element("h3","record-title",record.title);title.dir=textDirection(record.language);title.lang=record.language;card.append(title);}
@@ -271,7 +312,10 @@ function card(record,index) {
   const origin=element("div","meta-value",originLabel(record));
   block.append(meta("Translation origin",origin,true));
   block.append(meta("Collection & edition",bookLabel(record.book_key)+" · "+editionLabel(record)),meta("Number & page",numberLabel(record)+" · "+pageLabel(record)));
-  card.append(block);
+  const sourceSummary=element("div","source-summary"),sourceName=element(url?"a":"span",null,sourceLabel(record));
+  if(url){sourceName.href=url;sourceName.target="_blank";sourceName.rel="noopener noreferrer";}
+  sourceSummary.append(icon("file-text"),sourceName);card.append(sourceSummary);
+  const sourceDetails=element("details","source-details");sourceDetails.append(element("summary",null,"Source & translation details"),block);card.append(sourceDetails);
   const badges=element("div","badges"), review=record.review || {};
   reviewBadges(record).forEach(item=>badges.append(element("span","badge"+(item.pending?" pending":""),item.label)));
   if(badges.childNodes.length)card.append(badges);
@@ -309,17 +353,18 @@ function render(){
   const start=state.page*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,total), fragment=document.createDocumentFragment();
   if(!total){
     const empty=element("div","empty"),origin=$("origin-filter").value,language=$("language-filter").value,documents=matchingLegacy(language,origin);
-    empty.append(element("h3",null,"No matching narrations"));
+    empty.append(icon("magnifying-glass"),element("h3",null,"No matching narrations"));
     if(origin==="unknown" && documents.length){
       empty.append(element("p",null,"No structured narration occurrences match these Unknown-origin filters. "+nf.format(documents.length)+" copied-bank documents with Unknown origin are available above; document contents are separate from narration search."));
       const show=element("button",null,language?"View copied bank documents":"Choose a language for copied bank documents");show.type="button";
-      show.addEventListener("click",()=>{$("available-heading").scrollIntoView({block:"start"});$("available-heading").focus({preventScroll:true});});empty.append(show);
+      show.addEventListener("click",()=>{$("filter-disclosure").open=true;$("material-disclosure").open=true;$("available-heading").scrollIntoView({block:"start"});$("available-heading").focus({preventScroll:true});});empty.append(show);
     } else if(origin==="ai" && !records.some(record=>(!language || record.language===language) && originCategory(record)==="ai")) empty.append(element("p",null,"No source occurrences are labeled AI in this language selection. Choose All, Human or Unknown to browse available material."));
     else empty.append(element("p",null,"Try fewer words or choose a different language, collection, source edition or translation origin."));
+    const reset=element("button",null,"Reset search and filters");reset.type="button";reset.addEventListener("click",()=>{$("reset").click();$("query").focus();});empty.append(reset);
     fragment.append(empty);
   }
   else state.matches.slice(start,end).forEach(index=>fragment.append(card(records[index],index)));
-  $("results").replaceChildren(fragment);
+  $("results").replaceChildren(fragment);$("results").setAttribute("aria-busy","false");updateActiveFilters();
   $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" matching source occurrences":"0 matching source occurrences";
   $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"No result pages";
   $("previous").disabled=state.page===0;$("next").disabled=!total || state.page===max;updateSelection();
@@ -332,6 +377,32 @@ function applyFilters(){
   state.page=0;render();
 }
 $("query").addEventListener("input",()=>{clearTimeout(state.timer);state.timer=setTimeout(applyFilters,180);});
+function updateActiveFilters(){
+  const container=$("active-filters"),entries=[];
+  if($("query").value.trim())entries.push({id:"query",label:"Search: "+$("query").value.trim()});
+  for(const [id,label] of [["language-filter","Language"],["book-filter","Collection"],["source-filter","Edition"],["origin-filter","Origin"]]){const select=$(id);if(select.value)entries.push({id,label:label+": "+select.selectedOptions[0].textContent});}
+  if($("include-commentary").checked)entries.push({id:"include-commentary",label:"Search commentary"});
+  container.replaceChildren();container.hidden=!entries.length;
+  for(const entry of entries){const button=element("button","filter-chip"),label=element("span",null,entry.label);button.type="button";button.title=entry.label;button.setAttribute("aria-label","Remove "+entry.label);button.append(label,icon("cross-2"));button.addEventListener("click",()=>{clearTimeout(state.timer);const field=$(entry.id);if(field.type==="checkbox")field.checked=false;else field.value="";syncMaterialFilters();applyFilters();$("results-heading").focus({preventScroll:true});});container.append(button);}
+  const filterCount=entries.filter(entry=>entry.id!=="query").length;$("filter-count").hidden=!filterCount;$("filter-count").textContent=String(filterCount);
+  $("clear-query").hidden=!$("query").value;
+}
+$("clear-query").addEventListener("click",()=>{clearTimeout(state.timer);$("query").value="";applyFilters();$("query").focus();});
+$("text-size").addEventListener("change",()=>{document.body.dataset.textSize=$("text-size").value;});
+const compactViewport=window.matchMedia("(max-width: 860px)");
+$("filter-disclosure").open=!compactViewport.matches;
+compactViewport.addEventListener("change",event=>{if(!event.matches || !$("filter-disclosure").contains(document.activeElement))$("filter-disclosure").open=!event.matches;});
+$("search-shortcut").textContent=/Mac|iPhone|iPad/.test(navigator.platform)?"⌘ K":"Ctrl K";
+document.addEventListener("keydown",event=>{
+  if(event.isComposing || event.altKey)return;
+  const editable=event.target.closest("input,textarea,select,[contenteditable]");
+  if(((event.ctrlKey || event.metaKey) && event.key.toLowerCase()==="k") || (event.key==="/" && !editable && !event.ctrlKey && !event.metaKey)){event.preventDefault();$("query").focus();$("query").select();}
+});
+$("query").addEventListener("keydown",event=>{if(event.key==="Escape" && $("query").value){event.preventDefault();$("clear-query").click();}});
+const printDisclosures=[];
+window.addEventListener("beforeprint",()=>{printDisclosures.length=0;document.querySelectorAll(".source-details:not([open])").forEach(node=>{printDisclosures.push(node);node.open=true;});});
+window.addEventListener("afterprint",()=>{printDisclosures.splice(0).forEach(node=>node.open=false);});
+
 ["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).addEventListener("change",()=>{clearTimeout(state.timer);syncMaterialFilters();applyFilters();}));
 $("include-commentary").addEventListener("change",applyFilters);
 $("all-language-materials").addEventListener("click",()=>chooseCollection(""));
