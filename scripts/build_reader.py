@@ -19,6 +19,7 @@ from pathlib import Path, PurePosixPath
 import re
 import sys
 from urllib.parse import urlsplit
+import xml.etree.ElementTree as ET
 
 from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
 
@@ -36,6 +37,12 @@ DEFAULT_SITE = {
     'source_ref': 'main',
 }
 SHA256 = re.compile(r'[0-9a-fA-F]{64}\Z')
+UI_COLOR_SCALES = ('jade', 'sand', 'gold')
+UI_ICON_NAMES = (
+    'reader', 'magnifying-glass', 'mixer-horizontal', 'download', 'external-link',
+    'chevron-right', 'chevron-down', 'arrow-left', 'arrow-right', 'cross-2',
+    'check', 'globe', 'file-text', 'reset', 'text',
+)
 
 
 def local(root, relative):
@@ -596,15 +603,93 @@ def review_display_metadata(root):
     return display
 
 
+def reader_ui_assets(directory):
+    """Verify and inline pinned UI assets; the downloaded reader stays offline."""
+    directory = Path(directory).resolve()
+    manifest = parse_json(local(directory, 'vendor/manifest.json').read_text(encoding='utf-8'))
+    if manifest.get('schema') != 'hadith-bank-vendored-ui-v1':
+        raise ValueError('Unsupported reader UI vendor manifest')
+    assets = {}
+    for package in manifest['packages']:
+        for entry in package['files']:
+            relative = entry['path']
+            if relative in assets:
+                raise ValueError('Duplicate reader UI asset: ' + relative)
+            raw = local(directory, 'vendor/' + relative).read_bytes()
+            if (len(raw) != valid_count(entry.get('bytes'), 'UI asset bytes') or
+                    hashlib.sha256(raw).hexdigest() != valid_hash(entry.get('sha256'), 'UI asset sha256')):
+                raise ValueError('Reader UI asset checksum mismatch: ' + relative)
+            assets[relative] = raw.decode('utf-8')
+    expected = {'radix-colors/' + name + '.css' for name in UI_COLOR_SCALES}
+    expected.update('radix-icons/' + name + '.svg' for name in UI_ICON_NAMES)
+    expected.update(('radix-colors/LICENSE', 'radix-icons/LICENSE'))
+    if set(assets) != expected:
+        raise ValueError('Reader UI vendor manifest must contain exactly the pinned asset set')
+    styles = []
+    for name in ('radix-colors', 'radix-icons'):
+        license_text = assets[name + '/LICENSE']
+        if '*/' in license_text:
+            raise ValueError('Reader UI license cannot contain a CSS comment delimiter')
+        styles.append('/* ' + name + ' — MIT license\n' + license_text.rstrip() + '\n*/')
+    styles.extend(assets['radix-colors/' + name + '.css'] for name in UI_COLOR_SCALES)
+    styles.append(local(directory, 'reading-room.css').read_text(encoding='utf-8'))
+    styles = '\n\n'.join(styles)
+    if re.search(r'</style\b|@import\b|\burl\s*\(', styles, re.I):
+        raise ValueError('Reader UI styles must be self-contained without imports or URL references')
+    symbols = []
+    svg_namespace = '{http://www.w3.org/2000/svg}'
+    allowed_tags = {'svg', 'path', 'g', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon'}
+    allowed_attributes = {
+        'width', 'height', 'viewBox', 'fill', 'fill-rule', 'clip-rule', 'stroke',
+        'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit',
+        'fill-opacity', 'stroke-opacity', 'opacity', 'd', 'x', 'y', 'x1', 'y1',
+        'x2', 'y2', 'cx', 'cy', 'r', 'rx', 'ry', 'points', 'transform',
+    }
+    for name in UI_ICON_NAMES:
+        source = assets['radix-icons/' + name + '.svg']
+        try:
+            svg = ET.fromstring(source)
+        except ET.ParseError as error:
+            raise ValueError('Invalid reader UI SVG: ' + name) from error
+        if svg.tag != svg_namespace + 'svg' or svg.get('viewBox') != '0 0 15 15':
+            raise ValueError('Unexpected reader UI SVG viewport: ' + name)
+        for element in svg.iter():
+            if element.tag.removeprefix(svg_namespace) not in allowed_tags:
+                raise ValueError('Unsupported reader UI SVG element: ' + name)
+            if (set(element.attrib) - allowed_attributes or
+                    any(re.search(r'url\s*\(', value, re.I) for value in element.attrib.values())):
+                raise ValueError('Unsupported reader UI SVG attributes: ' + name)
+        inner = re.fullmatch(r'\s*<svg\b[^>]*>(.*?)</svg>\s*', source, re.S)
+        if inner is None:
+            raise ValueError('Unexpected reader UI SVG wrapper: ' + name)
+        # Keep the upstream path bytes; only replace the outer SVG with a symbol.
+        presentation = ''.join(' ' + attribute + '="' + html.escape(svg.get(attribute), quote=True) + '"'
+                               for attribute in ('fill', 'stroke') if svg.get(attribute) is not None)
+        symbols.append('<symbol id="icon-' + name + '" viewBox="0 0 15 15"' +
+                       presentation + '>' + inner.group(1) + '</symbol>')
+    sprite = ('<svg id="hadith-ui-icons" xmlns="http://www.w3.org/2000/svg" '
+              'aria-hidden="true" focusable="false" width="0" height="0" '
+              'style="position:absolute;overflow:hidden;pointer-events:none">\n' +
+              '\n'.join(symbols) + '\n</svg>')
+    return styles, sprite
+
+
+def render_template(template, replacements):
+    """Replace each template marker exactly once without revisiting source text."""
+    for marker in replacements:
+        if template.count(marker) != 1:
+            raise ValueError('Reader template must contain one ' + marker)
+    pattern = '|'.join(re.escape(marker) for marker in replacements)
+    return re.sub(pattern, lambda match: replacements[match.group(0)], template)
+
+
 def build(root, output, markdown_output=None, compress=True, site=None):
     root = Path(root).resolve()
     output = Path(output).absolute()
     records, catalog, info = load_records(root)
     template_path = Path(__file__).resolve().parents[1] / 'reader' / 'template.html'
     template = template_path.read_text(encoding='utf-8')
-    for marker in ('__HADITH_RECORDS_JSON__', '__HADITH_SNAPSHOT_JSON__', '__HADITH_ENCODING__'):
-        if template.count(marker) != 1:
-            raise ValueError('Reader template must contain one ' + marker)
+    ui_styles, ui_icons = reader_ui_assets(template_path.parent)
     if output.is_symlink() or any(parent.is_symlink() for parent in output.parents):
         raise ValueError('Reader output must not use symlinks')
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
@@ -621,11 +706,12 @@ def build(root, output, markdown_output=None, compress=True, site=None):
         payload = script_json(records)
     replacements = {'__HADITH_RECORDS_JSON__': payload,
                     '__HADITH_ENCODING__': 'gzip-base64' if compress else 'json',
-                    '__HADITH_SNAPSHOT_JSON__': script_json(metadata)}
+                    '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
+                    '__HADITH_UI_STYLES__': ui_styles,
+                    '__HADITH_UI_ICONS__': ui_icons}
     # Substitute against the original template once; source text can itself
     # contain either marker and must never be substituted a second time.
-    document = re.sub(r'__HADITH_(?:(?:RECORDS|SNAPSHOT)_JSON|ENCODING)__',
-                      lambda match: replacements[match.group(0)], template)
+    document = render_template(template, replacements)
     write(output, document)
     result = {**info, 'html_output': str(output), 'html_bytes': output.stat().st_size,
               'source_text_modified': False, 'network_dependencies': [],
