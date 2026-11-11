@@ -1,0 +1,63 @@
+{
+  "schema": "hadith-bank-live-verification-v1",
+  "material_id": "zh-cn-ibn-majah-yu-2013",
+  "status": "published_and_live_verified",
+  "source_commit": "da86e8d9f6cc52680e599cfc175f62e8cd89921b",
+  "deployed_generated_commit": "eedaee1e9699545647ce8686f7a8f5b033f2ae76",
+  "pull_request": 4,
+  "deployment": {
+    "run_id": 43057530254,
+    "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43057530254",
+    "conclusion": "success",
+    "deployed_at_japan": "2026-11-12T01:29:00+09:00"
+  },
+  "software_tests_passed": 389,
+  "source_occurrences": 4354,
+  "source_chapters": 39,
+  "combined_bank_occurrences": 36950,
+  "transport": {
+    "parts_verified": 66,
+    "canonical_files_verified": 94,
+    "report": "reports/chinese-ibn-majah-transport.json"
+  },
+  "live_checks": {
+    "reader_url": "https://blaghtayt-alt.github.io/Hadith-Bank/",
+    "chinese_collection_title": "伊本·马哲圣训集 — Sunan Ibn Majah",
+    "filtered_count": 4354,
+    "translation_label": "Human",
+    "first_record": "zh-ibn-majah-e3bc24bcee435894-c01-n001",
+    "search_query": "你们每个人都有两处居所",
+    "search_results": 1,
+    "search_result_record": "zh-ibn-majah-e3bc24bcee435894-c39-n245",
+    "original_pdf_download_succeeded": true,
+    "downloaded_pdf_bytes": 27176400,
+    "downloaded_pdf_sha256": "e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383",
+    "download_matches_preserved_source": true
+  },
+  "counterpart_coverage": {
+    "total": 4354,
+    "arabic_text": 0,
+    "arabic_link": 0,
+    "arabic_available": 0,
+    "english_text": 0,
+    "english_link": 0,
+    "english_available": 0,
+    "missing_arabic": 4354,
+    "missing_english": 4354,
+    "both_text": 0,
+    "both_available": 0,
+    "arabic_only": 0,
+    "english_only": 0,
+    "neither_available": 4354
+  },
+  "screenshot": {
+    "path": "reports/screenshots/chinese-ibn-majah-live-reader.jpg",
+    "size": 97642,
+    "sha256": "687e3d65ff85830e672f1d3a90288c53ff4eeabdc72e42d9bbe838bfd74f5711",
+    "caption": "Live Chinese Ibn Majah keyword search finds the final source occurrence, chapter 39 entry 245, with the original PDF download."
+  },
+  "source_text_modified": false,
+  "new_extraction_performed": false,
+  "new_translations_created": false,
+  "independent_source_qc_performed": false
+}
