@@ -1,0 +1,416 @@
+{
+  "schema": "hadith-bank-final-source-review-package-audit-v1",
+  "status": "passed",
+  "blockers": [],
+  "repository_head": "e91cac73818c4d96b08b18172c4b3c9c1d32a197",
+  "baseline_commit": "ca5f3f18e682376ce2c91e5f97f4b0d7e24eb4c6",
+  "provider_source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "scope": "Read-only package identities, exact decision objects, ledger coverage, checksums and staged-source paths. No fresh semantic review, full export, preservation certification or publication audit was performed.",
+  "combined_decisions": 13922,
+  "fresh_decisions": 8783,
+  "baseline_decisions_preserved": 593,
+  "residual_provider_ids": 2539,
+  "fresh_positive_provider_ids": 2295,
+  "held_provider_ids": 244,
+  "baseline_registered": 29911,
+  "baseline_held": 6553,
+  "recovered_positive_ids": 4014,
+  "derived_new_ids_since_baseline": 6309,
+  "derived_registered_if_export_passes": 36220,
+  "held_categories": {
+    "source_explanation_or_commentary": 73,
+    "chain_or_introduction_without_report": 1,
+    "source_empty": 169,
+    "missing_marker": 1
+  },
+  "held_nonempty_fields_with_hash_bound_review_evidence": 204,
+  "individually_reviewed_nonempty_fields": {
+    "eng": 2332,
+    "ben": 128,
+    "ara": 237,
+    "urd": 139
+  },
+  "unread_sibling_fields": {
+    "ben": 2147,
+    "ara": 2099,
+    "urd": 1866
+  },
+  "unread_sibling_fields_total": 6112,
+  "complete_disjoint_ledger_assignment": true,
+  "malik_head_out_of_scope_placeholder_entries_ignored": 203,
+  "packages": {
+    "malik-tail": {
+      "decisions": 645,
+      "catalog_parts": 2,
+      "ledger_parts": 1,
+      "whole_and_part_stored_raw_hashes": "passed",
+      "exact_decision_objects_preserved": true,
+      "exact_ledger_object_preserved": true,
+      "complete_occurrence_groups_preserved": true
+    },
+    "muslim": {
+      "decisions": 2836,
+      "catalog_parts": 6,
+      "ledger_parts": 3,
+      "whole_and_part_stored_raw_hashes": "passed",
+      "exact_decision_objects_preserved": true,
+      "exact_ledger_object_preserved": true,
+      "complete_occurrence_groups_preserved": true
+    },
+    "abudawud-nasai": {
+      "decisions": 2722,
+      "catalog_parts": 4,
+      "ledger_parts": 4,
+      "whole_and_part_stored_raw_hashes": "passed",
+      "exact_decision_objects_preserved": true,
+      "exact_ledger_object_preserved": true,
+      "complete_occurrence_groups_preserved": true
+    },
+    "malik-head": {
+      "decisions": 2575,
+      "catalog_parts": 4,
+      "ledger_parts": 3,
+      "whole_and_part_stored_raw_hashes": "passed",
+      "exact_decision_objects_preserved": true,
+      "exact_ledger_object_preserved": true,
+      "complete_occurrence_groups_preserved": true
+    }
+  },
+  "source_and_evidence_inventory": {
+    "catalog/fawaz-review-inputs.json": {
+      "bytes": 7987,
+      "sha256": "fcedab246ba09a93fb20b4ee3850c583398b3725076c78405317415a70d1af99"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/package-manifest.json": {
+      "bytes": 13586,
+      "sha256": "9e0c52e2d7f5acb2ab26dd300610efd3150c6493c3a8e03cbac8ba7cd7acd597"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/cohort-review-summary.json": {
+      "bytes": 3685,
+      "sha256": "91430142d2fd43e3faf45004fc9c50053227a011c81d462944c016311d3ee2d6"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/held-final.json.gz": {
+      "bytes": 15367,
+      "sha256": "3aadb4b8f8043d9129a56fbb76a0a6588bd99564ca3d209ab9c19ecbe871f24e"
+    },
+    "catalog/fawaz-reviewed-spans.json": {
+      "bytes": 1190914,
+      "sha256": "8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c"
+    },
+    "reports/fawaz-import-review/continuation-20261113/recovery/recovered-catalog.json.gz": {
+      "bytes": 416490,
+      "sha256": "f6bd06c8aecbb216505a4fda8f704f04fd082a2334f69432cae062fea42d2047"
+    },
+    "reports/fawaz-import-review/continuation-20261113/recovery/phase01-source-reviews.tar.gz": {
+      "bytes": 392914,
+      "sha256": "82693051a2400882d3730234e10a6105bbd944405a5285cc5a8827f70be41eb2"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/bukhari.json.gz": {
+      "bytes": 1919,
+      "sha256": "967e8a7ad2af2e5041abf22b162d416b603c07dde4536aebe95d81fd65bbc715"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-001.json.gz": {
+      "bytes": 35809,
+      "sha256": "ee57adf3d0358ab1debb2f3187c7816c902931b45134faa4d34d8b6fd198bafa"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-002.json.gz": {
+      "bytes": 33494,
+      "sha256": "696ffe359423530910114da10d24d05336fd0e2287ad1a0aa99a7ce1dab78e48"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-003.json.gz": {
+      "bytes": 63029,
+      "sha256": "eb5a15b237a180161bb2b3128ae92080397000685e8045233d82a1990008a359"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-004.json.gz": {
+      "bytes": 64648,
+      "sha256": "0540c0c4e988e4187a8104c5b941d051f6757d8f9c363b3d443a4aaf3a28e98e"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-005.json.gz": {
+      "bytes": 33612,
+      "sha256": "1b19bdac02ca4f731cb198aba74ae49114cd7a2daa63bbab08d890795f4f1492"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-006.json.gz": {
+      "bytes": 36877,
+      "sha256": "98f90ec9fce4a8e8ceb95f2c1fbee44d1d0ef6aa1efbdaa01366a8da5ba9be64"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-001.json.gz": {
+      "bytes": 59378,
+      "sha256": "6c1b7b3adc5c5d6ef64ecb7ca7baf3928a454a7d02b92fc2f4f5b751ce5634dc"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-002.json.gz": {
+      "bytes": 61771,
+      "sha256": "906150733eb48c3f979501e626418db2a8f2c7d90fe2d4b8d5d48b15740aa5bf"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-003.json.gz": {
+      "bytes": 57733,
+      "sha256": "d03e2922cb2c7091dac0b717b23e72932789d26813386c66e7ae653b59606c97"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-004.json.gz": {
+      "bytes": 48273,
+      "sha256": "678c0e4904a8ee2ea3a9070f66729ddb2cb86181dc090da23748cfadcb67f456"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-001.json.gz": {
+      "bytes": 44792,
+      "sha256": "7bca87389b8c875a7b5aa753a7024de8c3ab3b91640b58713e82f8e4ad971195"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-002.json.gz": {
+      "bytes": 42421,
+      "sha256": "2165241462e0295ee2ee5b3e6b9414184bfcaeed4a12596898644c15d02b3d52"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-003.json.gz": {
+      "bytes": 41913,
+      "sha256": "01e0b6eaf6bb58b23337d755b9122471f2dd1e7a6d1a09584c71217990ae6a27"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-004.json.gz": {
+      "bytes": 44264,
+      "sha256": "939652f43355a5da0ff665b877a4ca957aa730ab729f7c2bbb640e98a1636f11"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-001.json.gz": {
+      "bytes": 38100,
+      "sha256": "1031da123cd3c6f86d2cc317c55e3ce9a26e4a1637858cf6c7d7b4c9b801fd42"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-002.json.gz": {
+      "bytes": 32317,
+      "sha256": "6d4059e4265cea41b68801ebb9756cd176426bfe1f649aad64109e6c5849636d"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-ledger.json.gz": {
+      "bytes": 40630,
+      "sha256": "f7c584f1df2e46083a7dae649b9c37e83155eaee7b70e8ccfde7f182c1b250e0"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "7b906e8cc71619fe20ce842f49aed71967374507c7c104331e6679a1d4ed5c97"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "6a229d245a1b188206fb1d4276116ed46a7a44c17e27d40ebc31b97d12e55735"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-003": {
+      "bytes": 22925,
+      "sha256": "5125b995d4622d0d5a485b5646a7ca40e3d5d2d5e6af646643ed9f0a7cb7fc6d"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "933f8ac40aa4e2b4fe2dd1071f74c9d1fde74a95a0e94e61d38c78043b8f5bc0"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "bfa8b7b44b15c5bbfc28d6b09a43a51ecbdbbdb59e986d8462995ec59c6854a7"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-003": {
+      "bytes": 65536,
+      "sha256": "b2b8bc723a42469005ff17f7c3bd9a5a521c6234e72aeec7e20989bc7c82face"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-004": {
+      "bytes": 12367,
+      "sha256": "44141cd9220e6bce1ebbb15bec2757a567869b7d9e0363a20d9e41aadefde43b"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "617b3b3c32acde8a9cb02235f031dd4b33b6b151ddaf5bca9a10c71330823d5f"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "adef4d0e33c2a224c339a2c78a1e17e5cca01165f49869f89bc7d814070a2fa8"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-003": {
+      "bytes": 56929,
+      "sha256": "faa28265fae75e289050f9df5d40713768022827e15785e516f88f07333c4d93"
+    },
+    ".work/residual-source/abudawud.json": {
+      "bytes": 2808742,
+      "sha256": "5ca2cf7525293867c5637f86315b39357b9f17f69faa0eb177308ddf5b425e7a"
+    },
+    ".work/residual-source/bukhari.json": {
+      "bytes": 42019,
+      "sha256": "167dce237feea4a25b7ca07f859e01aa2fb73b6bf6212a02c052aedc8b9c0c55"
+    },
+    ".work/residual-source/ibnmajah.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    ".work/residual-source/malik.json": {
+      "bytes": 6726559,
+      "sha256": "41fbabf507c6408109c654ec666ef7433cf020e4b5c302933dfbd6c0aa1a62ee"
+    },
+    ".work/residual-source/muslim.json": {
+      "bytes": 4054741,
+      "sha256": "c354f377b84762114322213b37374f1484ec1b2194693639e42ad4727ce4f153"
+    },
+    ".work/residual-source/nasai.json": {
+      "bytes": 3038469,
+      "sha256": "6f6b0929be3c9c595e55685040e6591043e0c99759f34cf4ab31eba7a6f9d4b2"
+    },
+    ".work/residual-source/nawawi.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    ".work/residual-source/tirmidhi.json": {
+      "bytes": 32046,
+      "sha256": "3b4a0ca10eeec182112416b3bcbd4cc1b24b0b8de3cdfc8eff22660dd374f686"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-secondary-audit.json": {
+      "bytes": 45748,
+      "sha256": "ab62a77c6f149de5ce0c1285499156cd2449eb6010e98c1977bde5e7f2d9d446"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/bukhari-ledger.json": {
+      "bytes": 6824,
+      "sha256": "97dd7e83c77774824dca3522098fc1fd8416cb0de00cdea61f883136d3c438a3"
+    }
+  },
+  "staged_source_paths": {
+    "catalog/fawaz-review-inputs.json": {
+      "bytes": 7987,
+      "sha256": "fcedab246ba09a93fb20b4ee3850c583398b3725076c78405317415a70d1af99"
+    },
+    "docs/FAWAZ-TRANSFER-RECOVERY.md": {
+      "bytes": 7889,
+      "sha256": "fe544d63b01dd159ef7501315effa77e53fe919990ad7c42655a70cfad574e17"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "933f8ac40aa4e2b4fe2dd1071f74c9d1fde74a95a0e94e61d38c78043b8f5bc0"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "bfa8b7b44b15c5bbfc28d6b09a43a51ecbdbbdb59e986d8462995ec59c6854a7"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-003": {
+      "bytes": 65536,
+      "sha256": "b2b8bc723a42469005ff17f7c3bd9a5a521c6234e72aeec7e20989bc7c82face"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-ledger.json.gz.part-004": {
+      "bytes": 12367,
+      "sha256": "44141cd9220e6bce1ebbb15bec2757a567869b7d9e0363a20d9e41aadefde43b"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-001.json.gz": {
+      "bytes": 59378,
+      "sha256": "6c1b7b3adc5c5d6ef64ecb7ca7baf3928a454a7d02b92fc2f4f5b751ce5634dc"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-002.json.gz": {
+      "bytes": 61771,
+      "sha256": "906150733eb48c3f979501e626418db2a8f2c7d90fe2d4b8d5d48b15740aa5bf"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-003.json.gz": {
+      "bytes": 57733,
+      "sha256": "d03e2922cb2c7091dac0b717b23e72932789d26813386c66e7ae653b59606c97"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-004.json.gz": {
+      "bytes": 48273,
+      "sha256": "678c0e4904a8ee2ea3a9070f66729ddb2cb86181dc090da23748cfadcb67f456"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/bukhari-ledger.json": {
+      "bytes": 6824,
+      "sha256": "97dd7e83c77774824dca3522098fc1fd8416cb0de00cdea61f883136d3c438a3"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/cohort-review-summary.json": {
+      "bytes": 3685,
+      "sha256": "91430142d2fd43e3faf45004fc9c50053227a011c81d462944c016311d3ee2d6"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/held-final.json.gz": {
+      "bytes": 15367,
+      "sha256": "3aadb4b8f8043d9129a56fbb76a0a6588bd99564ca3d209ab9c19ecbe871f24e"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "617b3b3c32acde8a9cb02235f031dd4b33b6b151ddaf5bca9a10c71330823d5f"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "adef4d0e33c2a224c339a2c78a1e17e5cca01165f49869f89bc7d814070a2fa8"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-ledger.json.gz.part-003": {
+      "bytes": 56929,
+      "sha256": "faa28265fae75e289050f9df5d40713768022827e15785e516f88f07333c4d93"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-001.json.gz": {
+      "bytes": 44792,
+      "sha256": "7bca87389b8c875a7b5aa753a7024de8c3ab3b91640b58713e82f8e4ad971195"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-002.json.gz": {
+      "bytes": 42421,
+      "sha256": "2165241462e0295ee2ee5b3e6b9414184bfcaeed4a12596898644c15d02b3d52"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-003.json.gz": {
+      "bytes": 41913,
+      "sha256": "01e0b6eaf6bb58b23337d755b9122471f2dd1e7a6d1a09584c71217990ae6a27"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-004.json.gz": {
+      "bytes": 44264,
+      "sha256": "939652f43355a5da0ff665b877a4ca957aa730ab729f7c2bbb640e98a1636f11"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-validation.json": {
+      "bytes": 5620,
+      "sha256": "4b792d9f2008095a36c81f8445c5529ae53de36014e8bd8931f3e80075ef67a5"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-ledger.json.gz": {
+      "bytes": 40630,
+      "sha256": "f7c584f1df2e46083a7dae649b9c37e83155eaee7b70e8ccfde7f182c1b250e0"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-001.json.gz": {
+      "bytes": 38100,
+      "sha256": "1031da123cd3c6f86d2cc317c55e3ce9a26e4a1637858cf6c7d7b4c9b801fd42"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-002.json.gz": {
+      "bytes": 32317,
+      "sha256": "6d4059e4265cea41b68801ebb9756cd176426bfe1f649aad64109e6c5849636d"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-secondary-audit.json": {
+      "bytes": 45748,
+      "sha256": "ab62a77c6f149de5ce0c1285499156cd2449eb6010e98c1977bde5e7f2d9d446"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-secondary-audit.md": {
+      "bytes": 4062,
+      "sha256": "0531e05457c3973b4250c0b07c84268d5cc154d7d77d1810e526e4b1fa7818af"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-001": {
+      "bytes": 65536,
+      "sha256": "7b906e8cc71619fe20ce842f49aed71967374507c7c104331e6679a1d4ed5c97"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-002": {
+      "bytes": 65536,
+      "sha256": "6a229d245a1b188206fb1d4276116ed46a7a44c17e27d40ebc31b97d12e55735"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-ledger.json.gz.part-003": {
+      "bytes": 22925,
+      "sha256": "5125b995d4622d0d5a485b5646a7ca40e3d5d2d5e6af646643ed9f0a7cb7fc6d"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-001.json.gz": {
+      "bytes": 35809,
+      "sha256": "ee57adf3d0358ab1debb2f3187c7816c902931b45134faa4d34d8b6fd198bafa"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-002.json.gz": {
+      "bytes": 33494,
+      "sha256": "696ffe359423530910114da10d24d05336fd0e2287ad1a0aa99a7ce1dab78e48"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-003.json.gz": {
+      "bytes": 63029,
+      "sha256": "eb5a15b237a180161bb2b3128ae92080397000685e8045233d82a1990008a359"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-004.json.gz": {
+      "bytes": 64648,
+      "sha256": "0540c0c4e988e4187a8104c5b941d051f6757d8f9c363b3d443a4aaf3a28e98e"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-005.json.gz": {
+      "bytes": 33612,
+      "sha256": "1b19bdac02ca4f731cb198aba74ae49114cd7a2daa63bbab08d890795f4f1492"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-006.json.gz": {
+      "bytes": 36877,
+      "sha256": "98f90ec9fce4a8e8ceb95f2c1fbee44d1d0ef6aa1efbdaa01366a8da5ba9be64"
+    },
+    "reports/fawaz-import-review/continuation-20261113/fresh-reviews/package-manifest.json": {
+      "bytes": 13586,
+      "sha256": "9e0c52e2d7f5acb2ab26dd300610efd3150c6493c3a8e03cbac8ba7cd7acd597"
+    }
+  },
+  "staged_generated_material_or_site_paths": [],
+  "staged_snapshot_sha256": "39e644061500d9e62d43380f3cf3f59d5fb2261c11d974b8dc2777f1dae6deb2",
+  "input_and_index_stability_recheck": "passed",
+  "not_reverified": [
+    "Full generated export preservation against 29911 baseline records",
+    "Reader generation or UI",
+    "Remote upload and publication",
+    "Missing historical 6331 candidate artifact"
+  ]
+}

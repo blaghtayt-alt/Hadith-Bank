@@ -80,3 +80,49 @@ source fields and non-narration context.
 These controls verify data transfer and source preservation. They do not claim
 new translation, independent certification, authenticity grading or rights
 clearance.
+
+## Completed residual source review
+
+The recovered inputs leave a finite cohort of 2,539 provider IDs. The continuation
+review accounts for every one: 2,295 have a selected own-language report and 244
+remain outside narration display. Together with the 4,014 recovered additions,
+the source decisions predict 6,309 additions, 36,220 registered IDs and 244 held
+IDs. These are source-decision totals; the written export, preservation audit and
+deployment must independently confirm them.
+
+The 244 held IDs consist of 169 entries empty in every supplied language, one
+literal missing marker, one chain/introduction without supplied report text, and
+73 explanation/commentary entries. Every nonempty language field of every held
+ID was individually inspected. The machine-readable
+[cohort summary](../reports/fawaz-import-review/continuation-20261113/fresh-reviews/cohort-review-summary.json)
+and [held ledger](../reports/fawaz-import-review/continuation-20261113/fresh-reviews/held-final.json.gz)
+record the scope and reasons.
+
+Provider-ID completion is distinct from language-field review. The fresh review
+retains 6,112 unread sibling fields (Arabic 2,099; Urdu 1,866; Bengali 2,147) as
+complete, explicitly pending source context. They are not admitted as quotations
+or indexed as narration text by analogy with an English field. Different content
+under the same provider number remains source-specific. The earlier claimed
+36,242/222 finished artifact was not recovered; its counts are not used to select
+or reject any entry.
+
+New decision catalogs are partitioned by provider ID into deterministic gzip
+files no larger than 64 KiB. This is an internal transfer choice, not a GitHub
+file limit. The assembler verifies every stored and expanded checksum and rejects
+repeated decision identities. Packaging compares every reconstructed decision
+with its complete original JSON value; no source wording or report metadata is
+changed by partitioning.
+
+The [package manifest](../reports/fawaz-import-review/continuation-20261113/fresh-reviews/package-manifest.json)
+also inventories the full review ledgers. When a ledger has several stored
+parts, concatenate their bytes in the listed order, verify the whole stored
+size/hash, decompress once, then verify the expanded size/hash. These evidence
+parts are not individually gzip streams. The runtime quotation loader consumes
+only the separate complete decision catalogs listed in
+`catalog/fawaz-review-inputs.json`.
+
+An additional content review of the Malik tail inspected all 172 selected
+own-language fields and every nonempty field of its 34 held records. It corrected
+one speaker-evidence locator for Malik 1444 without changing the quotation or
+admission. Its [scope and result](../reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-secondary-audit.md)
+remain separate from the automated source-preservation checks.
