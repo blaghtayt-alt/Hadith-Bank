@@ -17,6 +17,7 @@ PROGRESS = {
     'hadisuz': 'imports/web-hadisuz-20261112/progress.json',
 }
 STOP_FILE = 'imports/web-import-worker-stops.json'
+BEFORE_STATUS = '.work/web-import-batch/before-status.json'
 
 
 def read_json(path, fallback=None):
@@ -192,17 +193,60 @@ def summarize(root, plan):
     }
 
 
+def continuation_request(root):
+    """Request another finite batch only after a validated, productive batch.
+
+    This is advisory. The workflow may dispatch it only after the source
+    checkpoint has actually been saved. A status-only refresh must not replace
+    the before-batch receipt or turn an idle/error loop into fresh progress.
+    """
+    plan = read_json(root / 'catalog/web-import-plan.json', {})
+    before = read_json(root / BEFORE_STATUS, {})
+    diagnostic = read_json(root / '.work/web-import-batch/status.json', {})
+    result = {'schema': 'hadith-bank-finite-import-continuation-v1',
+              'continue': False, 'sources': [],
+              'reason': 'no_validated_productive_authorized_source'}
+    if (not plan.get('enabled') or diagnostic.get('validation_state') != 'passed'
+            or not isinstance(before.get('source_status'), list)):
+        return result
+    previous = {item['source']: item for item in before['source_status']}
+    for current in summarize(root, plan)['source_status']:
+        name = current['source']
+        settings = plan.get('sources', {}).get(name, {})
+        original = previous.get(name)
+        if (not settings.get('continue_after_success') or original is None
+                or not current.get('enabled') or current.get('excluded_by_owner')
+                or current.get('blocked') or current.get('worker_stop')
+                or current.get('startup_stopped') or not current.get('has_fetch_work')
+                or current['fetched_entries'] <= original.get('fetched_entries', 0)):
+            continue
+        result['sources'].append({'source': name,
+            'before_fetched': original['fetched_entries'],
+            'after_fetched': current['fetched_entries'],
+            'remaining_requests': current.get('pending_requests')})
+    if result['sources']:
+        result['continue'] = True
+        result['reason'] = 'validated_new_source_pages_and_remaining_authorized_queue'
+    return result
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--status-only', action='store_true')
+    parser.add_argument('--continuation-request', action='store_true',
+                        help='Report whether a successfully saved batch may continue; do not fetch or dispatch')
     args = parser.parse_args(argv)
     root = args.root.resolve()
     plan = read_json(root / 'catalog/web-import-plan.json')
     if not isinstance(plan, dict) or plan.get('schema') != 'hadith-bank-web-import-plan-v1':
         raise ValueError('Missing authorized web-import plan')
+    if args.continuation_request:
+        print(json.dumps(continuation_request(root), ensure_ascii=False))
+        return 0
     stops = read_json(root / STOP_FILE, {})
     if plan.get('enabled') and not args.status_only:
+        write_changed(root / BEFORE_STATUS, summarize(root, plan))
         pending = [name for name in PROGRESS if name not in stops and plan['sources'][name]['enabled']
                    and not plan['sources'][name].get('excluded_by_owner')
                    and source_status(root, name)['has_fetch_work']]

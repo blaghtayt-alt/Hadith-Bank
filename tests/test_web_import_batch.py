@@ -322,6 +322,55 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertFalse(status['fetch_queues_done'])
         self.assertEqual(self.read('.work/web-import-batch/status.json')['validation_state'], 'passed')
 
+    def test_finite_continuation_needs_opt_in_and_new_fetched_pages(self):
+        self.plan['sources']['deenhindi']['continue_after_success'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+
+        def productive(root, name, settings, logs):
+            self.progress(name, 'pending', count=1)
+            return {'source': name, 'exit_code': 0}
+
+        self.assertEqual(self.run_batch(productive), 0)
+        request = batch.continuation_request(self.root)
+        self.assertTrue(request['continue'])
+        self.assertEqual([item['source'] for item in request['sources']], ['deenhindi'])
+        before = (self.root / batch.BEFORE_STATUS).read_bytes()
+        self.run_batch(productive, None, '--status-only')
+        self.assertEqual((self.root / batch.BEFORE_STATUS).read_bytes(), before)
+        self.assertTrue(batch.continuation_request(self.root)['continue'])
+        # A second batch with no successful new pages cannot perpetuate itself.
+        self.assertEqual(self.run_batch(productive), 0)
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+
+    def test_finite_continuation_stops_for_completion_access_stop_or_withdrawal(self):
+        self.plan['sources']['deenhindi']['continue_after_success'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        batch.write_changed(self.root / batch.BEFORE_STATUS, batch.summarize(self.root, self.plan))
+        batch.write_changed(self.root / '.work/web-import-batch/status.json', {'validation_state': 'passed'})
+        for state in ('done', 'blocked', 'failed'):
+            with self.subTest(state=state):
+                self.progress('deenhindi', state, count=1)
+                self.assertFalse(batch.continuation_request(self.root)['continue'])
+        self.progress('deenhindi', 'pending', count=1)
+        batch.write_changed(self.root / batch.STOP_FILE, {'deenhindi': {'blocked': True}})
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+        batch.write_changed(self.root / batch.STOP_FILE, {})
+        self.plan['sources']['deenhindi']['excluded_by_owner'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+
+    def test_finite_continuation_requires_a_validated_before_and_after_receipt(self):
+        self.plan['sources']['deenhindi']['continue_after_success'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        batch.write_changed(self.root / batch.BEFORE_STATUS, batch.summarize(self.root, self.plan))
+        self.progress('deenhindi', 'pending', count=1)
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+        batch.write_changed(self.root / '.work/web-import-batch/status.json', {'validation_state': 'failed'})
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+        batch.write_changed(self.root / '.work/web-import-batch/status.json', {'validation_state': 'passed'})
+        (self.root / batch.BEFORE_STATUS).unlink()
+        self.assertFalse(batch.continuation_request(self.root)['continue'])
+
 
 if __name__ == '__main__':
     unittest.main()

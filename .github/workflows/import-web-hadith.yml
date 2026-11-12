@@ -151,6 +151,25 @@ jobs:
         # A GITHUB_TOKEN source push does not trigger another workflow. Keep
         # dispatch separate so the next no-diff run can recover a lost request.
         run: gh workflow run reader-pages.yml --ref main
+      - name: Continue the authorized Hindi queue after saved progress
+        id: continuation
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # This step runs only after tests, validation, source save and reader
+        # dispatch succeeded. The same concurrency group serializes batches.
+        run: |
+          python scripts/web_import_batch.py --root . --continuation-request > .work/web-import-batch/continuation-request.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import subprocess
+          request = json.loads(Path('.work/web-import-batch/continuation-request.json').read_text())
+          if request['continue']:
+              print('Continuing validated source queues:', ', '.join(item['source'] for item in request['sources']))
+              subprocess.run(['gh', 'workflow', 'run', 'import-web-hadith.yml', '--ref', 'main'], check=True)
+          else:
+              print('No productive authorized source requires another immediate batch.')
+          PY
       - name: Record the run outcome and source progress
         if: always()
         env:
