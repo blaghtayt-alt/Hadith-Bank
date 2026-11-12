@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**36,950 source occurrences**: Arabic text 25,787; English text 9,342; English source links 2,677.
+**36,950 source occurrences**: Arabic text 25,942; English text 9,569; English source links 2,677.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -10,19 +10,19 @@ Text and external-only links are counted separately. An English source link requ
 
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
-| fa | 14,382 | 13,910 | 463 | 13 | 472 | 13,906 |
-| fil | 2,056 | 2,017 | 2,002 | 0 | 39 | 54 |
-| hi | 2,584 | 2,552 | 2,406 | 0 | 32 | 178 |
-| ja | 2,237 | 349 | 309 | 0 | 1,888 | 1,928 |
-| uz | 552 | 505 | 450 | 0 | 47 | 102 |
-| vi | 4,555 | 1,262 | 1,244 | 0 | 3,293 | 3,311 |
-| zh-CN | 10,584 | 5,192 | 2,468 | 2,664 | 5,392 | 5,452 |
+| fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
+| fil | 2,056 | 2,017 | 1,998 | 0 | 39 | 58 |
+| hi | 2,584 | 2,552 | 2,404 | 0 | 32 | 180 |
+| ja | 2,237 | 366 | 327 | 0 | 1,871 | 1,910 |
+| uz | 552 | 505 | 452 | 0 | 47 | 100 |
+| vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
+| zh-CN | 10,584 | 5,245 | 2,521 | 2,664 | 5,339 | 5,399 |
 
 ## By source edition
 
 | Source edition | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---|---:|---:|---:|---:|---:|---:|
-| chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd | vi | 200 | 0 | 0 | 0 | 200 | 200 |
+| chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd | vi | 200 | 85 | 84 | 0 | 115 | 116 |
 | chanlyislam:vi:abu-dawud:pdf-03e704068cea5733 | vi | 140 | 0 | 0 | 0 | 140 | 140 |
 | chanlyislam:vi:abu-dawud:pdf-0a15d0d1891beb6b | vi | 145 | 0 | 0 | 0 | 145 | 145 |
 | chanlyislam:vi:abu-dawud:pdf-3a8ed94e7b53ee9c | vi | 138 | 0 | 0 | 0 | 138 | 138 |
@@ -68,29 +68,29 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
-| fa-faiz-al-bari-v2 | fa | 451 | 381 | 37 | 0 | 70 | 414 |
+| fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
 | fa-faiz-al-bari-v4 | fa | 466 | 400 | 34 | 0 | 66 | 432 |
 | fa-faiz-al-bari-v5 | fa | 337 | 314 | 12 | 0 | 23 | 325 |
 | fa-faiz-al-bari-v6 | fa | 457 | 408 | 45 | 0 | 49 | 412 |
-| fa-muslim-mundhiri-tarshabi-v1 | fa | 1,104 | 1,084 | 37 | 0 | 20 | 1,067 |
+| fa-muslim-mundhiri-tarshabi-v1 | fa | 1,104 | 1,084 | 40 | 0 | 20 | 1,064 |
 | fa-muslim-mundhiri-tarshabi-v2 | fa | 1,128 | 1,118 | 32 | 0 | 10 | 1,096 |
-| fa-riyadh-heravi-1394-digital | fa | 1,946 | 1,936 | 58 | 0 | 10 | 1,888 |
-| fa-targhib-bazmandegan-v1 | fa | 2,416 | 2,395 | 15 | 7 | 21 | 2,394 |
-| fa-targhib-bazmandegan-v2 | fa | 2,834 | 2,828 | 24 | 3 | 6 | 2,807 |
-| fa-targhib-bazmandegan-v3 | fa | 2,054 | 2,034 | 9 | 3 | 20 | 2,042 |
-| hadeethenc-hi-sqlite-3b74b6c4da6dc883 | hi | 2,314 | 2,314 | 2,313 | 0 | 0 | 1 |
-| hadeethenc-ja-sqlite-a81da9af28f854f6 | ja | 281 | 281 | 280 | 0 | 0 | 1 |
-| hadeethenc-tl-sqlite-e8fa6e4c26c11c06 | fil | 1,949 | 1,949 | 1,948 | 0 | 0 | 1 |
-| hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 419 | 0 | 0 | 1 |
-| hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,202 | 0 | 0 | 1 |
-| hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,255 | 0 | 0 | 1 |
+| fa-riyadh-heravi-1394-digital | fa | 1,946 | 1,936 | 112 | 0 | 10 | 1,834 |
+| fa-targhib-bazmandegan-v1 | fa | 2,416 | 2,395 | 19 | 7 | 21 | 2,390 |
+| fa-targhib-bazmandegan-v2 | fa | 2,834 | 2,828 | 33 | 3 | 6 | 2,798 |
+| fa-targhib-bazmandegan-v3 | fa | 2,054 | 2,034 | 13 | 3 | 20 | 2,038 |
+| hadeethenc-hi-sqlite-3b74b6c4da6dc883 | hi | 2,314 | 2,314 | 2,308 | 0 | 0 | 6 |
+| hadeethenc-ja-sqlite-a81da9af28f854f6 | ja | 281 | 281 | 278 | 0 | 0 | 3 |
+| hadeethenc-tl-sqlite-e8fa6e4c26c11c06 | fil | 1,949 | 1,949 | 1,943 | 0 | 0 | 6 |
+| hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 417 | 0 | 0 | 3 |
+| hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
+| hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
 | ja-muslim-web-c859ce57c211ea1b | ja | 1,811 | 0 | 0 | 0 | 1,811 | 1,811 |
 | legacy-fa-abu-dawud | fa | 1 | 1 | 1 | 0 | 0 | 0 |
 | legacy-fa-ahmad | fa | 3 | 3 | 1 | 0 | 0 | 2 |
 | legacy-fa-bukhari | fa | 89 | 89 | 49 | 0 | 0 | 40 |
 | legacy-fa-ibn-majah | fa | 1 | 1 | 0 | 0 | 0 | 1 |
-| legacy-fa-muslim | fa | 114 | 111 | 32 | 0 | 3 | 82 |
+| legacy-fa-muslim | fa | 114 | 111 | 34 | 0 | 3 | 80 |
 | legacy-fa-tirmidhi | fa | 7 | 7 | 5 | 0 | 0 | 2 |
 | legacy-fa-unclassified | fa | 17 | 10 | 9 | 0 | 7 | 8 |
 | legacy-fil-abu-dawud | fil | 3 | 1 | 1 | 0 | 2 | 2 |
@@ -104,18 +104,18 @@ Text and external-only links are counted separately. An English source link requ
 | legacy-fil-unclassified | fil | 6 | 2 | 2 | 0 | 4 | 4 |
 | legacy-hi-bukhari | hi | 90 | 88 | 47 | 0 | 2 | 43 |
 | legacy-hi-ibn-majah | hi | 1 | 1 | 0 | 0 | 0 | 1 |
-| legacy-hi-muslim | hi | 106 | 106 | 29 | 0 | 0 | 77 |
+| legacy-hi-muslim | hi | 106 | 106 | 31 | 0 | 0 | 75 |
 | legacy-hi-tirmidhi | hi | 2 | 2 | 0 | 0 | 0 | 2 |
 | legacy-hi-unclassified | hi | 28 | 20 | 14 | 0 | 8 | 14 |
 | legacy-ja-abu-dawud | ja | 3 | 0 | 0 | 0 | 3 | 3 |
 | legacy-ja-ahmad | ja | 1 | 1 | 0 | 0 | 0 | 1 |
-| legacy-ja-bukhari | ja | 21 | 5 | 3 | 0 | 16 | 18 |
+| legacy-ja-bukhari | ja | 21 | 11 | 9 | 0 | 10 | 12 |
 | legacy-ja-hakim | ja | 1 | 0 | 0 | 0 | 1 | 1 |
 | legacy-ja-ibn-majah | ja | 1 | 1 | 0 | 0 | 0 | 1 |
 | legacy-ja-mishkat-al-masabih | ja | 1 | 0 | 0 | 0 | 1 | 1 |
-| legacy-ja-muslim | ja | 39 | 23 | 14 | 0 | 16 | 25 |
+| legacy-ja-muslim | ja | 39 | 32 | 23 | 0 | 7 | 16 |
 | legacy-ja-tabarani | ja | 3 | 0 | 0 | 0 | 3 | 3 |
-| legacy-ja-tirmidhi | ja | 6 | 3 | 1 | 0 | 3 | 5 |
+| legacy-ja-tirmidhi | ja | 6 | 5 | 3 | 0 | 1 | 3 |
 | legacy-ja-unclassified | ja | 18 | 13 | 7 | 0 | 5 | 11 |
 | legacy-uz-ahmad | uz | 1 | 1 | 0 | 0 | 0 | 1 |
 | legacy-uz-bukhari | uz | 26 | 10 | 5 | 0 | 16 | 21 |
@@ -132,7 +132,7 @@ Text and external-only links are counted separately. An English source link requ
 | legacy-vi-tirmidhi | vi | 5 | 5 | 4 | 0 | 0 | 1 |
 | legacy-vi-unclassified | vi | 4 | 0 | 0 | 0 | 4 | 4 |
 | legacy-zh-CN-bukhari | zh-CN | 38 | 38 | 21 | 0 | 0 | 17 |
-| legacy-zh-CN-muslim | zh-CN | 45 | 45 | 16 | 0 | 0 | 29 |
+| legacy-zh-CN-muslim | zh-CN | 45 | 45 | 22 | 0 | 0 | 23 |
 | legacy-zh-CN-tirmidhi | zh-CN | 1 | 1 | 0 | 0 | 0 | 1 |
 | legacy-zh-CN-unclassified | zh-CN | 16 | 8 | 8 | 0 | 8 | 8 |
 | quran-excerpts-fa-abu-dawud | fa | 2 | 1 | 0 | 0 | 1 | 2 |
@@ -148,7 +148,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-fil-ahmad | fil | 3 | 0 | 0 | 0 | 3 | 3 |
 | quran-excerpts-fil-bukhari | fil | 13 | 10 | 8 | 0 | 3 | 5 |
 | quran-excerpts-fil-hisn-al-muslim | fil | 2 | 0 | 0 | 0 | 2 | 2 |
-| quran-excerpts-fil-muslim | fil | 14 | 5 | 3 | 0 | 9 | 11 |
+| quran-excerpts-fil-muslim | fil | 14 | 5 | 4 | 0 | 9 | 10 |
 | quran-excerpts-fil-tirmidhi | fil | 4 | 4 | 0 | 0 | 0 | 4 |
 | quran-excerpts-fil-unclassified | fil | 2 | 1 | 1 | 0 | 1 | 1 |
 | quran-excerpts-hi-abu-dawud | hi | 2 | 2 | 0 | 0 | 0 | 2 |
@@ -157,15 +157,15 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-hi-bukhari | hi | 15 | 8 | 3 | 0 | 7 | 12 |
 | quran-excerpts-hi-hisn-al-muslim | hi | 2 | 0 | 0 | 0 | 2 | 2 |
 | quran-excerpts-hi-ibn-majah | hi | 1 | 1 | 0 | 0 | 0 | 1 |
-| quran-excerpts-hi-muslim | hi | 14 | 3 | 0 | 0 | 11 | 14 |
+| quran-excerpts-hi-muslim | hi | 14 | 3 | 1 | 0 | 11 | 13 |
 | quran-excerpts-hi-tirmidhi | hi | 5 | 5 | 0 | 0 | 0 | 5 |
 | quran-excerpts-ja-abu-dawud | ja | 3 | 1 | 0 | 0 | 2 | 3 |
 | quran-excerpts-ja-adab-al-mufrad | ja | 1 | 1 | 0 | 0 | 0 | 1 |
 | quran-excerpts-ja-ahmad | ja | 3 | 0 | 0 | 0 | 3 | 3 |
-| quran-excerpts-ja-bukhari | ja | 15 | 10 | 3 | 0 | 5 | 12 |
+| quran-excerpts-ja-bukhari | ja | 15 | 10 | 4 | 0 | 5 | 11 |
 | quran-excerpts-ja-hisn-al-muslim | ja | 2 | 0 | 0 | 0 | 2 | 2 |
 | quran-excerpts-ja-ibn-majah | ja | 1 | 0 | 0 | 0 | 1 | 1 |
-| quran-excerpts-ja-muslim | ja | 16 | 6 | 1 | 0 | 10 | 15 |
+| quran-excerpts-ja-muslim | ja | 16 | 6 | 3 | 0 | 10 | 13 |
 | quran-excerpts-ja-tirmidhi | ja | 8 | 4 | 0 | 0 | 4 | 8 |
 | quran-excerpts-ja-unclassified | ja | 2 | 0 | 0 | 0 | 2 | 2 |
 | quran-excerpts-uz-abu-dawud | uz | 2 | 2 | 0 | 0 | 0 | 2 |
@@ -173,7 +173,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-uz-ahmad | uz | 2 | 1 | 0 | 0 | 1 | 2 |
 | quran-excerpts-uz-bukhari | uz | 13 | 9 | 3 | 0 | 4 | 10 |
 | quran-excerpts-uz-ibn-majah | uz | 1 | 1 | 0 | 0 | 0 | 1 |
-| quran-excerpts-uz-muslim | uz | 15 | 14 | 1 | 0 | 1 | 14 |
+| quran-excerpts-uz-muslim | uz | 15 | 14 | 5 | 0 | 1 | 10 |
 | quran-excerpts-uz-riyad-as-salihin | uz | 3 | 0 | 0 | 0 | 3 | 3 |
 | quran-excerpts-uz-tirmidhi | uz | 5 | 5 | 0 | 0 | 0 | 5 |
 | quran-excerpts-vi-abu-dawud | vi | 2 | 1 | 0 | 0 | 1 | 2 |
@@ -182,7 +182,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-vi-bukhari | vi | 11 | 8 | 6 | 0 | 3 | 5 |
 | quran-excerpts-vi-hisn-al-muslim | vi | 2 | 0 | 0 | 0 | 2 | 2 |
 | quran-excerpts-vi-ibn-majah | vi | 1 | 1 | 0 | 0 | 0 | 1 |
-| quran-excerpts-vi-muslim | vi | 14 | 6 | 1 | 0 | 8 | 13 |
+| quran-excerpts-vi-muslim | vi | 14 | 6 | 2 | 0 | 8 | 12 |
 | quran-excerpts-vi-riyad-as-salihin | vi | 1 | 0 | 0 | 0 | 1 | 1 |
 | quran-excerpts-vi-tirmidhi | vi | 5 | 5 | 0 | 0 | 0 | 5 |
 | quran-excerpts-vi-unclassified | vi | 1 | 0 | 0 | 0 | 1 | 1 |
@@ -191,13 +191,13 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-zh-cn-ahmad | zh-CN | 3 | 0 | 0 | 0 | 3 | 3 |
 | quran-excerpts-zh-cn-bukhari | zh-CN | 10 | 6 | 4 | 0 | 4 | 6 |
 | quran-excerpts-zh-cn-hisn-al-muslim | zh-CN | 1 | 0 | 0 | 0 | 1 | 1 |
-| quran-excerpts-zh-cn-muslim | zh-CN | 15 | 3 | 1 | 0 | 12 | 14 |
+| quran-excerpts-zh-cn-muslim | zh-CN | 15 | 5 | 3 | 0 | 10 | 12 |
 | quran-excerpts-zh-cn-nasai | zh-CN | 1 | 0 | 0 | 0 | 1 | 1 |
 | quran-excerpts-zh-cn-tirmidhi | zh-CN | 6 | 6 | 1 | 0 | 0 | 5 |
 | quran-excerpts-zh-cn-unclassified | zh-CN | 2 | 0 | 0 | 0 | 2 | 2 |
 | zh-abu-dawud-yu-2002-doc | zh-CN | 2,828 | 2,827 | 162 | 2,664 | 1 | 2 |
-| zh-cn-ibn-majah-yu-2013 | zh-CN | 4,354 | 0 | 0 | 0 | 4,354 | 4,354 |
-| zh-muwatta-shaybani-yu-2000-docx | zh-CN | 1,006 | 0 | 0 | 0 | 1,006 | 1,006 |
+| zh-cn-ibn-majah-yu-2013 | zh-CN | 4,354 | 50 | 49 | 0 | 4,304 | 4,305 |
+| zh-muwatta-shaybani-yu-2000-docx | zh-CN | 1,006 | 1 | 1 | 0 | 1,005 | 1,005 |
 
 ## Continuing the language integration
 
