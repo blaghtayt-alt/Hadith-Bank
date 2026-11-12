@@ -121,3 +121,13 @@ or assume a language text not supplied by this source. Follow only observed
 ordinary public catalogue, pagination and detail routes; retain gaps and
 access stops explicitly. The existing source-preservation, Human display and
 non-OCR review-display policies apply without claiming independent certification.
+
+## Owner-authorized Japanese research-v3 reader integration
+
+On 12 November 2026, after the blocked-transfer handoff and the package's preserved HOLD status were explained, the owner explicitly instructed: "continue integration into html , tell me after finish previous count and new count of hadtihs". This authorizes the separately derived pending-review Japanese reader subset bound to `imports/japanese-research-v3-20261112/publication-decisions.json` and the exact original archive SHA-256 `331d2973511301c6cd50d3e2a8612e135defda529e855b8b03894490005c01fa`.
+
+Keep the original archive, all 1,889 source records and their historical false display/release flags unchanged. The new visibility ledger selects 1,226 original source occurrence IDs: 1,147 whole-record selections and exact Prophetic excerpts from 79 mixed parents. Preserve all 122 child component IDs and boundaries within those parents; do not count formula fragments as additional source occurrences, and do not merge their separate reference or chain evidence. The 45 related external witnesses are reference links, not newly extracted source records.
+
+Only the selected source fields/spans enter the four Japanese material registrations. Preserve non-hadith material, Quran context, unresolved classifications and complete mixed parents outside Hadith HTML/search. Dhikr, prayers and reports of the Prophet's actions remain eligible content; distinguish source summaries, biographies, kana renditions and context-qualified formula occurrences from exact direct quotations. Keep Hisn099 and translator-note051 Quran text outside their selected Prophetic excerpts.
+
+Current visibility is `owner_requested_public_pending_review`; it does not change the original source/Arabic/semantic holds or perform the required separate exact-final-byte independent Pro evaluation. Keep `certified_release_eligible=false` and the material counterpart hold. Do not promote candidate Arabic/English, research witness numbers, editions, chains or grades into accepted canonical identity. Hisn's printed translator credits remain separate from the three exact PDFs with unestablished translator names. The new-book Human display policy applies without inventing translator identities. See `docs/JAPANESE-RESEARCH-V3.md`.
