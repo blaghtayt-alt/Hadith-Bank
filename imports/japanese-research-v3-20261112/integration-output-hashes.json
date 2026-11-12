@@ -378,6 +378,12 @@
       "git_blob_sha1": "cd69671bccb97bd0a8d1a80048de4aad1bfd5717"
     },
     {
+      "path": "scripts/book_titles.py",
+      "bytes": 8325,
+      "sha256": "382539cfb3db584cdd6d5d4309c726c9e425522b61d11d824147b5adc2fb242e",
+      "git_blob_sha1": "28ef6a6a35dcff68ff03fce3c3cb73263297c25e"
+    },
+    {
       "path": "scripts/import_japanese_research_v3.py",
       "bytes": 35382,
       "sha256": "f360b07b6c571cb4d5b0fd5f453b783cf8eba9b19bb9bde2a4ef36b175b8df10",
@@ -407,5 +413,12 @@
       "sha256": "6183bea5f70018792e41d91ab8dac6925b14973fbc02898f5aa97887b7c85ce6",
       "git_blob_sha1": "1d161f9786895be268171df89d21e1dbcb714332"
     }
-  ]
+  ],
+  "display_title_followup": {
+    "previous_manifest_sha256": "e97930b3e49e0ebed177bb97d25ed88117f6373fefc138075a7d75faabb0a135",
+    "reason": "Live source filters exposed internal book keys for three new Japanese books. Added exact manifest title_ja/title_en display mappings.",
+    "source_record_bytes_changed": false,
+    "existing_book_title_tests_passed": 3,
+    "source_integration_commit": "c015b408a8c2286e09d5cc0cf40ea9132d691bd7"
+  }
 }
