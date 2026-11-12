@@ -1,0 +1,1061 @@
+{
+  "schema": "hadith-bank-recovered-web-seed-v1",
+  "recovered_on": "2026-11-12",
+  "baseline_source_commit": "3e348815c66aad0de012897abcaa3a97bcaa74b1",
+  "original_seed": {
+    "fetched_entries": 836,
+    "registered_occurrences": 797,
+    "held_entries": 39
+  },
+  "already_present_occurrences": {
+    "deenhindi": 6,
+    "islom": 761
+  },
+  "new_occurrences": {
+    "rivoyat": 30
+  },
+  "new_held_entries": {
+    "rivoyat": 2
+  },
+  "imported_paths": [
+    "imports/web-uzbek-20261112/rivoyat",
+    "materials/rivoyat-buxoriy-uz-web",
+    "materials/rivoyat-muslim-uz-web"
+  ],
+  "archive_format": "Concatenate parts in listed order, then read as gzip-compressed tar. Original file names and bytes preserved.",
+  "archive_bytes": 2763969,
+  "archive_sha256": "048671433e44245938e676594e2f0f43cb44dbd181ffa09082a0883fa0afa857",
+  "parts": [
+    {
+      "path": "original-seed.tar.gz.part001",
+      "bytes": 524288,
+      "sha256": "d70bcf81a309065a49f3083e9e547cb8afea4de1c0e1aa6a6cb2a7fa6ab33558"
+    },
+    {
+      "path": "original-seed.tar.gz.part002",
+      "bytes": 524288,
+      "sha256": "579d445ad2143d2c40cd515dfb1cdce330580a9a6013983e3481240655e0d068"
+    },
+    {
+      "path": "original-seed.tar.gz.part003",
+      "bytes": 524288,
+      "sha256": "d75059b7dc43effcb62a130539966c5edf7407e960bd6104b45a0c84a838a768"
+    },
+    {
+      "path": "original-seed.tar.gz.part004",
+      "bytes": 524288,
+      "sha256": "32a9148bae79f43f44463d960bcd62eeca5b068468c54c59d0aac22e7006a478"
+    },
+    {
+      "path": "original-seed.tar.gz.part005",
+      "bytes": 524288,
+      "sha256": "315f940beee2fb0b75136ebd035e9b1d2fa3a368708b2792d03933be4d5fc78b"
+    },
+    {
+      "path": "original-seed.tar.gz.part006",
+      "bytes": 142529,
+      "sha256": "df51585637d3d1b3e8caa4959ea501af9d81f1191338d078e682760fa40652f9"
+    }
+  ],
+  "files": [
+    {
+      "path": "imports/web-deenhindi-20261112/inventory.json",
+      "bytes": 507081,
+      "sha256": "5f38a99671263cedefa715814e8426c6ee00a57d0932655ddb7b40b1e79e9609",
+      "git_sha": "2083b5ee2994600640b2740426c438b3edd7e0e2"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/abudawud/7999a219d3638392966b42afa4649147291d587a51ec11a9e64678e25c131712.json.gz",
+      "bytes": 1709,
+      "sha256": "ff46a7fe2f9d75314a7aac9d5958a05cdb3935cccc94b217786bf69c8e8eb0d7",
+      "git_sha": "a6a721210963eb90e7d30028f5cf38d28ca7413d"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/bukhari/336c38aec52cae46628c1330e562ad9093d835a904f730552df64d4b3369ba84.json.gz",
+      "bytes": 2982,
+      "sha256": "0b6543017998413d83e5f0d228754b81e5f138d037c0e6f1276f33ff732c6284",
+      "git_sha": "5a5ea26626bba59fccb4e5559b0c0caff7590183"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/ibnmajah/f59418ec710f3b2e8850e43ff802f56c9e845ca7526538a8243e413ec9567b24.json.gz",
+      "bytes": 1669,
+      "sha256": "8b7bf2524761c5ffadc809a3b00037809865c1de68484f93025a0ee9ab20dc7b",
+      "git_sha": "28321a0f3f84837c8c674d7e47ca1182cab63338"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/malik/8a4620e44305221958e358ca8027f2b8f736a16b8844c551b9cf6f08a0a5b16e.json.gz",
+      "bytes": 3830,
+      "sha256": "8c0cebd08f926d1528ab1756e124ece30ca0702da4727fb52d2342dd5f212129",
+      "git_sha": "096155b4ea98d07a2739ead241f78ed290c0152a"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/2cc88344b430c4e7267cbbc722756380d8c6c8b7267a2153e9178928b92550c9.json.gz",
+      "bytes": 3685,
+      "sha256": "57cbc2856697b21e77ecb427d43f4c66ab59290969c00947b3d2c8d7003d323d",
+      "git_sha": "6fe6e620e2397f08ca90118ef65cdd779b92a002"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/nasai/62016b26a6680c92ef9b52c89e7eac4aab7299b5bedd4d930c7879b5ad3eebdd.json.gz",
+      "bytes": 2064,
+      "sha256": "961284f5f7db3a4cef27db543a17625d1847a6be87eb8b822b3012cb4a97cd72",
+      "git_sha": "a3097bead651624e658ef5bc5da983de06cd9c79"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/parsed/tirmidhi/67b9e6aab2f12ed63e743ec86f8554806e9f709e5b082ded87d901f4d61ab13b.json.gz",
+      "bytes": 2483,
+      "sha256": "a1dd13a96894e0d8351ba9fe97c5af365a34816c737fdb63d7542ae33363a6c9",
+      "git_sha": "4a792901cfa90ec26c34fdf712ea17dc0a6f53b5"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/progress.json",
+      "bytes": 1368,
+      "sha256": "23b77cfda61c6c5be224e0402eecf1858b87f9714a1c6da76de5f982c7f19de6",
+      "git_sha": "de46201b5edd852f931ec30299624d1597e3b92d"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/1f402385b110d31a2b12398cb30225e39aac44c269bb9025a16e125723b49b36.html.gz",
+      "bytes": 17680,
+      "sha256": "e0dcbff21c10799d57cfc2d7d2d17ad4ffa29c0cd156160ef93b030383aa837f",
+      "git_sha": "f455ade17086d2425131661ba5567f4118399277"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/31a9ca376797722ca047e1bce2c7243046e9f33c2df028783f3bbcfeee93bb7b.html.gz",
+      "bytes": 16253,
+      "sha256": "62ab0f0ac0371535eb8e6f5d60cc3b25fc81bb4482cfd2f31ce57d8339eea5f7",
+      "git_sha": "b0e4b58c9510c6cd6b05034f44a92a8c7b0678cf"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/4113c96187d1e2bb43c955a7f949cb9d0ddaac53a2da0f2b8a5769593473ad33.html.gz",
+      "bytes": 24342,
+      "sha256": "ba3681ff92595f207187cdb15cfea9d93f06b293907935d71617b600086124b2",
+      "git_sha": "2a422300e3b1851047085fc6fbc6a8f092ba95ae"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/599bfe4fbd6bc7e526a944517f1154707b924601799860a7e858f49ecc0037e6.html.gz",
+      "bytes": 29049,
+      "sha256": "fa756dd8dad72c1e12c4a5ba9f7aa62a6e416dab4b3cd95d3972b33081048b0d",
+      "git_sha": "8feb36b286be994cc82a76a2e803f898759d0a55"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/648c94808e11b7c9ad77be09521b97799a7e554a757203a1aa70f58d0b8c6086.html.gz",
+      "bytes": 16768,
+      "sha256": "2491268b3af14fbdea5624a51c6fa983439850b7246da12dc7d9dfedea91c521",
+      "git_sha": "eb4e7c4464ae679823e62de69e95c52af3ba9dea"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/6dad6ec2ba53995b92a4e2653d0c0516f9c0c7e81cdfe96f725646bcbd9290af.html.gz",
+      "bytes": 29109,
+      "sha256": "0fea73da36401862b52cee6869ad11986379eee35dca8a09f354cbc48ab96cd7",
+      "git_sha": "cd5c6175fb42b3365353972642abced4d0ca92ba"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/87fc8aa01e8bda8ed98dc2080afa5a5d4681ef304ca0fd50d11ccba21ecc24c9.html.gz",
+      "bytes": 31539,
+      "sha256": "989b181dd31e456ad960d1077185a42a2fdae70b9a93f121d9e83d41b3eea596",
+      "git_sha": "91189ff4b94ca698a8639ca936df89c4653c1c9e"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/8d39d8ff8b4e6fdf3a4533aad002c1405973c29b41fca7badb4db782884ecf0c.html.gz",
+      "bytes": 15700,
+      "sha256": "4e3eba42e0ae435029f2649509c65fdfc7ff64222d31263fd83ef34b9e9482db",
+      "git_sha": "e378a6c11d006a699e9c2ffef0c1d1cd2ad9406b"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/91f12bbc70b414c5fd0a8151433f61f9aee4348c2dde539685ffa4e6dbe9ab6e.html.gz",
+      "bytes": 15215,
+      "sha256": "6589afa511652ca2240d6c3a88a01738fcb3b7d66d07698a26e54eb21459343f",
+      "git_sha": "6468363c4623b118918049e3ea7276ef2185948a"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/98c22818eb85d53fe6a97963d196fb2bf4de5c16304f482d394381ac9b945412.html.gz",
+      "bytes": 17739,
+      "sha256": "9f4fb166cc2d36b01545362d65e61b330ccf52343a537301e26cba1ca9042fdb",
+      "git_sha": "f8ce35d75d224d12a7922c10845186c3b812d362"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/a249108a7f2b7cde975a12376e3077cb13a4277b91691fecc90c8ae3c42a2055.html.gz",
+      "bytes": 15380,
+      "sha256": "019460e2177bc0eda6a9e85ed6a8effc2a7d236ba488277395e9120c6be15377",
+      "git_sha": "cf3e512a1faf87ed2be21e48d7419c5324d73aac"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/add3c42627f9acf5d135cfef56036e64ef4e928c18f60ca89bbfe7ae39f01a53.html.gz",
+      "bytes": 39482,
+      "sha256": "bbc93622952d41776983fe8ccb9de011b58f35774332ec918e93f293b2ead47c",
+      "git_sha": "572d15e97205493cfc47b190924ec0d8827c7f16"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25.txt",
+      "bytes": 246,
+      "sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25",
+      "git_sha": "6c6ed25e8f6288f49d4c2bc0549d935a6ef8265b"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/e07911b06337c44cdead88f184c1ee408a813f171236b0016bb5f1dc22238ac7.html.gz",
+      "bytes": 39237,
+      "sha256": "950effb4002265245582a97cabe8acece2d5ead20ee5660b7382eadaee74d161",
+      "git_sha": "fe57f870c9087cfe1aa2e2a7bd693c9811542eb4"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/f2b0ceced74bbfb85a78765a0459e58a55b96e6a95f1cbb2b16eb5adfbda677a.html.gz",
+      "bytes": 12990,
+      "sha256": "05c6dd78ce55ba08558446ebca477f21ab711e5444a44f237097d48568deaea5",
+      "git_sha": "6501866102b2e171a3607a6861b80bcaa732b8b2"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/raw/f6edf683515f5873ff6662ad598a425571413f2e89ef0f5a1c8f7bcdcc1cfefa.html.gz",
+      "bytes": 33277,
+      "sha256": "8b90482af4e03c3d7947dbb5a7d2f721628b52f751b041be849d8aa8a5fdf249",
+      "git_sha": "e3edd802e03afc0d6c39e13dd1e73cf6435ac52c"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/abudawud.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/bukhari.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/ibnmajah.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/malik.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/muslim.jsonl",
+      "bytes": 9702,
+      "sha256": "101004c5e463d05f5ffc5da2fbfdb007dd4cac46860dbecc4ca36b582bac340c",
+      "git_sha": "33bf12dfc5b035a2f28fb1db20bcb33891b19575"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/nasai.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/staged/tirmidhi.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/state.json",
+      "bytes": 4521,
+      "sha256": "bfb1f9dfda2991f5273abaffa0afa93da72508049488986829089cc79fae90e1",
+      "git_sha": "b5212d332e425c0c124d85aa13bdd6a1d87a4fb1"
+    },
+    {
+      "path": "materials/deenhindi-abudawud/manifest.json",
+      "bytes": 3440,
+      "sha256": "fef6450d39101e8699f6733c4856310ea1525918277465c34ac4b1ce96297701",
+      "git_sha": "1572f371f8ffaf270700c8421e83a6c479d458b4"
+    },
+    {
+      "path": "materials/deenhindi-abudawud/records.jsonl",
+      "bytes": 14369,
+      "sha256": "c31789e50ea17a9d84807f9ba9bd4a569bfe8c3e0ed7964c7088f15b988bd7ef",
+      "git_sha": "91ac77bdaa9849c9f554f3083d3e05aa1f63e3cd"
+    },
+    {
+      "path": "materials/deenhindi-abudawud/source-index.json",
+      "bytes": 3258,
+      "sha256": "e4c2c76c6a5370ff552e2419aacd044ad1a63402cf22f545d6bd2268489fee95",
+      "git_sha": "87096a8c516387a7c3f23d01b13468120e224cc0"
+    },
+    {
+      "path": "materials/deenhindi-bukhari/manifest.json",
+      "bytes": 3433,
+      "sha256": "bc22dd023dd6a58afd8cf0825b10a53b46f9221a3107087f1f312d8b74639807",
+      "git_sha": "f5431eabdfed637779b4dcf52e9d1757cc1d59a1"
+    },
+    {
+      "path": "materials/deenhindi-bukhari/records.jsonl",
+      "bytes": 20507,
+      "sha256": "0f0d015b2a85c81f6153b892a37e1ad19b03c3f3c2e2811c6401cb65263ea8b0",
+      "git_sha": "acd8a8c5de145b47748bf7c1a15cb1a8612e11f0"
+    },
+    {
+      "path": "materials/deenhindi-bukhari/source-index.json",
+      "bytes": 3252,
+      "sha256": "8c564355d1d7f69db8b0b9ad0bf4af64530fdb1958e438be22319cea65328599",
+      "git_sha": "00969f6f240ac2ce60bc3c64b83b4ebedf1dfc5b"
+    },
+    {
+      "path": "materials/deenhindi-ibnmajah/manifest.json",
+      "bytes": 3440,
+      "sha256": "2d4ef2db43032116ef899b76150b2194f8e108f48c2558ba18c4d579f268fffa",
+      "git_sha": "ee93c03faed548fb067a07e45dc4b7662010ee86"
+    },
+    {
+      "path": "materials/deenhindi-ibnmajah/records.jsonl",
+      "bytes": 14330,
+      "sha256": "2640b9330d5c46ded56ffd14533b7ee275068040a2e2408f52b0cba4ac36003a",
+      "git_sha": "e5d8e57d46ee4a46e9711d67e95c83e1df8bad3a"
+    },
+    {
+      "path": "materials/deenhindi-ibnmajah/source-index.json",
+      "bytes": 3258,
+      "sha256": "5e13f90e0136ea56747d34cf2039826a848aa3a9034cc1a6682f2cf494beada0",
+      "git_sha": "ca1ac213dcf3ac83542238588b8ec9502a545b76"
+    },
+    {
+      "path": "materials/deenhindi-malik/manifest.json",
+      "bytes": 3416,
+      "sha256": "fabbc6c924a62fc7d498b6456bf3536451854c849b9f602d7aadd75f5927800d",
+      "git_sha": "a187bcfbf9cc99beec12ed2c577394b9f3cd3044"
+    },
+    {
+      "path": "materials/deenhindi-malik/records.jsonl",
+      "bytes": 27680,
+      "sha256": "a6727dafaa95aca6c8b1d1d4d1842336a2a2e103ed9de5f0137c5c754013f328",
+      "git_sha": "6c5d3b3c4d816f95aa79fcef34327fd24a63e89c"
+    },
+    {
+      "path": "materials/deenhindi-malik/source-index.json",
+      "bytes": 3241,
+      "sha256": "03c942c6d9797151d01f1ed4a37c3152af42a1c1176215c44c65807da53e6f5d",
+      "git_sha": "d4ffa68f4364d9de614b4a3527ef618d25f74c88"
+    },
+    {
+      "path": "materials/deenhindi-nasai/manifest.json",
+      "bytes": 3418,
+      "sha256": "2ec04ae1332cae5cfe9175a7da8986e951e49af46dd16c551cf63f437454b299",
+      "git_sha": "dadb8b912eec27180453720f87310cb03400e7a7"
+    },
+    {
+      "path": "materials/deenhindi-nasai/records.jsonl",
+      "bytes": 15238,
+      "sha256": "53d981c67bc14d430a0732f17b8f3e72db1b7730dc7d4fec593b0f94a7a6b916",
+      "git_sha": "cc7efc78528ecfe5a79f337794c2ebbc23a4fba7"
+    },
+    {
+      "path": "materials/deenhindi-nasai/source-index.json",
+      "bytes": 3240,
+      "sha256": "deae1e8def6c023f8e683108153fffec13572835e6128de00c15c9d8dd54017e",
+      "git_sha": "d7769560ce9b137954cb48dc27ef46ddf01b1db1"
+    },
+    {
+      "path": "materials/deenhindi-tirmidhi/manifest.json",
+      "bytes": 3441,
+      "sha256": "774ba89eb42d80d0d3ca44a37a8a14cd770c12b0429f8fc096d7613825b360f7",
+      "git_sha": "10925c590acdead44267f8655babb2034b7a35cb"
+    },
+    {
+      "path": "materials/deenhindi-tirmidhi/records.jsonl",
+      "bytes": 17455,
+      "sha256": "257044dd059ce025abfcfddbe62715859cad250f6cf13d92716a3b8ec9e4e050",
+      "git_sha": "9adbb2ef56324c8ac964956e3990e3b89146d830"
+    },
+    {
+      "path": "materials/deenhindi-tirmidhi/source-index.json",
+      "bytes": 3258,
+      "sha256": "ee6d90dfffca670cb6caa2f3245349a88eeb368da0262ba6dcfb924d3bbf3b48",
+      "git_sha": "87cd2f20d7cfe5bf92048751d53e9da78a040742"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/discovery/islom-robots.metadata.json",
+      "bytes": 280,
+      "sha256": "c310d6858cb1838b83fcb5b76e17747503bcc6b3b1886667325236dc0d197fa0",
+      "git_sha": "f7444c398c9b3799ed64b3963eea98ec65adb0cf"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/discovery/islom-robots.txt",
+      "bytes": 2700,
+      "sha256": "026fbe27e534dcbab60a89fd2707e1a8bf5a4cce6702cd1e670d0297f38f2a62",
+      "git_sha": "b6554bfe0f7f2a283fa418fdbf56c5eaa830de03"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/discovery/rivoyat-robots.metadata.json",
+      "bytes": 258,
+      "sha256": "3dce62ef5eef1120779b9cd8ffa18dcff20078b03bb55a3d891644205aaccc13",
+      "git_sha": "e596fbbec4cdb3a6015d658fb2b384bc04103189"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/discovery/rivoyat-robots.txt",
+      "bytes": 130,
+      "sha256": "729e9b04c4b21f44ac71e8210a4680edf4afd0aee76f01f5bf0d708c998f4af3",
+      "git_sha": "3f0a8362990b8d6bbf499a2ffba4143e56f16a14"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/checkpoint.json",
+      "bytes": 67747,
+      "sha256": "6a664baa1b3128849924204e9ca4a18d8bdceb281641d3f29f352bd5c8c104b3",
+      "git_sha": "b61aa4d466ff3ca96f1bd7cec692adc0668751f2"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/collection-book-17.jsonl.gz",
+      "bytes": 209020,
+      "sha256": "d6ed3abf2afc10eaba580d8ee976ef8acb60a8d9e0978c923de6717635d40975",
+      "git_sha": "86b4074d983bb78d08eecb5ec99486969662b5cc"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/collection-book-22.jsonl.gz",
+      "bytes": 47424,
+      "sha256": "e74127d63b8e2499e5a6432ebbecc1f8e6571afaf3536b8235d3b4aed3003138",
+      "git_sha": "6b52559bcc6e75795193ca7e5de63b1458ab8f07"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/collection-book-23.jsonl.gz",
+      "bytes": 241512,
+      "sha256": "b7412b2ee962dd6a44262431e416db939dd01f104cbc252dea45c3b15e93060e",
+      "git_sha": "257cbdbd63bb85e4d73cfc17aa584362a22dc9b3"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-17.json.gz",
+      "bytes": 1793,
+      "sha256": "2844cb14dfec9f9aa9ea26f19d9dccbb6114eb4497e6634ed4e21d6fff38edec",
+      "git_sha": "22258b79552347172831c158c83b1d958d22ef5e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-22.json.gz",
+      "bytes": 638,
+      "sha256": "fa6bf459a294bdb87bbe4f39155553b79a4aacac6e9f03ec15a9dddf5388b542",
+      "git_sha": "c00ce33f5b8151d1db2496a67753c953bf419047"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-23.json.gz",
+      "bytes": 1109,
+      "sha256": "6753e980b315103d2770c64b06a70877a4d70b1930509d3825359af1e5a5c2f1",
+      "git_sha": "e79b317809028ecd01ee534d57cb2e0298b0b972"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-24.json.gz",
+      "bytes": 2685,
+      "sha256": "14d7c0aef193e06993ae212363ec562d513e5e2d0c5d9ed894abfb901e3a5e95",
+      "git_sha": "8fb67fb2cb28ca7f70ec8620ce0339068c8d16c7"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-25.json.gz",
+      "bytes": 2097,
+      "sha256": "b712496cc33d6b714954acce84fc91d5e62f4f625f6a5e910448822037dce3d6",
+      "git_sha": "a3b63af0cd8caff4f702c7630c64c96afec26511"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-26.json.gz",
+      "bytes": 4546,
+      "sha256": "74a0271bf41f022fc764b415a0587eeb58b541ad03fde45cc9e29296ae6d4aba",
+      "git_sha": "c01f7157d0aff30f5aafdbedb94c146e75ad514e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-27.json.gz",
+      "bytes": 5107,
+      "sha256": "24a8d0ec559798354cf84cb265e686c5a7fa820b39800caa7a4bf4b5e4664467",
+      "git_sha": "e3923f68b74c23c85579c9c0c44389fc015e814e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-28.json.gz",
+      "bytes": 8193,
+      "sha256": "f6655839e9da699497e6d0b28d835a6222775649b4a14c54648c3a76b3fca97b",
+      "git_sha": "91e665be105d111dbf6dad8c52322faa2b8c0b66"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-29.json.gz",
+      "bytes": 1241,
+      "sha256": "ea870b4e01f8dfb423ea2e95e7c5c0ae557baf89bd8f820d80342110b6140ab0",
+      "git_sha": "a34ee133cbf6149f8eeb77644c8c8c8c8b1b0c4d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-30.json.gz",
+      "bytes": 3075,
+      "sha256": "8035df007c9272b6d3ba5d53c2e558e14cdbfe21091e64e1800bc2ccce022e0d",
+      "git_sha": "abfdde5be12c2336ecd4015281411696b84b8707"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/introductions/book-32.json.gz",
+      "bytes": 9982,
+      "sha256": "b75259e517f3adb11671adf6d89936af395ef4483d63403858434f7078a9e3cd",
+      "git_sha": "df2165304f9c1d9a81119d25bcd90d57b419315e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/progress.json",
+      "bytes": 4003,
+      "sha256": "b549990317ac68178fcfc29bc039529a2861395a086d99e395ca6dc4fdf971b7",
+      "git_sha": "8b1e28f03fc0048598f9bef226135c5bdba71d3e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/174758a8edc6b0a1-c78c0c89474d227e.html.gz",
+      "bytes": 6342,
+      "sha256": "00cdffd899a1662f256d0db6363153809035ba46df866f9ba6918eda0ea9cf84",
+      "git_sha": "12ac27038696c956715a08274910f37a8e03d563"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/208d4c1f43bab14d-2956cab7bb957415.html.gz",
+      "bytes": 6239,
+      "sha256": "b8a1b2ea2aea65bf5ac8ae0a63820ec40983864f1a3e24e36826cb565a548f09",
+      "git_sha": "961bd4b0c1d6805b54ef27fc5eeeb64965aad6e0"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/5c1bcf55a5ff9fcf-a1dfc385834644a3.html.gz",
+      "bytes": 10793,
+      "sha256": "0b3f60e21dc4485281d2a47afc10f5f4cca428f867a5787d5e54b58224bd4d70",
+      "git_sha": "dfe6822a46a09c0dc9e53d958fac754e2928d0c6"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/658f9fd8508ad571-a0100f18934dc6d2.html.gz",
+      "bytes": 31281,
+      "sha256": "13b949e009e00d01e78c7ecfe593d99c8265b9e46ab5e1f198abc2f8939ef028",
+      "git_sha": "2c6b8e520bbd62319aa07817aa2ec1a6fe0086e4"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/67ce904ad1d14626-e7b536c5896bee36.html.gz",
+      "bytes": 7716,
+      "sha256": "c6256d6bdb28fa3ce7765982fe163be327622a0f06b67f164fbeb314d307e817",
+      "git_sha": "ffd39018c69a5a7835246d49196d2c52662f0a7d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/6eed5676bae47a6a-fc22784452c05ee2.html.gz",
+      "bytes": 4979,
+      "sha256": "8746141cdd4d2fc0403a60537fc397658b994c9bf27f9ea0f540826ad08190fd",
+      "git_sha": "9ddb1f9f82f80a1fe6387363e27fa36a1f15a346"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/6f1d8a65b3fa8d54-b1db90ddd3e9c2aa.html.gz",
+      "bytes": 15813,
+      "sha256": "8cfbc7fdcc18c5d6499646b500a7c1fc71aee975c5089ae6a4e4e441a7ffd5ff",
+      "git_sha": "e293a2d7a3ae1f178bdbd904aa188a6e6395e82e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/b1aacde23e4ce7a2-9aa146d5e6f44807.html.gz",
+      "bytes": 145625,
+      "sha256": "631fe55ceac632de423e248a26cef4c17967c0b8f21b33110f4dc8ebd1f1bae3",
+      "git_sha": "09342ae399fe3a7af3546cafb8b2a70127247fea"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/ca2e56b2edfe6c44-4a08f4cad15d7232.html.gz",
+      "bytes": 13850,
+      "sha256": "cd73d8809deeac14bbfde9e897de36f3778e22fcc009fe09922801bfc17d380d",
+      "git_sha": "3f9d48cfb6171a382987a20dca5317e097180a5d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/ccd317dd87de0854-4a2a291843a7ba2e.html.gz",
+      "bytes": 9020,
+      "sha256": "135f77c9f2d21b5ffafa42acfe23a42001d960dfebc99cc30c5e42366058c6f6",
+      "git_sha": "c230a0a10690c15b1b8b557f80b6f113b0f3a291"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/de156eb71d9a958b-0bb17926d7938e7d.html.gz",
+      "bytes": 6800,
+      "sha256": "68519c3b1fb2733d07978549f55be20f8314952faf0215309e3b085e9eb0aeb3",
+      "git_sha": "589429553e1764f142bc272ffb914d7721512338"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/e2ebb2a576b4ecc0-6381a30fe0e182a7.html.gz",
+      "bytes": 5545,
+      "sha256": "eccc1c5c58ea5b8e96557d7d49a9227e95087a8145a397492c02f19394081be4",
+      "git_sha": "82eb4c35dd213d1b8c4b868249b88e83f2ca0550"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/e8c2eada91a87233-48ab4b476f87896f.html.gz",
+      "bytes": 168602,
+      "sha256": "d88af335cfbbd081a46105bc6729dd7679999d4e8b274cb765f26640c7715af0",
+      "git_sha": "7f0c567780f7bb5fffebabe179dc04c920dca49d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/f523d5b3341ae99f-b54f108a23c07f58.html.gz",
+      "bytes": 7558,
+      "sha256": "3389aa3efe976ee0e674806db199b28092af21b1c768523a4b5613535481a120",
+      "git_sha": "3f1d9d1a2ee25d60db13e219f80a37b974a55e7f"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/islom/snapshots/f78410cda4bb6454-469825ce744d20ca.html.gz",
+      "bytes": 10486,
+      "sha256": "8ca036c2d1e41d43c60e02268d5dd445f7ae902bdb384f2f5b4a90ffd0b2979e",
+      "git_sha": "0a0568ed32e0237710cba812417c685ef19664ea"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/checkpoint.json",
+      "bytes": 247256,
+      "sha256": "aa1cb4c0f1db023ceb8643813e196dfe85fb2d5ca753736fe7c5d978845a53db",
+      "git_sha": "6287d9d6fc4026b1743cdc2f265e676412cbdbdb"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/collection-buxoriy.jsonl.gz",
+      "bytes": 35720,
+      "sha256": "39c3bdcad2f204f19ff7f2120e23054c6b64656ca0ba9adb6219572042124946",
+      "git_sha": "3417ccfefac5624cea0d8533bc768c7d9244b963"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/collection-muslim.jsonl.gz",
+      "bytes": 38114,
+      "sha256": "b4248247ec16e09c00e6091d0c25f93e8b218afb4882ce56e34c656e3d8782d9",
+      "git_sha": "ddc9c616b515a48b5b1121f89014b52ab6c4bb46"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/detail-metadata-queue.json",
+      "bytes": 25478,
+      "sha256": "5545de8246f67f60475eb0e31c147d5da2c6b2338cc3a9ceac111bb87b83f84e",
+      "git_sha": "e00ea3ebcef209e08c68f8a84eaee45596680750"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/abdurrazzoq.json.gz",
+      "bytes": 1916,
+      "sha256": "0681c4e1e0e3e1f9e731c6daac053cce372a8f9a5720527091d48d989dc7b677",
+      "git_sha": "57a4f9e5c80e8efc572240197f92576e5ac6e4f3"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/abu-dovud.json.gz",
+      "bytes": 3140,
+      "sha256": "fba37ed829ece3dc24e696e116de0752d20a348a7964fbbc79fcc1bcb38ed59f",
+      "git_sha": "d6708bea26da793863e80b6f759d9dac819aba42"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/adab.json.gz",
+      "bytes": 3451,
+      "sha256": "463f9dd80470faf4b1d809c2e276367b2de64df843abe8752d6fb7f4b007f61d",
+      "git_sha": "d5d6c26f77b46327fb77e729bd78d160b1b4973d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/ahmad.json.gz",
+      "bytes": 52964,
+      "sha256": "ef8214abd27d2985525891b955eb152d6fcd67cef1029ba031ae4aa234f5b6c0",
+      "git_sha": "b3b1e9824983de9f31704e46974c98197383cd27"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/bayhaqiy.json.gz",
+      "bytes": 1449,
+      "sha256": "7919e1b0e805cd52188b22dbf43b8bc74cdb9c29994ae32de520e7962377243d",
+      "git_sha": "4ff250bc5024260c2bab1701d1611cdaae205cbd"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/bulugh.json.gz",
+      "bytes": 1447,
+      "sha256": "465a32e9eb5d62a3f2540f6b9f2ac8ca83a8f5388d51165e9b776fb531e7b590",
+      "git_sha": "b83febcc96c26056000fa064087bc0de0d4b7d3d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/buxoriy.json.gz",
+      "bytes": 6758,
+      "sha256": "031e30468a076b11673642c9df364a89ee0e4a81233d5a8940f16c9136e64d7f",
+      "git_sha": "86e48c24cf356aff8e2cc9e12b021391d2d30114"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/doraqutniy.json.gz",
+      "bytes": 1894,
+      "sha256": "6c148f66f97015c2139a2ba00ecac370d4825724796833aa971f17e3f98d0e97",
+      "git_sha": "0246517a918d24134ba59a904d75aa9c49bc95ef"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/dorimiy.json.gz",
+      "bytes": 1697,
+      "sha256": "288bed7c48938f4b20a71e5f5dd2ee16511b700fb07818d4bb8b472db56853e0",
+      "git_sha": "60117a10679de175d8d1721a17f095232a27a568"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/fazilatlar.json.gz",
+      "bytes": 436,
+      "sha256": "b60dec59e269e2e430e0080000f68f4027727a77f7a01f20299408976196c6cd",
+      "git_sha": "4aefaf53abb22f6b9bb9cf13eeb75216ef4c7468"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/hisn.json.gz",
+      "bytes": 757,
+      "sha256": "9c4682602b3c263c6f657de49f468c0fd392b93121a825a6a77166a9a0c36a7a",
+      "git_sha": "38ae0813101676e37461dd49e932d0bfdfbfd68e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/hokim.json.gz",
+      "bytes": 2912,
+      "sha256": "01b38e4c924ac1bba9bec0d5065a415d18c5c09ff4607b8c305014e8985860c2",
+      "git_sha": "9ab7d11c7ab849325acb5da299f54f8dcf13d6eb"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/ibn-abu-shayba.json.gz",
+      "bytes": 2376,
+      "sha256": "eb974ad1cc21037ca8c73244a8bc2cd23fef5364c65802f3d9c09886e0e05e69",
+      "git_sha": "d93a7ffe17f7cce53a385691c8f56fee3793392b"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/ibn-hibbon.json.gz",
+      "bytes": 3668,
+      "sha256": "3b693e45b1eebc9a0d5d1af244b1a55e0510cc0416d1749f5cec257d1fc91425",
+      "git_sha": "d2c1294144ea3948de3edcedaa42cf4b3a4fdaf7"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/ibn-moja.json.gz",
+      "bytes": 2846,
+      "sha256": "db4a0d6923f8da600c1c42df2bfdb5ef452cc4584916e79befcbafd46bcb9203",
+      "git_sha": "772541cb3be68d0c2d10e43bc17f9837b8c36a64"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/ibn-xuzayma.json.gz",
+      "bytes": 869,
+      "sha256": "2d19f1382d610f32b55134bd1911dde775300c9b67e89da7bdbc80ada592ae57",
+      "git_sha": "20dcaf861e1cd3eccc91239caa949e454935c640"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/mishkot.json.gz",
+      "bytes": 2554,
+      "sha256": "f978cdd45ec8cbad1ed7cc55449e948a93a07f1f4cfd03dc506b07692652c435",
+      "git_sha": "02f01c1b0a9e1d93cf61647e37ee666ce21c348c"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/muslim.json.gz",
+      "bytes": 4225,
+      "sha256": "01a484b44acfcfe6c8ed1b2a9aad33017b77988c91d011f5dc20b14979b356ff",
+      "git_sha": "6573ab54c1ea1c29f370b21e4ffb84693cd3e316"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/muvatto.json.gz",
+      "bytes": 3356,
+      "sha256": "e0bfd9c2d9609d7593ee6c4f853ca369d6c4d06f5199fe5f6926838ddda9ee48",
+      "git_sha": "6e4c155e3542caa4de5744e552193fb4acb67d21"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/nasoiy-kubro.json.gz",
+      "bytes": 3989,
+      "sha256": "931982a319d48712fe8b450bb321d382b397a2cc5fd497074f53adeda55f580f",
+      "git_sha": "ed038747d2d48a00a0fa8a9970e3acdacd4acc0e"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/nasoiy.json.gz",
+      "bytes": 3583,
+      "sha256": "5c9332810f9a354339f074af630dd2d475be7cc1d537687b9f0539be766a8ea8",
+      "git_sha": "b52edde213e09eb4e3a700025c6fb4ec6fff9860"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/qirq.json.gz",
+      "bytes": 837,
+      "sha256": "d5ba36a91562d0439f1e96976ac05ee7a979a7849bf18c515da8183226a28062",
+      "git_sha": "9884a1e76f3dd690fc9348bfe5649d3f66d2a422"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/riyoz.json.gz",
+      "bytes": 2097,
+      "sha256": "b43736ca0c1ef55b6b91c7183f76eb8945168159126eda64ee24d1f46aefe070",
+      "git_sha": "8c566a92fb1a4d950d1597123879e9ec7f791e4d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/shamoil.json.gz",
+      "bytes": 3374,
+      "sha256": "642b3fa25593e33d94d795feae6ecaf7e38c9c4ea00bad60dfb1e5dd5ba3b2e6",
+      "git_sha": "84bdbf9aebc76976f30c0df80c002167e0d59825"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/sulosiyot.json.gz",
+      "bytes": 844,
+      "sha256": "ee7fb9dbab99a16681a0bb5f6ee31bc64efe8f6a7b5629e84dece8f757c0c33c",
+      "git_sha": "10e8da5b2f4da9af0e39055ca14b18f75e614750"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/introductions/termiziy.json.gz",
+      "bytes": 3502,
+      "sha256": "c191ec31aca82136e14cd3defbd864c5b8f81ed4929ce0ad727164b91d342937",
+      "git_sha": "b4e5b7a96d2c6dbf9d826822639e554f3bfc5a14"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/progress.json",
+      "bytes": 8281,
+      "sha256": "82e4c049f8d32dc3296d6d2ba05501edcf8df83ba672608978350922e8bc97a5",
+      "git_sha": "7c6e9c91023a09e3209fe8c33de73879b4f2dc8b"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/023d242dd21558ac-becdb5ff185ad467.html.gz",
+      "bytes": 67013,
+      "sha256": "01ba967ede8605d6dbfbffdbf46a266fa47ea42cd0c290d2c49137de24c592a7",
+      "git_sha": "fe5e8b2e152e2d3a9d55b6805f10b145bd7390e5"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/0866741385e08b58-c434c97ccb482387.html.gz",
+      "bytes": 9624,
+      "sha256": "e811e329889763924065cfafdb563aebcb59d1f9d1cb0c5d993800d8977918f1",
+      "git_sha": "089b4f313047f6ce61a0c12320a4048307b1764a"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/0c6735d8dbb81257-937b0ecfb291b705.html.gz",
+      "bytes": 13649,
+      "sha256": "616aaaae93deeef57b47472da1d960be26210004cd1ae90a067d22de6afad723",
+      "git_sha": "440f0d7a4cf860fc7dc9b36754da6ce2657bf9a0"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/11eeed2e7e41cfb4-ceac5b3d86e3c8c7.html.gz",
+      "bytes": 10598,
+      "sha256": "32fcfb2130acd15529db4277dd448dddf806a31331dba2b65ae6256a1870eb32",
+      "git_sha": "82e772102544e5a1916bc159c4d66cdd37e00ef5"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/1c0acedd91db09cf-c5c4b3c290f2ba4f.html.gz",
+      "bytes": 16647,
+      "sha256": "0a3e4068baadbb495342a087931136b823deac4d5efb6ce6f9b7a310cb7f2d81",
+      "git_sha": "1d5b30fc129beb6e03e61a58eeae7ef3a75bb2e2"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/2060dd50e2f8c62c-ebbc5e705b04dfbc.html.gz",
+      "bytes": 15545,
+      "sha256": "dc1153a0787fd0d40d9c3df6212a67f2b51ae58697bf08b69fc8718823c8efb2",
+      "git_sha": "cca91ecb0f9a1cbd9742df9502f451dd3df6e222"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/281a6f20dc66bdf8-e7e3a816ed3e38f8.html.gz",
+      "bytes": 15675,
+      "sha256": "e5aa36a4413736983a45f73ffc55f06675affef4c8eb4161e19bf616d4fc72a5",
+      "git_sha": "0c52a446632be27e67cbc89d85409fe4796adad5"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/32a9515fbd911889-945efeb23b7fafca.html.gz",
+      "bytes": 9904,
+      "sha256": "027c8960c707f99c01adb191566da691613b2dda920ab4ab3bb66b0525624ba6",
+      "git_sha": "5815eaa190a006a597be577e945b37bcd6f5d989"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/3b10fc3c7dce9c9e-90ed4d5f67c1a768.html.gz",
+      "bytes": 15074,
+      "sha256": "8df9a772b90af8f04977a33dd681c14a64e251adf331e7853b5a44e07e594091",
+      "git_sha": "17f41dc28ba9cade8828ecf81cde510b2619406c"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/4d7ebe74afdc5e7b-352d3a1eb9ed761c.html.gz",
+      "bytes": 15949,
+      "sha256": "7787c07c851181090f6b5adb921326708591542f579b1b5b8b3a3b1d672780ed",
+      "git_sha": "0c3a430ff1e51bff91671718bbd758af8dccafac"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/53183f40e036e40f-a427820311840cb0.html.gz",
+      "bytes": 11538,
+      "sha256": "06a1637ee84f0808b857528d32ceae051cda93e1ffbd2fb8645c4d70c00d83de",
+      "git_sha": "6bed435f67823bf4f62c439a5336d85f4f0fe3a1"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/536d6561a1c8f019-280b0a655e09ffc9.html.gz",
+      "bytes": 6691,
+      "sha256": "7089cef804e63b23ba8c65cbeb1cfa5188106964cd544e9cd02a5956263942a1",
+      "git_sha": "7e571ee5426823344687d328d028225bc2a53efe"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/5a90ca4d32719d45-72095c572e94158c.html.gz",
+      "bytes": 156656,
+      "sha256": "0c4a87421e6c78a2551abdb18705f75b58d2e0acf5587eaf85e35f05138e047c",
+      "git_sha": "3be2ecd45dd25642c752227d178696e81b2a054c"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/62fcfeebc4722f04-051b60adf31a5084.html.gz",
+      "bytes": 13160,
+      "sha256": "80a0c2c963fbed63a56c68ec99518b5a93d08cdb50dc76b9b3baadf591efcd6e",
+      "git_sha": "18a9cc5a9e32b4e30fb060ce0200827a45f12cfa"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/656168ad4ea1a9d0-02ad43307fb9097e.html.gz",
+      "bytes": 6990,
+      "sha256": "1ec8d07875ae7b52d3c68fd88c2264ceb40cf9c74164ea3970f177542509b6f9",
+      "git_sha": "d073b07eb8f2f9bcf49a76658d89d650e628d0be"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/67cc3ed17a24f8df-0c931cc4414d4a9e.html.gz",
+      "bytes": 17769,
+      "sha256": "73b34bbed3a5fe3a5169a0f9d991cd3cf252886262e69112a8780e3721767fa8",
+      "git_sha": "f1eca238b1477acdcbcf0ef8324d98ded3e1b51a"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/7138016d5d1c1a48-f7b534462bd78f62.html.gz",
+      "bytes": 24555,
+      "sha256": "b515a7c7fc1d8003bb83c89ae2ada3b3b0ea5eee3e4d9893073aa5f1668560f4",
+      "git_sha": "1b30f9708a4df9939cbb1e308aee82d9ffed0fd9"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/72f370b9863331fb-f27c219e79421558.html.gz",
+      "bytes": 12087,
+      "sha256": "c613cdd0644fd05af58946ca11818c56e5ef7f58c57c47eaa6eb47c922cd2f39",
+      "git_sha": "bd62d33b850748c7faf1876131acb89665be33e2"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/8808124d79237faa-918e5afb835d087c.html.gz",
+      "bytes": 59244,
+      "sha256": "1fa293aa9ee4041ffd18d2ffaf1ba44456db97014dcbc2808116a50592d3a8d7",
+      "git_sha": "443c768424d6dda35692724dadb9c824fcf44ede"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/8b55f0778d05e138-1c044cc5ccd27438.html.gz",
+      "bytes": 8619,
+      "sha256": "1f01e37706a853980d2e398b2a8a6f02200a6db48455dd74b5cb3de41e07781a",
+      "git_sha": "37c074640f3b0958e95c1dda7c492acc7d4fd4fb"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/91715ff2cee404f1-32b7d041eac68811.html.gz",
+      "bytes": 16083,
+      "sha256": "1339841825037486ec465dc5677c0cba14c3c4701189c1aac0038bcf193ee058",
+      "git_sha": "e835c36d45531460d033230aafc94dae159e8487"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/97ba299aa2fc49d5-783f1e23254a40bc.html.gz",
+      "bytes": 10304,
+      "sha256": "7d9a86065442f4604492e73cf8a212d35ec55b47085cc66dc05edfa13888f142",
+      "git_sha": "6306c17d2a52d74a3e7c9963a865a367d4963a68"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/9fb81db265b5d622-2534458bec048d26.html.gz",
+      "bytes": 8574,
+      "sha256": "e533b5bc69a11c10dcaef95f239a7ab498952ea1b97d8503f22ed8f9d030d578",
+      "git_sha": "ea0f0c2554621f1ed751abb410b338063282d21f"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/bae321b8290e5f94-7c1596903514acf4.html.gz",
+      "bytes": 14126,
+      "sha256": "5da3c1965add7284294c0d4f9e5e6d68abb4c7b246c1a9202cc2c64ee2438add",
+      "git_sha": "bed9f54137793023f35bc57ec8c9d57d3ea0c634"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/be32ebeba1fb192f-2419e0a3b5871a6c.html.gz",
+      "bytes": 10874,
+      "sha256": "12ddb29ffb49a21dedacc5f31a64837343721ae22a194dd0d06a42dd196e3e87",
+      "git_sha": "7e0f1a4bb17cb878bb279c997dd625821a09dcc9"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/d941d03a18bf9cda-928d7950f4b2cfdc.html.gz",
+      "bytes": 7203,
+      "sha256": "22a5bf25010d0e07ae1e0768374e3abbc881c09c6d44ed1a5cd9c2eba44a0344",
+      "git_sha": "8596b60f9979eb55bee1a6cb95a0fac25d9f9c45"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/da4294c236f468e2-956b1a6f91bac4ea.html.gz",
+      "bytes": 6292,
+      "sha256": "283f589dadce8e16330660c6aa4f0e5bd336e69a217b5a4955d8ded57bf04d11",
+      "git_sha": "5dd34e48c671afb805a54260579b9398f51edab7"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/f2f569ee726d0969-0f7c0f2b3f1e5e68.html.gz",
+      "bytes": 17599,
+      "sha256": "7649a53aafb17aa50f669e76838ab25356553971f8ce93f3fef90aea222843d4",
+      "git_sha": "339aac9846424215568dfdb9adce15603407041d"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/f80e11589cb1302f-f95f56f257ffd841.html.gz",
+      "bytes": 7001,
+      "sha256": "cbc3937aef6ca96e14bf87ccff97094fd9c8365a691ebc6776a2a2a6dd695f98",
+      "git_sha": "367c0f6d4bfab40182c8625400b9b569e6b404b0"
+    },
+    {
+      "path": "imports/web-uzbek-20261112/rivoyat/snapshots/fd820daed7842afd-c4280eaa71f08b30.html.gz",
+      "bytes": 7325,
+      "sha256": "89f2bc3de0a17eec71563b41ace11a8a3b2d99b859f47a39891a784205ab68ec",
+      "git_sha": "f7b7a05ac858c7bc7cb73b06d1416b7829049185"
+    },
+    {
+      "path": "materials/islom-book-17-uz-web/manifest.json",
+      "bytes": 2752,
+      "sha256": "99d42678fae8078ac5176e69f83fdd96d3a433782de5c4aefc4e7cfbe3cbd7d7",
+      "git_sha": "1edc8f3028b5aabfe75464729bdb9c753bc66ee3"
+    },
+    {
+      "path": "materials/islom-book-17-uz-web/records.jsonl",
+      "bytes": 2379183,
+      "sha256": "93334d924379a8461a530ed119558c03afeaa6dd3edff9cd225c78bd4d46c0aa",
+      "git_sha": "b8f5e626494fd453d9f0f7a1ed8229e1413f5376"
+    },
+    {
+      "path": "materials/islom-book-17-uz-web/source-evidence.json",
+      "bytes": 2148,
+      "sha256": "b58ef0a975a9e9f4688c0a77defe3a2bab248aafa5c5c9240ee7e6c34f411258",
+      "git_sha": "1b5c924b693859c7bd4a9137235ab1449bec4720"
+    },
+    {
+      "path": "materials/islom-book-22-uz-web/manifest.json",
+      "bytes": 2733,
+      "sha256": "290522b088885ab18cae6bf8d87419c4a067a932299cdc9e72819fae525856cc",
+      "git_sha": "f9c4b55e03a94e8c77304b30a125c113c7b895ad"
+    },
+    {
+      "path": "materials/islom-book-22-uz-web/records.jsonl",
+      "bytes": 607964,
+      "sha256": "31e1e48f997f72cdfc27e6853e0054b37a17ac420b31d45d2b1165ec9a20e74a",
+      "git_sha": "b936413f021eaa9a30595197b1ec5a3e8fb2c8d3"
+    },
+    {
+      "path": "materials/islom-book-22-uz-web/source-evidence.json",
+      "bytes": 2755,
+      "sha256": "77764b74ff267be52c2642ef5a595053a27f67652b3e7171f0cca81912749721",
+      "git_sha": "d645d637fad13ac73565db84fac9752d1cd69991"
+    },
+    {
+      "path": "materials/islom-book-23-uz-web/manifest.json",
+      "bytes": 2753,
+      "sha256": "253c4165cec2cd616c33b335320331e48a4a434032f0a3a782c821a2acd70a4e",
+      "git_sha": "7bac7193f82635f74a0e9ac7f8aae5baffbc7315"
+    },
+    {
+      "path": "materials/islom-book-23-uz-web/records.jsonl",
+      "bytes": 3682629,
+      "sha256": "00d10aad3a2bb8f3ce635d779835400b304a52dcf39ddeafbe8a005d348bb033",
+      "git_sha": "aa677a5f2691dbd708182828e219751e41c20dd9"
+    },
+    {
+      "path": "materials/islom-book-23-uz-web/source-evidence.json",
+      "bytes": 2747,
+      "sha256": "f8077ca1e6bb25f9565b13e068e3b09d92027bd02b8df5a6968a5092f0778a73",
+      "git_sha": "f8b43f13df13b1ff16efbc8260b3718009610cf2"
+    },
+    {
+      "path": "materials/rivoyat-buxoriy-uz-web/manifest.json",
+      "bytes": 2964,
+      "sha256": "88a9ba6c34442b707a170e7130873678813855b023c715b1de280da9875869c4",
+      "git_sha": "fe41a4ecf25e18999a1f442a00834dde58cfb7f7"
+    },
+    {
+      "path": "materials/rivoyat-buxoriy-uz-web/records.jsonl",
+      "bytes": 158006,
+      "sha256": "b5e0270b0f456673e38f19801ce22cc55872ac3424ac3c29a9b8eba6f610e145",
+      "git_sha": "f3d3154391b11c65bf136c5b9f0fb694ebac2a6f"
+    },
+    {
+      "path": "materials/rivoyat-buxoriy-uz-web/source-evidence.json",
+      "bytes": 2215,
+      "sha256": "6b53c7c6672a0041a75e8fa69b6e57e69d40a7365ce2c017cb6368cf570f17d9",
+      "git_sha": "abf4096d34cf28a63eae6185c0eb5a8f17954af6"
+    },
+    {
+      "path": "materials/rivoyat-muslim-uz-web/manifest.json",
+      "bytes": 2950,
+      "sha256": "2ad9f68ed8e33cf6580ac8e974dd781a6d8002f815d96ecc89771d8b3d36f297",
+      "git_sha": "9e33be12c0cec233436ab752506089c5f52ea28b"
+    },
+    {
+      "path": "materials/rivoyat-muslim-uz-web/records.jsonl",
+      "bytes": 320020,
+      "sha256": "cbad53198a7cf372c668c770d1cc33ecab41948691c49f64ac4cfe6ac164ec7f",
+      "git_sha": "155dcdca3b8274d7c2f2ab176d647bc96ea44ccb"
+    },
+    {
+      "path": "materials/rivoyat-muslim-uz-web/source-evidence.json",
+      "bytes": 2201,
+      "sha256": "77be726fda37c20e8cc43194b0d59a458a05c4066fb982fa9dad6525e2d0e962",
+      "git_sha": "d296f818ca871bd8577a7e811c99df347212765d"
+    }
+  ],
+  "file_count": 162,
+  "source_bytes": 10367141,
+  "site_access": {
+    "rivoyat": "Existing authorized snapshots recovered. Live GitHub runner received HTTP 403 for robots.txt; saved worker stop remains in force."
+  },
+  "independent_content_review_performed": false,
+  "unique_canonical_hadiths_counted": false,
+  "additional_recovered_detail_snapshots": [
+    {
+      "url": "https://rivoyat.com/buxoriy/1/1",
+      "source_bytes": 94927,
+      "snapshot_path": "imports/web-uzbek-20261112/rivoyat/snapshots/2844d8fdd742fa55-05273f4b9cfc27ea.html.gz",
+      "sha256": "05273f4b9cfc27ea6a4c8ba6d93c2f7d50c77f19e3ca128cf99293adc5792b55",
+      "stored_sha256": "b9126d2e4850154d937773a8cb30c0dde0db9a4b593dcfc73d8a7e8e9904f720",
+      "metadata_path": "imports/web-seed-recovery-20261112/detail-observations/buxoriy-1-1.metadata.json",
+      "metadata_sha256": "6fa9e2de200a60f3aba9db0df97073989ca4ae5cf9721ac00eda4b2ba52a1808"
+    },
+    {
+      "url": "https://rivoyat.com/muslim/1/17c",
+      "source_bytes": 55463,
+      "snapshot_path": "imports/web-uzbek-20261112/rivoyat/snapshots/18385b4c616206ac-1e185d691f71d54f.html.gz",
+      "sha256": "1e185d691f71d54ffc11030aee960d1bab99dc3fbcf692ce6e3500268491e083",
+      "stored_sha256": "65525baf97cdb7ee4d4f669d61889ce9b438c02c65b4f09a07660913bfa2024e",
+      "metadata_path": "imports/web-seed-recovery-20261112/detail-observations/muslim-1-17c.metadata.json",
+      "metadata_sha256": "1e45178bf2ae85f3f831d9a7efad62a9dcde1500bd171cc827a183ea49bc4a17"
+    }
+  ]
+}

@@ -61,10 +61,15 @@ def source_status(root, name):
                 not progress.get('done') and (progress.get('pending_fetch_count', 0) > 0 or unfinished_inventory)),
         }
     checkpoint = read_json(root / ('imports/web-uzbek-20261112/' + name + '/checkpoint.json'), {})
-    tasks = checkpoint.get('tasks', [])
-    access_block = checkpoint.get('access_block') or progress.get('access_block')
-    blocked = bool(access_block or progress.get('blocked')) or any(task.get('status') == 'blocked' for task in tasks)
-    pending = sum(task.get('status') == 'pending' for task in tasks)
+    page_tasks = checkpoint.get('tasks', [])
+    detail_tasks = list(checkpoint.get('detail_metadata_tasks', {}).values())
+    tasks = [*page_tasks, *detail_tasks]
+    access_block = (checkpoint.get('site_access_block') or checkpoint.get('access_block')
+                    or progress.get('access_block'))
+    blocked = bool(access_block) or bool(progress.get('blocked')) or any(task.get('status') == 'blocked' for task in tasks)
+    pending_pages = sum(task.get('status') == 'pending' for task in page_tasks)
+    pending_details = sum(task.get('status') == 'pending' for task in detail_tasks)
+    pending = pending_pages + pending_details
     retryable = sum(task.get('status') == 'failed' and task.get('attempts', 1) < 3
                     and not task.get('error', '').startswith('HTTP 404') for task in tasks)
     return {
@@ -74,11 +79,15 @@ def source_status(root, name):
         'registered_occurrences': progress.get('prophetic_source_entries_registered', 0),
         'held_entries': progress.get('classification_pending_hidden', 0),
         'pending_requests': pending,
-        'pending_unit': 'linked catalogue or section pages; pagination may discover more',
-        'discovered_page_tasks': len(tasks),
+        'pending_unit': 'linked catalogue, section or detail pages; pagination may discover more',
+        'pending_page_requests': pending_pages,
+        'pending_detail_requests': pending_details,
+        'discovered_page_tasks': len(page_tasks),
+        'discovered_detail_tasks': len(detail_tasks),
+        'detail_metadata_processed': sum(task.get('status') == 'done' for task in detail_tasks),
         'fetch_queue_done': not blocked and bool(tasks) and all(task.get('status') == 'done' for task in tasks),
-        'blocked': blocked, 'access_block': access_block,
-        'errors': sum(task.get('status') == 'failed' for task in tasks),
+        'blocked': blocked, 'errors': sum(task.get('status') == 'failed' for task in tasks),
+        'access_block': access_block,
         'has_fetch_work': not blocked and (not checkpoint or bool(pending or retryable)),
     }
 

@@ -9,6 +9,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
+from build_discovery import render_language_reading
 from language_display import language_readings, available_languages, reading_direction
 from language_versions import available_language_codes
 from test_reader import fixture, READER_SNAPSHOT_JS
@@ -110,6 +111,83 @@ class LanguageReadingTests(unittest.TestCase):
         self.assertIn('<p dir="ltr">TEST Roman Urdu quotation</p>', page)
         self.assertEqual(record, before)
 
+    def test_markdown_keeps_raw_only_citation_and_numbering_qualifiers_in_own_reading(self):
+        record = multilingual_fixture()
+        english = record['language_versions'][1]
+        english['references'].append({'collection': None, 'number': None,
+            'source_citation': 'TEST raw attribution <not normalized>',
+            'scope': 'source_supplied_citation', 'numbering_system': 'publisher_source_local',
+            'canonical_mapping_status': 'not_inferred', 'url': english['source']['record_url']})
+        english['source']['upstream_sources'] = [{'name': 'TEST site credit', 'url': 'https://example.invalid/credit',
+            'scope': 'site_level_attribution_not_record_verified'}]
+        before = copy.deepcopy(record)
+        page = reader.markdown_record(record, 1)
+        own = page.split('<section class="language-reading" lang="en">', 1)[1].split('</section>', 1)[0]
+        other = page.split('<section class="language-reading" lang="hi">', 1)[1].split('</section>', 1)[0]
+        self.assertIn('<details class="reading-references">', own)
+        self.assertIn('English · references (2)', own)
+        self.assertIn('TEST raw attribution &lt;not normalized&gt;', own)
+        self.assertNotIn('TEST raw attribution', other)
+        self.assertIn('Numbering: publisher source local', own)
+        self.assertIn('Canonical mapping: not inferred', own)
+        self.assertIn('site level attribution not record verified', own)
+        self.assertEqual(own.count('href="' + english['source']['record_url'] + '"'), 1)
+        self.assertEqual(record, before)
+
+    def test_pending_detail_metadata_notice_tracks_the_saved_source_state(self):
+        record = multilingual_fixture()
+        english = record['language_versions'][1]
+        notice = 'Detailed source references and notes have not been retrieved yet.'
+        english['source']['detail_metadata_status'] = 'detail_metadata_pending'
+        english['references_status'] = 'section_reference_only_detail_metadata_pending'
+        english['comments_status'] = 'detail_metadata_pending'
+        before = copy.deepcopy(record)
+        page = reader.markdown_record(record, 1)
+        own = page.split('<section class="language-reading" lang="en">', 1)[1].split('</section>', 1)[0]
+        other = page.split('<section class="language-reading" lang="hi">', 1)[1].split('</section>', 1)[0]
+        self.assertIn(notice, own)
+        self.assertNotIn(notice, other)
+        self.assertEqual(record, before)
+        english['source']['detail_metadata_status'] = 'detail_metadata_source_parsed'
+        english['references_status'] = 'source_detail_fields_parsed_canonical_identity_unverified'
+        english['comments_status'] = 'no_notes_in_supported_detail_blocks'
+        self.assertNotIn(notice, reader.markdown_record(record, 1))
+
+    def test_static_language_reading_preserves_raw_references_and_pending_state(self):
+        record = multilingual_fixture()
+        english = record['language_versions'][1]
+        english['source']['detail_metadata_status'] = 'detail_metadata_pending'
+        english['references'] += [
+            {'source_citation': 'TEST raw-only citation <script>preserve literally</script>',
+             'scope': 'source_supplied_citation', 'numbering_system': 'publisher_source_local',
+             'canonical_mapping_status': 'not_inferred'},
+            {'collection': 'TEST repeated source', 'url': english['source']['record_url']},
+            {'collection': 'TEST alternate URL', 'source_url': 'https://example.invalid/upstream'},
+            {'source_citation': 'TEST unsafe link retained as text', 'url': 'javascript:TEST-UNSAFE'},
+        ]
+        before = copy.deepcopy(record)
+        readings = {item['language']: item for item in language_readings(record)}
+        own = render_language_reading(readings['en'])
+        other = render_language_reading(readings['hi'])
+        notice = 'Detailed source references and notes have not been retrieved yet.'
+        self.assertIn('References for this language (5)', own)
+        self.assertIn('TEST raw-only citation &lt;script&gt;preserve literally&lt;/script&gt;', own)
+        self.assertIn('Numbering: publisher source local', own)
+        self.assertIn('Canonical mapping: not inferred', own)
+        self.assertIn('source supplied citation', own)
+        self.assertIn(notice, own)
+        self.assertNotIn('TEST raw-only citation', other)
+        self.assertNotIn(notice, other)
+        self.assertNotIn('href="javascript:', own)
+        self.assertNotIn('<script>', own)
+        self.assertIn('href="https://example.invalid/upstream" target="_blank" rel="noopener noreferrer"', own)
+        self.assertEqual(own.count('href="' + english['source']['record_url'] + '"'), 1)
+        self.assertIn('COMMENT-ONLY-en', own)
+        self.assertNotIn('COMMENT-ONLY-hi', own)
+        self.assertEqual(record, before)
+        readings['en']['source']['detail_metadata_status'] = 'detail_metadata_source_parsed'
+        self.assertNotIn(notice, render_language_reading(readings['en']))
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for browser parity')
     def test_browser_views_filters_and_commentary_search_match_python(self):
         records = [multilingual_fixture(), fixture(2)]
@@ -135,10 +213,16 @@ process.stdout.write(JSON.stringify({views:languageReadings(records[0]),language
     def test_language_panel_dom_owns_sources_notes_and_open_controls(self):
         """Exercise DOM construction, not a substitute for a browser layout test."""
         record = multilingual_fixture()
+        record['language_versions'][1]['source']['detail_metadata_status'] = 'detail_metadata_pending'
+        record['language_versions'][1]['references'].append({'collection': None, 'number': None,
+            'source_citation': 'TEST raw-only citation <script>preserve as text</script>',
+            'scope': 'source_supplied_citation', 'numbering_system': 'publisher_source_local',
+            'canonical_mapping_status': 'not_inferred',
+            'url': record['language_versions'][1]['source']['record_url']})
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         constructors = 'function detail(' + template.split('function detail(', 1)[1].split('function sourceFiles(', 1)[0]
-        panels = 'function languageReading(' + template.split('function languageReading(', 1)[1].split('function card(', 1)[0]
+        panels = 'function citationList(' + template.split('function citationList(', 1)[1].split('function card(', 1)[0]
         program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
 class TestNode {
  constructor(tag){this.tag=tag;this.children=[];this.dataset={};this.attributes={};this.events={};this.open=false;}
@@ -156,10 +240,17 @@ const card=new TestNode('article');appendLanguageReadings(card,records[0],7);
 const nodes=node=>[node,...node.children.flatMap(nodes)],all=nodes(card);
 const sections=all.filter(node=>node.tag==='details' && node.className==='language-reading');
 const english=sections.find(node=>node.dataset.language==='en'),englishNodes=nodes(english);
+const completedReading=languageReadings(records[0]).find(reading=>reading.language==='en');
+const completed=languageReading({...completedReading,source:{...completedReading.source,detail_metadata_status:'detail_metadata_source_parsed'}},8,1);
 const roman=sections.find(node=>node.dataset.language==='ur-Latn'),wasClosed=!roman.open;
 const romanButton=all.find(node=>node.tag==='button' && node.textContent==='Roman Urdu');romanButton.events.click();
 process.stdout.write(JSON.stringify({count:sections.length,arabicOpen:sections.find(node=>node.dataset.language==='ar').open,
  englishOpen:english.open,notesClosed:!englishNodes.find(node=>node.className==='detail reading-notes').open,
+ referencesClosed:!englishNodes.find(node=>node.className==='detail reading-references').open,
+ pendingNotice:englishNodes.find(node=>node.className==='counterpart-note reading-pending')?.textContent,
+ completedNotice:nodes(completed).some(node=>node.className==='counterpart-note reading-pending'),
+ referenceText:englishNodes.filter(node=>['citation-verbatim','citation-scope'].includes(node.className)).map(node=>node.textContent),
+ hindiText:nodes(sections.find(node=>node.dataset.language==='hi')).map(node=>node.textContent || '').join(' '),
  englishLinks:englishNodes.filter(node=>node.tag==='a').map(node=>({href:node.href,target:node.target,rel:node.rel})),
  citation:englishNodes.find(node=>node.className==='reading-citation').textContent,
  romanWasClosed:wasClosed,romanOpened:roman.open,romanFocused:roman.querySelector('summary').focused,
@@ -172,6 +263,15 @@ process.stdout.write(JSON.stringify({count:sections.length,arabicOpen:sections.f
         self.assertTrue(actual['arabicOpen'])
         self.assertTrue(actual['englishOpen'])
         self.assertTrue(actual['notesClosed'])
+        self.assertTrue(actual['referencesClosed'])
+        self.assertEqual(actual['pendingNotice'], 'Detailed source references and notes have not been retrieved yet.')
+        self.assertFalse(actual['completedNotice'])
+        self.assertIn(record['language_versions'][1]['references'][1]['source_citation'], actual['referenceText'])
+        self.assertIn('Numbering: publisher source local', actual['referenceText'])
+        self.assertIn('Canonical mapping: not inferred', actual['referenceText'])
+        self.assertNotIn('TEST raw-only citation', actual['hindiText'])
+        self.assertEqual(sum(link['href'] == record['language_versions'][1]['source']['record_url']
+                             for link in actual['englishLinks']), 1)
         self.assertEqual({link['href'] for link in actual['englishLinks']}, {
             'https://example.invalid/en/entry', 'https://example.invalid/en/reference',
             'https://example.invalid/en/notes'})

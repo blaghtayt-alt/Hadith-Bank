@@ -126,6 +126,57 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertFalse(status['fetch_queues_done'])
         self.assertEqual((self.root / batch.STOP_FILE).read_bytes(), original)
 
+    def test_pending_detail_metadata_prevents_false_completion(self):
+        for name in batch.PROGRESS:
+            self.progress(name, 'done', count=2)
+        path = self.root / 'imports/web-uzbek-20261112/rivoyat/checkpoint.json'
+        checkpoint = batch.read_json(path)
+        checkpoint['detail_metadata_tasks'] = {
+            'TEST:1': {'kind': 'detail', 'status': 'done'},
+            'TEST:2': {'kind': 'detail', 'status': 'pending'},
+        }
+        batch.write_changed(path, checkpoint)
+        status = batch.summarize(self.root, self.plan)
+        rivoyat = next(item for item in status['source_status'] if item['source'] == 'rivoyat')
+        self.assertFalse(status['fetch_queues_done'])
+        self.assertTrue(status['has_fetch_work'])
+        self.assertEqual(rivoyat['pending_requests'], 1)
+        self.assertEqual(rivoyat['pending_page_requests'], 0)
+        self.assertEqual(rivoyat['pending_detail_requests'], 1)
+        self.assertEqual(rivoyat['detail_metadata_processed'], 1)
+
+    def test_saved_robots_denial_blocks_pending_pages_and_metadata(self):
+        path = self.root / 'imports/web-uzbek-20261112/rivoyat/checkpoint.json'
+        checkpoint = batch.read_json(path)
+        checkpoint['detail_metadata_tasks'] = {'TEST:1': {'kind': 'detail', 'status': 'pending'}}
+        checkpoint['site_access_block'] = {'url': 'https://example.invalid/robots.txt', 'status': 403, 'error': 'HTTP 403'}
+        batch.write_changed(path, checkpoint)
+        self.progress('deenhindi', 'done')
+        self.progress('islom', 'done')
+        status = batch.summarize(self.root, self.plan)
+        rivoyat = next(item for item in status['source_status'] if item['source'] == 'rivoyat')
+        self.assertTrue(rivoyat['blocked'])
+        self.assertFalse(rivoyat['has_fetch_work'])
+        self.assertFalse(status['fetch_queues_done'])
+        self.assertTrue(status['schedule_should_pause'])
+        self.assertEqual(status['schedule_pause_reason'], 'inspection_required')
+        self.assertEqual(rivoyat['pending_detail_requests'], 1)
+
+    def test_failed_detail_task_has_bounded_retry_and_never_counts_complete(self):
+        for name in batch.PROGRESS:
+            self.progress(name, 'done')
+        path = self.root / 'imports/web-uzbek-20261112/rivoyat/checkpoint.json'
+        checkpoint = batch.read_json(path)
+        task = {'kind': 'detail', 'status': 'failed', 'attempts': 2, 'error': 'TEST timeout'}
+        checkpoint['detail_metadata_tasks'] = {'TEST:1': task}
+        batch.write_changed(path, checkpoint)
+        self.assertTrue(batch.summarize(self.root, self.plan)['has_fetch_work'])
+        task['attempts'] = 3
+        batch.write_changed(path, checkpoint)
+        status = batch.summarize(self.root, self.plan)
+        self.assertFalse(status['fetch_queues_done'])
+        self.assertFalse(status['has_fetch_work'])
+
     def test_disabled_plan_or_sources_pause_without_claiming_completion(self):
         self.plan['enabled'] = False
         status = batch.summarize(self.root, self.plan)

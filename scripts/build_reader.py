@@ -302,6 +302,9 @@ def citation_parts(item):
                             if isinstance(item.get(k), str) and item[k]), None)
     if source_citation:
         result += [prose(source_citation), '']
+    for field, label in (('numbering_system', 'Numbering'), ('canonical_mapping_status', 'Canonical mapping')):
+        if isinstance(item.get(field), str) and item[field]:
+            result += [prose(label + ': ' + item[field].replace('_', ' ')), '']
     return result
 
 
@@ -384,10 +387,17 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
         if reading['translation_origin'] is not None:
             source_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[reading['translation_origin']]
         lines += ['<p><strong>Source:</strong> ' + source_credit + '</p>', '']
-        for reference in reading['references']:
-            reference_url = safe_url(reference.get('url')) if isinstance(reference, dict) else None
-            if reference_url and reference_url != version_url:
-                lines += ['<p><a href="' + escaped(reference_url) + '" target="_blank" rel="noopener noreferrer">Reference at source</a></p>', '']
+        if version_source.get('detail_metadata_status') == 'detail_metadata_pending':
+            lines += [prose('Detailed source references and notes have not been retrieved yet.'), '']
+        if reading['references']:
+            lines += ['<details class="reading-references">', '<summary>' + escaped(reading['heading']) +
+                      ' · references (' + str(len(reading['references'])) + ')</summary>', '']
+            for reference in reading['references']:
+                lines += citation_parts(reference)
+                reference_url = safe_url(reference.get('url')) if isinstance(reference, dict) else None
+                if reference_url and reference_url != version_url:
+                    lines += ['<p><a href="' + escaped(reference_url) + '" target="_blank" rel="noopener noreferrer">Reference at source</a></p>', '']
+            lines += ['</details>', '']
         if reading['comments']:
             lines += ['<details>', '<summary>' + escaped(reading['heading']) + ' · notes and commentary</summary>', '']
             for note in reading['comments']:
@@ -408,6 +418,8 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
                 label = item.get('name') or upstream_url or 'Source not named'
                 lines += ['<p>' + ('<a href="' + escaped(upstream_url) + '">' + escaped(label) + '</a>'
                                   if upstream_url else escaped(label)) + '</p>', '']
+                if isinstance(item.get('scope'), str) and item['scope']:
+                    lines += [prose(item['scope'].replace('_', ' ')), '']
             lines += ['</details>', '']
         lines += ['</section>', '']
     alignment_notes = counterpart_alignment_notes(record)

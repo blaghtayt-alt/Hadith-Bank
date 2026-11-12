@@ -20,7 +20,7 @@ import xml.etree.ElementTree as ET
 from build_reader import (
     LANGUAGE_NAMES, component, load_records, local, number_label, page_label,
     record_type_info, safe_url, script_json, site_metadata, source_downloads,
-    source_download_url, text,
+    source_download_url, text, citation_parts,
 )
 from counterpart_display import (
     counterpart_alignment_notes, counterpart_citation, counterpart_qualification,
@@ -204,14 +204,19 @@ def render_language_reading(reading):
         body.append(' · Translation origin: ' +
                     {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[reading['translation_origin']])
     body.append('</p>')
-    links = []
-    for reference in reading.get('references') or []:
-        own_url = safe_url(reference.get('url')) or safe_url(reference.get('source_url'))
-        if own_url:
-            label = reference.get('source_citation') or reference.get('citation') or reference.get('collection') or 'Source reference'
-            links.append('<p><a href="' + esc(own_url) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + '</a></p>')
-    if links:
-        body.append(detail('References for this language', ''.join(links)))
+    if source.get('detail_metadata_status') == 'detail_metadata_pending':
+        body.append('<p class="notice reading-pending">Detailed source references and notes have not been retrieved yet.</p>')
+    references = reading.get('references') or []
+    reference_parts = []
+    for reference in references:
+        reference_parts.extend(citation_parts(reference))
+        own_url = (safe_url(reference.get('url')) or safe_url(reference.get('source_url'))
+                   if isinstance(reference, dict) else None)
+        if own_url and own_url != url:
+            reference_parts.append('<p><a href="' + esc(own_url) +
+                                   '" target="_blank" rel="noopener noreferrer">Reference at source</a></p>')
+    if references:
+        body.append(detail('References for this language (' + str(len(references)) + ')', ''.join(reference_parts)))
     upstream = []
     for item in source.get('upstream_sources') or []:
         if isinstance(item, dict):

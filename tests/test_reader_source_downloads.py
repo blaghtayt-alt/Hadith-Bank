@@ -121,7 +121,7 @@ const icon=name=>new TestNode('svg');
 
     def language_panels(self):
         constructors = 'function detail(' + self.template.split('function detail(', 1)[1].split('function sourceFiles(', 1)[0]
-        panels = 'function languageReading(' + self.template.split('function languageReading(', 1)[1].split('function card(', 1)[0]
+        panels = 'function citationList(' + self.template.split('function citationList(', 1)[1].split('function card(', 1)[0]
         return constructors + panels + '''
 const counterpartPanel=(record,language)=>languageReading(languageReadings(record).find(reading=>reading.role==="counterpart" && reading.language===language),0,0);
 '''

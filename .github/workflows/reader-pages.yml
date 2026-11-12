@@ -46,6 +46,7 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+      actions: write
     outputs:
       publish: ${{ steps.sync.outputs.publish }}
       published_commit: ${{ steps.sync.outputs.published_commit }}
@@ -76,14 +77,10 @@ jobs:
       - name: Keep generated bank files synchronized
         id: sync
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          current_main="$(git ls-remote --exit-code origin refs/heads/main | cut -f1)"
-          if [[ "$current_main" != "$GITHUB_SHA" ]]; then
-            echo "A newer main revision exists; its own run will publish it."
-            echo "publish=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
           git add -A -- catalog search browse index.json hadith-bank-reader.html \
             sources/counterparts reports/counterpart-coverage.json \
             reports/counterpart-availability.json reports/counterpart-availability.md \
@@ -98,9 +95,11 @@ jobs:
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -m 'Update generated Hadith Bank reader [skip ci]'
           fi
-          # Resolve a concurrent source push without publishing a stale build.
+          # Token-authenticated source pushes do not trigger push workflows.
+          # A superseded build explicitly requests the current main revision.
           python scripts/push_reader_commit.py --expected-start "$GITHUB_SHA" \
-            --github-output "$GITHUB_OUTPUT"
+            --github-output "$GITHUB_OUTPUT" --request-current-build \
+            --repository "$GITHUB_REPOSITORY"
       - name: Upload the verified website
         if: steps.sync.outputs.publish == 'true'
         uses: actions/upload-pages-artifact@v4
@@ -116,6 +115,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: read
+      actions: write
       pages: write
       id-token: write
     environment:
@@ -131,11 +131,13 @@ jobs:
         run: |
           set -euo pipefail
           current_main="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          [[ "$current_main" =~ ^[0-9a-f]{40}$ ]]
           if [[ "$current_main" == "$EXPECTED_COMMIT" ]]; then
             echo "publish=true" >> "$GITHUB_OUTPUT"
           else
-            echo "A newer bank revision is waiting to deploy."
+            echo "Main advanced before deployment; requesting its current build."
             echo "publish=false" >> "$GITHUB_OUTPUT"
+            gh workflow run reader-pages.yml --ref main --repo "$GITHUB_REPOSITORY"
           fi
       - name: Configure GitHub Pages
         if: steps.current.outputs.publish == 'true'

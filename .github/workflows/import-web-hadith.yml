@@ -9,6 +9,10 @@ on:
     paths:
       - '.github/workflows/import-web-hadith.yml'
       - 'catalog/web-import-plan.json'
+      - 'scripts/import_deenhindi.py'
+      - 'scripts/import_uzbek_web.py'
+      - 'scripts/web_import_batch.py'
+      - 'imports/web-seed-recovery-20261112/manifest.json'
 
 permissions:
   contents: read

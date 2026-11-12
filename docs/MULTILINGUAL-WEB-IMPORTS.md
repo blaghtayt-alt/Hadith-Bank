@@ -14,6 +14,13 @@ exact text, publisher/record link, references, translation attribution, and
 nested comments. Missing source text remains absent; no translations or Arabic
 originals are generated.
 
+Each language's reference disclosure also retains literal citations that have
+no parsed collection or number, source-local numbering qualifications, and
+canonical-mapping status. A pending detail-page notice is shown on the affected
+reading until its detailed source references and notes have actually been
+retrieved. An empty comments array does not establish that the publisher has no
+comments.
+
 Language filters match all stored readings, including approved counterparts.
 Uzbek Latin, Uzbek Cyrillic and Roman Urdu retain their script codes.
 Base-language filters include their script variants. Book, collection, source
@@ -137,7 +144,9 @@ Commands:
 
 Deen's remaining queue counts entry pages. Uzbek remaining queues count linked
 catalogue/section pages, often containing many entries and revealing further
-pagination. Do not add these together as remaining hadith counts. Queue
+pagination; Rivoyat also maintains a separate detail-metadata queue. The status
+report separates pending page and detail requests. Do not add these together as
+remaining hadith counts. Queue
 completion still leaves held classifications and completeness to reconcile.
 
 ## Large-corpus delivery
@@ -173,3 +182,38 @@ manual source-bound override was reconstructed from memory. Fresh publication
 counts must come from real reacquisition and checked source bytes. See
 [Uzbek recovery](UZBEK-WEB-IMPORT-RECOVERY.md) and
 [Deen intake operations](../imports/web-deenhindi-20261112/README.md).
+
+### Recovered source checkpoint, 12 November 2026
+
+The later fresh 836-entry seed (797 registered occurrences, 39 held entries)
+was recovered and verified against both frozen file manifests: 162 files,
+10,367,141 bytes, with no hash mismatches. Its exact files are preserved in
+[the seed recovery archive](../imports/web-seed-recovery-20261112/manifest.json).
+Concatenate the listed archive parts in order before decompressing the tar.
+The archive's original paths and file bytes are preserved.
+
+The newer automated acquisition already contained all 6 Deen Hindi and 761
+Islom registered seed identities, so their newer queues were retained. The
+missing 30 Rivoyat occurrences and two held entries were recovered without
+adding duplicate Deen/Islom occurrences. The integrated checkpoint contains
+7,301 obtained entries: 7,024 registered and 277 held. Together with the
+37,201 existing bank occurrences, this checkpoint targets 44,225 occurrences;
+the authoritative published total is the successful website build report.
+Later acquisition runs can increase these counts.
+
+Two previously saved Rivoyat detail responses were recovered with original and
+compressed hashes intact. Their exact URLs and all three narration texts match
+the section snapshots. Their source assessments, references and notes are now
+attached to the corresponding language versions. All 90 stored language texts
+across the 30 recovered public occurrences remain unchanged. Twenty-eight
+public occurrences still have pending detailed references/notes; the complete
+32-entry source ledger has 30 pending detail tasks, including the two held
+entries.
+
+The GitHub acquisition runner received HTTP 403 for Rivoyat's robots.txt in
+[run 43179396269](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43179396269).
+The durable access block and worker stop remain in force. Cached successful
+robots evidence does not override that block. Exporting verified saved source
+bytes does not make new requests to the blocked host. Deen Hindi and Islom's
+finite queues remain enabled; Islom's saved transient HTTP 500 is subject to
+the existing bounded retry policy.
