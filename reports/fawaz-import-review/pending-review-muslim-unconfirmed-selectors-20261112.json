@@ -1,0 +1,279 @@
+{
+  "status": "filesystem_write_unconfirmed",
+  "pending_exec_cell": "g3:186",
+  "repository": "/workspace/scratch/bc2f702e299f/Hadith-Bank",
+  "audit_directory": ".work/pending-review-20261112/muslim-ibnmajah",
+  "source_root": "/workspace/scratch/79806f19ff29/.work/fawaz-resumed-final",
+  "source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "instructions": "Inspect original pending execution and existing files before retrying. All30 complete English fields and the18 listed additional Arabic/Urdu complete fields were actually read. These selectors are not hash-bound publication decisions. Verify pinned raw sources before computing offsets/hashes. Do not assert authenticity or translation equivalence.",
+  "expected_new_script_files": [
+    "complex_review_support.py",
+    "emit_complex_batch6.py"
+  ],
+  "expected_outputs": [
+    "reviewed-spans-batch6.json",
+    "reviewed-context-batch6.json",
+    "reviewed-spans-batch6-evidence.jsonl"
+  ],
+  "replay_semantics": {
+    "edition": "eng-muslim",
+    "null_or_omitted_start": 0,
+    "null_or_omitted_end": "len(text)",
+    "start_resolution": "text.index(start)",
+    "end_resolution": "text.index(end, a); end exclusive",
+    "notes": "exact complement",
+    "one_report_multiple_passages": {
+      "source_report_relationship": "separate_passages_of_one_source_report",
+      "source_passage_boundaries": "computed spans"
+    },
+    "two_reports": {
+      "source_report_boundaries": "computed spans"
+    },
+    "confirmed_final_hashes_or_offsets": false
+  },
+  "manual_decisions": [
+    {
+      "id": "276",
+      "end": " Then he narrated",
+      "note": "Source-abbreviated report of Miqdad addressing the Messenger, with the reported Badr participation retained. The omitted answer is not reconstructed; compiler relative-reference tail stays in comments."
+    },
+    {
+      "id": "322",
+      "end": " Then it was revealed:",
+      "note": "Report of people coming to Muhammad and addressing him; following Quran quotations remain source context."
+    },
+    {
+      "id": "370",
+      "end": ", but he did not mention",
+      "note": "Explicitly attributed abbreviated transmission of the Messenger's utterance on turmoil, source says hadith transmitted like Abu Khalid. Do not reconstruct omitted text. Exposition variant remains context."
+    },
+    {
+      "id": "404",
+      "end": " except the words:",
+      "note": "Source-attributed abbreviated beginning of revelation; compiler variants of Khadija's words remain context."
+    },
+    {
+      "id": "414",
+      "end": " The rest of the hadith",
+      "note": "Angels coming to sleeping Prophet; compiler comparison remains context."
+    },
+    {
+      "id": "436",
+      "note": "Entire exact source explicitly attributes perception to the Prophet; retain parenthetical wording without doctrinal/authenticity judgment."
+    },
+    {
+      "id": "442",
+      "start": "She said: It implies Gabriel.",
+      "note": "Aisha's account of Gabriel coming to the Prophet; preceding Quran quotation and question remain context."
+    },
+    {
+      "id": "452",
+      "end": " The rest of the hadith",
+      "note": "Source-abbreviated address to Messenger; no missing answer invented."
+    },
+    {
+      "id": "553",
+      "note": "Entire incident: narrator hears Messenger's address; Umar recounts earlier portion. Complete source framing preserved."
+    },
+    {
+      "id": "668",
+      "start": "for when I saw",
+      "note": "Aisha scraping garment and Messenger praying in it; independent washing instruction outside selected excerpt."
+    },
+    {
+      "id": "674",
+      "start": "Incase I found that",
+      "note": "Aisha recollects cleaning Messenger's garment; independent dialogue/instructions remain context."
+    },
+    {
+      "id": "705",
+      "end": " I (the narrator) said:",
+      "note": "Inquiry and Aisha's account of Messenger's practice; narrator's final praise remains context."
+    },
+    {
+      "id": "760",
+      "end": " And she washed herself",
+      "note": "Complaint and Messenger's answer; Umm Habiba's own subsequent washing practice remains context."
+    },
+    {
+      "id": "762",
+      "end": " Muhammad b. Ja'far said:",
+      "note": "Aisha's rhetorical negative instruction retains original question form; lexical explanation remains context."
+    },
+    {
+      "id": "766",
+      "note": "Complete source-abbreviated account of Fatima screening Messenger, bathing, wrapping and praying."
+    },
+    {
+      "id": "905",
+      "passages": [
+        [
+          "When (the Qur'an) is recited",
+          ", and (the following words"
+        ],
+        [
+          "Verily Allah vouchsafed",
+          " Abu Ishaq"
+        ]
+      ],
+      "source_report_count": 1,
+      "note": "Two exact prayer-report excerpts within variant transmission; all chain comparisons and critical compiler dialogue remain context."
+    },
+    {
+      "id": "906",
+      "note": "Complete source-abbreviated prayer formula explicitly through Messenger."
+    },
+    {
+      "id": "1016",
+      "start": "He said: I lead them",
+      "end": " Upon this 'Umar remarked:",
+      "note": "Sa'd's explicit description of following Messenger's prayer; complaint and Umar's appraisal remain context."
+    },
+    {
+      "id": "1018",
+      "start": "He (Sa'd) said:",
+      "end": " He ('Umar) remarked:",
+      "note": "Sa'd's explicit description; other dialogue remains context."
+    },
+    {
+      "id": "1058",
+      "start": "I heard al-Bara' b. 'Azib say",
+      "end": " I made a mention of that to 'Ar",
+      "note": "Exact proportionate prayer-position report; later practitioner account/comparison remains context."
+    },
+    {
+      "id": "1191",
+      "start": "I perceive as if I am seeing",
+      "note": "Prophetic hand-position recollection; Ibn Masud's own instructions/predictions remain context."
+    },
+    {
+      "id": "1192",
+      "note": "Entire source-abbreviated explicit recollection of Messenger's fingers while bowing."
+    },
+    {
+      "id": "1298",
+      "passages": [
+        [
+          null,
+          "There should be no recital"
+        ],
+        [
+          "and alleged that he recited:",
+          null
+        ]
+      ],
+      "source_report_count": 1,
+      "note": "Question/narrator framing and report before Messenger separate; Zaid's independent legal statement between remains context."
+    },
+    {
+      "id": "1304",
+      "start": "He said: I prostrated myself",
+      "end": ", and Iwould go on",
+      "note": "Abu Huraira's report of prostrating behind Abu al-Qasim; future resolve and narrator variant remain context."
+    },
+    {
+      "id": "1306",
+      "passages": [
+        [
+          "He said: Yes, I saw my best Friend",
+          " and I shall continue"
+        ],
+        [
+          "Shu'ba asked:",
+          null
+        ]
+      ],
+      "source_report_count": 1,
+      "note": "Friend's prostration report and explicit Messenger identification in separate passages; narrator's future resolve remains context."
+    },
+    {
+      "id": "1317",
+      "end": " 'Amr (b. Dinar) said:",
+      "note": "Messenger finishing prayer by takbir; following narrator denial/counterclaim preserved as source criticism.",
+      "alignment": "This source also records a narrator's later denial of having transmitted the report and another narrator's counter-claim. That criticism is preserved under Comments; selecting the source-attributed report does not resolve it."
+    },
+    {
+      "id": "1498",
+      "passages": [
+        [
+          null,
+          "Mahmud said:"
+        ],
+        [
+          "Mahmud said:",
+          ", and no mention has been made"
+        ]
+      ],
+      "source_report_count": 2,
+      "note": "Distinct Mahmud childhood recollection and Itban report; final compiler comparison remains context."
+    },
+    {
+      "id": "1604",
+      "end": " Jumu'a prayer is no doubt obligatory",
+      "note": "English explicitly prints Holy Prophet as practitioner; retain incident needed for referent, subsequent legal reasoning remains context.",
+      "alignment": "English prints the Holy Prophet; examined Arabic and Urdu only say someone better than Ibn Abbas. Keep their source-local attribution pending rather than copying English identification."
+    },
+    {
+      "id": "1605",
+      "start": "He who did it (who commanded us",
+      "note": "Exact added clause explicitly names Messenger commanding prayer at home; compiler comparison remains context."
+    },
+    {
+      "id": "1674",
+      "end": ", and the rest of the hadith",
+      "note": "Explicit three-instruction abbreviated report; no absent item list supplied."
+    }
+  ],
+  "additional_complete_fields_read": {
+    "276": [
+      "ara",
+      "urd"
+    ],
+    "370": [
+      "ara",
+      "urd"
+    ],
+    "404": [
+      "ara",
+      "urd"
+    ],
+    "452": [
+      "ara",
+      "urd"
+    ],
+    "553": [
+      "ara",
+      "urd"
+    ],
+    "762": [
+      "ara",
+      "urd"
+    ],
+    "905": [
+      "ara",
+      "urd"
+    ],
+    "1191": [
+      "ara",
+      "urd"
+    ],
+    "1604": [
+      "ara",
+      "urd"
+    ]
+  },
+  "context_decisions": [
+    {
+      "id": "1604",
+      "language": "ara",
+      "action": "source_attribution_pending",
+      "reason": "Own field names only one better than Ibn Abbas; no named Messenger. Keep full source as context without borrowing English identification."
+    },
+    {
+      "id": "1604",
+      "language": "urd",
+      "action": "source_attribution_pending",
+      "reason": "Own field names only one better than Ibn Abbas; no named Messenger. Keep full source as context without borrowing English identification."
+    }
+  ]
+}

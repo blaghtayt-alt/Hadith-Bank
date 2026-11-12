@@ -1,0 +1,358 @@
+{
+  "schema": "hadith-bank-pending-review-interruption-v1",
+  "recorded_at": "2026-11-12T15:33:31Z",
+  "status": "interrupted_workspace_unavailable",
+  "published_fawaz_candidate": false,
+  "interruption": {
+    "error": "No usable execution environment is available. Wait for an environment to become available before using this tool.",
+    "earlier_error": "exec-server transport disconnected; failed to resume exec-server session; recovery timed out after 45s",
+    "failed_operation": "Final candidate assembly, source comparison, upload and publication could not be completed.",
+    "scope": "The repository connector and already-running GitHub workflows remain available. Local file writes attempted at the interruption must be inspected before retrying.",
+    "no_source_deletion_requested_or_performed": true
+  },
+  "owner_priority": {
+    "languages": [
+      "Urdu",
+      "Hindi",
+      "Bengali"
+    ],
+    "request": "Check the remaining pending entries; do not drop a single hadith.",
+    "rivoyat": "excluded_by_owner"
+  },
+  "workspace": {
+    "repository": "/workspace/scratch/bc2f702e299f/Hadith-Bank",
+    "work_directory": ".work/pending-review-20261112",
+    "immutable_source_root": "/workspace/scratch/79806f19ff29/.work/fawaz-resumed-final",
+    "mutable_candidate_export": ".work/pending-review-20261112/export",
+    "continuation": ".work/pending-review-20261112/continuation.json",
+    "local_code_parent": "58110f8ec425855ec1fb7126ae6c826acae68ee5",
+    "repository_head_observed": "16603e5b30152421b2191f0d5c1239445577faf8"
+  },
+  "acquisition": {
+    "source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+    "current_upstream_editions_catalog_rechecked": true,
+    "current_catalog_equal_to_pinned_catalog": true,
+    "upstream_books": 10,
+    "acquired_books": [
+      "abudawud",
+      "bukhari",
+      "ibnmajah",
+      "malik",
+      "muslim",
+      "nasai",
+      "tirmidhi",
+      "nawawi"
+    ],
+    "acquired_editions": 31,
+    "urdu_editions_acquired": 7,
+    "urdu_editions_published_by_provider": 7,
+    "bengali_editions_acquired": 8,
+    "bengali_editions_published_by_provider": 8,
+    "hindi_editions_published_by_provider": 0,
+    "out_of_selected_language_scope": [
+      "dehlawi",
+      "qudsi"
+    ],
+    "scope_note": "The two other provider books have no Urdu, Bengali or Hindi edition in the checked catalog. Complete edition acquisition does not imply a nonempty translation field for every provider ID."
+  },
+  "confirmed_published_fawaz": {
+    "provider_occurrences": 36464,
+    "source_edition_rows": 145718,
+    "registered_occurrences": 29911,
+    "held_occurrences": 6553,
+    "held_all_source_texts_empty": 169,
+    "held_with_nonempty_source_text": 6384,
+    "source_integrity": "passed",
+    "source_report_path": "imports/web-fawaz-20261112/source-integrity-validation.json",
+    "progress_path": "imports/web-fawaz-20261112/progress.json",
+    "verified_at_commit": "16603e5b30152421b2191f0d5c1239445577faf8"
+  },
+  "confirmed_partial_local_validation": {
+    "status": "passed_not_published",
+    "newly_registered": 1250,
+    "registered_occurrences": 31161,
+    "held_occurrences": 5303,
+    "provider_occurrences": 36464,
+    "source_edition_rows": 145718,
+    "previous_registered_ids_lost": 0,
+    "previous_registered_language_changes": 0,
+    "original_pending_ids_reconciled": 6553,
+    "source_bytes_changed": false,
+    "export_job": "export-batch3-normalized",
+    "source_audit_job": "source-audit-batch3",
+    "full_result": ".work/pending-review-20261112/source-audit-batch3-result.json",
+    "catalog_decisions": 1904,
+    "new_catalog_decisions": 1311,
+    "provider_ids_with_new_decisions": 1240,
+    "additional_urdu_rule_recoveries": 10,
+    "limitation": "This is only the earlier partial integrated batch. Subsequent manual findings and the 44 relative-reference decisions remain unmerged; do not present these as final counts or add overlapping proposal counts."
+  },
+  "code_validation": {
+    "fawaz_tests": 180,
+    "fawaz_result": "passed",
+    "fawaz_job": "tests-final-fawaz-v4",
+    "language_reading_tests": 18,
+    "language_result": "passed",
+    "language_job": "tests-final-language-parts",
+    "full_local_suite": "Not passed: sparse checkout lacks full source fixtures. The new fixture errors were corrected; focused tests passed.",
+    "full_github_suite_for_new_candidate": "not_run",
+    "changes": [
+      "exact disjoint source passages and multiple report components",
+      "separate rendering of selected passages",
+      "source_attribution_pending distinct from confirmed content mismatch",
+      "Urdu standalone grammatical particle matching",
+      "narrow Urdu preceding-denial guard",
+      "own-Arabic relative attribution and validated backward reference chains"
+    ],
+    "uncommitted_paths": [
+      "AGENTS.md",
+      "reader/template.html",
+      "scripts/build_discovery.py",
+      "scripts/build_reader.py",
+      "scripts/fawaz_attribution.py",
+      "scripts/fawaz_relative_references.py",
+      "scripts/import_fawaz_bulk.py",
+      "scripts/language_display.py",
+      "scripts/language_versions.py",
+      "scripts/validate_fawaz_sources.py",
+      "tests/test_fawaz_attribution.py",
+      "tests/test_fawaz_bulk.py",
+      "tests/test_fawaz_relative_references.py",
+      "tests/test_language_readings.py",
+      "reports/fawaz-import-review/pending-relative-review-20261112.jsonl.gz"
+    ]
+  },
+  "confirmed_review_packages": {
+    "abudawud_tirmidhi_four_malik": {
+      "authoritative_file": "malik-abudawud-tirmidhi/reviewed-decisions-final.json",
+      "sha256": "1ddb07d45e3155d6d03ab18eecae1d777cc09e88156d7ecf30cb8bf35497d038",
+      "decisions": 681,
+      "positive_fields": 680,
+      "context_fields": 1,
+      "positive_ids": {
+        "abudawud": 367,
+        "tirmidhi": 260,
+        "malik": 4
+      },
+      "english_fields_inspected": {
+        "abudawud": 954,
+        "tirmidhi": 448
+      },
+      "coverage_ledger": "malik-abudawud-tirmidhi/cohort-review-accounting.jsonl",
+      "summary": "malik-abudawud-tirmidhi/review-final-summary.json",
+      "integration_note": "Use the authoritative consolidated file instead of merging old batches. It contains richer multi-passage replacements and visible compiler disagreements."
+    },
+    "malik": {
+      "quotation_batches": "malik-full-english/reviewed-spans-batch1.json through reviewed-spans-batch6.json",
+      "context_batches": "malik-full-english/reviewed-context-batch1.json and reviewed-context-batch2.json",
+      "batch6_sha256": "f9bb1bfd16113d75fd58b99bf5d8eca80c52b364e111f9bc325361caa987a483",
+      "context_batch2_sha256": "753f293f2e2e5aba05b5bd93a598b236143ed328c010a6ce1cad63030b989baa",
+      "own_positive_ids": 81,
+      "own_quotation_decisions": 91,
+      "context_decisions": 66,
+      "actual_nonempty_fields_read": {
+        "eng": 1044,
+        "ara": 122,
+        "urd": 120,
+        "ben": 121
+      },
+      "all_supplied_nonempty_fields_read_ids": 129,
+      "local_marker_followup": {
+        "ids": 82,
+        "fields": 137,
+        "additional_sibling_fields": 31,
+        "new_positive_ids": 18
+      },
+      "coverage_ledger": "malik-full-english/coverage-ledger.current.jsonl",
+      "summary": "malik-full-english/coverage-summary.current.json",
+      "all_four_languages_reviewed_for_every_id": false
+    },
+    "muslim_ibnmajah": {
+      "confirmed_quotation_batches": "muslim-ibnmajah/reviewed-spans-batch1.json through reviewed-spans-batch5.json",
+      "quotation_decisions": 543,
+      "positive_ids": 540,
+      "coverage_ledger": "muslim-ibnmajah/coverage-ledger.current.jsonl",
+      "summary": "muslim-ibnmajah/coverage-summary.current.json",
+      "english_ids_inspected": {
+        "muslim": 1598,
+        "ibnmajah": 398
+      },
+      "english_empty_nonempty_ids_followed_up": 120,
+      "strong_queue": "muslim-ibnmajah/strong-unresolved-review-queue.jsonl",
+      "strong_queue_sha256": "0fca3a8cc06a78fdd66277481b145288c68be9475dffc09815d0b7c896860bfc",
+      "strong_queue_ids": {
+        "muslim": 156,
+        "ibnmajah": 35
+      }
+    },
+    "bukhari_nasai": {
+      "english_proposals": "bukhari-nasai/proposed-reviewed-spans.json",
+      "local_proposals": "bukhari-nasai/local-language-proposals.json",
+      "reported_english_decisions": 823,
+      "reported_english_decisions_by_book": {
+        "bukhari": 416,
+        "nasai": 407
+      },
+      "english_ids_inspected": {
+        "bukhari": 1141,
+        "nasai": 906
+      },
+      "english_nonempty_fields_read": {
+        "bukhari": 1134,
+        "nasai": 823
+      },
+      "complete_ledger": "bukhari-nasai/complete-method-ledger.jsonl",
+      "consolidation_status": "Final authoritative consolidation and complete field-level ledger merge were not completed before interruption.",
+      "confirmed_local_recoveries_include": [
+        "nasai125",
+        "nasai1677",
+        "bukhari598",
+        "bukhari5712",
+        "bukhari6175",
+        "bukhari5868"
+      ],
+      "important_contexts": [
+        "bukhari5092 Arabic/Urdu/Bengali are different content from appended English quotation",
+        "bukhari598 Arabic/English/Bengali unnamed subject remains attribution pending"
+      ],
+      "english_actual_review_ledger": "bukhari-nasai/manual-english-reviews.json",
+      "mechanical_ledger_status": "complete-method-ledger.jsonl still has initial mechanical flags; must merge actual English and local review evidence before claiming semantic coverage.",
+      "proposal_build_errors": "Latest successful proposal-build-errors.json was an empty array.",
+      "aggregate_hashes": "Not recomputed after latest successful local updates; use individual source/quotation hashes and compute file hashes after access returns.",
+      "richer_english_keys": [
+        "192",
+        "1931",
+        "1932",
+        "3479",
+        "5618",
+        "7306",
+        "848",
+        "1392",
+        "1453",
+        "2870"
+      ],
+      "integration_note": "Local-language-proposals.json includes richer English overrides. Explicitly approve matching-key replacements after source-hash comparison; do not blindly overwrite from old base English proposals."
+    },
+    "root_relative": {
+      "decisions": "parent-reviewed-relative-decisions.json",
+      "count": 44,
+      "proof": "reports/fawaz-import-review/pending-relative-review-20261112.jsonl.gz",
+      "builder": "build-reviewed-relative.py",
+      "full_source_evidence": "relative-manual-bundle.json",
+      "actual_review": "All44 complete Arabic child fields, English child/immediate-parent fields and exact Arabic chain/terminal attribution inspected. Urdu/Bengali partitions hash-checked, not all semantically read.",
+      "integrated": false
+    }
+  },
+  "remaining_review": {
+    "muslim_strong_candidates": 156,
+    "muslim_first_30": "Actually reviewed and selectors prepared; file-write completion is unconfirmed. Confirm or replay exact saved selectors before merging. Remaining126 still require follow-up.",
+    "ibnmajah_strong_candidates": 35,
+    "residual_abudawud_tirmidhi": {
+      "screen": "malik-abudawud-tirmidhi/residual-local-machine-screen.jsonl",
+      "summary": "malik-abudawud-tirmidhi/residual-local-screen-summary.json",
+      "ids": 775,
+      "urdu_bengali_fields": 1550,
+      "characters": 511915,
+      "strong_cue_fields": 452,
+      "weaker_cue_fields": 724,
+      "no_cue_fields": 342,
+      "empty_fields": 32,
+      "new_manual_read_after_screen": 0,
+      "note": "Machine-only screen. Resume with139 Tirmidhi and313 Abu Dawud strong-cue fields. Do not treat cues as automatic acceptance."
+    },
+    "bukhari_unsaved": [
+      "848 Arabic/Urdu/Bengali source-bound additions",
+      "4910 Bengali attribution-pending negative control"
+    ],
+    "root_malik1096": {
+      "full_source_fields_read": 4,
+      "write_completion": "unconfirmed",
+      "intended_outputs": [
+        "root-malik1096-decisions.json",
+        "root-malik1096-evidence.jsonl"
+      ],
+      "decision": "Select first Urdu sentence ending before سعید بن مسیب. It distinguishes Ibn Abbas marked رضي اللہ as narrator from the reported speaker آپ صلی اللہ علیہ وسلم. Preserve the printed-pronoun qualification; no personal name is printed. Other three fields contain different Qasim/Salim/Malik context.",
+      "source_bytes_must_be_reverified_before_emission": true
+    },
+    "bukhari_unsaved_replay": {
+      "production_catalog_decisions_ready": false,
+      "source_fields_actually_read": true,
+      "selectors": [
+        {
+          "edition": "ara-bukhari",
+          "id": "848",
+          "start": "وَيُذْكَرُ عَنْ أَبِي هُرَيْرَةَ",
+          "end_before": " وَلَمْ يَصِحَّ"
+        },
+        {
+          "edition": "urd-bukhari",
+          "id": "848",
+          "start": "اور ابوہریرہ رضی اللہ عنہ سے مرفوعاً روایت ہے",
+          "end_before": " اور یہ صحیح نہیں"
+        },
+        {
+          "edition": "ben-bukhari",
+          "id": "848",
+          "start": "আবূ হুরাইরাহ্ (রাযি.) হতে মারফূ‘",
+          "end_before": " [ইমাম বুখারী"
+        }
+      ],
+      "qualification_848": "Compiler calls the raised report incorrect. Bengali quoted clause is affirmative while Arabic/Urdu/English express prohibition. Preserve source wording and criticism; never insert a Bengali negation.",
+      "pending_4910_bengali": "The opening attaches a Prophetic honorific to Muhammad, but the same field later identifies Muhammad ibn Sirin and a scholarly discussion. Bind source_attribution_pending to the exact original field; do not promote his speech using honorific matching.",
+      "actually_read_residual_ids_not_yet_ledgered": [
+        "1859",
+        "1997",
+        "1998",
+        "3955",
+        "4156",
+        "4606",
+        "4910",
+        "848"
+      ],
+      "unread_local_exceptions": [
+        "5129",
+        "5982",
+        "6410",
+        "6572"
+      ],
+      "remaining_english_review_followup_ids": [
+        "1090",
+        "1200",
+        "1663",
+        "2922",
+        "3109",
+        "5568",
+        "7165"
+      ]
+    }
+  },
+  "hindi": {
+    "continuation_code_commit": "58110f8ec425855ec1fb7126ae6c826acae68ee5",
+    "saved_progress_commit": "16603e5b30152421b2191f0d5c1239445577faf8",
+    "fetched_before": 1005,
+    "fetched_current": 1470,
+    "registered_current": 986,
+    "held_current": 484,
+    "observed_inventory": 36390,
+    "remaining_requests": 34920,
+    "successful_batch_run": 43241712158,
+    "next_batch_run": 43248057745,
+    "next_batch_status_observed": "in_progress",
+    "source": "deenhindi",
+    "progress_path": "imports/web-deenhindi-20261112/progress.json",
+    "status_path": "imports/web-import-status.json",
+    "complete": false,
+    "note": "Finite continuation was published and the next batch started after a validated saved checkpoint. Later counts must be read from GitHub, not inferred."
+  },
+  "resume_steps": [
+    "Restore access to the existing workspace and inspect uncertain writes before retrying.",
+    "Verify saved file hashes and retain immutable baseline source snapshots. Do not restart acquisition.",
+    "Finish exact local-language review and the156 Muslim/35 Ibn Majah strong queues; record actual language-field coverage.",
+    "Consolidate authoritative proposals without old single-span batches overriding richer reviewed decisions.",
+    "Assemble against frozen593 baseline decisions using assemble.py and an updated approved-inputs.json; current approved inputs are only the old partial batch.",
+    "Rebuild from saved sources, compare every provider ID/source row against immutable baseline, require zero lost old registered IDs and zero original-byte changes.",
+    "Run meaningful focused tests and complete GitHub CI; publish exact code/catalog/proofs with an expected-head check preserving concurrent Hindi imports.",
+    "Verify source workflow save, reader deployment and selected visible report/context cases. Verify actual Hindi progress."
+  ],
+  "scope": "This checkpoint records an interruption and verified progress. It is not a publication manifest for the unmerged candidate, a completed semantic audit of every language field, or an authenticity assessment."
+}
