@@ -7,7 +7,7 @@ separate source occurrences and separately supplied versions are never merged.
 from counterpart_display import (counterpart_source_data, counterpart_citation,
                                  counterpart_qualification, counterpart_translation_origin)
 from book_titles import book_label
-from language_versions import quotation_qualification
+from language_versions import quotation_parts, quotation_qualification
 
 
 LANGUAGE_LABELS = {
@@ -84,6 +84,7 @@ def _view(item, *, role, primary=False, heading=None, citation=None, qualificati
         'comments': comments, 'translation_provenance': provenance,
         'scope': item.get('scope'), 'match_status': item.get('match_status'),
         'quotation_status': item.get('quotation_status'),
+        'quotation_parts': quotation_parts(item),
         'role': role, 'primary': primary,
         'heading': heading or LANGUAGE_LABELS.get(language, language),
         'citation': citation or counterpart_citation(item, 'arabic' if arabic else 'english'),

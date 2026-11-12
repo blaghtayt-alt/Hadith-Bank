@@ -29,6 +29,7 @@ from build_reader import local, parse_json, safe_url
 from import_deenhindi import classify as classify_arabic
 from fawaz_attribution import explicit_report_evidence
 from fawaz_boundaries import split_source_reading
+from fawaz_report_types import REPORT_METADATA_FIELDS, validate_report_metadata
 
 
 REPOSITORY = "fawazahmed0/hadith-api"
@@ -284,7 +285,9 @@ def classify_group(versions):
                 return {"classification": "held", "reason": "source_introduction_requires_bounded_narration_review", "section_as_supplied": section}
     reviewed = next((item["reviewed_source_span"] for item in versions.values() if item.get("reviewed_source_span")), None)
     if reviewed:
-        return {"classification": "hadith", "reason": "reviewed_explicit_source_attribution",
+        broader = any((item.get("reviewed_source_span") or {}).get("report_type") not in (None, "prophetic_report")
+                      for item in versions.values())
+        return {"classification": "hadith", "reason": "reviewed_numbered_source_report_or_saying" if broader else "reviewed_explicit_source_attribution",
                 "evidence": reviewed, "scope": "source_attribution_not_authenticity", "independent_authenticity_assessment": False}
     if ambiguous:
         # A wish or possessive mention invalidates that candidate attribution,
@@ -351,19 +354,42 @@ def reviewed_source_spans(root):
 
 def apply_reviewed_span(text, decision):
     require(sha(text.encode()) == decision["source_text_sha256"], "Reviewed quotation source hash changed")
-    if decision.get("action") == "source_context_only":
+    if decision.get("action") in ("source_context_only", "source_attribution_pending"):
         require(bool(text.strip()) and bool(decision.get("reason")), "Source-context exclusion requires its exact source and reason")
         return "", [text], {"quotation": [0, 0], "quotation_spans": [], "notes": [[0, len(text)]],
-                             "method": "source_hash_bound_content_mismatch_v1", "span_unit": "unicode_codepoints"}
+                             "method": "source_hash_bound_attribution_pending_v1" if decision.get("action") == "source_attribution_pending"
+                             else "source_hash_bound_content_mismatch_v1", "span_unit": "unicode_codepoints"}
     spans = decision["quotation_spans"]
-    require(isinstance(spans, list) and len(spans) == 1, "One reviewed narration span is required; separate reports cannot be joined")
-    start, end = spans[0]
-    require(type(start) is int and type(end) is int and 0 <= start < end <= len(text), "Invalid reviewed source span")
-    note_spans = ([0, start], [end, len(text)])
-    note_spans = [list(span) for span in note_spans if span[0] < span[1]]
-    return text[start:end], [text[a:b] for a, b in note_spans], {
-        "quotation": [start, end], "quotation_spans": spans, "notes": note_spans,
+    require(isinstance(spans, list) and bool(spans), "At least one reviewed narration span is required")
+    if len(spans) > 1:
+        separate_reports = (type(decision.get("source_report_count")) is int and
+                decision["source_report_count"] == len(spans) and decision.get("source_report_boundaries") == spans)
+        one_report = (type(decision.get("source_report_count")) is int and decision["source_report_count"] == 1 and
+                decision.get("source_report_relationship") == "separate_passages_of_one_source_report" and
+                decision.get("source_passage_boundaries") == spans and not decision.get("source_report_boundaries"))
+        require(separate_reports or one_report,
+                "Separate reviewed passages require exact boundaries and an explicit report relationship")
+    note_spans, cursor = [], 0
+    for span in spans:
+        require(isinstance(span, list) and len(span) == 2, "Invalid reviewed source span")
+        start, end = span
+        require(type(start) is int and type(end) is int and 0 <= cursor <= start < end <= len(text)
+                and bool(text[start:end].strip()), "Invalid reviewed source span")
+        if cursor < start:
+            note_spans.append([cursor, start])
+        cursor = end
+    if cursor < len(text):
+        note_spans.append([cursor, len(text)])
+    evidence = {"quotation_spans": spans, "notes": note_spans,
         "method": "source_hash_bound_reviewed_narration_span_v1", "span_unit": "unicode_codepoints"}
+    if len(spans) == 1:
+        evidence["quotation"] = spans[0]
+    else:
+        evidence.update(method="source_hash_bound_separate_reviewed_passages_v1")
+        if separate_reports:
+            evidence.update(source_report_count=len(spans), source_report_boundaries=spans)
+    validate_report_metadata(text, decision)
+    return ''.join(text[a:b] for a, b in spans), [text[a:b] for a, b in note_spans], evidence
 
 
 def source_credits(root, state):
@@ -389,6 +415,7 @@ def language_availability(book, versions, state, requested_languages):
         item = versions.get(prefix)
         if item is not None:
             status = ("provider_content_mismatch" if item.get("quotation_status") == "content_mismatch" else
+                      "attribution_pending_source_context" if item.get("quotation_status") == "attribution_pending" else
                       "boundary_pending_source_context" if item.get("pending_reason") else
                       "available" if item["quotation"].strip() else
                       "source_text_empty" if not item["row"]["text"].strip() else "narration_prefix_absent")
@@ -465,6 +492,8 @@ def canonical_record(book, identity, versions, classification, state, requested_
             "project_credits_scope": "provider_project_level_credit_not_record_verified",
             "translator": {"name": translator, "evidence": "pinned_edition_catalog_author" if translator else None},
             "entry_url_status": "documented_provider_route; exact imported bytes come from the pinned bulk snapshot"}
+        decision = item.get("reviewed_source_span") or {}
+        own_source.update({key: copy.deepcopy(decision[key]) for key in REPORT_METADATA_FIELDS if key in decision})
         if safe_url(meta.get("source")):
             own_source["upstream_sources"] = [{"name": meta["source"], "url": meta["source"], "scope": "edition_catalog_source_not_record_verified"}]
         readings.append({"id": occurrence + ":" + prefix, "language": code, "script": script,
@@ -472,13 +501,17 @@ def canonical_record(book, identity, versions, classification, state, requested_
                          "grading": copy.deepcopy(row["grades"]), "provider_numbers": copy.deepcopy(own_refs[0]["provider_numbers"]),
                          "translation_provenance": None if code == "ar" else origin,
                          "scope": "source_context" if item.get("quotation_status") == "content_mismatch" else "external_source" if item.get("pending_reason") else "source_excerpt" if item["notes"] or relative_reference else "source_entry",
-                         "quotation_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "boundary_pending" if item.get("pending_reason") else "multiple_source_reports" if item.get("source_report_count", 1) > 1 else "disjoint_source_spans" if len(item["spans"].get("quotation_spans", [])) > 1 else "abbreviated_source_report" if relative_reference else "bounded",
+                         "quotation_status": item["quotation_status"] if item.get("quotation_status") in ("content_mismatch", "attribution_pending") else "boundary_pending" if item.get("pending_reason") else "multiple_source_reports" if item.get("source_report_count", 1) > 1 else "disjoint_source_spans" if len(item["spans"].get("quotation_spans", [])) > 1 else "abbreviated_source_report" if relative_reference else "bounded",
                          "match_status": "provider_entry_content_mismatch" if item.get("quotation_status") == "content_mismatch" else "same_source_record"})
         references.extend(own_refs)
     first = versions[primary]
     origin, translator = provenance(first["catalog"], language == "ar", book)
+    report_types = sorted({item['reviewed_source_span']['report_type'] for item in versions.values()
+                           if (item.get('reviewed_source_span') or {}).get('report_type')})
+    broader = any(value != 'prophetic_report' for value in report_types)
     return {"id": occurrence, "language": language, "book_key": BOOKS[book][0], "edition": EDITION,
-        "record_type": "hadith", "content_kind": "source_attributed_prophetic_narration",
+        "record_type": "hadith", "content_kind": "source_numbered_attributed_report" if broader else "source_attributed_prophetic_narration",
+        **({"report_types": report_types} if report_types else {}),
         "title": source_section_name(first) or None,
         "text": {"arabic": (versions.get("ara", {}).get("quotation")
                             if versions.get("ara", {}).get("quotation", "").strip() else None), "translation": first["quotation"]},
@@ -531,9 +564,9 @@ def book_records(book, editions, catalog, state, requested_languages=None, revie
                     "metadata": data["metadata"], "catalog": edition_metadata(catalog, book, prefix),
                     "snapshot": state["inputs"]["editions/" + prefix + "-" + book + ".json"]}
             if decision:
-                if decision.get("action") == "source_context_only":
+                if decision.get("action") in ("source_context_only", "source_attribution_pending"):
                     item["pending_reason"] = decision["reason"]
-                    item["quotation_status"] = "content_mismatch"
+                    item["quotation_status"] = "attribution_pending" if decision["action"] == "source_attribution_pending" else "content_mismatch"
                 else:
                     item["reviewed_source_span"] = decision
                     for field in ("source_report_count", "source_report_boundaries", "source_report_alignment_note"):
@@ -541,7 +574,7 @@ def book_records(book, editions, catalog, state, requested_languages=None, revie
                             item[field] = decision[field]
             elif boundary is not None and boundary.get("pending_reason"):
                 item["pending_reason"] = boundary["pending_reason"]
-            if boundary is not None:
+            if boundary is not None and not decision:
                 for field in ("source_report_count", "source_report_boundaries"):
                     if field in boundary:
                         item[field] = boundary[field]
@@ -552,6 +585,19 @@ def book_records(book, editions, catalog, state, requested_languages=None, revie
         if any(len(items) != 1 for items in rows.values()):
             reason = "duplicate_provider_identity_within_edition"
         versions = {prefix: items[0] for prefix, items in rows.items()}
+        broader = any((item.get("reviewed_source_span") or {}).get("report_type") not in (None, "prophetic_report")
+                      for item in versions.values())
+        if broader:
+            # A newly admitted Companion/Successor report does not establish
+            # another edition's boundaries or the identity of its speaker.
+            for item in versions.values():
+                if not item.get("reviewed_source_span") and not item.get("pending_reason") and item["row"]["text"].strip():
+                    raw = item["row"]["text"]
+                    item.update(quotation="", notes=[raw],
+                        spans={"quotation_spans": [], "notes": [[0, len(raw)]],
+                               "method": "expanded_source_report_sibling_context_pending_v1", "span_unit": "unicode_codepoints"},
+                        pending_reason="This language's complete source text is preserved while its own report boundaries and speaker are reviewed. Another language's attribution is not transferred.",
+                        quotation_status="attribution_pending")
         for field in ("reference", "arabicnumber"):
             values = {json.dumps(value["row"][field], sort_keys=True, ensure_ascii=False) for value in versions.values() if value["row"].get(field) is not None}
             if len(values) > 1:

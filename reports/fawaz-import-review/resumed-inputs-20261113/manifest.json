@@ -1,0 +1,227 @@
+{
+  "schema": "hadith-bank-resumed-review-inputs-v1",
+  "status": "working_inputs_not_published_reader_data",
+  "recorded_on_japan": "2026-11-13",
+  "base_commit": "847f7138d179a9ec3bfe0691427e8b075587e12a",
+  "scope": "Recovery snapshot of confirmed code and frozen review inputs. Later proposals may supersede these; the final assembled catalog and full source validation remain required.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "size": 33105,
+      "sha256": "c391cdb3e99a986a697013d82c43a01dc0da5e9377424b14e634c2812262069f"
+    },
+    {
+      "path": "reader/template.html",
+      "size": 105859,
+      "sha256": "44e4ab38a2a6f112788add6993be3e6c6872f32503337bc21f596a4f1f903e0e"
+    },
+    {
+      "path": "scripts/build_discovery.py",
+      "size": 40279,
+      "sha256": "d29b2c68b8ec5fd6b1174ef371ad69c3c512ec130ce3864bc743d18f08edb8d8"
+    },
+    {
+      "path": "scripts/build_reader.py",
+      "size": 61890,
+      "sha256": "ee145050c178590137cd23caf43bd2abb91b7e8f0f00cf4c515c987d34e25f69"
+    },
+    {
+      "path": "scripts/fawaz_attribution.py",
+      "size": 38370,
+      "sha256": "e26ccc10191f4aee27751729d92d50f73e72e5f1f35478ffe2c1c951a6052922"
+    },
+    {
+      "path": "scripts/fawaz_relative_references.py",
+      "size": 27086,
+      "sha256": "dfe6bf06d23aa720dbf33ae6d1a48fd2b32afc65b0bcc9176dd82a5d3dc860ec"
+    },
+    {
+      "path": "scripts/fawaz_report_types.py",
+      "size": 4091,
+      "sha256": "93e7ad8b70ba1195d6403f71b1d0c1a682d4077463b19396d36b01e45847e819"
+    },
+    {
+      "path": "scripts/import_fawaz_bulk.py",
+      "size": 55474,
+      "sha256": "35ad07eebace4cd860546751dca88dd4892c62795dcb6377a57c9985abdef934"
+    },
+    {
+      "path": "scripts/language_display.py",
+      "size": 8730,
+      "sha256": "909279a48e0521167a3ff1f7022e8159b1737eba20395202378dd966792bd18f"
+    },
+    {
+      "path": "scripts/language_versions.py",
+      "size": 10343,
+      "sha256": "8820da100371f7130aa6b08120952780772217f27632182685c99b413756839b"
+    },
+    {
+      "path": "scripts/validate_fawaz_sources.py",
+      "size": 51204,
+      "sha256": "7daad86d6f688a0e5ad0d06e7b6b6b2032ba012f3da24dc4f365508afe4b40f8"
+    },
+    {
+      "path": "tests/test_fawaz_attribution.py",
+      "size": 41820,
+      "sha256": "6377f73223afe743f22fd23abb639924c301b7ffa0d299986ed57eede42e234c"
+    },
+    {
+      "path": "tests/test_fawaz_bulk.py",
+      "size": 103786,
+      "sha256": "d7c78f8f483d801f08e146c7d86a0b93005c2f45264c3120b4e035d514054b3c"
+    },
+    {
+      "path": "tests/test_fawaz_relative_references.py",
+      "size": 11546,
+      "sha256": "61a6dde46316062146b9c06c69b9eee98f07f9cbb5d338af0f1a0f5c106fe2c3"
+    },
+    {
+      "path": "tests/test_language_readings.py",
+      "size": 35064,
+      "sha256": "4d6a8b73b9d3429e8b32ef7d5d20d1a7b4b9076d4f8a65fec4af796aabf8dd0c"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/bukhari-nasai/reviewed-decisions-final.json.gz",
+      "size": 108141,
+      "sha256": "3bee0853ca751d169888df2501f5c17e1f0c25db36fc27b290ab4cb8386915d5",
+      "original_sha256": "ca5756400f8c3abf04b37bfe769bea17a461dc43868f9b31653dd13948ddbc96"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-abudawud-tirmidhi/reviewed-decisions-final.json.gz",
+      "size": 102447,
+      "sha256": "71c4e30734366bf493c31333066226ec234dc53feb2563b0d6e85256dbffd5d0",
+      "original_sha256": "1ddb07d45e3155d6d03ab18eecae1d777cc09e88156d7ecf30cb8bf35497d038"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/parent-reviewed-relative-decisions.json.gz",
+      "size": 9444,
+      "sha256": "accc6f992eb67cec9c906712b69a6b58441d9581c549f43b3b9baa2e7cacb12a",
+      "original_sha256": "e4488d2612cd2158960a024da1ca63a90bf2b8f11ce7f5e2d72a1360583659a7"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/baseline-reviewed-spans.json.gz",
+      "size": 99036,
+      "sha256": "2eb0bb7af80c58fad480e398bd78aaf08aecc5fcb5c9123f2eaa63f85edc2cb1",
+      "original_sha256": "8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-context-batch6.json.gz",
+      "size": 1047,
+      "sha256": "c4f06047308c2a10d40ccef124c47b1d9c94e2e77712d5762722bdcda74d1708",
+      "original_sha256": "57f20837aa138c19fe76ef7940f02c1cd815f6dec3a6a427930f066edfa31d58"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch1.json.gz",
+      "size": 19115,
+      "sha256": "e0d162d11e58d0f48d6df89b3dc8c509db6372537dfa9e6b4a37a5e68348986d",
+      "original_sha256": "f731e28756cdea694b5a5a1f37970915c08e599ff53dd9fda1ffe61ac2589d94"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch10.json.gz",
+      "size": 7287,
+      "sha256": "e0cd4738fa2b7f9a2e95cef35253fc0c61db565473d23f31c696b384f170ebb5",
+      "original_sha256": "a7adeed0e587040b656cb2bfbafe95e859e3c7d484edf17aa1ae67d1a8cab41c"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch2.json.gz",
+      "size": 21015,
+      "sha256": "ab20b17dcbd9bfec3def9a08a1f419c7f76581d6d91b23c9ebc15fcceed0526d",
+      "original_sha256": "beea442f2750f353fabc3460680a823f6e1a3e6b5007d65008b1b3a1f5dc57aa"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch3.json.gz",
+      "size": 6166,
+      "sha256": "f22ec3e6cbead9782bc647f5eb5a5b4ad2a5dbd3317ace2829c05296fddc72d4",
+      "original_sha256": "13a8d71a72cb9f5bfc73cb70519311cd17b57df57f597f49a57aa8dcc924f228"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch4.json.gz",
+      "size": 1171,
+      "sha256": "419084ad32a74de7428564bb913a461a60954b890cd1eb9460747415e8aacb95",
+      "original_sha256": "7c8acf3cfbe1f5c437f08dfb6dedb7b6b551631ebf10826075ff3784360de925"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch5.json.gz",
+      "size": 1283,
+      "sha256": "b2f32f3a1eb4c900e0f3c5b25d4ff5a47184242a98a957d12d965328aae8d7e3",
+      "original_sha256": "bda6030368f06e3556a95a0e5b57841686f25bffd82d7b94693c2817b69fc862"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch6.json.gz",
+      "size": 6748,
+      "sha256": "ea016fe942fb33dc2014f2fafcee1d47b921c29d847af7a522a20bf30060cf13",
+      "original_sha256": "e092182f3cdd217ba2f656c105d6dd0b1851e7572fe46cfd9d2c018cef2968cd"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch7.json.gz",
+      "size": 6041,
+      "sha256": "6599bc31743f9aa6142af835906fbd75cb9bff8974a780a11ae5df5d13eb0a6c",
+      "original_sha256": "a93d796265319c7948024b429a3280e06afcde86b544147641c83503c105e95f"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch8.json.gz",
+      "size": 6264,
+      "sha256": "b62cacdd1152a7ad5784d1555de6270e077a63f88fcf0588bebc597e5060baa5",
+      "original_sha256": "47a7c4dca4dc48fb95fa0e2ca4356ecaa78e5f0d9fd09bb279583d592056002c"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/muslim-ibnmajah/reviewed-spans-batch9.json.gz",
+      "size": 6287,
+      "sha256": "9b958134a4a5bde855cb5e6f99c2cee93c9604c2db9518553e72cdf58c5b1b36",
+      "original_sha256": "574ee4c7a6acd5c9908425f1bd82df92ee38008ff7fd7c878b855332f29eb39d"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-context-batch1.json.gz",
+      "size": 2199,
+      "sha256": "2cdfd030955828244ceaa6b2717ccd2e8b745107bc58c2eaf9a0fe2157528637",
+      "original_sha256": "0c8b13696584f02f8a1feba807b17f3389fba4107ac6a8c548e0a928859e9d09"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-context-batch2.json.gz",
+      "size": 4684,
+      "sha256": "ff495140a56949fc5da10e04a12a32adc83d165aae0d350ef7c3aa4daf0a465d",
+      "original_sha256": "753f293f2e2e5aba05b5bd93a598b236143ed328c010a6ce1cad63030b989baa"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch1.json.gz",
+      "size": 2623,
+      "sha256": "dd3d89d648e25e5c8c391885fd2f291204c66ce8240bcd75bdae27de89035abe",
+      "original_sha256": "0e30f6f17564c52b0bba1cec950d753f7a924b8cf577fa1efc708f35414539d2"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch2.json.gz",
+      "size": 3118,
+      "sha256": "23825d64957ca0a5a070d8b3749493f5fde1bd6e71b4b6e1988820f3575e6ee7",
+      "original_sha256": "8b076cbdba7c2dc5d39ae2a4622eb29d37fe080ec3e1f888f687537df64602c1"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch3.json.gz",
+      "size": 3933,
+      "sha256": "fd6b079239cb469507316e02e16099457608daebcb89cb2e19ba99c84bac8773",
+      "original_sha256": "8f49b1f41aa18496d006c1efb91cd49f73c9cc36aa2c272baba825272a1cb637"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch4.json.gz",
+      "size": 1833,
+      "sha256": "1b74cb417273a29f6574cc212c1d93a48a18f14f449b3e44a03a4233546cc8d8",
+      "original_sha256": "aab84cdad22b445773d6b11d7c8fe3fd86b62a1e5df744b3d0b107c1dd9589cf"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch5.json.gz",
+      "size": 3663,
+      "sha256": "26c5612d9c4f3e98e136a85a78c0c0c5aa27ac18269940a3f4f26d11554d113b",
+      "original_sha256": "496ee0f33e7fecb862cfeeaad907b647e3a5fda32150bdbda383d11d88937e86"
+    },
+    {
+      "path": "reports/fawaz-import-review/resumed-inputs-20261113/malik-full-english/reviewed-spans-batch6.json.gz",
+      "size": 3479,
+      "sha256": "412e9ef051237f6ad5253e5a7a04e8eeb343d302ffb3d60f8d050e159fedb7a3",
+      "original_sha256": "f9bb1bfd16113d75fd58b99bf5d8eca80c52b364e111f9bc325361caa987a483"
+    },
+    {
+      "path": "reports/fawaz-import-review/pending-relative-review-20261112.jsonl.gz",
+      "size": 26819,
+      "sha256": "1436d82adebd6a21dc823d2148dd7e322b28dd169c05e571d0d770f850bbf694"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from fawaz_relative_references import propose
+from fawaz_relative_references import digest, propose, registered_arabic_attribution
 
 
 def node(ident, text, position=0, direct=False, section=1):
@@ -15,6 +15,43 @@ def node(ident, text, position=0, direct=False, section=1):
 
 
 class RelativeReferencePrototypeTests(unittest.TestCase):
+    def test_newer_arabic_attribution_keeps_its_exact_source_scope(self):
+        parent = node(1, 'TEST context. TEST explicitly attributed Arabic report.', direct=True)
+        start = parent['text'].index('TEST explicitly')
+        parent.update(span=[start,len(parent['text'])], quotation=parent['text'][start:])
+        classification = {'classification':'hadith', 'reason':'explicit_source_report_attribution',
+                          'source_language':'ara', 'span':[0,len(parent['quotation'])],
+                          'text':parent['quotation'], 'rule':'TEST exact source rule'}
+        evidence = registered_arabic_attribution(parent,classification)
+        self.assertEqual(evidence['span'],parent['span'])
+        self.assertEqual(evidence['text'],parent['quotation'])
+        for change in ({'source_language':'eng'}, {'text':'TEST different source wording'},
+                       {'classification':'held'}):
+            with self.subTest(change=change):
+                self.assertIsNone(registered_arabic_attribution(parent,{**classification,**change}))
+
+    def test_reviewed_anchor_cannot_borrow_other_language_or_relative_dependency(self):
+        parent = node(1, 'TEST independently reviewed source report.', direct=True)
+        decision = {'provider_edition':parent['edition'],'typed_hadithnumber':parent['id'],
+                    'source_text_sha256':digest(parent['text'].encode()), 'quotation_spans':[parent['span']]}
+        classification = {'classification':'hadith','reason':'reviewed_explicit_source_attribution','evidence':decision}
+        self.assertIsNotNone(registered_arabic_attribution(parent,classification))
+        for change in ({'provider_edition':'eng-TEST'}, {'source_reference':{'parent':'0'}},
+                       {'source_text_sha256':'0'*64}):
+            with self.subTest(change=change):
+                self.assertIsNone(registered_arabic_attribution(parent,{**classification,'evidence':{**decision,**change}}))
+
+    def test_existing_reviewed_relation_remains_a_dependency_not_a_direct_anchor(self):
+        root = node(15, 'حدثنا TEST عن عبد الله بن دينار قال TEST root.', direct=True)
+        middle = node(16, 'حدثنا TEST عن عبد الله بن دينار بهذا الاسناد مثله.', position=1)
+        middle.update(status='hadith',reviewed_relative_parent='15',reviewed_relative_parent_span=root['span'])
+        child = node(17, 'حدثنا TEST عن عبد الله بن دينار بهذا الاسناد مثله.', position=2)
+        result = propose([root,middle,child])[0]
+        self.assertEqual(result['dependency_path'],['17','16','15'])
+        self.assertEqual(result['independent_terminal'],'15')
+        unresolved_root = {**root,'independent_prophetic':False}
+        self.assertNotEqual(propose([unresolved_root,middle,child])[0]['status'],'positive_candidate')
+
     def setUp(self):
         self.parent = node(15, 'حدثنا TEST عن عبد الله بن دينار قال TEST independently established report.', direct=True)
         self.child = node(900, 'وحدثنا TEST عن عبد الله بن دينار بهذا الاسناد مثله.', position=1)
