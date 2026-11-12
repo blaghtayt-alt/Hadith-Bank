@@ -2,7 +2,7 @@
 
 [Browse books online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book and source-edition directory](../catalog/BOOKS.md)
 
-78841 source occurrences, organized by language, book and source edition.
+79142 source occurrences, organized by language, book and source edition.
 
 Open a language, then a book and edition. Every page shows up to 25 narrations with their source, translator, translation origin and OCR review where applicable. Arabic, commentary and audit details are expandable. Repeated narrations and source versions are retained.
 
@@ -11,7 +11,7 @@ Open a language, then a book and edition. Every page shows up to 25 narrations w
 - [English](en/README.md) — 49 source occurrences
 - [فارسی — Persian](fa/README.md) — 14382 source occurrences
 - [Filipino / Tagalog — Filipino](fil/README.md) — 2354 source occurrences
-- [हिन्दी — Hindi](hi/README.md) — 3884 source occurrences
+- [हिन्दी — Hindi](hi/README.md) — 4185 source occurrences
 - [日本語 — Japanese](ja/README.md) — 3463 source occurrences
 - [اردو — Urdu](ur/README.md) — 74 source occurrences
 - [O‘zbekcha — Uzbek](uz/README.md) — 9457 source occurrences
@@ -20,6 +20,6 @@ Open a language, then a book and edition. Every page shows up to 25 narrations w
 
 [Other catalogued materials](materials/README.md) — 83 legacy documents and 12 private datasets listed separately.
 
-Source stream SHA-256: `c4a0aeb966dac2b267ee6b626c6f9dfb476a989ac72732b82db8b7faec997c3b`.
+Source stream SHA-256: `17e1ab721ef5110f082fffe1eab8425acc7723f8034db360a06069c450022f86`.
 
 These reading views do not change the source review status or certify narration authenticity.
