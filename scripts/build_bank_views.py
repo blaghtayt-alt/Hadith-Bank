@@ -291,8 +291,9 @@ def write_catalog_readme(output, catalog):
               '| Classification | Source occurrences |', '| --- | ---: |']
     for origin, count in catalog['current_translation_origins'].items():
         lines.append('| ' + origin.title() + ' | ' + format(count, ',') + ' |')
-    lines += ['', 'The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. '
-              'Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.', '',
+    lines += ['', 'The scoped [owner display policy](provenance-policy.json) determines labels unless a source-bound '
+              '[evidence decision](translation-evidence-decisions-20261113.json) applies to the exact occurrence. '
+              'These display counts include Arabic source entries and are not an evidence-based count of translations.', '',
               '### Preserved source attribution history', '',
               '| Original evidence category | Source occurrences |', '| --- | ---: |']
     for origin, count in catalog['translation_origins'].items():
@@ -515,7 +516,8 @@ def build(bank_root, output, attachments=None):
         shutil.copytree(bank_root, output, ignore=shutil.ignore_patterns('.git', '.cache', '__pycache__', 'browse', 'search', 'catalog', 'hadith-bank-reader.html'))
     output.mkdir(parents=True, exist_ok=True)
     if output != bank_root:
-        for supplemental in ('catalog/legacy-link-resolution.json', REVIEW_POLICY_PATH, CURRENT_PROVENANCE_PATH):
+        for supplemental in ('catalog/legacy-link-resolution.json', REVIEW_POLICY_PATH, CURRENT_PROVENANCE_PATH,
+                             'catalog/translation-evidence-decisions-20261113.json'):
             if not local(bank_root, supplemental).is_file():
                 continue
             local(output, supplemental).parent.mkdir(parents=True, exist_ok=True)
@@ -769,3 +771,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

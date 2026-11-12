@@ -5,6 +5,7 @@ unsupported historical flag. A ledger decision is a reviewer assertion; the
 hash checks only bind it to the cited evidence and exact translation bytes.
 """
 import argparse
+import copy
 from collections import Counter
 import hashlib
 import json
@@ -44,6 +45,7 @@ def audit(records, ledger, root):
     entries = ledger.get('decisions')
     require(isinstance(entries, list), 'Ledger decisions must be an array')
     decisions = {}
+    evidence_hashes = {}
     for entry in entries:
         require(isinstance(entry, dict), 'Invalid decision')
         key = entry.get('occurrence_id')
@@ -54,7 +56,9 @@ def audit(records, ledger, root):
                       'evidence_locator', 'assertion', 'reviewer'):
             require(isinstance(entry.get(field), str) and bool(entry[field].strip()), 'Missing ' + field)
         path = evidence_path(root, entry['evidence_path'])
-        require(digest(path.read_bytes()) == entry['evidence_sha256'], 'Evidence hash mismatch: ' + key)
+        if path not in evidence_hashes:
+            evidence_hashes[path] = digest(path.read_bytes())
+        require(evidence_hashes[path] == entry['evidence_sha256'], 'Evidence hash mismatch: ' + key)
         decisions[key] = entry
     seen, matched = set(), set()
     counts = Counter({'ai': 0, 'human': 0, 'unknown': 0})
@@ -93,6 +97,56 @@ def audit(records, ledger, root):
             'counts': dict(counts), 'excluded': dict(excluded),
             'evidence_backed_occurrence_ids': {k: sorted(v) for k, v in identified.items()},
             'note': 'Hash binding validates identity and integrity, not the truth of the reviewer assertion.'}
+
+
+def apply_projected_decisions(materials, groups, ledger, root, ledger_path):
+    """Apply reviewed primary decisions only after the entire ledger validates.
+
+    The canonical records are untouched. The historical display decision stays
+    nested in each decision. Material overrides let the validator reconstruct
+    the exact same projection independently. Counterparts are never changed.
+    """
+    require(len(materials) == len(groups), 'Material/projection group mismatch')
+    records = [record for group in groups for record in group]
+    report = audit(records, ledger, root)
+    decisions = {item['occurrence_id']: item for item in ledger['decisions']}
+    require(all(isinstance(record.get('translation_provenance'), dict)
+                for record in records if record['id'] in decisions), 'Projection lacks provenance')
+    require(all(isinstance(material, dict) for material in materials), 'Invalid material descriptor')
+    for material, group in zip(materials, groups):
+        changed = False
+        for record in group:
+            entry = decisions.get(record['id'])
+            if not entry:
+                continue
+            provenance = record.get('translation_provenance')
+            require(isinstance(provenance, dict), 'Projection lacks provenance')
+            old = provenance.get('current_policy')
+            if isinstance(old, dict) and old.get('basis') == 'reviewed_translation_origin_evidence':
+                old = old.get('previous_display_policy')
+            policy = {'classification': entry['classification'],
+                      'basis': 'reviewed_translation_origin_evidence',
+                      'decision_date_japan': '2026-11-13',
+                      'policy_path': ledger_path,
+                      'evidence_path': entry['evidence_path'],
+                      'evidence_sha256': entry['evidence_sha256'],
+                      'evidence_locator': entry['evidence_locator'],
+                      'assertion': entry['assertion'], 'reviewer': entry['reviewer'],
+                      'translation_sha256': entry['translation_sha256'],
+                      'previous_display_policy': copy.deepcopy(old)}
+            if 'actual_model' in entry:
+                policy['actual_model'] = entry['actual_model']
+            if 'human_review_status' in entry:
+                policy['human_review_status'] = entry['human_review_status']
+            material.setdefault('current_translation_policy_overrides', {})[record['id']] = copy.deepcopy(policy)
+            provenance['current_policy'] = copy.deepcopy(policy)
+            changed = True
+        if changed:
+            # Count primary decisions; preserve other source versions separately.
+            from current_provenance import classification
+            material['current_translation_origin_counts'] = dict(sorted(Counter(
+                classification(record) for record in group).items()))
+    return report
 
 
 def main():

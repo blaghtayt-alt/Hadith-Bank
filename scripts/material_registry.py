@@ -26,6 +26,7 @@ SOURCE_IMPORT_DECISION = 'owner_requested_public_source_import'
 PUBLICATION_DECISIONS = (DECISION, SOURCE_IMPORT_DECISION)
 COMPONENT = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\Z')
 LANGUAGE = re.compile(r'[A-Za-z][A-Za-z0-9-]*\Z')
+TRANSLATION_EVIDENCE_LEDGER = 'catalog/translation-evidence-decisions-20261113.json'
 BOOK_DISPLAY_DECISION = 'owner_requested_no_qc_tags_for_published_book'
 BOOK_DISPLAY_SOURCES = {
     'zh-cn-ibn-majah-yu-2013': 'e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383',
@@ -456,6 +457,14 @@ def load_public_materials(root, validate_attachment_roots=True):
             if decision is not None:
                 material['current_translation_policy'] = copy.deepcopy(decision)
             result['materials'].append(material); result['groups'].append(projected)
+    # Verify the complete ledger against all registered primary projections
+    # before changing a single projected label. Source records remain untouched.
+    ledger_path = local(root, TRANSLATION_EVIDENCE_LEDGER)
+    if ledger_path.is_file():
+        from audit_translation_evidence import apply_projected_decisions
+        ledger = parse_json(ledger_path.read_text(encoding='utf-8'))
+        apply_projected_decisions(result['materials'], result['groups'], ledger, root,
+                                  TRANSLATION_EVIDENCE_LEDGER)
     if validate_attachment_roots and (root / 'attachments').exists():
         actual = set()
         for path in (root / 'attachments').iterdir():
@@ -463,3 +472,4 @@ def load_public_materials(root, validate_attachment_roots=True):
             actual.add(path.relative_to(root).as_posix())
         require(actual == set(result['package_roots']), 'Unregistered attachment package roots: ' + str(sorted(actual - set(result['package_roots']))))
     return result
+
