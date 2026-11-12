@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/malik/deenhindi-web-20261112/)
 
-Edition: `deenhindi-web-20261112` · 257 source occurrences.
+Edition: `deenhindi-web-20261112` · 283 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -20,4 +20,5 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 176–200](page-0008.md)
 - [Narrations 201–225](page-0009.md)
 - [Narrations 226–250](page-0010.md)
-- [Narrations 251–257](page-0011.md)
+- [Narrations 251–275](page-0011.md)
+- [Narrations 276–283](page-0012.md)
