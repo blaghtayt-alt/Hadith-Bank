@@ -18,6 +18,7 @@ import urllib.parse
 
 import import_fawaz_bulk as source
 from build_reader import local, parse_json
+from fawaz_report_types import REPORT_METADATA_FIELDS, validate_report_groups, validate_report_metadata
 
 
 UNSET = object()
@@ -90,6 +91,23 @@ def verify_report_components(original, info, quotation_status):
     boundaries = info.get('source_report_boundaries')
     retained = spans.get('retained_internal_citation_spans', [])
     require(type(count) is int and count >= 1, 'Invalid source report count')
+    if 'source_report_groups' in info:
+        groups = validate_report_groups(original, {
+            'source_report_groups': info['source_report_groups'],
+            'source_report_count': count, 'source_report_boundaries': boundaries,
+            'quotation_spans': spans.get('quotation_spans'),
+        })
+        require(not retained, 'Grouped reports cannot double-assign internal citation spans')
+        require((quotation_status == 'multiple_source_reports') == (count > 1),
+                'Source report count and quotation status disagree')
+        for key, expected in (('source_report_count', count), ('source_report_groups', groups)):
+            require(key in spans and same(spans[key], expected),
+                    'Nested source report evidence disagrees with reading metadata')
+        require(spans.get('source_report_boundaries') is None,
+                'Grouped source evidence cannot use bounding envelopes')
+        verify_partition(original, spans)
+        return count, 0
+    require('source_report_groups' not in spans, 'Grouped evidence is missing from reading metadata')
     if boundaries is None:
         require(count == 1 and quotation_status != 'multiple_source_reports' and not retained,
                 'Multiple source reports lack exact component boundaries')
@@ -406,7 +424,7 @@ class SourceAudit:
         expected_url = source.entry_url(edition, original['hadithnumber'])
         require(info['record_url'] == expected_url, 'Reading source URL belongs to a different edition or provider entry')
         context_kind = version.get('quotation_status')
-        pending = context_kind in ('boundary_pending', 'content_mismatch')
+        pending = context_kind in ('boundary_pending', 'content_mismatch', 'attribution_pending')
         notes = [item for item in version.get('comments', []) if isinstance(item, dict)
                  and item.get('scope') in ('source_compiler_note', 'source_context_not_narration')]
         require(all(item.get('source_url') == expected_url for item in notes), 'Source notes use another reading source URL')
@@ -425,6 +443,25 @@ class SourceAudit:
             require(all(item['scope'] == 'source_compiler_note' for item in notes), 'Active reading mislabels source context')
         partition = verify_partition(original['text'], info['text_spans'], version.get('text'),
                                      [item['text'] for item in notes], pending=pending)
+        reviewed = self.reviewed.get((book, prefix, source.typed_identity(original['hadithnumber'])), {})
+        for key in REPORT_METADATA_FIELDS:
+            require(same(info.get(key), reviewed.get(key)), 'Reading changed reviewed report attribution: ' + key)
+        require(same(info.get('source_report_groups'), reviewed.get('source_report_groups')),
+                'Reading changed reviewed source report groups')
+        if info.get('report_type'):
+            require(not pending, 'Context-only text cannot claim an accepted report classification')
+            validate_report_metadata(original['text'], {
+                **{key: info[key] for key in REPORT_METADATA_FIELDS if key in info},
+                'quotation_spans': partition['quotation_spans'],
+                'source_report_boundaries': info.get('source_report_boundaries'),
+                'source_report_count': info.get('source_report_count'),
+                **({'source_report_groups': info['source_report_groups']}
+                   if 'source_report_groups' in info else {}),
+            })
+            require(record.get('content_kind') != 'source_attributed_prophetic_narration'
+                    or info['report_type'] == 'prophetic_report',
+                    'A non-Prophetic source report was labelled as a Prophetic narration')
+            self.counts['verified_reviewed_report_classifications'] += 1
         report_components, internal_citations = verify_report_components(original['text'], info, version.get('quotation_status'))
         require(same(version['grading'], original['grades']), 'A reading changed its own source grades')
         supplied_numbers = {name: original.get(name) for name in ('hadithnumber', 'arabicnumber', 'reference')}
@@ -505,6 +542,8 @@ class SourceAudit:
                 if prefix in own:
                     if own[prefix].get('quotation_status') == 'content_mismatch':
                         expected = 'provider_content_mismatch'
+                    elif own[prefix].get('quotation_status') == 'attribution_pending':
+                        expected = 'attribution_pending_source_context'
                     else:
                         expected = 'boundary_pending_source_context' if own[prefix].get('text') is None else 'available'
                 elif prefix + '-' + book not in self.datasets:
@@ -671,22 +710,58 @@ def reconcile(audit, previous_root):
             'new_provider_ids': sorted(set(audit.ledgers) - set(previous))}
 
 
+def write_audit_output(path, result):
+    """Retain the exact audit outcome atomically, including failed comparisons."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(path.name + '.tmp')
+    temporary.write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(',', ':')) + '\n', encoding='utf-8')
+    temporary.replace(path)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--compare-root', type=Path, help='Previous verified export for complete occurrence-ID reconciliation')
+    parser.add_argument('--write-snapshot', type=Path, help='Save verified source and quotation fingerprints for a later preservation comparison')
+    parser.add_argument('--snapshot-source-commit', help='Source repository revision of the verified snapshot')
+    parser.add_argument('--compare-snapshot', type=Path, help='Previously verified immutable fingerprint snapshot')
+    parser.add_argument('--expected-comparison-sha256', help='Required SHA-256 of the stored comparison snapshot')
+    parser.add_argument('--require-preserved', action='store_true', help='Fail if previous IDs or registered language quotations changed')
     parser.add_argument('--output', type=Path, help='Write the complete JSON audit, including every previous held ID when comparing')
     args = parser.parse_args(argv)
     try:
         audit = SourceAudit(args.root)
         result = audit.run()
-        if args.compare_root:
-            result['comparison'] = reconcile(audit, args.compare_root)
+        if args.write_snapshot:
+            from fawaz_source_checkpoint import write_snapshot
+            result['written_snapshot'] = write_snapshot(audit, args.write_snapshot, args.snapshot_source_commit)
+        try:
+            require(not (args.compare_root and args.compare_snapshot), 'Choose one previous source comparison')
+            if args.compare_root:
+                result['comparison'] = reconcile(audit, args.compare_root)
+            if args.compare_snapshot:
+                from fawaz_source_checkpoint import compare_snapshot
+                result['comparison'] = compare_snapshot(audit, args.compare_snapshot, args.expected_comparison_sha256)
+            if args.require_preserved:
+                from fawaz_source_checkpoint import require_preserved
+                require('comparison' in result, 'Preservation gate requires a previous source comparison')
+                require_preserved(result['comparison'])
+                result['preservation'] = {'status': 'passed'}
+        except (ValueError, KeyError, TypeError, IndexError, OSError, EOFError) as error:
+            # The source audit already passed; a later preservation failure must
+            # retain its full ID/quotation evidence without claiming a pass.
+            result['source_integrity_status'] = result.get('status')
+            result['status'] = 'failed_preservation'
+            result['preservation'] = {'status': 'failed', 'error_type': type(error).__name__,
+                                      'error': str(error)[:1000]}
+            if args.compare_snapshot:
+                result['preservation'].update(comparison_snapshot=str(args.compare_snapshot),
+                                               expected_snapshot_sha256=args.expected_comparison_sha256)
+            if args.output:
+                write_audit_output(args.output, result)
+            raise
         if args.output:
-            args.output.parent.mkdir(parents=True, exist_ok=True)
-            temporary = args.output.with_name(args.output.name + '.tmp')
-            temporary.write_text(json.dumps(result, ensure_ascii=False, sort_keys=True, separators=(',', ':')) + '\n', encoding='utf-8')
-            temporary.replace(args.output)
+            write_audit_output(args.output, result)
         summary = {key: value for key, value in result.items() if key != 'comparison'}
         if 'comparison' in result:
             summary['comparison'] = {key: value for key, value in result['comparison'].items() if not isinstance(value, list)}

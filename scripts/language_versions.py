@@ -22,7 +22,7 @@ def validate_language_versions(versions, location='language_versions'):
         if not isinstance(language, str) or not LANGUAGE.fullmatch(language):
             raise ValueError(label + ' requires a language code')
         value = version.get('text')
-        context_only = ((version.get('scope') == 'external_source' and version.get('quotation_status') == 'boundary_pending')
+        context_only = ((version.get('scope') == 'external_source' and version.get('quotation_status') in ('boundary_pending', 'attribution_pending'))
                         or (version.get('scope') == 'source_context' and version.get('quotation_status') == 'content_mismatch'))
         if context_only and value is not None:
             raise ValueError(label + ' cannot display unbounded source context as quotation text')
@@ -65,21 +65,101 @@ def _quotation_status_qualification(version):
     if version.get('quotation_status') == 'boundary_pending':
         return ('This source combines narration and commentary. Its complete text is preserved '
                 'under Comments while the narration boundary is reviewed.')
+    if version.get('quotation_status') == 'attribution_pending':
+        return ('The attribution in this language remains under review. Its complete source text is preserved '
+                'under Comments; another language is not used to supply an unnamed speaker.')
     if version.get('quotation_status') == 'disjoint_source_spans':
-        return ('This reading preserves separate source spans. Intervening compiler text is retained under Comments.')
+        return ('This reading preserves separate source spans. Intervening source notes are retained under Comments.')
     if version.get('quotation_status') == 'abbreviated_source_report':
         return ('This edition abbreviates the report and explicitly refers to another source entry. '
                 'The exact abbreviated wording is preserved here; open References for the cited report.')
     if version.get('quotation_status') == 'multiple_source_reports':
-        return ('This source entry preserves two separately attributed reports in their original order. '
+        count = (version.get('source') or {}).get('source_report_count', 2)
+        label = str(count) if type(count) is int and count > 2 else 'two'
+        return ('This source entry preserves ' + label + ' separately attributed reports in their original order. '
                 'They remain one provider entry, with their distinct narrator introductions and source references.')
     return ''
 
 
 def quotation_qualification(version):
     value = _quotation_status_qualification(version)
-    note = (version.get('source') or {}).get('source_report_alignment_note')
-    return ' '.join(part for part in (value, note.strip() if isinstance(note, str) else '') if part)
+    source = version.get('source') or {}
+    notes = [source.get(key) for key in ('report_classification_note', 'source_report_alignment_note')]
+    groups = source.get('source_report_groups')
+    if isinstance(groups, list) and any(isinstance(group, list) and len(group) > 1 for group in groups):
+        notes.append('Some reports contain separate source passages. Intervening source text is retained under Comments.')
+    return ' '.join(part for part in [value, *(note.strip() for note in notes if isinstance(note, str))] if part)
+
+
+def quotation_parts(version):
+    """Project exact source components as separate blocks without editing text.
+
+    Source offsets count Unicode code points. The stored searchable quotation is
+    their exact concatenation; presentation keeps reports and internal citations
+    visibly separate. Incomplete legacy evidence falls back to the whole text.
+    """
+    text = version.get('text')
+    source = version.get('source') or {}
+    spans = source.get('text_spans') or {}
+    if not isinstance(text, str) or not text:
+        return []
+    if 'source_report_groups' in source:
+        groups = source['source_report_groups']
+        if (not isinstance(groups, list) or not groups
+                or any(not isinstance(group, list) or not group for group in groups)
+                or type(source.get('source_report_count')) is not int
+                or source['source_report_count'] != len(groups)
+                or source.get('source_report_boundaries') is not None):
+            return []
+        flattened = [span for group in groups for span in group]
+        if flattened != spans.get('quotation_spans'):
+            return []
+        previous = 0
+        for span in flattened:
+            if (not isinstance(span, list) or len(span) != 2
+                    or any(type(value) is not int for value in span)
+                    or not 0 <= previous <= span[0] < span[1]):
+                return []
+            previous = span[1]
+        if sum(end - start for start, end in flattened) != len(text):
+            return []
+        cursor, result = 0, []
+        for index, group in enumerate(groups):
+            passages = []
+            for position, span in enumerate(group):
+                end = cursor + span[1] - span[0]
+                passages.append({'text': text[cursor:end], 'source_span': span,
+                                 'gap_before': position > 0 and group[position - 1][1] < span[0]})
+                cursor = end
+            result.append({'label': 'Source report ' + str(index + 1),
+                           'text': ''.join(passage['text'] for passage in passages),
+                           'source_spans': group, 'passages': passages})
+        return result
+    boundaries = source.get('source_report_boundaries')
+    if version.get('quotation_status') == 'multiple_source_reports' and isinstance(boundaries, list):
+        pairs = [(span, 'Source report ' + str(i + 1)) for i, span in enumerate(boundaries)]
+        pairs += [(span, 'Source citation') for span in spans.get('retained_internal_citation_spans', [])]
+    elif version.get('quotation_status') == 'disjoint_source_spans':
+        boundaries = spans.get('quotation_spans')
+        if not isinstance(boundaries, list):
+            return []
+        pairs = [(span, 'Source excerpt ' + str(i + 1)) for i, span in enumerate(boundaries)]
+    else:
+        return []
+    if len(pairs) < 2 or any(not isinstance(span, list) or len(span) != 2 or
+            any(type(value) is not int for value in span) or not 0 <= span[0] < span[1] for span, _ in pairs):
+        return []
+    pairs.sort(key=lambda pair: pair[0][0])
+    if any(left[0][1] > right[0][0] for left, right in zip(pairs, pairs[1:])):
+        return []
+    if sum(span[1] - span[0] for span, _ in pairs) != len(text):
+        return []
+    cursor, result = 0, []
+    for span, label in pairs:
+        end = cursor + span[1] - span[0]
+        result.append({'label': label, 'text': text[cursor:end], 'source_span': span})
+        cursor = end
+    return result
 
 
 def project_language_versions(versions, default_policy=None):

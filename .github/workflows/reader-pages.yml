@@ -36,6 +36,22 @@ jobs:
           python-version: '3.13'
       - name: Run software tests
         run: python -m unittest discover -s tests
+      - name: Export saved Fawaz reviews and preserve published quotations
+        run: python scripts/refresh_fawaz_reviewed.py --root .
+      - name: Save bounded Fawaz validation evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: fawaz-review-diagnostics-${{ github.job }}
+          path: |
+            .work/fawaz-reviewed-refresh/run-*/status.json
+            .work/fawaz-reviewed-refresh/run-*/events.jsonl
+            .work/fawaz-reviewed-refresh/run-*/candidate-audit.json
+            .work/fawaz-reviewed-refresh/run-*/baseline-audit.json
+            .work/fawaz-reviewed-refresh/run-*/git.log
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
 
@@ -61,6 +77,22 @@ jobs:
           python-version: '3.13'
       - name: Run software tests
         run: python -m unittest discover -s tests
+      - name: Export saved Fawaz reviews and preserve published quotations
+        run: python scripts/refresh_fawaz_reviewed.py --root .
+      - name: Save bounded Fawaz validation evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: fawaz-review-diagnostics-${{ github.job }}
+          path: |
+            .work/fawaz-reviewed-refresh/run-*/status.json
+            .work/fawaz-reviewed-refresh/run-*/events.jsonl
+            .work/fawaz-reviewed-refresh/run-*/candidate-audit.json
+            .work/fawaz-reviewed-refresh/run-*/baseline-audit.json
+            .work/fawaz-reviewed-refresh/run-*/git.log
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Synchronize official counterpart sources for newly registered IDs
         shell: bash
         run: |
@@ -87,6 +119,11 @@ jobs:
             reports/counterpart-review \
             reports/reading-views-validation.json \
             reports/portable-validation.json reports/site-build.json
+          git add -A -- 'materials/fawaz-*' \
+            imports/web-fawaz-20261112/classification \
+            imports/web-fawaz-20261112/held \
+            imports/web-fawaz-20261112/progress.json \
+            imports/web-fawaz-20261112/source-integrity-validation.json
           if [[ -d hadith-bank-reader-data ]]; then
             git add -A -- hadith-bank-reader-data
           fi

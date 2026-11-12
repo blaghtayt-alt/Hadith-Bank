@@ -1,0 +1,47 @@
+{
+  "schema": "hadith-bank-fawaz-compressed-review-inputs-v1",
+  "repository": "fawazahmed0/hadith-api",
+  "revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "input_source_repository": "blaghtayt-alt/Hadith-Bank",
+  "input_source_commit": "4ac2abc81816210bb3028134d83f87fa5f037c4b",
+  "baseline": {
+    "path": "catalog/fawaz-reviewed-spans.json",
+    "bytes": 1190914,
+    "sha256": "8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c"
+  },
+  "recovered_catalog": {
+    "path": "reports/fawaz-import-review/continuation-20261113/recovery/recovered-catalog.json.gz",
+    "bytes": 416490,
+    "sha256": "f6bd06c8aecbb216505a4fda8f704f04fd082a2334f69432cae062fea42d2047",
+    "raw_bytes": 5494084,
+    "raw_sha256": "a0535ce79669c8a5ca32f89abb0bfffe457864cc99ab361b5e38e931417b024e"
+  },
+  "phase_archive": {
+    "path": "reports/fawaz-import-review/continuation-20261113/recovery/phase01-source-reviews.tar.gz",
+    "bytes": 392914,
+    "sha256": "82693051a2400882d3730234e10a6105bbd944405a5285cc5a8827f70be41eb2",
+    "manifest": {
+      "path": "manifest.json",
+      "bytes": 5524,
+      "sha256": "2fc262a086cc9415627d566c82f21b62e802b48a2f080bc043e1ad9d72f9517f"
+    }
+  },
+  "preservation_baseline": {
+    "source_commit": "ca5f3f18e682376ce2c91e5f97f4b0d7e24eb4c6",
+    "provider_occurrences": 36464,
+    "registered_occurrences": 29911,
+    "held_occurrences": 6553,
+    "edition_inputs": 31
+  },
+  "scope": "Use exact saved source-bound decisions. Require existing baseline decisions unchanged. Source-span validation, full export preservation and publication are separate checks; no certification or final inclusion count is asserted.",
+  "additional_reviews": [
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/bukhari.json.gz",
+      "bytes": 1919,
+      "sha256": "967e8a7ad2af2e5041abf22b162d416b603c07dde4536aebe95d81fd65bbc715",
+      "compression": "gzip",
+      "raw_bytes": 10123,
+      "raw_sha256": "050f614b761b006190bef77359f25fbe49a3b184f89d788f81e305c463ab3371"
+    }
+  ]
+}

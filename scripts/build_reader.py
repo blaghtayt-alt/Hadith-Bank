@@ -336,6 +336,8 @@ def record_type_info(record):
         kind = 'hadith_variant'
     elif content_kind == 'quoted_companion_saying':
         kind = 'companion_report_excerpt'
+    elif content_kind == 'source_numbered_attributed_report':
+        kind = 'source_report_or_saying'
     if (record.get('extraction') or {}).get('is_excerpt') is True:
         kind = {'hadith': 'hadith_excerpt', 'companion_report': 'companion_report_excerpt'}.get(kind, kind)
     kinds = {
@@ -346,6 +348,7 @@ def record_type_info(record):
         'hadith_meaning_excerpt': ('Reported meaning', 'The source presents this passage as the meaning of a hadith.'),
         'companion_report': ('Companion report', 'Words or a report attributed to a Companion in the source.'),
         'companion_report_excerpt': ('Companion report', 'An excerpt of words or a report attributed to a Companion in the source.'),
+        'source_report_or_saying': ('Report or saying', 'The source attribution is explained separately for each language reading.'),
     }
     if kind not in kinds:
         return None
@@ -377,7 +380,13 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
         if reading['qualification']:
             lines += [prose(reading['qualification']), '']
         if reading['text']:
-            lines += [prose(reading['text'], direction), '']
+            for part in reading['quotation_parts'] or [{'text': reading['text']}]:
+                if part.get('label'):
+                    lines += ['<p class="counterpart-note">' + escaped(part['label']) + '</p>', '']
+                for passage in part.get('passages') or [part]:
+                    if passage.get('gap_before'):
+                        lines += ['<p class="counterpart-note">Intervening source text is retained under Comments.</p>', '']
+                    lines += [prose(passage['text'], direction), '']
         lines += [prose(reading['citation'], direction), '']
         version_source = reading['source']
         version_url = safe_url(version_source.get('record_url')) or safe_url(version_source.get('url'))

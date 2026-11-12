@@ -426,8 +426,16 @@ class FawazAttributionTests(unittest.TestCase):
         value = self.evidence("urd", quotation, "urdu_explicit_named_predicate")
         self.assertEqual(value["language"], "ur")
         self.evidence("urd", "TEST رسول اللہﷺ تشریف لائے TEST", "urdu_explicit_named_predicate")
+        for phrase in ("ادا کرنے کا حکم دیا", "جانوروں کو باہم لڑانے سے منع فرمایا",
+                       "کنگھی کرنے سے منع فرمایا", "سونے کی ایک ناک لگانے کا حکم دیا",
+                       "بیچنے سے منع فرمایا"):
+            with self.subTest(infinitive=phrase):
+                self.evidence("urd", "TEST رسول اللہ صلی اللہ علیہ وسلم نے " + phrase + " TEST",
+                              "urdu_explicit_named_predicate")
         for quotation in ("TEST کاش رسول اللہ نے فرمایا TEST", "TEST کیا رسول اللہ نے فرمایا TEST",
-                          "TEST رسول اللہ نے TEST عمر نے فرمایا TEST", "TEST رسول اللہ کے صحابی نے فرمایا TEST"):
+                          "TEST رسول اللہ نے TEST عمر نے فرمایا TEST", "TEST رسول اللہ کے صحابی نے فرمایا TEST",
+                          "TEST رسول اللہ نے TEST کرنے TEST راوی نے فرمایا TEST",
+                          "TEST انہوں نے یہ نہیں کہا کہ نبی اکرم صلی اللہ علیہ وسلم نے غسل کرنے کا حکم دیا TEST"):
             with self.subTest(quotation=quotation):
                 self.assertIsNone(explicit_report_evidence(versions("urd", quotation)))
 

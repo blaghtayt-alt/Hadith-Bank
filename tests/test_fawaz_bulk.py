@@ -819,6 +819,106 @@ class FawazBulkTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'source hash changed'):
             importer.apply_reviewed_span(text + 'x', decision)
 
+    def test_reviewed_separate_reports_preserve_every_intervening_note(self):
+        from validate_fawaz_sources import verify_partition, verify_report_components
+        text = 'TEST context. TEST report A. TEST compiler note. TEST report B 🧪. TEST ending.'
+        spans = [[text.index('TEST report A'), text.index(' TEST compiler')],
+                 [text.index('TEST report B'), text.index(' TEST ending')]]
+        decision = {'source_text_sha256': importer.sha(text.encode()), 'quotation_spans': spans,
+                    'source_report_count': 2, 'source_report_boundaries': spans}
+        quotation, notes, evidence = importer.apply_reviewed_span(text, decision)
+        self.assertEqual(notes, ['TEST context. ', ' TEST compiler note. ', ' TEST ending.'])
+        self.assertNotIn('compiler', quotation)
+        self.assertNotIn('quotation', evidence)
+        verify_partition(text, evidence, quotation, notes)
+        self.assertEqual(verify_report_components(text, {
+            'text_spans': evidence, 'source_report_count': 2, 'source_report_boundaries': spans},
+            'multiple_source_reports'), (2, 0))
+        one_report = {**decision, 'source_report_count': 1, 'source_passage_boundaries': spans,
+                      'source_report_relationship': 'separate_passages_of_one_source_report'}
+        one_report.pop('source_report_boundaries')
+        single_text, single_notes, single_evidence = importer.apply_reviewed_span(text, one_report)
+        self.assertEqual((single_text, single_notes), (quotation, notes))
+        self.assertNotIn('source_report_boundaries', single_evidence)
+        self.assertEqual(verify_report_components(text, {'text_spans': single_evidence,
+            'source_report_count': 1}, 'disjoint_source_spans'), (0, 0))
+        for mutation in ({'source_report_count': 1}, {'source_report_boundaries': [spans[0]]},
+                         {'quotation_spans': list(reversed(spans)), 'source_report_boundaries': list(reversed(spans))}):
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                importer.apply_reviewed_span(text, {**decision, **mutation})
+
+    def test_source_attribution_pending_keeps_unnamed_subject_out_of_counterpart_text(self):
+        self.plan.update(books=['nasai'], languages=list(importer.LANGUAGES))
+        importer.save_json(self.root, importer.PLAN, self.plan)
+        inputs, decisions = self.inputs(['nasai']), []
+        for prefix in self.plan['languages']:
+            text = 'TEST explicitly named source report' if prefix == 'ben' else 'TEST ' + prefix + ' unnamed subject did this.'
+            inputs['editions/' + prefix + '-nasai.json'] = importer.encoded(source_data('nasai', [row(1, text)]))
+            d = {'provider_book':'nasai', 'provider_edition':prefix+'-nasai', 'typed_hadithnumber':'1',
+                 'source_text_sha256':importer.sha(text.encode()), 'quotation_spans':[[0,len(text)]]}
+            if prefix != 'ben':
+                d.update(action='source_attribution_pending', quotation_spans=[], reason='TEST source leaves its subject unnamed')
+            decisions.append(d)
+        importer.save_json(self.root, 'catalog/fawaz-reviewed-spans.json', {
+            'schema':'hadith-bank-fawaz-reviewed-spans-v1', 'repository':importer.REPOSITORY,
+            'revision':importer.REVISION, 'decisions':decisions})
+        self.seed(inputs)
+        summary, _ = importer.run(self.args())
+        self.assertEqual(summary['registered_occurrences'],1)
+        records = [item for group in load_public_materials(self.root)['groups'] for item in group]
+        canonical = next(json.loads(line) for path in (self.root/'materials').glob('*/records.jsonl')
+                         for line in path.read_text().splitlines())
+        record = records[0]
+        self.assertIsNone(record['text_arabic'])
+        for version in record['language_versions']:
+            if version['language'] == 'bn':
+                self.assertEqual(version['text'],'TEST explicitly named source report')
+            else:
+                self.assertIsNone(version['text'])
+                self.assertEqual(version['quotation_status'],'attribution_pending')
+                prefix = version['source']['provider_edition'].split('-')[0]
+                self.assertEqual(version['comments'][0]['text'],'TEST ' + prefix + ' unnamed subject did this.')
+                self.assertEqual(canonical['source']['language_availability'][version['language']],
+                                 'attribution_pending_source_context')
+
+    def test_numbered_companion_report_keeps_own_speaker_and_unreviewed_siblings(self):
+        inputs = self.inputs()
+        text = 'TEST Umar said: TEST attributed saying. TEST compiler explanation.'
+        end = text.index(' TEST compiler')
+        inputs['editions/eng-bukhari.json'] = importer.encoded(source_data('bukhari', [row(1, text)]))
+        decision = {'provider_book':'bukhari', 'provider_edition':'eng-bukhari', 'typed_hadithnumber':'1',
+            'source_text_sha256':importer.sha(text.encode()), 'quotation_spans':[[0,end]],
+            'report_type':'companion_report',
+            'reported_speakers':[{'name_as_supplied':'Umar', 'role':'companion', 'source_spans':[[5,9]]}],
+            'report_classification_note':'TEST This source attributes the saying to Umar, a Companion.'}
+        importer.save_json(self.root, 'catalog/fawaz-reviewed-spans.json', {
+            'schema':'hadith-bank-fawaz-reviewed-spans-v1', 'repository':importer.REPOSITORY,
+            'revision':importer.REVISION, 'decisions':[decision]})
+        self.seed(inputs)
+        summary, _ = importer.run(self.args())
+        self.assertEqual(summary['registered_occurrences'], 1)
+        canonical = next(json.loads(line) for path in (self.root/'materials').glob('*/records.jsonl')
+                         for line in path.read_text().splitlines())
+        self.assertEqual(canonical['content_kind'], 'source_numbered_attributed_report')
+        self.assertEqual(canonical['report_types'], ['companion_report'])
+        own = next(v for v in canonical['language_versions'] if v['language'] == 'en')
+        self.assertEqual(own['text'], text[:end])
+        self.assertEqual(own['source']['reported_speakers'], decision['reported_speakers'])
+        self.assertEqual(own['comments'][0]['text'], text[end:])
+        self.assertIn('attributes the saying to Umar', next(v for v in language_readings(canonical) if v['language'] == 'en')['qualification'])
+        self.assertTrue(all(v['text'] is None and v['quotation_status'] == 'attribution_pending'
+                            for v in canonical['language_versions'] if v['language'] != 'en'))
+        from build_reader import record_type_info
+        self.assertEqual(record_type_info(canonical)['label'], 'Report or saying')
+        for mutation in (
+            {'reported_speakers':[{'name_as_supplied':'Invented', 'role':'companion', 'source_spans':[[5,9]]}]},
+            {'reported_speakers':[{'name_as_supplied':'compiler', 'role':'other', 'source_spans':[[end,len(text)]]}]},
+            {'reported_speakers':[{'name_as_supplied':None, 'role':'prophet', 'source_spans':[]}]},
+            {'report_classification_note':''},
+        ):
+            with self.assertRaises(ValueError):
+                importer.apply_reviewed_span(text, {**decision, **mutation})
+
     def test_source_content_mismatch_does_not_create_false_arabic_or_english_counterparts(self):
         self.plan.update(books=['malik'], languages=list(importer.LANGUAGES))
         importer.save_json(self.root, importer.PLAN, self.plan)

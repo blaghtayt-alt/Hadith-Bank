@@ -178,3 +178,52 @@ and unresolved attribution in the complete source/classification ledger outside
 Hadith HTML. Account for every provider ID; a held source is not a failed or
 missing download. The existing source fidelity, translation-origin, rights and
 non-certification policies continue to apply.
+
+### Continued pending review and Hindi priority
+
+The owner then requested checking the remaining pending entries, stated that no
+hadith should be dropped, and prioritized Urdu, Hindi and Bengali. Continue the
+6,553-entry Fawaz pending cohort from the published 29,911-registration baseline.
+Preserve all 36,464 provider identities and every original source field. A full
+English reading pass does not establish that an absent or different Urdu or
+Bengali field was reviewed: inspect the available local-language material and
+record actual field-level review coverage. Empty fields and literal unavailable
+translation placeholders remain explicit source states.
+
+Keep separately attributed reports and disjoint passages visibly separate, with
+exact source offsets and intervening notes preserved. Distinguish a language's
+unresolved attribution from a confirmed cross-language content mismatch. Retain
+explicit source criticism alongside a source-attributed report; classification
+and source preservation do not constitute independent authenticity grading.
+
+The Fawaz catalog has no Hindi edition. Continue the already authorized finite
+Deen Hindi queue separately, with saved progress and a bounded next batch after
+successful new acquisition. Completion of the seven Urdu and eight Bengali
+Fawaz edition downloads does not mean the Hindi queue is complete or that every
+provider field is nonempty. Keep actual acquisition, narration registration and
+source-context counts distinct.
+
+### Expanded numbered reports and sayings
+
+On 13 November 2026 Japan time the owner requested continuing the pending
+review and implementing entries recognized as reports or sayings in the main
+numbered collections, while excluding side notes and explanations and obtaining
+their correct collection references. This broadens the preceding Prophetic-only
+reader selection: source-bound Companion and Successor reports, attributed
+sayings, historical reports and explicitly abbreviated transmissions may enter
+the reader under their actual report type and speaker. A Companion's words
+must never be relabelled as the Prophet's words. Source criticism remains
+visible alongside the version it discusses.
+
+The presence of a provider number alone does not turn compiler explanation,
+legal commentary, a heading or an empty placeholder into a narration. Preserve
+those spans as source context. Review each admitted language's boundaries and
+attribution independently; unreviewed sibling-language text remains complete
+source context. Keep disjoint passages and distinct report components separate.
+
+Retain exact Fawaz entry, Arabic and book/hadith numbering with their named
+numbering systems. Verify external collection references from the actual
+report, narrator and source evidence, particularly when language fields differ.
+Record corroborated parallel references without merging source identities or
+replacing the supplied number. A source-local number is not automatically a
+canonical number in every edition. Unknown external references remain explicit.
