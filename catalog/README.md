@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **44,195 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **45,421 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -46,6 +46,10 @@ Counts describe source occurrences across translations and editions. They are no
 | Uzbek | book-29 | `publisher-web-20261112` | 123 | [Read](../browse/uz/book-29/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-29-uz-web/source-evidence.json) |
 | Uzbek | book-30 | `publisher-web-20261112` | 931 | [Read](../browse/uz/book-30/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-30-uz-web/source-evidence.json) |
 | Uzbek | book-32 | `publisher-web-20261112` | 1,447 | [Read](../browse/uz/book-32/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-32-uz-web/source-evidence.json) |
+| Japanese | hisn-al-muslim | `pdf-f96783671a38` | 261 | [Read](../browse/ja/hisn-al-muslim/pdf-f96783671a38/README.md) | [Original file](../materials/ja-hisn-2007-research-v3/source.pdf) |
+| Japanese | islam-message | `pdf-cf59932bec72` | 306 | [Read](../browse/ja/islam-message/pdf-cf59932bec72/README.md) | [Original file](../materials/ja-islam-message-research-v3/source.pdf) |
+| Japanese | otsuka-khutba | `pdf-6d8c5d599c40` | 9 | [Read](../browse/ja/otsuka-khutba/pdf-6d8c5d599c40/README.md) | [Original file](../materials/ja-otsuka-20230901-research-v3/source.pdf) |
+| Japanese | basic-knowledge-of-islam | `pdf-a7794fb0ac3d` | 650 | [Read](../browse/ja/basic-knowledge-of-islam/pdf-a7794fb0ac3d/README.md) | [Original file](../materials/ja-tokyo-basic-2012-research-v3/source.pdf) |
 | Japanese | muslim | `pdf-c859ce57c211ea1b` | 1,811 | [Read](../browse/ja/muslim/pdf-c859ce57c211ea1b/README.md) | [Original file](../attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf) |
 | Persian | abu-dawud | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-abu-dawud/source-bundle.json) |
 | Persian | ahmad | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fa/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ahmad/source-bundle.json) |
@@ -210,7 +214,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 43,030 |
+| Human | 44,256 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -220,8 +224,8 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 4,958 |
-| `human_translator_credited` | 29,947 |
+| `unknown` | 5,923 |
+| `human_translator_credited` | 30,208 |
 | `legacy_source_history` | 867 |
 
 Human involvement is displayed with its source and scope. Individual AI-use flags and bank review status remain separate.

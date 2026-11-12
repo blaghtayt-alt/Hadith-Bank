@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**44,195 source occurrences**: Arabic text 32,862; English text 9,617; English source links 2,677.
+**45,421 source occurrences**: Arabic text 32,862; English text 9,617; English source links 2,677.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -13,7 +13,7 @@ Text and external-only links are counted separately. An English source link requ
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,056 | 2,017 | 1,998 | 0 | 39 | 58 |
 | hi | 2,632 | 2,600 | 2,452 | 0 | 32 | 180 |
-| ja | 2,237 | 366 | 327 | 0 | 1,871 | 1,910 |
+| ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
 | uz | 7,498 | 7,377 | 452 | 0 | 121 | 7,046 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
@@ -103,7 +103,11 @@ Text and external-only links are counted separately. An English source link requ
 | islom-book-29-uz-web | uz | 123 | 122 | 0 | 0 | 1 | 123 |
 | islom-book-30-uz-web | uz | 931 | 931 | 0 | 0 | 0 | 931 |
 | islom-book-32-uz-web | uz | 1,447 | 1,447 | 0 | 0 | 0 | 1,447 |
+| ja-hisn-2007-research-v3 | ja | 261 | 0 | 0 | 0 | 261 | 261 |
+| ja-islam-message-research-v3 | ja | 306 | 0 | 0 | 0 | 306 | 306 |
 | ja-muslim-web-c859ce57c211ea1b | ja | 1,811 | 0 | 0 | 0 | 1,811 | 1,811 |
+| ja-otsuka-20230901-research-v3 | ja | 9 | 0 | 0 | 0 | 9 | 9 |
+| ja-tokyo-basic-2012-research-v3 | ja | 650 | 0 | 0 | 0 | 650 | 650 |
 | legacy-fa-abu-dawud | fa | 1 | 1 | 1 | 0 | 0 | 0 |
 | legacy-fa-ahmad | fa | 3 | 3 | 1 | 0 | 0 | 2 |
 | legacy-fa-bukhari | fa | 89 | 89 | 49 | 0 | 0 | 40 |

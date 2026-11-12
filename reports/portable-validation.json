@@ -3,17 +3,17 @@
   "status": "passed",
   "scope": "public_source_snapshots",
   "current_translation_origins": {
-    "human": 43030,
+    "human": 44256,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-12T08:22:31.252445+00:00",
-  "record_count": 44195,
-  "source_dataset_count": 195,
+  "checked_at_utc": "2026-11-12T08:49:53.949696+00:00",
+  "record_count": 45421,
+  "source_dataset_count": 199,
   "by_language": {
     "fa": 14382,
     "fil": 2056,
     "hi": 2632,
-    "ja": 2237,
+    "ja": 3463,
     "uz": 7498,
     "vi": 4555,
     "zh-CN": 10835
@@ -100,7 +100,11 @@
     "islom-book-29-uz-web": 123,
     "islom-book-30-uz-web": 931,
     "islom-book-32-uz-web": 1447,
+    "ja-hisn-2007-research-v3": 261,
+    "ja-islam-message-research-v3": 306,
     "ja-muslim-web-c859ce57c211ea1b": 1811,
+    "ja-otsuka-20230901-research-v3": 9,
+    "ja-tokyo-basic-2012-research-v3": 650,
     "legacy-fa-abu-dawud": 1,
     "legacy-fa-ahmad": 3,
     "legacy-fa-bukhari": 89,
@@ -216,14 +220,14 @@
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 44195,
-    "projection_objects_compared": 44195,
-    "exact_arabic_and_translation_codepoints_compared": 25527215,
-    "canonical_record_files_hashed": 195,
-    "source_and_legacy_files_hashed": 815,
-    "ordered_search_shards_hashed": 590,
-    "canonical_record_digest_checks": 44195,
-    "complete_public_projection_objects_reconstructed": 44195,
+    "canonical_occurrences_compared": 45421,
+    "projection_objects_compared": 45421,
+    "exact_arabic_and_translation_codepoints_compared": 25633179,
+    "canonical_record_files_hashed": 199,
+    "source_and_legacy_files_hashed": 823,
+    "ordered_search_shards_hashed": 605,
+    "canonical_record_digest_checks": 45421,
+    "complete_public_projection_objects_reconstructed": 45421,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -2299,6 +2303,46 @@
       "sha256": "fd8394fba44f8afb3b4fd69d4cbc219fc69ecfb63769db346a7ec218fcfddb27"
     },
     {
+      "path": "materials/ja-hisn-2007-research-v3/source.pdf",
+      "bytes": 970494,
+      "sha256": "f96783671a386764ef4c6c87a302dd99d31da40163d536f0c302f60e0911c971"
+    },
+    {
+      "path": "materials/ja-hisn-2007-research-v3/records.jsonl",
+      "bytes": 5321927,
+      "sha256": "6801c8c54704ec1df64fff053492fffda49b42a95fdf24fb9f850ec68d370708"
+    },
+    {
+      "path": "materials/ja-islam-message-research-v3/source.pdf",
+      "bytes": 1821598,
+      "sha256": "cf59932bec72bb04c768dfcc9cad4e58603ef6d776e50dc5648621cd1a3905f8"
+    },
+    {
+      "path": "materials/ja-islam-message-research-v3/records.jsonl",
+      "bytes": 5998731,
+      "sha256": "1dae63493a8f7f42b5aa488173920b031d703eecdd9b9a9188fb1afa4e42324f"
+    },
+    {
+      "path": "materials/ja-otsuka-20230901-research-v3/source.pdf",
+      "bytes": 317614,
+      "sha256": "6d8c5d599c408b8b2b891e00a7e819c3466c7423bdde5ea197d8c7c77a545147"
+    },
+    {
+      "path": "materials/ja-otsuka-20230901-research-v3/records.jsonl",
+      "bytes": 140472,
+      "sha256": "e808a56e7d30ffeb8c460bb4ec84474507dd67b0321ecea4657ac2cfbfdc1740"
+    },
+    {
+      "path": "materials/ja-tokyo-basic-2012-research-v3/source.pdf",
+      "bytes": 6090445,
+      "sha256": "a7794fb0ac3de21bbbd792b02032daace3bc0b54a18bba67ee04b2708a2311df"
+    },
+    {
+      "path": "materials/ja-tokyo-basic-2012-research-v3/records.jsonl",
+      "bytes": 12221037,
+      "sha256": "aa1c7b2eefaf78568fe341ca8238a16ae89fb25f748e3b77760d04e77755180d"
+    },
+    {
       "path": "attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf",
       "bytes": 1586298,
       "sha256": "c859ce57c211ea1bfddb98b268241da25fe077782dd4d6be4cd9e10628b18d6a"
@@ -4304,19 +4348,19 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "8b64f8577ace8180067f7fcb8b2713ba46ea42005adbc4278e421861222fcf18",
+  "search_stream_sha256": "52729056e4bfe9182264a24ff03a970c82ff17f3f40222e1af5b24287c18c819",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "7295f220a5a4d84750e2b0e177f43f02caa456b993db1ad755efc63b5806a360",
-    "bytes": 61834013,
-    "embedded_objects_compared": 44195,
+    "sha256": "a0c469546798bce12c4afb7d978e9535821d6e77a7ef0faca3b54812f10f178e",
+    "bytes": 63781732,
+    "embedded_objects_compared": 45421,
     "data_shards_verified": 0,
     "external_script_or_stylesheet_dependencies": false
   },
   "navigation": {
-    "markdown_files_checked": 2202,
-    "local_targets_checked": 102505,
-    "external_links_not_requested": 212887,
+    "markdown_files_checked": 2260,
+    "local_targets_checked": 105331,
+    "external_links_not_requested": 219878,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -4325,10 +4369,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 195,
+    "authorized_dataset_count": 199,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 145,
+    "registered_material_manifests_verified": 149,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

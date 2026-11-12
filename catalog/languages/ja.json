@@ -3,7 +3,7 @@
   "language": "ja",
   "name": "Japanese",
   "scope": "public_source_snapshots",
-  "record_count": 2237,
+  "record_count": 3463,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -49,6 +49,298 @@
         "historical_status_preserved": true,
         "arabic_alignment_flags_retained": true,
         "policy_path": "catalog/review-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ja-hisn-2007-research-v3",
+      "language": "ja",
+      "book_key": "hisn-al-muslim",
+      "edition": "pdf-f96783671a38",
+      "count": 261,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ja-hisn-2007-research-v3/source.pdf",
+      "source_sha256": "f96783671a386764ef4c6c87a302dd99d31da40163d536f0c302f60e0911c971",
+      "canonical_records_path": "materials/ja-hisn-2007-research-v3/records.jsonl",
+      "canonical_records_sha256": "6801c8c54704ec1df64fff053492fffda49b42a95fdf24fb9f850ec68d370708",
+      "source_descriptor": {
+        "path": "materials/ja-hisn-2007-research-v3/source.pdf",
+        "sha256": "f96783671a386764ef4c6c87a302dd99d31da40163d536f0c302f60e0911c971",
+        "name": "ムスリムの砦",
+        "format": "pdf",
+        "url": "https://islam.ne.jp/Downloads/japanese-hesn_almuslem.pdf",
+        "title_ja": "ムスリムの砦",
+        "title_en": "Hisn al-Muslim",
+        "metadata_path": "imports/japanese-research-v3-20261112/Japanese_bibliography.json",
+        "original_source_id": "ja_hisn_2007"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ja-hisn-2007-research-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/ja-hisn-2007-research-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Original Arabic/source transcriptions and external Arabic/English witnesses remain in preserved research. No source-bound language alignment approval is granted by this pending-review publication."
+      },
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "ムスリムの砦",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Exact Japanese PDF bibliography; new-book display classification follows the recorded owner policy.",
+        "evidence_ids": [
+          "JAPANESE-BIB-ja_hisn_2007"
+        ],
+        "new_translation_generated": false,
+        "label": "Source attribution supplied",
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ja-islam-message-research-v3",
+      "language": "ja",
+      "book_key": "islam-message",
+      "edition": "pdf-cf59932bec72",
+      "count": 306,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ja-islam-message-research-v3/source.pdf",
+      "source_sha256": "cf59932bec72bb04c768dfcc9cad4e58603ef6d776e50dc5648621cd1a3905f8",
+      "canonical_records_path": "materials/ja-islam-message-research-v3/records.jsonl",
+      "canonical_records_sha256": "1dae63493a8f7f42b5aa488173920b031d703eecdd9b9a9188fb1afa4e42324f",
+      "source_descriptor": {
+        "path": "materials/ja-islam-message-research-v3/source.pdf",
+        "sha256": "cf59932bec72bb04c768dfcc9cad4e58603ef6d776e50dc5648621cd1a3905f8",
+        "name": "イスラームのメッセージ",
+        "format": "pdf",
+        "url": "https://d1.islamhouse.com/data/ja/ih_books/single/ja_islam_message_sheha.pdf",
+        "title_ja": "イスラームのメッセージ",
+        "title_en": "The Message of Islam",
+        "metadata_path": "imports/japanese-research-v3-20261112/Japanese_bibliography.json",
+        "original_source_id": "ja_islam_message"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ja-islam-message-research-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/ja-islam-message-research-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Original Arabic/source transcriptions and external Arabic/English witnesses remain in preserved research. No source-bound language alignment approval is granted by this pending-review publication."
+      },
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "イスラームのメッセージ",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "human_involvement": "named_translator_not_established",
+        "basis": "Exact Japanese PDF bibliography; new-book display classification follows the recorded owner policy.",
+        "evidence_ids": [
+          "JAPANESE-BIB-ja_islam_message"
+        ],
+        "new_translation_generated": false,
+        "label": "Unknown",
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ja-otsuka-20230901-research-v3",
+      "language": "ja",
+      "book_key": "otsuka-khutba",
+      "edition": "pdf-6d8c5d599c40",
+      "count": 9,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ja-otsuka-20230901-research-v3/source.pdf",
+      "source_sha256": "6d8c5d599c408b8b2b891e00a7e819c3466c7423bdde5ea197d8c7c77a545147",
+      "canonical_records_path": "materials/ja-otsuka-20230901-research-v3/records.jsonl",
+      "canonical_records_sha256": "e808a56e7d30ffeb8c460bb4ec84474507dd67b0321ecea4657ac2cfbfdc1740",
+      "source_descriptor": {
+        "path": "materials/ja-otsuka-20230901-research-v3/source.pdf",
+        "sha256": "6d8c5d599c408b8b2b891e00a7e819c3466c7423bdde5ea197d8c7c77a545147",
+        "name": "大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日",
+        "format": "pdf",
+        "url": "https://www.islam.or.jp/wp-content/uploads/2023/09/2023.09.01_Khutba_JP-Otsuka-Masjid-.pdf",
+        "title_ja": "大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日",
+        "title_en": "Otsuka Friday sermon summary",
+        "metadata_path": "imports/japanese-research-v3-20261112/Japanese_bibliography.json",
+        "original_source_id": "ja_otsuka_20230901"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ja-otsuka-20230901-research-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/ja-otsuka-20230901-research-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Original Arabic/source transcriptions and external Arabic/English witnesses remain in preserved research. No source-bound language alignment approval is granted by this pending-review publication."
+      },
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "human_involvement": "named_translator_not_established",
+        "basis": "Exact Japanese PDF bibliography; new-book display classification follows the recorded owner policy.",
+        "evidence_ids": [
+          "JAPANESE-BIB-ja_otsuka_20230901"
+        ],
+        "new_translation_generated": false,
+        "label": "Unknown",
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ja-tokyo-basic-2012-research-v3",
+      "language": "ja",
+      "book_key": "basic-knowledge-of-islam",
+      "edition": "pdf-a7794fb0ac3d",
+      "count": 650,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ja-tokyo-basic-2012-research-v3/source.pdf",
+      "source_sha256": "a7794fb0ac3de21bbbd792b02032daace3bc0b54a18bba67ee04b2708a2311df",
+      "canonical_records_path": "materials/ja-tokyo-basic-2012-research-v3/records.jsonl",
+      "canonical_records_sha256": "aa1c7b2eefaf78568fe341ca8238a16ae89fb25f748e3b77760d04e77755180d",
+      "source_descriptor": {
+        "path": "materials/ja-tokyo-basic-2012-research-v3/source.pdf",
+        "sha256": "a7794fb0ac3de21bbbd792b02032daace3bc0b54a18bba67ee04b2708a2311df",
+        "name": "イスラームの基本知識",
+        "format": "pdf",
+        "url": "https://tokyocamii.org/wp-content/uploads/2024/07/2012.06_Basic-Knowledge-of-ISLAM.pdf",
+        "title_ja": "イスラームの基本知識",
+        "title_en": "Basic Knowledge of Islam",
+        "metadata_path": "imports/japanese-research-v3-20261112/Japanese_bibliography.json",
+        "original_source_id": "ja_tokyo_basic_2012"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ja-tokyo-basic-2012-research-v3/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/ja-tokyo-basic-2012-research-v3/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Original Arabic/source transcriptions and external Arabic/English witnesses remain in preserved research. No source-bound language alignment approval is granted by this pending-review publication."
+      },
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "イスラームの基本知識",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "human_involvement": "named_translator_not_established",
+        "basis": "Exact Japanese PDF bibliography; new-book display classification follows the recorded owner policy.",
+        "evidence_ids": [
+          "JAPANESE-BIB-ja_tokyo_basic_2012"
+        ],
+        "new_translation_generated": false,
+        "label": "Unknown",
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
       }
     },
     {
