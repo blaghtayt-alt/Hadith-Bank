@@ -89,8 +89,8 @@ checkpoint. Unexpected worker failures are persisted in
 require inspection before explicit removal. Saved authentication/rate/robots
 blocks are never automatically retried. Failed jobs retain recovery artifacts.
 
-Completed pages are not refreshed. Once the finite queues are exhausted, no
-further source network work occurs. The plan's global or per-source enabled
+Completed pages are not refreshed. Once the finite queues are exhausted, the workflow disables its schedule. It can
+be enabled again explicitly if a new source intake is authorized. The plan's global or per-source enabled
 field can pause further intake.
 
 Commands:

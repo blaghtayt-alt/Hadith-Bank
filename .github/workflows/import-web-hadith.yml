@@ -78,6 +78,18 @@ jobs:
           if status.get('requires_attention'):
               print('::warning::A source queue needs inspection. Its saved stop/checkpoint is retained; other authorized queues continue.')
           PY
+      - name: Stop the finite schedule when every fetch queue is complete
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          status = json.loads(Path('imports/web-import-status.json').read_text())
+          if status.get('fetch_queues_done'):
+              subprocess.run(['gh', 'workflow', 'disable', 'import-web-hadith.yml'], check=True)
+          PY
       - name: Preserve interrupted intake evidence for recovery
         if: failure()
         uses: actions/upload-artifact@v4
