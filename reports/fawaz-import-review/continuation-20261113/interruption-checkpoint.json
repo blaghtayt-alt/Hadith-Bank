@@ -1,0 +1,110 @@
+{
+  "schema": "hadith-bank-pending-review-interruption-v2",
+  "recorded_at_utc": "2026-11-12 17:35:10 UTC",
+  "status": "assembled_candidate_unavailable_before_written_export_or_publication",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "review_branch": "work/pending-review-interruption-20261112",
+  "parent_review_commit": "a6c4d5487999cf025b4899d1117d5acf90701e9d",
+  "published_baseline": {
+    "provider_occurrences": 36464,
+    "registered_occurrences": 29911,
+    "held_occurrences": 6553,
+    "source_revision": "df57907be35291c91ad6a6691180e22ca9920784"
+  },
+  "last_completed_prior_in_memory_audit": {
+    "registered_occurrences": 34340,
+    "held_occurrences": 2124,
+    "new_registrations": 4429,
+    "original_registered_ids_lost": 0,
+    "original_registered_language_quotations_changed": 0,
+    "edition_snapshots": 31,
+    "source_edition_rows": 145718,
+    "catalog_sha256": "8d0136b4440b0a0332a5335f3892d02b18cad25ed71ecd5ad5d2435d459368f6",
+    "scope": "In-memory generated records and source inventory; not written material registry or deployed reader."
+  },
+  "recovered_followups": {
+    "language_decisions": 701,
+    "positive_language_decisions": 700,
+    "context_language_decisions": 1,
+    "distinct_previously_held_provider_ids": 462,
+    "by_book": {
+      "tirmidhi": 96,
+      "ibnmajah": 126,
+      "abudawud": 165,
+      "malik": 75
+    },
+    "reference_metadata_amendments": 8,
+    "malik_manual_specs": {
+      "total": 297,
+      "emitted": 282,
+      "original_source_empty": 15,
+      "missing_positive": 0
+    },
+    "muslim_urdu_saved_specifications_reemitted": 55,
+    "muslim_grouped_source_ids": [
+      "32",
+      "40",
+      "41"
+    ],
+    "muslim_recovery_sha256": "d69f9997dad0e5345cf565ac9558d8c0187548b69c64ff534318325a5f42ce00",
+    "recovery_manifest_sha256": "2881df09f88e2be0c46cb596d41329c6e9bb6863686bb1aa1abd9dd9ee6a7621"
+  },
+  "assembled_candidate": {
+    "catalog_sha256": "1d467374e3d1a657370fc3234a9e3298e3b1df0c21f66332f7c3a6e9391c6cff",
+    "catalog_bytes": 13992321,
+    "assembly_manifest_sha256": "a466cc69df3b0b154758918007af40769345acf62d36400f9ab0c0635510d85b",
+    "base_language_decisions": 5555,
+    "additional_language_decisions": 756,
+    "total_language_decisions": 6311,
+    "additional_provider_ids_after_4429_stage": 517,
+    "explicit_amendments": 9,
+    "candidate_registrations_added_to_published_baseline": 4946,
+    "candidate_registered_total": 34857,
+    "candidate_remaining_held": 1607,
+    "counts_status": "Reconciled assembly target; full written export and source-preservation audit did not finish.",
+    "bytes_currently_available": false,
+    "github_published": false,
+    "source_bytes_rewritten": false
+  },
+  "validation_observed_before_environment_change": {
+    "recovered_input_checks": "Exact source snapshot/field hashes, quotation/note partitions, selector evidence, components and metadata passed during assembly.",
+    "fawaz_software_tests_passed": 183,
+    "language_reading_tests_passed": 19,
+    "git_diff_check": "passed",
+    "live_browser_check": "not_run",
+    "independent_pro_qc": "not_run",
+    "written_full_export": "failed_no_space_left_on_device",
+    "written_full_export_failure_path": "materials/fawaz-abudawud-df57907be352-ar-part-002",
+    "full_candidate_preservation_audit": "not_run",
+    "registry_check": "not_run",
+    "deployment": "not_run"
+  },
+  "interruption": {
+    "kind": "Execution filesystem changed after storage exhaustion",
+    "first_observed_utc": "2026-11-12 17:27 UTC",
+    "unavailable_paths": [
+      "/workspace/scratch/0822bd721c79/hadith-bank",
+      "/workspace/scratch/bc2f702e299f/Hadith-Bank",
+      "/workspace/scratch/79806f19ff29/.work/fawaz-resumed-final"
+    ],
+    "independently_confirmed_by_agents": 2,
+    "known_file_transfer_attempt": "Exact recovered55 filepath returned No such file or directory; no file was saved.",
+    "full_candidate_archive_saved": false,
+    "original_published_sources_remain_in_github": true
+  },
+  "recovered_exact_small_evidence": [
+    "reports/fawaz-import-review/continuation-20261113/urd-malik18-grouped-decision.json",
+    "reports/fawaz-import-review/continuation-20261113/verified-reference-rechecks.json"
+  ],
+  "available_earlier_remote_inputs": "reports/fawaz-import-review/resumed-inputs-20261113/manifest.json",
+  "resume_steps": [
+    "Recover the actual candidate catalog bytes with SHA256 1d467374e3d1a657370fc3234a9e3298e3b1df0c21f66332f7c3a6e9391c6cff, or the preserved4,429 base and later decision files. Do not reconstruct missing decisions from counts/hashes.",
+    "Retain original 31 editions, all 36,464 source IDs and every original language field; keep blank/placeholder/commentary states distinct.",
+    "Recover grouped report implementation described in README and rerun its focused software checks against actual restored files.",
+    "Export canonical materials from the exact reviewed candidate, then run validate_fawaz_sources with the pinned source-comparison snapshot and --require-preserved.",
+    "Confirm zero prior registered IDs demoted and zero prior registered language quotations changed; validate written registry and reader/search behavior.",
+    "Refresh main and publish with an expected-head check; preserve concurrent Hindi imports.",
+    "Report final actual registered/held counts only after successful source export and publication; distinguish field review from source-wide semantic review."
+  ],
+  "provenance_note": "This durable record stores observed counts, hashes, checks and resume requirements. It is not a copy of the unavailable candidate catalog or the complete review decisions."
+}
