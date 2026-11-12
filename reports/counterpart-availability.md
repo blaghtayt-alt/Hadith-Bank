@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**36,950 source occurrences**: Arabic text 25,942; English text 9,569; English source links 2,677.
+**37,201 source occurrences**: Arabic text 25,942; English text 9,569; English source links 2,677.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -16,7 +16,7 @@ Text and external-only links are counted separately. An English source link requ
 | ja | 2,237 | 366 | 327 | 0 | 1,871 | 1,910 |
 | uz | 552 | 505 | 452 | 0 | 47 | 100 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
-| zh-CN | 10,584 | 5,245 | 2,521 | 2,664 | 5,339 | 5,399 |
+| zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
 
 ## By source edition
 
@@ -196,6 +196,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-zh-cn-tirmidhi | zh-CN | 6 | 6 | 1 | 0 | 0 | 5 |
 | quran-excerpts-zh-cn-unclassified | zh-CN | 2 | 0 | 0 | 0 | 2 | 2 |
 | zh-abu-dawud-yu-2002-doc | zh-CN | 2,828 | 2,827 | 162 | 2,664 | 1 | 2 |
+| zh-cn-hisn-muslim-1a09ee75 | zh-CN | 251 | 0 | 0 | 0 | 251 | 251 |
 | zh-cn-ibn-majah-yu-2013 | zh-CN | 4,354 | 50 | 49 | 0 | 4,304 | 4,305 |
 | zh-muwatta-shaybani-yu-2000-docx | zh-CN | 1,006 | 1 | 1 | 0 | 1,005 | 1,005 |
 

@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **36,950 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **37,201 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -184,6 +184,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Vietnamese | muslim | `pdf-4aa2f9c722e62418` | 49 | [Read](../browse/vi/muslim/pdf-4aa2f9c722e62418/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-4aa2f9c722e62418/source.pdf) |
 | Vietnamese | muslim | `pdf-668a54bc30222150` | 83 | [Read](../browse/vi/muslim/pdf-668a54bc30222150/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/muslim/pdf-668a54bc30222150/source.pdf) |
 | Chinese | abu-dawud | `doc-cbff2d2c521e553c` | 2,828 | [Read](../browse/zh-CN/abu-dawud/doc-cbff2d2c521e553c/README.md) | [Original file](../materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc) |
+| Chinese | hisn-al-muslim | `pdf-1a09ee75-final-20261110` | 251 | [Read](../browse/zh-CN/hisn-al-muslim/pdf-1a09ee75-final-20261110/README.md) | [Original file](../materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf) |
 | Chinese | ibn-majah | `yu-2013-pdf-e3bc24bcee435894` | 4,354 | [Read](../browse/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/README.md) | [Original file](../materials/zh-cn-ibn-majah-yu-2013/伊本·马哲圣训集_Sunan_Ibn_Majah.pdf) |
 | Chinese | malik | `docx-cf65c0e865be95a7` | 1,006 | [Read](../browse/zh-CN/malik/docx-cf65c0e865be95a7/README.md) | [Original file](../materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx) |
 
@@ -191,7 +192,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 35,785 |
+| Human | 36,036 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -201,7 +202,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `human_translator_credited` | 26,356 |
+| `human_translator_credited` | 26,607 |
 | `legacy_source_history` | 867 |
 | `unknown` | 1,304 |
 

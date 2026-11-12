@@ -9,7 +9,7 @@
 - [艾哈迈德圣训集 — Musnad Ahmad](ahmad/README.md) — 3 source occurrences
 - [布哈里圣训实录 — Sahih al-Bukhari](bukhari/README.md) — 48 source occurrences
 - [圣训翻译百科全书 — HadeethEnc](hadeethenc/README.md) — 2256 source occurrences
-- [穆斯林的堡垒 — Hisn al-Muslim](hisn-al-muslim/README.md) — 1 source occurrences
+- [穆斯林的堡垒 — Hisn al-Muslim](hisn-al-muslim/README.md) — 252 source occurrences
 - [伊本·马哲圣训集 — Sunan Ibn Majah](ibn-majah/README.md) — 4354 source occurrences
 - [穆宛塔圣训集 — Muwatta of Imam Malik](malik/README.md) — 1006 source occurrences
 - [穆斯林圣训实录 — Sahih Muslim](muslim/README.md) — 60 source occurrences

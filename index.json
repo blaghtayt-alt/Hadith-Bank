@@ -108,8 +108,8 @@
       ],
       "hadeethenc_manifest": "languages/zh-CN/books/hadeethenc/editions/sqlite-a22a0e545c70b320/manifest.json",
       "materials_catalog": "catalog/languages/zh-CN.json",
-      "record_count": 10584,
-      "source_dataset_count": 17,
+      "record_count": 10835,
+      "source_dataset_count": 18,
       "readingIndex": "browse/zh-CN/README.md"
     },
     {
@@ -2695,6 +2695,26 @@
       }
     },
     {
+      "id": "zh-cn-hisn-muslim-1a09ee75",
+      "kind": "records-v1",
+      "materialManifest": "materials/zh-cn-hisn-muslim-1a09ee75/manifest.json",
+      "count": 251,
+      "status": "published_pending_review",
+      "publicTextPublished": true,
+      "independentProQC": "pending",
+      "sourceReviewHistoryPreserved": true,
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/zh-cn-hisn-muslim-1a09ee75/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      }
+    },
+    {
       "id": "zh-cn-ibn-majah-yu-2013",
       "kind": "records-v1",
       "materialManifest": "materials/zh-cn-ibn-majah-yu-2013/manifest.json",
@@ -2736,10 +2756,10 @@
     }
   ],
   "scope": "public_source_snapshots",
-  "recordCount": 36950,
+  "recordCount": 37201,
   "languageCount": 7,
   "countUnit": "source narration/entry occurrences across editions; not unique canonical Hadith",
-  "sourceDatasetCount": 176,
+  "sourceDatasetCount": 177,
   "sourceDatasets": [
     {
       "dataset_id": "hadeethenc-ja-sqlite-a81da9af28f854f6",
@@ -12801,6 +12821,73 @@
           "materials/zh-abu-dawud-yu-2002-doc/source-metadata.json"
         ],
         "scope_note": "Existing Chinese translation; no new translation generated.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "zh-cn-hisn-muslim-1a09ee75",
+      "language": "zh-CN",
+      "book_key": "hisn-al-muslim",
+      "edition": "pdf-1a09ee75-final-20261110",
+      "count": 251,
+      "release_status": "source_review_pending",
+      "source_file": "materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf",
+      "source_sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+      "canonical_records_path": "materials/zh-cn-hisn-muslim-1a09ee75/records.jsonl",
+      "canonical_records_sha256": "42f80eca6f29026e40296687db53aa8daae38d99944b5c27a5a2b453faff9859",
+      "source_descriptor": {
+        "path": "materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf",
+        "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+        "name": "穆斯林的堡垒 — Hisn al-Muslim",
+        "format": "pdf",
+        "url": "https://risala.prh.gov.sa/storage/contents/52/zh_hisn_new.pdf",
+        "title_zh": "穆斯林的堡垒",
+        "title_en": "Hisn al-Muslim",
+        "original_filename": "zh-hisn.pdf",
+        "pdf_pages": 52,
+        "metadata_path": "imports/chinese-hisn-final-20261110/zh_hisn_final_metadata.json"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/zh-cn-hisn-muslim-1a09ee75/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/zh-cn-hisn-muslim-1a09ee75/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Final evaluation has no bank-approved Arabic or English occurrence. Preserve enrichment as evidence only; require a separate explicit source-bound approval before enabling counterpart resolution."
+      },
+      "source_name": "穆斯林的堡垒 — Hisn al-Muslim",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "label": "Human",
+        "ai_translation": false,
+        "human_involvement": "named_human_translator",
+        "basis": "Named translator and translator preface in supplied PDF pages4–7; not an inference from writing style.",
+        "evidence_ids": [
+          "imports/chinese-hisn-final-20261110/zh_hisn_final_metadata.json#/translation_origin"
+        ],
+        "scope_note": "Existing published Chinese translation. No new translation generated; historical source metadata preserved.",
         "policy_path": null,
         "current_policy": {
           "classification": "human",

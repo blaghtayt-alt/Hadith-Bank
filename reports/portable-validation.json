@@ -3,12 +3,12 @@
   "status": "passed",
   "scope": "public_source_snapshots",
   "current_translation_origins": {
-    "human": 35785,
+    "human": 36036,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-12T05:18:03.780102+00:00",
-  "record_count": 36950,
-  "source_dataset_count": 176,
+  "checked_at_utc": "2026-11-12T06:12:59.632078+00:00",
+  "record_count": 37201,
+  "source_dataset_count": 177,
   "by_language": {
     "fa": 14382,
     "fil": 2056,
@@ -16,7 +16,7 @@
     "ja": 2237,
     "uz": 552,
     "vi": 4555,
-    "zh-CN": 10584
+    "zh-CN": 10835
   },
   "by_dataset": {
     "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd": 200,
@@ -193,18 +193,19 @@
     "quran-excerpts-zh-cn-tirmidhi": 6,
     "quran-excerpts-zh-cn-unclassified": 2,
     "zh-abu-dawud-yu-2002-doc": 2828,
+    "zh-cn-hisn-muslim-1a09ee75": 251,
     "zh-cn-ibn-majah-yu-2013": 4354,
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 36950,
-    "projection_objects_compared": 36950,
-    "exact_arabic_and_translation_codepoints_compared": 19454703,
-    "canonical_record_files_hashed": 176,
-    "source_and_legacy_files_hashed": 435,
-    "ordered_search_shards_hashed": 504,
-    "canonical_record_digest_checks": 36950,
-    "complete_public_projection_objects_reconstructed": 36950,
+    "canonical_occurrences_compared": 37201,
+    "projection_objects_compared": 37201,
+    "exact_arabic_and_translation_codepoints_compared": 19468370,
+    "canonical_record_files_hashed": 177,
+    "source_and_legacy_files_hashed": 437,
+    "ordered_search_shards_hashed": 507,
+    "canonical_record_digest_checks": 37201,
+    "complete_public_projection_objects_reconstructed": 37201,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -1950,6 +1951,16 @@
       "sha256": "c9a68c73ff7531a281bd8b2e8d676f3e04cebc0bd9c65ba5999da12e00c8b5b8"
     },
     {
+      "path": "materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf",
+      "bytes": 1620891,
+      "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4"
+    },
+    {
+      "path": "materials/zh-cn-hisn-muslim-1a09ee75/records.jsonl",
+      "bytes": 1480176,
+      "sha256": "42f80eca6f29026e40296687db53aa8daae38d99944b5c27a5a2b453faff9859"
+    },
+    {
       "path": "materials/zh-cn-ibn-majah-yu-2013/伊本·马哲圣训集_Sunan_Ibn_Majah.pdf",
       "bytes": 27176400,
       "sha256": "e3bc24bcee435894fc3826622839dd819f8c79eb83af5252f5389831fa76b383"
@@ -2385,18 +2396,18 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "c1bc4183a2dae8a87c258d9e2cd7ed628242820b3d96fa08d9dd3b8ef38bd0d8",
+  "search_stream_sha256": "ffe2fe370deb40a248c8d8589ee1d73093264885eb005f0bf17b7088e8ec8807",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "53d02d6e693df3031762d53fdd26b49804106a53b22c75410a5965bbbe16349e",
-    "bytes": 51249113,
-    "embedded_objects_compared": 36950,
+    "sha256": "507a74ba511869b7b3b92124b65052fe426cfe5bd4d970323ebc6ee94600656f",
+    "bytes": 51391178,
+    "embedded_objects_compared": 37201,
     "external_script_or_stylesheet_dependencies": false
   },
   "navigation": {
-    "markdown_files_checked": 1868,
-    "local_targets_checked": 85821,
-    "external_links_not_requested": 131578,
+    "markdown_files_checked": 1880,
+    "local_targets_checked": 86403,
+    "external_links_not_requested": 132336,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -2405,10 +2416,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 176,
+    "authorized_dataset_count": 177,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 126,
+    "registered_material_manifests_verified": 127,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },
