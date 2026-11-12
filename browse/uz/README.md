@@ -7,6 +7,17 @@
 - [Сунани Абу Довуд — Sunan Abi Dawud](abu-dawud/README.md) — 2 source occurrences
 - [Ал-Адаб ал-Муфрад — Al-Adab al-Mufrad](adab-al-mufrad/README.md) — 1 source occurrences
 - [Муснади Аҳмад — Musnad Ahmad](ahmad/README.md) — 3 source occurrences
+- [Ал-Азкор](book-17/README.md) — 285 source occurrences
+- [101 ҳадис](book-22/README.md) — 80 source occurrences
+- [2002 ҳадис](book-23/README.md) — 1443 source occurrences
+- [Арбаъин](book-24/README.md) — 40 source occurrences
+- [Шамоилул-Муҳаммадия](book-25/README.md) — 226 source occurrences
+- [Саҳиҳул Бухорийнинг мухтасари](book-26/README.md) — 153 source occurrences
+- [Имомлари иттифоқ қилган ҳадислар](book-27/README.md) — 401 source occurrences
+- [Риёзус солиҳийн](book-28/README.md) — 1817 source occurrences
+- [Риёзус солиҳийн (болалар учун)](book-29/README.md) — 123 source occurrences
+- [Забидий](book-30/README.md) — 931 source occurrences
+- [Риёзус солиҳийн шарҳи](book-32/README.md) — 1447 source occurrences
 - [Саҳиҳ ал-Бухорий — Sahih al-Bukhari](bukhari/README.md) — 39 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 420 source occurrences
 - [الحاكم — Reports attributed to al-Hakim](hakim/README.md) — 3 source occurrences

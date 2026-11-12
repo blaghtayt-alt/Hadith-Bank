@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**37,201 source occurrences**: Arabic text 25,942; English text 9,569; English source links 2,677.
+**44,195 source occurrences**: Arabic text 32,862; English text 9,617; English source links 2,677.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -12,9 +12,9 @@ Text and external-only links are counted separately. An English source link requ
 |---|---:|---:|---:|---:|---:|---:|
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,056 | 2,017 | 1,998 | 0 | 39 | 58 |
-| hi | 2,584 | 2,552 | 2,404 | 0 | 32 | 180 |
+| hi | 2,632 | 2,600 | 2,452 | 0 | 32 | 180 |
 | ja | 2,237 | 366 | 327 | 0 | 1,871 | 1,910 |
-| uz | 552 | 505 | 452 | 0 | 47 | 100 |
+| uz | 7,498 | 7,377 | 452 | 0 | 121 | 7,046 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
 
@@ -67,6 +67,13 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
+| deenhindi-abudawud | hi | 6 | 6 | 6 | 0 | 0 | 0 |
+| deenhindi-bukhari | hi | 9 | 9 | 9 | 0 | 0 | 0 |
+| deenhindi-ibnmajah | hi | 8 | 8 | 8 | 0 | 0 | 0 |
+| deenhindi-malik | hi | 5 | 5 | 5 | 0 | 0 | 0 |
+| deenhindi-muslim | hi | 2 | 2 | 2 | 0 | 0 | 0 |
+| deenhindi-nasai | hi | 8 | 8 | 8 | 0 | 0 | 0 |
+| deenhindi-tirmidhi | hi | 10 | 10 | 10 | 0 | 0 | 0 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
@@ -85,6 +92,17 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 417 | 0 | 0 | 3 |
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
+| islom-book-17-uz-web | uz | 285 | 283 | 0 | 0 | 2 | 285 |
+| islom-book-22-uz-web | uz | 80 | 80 | 0 | 0 | 0 | 80 |
+| islom-book-23-uz-web | uz | 1,443 | 1,378 | 0 | 0 | 65 | 1,443 |
+| islom-book-24-uz-web | uz | 40 | 40 | 0 | 0 | 0 | 40 |
+| islom-book-25-uz-web | uz | 226 | 226 | 0 | 0 | 0 | 226 |
+| islom-book-26-uz-web | uz | 153 | 153 | 0 | 0 | 0 | 153 |
+| islom-book-27-uz-web | uz | 401 | 395 | 0 | 0 | 6 | 401 |
+| islom-book-28-uz-web | uz | 1,817 | 1,817 | 0 | 0 | 0 | 1,817 |
+| islom-book-29-uz-web | uz | 123 | 122 | 0 | 0 | 1 | 123 |
+| islom-book-30-uz-web | uz | 931 | 931 | 0 | 0 | 0 | 931 |
+| islom-book-32-uz-web | uz | 1,447 | 1,447 | 0 | 0 | 0 | 1,447 |
 | ja-muslim-web-c859ce57c211ea1b | ja | 1,811 | 0 | 0 | 0 | 1,811 | 1,811 |
 | legacy-fa-abu-dawud | fa | 1 | 1 | 1 | 0 | 0 | 0 |
 | legacy-fa-ahmad | fa | 3 | 3 | 1 | 0 | 0 | 2 |

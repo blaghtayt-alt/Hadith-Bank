@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **37,201 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **44,195 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -16,6 +16,13 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | hadeethenc | `sqlite-a22a0e545c70b320` | 2,256 | [Read](../browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite) |
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
+| Hindi | abu-dawud | `deenhindi-web-20261112` | 6 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
+| Hindi | bukhari | `deenhindi-web-20261112` | 9 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
+| Hindi | ibn-majah | `deenhindi-web-20261112` | 8 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
+| Hindi | malik | `deenhindi-web-20261112` | 5 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
+| Hindi | muslim | `deenhindi-web-20261112` | 2 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
+| Hindi | nasai | `deenhindi-web-20261112` | 8 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
+| Hindi | tirmidhi | `deenhindi-web-20261112` | 10 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
 | Persian | bukhari | `faiz-al-bari-heravi-v1` | 412 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v1/README.md) | [Original file](../materials/fa-faiz-al-bari-v1/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v2` | 451 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v2/README.md) | [Original file](../materials/fa-faiz-al-bari-v2/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v3` | 504 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v3/README.md) | [Original file](../materials/fa-faiz-al-bari-v3/source.docx) |
@@ -28,6 +35,17 @@ Counts describe source occurrences across translations and editions. They are no
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v1` | 2,416 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v1/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v1/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v2` | 2,834 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v2/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v2/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v3` | 2,054 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v3/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v3/source.docx) |
+| Uzbek | book-17 | `publisher-web-20261112` | 285 | [Read](../browse/uz/book-17/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-17-uz-web/source-evidence.json) |
+| Uzbek | book-22 | `publisher-web-20261112` | 80 | [Read](../browse/uz/book-22/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-22-uz-web/source-evidence.json) |
+| Uzbek | book-23 | `publisher-web-20261112` | 1,443 | [Read](../browse/uz/book-23/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-23-uz-web/source-evidence.json) |
+| Uzbek | book-24 | `publisher-web-20261112` | 40 | [Read](../browse/uz/book-24/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-24-uz-web/source-evidence.json) |
+| Uzbek | book-25 | `publisher-web-20261112` | 226 | [Read](../browse/uz/book-25/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-25-uz-web/source-evidence.json) |
+| Uzbek | book-26 | `publisher-web-20261112` | 153 | [Read](../browse/uz/book-26/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-26-uz-web/source-evidence.json) |
+| Uzbek | book-27 | `publisher-web-20261112` | 401 | [Read](../browse/uz/book-27/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-27-uz-web/source-evidence.json) |
+| Uzbek | book-28 | `publisher-web-20261112` | 1,817 | [Read](../browse/uz/book-28/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-28-uz-web/source-evidence.json) |
+| Uzbek | book-29 | `publisher-web-20261112` | 123 | [Read](../browse/uz/book-29/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-29-uz-web/source-evidence.json) |
+| Uzbek | book-30 | `publisher-web-20261112` | 931 | [Read](../browse/uz/book-30/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-30-uz-web/source-evidence.json) |
+| Uzbek | book-32 | `publisher-web-20261112` | 1,447 | [Read](../browse/uz/book-32/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-32-uz-web/source-evidence.json) |
 | Japanese | muslim | `pdf-c859ce57c211ea1b` | 1,811 | [Read](../browse/ja/muslim/pdf-c859ce57c211ea1b/README.md) | [Original file](../attachments/attachments-ja-muslim-c859ce57c211ea1b/sources/ja-muslim-web.pdf) |
 | Persian | abu-dawud | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/fa/abu-dawud/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-abu-dawud/source-bundle.json) |
 | Persian | ahmad | `legacy-embedded-ae2c075-v1` | 3 | [Read](../browse/fa/ahmad/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-fa-ahmad/source-bundle.json) |
@@ -192,7 +210,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 36,036 |
+| Human | 43,030 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -202,9 +220,9 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `human_translator_credited` | 26,607 |
+| `unknown` | 4,958 |
+| `human_translator_credited` | 29,947 |
 | `legacy_source_history` | 867 |
-| `unknown` | 1,304 |
 
 Human involvement is displayed with its source and scope. Individual AI-use flags and bank review status remain separate.
 
