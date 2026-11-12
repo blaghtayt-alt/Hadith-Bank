@@ -1,0 +1,125 @@
+{
+  "schema": "hadith-bank-live-cloud-browser-qa-v1",
+  "status": "passed",
+  "checked_at": "2026-11-12T05:27:02.245240+00:00",
+  "site_url": "https://blaghtayt-alt.github.io/Hadith-Bank/",
+  "source_commit": "d695c085a6f22bdb380f20dd8fdd1882ad6aac59",
+  "observed_header": {
+    "records": 36950,
+    "languages": 7,
+    "arabic_text": 25942,
+    "english_text": 9569,
+    "english_source_links": 2677
+  },
+  "search_and_display_checks": [
+    {
+      "record_id": "fa-faiz-al-bari-v2-p01863",
+      "language": "fa",
+      "source_id": "fa-faiz-al-bari-v2",
+      "english_query": "descends every night lowest heaven",
+      "arabic_query": "ينزل ربنا تبارك وتعالى",
+      "english_search_while_hidden": "passed",
+      "arabic_search": "passed",
+      "arabic_and_english_display_toggles": "passed",
+      "counterpart_citations_visible": true,
+      "unknown_provider_number_left_explicitly_unknown": false,
+      "english_translation_origin": "Human",
+      "native_translation_origin": "Human"
+    },
+    {
+      "record_id": "zh-ibn-majah-e3bc24bcee435894-c01-n042",
+      "language": "zh-CN",
+      "source_id": "zh-cn-ibn-majah-yu-2013",
+      "english_query": "eloquent admonition hearts",
+      "arabic_query": "عليكم بتقوى الله",
+      "english_search_while_hidden": "passed",
+      "arabic_search": "passed",
+      "arabic_and_english_display_toggles": "passed",
+      "counterpart_citations_visible": true,
+      "unknown_provider_number_left_explicitly_unknown": true,
+      "english_translation_origin": "Human",
+      "native_translation_origin": "Human"
+    },
+    {
+      "record_id": "legacy.ja.fb9f19d7b0bf231cdfa81d3f",
+      "language": "ja",
+      "source_id": "legacy-ja-bukhari",
+      "english_query": "slave thinks remembers assembly",
+      "arabic_query": "أَنَا عِنْدَ ظَنِّ عَبْدِي",
+      "english_search_while_hidden": "passed",
+      "arabic_search": "passed",
+      "arabic_and_english_display_toggles": "passed",
+      "counterpart_citations_visible": true,
+      "unknown_provider_number_left_explicitly_unknown": false,
+      "english_translation_origin": "Human",
+      "native_translation_origin": "Unknown"
+    },
+    {
+      "record_id": "vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd:p0003-b0004-l002",
+      "language": "vi",
+      "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
+      "english_query": "reward deeds intentions",
+      "arabic_query": "إنما الأعمال بالنيات",
+      "english_search_while_hidden": "passed",
+      "arabic_search": "passed",
+      "arabic_and_english_display_toggles": "passed",
+      "counterpart_citations_visible": true,
+      "unknown_provider_number_left_explicitly_unknown": false,
+      "english_translation_origin": "Human",
+      "native_translation_origin": "Human"
+    }
+  ],
+  "partial_coverage_checks": [
+    {
+      "record_id": "fa-riyadh-heravi-0796",
+      "provider_entry_id": "4952",
+      "display_label": "English source excerpt",
+      "specific_omitted_clauses_note_visible": true,
+      "arabic_visible": true
+    },
+    {
+      "record_id": "zh-ibn-majah-e3bc24bcee435894-c30-n037",
+      "provider_entry_id": "64646",
+      "display_label": "English source excerpt",
+      "omitted_eating_question_note_visible": true,
+      "arabic_visible": true
+    }
+  ],
+  "withheld_english_checks": [
+    {
+      "record_id": "hadeethenc:entry:5986:translation:ja:revision:0a0b80df363cf8f5",
+      "provider_entry_id": "5986",
+      "display_label": "English · under review",
+      "specific_discrepancy_note_visible": true,
+      "arabic_visible": true,
+      "missing_english_filter_matches": true
+    },
+    {
+      "record_id": "hadeethenc:entry:65045:translation:ja:revision:0134d3c465954cfd",
+      "provider_entry_id": "65045",
+      "display_label": "English · under review",
+      "specific_discrepancy_note_visible": true,
+      "arabic_visible": true,
+      "missing_english_filter_matches": true
+    }
+  ],
+  "selected_json_download": {
+    "completed": true,
+    "records": 4,
+    "exact_payload_comparison": "passed",
+    "sha256": "a4b68112b5a457b4bcf7839dd60866867b32ea3531d9ac68eff968d0024e84c9"
+  },
+  "individual_page": {
+    "url": "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/zh-CN/ibn-majah/yu-2013-pdf-e3bc24bcee435894/9b72dbd3df8b6e24ec928042.html",
+    "chinese_arabic_english_and_source_links_observed": true,
+    "desktop_viewport_visual_check": "passed",
+    "chinese_title_precedes_english": true
+  },
+  "limitations": [
+    "Representative browser checks, not a visual review of every occurrence or viewport.",
+    "No mobile responsive-layout review was performed.",
+    "The full-page screenshot timed out; a subsequent ordinary viewport screenshot succeeded.",
+    "The large reader initially timed out during reload, then loaded successfully and all listed interactions passed."
+  ],
+  "independent_scholarly_or_human_review_claimed": false
+}
