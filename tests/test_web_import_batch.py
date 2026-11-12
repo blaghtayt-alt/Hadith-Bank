@@ -91,6 +91,26 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertEqual(status['schedule_pause_reason'], 'inspection_required')
         self.assertEqual(status['fetched_entries'], 6)
 
+    def test_owner_exclusion_removes_stale_counts_and_never_resumes_source(self):
+        for name in batch.PROGRESS:
+            self.progress(name, 'done', count=2)
+        self.plan['sources']['rivoyat'].update(enabled=True, excluded_by_owner=True)
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        batch.write_changed(self.root / batch.STOP_FILE, {'rivoyat': {'blocked': True, 'exit_code': 1}})
+        with mock.patch.object(batch, 'run_source') as run, \
+                mock.patch('material_registry.load_public_materials', return_value=[]), \
+                mock.patch('sys.stdout', new_callable=io.StringIO):
+            self.assertEqual(batch.main(['--root', str(self.root)]), 0)
+        run.assert_not_called()
+        status = self.read('imports/web-import-status.json')
+        excluded = next(item for item in status['source_status'] if item['source'] == 'rivoyat')
+        self.assertEqual(excluded['state'], 'excluded_by_owner')
+        self.assertEqual(excluded['registered_occurrences'], 0)
+        self.assertFalse(excluded['enabled'])
+        self.assertEqual(status['fetched_entries'], 4)
+        self.assertTrue(status['fetch_queues_done'])
+        self.assertFalse(status['requires_attention'])
+
     def test_site_level_startup_block_with_no_tasks_cannot_resume_or_complete(self):
         path = self.root / 'imports/web-uzbek-20261112/rivoyat/checkpoint.json'
         block = {'url': 'https://rivoyat.com/robots.txt', 'http_status': 403,

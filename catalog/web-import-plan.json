@@ -2,7 +2,7 @@
   "schema": "hadith-bank-web-import-plan-v1",
   "enabled": true,
   "owner_authorized_on": "2026-11-12",
-  "scope": "Finish the linked public catalogues of Deen Hindi, Rivoyat and Hadis.islom.uz; retain independent source and language provenance.",
+  "scope": "Finish the authorized public catalogues of Deen Hindi and Hadis.islom.uz; Rivoyat was excluded by the owner on 2026-11-12.",
   "refresh_completed_pages": false,
   "initial_max_seconds": 300,
   "sources": {
@@ -13,10 +13,14 @@
       "delay_seconds": 1.25
     },
     "rivoyat": {
-      "enabled": true,
+      "enabled": false,
       "max_requests_per_batch": 500,
       "max_seconds_per_batch": 1800,
-      "delay_seconds": 1.25
+      "delay_seconds": 1.25,
+      "excluded_by_owner": true,
+      "owner_withdrawal_date": "2026-11-12",
+      "reason": "Owner requested removing this source because its translation source is not established. Do not automatically reacquire or re-register.",
+      "staged_occurrences_removed": 30
     },
     "islom": {
       "enabled": true,

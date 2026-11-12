@@ -52,6 +52,14 @@ def now():
     return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
 
 
+def excluded_by_owner(root, site):
+    path = Path(root) / 'catalog/web-import-plan.json'
+    if not path.exists():
+        return False
+    plan = json.loads(path.read_text(encoding='utf-8'))
+    return bool(plan.get('sources', {}).get(site, {}).get('excluded_by_owner'))
+
+
 def json_bytes(value):
     return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')) + '\n').encode()
 
@@ -480,6 +488,8 @@ def base_record(site, collection, source_entry_id, record_url, texts, references
 class Importer:
     def __init__(self, root, site, max_pages, delay, timeout=45, max_seconds=600):
         self.root, self.site, self.origin = Path(root).resolve(), site, SITES[site]
+        if excluded_by_owner(self.root, site):
+            raise ValueError('Source excluded by owner; acquisition and registration disabled: ' + site)
         self.folder = self.root / BASE / site
         self.folder.mkdir(parents=True, exist_ok=True)
         self.state_path = self.folder / 'checkpoint.json'
@@ -1237,6 +1247,10 @@ def main():
     if args.max_pages < 1 or args.delay < 0.5 or args.max_seconds < 1:
         parser.error('max-pages and max-seconds must be positive; delay must be at least 0.5 seconds')
     for site in SITES if args.site == 'all' else [args.site]:
+        if excluded_by_owner(args.root, site):
+            print(json.dumps({'site': site, 'state': 'excluded_by_owner',
+                              'acquisition_enabled': False, 'registered_occurrences': 0}), flush=True)
+            continue
         importer = Importer(args.root, site, args.max_pages, args.delay, max_seconds=args.max_seconds)
         report = importer.export() if args.export_only else importer.run()
         print(json.dumps({k: v for k, v in report.items() if k != 'collections'}, ensure_ascii=False), flush=True)

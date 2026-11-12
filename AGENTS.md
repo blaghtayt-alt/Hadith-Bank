@@ -20,6 +20,16 @@ On 12 November 2026 the owner requested proceeding with all three identified sit
 
 Continue the finite source queues through the bounded import plan. Preserve source bytes, empty fields, source-local numbering, supplied language versions and immutable evidence. Keep site-wide credits distinct from a verified per-translation upstream source. Do not merge identities by numbers or similar text. Retain mixed introductions, independent sayings and unresolved spans outside Hadith HTML until narration boundaries are supported. Prophetic practices, dhikr, dialogue and explicitly attributed abbreviated matn remain eligible; a literal speech marker is not mandatory. The authorization changes visibility only, with no new translation, independent certification or rights clearance asserted. Existing provenance and OCR-only display policies remain in effect.
 
+### Current Rivoyat exclusion
+
+Later on 12 November 2026 the owner explicitly withdrew Rivoyat from this intake because its translation source was unknown and requested removal of every hadith acquired from `rivoyat.com`. This instruction overrides the earlier Rivoyat authorization above: remove its registered source occurrences from the bank and reader, disable its intake, and do not reacquire or re-register Rivoyat material automatically. Reinstatement requires explicit new owner authorization. This exclusion is scoped to Rivoyat; it does not withdraw authorization for Deen Hindi, Hadis.islom.uz, or separately attributed identified upstream editions.
+
+### Identified upstream whole-book editions
+
+The owner's same request includes sources explicitly cited by those sites. On 12 November 2026 the owner supplied Deen Hindi's source acknowledgement naming Fawaz and Sunnah.com and requested batch acquisition. This covers the separately attributed Arabic, English and Urdu editions of the seven Deen hadith collections in `catalog/fawaz-bulk-plan.json`, pinned to `fawazahmed0/hadith-api` revision `df57907be35291c91ad6a6691180e22ca9920784`, with source evidence under `imports/web-fawaz-20261112/` and `materials/fawaz-*` registrations. It does not include the site's separate Quran/Tanzil sources.
+
+Keep exact upstream files, edition IDs, hashes, source-declared grades and numbering. Register complete verified book batches; keep partial or corrupt downloads outside the reader and retain explicit missing-language states. The upstream editions are their own source occurrences, not a claim that every Deen translation comes from that edition. Do not replace Deen records, transfer identity by matching numbers, invent missing Hindi, or turn collection-wide credits into per-language evidence. Apply current translation-origin and non-OCR display policies while retaining independent provenance and rights qualifications. Acquisition and visibility do not assert independent certification or a new redistribution licence.
+
 ## Reliable remote execution and transfer
 
 The owner requested fixing or avoiding repeated Remote Desktop Commander failures on 11 November 2026. Large encoded transfers and verbose command output repeatedly exhausted conversation context; a tool returning a running PID or call ID is not itself a failure.
@@ -97,3 +107,17 @@ The owner subsequently stated on 11 November 2026: "we got it from a book outsor
 On 12 November 2026 the owner explicitly requested uploading the Chinese Hisn final delivery into the bank, integrating it into HTML, and adding its original PDF to the material sources after being shown Chinese transcription PASS, overall PARTIAL and bank-readiness FAIL. This authorizes the identified `materials/zh-cn-hisn-muslim-1a09ee75/` registration and exact originals under `imports/chinese-hisn-final-20261110/`. It is a pending-review publication decision; preserve the historical evaluation and `certified_release_eligible=false`.
 
 Keep all 279 original records byte-identical in the delivery. Only source-bound hadith quotations and attributed Prophetic prayers, dhikr and reports enter the registered reader subset. Store non-hadith source items and unresolved classifications separately outside Hadith HTML and search. Preserve the classification ledger, exact source spans and change history. Do not omit a report solely because it describes a practice or dhikr rather than quoted speech. Do not promote candidate Arabic, English, canonical mappings, chains or grades: this material's explicit counterpart hold takes precedence over automatic and reviewed matching until a new source-bound approval is recorded. The new-book Human translation policy applies without asserting authenticity or rights clearance. See `docs/CHINESE-HISN.md`.
+
+## Owner-selected Uzbek sources
+
+On 12 November 2026, after excluding Rivoyat, the owner selected
+`https://hadis.islom.uz/` and `https://hadis.uz/hadiths/1` for Uzbek intake,
+with the latter scoped to Sunan/Jami al-Tirmidhi. This authorizes the separate
+`hadisuz-*` material registrations and `imports/web-hadisuz-20261112/` source
+evidence. Preserve publisher attribution and any specifically supported
+translator/edition credits, exact narration/comment boundaries and source-local
+identifiers. Do not treat the numeric detail URL as a canonical hadith number
+or assume a language text not supplied by this source. Follow only observed
+ordinary public catalogue, pagination and detail routes; retain gaps and
+access stops explicitly. The existing source-preservation, Human display and
+non-OCR review-display policies apply without claiming independent certification.

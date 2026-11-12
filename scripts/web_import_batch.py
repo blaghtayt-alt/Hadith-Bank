@@ -130,6 +130,7 @@ def summarize(root, plan):
     stops = read_json(root / STOP_FILE, {})
     for item in sources:
         item['enabled'] = bool(plan['sources'][item['source']]['enabled'])
+        item['excluded_by_owner'] = bool(plan['sources'][item['source']].get('excluded_by_owner'))
         if item['source'] in stops:
             item['worker_stop'] = stops[item['source']]
             item['blocked'] = item['blocked'] or item['worker_stop'].get('blocked') is True
@@ -139,9 +140,16 @@ def summarize(root, plan):
         item['state'] = ('blocked' if item['blocked'] else 'stopped' if item.get('worker_stop')
                          else 'complete' if item['fetch_queue_done'] else 'pending' if item['has_fetch_work']
                          else 'failed' if item['errors'] else 'paused')
+        if item['excluded_by_owner']:
+            item['historical_source_counts'] = {key: item[key] for key in
+                ('fetched_entries', 'registered_occurrences', 'held_entries')}
+            item.update(enabled=False, state='excluded_by_owner', has_fetch_work=False,
+                        fetch_queue_done=False, registered_occurrences=0,
+                        fetched_entries=0, held_entries=0)
+    active_sources = [item for item in sources if not item['excluded_by_owner']]
     has_work = bool(plan['enabled']) and any(item['has_fetch_work'] and item['enabled'] for item in sources)
-    done = all(item['fetch_queue_done'] for item in sources)
-    attention = bool(stops) or any(item['blocked'] or item['errors'] for item in sources)
+    done = bool(active_sources) and all(item['fetch_queue_done'] for item in active_sources)
+    attention = any(item.get('worker_stop') or item['blocked'] or item['errors'] for item in active_sources)
     return {
         'schema': 'hadith-bank-web-import-status-v1',
         'enabled': plan['enabled'], 'source_status': sources,
@@ -172,6 +180,7 @@ def main(argv=None):
     stops = read_json(root / STOP_FILE, {})
     if plan.get('enabled') and not args.status_only:
         pending = [name for name in PROGRESS if name not in stops and plan['sources'][name]['enabled']
+                   and not plan['sources'][name].get('excluded_by_owner')
                    and source_status(root, name)['has_fetch_work']]
         with ThreadPoolExecutor(max_workers=3) as executor:
             jobs = {}

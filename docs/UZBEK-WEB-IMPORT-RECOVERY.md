@@ -1,10 +1,16 @@
 # Uzbek web importer recovery
 
+**Current owner decision (12 November 2026): Rivoyat is excluded.**
+Its staged materials and source payloads are omitted from publication, and the
+active import plan prevents acquisition and re-registration. The recovery
+notes below describe historical work, not an active source authorization.
+Hadis.islom.uz remains enabled; hadis.uz Tirmidhi is the newly selected source.
+
 The original implementation at `scripts/import_uzbek_web.py` was recovered byte for byte from its authoring patches after the execution environment became unavailable. Its recovered-base SHA256 matches the final script recorded before that outage (the subsequently validated partition and metadata-queue fixes change the current script hash):
 
 `584e1dc7e987301f01c85a2c98526cfd353eacc32a03f28513d1a492cd3c14fb`
 
-**Code recovery alone does not restore previously acquired publisher text. Reuse verified preserved source snapshots and checkpoints when available. Only source files actually present and verified in the current checkout count as acquired; historical intake counts from the unavailable workspace must not be reported as published records in the recovered branch.** The fresh seed subsequently recovered from the surviving workspace is recorded separately from newer acquisition progress under `imports/web-seed-recovery-20261112/`. Current per-site progress and material manifests determine live counts.
+**Code recovery alone does not restore previously acquired publisher text. Reuse verified preserved source snapshots and checkpoints when available. Only source files actually present and verified in the current checkout count as acquired; historical intake counts from the unavailable workspace must not be reported as published records in the recovered branch.** The later recovered Rivoyat seed was withdrawn from publication by the owner. Current active per-site progress and material manifests determine live counts.
 
 ## Acquisition
 

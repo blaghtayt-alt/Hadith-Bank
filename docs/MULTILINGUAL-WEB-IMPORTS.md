@@ -1,8 +1,12 @@
 # Multilingual website imports
 
-The owner authorized importing Deen Hindi, Rivoyat and Hadis.islom.uz on
-12 November 2026, including source-specific references, comments, collapsible
-language panels and language/book/collection filters. Current repository intake
+The active website intake covers Deen Hindi and Hadis.islom.uz, with
+source-specific references, comments, collapsible language panels and
+language/book/collection filters. On 12 November 2026 the owner withdrew
+Rivoyat because its translation source was not established. Its 30 staged
+occurrences and their source payloads were removed from this publication patch;
+no Rivoyat material is registered. Acquisition and offline re-registration are
+disabled until the owner explicitly reauthorizes that source. Current repository intake
 totals are in [web-import-status.json](../imports/web-import-status.json).
 These count preserved source occurrences, not unique canonical hadiths.
 
@@ -52,7 +56,7 @@ stays with its own language.
 | Website | Acquisition route | Discovery |
 | --- | --- | --- |
 | [Deen Hindi](https://deenhindi.com/hadith) | Ordinary public HTML with embedded structured source objects | Seven observed collection inventories; preserve their actual identifiers and suffixes |
-| [Rivoyat](https://rivoyat.com/) | Public catalogue, book/section pagination and exact language copy payloads | 26 observed catalogue collections |
+| Rivoyat | Excluded by owner; acquisition and registration disabled | No active materials |
 | [Hadis.islom.uz](https://hadis.islom.uz/) | Public collection/section HTML and Arabic/Uzbek columns | 11 observed catalogue collections |
 
 Robots evidence and public-page responses are preserved. No private API, login
@@ -183,37 +187,21 @@ counts must come from real reacquisition and checked source bytes. See
 [Uzbek recovery](UZBEK-WEB-IMPORT-RECOVERY.md) and
 [Deen intake operations](../imports/web-deenhindi-20261112/README.md).
 
-### Recovered source checkpoint, 12 November 2026
+### Historical recovery and subsequent withdrawal
 
-The later fresh 836-entry seed (797 registered occurrences, 39 held entries)
-was recovered and verified against both frozen file manifests: 162 files,
-10,367,141 bytes, with no hash mismatches. Its exact files are preserved in
-[the seed recovery archive](../imports/web-seed-recovery-20261112/manifest.json).
-Concatenate the listed archive parts in order before decompressing the tar.
-The archive's original paths and file bytes are preserved.
+A surviving source checkpoint was verified locally, including 30 candidate
+Rivoyat occurrences and their 90 exact supplied language texts. The owner then
+withdrew Rivoyat before the recovery patch was merged. Those candidates, their
+snapshots and the combined recovery archive are omitted from publication.
+Earlier 7,024/44,225 projections included those candidates and are superseded.
+The existing Deen Hindi and Islom source identities remain unchanged.
 
-The newer automated acquisition already contained all 6 Deen Hindi and 761
-Islom registered seed identities, so their newer queues were retained. The
-missing 30 Rivoyat occurrences and two held entries were recovered without
-adding duplicate Deen/Islom occurrences. The integrated checkpoint contains
-7,301 obtained entries: 7,024 registered and 277 held. Together with the
-37,201 existing bank occurrences, this checkpoint targets 44,225 occurrences;
-the authoritative published total is the successful website build report.
-Later acquisition runs can increase these counts.
+## Current exclusion and batch boundary
 
-Two previously saved Rivoyat detail responses were recovered with original and
-compressed hashes intact. Their exact URLs and all three narration texts match
-the section snapshots. Their source assessments, references and notes are now
-attached to the corresponding language versions. All 90 stored language texts
-across the 30 recovered public occurrences remain unchanged. Twenty-eight
-public occurrences still have pending detailed references/notes; the complete
-32-entry source ledger has 30 pending detail tasks, including the two held
-entries.
-
-The GitHub acquisition runner received HTTP 403 for Rivoyat's robots.txt in
-[run 43179396269](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43179396269).
-The durable access block and worker stop remain in force. Cached successful
-robots evidence does not override that block. Exporting verified saved source
-bytes does not make new requests to the blocked host. Deen Hindi and Islom's
-finite queues remain enabled; Islom's saved transient HTTP 500 is subject to
-the existing bounded retry policy.
+The previously described Rivoyat recovery counts are historical. The current
+active website-source checkpoint contains 6,994 registered occurrences: 48
+from Deen Hindi and 6,946 from Hadis.islom.uz, with 275 source entries held.
+No Rivoyat record, snapshot or combined recovery archive is included in this
+patch. Original local recovery work remains outside the publication set.
+The owner subsequently selected hadis.uz/hadiths/1 for Uzbek Tirmidhi; its
+separate importer is added in the following source batch.

@@ -200,6 +200,18 @@ class UzbekWebImportTests(unittest.TestCase):
         self.assertEqual(report['access_block'], block)
         self.assertEqual(self.importer.state['access_block'], block)
 
+    def test_owner_withdrawal_prevents_acquisition_and_offline_registration(self):
+        root = self.root / 'withdrawn'
+        path = root / 'catalog/web-import-plan.json'
+        path.parent.mkdir(parents=True)
+        path.write_text(json.dumps({'sources': {'rivoyat': {'enabled': False, 'excluded_by_owner': True}}}))
+        with patch.object(web.urllib.request, 'urlopen') as network:
+            with self.assertRaisesRegex(ValueError, 'Source excluded by owner'):
+                web.Importer(root, 'rivoyat', 5, 1)
+        network.assert_not_called()
+        self.assertFalse((root / 'materials').exists())
+        self.assertFalse((root / web.BASE / 'rivoyat').exists())
+
     def test_existing_task_block_is_checked_before_robots(self):
         self.importer.state['tasks'] = [{'url': 'https://rivoyat.com/fixture',
                                         'kind': 'home', 'status': 'blocked'}]
