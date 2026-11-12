@@ -4,10 +4,10 @@
   "edition": "deenhindi-web-20261112",
   "id": "deenhindi-muslim",
   "import_coverage": {
-    "classification_pending": 73,
-    "fetched": 76,
+    "classification_pending": 98,
+    "fetched": 145,
     "inventory": 7563,
-    "registered_hadith": 3
+    "registered_hadith": 47
   },
   "language": "hi",
   "publication": {
@@ -18,9 +18,9 @@
     "rights_clearance_asserted": false
   },
   "records": {
-    "count": 3,
+    "count": 47,
     "path": "materials/deenhindi-muslim/records.jsonl",
-    "sha256": "fce8346c04ebfb1a16904b8cdb9bef870847cc49afd2511fd8d61a718e60a0c7"
+    "sha256": "89015261834b653678188e07a751c4eaefbeed955f63ec08b8d7e6b1c189ec83"
   },
   "rights": {
     "reuse_basis": null,
@@ -31,17 +31,283 @@
     "format": "html_snapshot_index",
     "name": "Deen Hindi — Sahih Muslim",
     "path": "materials/deenhindi-muslim/source-index.json",
-    "sha256": "5508623be21446232c0361ee1c5f102920df3053e6a3cad93296fa998e652d21",
+    "sha256": "e0fa36ca1154767d654663a4cc45e66c0b242522b4763707bbdeec6e213b89ee",
     "url": "https://deenhindi.com/hadith/muslim"
   },
   "source_id": "deenhindi-muslim",
   "supporting_files": [
     {
       "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/00fadb769294d3b66b64928759e2b2de113a1cd15ffcc2583c1a9ba12c41fd40.json.gz",
+      "sha256": "8370a8f8989d06c2d0684968be818dc36f6212ea74b017e0f951da2e85ca575b",
+      "size_bytes": 2819,
+      "uncompressed_sha256": "00fadb769294d3b66b64928759e2b2de113a1cd15ffcc2583c1a9ba12c41fd40"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/0c9166c252f6b6adad33afa5c5c4a2b25394a12cce9f38db0f84256d8f6e69e0.json.gz",
+      "sha256": "60c5352f5ab7166327114f7abd79ea37a113895e0b02f57793fa63a02ff44599",
+      "size_bytes": 3376,
+      "uncompressed_sha256": "0c9166c252f6b6adad33afa5c5c4a2b25394a12cce9f38db0f84256d8f6e69e0"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/0d5dc518bf4a74ef3748c20bd939945d154d450a9a71fb31fde0979e738f8d80.json.gz",
+      "sha256": "2edf65675dd408f1418dcf4b17d8e85a73d1c157ea483545a2e1329f91f46930",
+      "size_bytes": 3656,
+      "uncompressed_sha256": "0d5dc518bf4a74ef3748c20bd939945d154d450a9a71fb31fde0979e738f8d80"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/0dfde462bdc5370b7a917db1e513fd129073c027d0b4bea6b1af9ca4a426b39c.json.gz",
+      "sha256": "a93ff4b812583aa5aeb222b59ece17575cbc585ffd456974351ef634f7c954bf",
+      "size_bytes": 3142,
+      "uncompressed_sha256": "0dfde462bdc5370b7a917db1e513fd129073c027d0b4bea6b1af9ca4a426b39c"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/12d66f752578c074068c42a49cb9f3ec4beb14d993022551a14841e13042573f.json.gz",
+      "sha256": "985b5b4221b40d1d5e3aface6c3fd601ac40cb6e1c29cd9ab261cab5605cc85a",
+      "size_bytes": 3109,
+      "uncompressed_sha256": "12d66f752578c074068c42a49cb9f3ec4beb14d993022551a14841e13042573f"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/17364b9880837628ca60df0e9f9e195f64cda55cb3e358644e71f3940aa3c890.json.gz",
+      "sha256": "69ff3eca0b1a781a6eafd257f4f16a22bc783e6c1778f97b06f9f6a90d7f92ce",
+      "size_bytes": 10250,
+      "uncompressed_sha256": "17364b9880837628ca60df0e9f9e195f64cda55cb3e358644e71f3940aa3c890"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/2439f20e3882a9137196b1cc8e78ebfb588f8c9d90781f6feb1ade49cec5d1cc.json.gz",
+      "sha256": "0710da432454cf739d97cde328cd4a26c089aac7e3e2d840b4f33f34b16767ca",
+      "size_bytes": 2672,
+      "uncompressed_sha256": "2439f20e3882a9137196b1cc8e78ebfb588f8c9d90781f6feb1ade49cec5d1cc"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/3002e157b987d2e63551b5848fa4b68f6bca8129ab9714bfc2c80865975a6442.json.gz",
+      "sha256": "203ee0724698d09107c0bd14ff50dbecf189ad05a88569fd467c9952c80145b1",
+      "size_bytes": 3350,
+      "uncompressed_sha256": "3002e157b987d2e63551b5848fa4b68f6bca8129ab9714bfc2c80865975a6442"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/36033196ad86349d80a384978f77e2f7c4ced8ce6f1993ba507695f4a1f9577b.json.gz",
+      "sha256": "c0b3482bc5f573fe6069691843648ce6d3fdd2fcf6f2fe5d0dea7ef3d7a31d90",
+      "size_bytes": 3121,
+      "uncompressed_sha256": "36033196ad86349d80a384978f77e2f7c4ced8ce6f1993ba507695f4a1f9577b"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/3a5dd284d93c94705f1eefab810cd20a2ec6c46df5cf44d56db4afb162900d36.json.gz",
+      "sha256": "cb1acb4bf93b59b5623ccddc5e3df39f2d2c9d10f2398a5197495a247e3d49c3",
+      "size_bytes": 1779,
+      "uncompressed_sha256": "3a5dd284d93c94705f1eefab810cd20a2ec6c46df5cf44d56db4afb162900d36"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/3e4f49f71b23ae0b94c5dfa3004aa6e8d77fc98a4080472f24ca2a241f4a676d.json.gz",
+      "sha256": "e0b6c4e1f2a216d966e732213aa20385b2f841d7cb57ee2c33e2b8423a4d058f",
+      "size_bytes": 2495,
+      "uncompressed_sha256": "3e4f49f71b23ae0b94c5dfa3004aa6e8d77fc98a4080472f24ca2a241f4a676d"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/4c4a035d4e9e458acd868797c3a6892501095f088f1a0c3e2d8e74aea194d7fa.json.gz",
+      "sha256": "a8d162d37edf89235a1de7c690a294d54d72f68105e8a889a09d5770654eb005",
+      "size_bytes": 1928,
+      "uncompressed_sha256": "4c4a035d4e9e458acd868797c3a6892501095f088f1a0c3e2d8e74aea194d7fa"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/52030137c8d3312120997a33f7559e57177b7c1061ac370785b49b53bcf4ebea.json.gz",
+      "sha256": "bee23801b9b43f593df39772444b8310f5435250c69b0774264d6a693671c7da",
+      "size_bytes": 4061,
+      "uncompressed_sha256": "52030137c8d3312120997a33f7559e57177b7c1061ac370785b49b53bcf4ebea"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/616e480bc52361b19d1ac853a8f56389368d6d66a0d00c235d6b4e9437056957.json.gz",
+      "sha256": "89299859edeba35d701f6c4b7d2fa5153dc67a8bef7a259038ca28b878a49a82",
+      "size_bytes": 2253,
+      "uncompressed_sha256": "616e480bc52361b19d1ac853a8f56389368d6d66a0d00c235d6b4e9437056957"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/6e50a0a0db218864dc0eaeb6f5494df82fdd47239d76ad0fcf2e05e8d339af7e.json.gz",
+      "sha256": "bc7badb06249f0aa4979180e30f1645a5c565f45a2286b76c1391bf04327cc06",
+      "size_bytes": 4195,
+      "uncompressed_sha256": "6e50a0a0db218864dc0eaeb6f5494df82fdd47239d76ad0fcf2e05e8d339af7e"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/6e993009f4d4ee8a970f35191ba69707182b19400809015c55050a7f863ca6de.json.gz",
+      "sha256": "360922e67759d7cd7d4eb7bcd1f84c64a76b7339e1063e39a734d883b1a51850",
+      "size_bytes": 7413,
+      "uncompressed_sha256": "6e993009f4d4ee8a970f35191ba69707182b19400809015c55050a7f863ca6de"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/706660e406fe392a609803952dae6a8d7c45512b833e3351bf9b43d78e085976.json.gz",
+      "sha256": "f9f7257fba9191b0268790e18ce7d281dcabf10c761e3a91b9ac70baad434e29",
+      "size_bytes": 2045,
+      "uncompressed_sha256": "706660e406fe392a609803952dae6a8d7c45512b833e3351bf9b43d78e085976"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/729661376dcbbfac38c705e8cf36de6e521ea5604469949922ae430044d1fe85.json.gz",
+      "sha256": "638e69138063fa2a7d8bd57000b0bb5d8c22370c86769c52b57dc545c223f593",
+      "size_bytes": 3897,
+      "uncompressed_sha256": "729661376dcbbfac38c705e8cf36de6e521ea5604469949922ae430044d1fe85"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/85d0a1589497c69c20ac3d0aba528081b6526f625a9a3b7f8faaa9ef6a4902de.json.gz",
+      "sha256": "62f8a0e5ee5d50795e74cad5902d8ab603060933af0f95373f181b66a1196689",
+      "size_bytes": 2555,
+      "uncompressed_sha256": "85d0a1589497c69c20ac3d0aba528081b6526f625a9a3b7f8faaa9ef6a4902de"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/8afa035b017e86a4a3cedac1592e1e79960465b5675b045abff9adb94ee05111.json.gz",
+      "sha256": "3c6ffa3234f947420beea68ecd8c935075b7a82b202a8f1744f58592a959643d",
+      "size_bytes": 2687,
+      "uncompressed_sha256": "8afa035b017e86a4a3cedac1592e1e79960465b5675b045abff9adb94ee05111"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/917404dc2c877e27a24dfb497e5bf51c997054b1574e61013630c109e99f561f.json.gz",
+      "sha256": "afb41ad570e2af9321ddef7481a7b7ea20b3d217a64fa9b9e3eb5940e46030c8",
+      "size_bytes": 4962,
+      "uncompressed_sha256": "917404dc2c877e27a24dfb497e5bf51c997054b1574e61013630c109e99f561f"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/95d4174ca204e22a41e34ea174839b2ab97a8107f6209ba51ea306ca987d230a.json.gz",
+      "sha256": "67e3ad9c8ccb58db7243e6bb88f0592066ee675eb1ebd2c5a16f0a9f3eac826a",
+      "size_bytes": 2147,
+      "uncompressed_sha256": "95d4174ca204e22a41e34ea174839b2ab97a8107f6209ba51ea306ca987d230a"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/9afeaff4a25470007534a46a310b4a5c85170fddcbcc7ebf9758ba01f13c0365.json.gz",
+      "sha256": "f868c174e892f282ea56dbca887e769ed4e2478ccc9e1c9df156147e196c8c63",
+      "size_bytes": 2612,
+      "uncompressed_sha256": "9afeaff4a25470007534a46a310b4a5c85170fddcbcc7ebf9758ba01f13c0365"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/a12ad10eab7f26b1e664801bafe50061c1209f55b5131c0de6396b1b64f65cf6.json.gz",
+      "sha256": "662eeb2d081ff705fd2c9af49d26e7e6eaa05681874d5cd20ffe425dc9213bf4",
+      "size_bytes": 5718,
+      "uncompressed_sha256": "a12ad10eab7f26b1e664801bafe50061c1209f55b5131c0de6396b1b64f65cf6"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/a6fa758df0d1aa97096e74229e90c92aa856befc3efcf7faeea51a1a10e60162.json.gz",
+      "sha256": "3bd9e9674856c79be3b9f6a44770d20da2d11faa5c7e25f271a2d3ef45d9da09",
+      "size_bytes": 4491,
+      "uncompressed_sha256": "a6fa758df0d1aa97096e74229e90c92aa856befc3efcf7faeea51a1a10e60162"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/a811493badf76cd3ac6aca3ecac8009ffe850402c7b83750f9f3a69ec57b945a.json.gz",
+      "sha256": "508684dcf2a95aa5fd6decb5dc9cbc2a4be42eac775e18dc3b2e307a06038717",
+      "size_bytes": 4875,
+      "uncompressed_sha256": "a811493badf76cd3ac6aca3ecac8009ffe850402c7b83750f9f3a69ec57b945a"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/b12223c4808a7e1a929cce5740e7b3504145ebe9a02226e470469d70d02f56e3.json.gz",
+      "sha256": "9e31ad092b0c5551074584c1a43493615364bfa46867f4fa260cc95d00708ddc",
+      "size_bytes": 2352,
+      "uncompressed_sha256": "b12223c4808a7e1a929cce5740e7b3504145ebe9a02226e470469d70d02f56e3"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/b2d83961abbc13708eb6bea5e8a3c1d9082c6653a3b725943034d2c84e5b3bf6.json.gz",
+      "sha256": "8382c0d20cff0d3a3c183b57527a8f797961b79a9727a5a0e3c320a0803deec3",
+      "size_bytes": 6416,
+      "uncompressed_sha256": "b2d83961abbc13708eb6bea5e8a3c1d9082c6653a3b725943034d2c84e5b3bf6"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/b7119e71ed4d0b1327a6706697d2275ddba7642a25ecbe07ac6c0acd35ddb05c.json.gz",
+      "sha256": "943a1b544bcd013b1a126c476755b46e9ef58d226c0814b9bc04b637eb120926",
+      "size_bytes": 6426,
+      "uncompressed_sha256": "b7119e71ed4d0b1327a6706697d2275ddba7642a25ecbe07ac6c0acd35ddb05c"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/b75b041a04c9392a5d33fecbe08d1effc5277ba8f1cb34ca1faa88359bc76da8.json.gz",
+      "sha256": "7b1b0b59c61d485552f996639e47a6fa965c739b011dcc10c6a245b29343088f",
+      "size_bytes": 2666,
+      "uncompressed_sha256": "b75b041a04c9392a5d33fecbe08d1effc5277ba8f1cb34ca1faa88359bc76da8"
+    },
+    {
+      "compression": "gzip",
       "path": "imports/web-deenhindi-20261112/parsed/muslim/ca31e1dffd94cee4c7489d2783fa4161c7c2f85e6b99d57940e37ee2083db531.json.gz",
       "sha256": "78ed32ffda43519ffe74fef56df5b5aaf85449b4efcce66ecbf17c2bf97d3290",
       "size_bytes": 2129,
       "uncompressed_sha256": "ca31e1dffd94cee4c7489d2783fa4161c7c2f85e6b99d57940e37ee2083db531"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/cc084dd8a77fd84eb881e0f7798a5cf4bf8c494448d72b75a2db8d5782d330be.json.gz",
+      "sha256": "d333f7666d45fd6a7fd9605007f55d7ee4e254f940614912009ae50851aaf1b4",
+      "size_bytes": 6261,
+      "uncompressed_sha256": "cc084dd8a77fd84eb881e0f7798a5cf4bf8c494448d72b75a2db8d5782d330be"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/d1dc1cae3b8930de6f61d59ac21fc9ca22e6a26f48ceda1fa1600b2c3b6d0670.json.gz",
+      "sha256": "defc2dca1488bfb71bcbe7fa39fa1da5ecc341b1444d92ca182b57fd47306577",
+      "size_bytes": 2240,
+      "uncompressed_sha256": "d1dc1cae3b8930de6f61d59ac21fc9ca22e6a26f48ceda1fa1600b2c3b6d0670"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/da094e8469b49b37b2b3a0b7ff32ebc6f48e3835ec673a4944c09d1901d9960d.json.gz",
+      "sha256": "538c1eb832448c92664bda1c0250ad04e074a2386cf8f38b6cdb8067180a2f14",
+      "size_bytes": 2559,
+      "uncompressed_sha256": "da094e8469b49b37b2b3a0b7ff32ebc6f48e3835ec673a4944c09d1901d9960d"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/dbbc72ad8acc01f8767f5d55c529cc0435babad20e119d4385683c249b81e7d4.json.gz",
+      "sha256": "e9f47e421f088a023053ddcf6bcc6f5e599f5afca0b2d1ddf1de4f8c0f9ebb5f",
+      "size_bytes": 3125,
+      "uncompressed_sha256": "dbbc72ad8acc01f8767f5d55c529cc0435babad20e119d4385683c249b81e7d4"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/dbd8b9cfdf74ed57ce691d4f14ef173454e998ca29030ff7bfcf8f3add853b7d.json.gz",
+      "sha256": "d2f0ea313fb7b2571c0e3fb04105f860e85a7a7b3809838d8c5ad3215428cd38",
+      "size_bytes": 2738,
+      "uncompressed_sha256": "dbd8b9cfdf74ed57ce691d4f14ef173454e998ca29030ff7bfcf8f3add853b7d"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/e0683d222ed36be6179ca1464f03ee916bf010ae2ee91172f0d9a5a48865f770.json.gz",
+      "sha256": "c2208a25afdbcee24115505bff8186449adbc876df07f615e7f5e68ef389d745",
+      "size_bytes": 3317,
+      "uncompressed_sha256": "e0683d222ed36be6179ca1464f03ee916bf010ae2ee91172f0d9a5a48865f770"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/e07725ca8ee0c18196c01a6b13041f7c4d3d8ce74938eea1dfb5847d4189b110.json.gz",
+      "sha256": "624a8fad67d79ef817459bfa98db3afcf9cd319cfe193a187275348860bc3465",
+      "size_bytes": 2031,
+      "uncompressed_sha256": "e07725ca8ee0c18196c01a6b13041f7c4d3d8ce74938eea1dfb5847d4189b110"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/e08b546dc8693e7d2cbf7d9f79894cbc3640135cadb5db55f510c25e11546e74.json.gz",
+      "sha256": "4f4f39a60178a4785b38bbbb031c009d751ca40e070165ff48bee3afd27e7f55",
+      "size_bytes": 1705,
+      "uncompressed_sha256": "e08b546dc8693e7d2cbf7d9f79894cbc3640135cadb5db55f510c25e11546e74"
     },
     {
       "compression": "gzip",
@@ -52,10 +318,60 @@
     },
     {
       "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/e4e7911827b4ab2961d9e617cba17f50848a79e9b15eb17b6c70ef06c5472341.json.gz",
+      "sha256": "01b826c251be0fd3b4f4035b6262328e299992a5d478233ff4dea16524d27c0e",
+      "size_bytes": 4495,
+      "uncompressed_sha256": "e4e7911827b4ab2961d9e617cba17f50848a79e9b15eb17b6c70ef06c5472341"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/e9af1279afcefa739469da9e7cc948aa009b76ff4159d57ab97ad811baaf6731.json.gz",
+      "sha256": "0c3c79aa239650c6f2ec6480f765106580a097154b9f5f23e82d09138b908e9e",
+      "size_bytes": 2781,
+      "uncompressed_sha256": "e9af1279afcefa739469da9e7cc948aa009b76ff4159d57ab97ad811baaf6731"
+    },
+    {
+      "compression": "gzip",
       "path": "imports/web-deenhindi-20261112/parsed/muslim/eb798613da44fb410ed51a2ac862b4fd32751ff0e6ae76941d25bd0f0490ee36.json.gz",
       "sha256": "8b80009381edcb39f58ea404a170a7a82a5552589142afc10bfc4a47fa68785d",
       "size_bytes": 2790,
       "uncompressed_sha256": "eb798613da44fb410ed51a2ac862b4fd32751ff0e6ae76941d25bd0f0490ee36"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/ec8e0c2d9dbd99e724441ba3fbf5f6db0643ea26713186b31bc896f5cfb975a4.json.gz",
+      "sha256": "5cf7c2cf3239703af128d6a94d41c3990156b5c6e919c7b4056978271a83a7d5",
+      "size_bytes": 5567,
+      "uncompressed_sha256": "ec8e0c2d9dbd99e724441ba3fbf5f6db0643ea26713186b31bc896f5cfb975a4"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/ee7a706037ead4d5f3dacddc622148d2a5b5938f9feb5dde92310e71e17156ce.json.gz",
+      "sha256": "f9186480cea598a71da3f4b95ba6887fcd4865720080001a76b427293adb41b5",
+      "size_bytes": 2800,
+      "uncompressed_sha256": "ee7a706037ead4d5f3dacddc622148d2a5b5938f9feb5dde92310e71e17156ce"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/f81309d0915a58e59229d7c1c885e886de6a472203ad55fcf1185ff4e90c95fb.json.gz",
+      "sha256": "c63370e74a3a8a693e13e04723f588ec1dc06e287cee16f53fea18aa947e00e5",
+      "size_bytes": 2399,
+      "uncompressed_sha256": "f81309d0915a58e59229d7c1c885e886de6a472203ad55fcf1185ff4e90c95fb"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/muslim/faf83db5ab3217496c2f2e66048a27e528191993c1c80158b2ef0d8ea7dd1c89.json.gz",
+      "sha256": "751efc6f2080fd5a31dcb07e22e840fdf4c2d68c1d470757759f12ce16e8f51b",
+      "size_bytes": 2260,
+      "uncompressed_sha256": "faf83db5ab3217496c2f2e66048a27e528191993c1c80158b2ef0d8ea7dd1c89"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "09ef0fa5a07e329f947b95656330f187c41c2b0ab8b9a85389d51037d3f9fe99",
+      "path": "imports/web-deenhindi-20261112/raw/09ef0fa5a07e329f947b95656330f187c41c2b0ab8b9a85389d51037d3f9fe99.html.gz",
+      "sha256": "725c1b0396cdaef612b8fce9a3147438796453489db24fe2a3afbe56cdb329fe",
+      "size_bytes": 17162,
+      "uncompressed_sha256": "09ef0fa5a07e329f947b95656330f187c41c2b0ab8b9a85389d51037d3f9fe99"
     },
     {
       "compression": "gzip",
@@ -67,11 +383,171 @@
     },
     {
       "compression": "gzip",
+      "original_response_sha256": "1173627524059c48728ecf3c0cd01ac802e75d7a5793b2c46c11082303466163",
+      "path": "imports/web-deenhindi-20261112/raw/1173627524059c48728ecf3c0cd01ac802e75d7a5793b2c46c11082303466163.html.gz",
+      "sha256": "ae0b99ef92e4e2c15514f25f6ebcc677b1d9b8956ac51ba60bb030a9532f3ad7",
+      "size_bytes": 16285,
+      "uncompressed_sha256": "1173627524059c48728ecf3c0cd01ac802e75d7a5793b2c46c11082303466163"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "167762db90bd730fba00665c2731cdef3f75ab0d4923ec56eda60ceeaafb93e2",
+      "path": "imports/web-deenhindi-20261112/raw/167762db90bd730fba00665c2731cdef3f75ab0d4923ec56eda60ceeaafb93e2.html.gz",
+      "sha256": "9c6867693b8f4dc57ed06cbcdfd32c6c5c8693a59645c74e0d5258bb01562b26",
+      "size_bytes": 19139,
+      "uncompressed_sha256": "167762db90bd730fba00665c2731cdef3f75ab0d4923ec56eda60ceeaafb93e2"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "25bde5f24af781bbfb3879a35c36e33c2ba51abf7b922019ecf412662b659582",
+      "path": "imports/web-deenhindi-20261112/raw/25bde5f24af781bbfb3879a35c36e33c2ba51abf7b922019ecf412662b659582.html.gz",
+      "sha256": "ef2726667089c07998c3c308fae26ee0306dcef40b327db309abac448020c1ae",
+      "size_bytes": 16478,
+      "uncompressed_sha256": "25bde5f24af781bbfb3879a35c36e33c2ba51abf7b922019ecf412662b659582"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "28372286c7d6a36db0c3706276bbca4097c35fb203670ec03744672790256713",
+      "path": "imports/web-deenhindi-20261112/raw/28372286c7d6a36db0c3706276bbca4097c35fb203670ec03744672790256713.html.gz",
+      "sha256": "ee3b0cf974a093318de84246f87b10fd2eb2f1059239a6181012015c2b738992",
+      "size_bytes": 15980,
+      "uncompressed_sha256": "28372286c7d6a36db0c3706276bbca4097c35fb203670ec03744672790256713"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "2e2379994ba1bf36541c5895e28f8a63dec9ac05ddea9491a931197c6127e8b9",
+      "path": "imports/web-deenhindi-20261112/raw/2e2379994ba1bf36541c5895e28f8a63dec9ac05ddea9491a931197c6127e8b9.html.gz",
+      "sha256": "e376cc44715c80f77255c3652785796a9cc606b92e770a2a5d797b277dba859a",
+      "size_bytes": 16012,
+      "uncompressed_sha256": "2e2379994ba1bf36541c5895e28f8a63dec9ac05ddea9491a931197c6127e8b9"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "31f1a3285d4a1b35eba570f7000e34318f744d82141954c2dbb62bdb2068b077",
+      "path": "imports/web-deenhindi-20261112/raw/31f1a3285d4a1b35eba570f7000e34318f744d82141954c2dbb62bdb2068b077.html.gz",
+      "sha256": "f6f0942c1af2d6cd7111a7a425f26fac36030074e45141e0102428f11a0989c9",
+      "size_bytes": 30499,
+      "uncompressed_sha256": "31f1a3285d4a1b35eba570f7000e34318f744d82141954c2dbb62bdb2068b077"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "32eef73f76a7855297e73f821c0261035b70fac8de1b6f1e30873679bd34d7f9",
+      "path": "imports/web-deenhindi-20261112/raw/32eef73f76a7855297e73f821c0261035b70fac8de1b6f1e30873679bd34d7f9.html.gz",
+      "sha256": "891c139f0620f733a3133fbae56e153122d998ad993ef14ab3281a4f8371b5ef",
+      "size_bytes": 20115,
+      "uncompressed_sha256": "32eef73f76a7855297e73f821c0261035b70fac8de1b6f1e30873679bd34d7f9"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "39c936cc54570f45fc331b69b8b24039f3a7df25f91b8cddb5c58eab767bc77b",
+      "path": "imports/web-deenhindi-20261112/raw/39c936cc54570f45fc331b69b8b24039f3a7df25f91b8cddb5c58eab767bc77b.html.gz",
+      "sha256": "7ee8adcd91aaaf249525b734555c99a4a2a7c5cb150c9b698552c75c34b1336a",
+      "size_bytes": 16619,
+      "uncompressed_sha256": "39c936cc54570f45fc331b69b8b24039f3a7df25f91b8cddb5c58eab767bc77b"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "3bda09f99ac6bb05c43b343d683becb7136c2ca9c517672c62bb5c71c6caea74",
+      "path": "imports/web-deenhindi-20261112/raw/3bda09f99ac6bb05c43b343d683becb7136c2ca9c517672c62bb5c71c6caea74.html.gz",
+      "sha256": "7ab97511252282b266a52793e0c7d40faf1bf75fc69aa315733e5cd83c1bd359",
+      "size_bytes": 16938,
+      "uncompressed_sha256": "3bda09f99ac6bb05c43b343d683becb7136c2ca9c517672c62bb5c71c6caea74"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "3f8a54ede84c121172b5fe3f105fe0169b132b99353aed0f727d807eec0ac944",
+      "path": "imports/web-deenhindi-20261112/raw/3f8a54ede84c121172b5fe3f105fe0169b132b99353aed0f727d807eec0ac944.html.gz",
+      "sha256": "81fea27525e03b906135addbf44aa1e10f5c16113942d06dce8e616286f18046",
+      "size_bytes": 16927,
+      "uncompressed_sha256": "3f8a54ede84c121172b5fe3f105fe0169b132b99353aed0f727d807eec0ac944"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "41a49aa14333fefb11391d8ffc6a49c9f4d122c70061090033c9bf77b1e89280",
+      "path": "imports/web-deenhindi-20261112/raw/41a49aa14333fefb11391d8ffc6a49c9f4d122c70061090033c9bf77b1e89280.html.gz",
+      "sha256": "9a3768a297ca23a3bdad6303fe8cba51f11bced16f0b597800e7da9dca63fa6c",
+      "size_bytes": 15340,
+      "uncompressed_sha256": "41a49aa14333fefb11391d8ffc6a49c9f4d122c70061090033c9bf77b1e89280"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "5606cb83d537b1d8893c7c257bce97298fdb46b005366cbdd45957252f414ae7",
+      "path": "imports/web-deenhindi-20261112/raw/5606cb83d537b1d8893c7c257bce97298fdb46b005366cbdd45957252f414ae7.html.gz",
+      "sha256": "29ef00dc982236a0e1467086ab75f94650d9c5d0f8ebbb9d28806f891526f3d9",
+      "size_bytes": 16530,
+      "uncompressed_sha256": "5606cb83d537b1d8893c7c257bce97298fdb46b005366cbdd45957252f414ae7"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "56a0e1b29788d3a00f603753dbf06830dac5bdace7df5d0e46f05f4fd2dc2f15",
+      "path": "imports/web-deenhindi-20261112/raw/56a0e1b29788d3a00f603753dbf06830dac5bdace7df5d0e46f05f4fd2dc2f15.html.gz",
+      "sha256": "32975b5cd8cfadc06febc3672da1997814d715741ad4cf1744ab959c28c56e5f",
+      "size_bytes": 17800,
+      "uncompressed_sha256": "56a0e1b29788d3a00f603753dbf06830dac5bdace7df5d0e46f05f4fd2dc2f15"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "56eaa68a5bd0b6f312f987c306dbfad34a7e34de5d99e0b9516ade6882e466e6",
+      "path": "imports/web-deenhindi-20261112/raw/56eaa68a5bd0b6f312f987c306dbfad34a7e34de5d99e0b9516ade6882e466e6.html.gz",
+      "sha256": "126b21a91a644d539f93bb6a4023f05d309a2e52ea1eae11df4a3c739de60446",
+      "size_bytes": 16075,
+      "uncompressed_sha256": "56eaa68a5bd0b6f312f987c306dbfad34a7e34de5d99e0b9516ade6882e466e6"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "5a1b5aa6aebb59286e017810b12e89dcff08b9bd8623507e9e5aa5aa2eb74c74",
+      "path": "imports/web-deenhindi-20261112/raw/5a1b5aa6aebb59286e017810b12e89dcff08b9bd8623507e9e5aa5aa2eb74c74.html.gz",
+      "sha256": "59d83e59efcbe1c1b9c1452c2af308acd73f62378dcae43e76f0fca5b9081746",
+      "size_bytes": 17037,
+      "uncompressed_sha256": "5a1b5aa6aebb59286e017810b12e89dcff08b9bd8623507e9e5aa5aa2eb74c74"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "61586f3411bf63cd8bded7195137bd6ce5740af7c385af669f9817c931cf57d3",
+      "path": "imports/web-deenhindi-20261112/raw/61586f3411bf63cd8bded7195137bd6ce5740af7c385af669f9817c931cf57d3.html.gz",
+      "sha256": "57c6e34bbcf1df06d03d81bd2bef5c5bdb7d297bb4edee0e956d53827a58775d",
+      "size_bytes": 19055,
+      "uncompressed_sha256": "61586f3411bf63cd8bded7195137bd6ce5740af7c385af669f9817c931cf57d3"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "65878f8196b20ff60c964aacb45048fd64368a47996103482b29fb9222e26323",
+      "path": "imports/web-deenhindi-20261112/raw/65878f8196b20ff60c964aacb45048fd64368a47996103482b29fb9222e26323.html.gz",
+      "sha256": "386a422c25b656efea1a7060c80d1164a2982f7d61d0de1be971156445606fcf",
+      "size_bytes": 20730,
+      "uncompressed_sha256": "65878f8196b20ff60c964aacb45048fd64368a47996103482b29fb9222e26323"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "6a5e3d274f0bd85ba0d7926b3f6404534adc600c79bebb722b0b685e6545bfc0",
+      "path": "imports/web-deenhindi-20261112/raw/6a5e3d274f0bd85ba0d7926b3f6404534adc600c79bebb722b0b685e6545bfc0.html.gz",
+      "sha256": "8c9b12a0e4265aefcb60c8669bf0ea0494c5ef45e94d58d0bce3a3817cf5f925",
+      "size_bytes": 18588,
+      "uncompressed_sha256": "6a5e3d274f0bd85ba0d7926b3f6404534adc600c79bebb722b0b685e6545bfc0"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "7b4703316a95c349a7cea0832e5fb2c64ce151090f776c61a88045e41b509300",
+      "path": "imports/web-deenhindi-20261112/raw/7b4703316a95c349a7cea0832e5fb2c64ce151090f776c61a88045e41b509300.html.gz",
+      "sha256": "d9f4fcfbc6b9b3bbf29b16e5c947bfd44ce8b72aef60685ecdc1bb807645434a",
+      "size_bytes": 15926,
+      "uncompressed_sha256": "7b4703316a95c349a7cea0832e5fb2c64ce151090f776c61a88045e41b509300"
+    },
+    {
+      "compression": "gzip",
       "original_response_sha256": "83c34d1f078af9adcb6fb1ad0333b2b1fe32196d1d7e2ef600f3538aeed12b22",
       "path": "imports/web-deenhindi-20261112/raw/83c34d1f078af9adcb6fb1ad0333b2b1fe32196d1d7e2ef600f3538aeed12b22.html.gz",
       "sha256": "86276edc5be2956b255d14d9696b2ed600acca6263c21603d7cbed1d224ec6d6",
       "size_bytes": 16681,
       "uncompressed_sha256": "83c34d1f078af9adcb6fb1ad0333b2b1fe32196d1d7e2ef600f3538aeed12b22"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "87325a576952d33cd51c34bd11759c7a3f48773d614a59f3542b21f6b64a8781",
+      "path": "imports/web-deenhindi-20261112/raw/87325a576952d33cd51c34bd11759c7a3f48773d614a59f3542b21f6b64a8781.html.gz",
+      "sha256": "7627552997643ce0dd1df7b00aa095d6a6ebbca9f9fd38123cc879a26f13090b",
+      "size_bytes": 20654,
+      "uncompressed_sha256": "87325a576952d33cd51c34bd11759c7a3f48773d614a59f3542b21f6b64a8781"
     },
     {
       "compression": "gzip",
@@ -83,11 +559,59 @@
     },
     {
       "compression": "gzip",
+      "original_response_sha256": "8af16bd718f47e97ada7ce4598efedde5d796a08814732f337a88019d9729e7c",
+      "path": "imports/web-deenhindi-20261112/raw/8af16bd718f47e97ada7ce4598efedde5d796a08814732f337a88019d9729e7c.html.gz",
+      "sha256": "7a6fa0f71c1581d36e8b3ceecb41b4bda66de0ad674eb6ce7781f8e983da86fa",
+      "size_bytes": 16349,
+      "uncompressed_sha256": "8af16bd718f47e97ada7ce4598efedde5d796a08814732f337a88019d9729e7c"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "8b2f5ef0ee6035c1cf293a33169ef19f2c52ac0c64222171fb9feb9a409d4ef2",
+      "path": "imports/web-deenhindi-20261112/raw/8b2f5ef0ee6035c1cf293a33169ef19f2c52ac0c64222171fb9feb9a409d4ef2.html.gz",
+      "sha256": "9995f6d80358a255b81904c8989f84d3ec5f8d57135af6ed44682d46437d2fd9",
+      "size_bytes": 15688,
+      "uncompressed_sha256": "8b2f5ef0ee6035c1cf293a33169ef19f2c52ac0c64222171fb9feb9a409d4ef2"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "8e31c67fc84658249fb184a44c238cbbe38823b678c210de20ea25c757d9a4ca",
+      "path": "imports/web-deenhindi-20261112/raw/8e31c67fc84658249fb184a44c238cbbe38823b678c210de20ea25c757d9a4ca.html.gz",
+      "sha256": "c4204ea03d9c9794041b608460e51f90a98dd4cc029b4e5d2b7507eb0d12a03f",
+      "size_bytes": 23001,
+      "uncompressed_sha256": "8e31c67fc84658249fb184a44c238cbbe38823b678c210de20ea25c757d9a4ca"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "a6151824d24f5942ab1c4a9da7ae736f2991cb93d548a7960dae8fa22a17d03b",
+      "path": "imports/web-deenhindi-20261112/raw/a6151824d24f5942ab1c4a9da7ae736f2991cb93d548a7960dae8fa22a17d03b.html.gz",
+      "sha256": "eca009c45c9253fb0787be6a1b6318d435ddee65d210514f13e899fd30e8fb50",
+      "size_bytes": 20905,
+      "uncompressed_sha256": "a6151824d24f5942ab1c4a9da7ae736f2991cb93d548a7960dae8fa22a17d03b"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "a63e54ce14ec96935934d59cce0adf24adb10c54a556453c0c34863fb4c8cd72",
+      "path": "imports/web-deenhindi-20261112/raw/a63e54ce14ec96935934d59cce0adf24adb10c54a556453c0c34863fb4c8cd72.html.gz",
+      "sha256": "988dd6299544c1d23cc83c7b94dbbe254340697640c1ab8d91cf9ab1427f9f1c",
+      "size_bytes": 16479,
+      "uncompressed_sha256": "a63e54ce14ec96935934d59cce0adf24adb10c54a556453c0c34863fb4c8cd72"
+    },
+    {
+      "compression": "gzip",
       "original_response_sha256": "add3c42627f9acf5d135cfef56036e64ef4e928c18f60ca89bbfe7ae39f01a53",
       "path": "imports/web-deenhindi-20261112/raw/add3c42627f9acf5d135cfef56036e64ef4e928c18f60ca89bbfe7ae39f01a53.html.gz",
       "sha256": "4beb36db8db7f75b2c59d9ec633fb65f99a338aea62bdd749a06dc6cd47d556c",
       "size_bytes": 39482,
       "uncompressed_sha256": "add3c42627f9acf5d135cfef56036e64ef4e928c18f60ca89bbfe7ae39f01a53"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "b5428987a334c3468707681547d2ecfa7898f46b4700784355a95b26b508591a",
+      "path": "imports/web-deenhindi-20261112/raw/b5428987a334c3468707681547d2ecfa7898f46b4700784355a95b26b508591a.html.gz",
+      "sha256": "c7eb9264f24cb63701c80719b3e0f11e14d7cd33199597d6dd52412c6a50a162",
+      "size_bytes": 16210,
+      "uncompressed_sha256": "b5428987a334c3468707681547d2ecfa7898f46b4700784355a95b26b508591a"
     },
     {
       "compression": "gzip",
@@ -98,12 +622,148 @@
       "uncompressed_sha256": "b9a6eb9b15d2e96298aad1f4ed2036da9f4282d91ec95e6edfeb7000e1e0be20"
     },
     {
+      "compression": "gzip",
+      "original_response_sha256": "b9c0df762ab4cf356cf09442f1e562287bc84d15ed70aaa22c1195a7e302693b",
+      "path": "imports/web-deenhindi-20261112/raw/b9c0df762ab4cf356cf09442f1e562287bc84d15ed70aaa22c1195a7e302693b.html.gz",
+      "sha256": "1bd225ec5fc8b55ef60be2c01a68b3b49c3feb717101e24969c96d0329271f3d",
+      "size_bytes": 16110,
+      "uncompressed_sha256": "b9c0df762ab4cf356cf09442f1e562287bc84d15ed70aaa22c1195a7e302693b"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "ba82951549464cb5ae3c949f94e678b92776bdf3c0b150a9a01963196b17e6e5",
+      "path": "imports/web-deenhindi-20261112/raw/ba82951549464cb5ae3c949f94e678b92776bdf3c0b150a9a01963196b17e6e5.html.gz",
+      "sha256": "f4899996a7a951c281d308edcaf8a259da6fddab6dcc10722e55ca241286f431",
+      "size_bytes": 15651,
+      "uncompressed_sha256": "ba82951549464cb5ae3c949f94e678b92776bdf3c0b150a9a01963196b17e6e5"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "be88ecc0b3b0f85e2705b6320d40825dec06ac00f8c71cfe1b289b8fa81d1a9e",
+      "path": "imports/web-deenhindi-20261112/raw/be88ecc0b3b0f85e2705b6320d40825dec06ac00f8c71cfe1b289b8fa81d1a9e.html.gz",
+      "sha256": "c18963a27522c8312bde7223ab05e81ada22ceb12adc00a90658888a2cc3295a",
+      "size_bytes": 21856,
+      "uncompressed_sha256": "be88ecc0b3b0f85e2705b6320d40825dec06ac00f8c71cfe1b289b8fa81d1a9e"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "c08d8b6af2729489d771e2105832034d1a045857809918d3b1b657741208fda2",
+      "path": "imports/web-deenhindi-20261112/raw/c08d8b6af2729489d771e2105832034d1a045857809918d3b1b657741208fda2.html.gz",
+      "sha256": "a9cbfb60bb87e6cb6fdd2d621dd592664197a267d9957159a4a8852060e79ce2",
+      "size_bytes": 16457,
+      "uncompressed_sha256": "c08d8b6af2729489d771e2105832034d1a045857809918d3b1b657741208fda2"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "ce77214070bc1f9e1d96adde593ca34abf1535f1284d0873fa3ebdebd663fc2c",
+      "path": "imports/web-deenhindi-20261112/raw/ce77214070bc1f9e1d96adde593ca34abf1535f1284d0873fa3ebdebd663fc2c.html.gz",
+      "sha256": "b9bd915f1c2b93af58255e2bc12496787c76c94a6affd8f3a2aaaf468bfcd744",
+      "size_bytes": 18281,
+      "uncompressed_sha256": "ce77214070bc1f9e1d96adde593ca34abf1535f1284d0873fa3ebdebd663fc2c"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "d028babc823753bd21c4f8a04a4d1a057bb1a578ae4c43c7243383656853761d",
+      "path": "imports/web-deenhindi-20261112/raw/d028babc823753bd21c4f8a04a4d1a057bb1a578ae4c43c7243383656853761d.html.gz",
+      "sha256": "8a68c4366e0e0bd8dba52a6a81eb477ad6a10d58d988a18efb099013cf976a5f",
+      "size_bytes": 17238,
+      "uncompressed_sha256": "d028babc823753bd21c4f8a04a4d1a057bb1a578ae4c43c7243383656853761d"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "d1a52d9fe69901cdd707c94f2990ded2cc69d5b34d6e804822c5f485097aa75e",
+      "path": "imports/web-deenhindi-20261112/raw/d1a52d9fe69901cdd707c94f2990ded2cc69d5b34d6e804822c5f485097aa75e.html.gz",
+      "sha256": "732c5f7f11bbbc0445e2a9c06879004fb8ea84bcbcbee81aaa19661a2457119c",
+      "size_bytes": 18185,
+      "uncompressed_sha256": "d1a52d9fe69901cdd707c94f2990ded2cc69d5b34d6e804822c5f485097aa75e"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "d2e85974b68cb9f7f2763fedc55c59f9a85c53a3ae2b757eddadfe9899970cfd",
+      "path": "imports/web-deenhindi-20261112/raw/d2e85974b68cb9f7f2763fedc55c59f9a85c53a3ae2b757eddadfe9899970cfd.html.gz",
+      "sha256": "9b0d77c3f6ef95f148c330e44c16a3a47c17fa70fda91db273a512c9b46eb63e",
+      "size_bytes": 15916,
+      "uncompressed_sha256": "d2e85974b68cb9f7f2763fedc55c59f9a85c53a3ae2b757eddadfe9899970cfd"
+    },
+    {
       "compression": null,
       "original_response_sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25",
       "path": "imports/web-deenhindi-20261112/raw/d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25.txt",
       "sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25",
       "size_bytes": 246,
       "uncompressed_sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "db84cd499559efbec7cd35925ff9538a82a95ab252b40258deb0b441246e1e03",
+      "path": "imports/web-deenhindi-20261112/raw/db84cd499559efbec7cd35925ff9538a82a95ab252b40258deb0b441246e1e03.html.gz",
+      "sha256": "0c57a0b9a21be7b5c2c311aa207bdce2296e02b4ac2e080d9a167bb5e5c131d4",
+      "size_bytes": 15584,
+      "uncompressed_sha256": "db84cd499559efbec7cd35925ff9538a82a95ab252b40258deb0b441246e1e03"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "e57917399a2040a892a39a8fcc87e4d06cfb1442e8b8fe175ddbedc6388953f8",
+      "path": "imports/web-deenhindi-20261112/raw/e57917399a2040a892a39a8fcc87e4d06cfb1442e8b8fe175ddbedc6388953f8.html.gz",
+      "sha256": "aaad112e249dfa6b05d5fd75c49f5b8832e06e5ff2a186a52e3a6ca7b69e7b7a",
+      "size_bytes": 16650,
+      "uncompressed_sha256": "e57917399a2040a892a39a8fcc87e4d06cfb1442e8b8fe175ddbedc6388953f8"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "e5e5c3b4d49c70bfa69ca18d2681773d4cb191c3a7bc82f3222c02099e2a49fa",
+      "path": "imports/web-deenhindi-20261112/raw/e5e5c3b4d49c70bfa69ca18d2681773d4cb191c3a7bc82f3222c02099e2a49fa.html.gz",
+      "sha256": "9094dc8973a39c6eb6f5d07bd6af93ac194dfa6c7037eeb039695aa676e6b0c8",
+      "size_bytes": 16880,
+      "uncompressed_sha256": "e5e5c3b4d49c70bfa69ca18d2681773d4cb191c3a7bc82f3222c02099e2a49fa"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "ea9cff087f649df2f1791fb2361993206d36f3b0ba31ec1837bf27c6e924fc0d",
+      "path": "imports/web-deenhindi-20261112/raw/ea9cff087f649df2f1791fb2361993206d36f3b0ba31ec1837bf27c6e924fc0d.html.gz",
+      "sha256": "daeed59380fcb25ce0035bbf383699384f4b48df64b78bb842617f8daf62993a",
+      "size_bytes": 15394,
+      "uncompressed_sha256": "ea9cff087f649df2f1791fb2361993206d36f3b0ba31ec1837bf27c6e924fc0d"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "ed190248c195b3749860cda506c0d7965d9b3dd3c373b5f555e7af0caed10b91",
+      "path": "imports/web-deenhindi-20261112/raw/ed190248c195b3749860cda506c0d7965d9b3dd3c373b5f555e7af0caed10b91.html.gz",
+      "sha256": "3f78216097a4edfc3e496ddbb87176b5123d2cde936249da29ff9f9123c52f07",
+      "size_bytes": 16375,
+      "uncompressed_sha256": "ed190248c195b3749860cda506c0d7965d9b3dd3c373b5f555e7af0caed10b91"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "f2f53b9cbc64266ad6a9f7f82ebc97d81f0d1a3286c56e601fa60a17d1392a30",
+      "path": "imports/web-deenhindi-20261112/raw/f2f53b9cbc64266ad6a9f7f82ebc97d81f0d1a3286c56e601fa60a17d1392a30.html.gz",
+      "sha256": "03452bf47d42854f67d882969b10120a0da7f531bdbbb1b3b48cde53c45acfdc",
+      "size_bytes": 17665,
+      "uncompressed_sha256": "f2f53b9cbc64266ad6a9f7f82ebc97d81f0d1a3286c56e601fa60a17d1392a30"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "f3c9838ab9b20b2114d93fbea88baab36ef3267e39603e04e430bae6af790f31",
+      "path": "imports/web-deenhindi-20261112/raw/f3c9838ab9b20b2114d93fbea88baab36ef3267e39603e04e430bae6af790f31.html.gz",
+      "sha256": "c05517229d6404beaf91753f0cd1432b05e0c8fe2af631e76645f6cde8ffd72d",
+      "size_bytes": 16399,
+      "uncompressed_sha256": "f3c9838ab9b20b2114d93fbea88baab36ef3267e39603e04e430bae6af790f31"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "fd43d849a209f404691249f86ce6d5e9ea48872160c03b98aea69f43d7cf6115",
+      "path": "imports/web-deenhindi-20261112/raw/fd43d849a209f404691249f86ce6d5e9ea48872160c03b98aea69f43d7cf6115.html.gz",
+      "sha256": "54f17d7bbf7edd9b3b945e1dc493435a2175065f19bf4544ce89b3ecf8993528",
+      "size_bytes": 17141,
+      "uncompressed_sha256": "fd43d849a209f404691249f86ce6d5e9ea48872160c03b98aea69f43d7cf6115"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "ffb4051a87b7094e53505108ca28aa0582f3aa344ca6f63cea0672f5d315b9b3",
+      "path": "imports/web-deenhindi-20261112/raw/ffb4051a87b7094e53505108ca28aa0582f3aa344ca6f63cea0672f5d315b9b3.html.gz",
+      "sha256": "02a81a2541ec4cd25d158d5d64602b11d6509f0e0eb9ef9c0d20f9185dcbbd51",
+      "size_bytes": 18536,
+      "uncompressed_sha256": "ffb4051a87b7094e53505108ca28aa0582f3aa344ca6f63cea0672f5d315b9b3"
     }
   ]
 }
