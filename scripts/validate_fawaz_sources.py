@@ -140,7 +140,8 @@ def version_fingerprint(version):
 
 class SourceAudit:
     def __init__(self, root):
-        self.root = root.resolve()
+        root = root.resolve()
+        self.root = root
         self.state = read_json(root, source.IMPORT + '/state.json')
         self.progress = read_json(root, source.IMPORT + '/progress.json')
         require(self.state.get('revision') == source.REVISION, 'Unexpected source revision')

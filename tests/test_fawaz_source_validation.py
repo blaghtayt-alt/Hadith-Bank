@@ -5,6 +5,7 @@ import gzip
 import json
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -118,6 +119,16 @@ class ExportValidationTests(unittest.TestCase):
         manifest = copy.deepcopy(self.manifest)
         manifest['records']['sha256'] = importer.sha(data)
         self.manifest_path.write_bytes(importer.encoded(manifest))
+
+    def test_cli_validates_relative_root_used_by_publication_workflow(self):
+        completed = subprocess.run(
+            [sys.executable, str(Path(validator.__file__).resolve()),
+             '--root', '.', '--output', 'audit/source-integrity.json'],
+            cwd=self.root, capture_output=True, text=True, check=False)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        result = json.loads((self.root / 'audit/source-integrity.json').read_text())
+        self.assertEqual(result['status'], 'passed')
+        self.assertEqual((result['registered_occurrences'], result['held_occurrences']), (1, 1))
 
     def test_whole_export_source_context_and_every_old_held_id_are_accounted(self):
         audit = validator.SourceAudit(self.root)
