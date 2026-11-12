@@ -139,3 +139,42 @@ On 12 November 2026 the owner requested "integrate into the bank and the html" a
 Preserve the historical reconstructed delivery and its earlier HOLD assessment unchanged. The current publication decision does not claim that independent final evaluation was run or that source/metadata uncertainties were resolved. Keep the 298 hadith, narrated dhikr and coherent narration-context records available in HTML. Preserve the 14 independent non-Prophetic records, 6 Quran/author-only records and 5 unresolved-attribution records separately. Do not turn an entire mixed context record into a single exact Prophetic quotation. Retain supported narrator framing, dialogue, instructions, variants and hadith-bearing footnotes with their scope annotations; authenticity grading is separate from content classification.
 
 Preserve exact source wording, all 323 source records and 1,500 components in the lossless source archive. Keep the source edition distinct from the older Filipino Hisn excerpts. Use the Arabic actually printed in this source; do not promote the reconstruction's external counterpart candidates or fabricate absent text, grades, chains, dates or canonical identities. Keep human translator attribution, OCR evidence, specific uncertainties and `independent_pro_qc=NOT_RUN` accurate. See `docs/FILIPINO-HISN.md` and the material's publication manifest.
+
+## Owner-requested Urdu, Bengali and continued upstream recovery
+
+On 12 November 2026 the owner explicitly requested Urdu and Bengali from
+`https://github.com/fawazahmed0/hadith-api` and instructed continuing work on the
+11,555 source occurrences held by the initial narrow import rules. This extends
+the pinned seven-book intake to the Arabic, English, Urdu and Bengali editions
+in `catalog/fawaz-bulk-plan.json`. Reuse verified saved whole editions; fetch
+only missing editions and keep the source identities unchanged.
+
+The pinned catalog also supplies Bengali Nawawi, alongside Arabic and English,
+so this request includes those three editions as the eighth collection. There
+is no Urdu Nawawi edition in that catalog: preserve that absence and do not
+request a guessed edition. The catalog's shared `Imam Nawawi` author credit is
+the collection compiler; retain it without labelling him a Bengali or English
+translator. The configured scope is 31 edition files, including all seven Urdu
+and all eight Bengali editions in the pinned catalog.
+
+Review the whole held set in source-bound batches. Include explicit Prophetic
+speech, acts, descriptions, practices, dhikr, dialogue and attributed abbreviated
+transmissions when supported by the source. A missing section reference, an
+introduction label, or a rule limited to literal speech is not itself a reason
+to omit an otherwise established narration. Hash-bound reviewed excerpts may
+separate a narration from surrounding Quran, compiler or narrator discussion.
+Do not complete abbreviated wording or infer a canonical cross-edition identity.
+
+Each language retains its own text boundaries, references and comments. If one
+language's mixed narration/commentary cannot yet be separated, preserve its full
+source text in that language's source-context comments, visibly explain the
+pending boundary, and keep any independently supported other language readings.
+Do not index that context as hadith matn or count it as supplied quotation text.
+If the provider supplies different content under the same ID in different
+languages, preserve that mismatch explicitly. Such a language's context is not
+an Arabic/English counterpart or a translation of the displayed narration.
+Preserve actual source-empty entries, independent sayings, compiler discussion
+and unresolved attribution in the complete source/classification ledger outside
+Hadith HTML. Account for every provider ID; a held source is not a failed or
+missing download. The existing source fidelity, translation-origin, rights and
+non-certification policies continue to apply.

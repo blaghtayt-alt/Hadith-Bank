@@ -7,7 +7,11 @@ on:
     paths:
       - '.github/workflows/import-fawaz-bulk.yml'
       - 'catalog/fawaz-bulk-plan.json'
+      - 'catalog/fawaz-reviewed-spans.json'
       - 'scripts/import_fawaz_bulk.py'
+      - 'scripts/fawaz_attribution.py'
+      - 'scripts/fawaz_boundaries.py'
+      - 'scripts/validate_fawaz_sources.py'
 
 permissions:
   contents: read
@@ -44,7 +48,10 @@ jobs:
           python -m unittest discover -s tests
       - name: Fetch the finite whole-book edition batch
         id: fetch
-        # Complete verified books can still be saved when a later fetch stops.
+        # Fetch the plan's 31 published editions across eight books. Nawawi
+        # supplies Arabic, English and Bengali; its Urdu edition is unpublished.
+        # Verified saved editions are reused, including earlier three-language
+        # checkpoints. Complete books can still be saved when a later fetch stops.
         # The final outcome step restores failure after safe checkpoint saving.
         continue-on-error: true
         run: >-
@@ -55,8 +62,15 @@ jobs:
         id: export
         run: >-
           python scripts/run_logged_task.py run
-          --job-dir .work/fawaz-bulk-export --cwd . --timeout 300 --
+          --job-dir .work/fawaz-bulk-export --cwd . --timeout 900 --
           python scripts/import_fawaz_bulk.py --root . --export-only
+      - name: Verify exact saved source text and complete occurrence accounting
+        id: source_integrity
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/fawaz-source-integrity --cwd . --timeout 900 --
+          python scripts/validate_fawaz_sources.py --root .
+          --output imports/web-fawaz-20261112/source-integrity-validation.json
       - name: Validate the complete material registry
         id: validate
         run: |
@@ -152,6 +166,7 @@ jobs:
           REGRESSION_OUTCOME: ${{ steps.regressions.outcome }}
           FETCH_OUTCOME: ${{ steps.fetch.outcome }}
           EXPORT_OUTCOME: ${{ steps.export.outcome }}
+          SOURCE_INTEGRITY_OUTCOME: ${{ steps.source_integrity.outcome }}
           VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
           SAVE_OUTCOME: ${{ steps.save.outcome }}
           DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
@@ -161,12 +176,23 @@ jobs:
           import os
           from pathlib import Path
           import subprocess
+          import sys
           context = {key: os.environ.get(key) for key in (
               'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_SHA',
               'REGRESSION_OUTCOME', 'FETCH_OUTCOME', 'EXPORT_OUTCOME',
-              'VALIDATE_OUTCOME', 'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
+              'SOURCE_INTEGRITY_OUTCOME', 'VALIDATE_OUTCOME',
+              'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
           head = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
           context['checked_out_commit'] = head.stdout.strip() if head.returncode == 0 else None
+          try:
+              sys.path.insert(0, 'scripts')
+              from import_fawaz_bulk import book_languages
+              plan = json.loads(Path('catalog/fawaz-bulk-plan.json').read_text())
+              context['planned_languages'] = plan['languages']
+              context['planned_books'] = plan['books']
+              context['planned_editions'] = sum(len(book_languages(plan, book)) for book in plan['books'])
+          except (OSError, ValueError, KeyError, TypeError, ImportError) as error:
+              context['plan_read_error'] = str(error)
           try:
               progress = json.loads(Path('imports/web-fawaz-20261112/progress.json').read_text())
               context['progress'] = {key: progress.get(key) for key in (
@@ -178,9 +204,12 @@ jobs:
           folder.mkdir(parents=True, exist_ok=True)
           (folder / 'run-context.json').write_text(json.dumps(context, indent=2) + '\n')
           lines = ['## Upstream whole-book import', '',
+              'Selected edition languages: ' + ', '.join(context.get('planned_languages', [])) +
+              '; planned whole editions: ' + str(context.get('planned_editions', 'unknown')) + '.', '',
               'Tests: ' + str(context['REGRESSION_OUTCOME']) +
               '; fetch: ' + str(context['FETCH_OUTCOME']) +
               '; export: ' + str(context['EXPORT_OUTCOME']) +
+              '; source integrity: ' + str(context['SOURCE_INTEGRITY_OUTCOME']) +
               '; registry validation: ' + str(context['VALIDATE_OUTCOME']) +
               '; source save: ' + str(context['SAVE_OUTCOME']) +
               '; reader request: ' + str(context['DISPATCH_OUTCOME']) + '.', '',
@@ -199,8 +228,10 @@ jobs:
             .work/fawaz-bulk-tests/
             .work/fawaz-bulk-fetch/
             .work/fawaz-bulk-export/
+            .work/fawaz-source-integrity/
             .work/fawaz-bulk-run/
             imports/web-fawaz-20261112/progress.json
+            imports/web-fawaz-20261112/source-integrity-validation.json
       - name: Preserve interrupted source evidence for recovery
         if: failure() || cancelled()
         uses: actions/upload-artifact@v4

@@ -2,7 +2,7 @@
   "schema": "hadith-bank-fawaz-bulk-plan-v1",
   "enabled": true,
   "owner_authorized_on": "2026-11-12",
-  "scope": "Acquire the seven Deen Hindi hadith collections from its identified Fawaz upstream source as separate, attributed whole-book editions. Preserve source text, numbering, grades and language provenance; do not treat provider IDs as canonical identity or replace Deen Hindi records.",
+  "scope": "Acquire every pinned Urdu and Bengali collection requested by the owner, alongside its Arabic and English source editions: the seven Deen collections plus Bengali Nawawi. Urdu Nawawi is not published in this pinned catalog. Preserve source text, numbering, grades and language provenance; provider IDs are not canonical cross-publisher identity and these sources do not replace Deen Hindi records.",
   "repository": "fawazahmed0/hadith-api",
   "revision": "df57907be35291c91ad6a6691180e22ca9920784",
   "books": [
@@ -12,8 +12,27 @@
     "malik",
     "muslim",
     "nasai",
-    "tirmidhi"
+    "tirmidhi",
+    "nawawi"
   ],
-  "languages": ["ara", "eng", "urd"],
-  "max_books_per_batch": 7
+  "languages": [
+    "ara",
+    "eng",
+    "urd",
+    "ben"
+  ],
+  "max_books_per_batch": 8,
+  "edition_exceptions": {
+    "nawawi": {
+      "available_languages": [
+        "ara",
+        "eng",
+        "ben"
+      ],
+      "unpublished_languages": [
+        "urd"
+      ],
+      "basis": "pinned editions.json catalog"
+    }
+  }
 }

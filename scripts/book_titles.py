@@ -26,6 +26,7 @@ ENGLISH_TITLES = {
     '200-golden-hadith': '200 Golden Hadith',
     'targhib-wa-tarhib': 'Al-Targhib wa-l-Tarhib (Sahih and Daif)',
     'riyadh-al-salihin': 'Riyadh al-Salihin',
+    'nawawi': 'Forty Hadith of an-Nawawi',
     'shengxunjing': 'Shengxunjing',
     'islam-message': 'The Message of Islam',
     'otsuka-khutba': 'Otsuka Friday sermon summary',

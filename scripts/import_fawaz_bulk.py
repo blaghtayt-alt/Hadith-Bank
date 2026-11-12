@@ -3,7 +3,8 @@
 
 The provider's shared, typed hadithnumber identifies an occurrence in THIS API,
 not a canonical number in another edition. Every input and missing/held entry is
-preserved. A book is exported only after all three whole-edition files verify.
+preserved. The original three editions form a complete book batch; an optional
+Bengali edition extends it only after that whole source file verifies.
 """
 from __future__ import annotations
 
@@ -26,6 +27,8 @@ import urllib.request
 
 from build_reader import local, parse_json, safe_url
 from import_deenhindi import classify as classify_arabic
+from fawaz_attribution import explicit_report_evidence
+from fawaz_boundaries import split_source_reading
 
 
 REPOSITORY = "fawazahmed0/hadith-api"
@@ -43,9 +46,11 @@ BOOKS = {
     "muslim": ("muslim", "Sahih Muslim"),
     "nasai": ("nasai", "Sunan an Nasai"),
     "tirmidhi": ("tirmidhi", "Jami At Tirmidhi"),
+    "nawawi": ("nawawi", "Forty Hadith of an-Nawawi"),
 }
+BASE_LANGUAGES = ("ara", "eng", "urd")
 LANGUAGES = {"ara": ("ar", "Arabic", "Arab"), "eng": ("en", "English", "Latn"),
-             "urd": ("ur", "Urdu", "Arab")}
+             "urd": ("ur", "Urdu", "Arab"), "ben": ("bn", "Bengali", "Beng")}
 DOCUMENTS = ("editions.json", "README.md", "LICENSE", "References.md", "CONTRIBUTING.md")
 DIACRITICS = re.compile(r"[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]")
 AUTHOR_NOTES = {
@@ -55,11 +60,15 @@ AUTHOR_NOTES = {
     ("tirmidhi", "ar"): re.compile(r"قال\s+ابو\s+عيسي\b"),
     ("abudawud", "ur"): re.compile(r"(?:امام\s+)?ابو\s*دا[ؤو]د\s+کہتے\s+ہیں"),
     ("tirmidhi", "ur"): re.compile(r"(?:امام\s+)?ترمذی\s+کہتے\s+ہیں"),
-}
-UNRESOLVED_COMPILER_BOUNDARIES = {
-    "malik": re.compile(r"قال\s+(?:يحيي\s+قال\s+)?مالك\b"),
-    "bukhari": re.compile(r"قال\s+(?:ابو\s+عبد\s*الله|البخاري)\b"),
-    "tirmidhi": re.compile(r"(?:هذا|وهذا)\s+حديث\s+(?:حسن|صحيح|غريب)\b"),
+    ("abudawud", "bn"): re.compile(
+        r"(?:ইমাম\s+)?আব[ূু]\s*দা[ঊউ]দ\s*(?:\([^)]{0,30}\)\s*)?(?:বলেন|বলেছেন|বললেন)"
+        r"|قال\s+ابو\s+داود\b"),
+    ("tirmidhi", "bn"): re.compile(
+        r"(?:ইমাম\s+)?আব[ূু]\s*[ঈই]সা\s*(?:\([^)]{0,30}\)\s*)?"
+        r"(?:(?:বলেন|বলেছেন|বললেন|ৰলেন)|(?=[^।!?\n]{0,180}(?:হাসান|সহীহ|সহিহ|গরীব|গারীব|মুরসাল|সমালোচিত)[^।!?\n]{0,40}বলেছেন))"
+        r"|আমি\s*\(আব[ূু]\s*[ঈই]সা\)"
+        r"|ইমাম\s+তিরমিযী\s+(?:বলেন|বলেছেন|বললেন)|قال\s+ابو\s+عيسي\b"
+        r"|(?<=[।.!?])\s*[-—–]+\s*(?:সহীহ্?|সহিহ|হাসান|যঈফ|সনদ\s+সহীহ)(?=[\s।,;:])"),
 }
 AMBIGUOUS_ATTRIBUTION = re.compile(
     r"(?:وددت|وددنا|ليتني|ليتنا)\b[\s\S]{0,100}(?:رسول الله|النبي)\b"
@@ -110,14 +119,22 @@ def load_plan(root):
     require(plan.get("repository") == REPOSITORY and plan.get("revision") == REVISION, "Plan must use the authorized pinned source revision")
     books = plan.get("books")
     require(isinstance(books, list) and books and len(set(books)) == len(books) and set(books) <= set(BOOKS), "Invalid source books")
-    require(plan.get("languages") == list(LANGUAGES), "The batch requires Arabic, English and Urdu; Hindi is not supplied by this provider")
-    budget = plan.get("max_books_per_batch", 7)
-    require(type(budget) is int and 1 <= budget <= 7, "Invalid whole-book batch budget")
+    require(plan.get("languages") in (list(BASE_LANGUAGES), list(LANGUAGES)),
+            "The batch requires Arabic, English and Urdu, optionally followed by Bengali; Hindi is not supplied by this provider")
+    budget = plan.get("max_books_per_batch", len(BOOKS))
+    require(type(budget) is int and 1 <= budget <= len(BOOKS), "Invalid whole-book batch budget")
     return plan
 
 
+def book_languages(plan, book):
+    # The pinned catalog has Bengali Nawawi, plus Arabic/English, but no Urdu
+    # Nawawi edition. Never request a fabricated path or treat it as a failure.
+    return [prefix for prefix in plan["languages"] if not (book == "nawawi" and prefix == "urd")]
+
+
 def provider_url(relative):
-    allowed = set(DOCUMENTS) | {"editions/" + prefix + "-" + book + ".json" for book in BOOKS for prefix in LANGUAGES}
+    allowed = set(DOCUMENTS) | {"editions/" + prefix + "-" + book + ".json" for book in BOOKS for prefix in LANGUAGES
+                              if not (book == "nawawi" and prefix == "urd")}
     require(relative in allowed, "Unconfigured upstream path")
     return "https://raw.githubusercontent.com/" + REPOSITORY + "/" + REVISION + "/" + relative
 
@@ -235,15 +252,24 @@ def split_compiler_note(text, book, language):
     pattern = AUTHOR_NOTES.get((book, language))
     if pattern is None:
         return text, [], {"quotation": [0, len(text)], "notes": []}
-    normalized, offsets = normalized_with_offsets(text) if language == "ar" else (text, list(range(len(text))))
+    # Bengali source fields can quote an Arabic compiler note before its Bengali
+    # wording. Normalize only for detection; all returned text uses raw offsets.
+    normalized, offsets = normalized_with_offsets(text) if language in ("ar", "bn") else (text, list(range(len(text))))
     match = pattern.search(normalized)
     if not match:
         return text, [], {"quotation": [0, len(text)], "notes": []}
     boundary = offsets[match.start()]
+    if language == "bn" and book == "tirmidhi":
+        # Observed grading paraphrase: "[a narrator's] hadith, Abu Isa called
+        # hasan/sahih". Keep that entire metadata clause with the compiler note.
+        sentence_start = max(text.rfind(mark, 0, boundary) for mark in ("।", "!", "?", "\n")) + 1
+        if re.search(r"(?:হাদ[ীি]স(?:টি)?কে|সনদকে)\s*$", text[sentence_start:boundary]):
+            boundary = sentence_start
     if boundary and text[boundary - 1] == "[":
         boundary -= 1
     return text[:boundary], [text[boundary:]], {"quotation": [0, boundary], "notes": [[boundary, len(text)]],
-        "method": "literal_named_compiler_note_boundary_v1", "rule": pattern.pattern,
+        "method": ("literal_bengali_compiler_or_assessment_boundary_v1" if language == "bn" else
+                   "literal_named_compiler_note_boundary_v1"), "rule": pattern.pattern,
         "note_embedded_narration_extraction": "pending; no additional occurrence inferred"}
 
 
@@ -256,15 +282,14 @@ def classify_group(versions):
                 "evidence_language": "ar", "normalized_evidence": ambiguous.group(),
                 "scope": "A wish about the Prophet or a possessive pulpit mention does not establish that he is the reported speaker"}
     for item in versions.values():
-        if item.get("unresolved_compiler_boundary"):
-            return {"classification": "held", "reason": "commentary_boundary_pending",
-                    "evidence": item["unresolved_compiler_boundary"],
-                    "scope": "Named-compiler material may be commentary or narrational context; preserve before separating"}
-    for item in versions.values():
-        reference = item["row"].get("reference", {})
-        section = item["metadata"].get("sections", {}).get(str(reference.get("book")), "")
+        section = source_section_name(item)
         if isinstance(section, str) and re.fullmatch(r"\s*(?:Introduction|Muqaddimah|مقدمة|المقدمة)\s*", section, re.I):
-            return {"classification": "held", "reason": "source_introduction_requires_bounded_narration_review", "section_as_supplied": section}
+            if not any(value.get("reviewed_source_span") for value in versions.values()):
+                return {"classification": "held", "reason": "source_introduction_requires_bounded_narration_review", "section_as_supplied": section}
+    reviewed = next((item["reviewed_source_span"] for item in versions.values() if item.get("reviewed_source_span")), None)
+    if reviewed:
+        return {"classification": "hadith", "reason": "reviewed_explicit_source_attribution",
+                "evidence": reviewed, "scope": "source_attribution_not_authenticity", "independent_authenticity_assessment": False}
     evidence = classify_arabic({"textArabic": arabic})
     if evidence["classification"] == "hadith":
         return {**evidence, "reason": "explicit_prophetic_attribution", "scope": "source_attribution_not_authenticity"}
@@ -278,8 +303,60 @@ def classify_group(versions):
             return {"classification": "hadith", "reason": "explicit_prophetic_attribution", "method": "explicit_source_language_report_v1",
                     "evidence_language": LANGUAGES[prefix][0], "evidence": match.group(),
                     "scope": "source_attribution_not_authenticity", "independent_authenticity_assessment": False}
+    expanded = explicit_report_evidence(versions)
+    if expanded:
+        return {"classification": "hadith", "reason": "explicit_source_report_attribution", "span_basis": "quotation", **expanded}
     return {"classification": "held", "reason": "prophetic_attribution_or_quotation_boundary_not_established",
             "scope": "May be non-Prophetic, abbreviated or unresolved; not a final non-hadith judgement"}
+
+
+def source_section_name(item):
+    """Use supplied section labels only within their supplied provider-ID range.
+
+    Muslim uses reference book=0 for both its introduction and unavailable
+    references later in the book. No canonical number is inferred or changed.
+    """
+    key = str(item["row"].get("reference", {}).get("book"))
+    section = item["metadata"].get("sections", {}).get(key)
+    bounds = item["metadata"].get("section_details", {}).get(key, {})
+    first, last, number = bounds.get("hadithnumber_first"), bounds.get("hadithnumber_last"), item["row"].get("hadithnumber")
+    if all(type(value) in (int, float) for value in (first, last, number)) and not first <= number <= last:
+        # Provider0 is an extra Urdu introduction, below the catalog's1..92.
+        if not (key == "0" and number == 0):
+            return None
+    return section
+
+
+def reviewed_source_spans(root):
+    data = read_json(root, "catalog/fawaz-reviewed-spans.json")
+    if data is None:
+        return {}
+    require(data.get("schema") == "hadith-bank-fawaz-reviewed-spans-v1" and
+            data.get("repository") == REPOSITORY and data.get("revision") == REVISION,
+            "Reviewed source spans must match the pinned provider revision")
+    result = {}
+    for decision in data.get("decisions", []):
+        key = (decision["provider_book"], decision["provider_edition"].split("-", 1)[0], decision["typed_hadithnumber"])
+        require(key not in result, "Duplicate reviewed source-span decision")
+        result[key] = decision
+    return result
+
+
+def apply_reviewed_span(text, decision):
+    require(sha(text.encode()) == decision["source_text_sha256"], "Reviewed quotation source hash changed")
+    if decision.get("action") == "source_context_only":
+        require(bool(text.strip()) and bool(decision.get("reason")), "Source-context exclusion requires its exact source and reason")
+        return "", [text], {"quotation": [0, 0], "quotation_spans": [], "notes": [[0, len(text)]],
+                             "method": "source_hash_bound_content_mismatch_v1", "span_unit": "unicode_codepoints"}
+    spans = decision["quotation_spans"]
+    require(isinstance(spans, list) and len(spans) == 1, "One reviewed narration span is required; separate reports cannot be joined")
+    start, end = spans[0]
+    require(type(start) is int and type(end) is int and 0 <= start < end <= len(text), "Invalid reviewed source span")
+    note_spans = ([0, start], [end, len(text)])
+    note_spans = [list(span) for span in note_spans if span[0] < span[1]]
+    return text[start:end], [text[a:b] for a, b in note_spans], {
+        "quotation": [start, end], "quotation_spans": spans, "notes": note_spans,
+        "method": "source_hash_bound_reviewed_narration_span_v1", "span_unit": "unicode_codepoints"}
 
 
 def source_credits(root, state):
@@ -289,15 +366,35 @@ def source_credits(root, state):
              "scope": "provider_project_level_credit_not_record_verified"} for url in urls if safe_url(url)]
 
 
-def provenance(meta, is_arabic=False):
+def provenance(meta, is_arabic=False, book=None):
     author = meta.get("author")
     translator = author if isinstance(author, str) and author.strip() and author.lower() != "unknown" and not is_arabic else None
+    if book == "nawawi" and author == "Imam Nawawi":
+        translator = None
     return {"ai_translation": "unknown", "origin": "unknown", "translator": translator,
             "basis": "Pinned publisher catalog attribution; extraction is not translation",
             "source_declaration": None}, translator
 
 
-def canonical_record(book, identity, versions, classification, state):
+def language_availability(book, versions, state, requested_languages):
+    statuses = {}
+    for prefix in requested_languages:
+        item = versions.get(prefix)
+        if item is not None:
+            status = ("provider_content_mismatch" if item.get("quotation_status") == "content_mismatch" else
+                      "boundary_pending_source_context" if item.get("pending_reason") else
+                      "available" if item["quotation"].strip() else
+                      "source_text_empty" if not item["row"]["text"].strip() else "narration_prefix_absent")
+        else:
+            status = ("provider_entry_absent" if "editions/" + prefix + "-" + book + ".json" in state["inputs"]
+                      else "edition_pending")
+        statuses[LANGUAGES[prefix][0]] = status
+    if book == "nawawi":
+        statuses["ur"] = "edition_not_published_in_pinned_catalog"
+    return statuses
+
+
+def canonical_record(book, identity, versions, classification, state, requested_languages=None):
     occurrence = "fawaz:" + REVISION[:12] + ":" + book + ":" + urllib.parse.quote(identity, safe="._-")
     primary = next(prefix for prefix in LANGUAGES if versions.get(prefix, {}).get("quotation", "").strip())
     language = LANGUAGES[primary][0]
@@ -309,17 +406,31 @@ def canonical_record(book, identity, versions, classification, state):
         row, meta, snap = item["row"], item["catalog"], item["snapshot"]
         grades[LANGUAGES[prefix][0]] = copy.deepcopy(row["grades"])
         quotation = item["quotation"]
-        if not quotation.strip():
+        if not quotation.strip() and not item.get("pending_reason"):
             continue
         code, _, script = LANGUAGES[prefix]
         url = entry_url(meta["name"], row["hadithnumber"])
-        origin, translator = provenance(meta, code == "ar")
+        origin, translator = provenance(meta, code == "ar", book)
         own_refs = [{"collection": BOOKS[book][1], "number": str(row["hadithnumber"]),
                      "source_citation": "Fawaz Ahmed Hadith API · " + meta["name"] + " · entry " + str(row["hadithnumber"]),
                      "url": url, "scope": "provider_entry_identity", "numbering_system": "fawaz_api_hadithnumber",
                      "canonical_mapping_status": "not_inferred", "provider_numbers": {"hadithnumber": row["hadithnumber"],
                          "arabicnumber": row.get("arabicnumber"), "reference": copy.deepcopy(row["reference"])}}]
-        comments = [{"text": value, "source_url": url, "scope": "source_compiler_note",
+        relative_reference = (item.get("reviewed_source_span") or {}).get("source_reference")
+        if relative_reference:
+            parent = relative_reference["parent_source"]
+            parent_number = json.loads(parent["typed_hadithnumber"])
+            own_evidence = next(evidence["text"] for evidence in relative_reference["reference_evidence"]
+                                if evidence["source"]["provider_edition"] == meta["name"])
+            own_refs.append({"collection": BOOKS[book][1], "number": str(parent_number),
+                "source_citation": own_evidence,
+                "url": entry_url(parent["provider_edition"], parent_number),
+                "scope": "source_explicit_previous_report_variant",
+                "numbering_system": "fawaz_api_hadithnumber", "canonical_mapping_status": "not_inferred",
+                "relation_evidence": "Source wording, named chain and observed source order checked together",
+                "identity_merged": False, "parent_text_inserted": False})
+        comments = [{"text": value, "source_url": url,
+                     "scope": "source_context_not_narration" if item.get("pending_reason") else "source_compiler_note",
                      "embedded_narrations": "retained_here_pending_separate_boundary_review"} for value in item["notes"]]
         for grade in row["grades"]:
             # Display literal assessment and assessor in this language's own notes.
@@ -335,7 +446,13 @@ def canonical_record(book, identity, versions, classification, state):
             "snapshot_stored_sha256": snap["stored_sha256"], "snapshot_compression": "gzip",
             "json_pointer": "/hadiths/" + str(item["position"]), "field": "text",
             "source_text_sha256": sha(row["text"].encode()), "text_spans": item["spans"],
+            "source_report_count": item.get("source_report_count", 1),
+            "source_report_boundaries": item.get("source_report_boundaries"),
+            "source_report_alignment_note": item.get("source_report_alignment_note"),
+            "quotation_boundary_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "pending" if item.get("pending_reason") else "bounded",
+            "quotation_boundary_reason": item.get("pending_reason"),
             "catalog_source_as_supplied": meta.get("source"), "catalog_author_as_supplied": meta.get("author"),
+            "catalog_author_role": "collection_compiler_not_translation_credit" if book == "nawawi" and meta.get("author") == "Imam Nawawi" else None,
             "project_credits_locator": state["inputs"]["References.md"]["path"],
             "project_credits_scope": "provider_project_level_credit_not_record_verified",
             "translator": {"name": translator, "evidence": "pinned_edition_catalog_author" if translator else None},
@@ -343,22 +460,25 @@ def canonical_record(book, identity, versions, classification, state):
         if safe_url(meta.get("source")):
             own_source["upstream_sources"] = [{"name": meta["source"], "url": meta["source"], "scope": "edition_catalog_source_not_record_verified"}]
         readings.append({"id": occurrence + ":" + prefix, "language": code, "script": script,
-                         "text": quotation, "source": own_source, "references": own_refs, "comments": comments,
+                         "text": None if item.get("pending_reason") else quotation, "source": own_source, "references": own_refs, "comments": comments,
                          "grading": copy.deepcopy(row["grades"]), "provider_numbers": copy.deepcopy(own_refs[0]["provider_numbers"]),
                          "translation_provenance": None if code == "ar" else origin,
-                         "scope": "source_excerpt" if item["notes"] else "source_entry", "match_status": "same_source_record"})
+                         "scope": "source_context" if item.get("quotation_status") == "content_mismatch" else "external_source" if item.get("pending_reason") else "source_excerpt" if item["notes"] else "source_entry",
+                         "quotation_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "boundary_pending" if item.get("pending_reason") else "multiple_source_reports" if item.get("source_report_count", 1) > 1 else "disjoint_source_spans" if len(item["spans"].get("quotation_spans", [])) > 1 else "bounded",
+                         "match_status": "provider_entry_content_mismatch" if item.get("quotation_status") == "content_mismatch" else "same_source_record"})
         references.extend(own_refs)
     first = versions[primary]
-    origin, translator = provenance(first["catalog"], language == "ar")
+    origin, translator = provenance(first["catalog"], language == "ar", book)
     return {"id": occurrence, "language": language, "book_key": BOOKS[book][0], "edition": EDITION,
         "record_type": "hadith", "content_kind": "source_attributed_prophetic_narration",
-        "title": first["metadata"]["sections"].get(str(first["row"]["reference"].get("book"))) or None,
+        "title": source_section_name(first) or None,
         "text": {"arabic": (versions.get("ara", {}).get("quotation")
                             if versions.get("ara", {}).get("quotation", "").strip() else None), "translation": first["quotation"]},
         "language_versions": readings,
         "source": {"title": "Fawaz Ahmed Hadith API — " + BOOKS[book][1], "url": "https://github.com/" + REPOSITORY,
                    "record_url": entry_url(first["catalog"]["name"], first["row"]["hadithnumber"]),
                    "revision": REVISION, "provider_identity": {"book": book, "typed_hadithnumber": identity},
+                   "language_availability": language_availability(book, versions, state, requested_languages or list(versions)),
                    "shared_identity_basis": "Documented provider edition numbering, unique within each file, matching supplied reference/arabicnumber"},
         "number": {"source_entry_id": first["row"]["hadithnumber"], "in_book": None, "canonical": None,
                    "numbering_system": "fawaz_api_hadithnumber", "as_supplied_by_language": {
@@ -382,22 +502,40 @@ def canonical_record(book, identity, versions, classification, state):
         "related_versions": []}
 
 
-def book_records(book, editions, catalog, state):
+def book_records(book, editions, catalog, state, requested_languages=None, reviewed_spans=None):
+    requested_languages = requested_languages or list(editions)
     groups = collections.OrderedDict()
     for prefix in LANGUAGES:
+        if prefix not in editions:
+            continue
         data = editions[prefix]
         for position, row in enumerate(data["hadiths"]):
             key = typed_identity(row["hadithnumber"])
             quotation, notes, spans = split_compiler_note(row["text"], book, LANGUAGES[prefix][0])
+            boundary = split_source_reading(row["text"], book, LANGUAGES[prefix][0])
+            if boundary is not None:
+                quotation, notes, spans = boundary["quotation"], boundary["notes"], boundary["spans"]
+            decision = (reviewed_spans or {}).get((book, prefix, key))
+            if decision:
+                quotation, notes, spans = apply_reviewed_span(row["text"], decision)
             item = {"row": row, "position": position, "quotation": quotation, "notes": notes, "spans": spans,
                     "metadata": data["metadata"], "catalog": edition_metadata(catalog, book, prefix),
                     "snapshot": state["inputs"]["editions/" + prefix + "-" + book + ".json"]}
-            if prefix == "ara" and book in UNRESOLVED_COMPILER_BOUNDARIES:
-                normalized, _ = normalized_with_offsets(quotation)
-                marker = UNRESOLVED_COMPILER_BOUNDARIES[book].search(normalized)
-                if marker:
-                    item["unresolved_compiler_boundary"] = {"language": "ar", "normalized_marker": marker.group(),
-                        "source_text_sha256": sha(row["text"].encode()), "json_pointer": "/hadiths/" + str(position) + "/text"}
+            if decision:
+                if decision.get("action") == "source_context_only":
+                    item["pending_reason"] = decision["reason"]
+                    item["quotation_status"] = "content_mismatch"
+                else:
+                    item["reviewed_source_span"] = decision
+                    for field in ("source_report_count", "source_report_boundaries", "source_report_alignment_note"):
+                        if field in decision:
+                            item[field] = decision[field]
+            elif boundary is not None and boundary.get("pending_reason"):
+                item["pending_reason"] = boundary["pending_reason"]
+            if boundary is not None:
+                for field in ("source_report_count", "source_report_boundaries"):
+                    if field in boundary:
+                        item[field] = boundary[field]
             groups.setdefault(key, {}).setdefault(prefix, []).append(item)
     accepted, held, ledger = [], [], []
     for identity, rows in groups.items():
@@ -413,17 +551,21 @@ def book_records(book, editions, catalog, state):
             reason = reason or "no_nonempty_narration_text"
         classification = {"classification": "held", "reason": reason} if reason else classify_group(versions)
         item_ledger = {"provider_book": book, "typed_hadithnumber": identity, "classification": classification,
+                       "language_availability": language_availability(book, versions, state, requested_languages),
                        "available_text_languages": [LANGUAGES[p][0] for p, v in versions.items() if v["quotation"].strip()],
-                       "source_note_languages": [LANGUAGES[p][0] for p, v in versions.items() if v["notes"]]}
+                       "source_note_languages": [LANGUAGES[p][0] for p, v in versions.items() if v["notes"]],
+                       "pending_language_boundaries": {LANGUAGES[p][0]: v["pending_reason"] for p, v in versions.items() if v.get("pending_reason")}}
         ledger.append(item_ledger)
         if classification["classification"] == "hadith":
-            accepted.append(canonical_record(book, identity, versions, classification, state))
+            accepted.append(canonical_record(book, identity, versions, classification, state, requested_languages))
         else:
             held.append({**item_ledger, "show_in_html_hadith": False, "source_versions": {
                 prefix: [{"position": item["position"], "source_path": item["snapshot"]["path"],
                           "source_sha256": item["snapshot"]["sha256"], "row": item["row"], "text_spans": item["spans"]} for item in items]
                 for prefix, items in rows.items()}})
     counts = {"provider_occurrences": len(groups), "registered_occurrences": len(accepted), "held_occurrences": len(held),
+              "requested_languages": list(requested_languages), "processed_languages": list(editions),
+              "pending_languages": [prefix for prefix in requested_languages if prefix not in editions],
               "by_hold_reason": dict(collections.Counter(item["classification"]["reason"] for item in held)),
               "source_rows_by_language": {LANGUAGES[p][0]: len(data["hadiths"]) for p, data in editions.items()},
               "nonempty_source_texts_by_language": {LANGUAGES[p][0]: sum(bool(row["text"].strip()) for row in data["hadiths"]) for p, data in editions.items()}}
@@ -450,19 +592,20 @@ def canonical_shards(rows, limit=MAX_CANONICAL_BYTES):
     return result
 
 
-def export_book(root, book, state, catalog):
+def export_book(root, book, state, catalog, prefixes, requested_languages):
     editions = {prefix: parse_edition(checked_snapshot(root, state["inputs"]["editions/" + prefix + "-" + book + ".json"]),
-                edition_metadata(catalog, book, prefix), catalog[book]["name"]) for prefix in LANGUAGES}
-    accepted, held, ledger, counts = book_records(book, editions, catalog, state)
+                edition_metadata(catalog, book, prefix), catalog[book]["name"]) for prefix in prefixes}
+    accepted, held, ledger, counts = book_records(book, editions, catalog, state, requested_languages, reviewed_source_spans(root))
     atomic(root, IMPORT + "/held/" + book + ".jsonl.gz", gzip.compress(b"".join(encoded(row) for row in held), mtime=0))
     atomic(root, IMPORT + "/classification/" + book + ".jsonl.gz", gzip.compress(b"".join(encoded(row) for row in ledger), mtime=0))
-    snapshot_keys = list(DOCUMENTS) + ["editions/" + p + "-" + book + ".json" for p in LANGUAGES]
+    snapshot_keys = list(DOCUMENTS) + ["editions/" + p + "-" + book + ".json" for p in prefixes]
     supporting = [{"path": state["inputs"][key]["path"], "sha256": state["inputs"][key]["stored_sha256"],
                    "size_bytes": state["inputs"][key]["stored_bytes"], "compression": "gzip",
                    "original_response_sha256": state["inputs"][key]["sha256"]} for key in snapshot_keys]
     source_index = {"schema": "hadith-bank-fawaz-source-index-v1", "repository": REPOSITORY, "revision": REVISION,
                     "provider_book": book, "source_snapshots": {key: state["inputs"][key] for key in snapshot_keys},
-                    "edition_metadata": {p: edition_metadata(catalog, book, p) for p in LANGUAGES},
+                    "edition_metadata": {p: edition_metadata(catalog, book, p) for p in prefixes},
+                    "requested_languages": list(requested_languages),
                     "project_credits": source_credits(root, state), "project_credits_scope": "project_wide_not_record_verified",
                     "license": {"declaration": "Unlicense", "exact_snapshot": state["inputs"]["LICENSE"],
                                 "upstream_translation_rights": "not_independently_assessed"}}
@@ -505,18 +648,27 @@ def export_book(root, book, state, catalog):
 
 def export_saved(root, plan, state):
     inputs, by_book = state["inputs"], {}
+    requested_languages = plan["languages"]
     # Validate every saved input before writing any new derived material.
     validate_state_inputs(root, state)
     if all(key in inputs for key in DOCUMENTS):
         catalog = parse_json(checked_snapshot(root, inputs["editions.json"]).decode("utf-8"))
         for book in plan["books"]:
-            if all("editions/" + prefix + "-" + book + ".json" in inputs for prefix in LANGUAGES):
-                by_book[book] = export_book(root, book, state, catalog)
-    completed = list(by_book)
+            own_languages = book_languages(plan, book)
+            prefixes = [prefix for prefix in own_languages if "editions/" + prefix + "-" + book + ".json" in inputs]
+            # A new optional edition must not remove an already complete base book.
+            # Acquisition remains pending until every requested edition is saved.
+            if all(prefix in prefixes for prefix in BASE_LANGUAGES if prefix in own_languages):
+                by_book[book] = export_book(root, book, state, catalog, prefixes, own_languages)
+    completed = [book for book, counts in by_book.items() if not counts["pending_languages"]]
     pending = [book for book in plan["books"] if book not in completed]
     summary = {"schema": "hadith-bank-fawaz-bulk-progress-v1", "revision": REVISION,
         "status": "stopped" if state.get("stop") else "complete" if not pending else "partial",
         "fetched_editions": sum(key.startswith("editions/") for key in inputs),
+        "configured_languages": requested_languages, "configured_editions": sum(len(book_languages(plan, book)) for book in plan["books"]),
+        "configured_book_languages": {book: book_languages(plan, book) for book in plan["books"]},
+        "pending_editions": ["editions/" + prefix + "-" + book + ".json" for book in plan["books"]
+                             for prefix in book_languages(plan, book) if "editions/" + prefix + "-" + book + ".json" not in inputs],
         "registered_occurrences": sum(value["registered_occurrences"] for value in by_book.values()),
         "held_occurrences": sum(value["held_occurrences"] for value in by_book.values()),
         "provider_occurrences": sum(value["provider_occurrences"] for value in by_book.values()),
@@ -579,10 +731,10 @@ def run(args):
         if state.get("stop"):
             require(args.retry_failed and not state["stop"].get("access_denied"), "Saved source stop requires inspection; access denials are not retried")
             state["stop"] = None
-    books = [book for book in plan["books"] if not all("editions/" + p + "-" + book + ".json" in state["inputs"] for p in LANGUAGES)]
-    budget = args.max_books if args.max_books is not None else plan.get("max_books_per_batch", 7)
-    require(type(budget) is int and 1 <= budget <= 7, "--max-books must be between 1 and 7")
-    keys = list(DOCUMENTS) + ["editions/" + p + "-" + book + ".json" for book in books[:budget] for p in LANGUAGES]
+    books = [book for book in plan["books"] if not all("editions/" + p + "-" + book + ".json" in state["inputs"] for p in book_languages(plan, book))]
+    budget = args.max_books if args.max_books is not None else plan.get("max_books_per_batch", len(BOOKS))
+    require(type(budget) is int and 1 <= budget <= len(BOOKS), "--max-books must be between 1 and " + str(len(BOOKS)))
+    keys = list(DOCUMENTS) + ["editions/" + p + "-" + book + ".json" for book in books[:budget] for p in book_languages(plan, book)]
     failed = False
     for relative in keys:
         if relative in state["inputs"]:
@@ -606,7 +758,7 @@ def run(args):
                 parse_edition(raw, edition_metadata(catalog, book, prefix), catalog[book]["name"])
             state["inputs"][relative] = saved
             state["complete_input_books"] = [book for book in plan["books"] if all(
-                "editions/" + prefix + "-" + book + ".json" in state["inputs"] for prefix in LANGUAGES)]
+                "editions/" + prefix + "-" + book + ".json" in state["inputs"] for prefix in book_languages(plan, book))]
             save_json(root, state_path, state)
         except (FetchFailure, ValueError, OSError, EOFError) as error:
             if saved is not None and relative not in state["inputs"]:

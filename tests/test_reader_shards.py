@@ -176,6 +176,89 @@ globalThis.fetch=async(url,options)=>{
                             for item in actual['calls']))
         self.assertEqual(actual['progress'][-1]['loaded'], len(self.records))
 
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for the native JavaScript gzip loader')
+    def test_concurrent_loader_bounds_requests_and_assembles_out_of_order_responses(self):
+        self.build(data_directory=self.root / 'data', max_shard_bytes=1024)
+        manifest = json.loads(self.payload())
+        self.assertGreater(len(manifest['shards']), 6)
+        chunks = {item['path']: base64.b64encode((self.root / item['path']).read_bytes()).decode('ascii')
+                  for item in manifest['shards']}
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        loader = 'async function loadReaderShards(' + template.split('async function loadReaderShards(', 1)[1].split('\nlet records,', 1)[0]
+        program = '''
+const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+globalThis.crypto=require('crypto').webcrypto;
+const calls=[],completed=[],firstWindow=[],progress=[];
+let inFlight=0,maximum=0;
+globalThis.fetch=(url,options)=>new Promise((resolve,reject)=>{
+ const path=new URL(url).pathname.slice(1),index=input.manifest.shards.findIndex(part=>part.path===path);
+ calls.push(index);inFlight++;maximum=Math.max(maximum,inFlight);
+ const finish=()=>{inFlight--;completed.push(index);resolve(new Response(Buffer.from(input.chunks[path],'base64')));};
+ if(index<6){
+  firstWindow.push(finish);
+  if(firstWindow.length===6)queueMicrotask(()=>{for(const done of firstWindow.reverse())done();});
+ }else setImmediate(finish);
+});
+''' + loader + '''
+(async()=>{
+ const records=await loadReaderShards(input.manifest,'https://example.invalid/index.html',value=>progress.push(value));
+ const empty=await loadReaderShards({...input.manifest,record_count:0,shards:[]},'https://example.invalid/index.html');
+ process.stdout.write(JSON.stringify({records,empty,calls,completed,maximum,progress}));
+})().catch(error=>{console.error(error);process.exitCode=1;});
+'''
+        run = subprocess.run([shutil.which('node'), '-e', program],
+                             input=json.dumps({'manifest': manifest, 'chunks': chunks}),
+                             text=True, capture_output=True, check=True, timeout=30)
+        actual = json.loads(run.stdout)
+        self.assertEqual(actual['records'], self.records)
+        self.assertEqual(actual['empty'], [])
+        self.assertEqual(actual['maximum'], 6)
+        self.assertEqual(actual['completed'][:6], [5, 4, 3, 2, 1, 0])
+        self.assertEqual(actual['calls'], list(range(len(manifest['shards']))))
+        self.assertEqual([value['part'] for value in actual['progress']],
+                         sorted(value['part'] for value in actual['progress']))
+        self.assertEqual(actual['progress'][-1]['loaded'], len(self.records))
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for the native JavaScript gzip loader')
+    def test_later_concurrent_integrity_failure_aborts_window_without_returning_partial_records(self):
+        self.build(data_directory=self.root / 'data', max_shard_bytes=1024)
+        manifest = json.loads(self.payload())
+        self.assertGreater(len(manifest['shards']), 6)
+        chunks = {item['path']: base64.b64encode((self.root / item['path']).read_bytes()).decode('ascii')
+                  for item in manifest['shards']}
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        loader = 'async function loadReaderShards(' + template.split('async function loadReaderShards(', 1)[1].split('\nlet records,', 1)[0]
+        program = '''
+const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+globalThis.crypto=require('crypto').webcrypto;
+const calls=[],aborted=[],progress=[];
+globalThis.fetch=(url,options)=>new Promise((resolve,reject)=>{
+ const path=new URL(url).pathname.slice(1),index=input.manifest.shards.findIndex(part=>part.path===path);
+ calls.push(index);
+ if(index===3){
+  const bytes=Buffer.from(input.chunks[path],'base64');bytes[bytes.length-1]^=1;
+  resolve(new Response(bytes));
+ }else options.signal.addEventListener('abort',()=>{aborted.push(index);reject(new DOMException('Aborted','AbortError'));},{once:true});
+});
+''' + loader + '''
+(async()=>{
+ let records=null,error=null;
+ try{records=await loadReaderShards(input.manifest,'https://example.invalid/index.html',value=>progress.push(value));}
+ catch(failure){error=failure.message;}
+ await new Promise(resolve=>setImmediate(resolve));
+ process.stdout.write(JSON.stringify({records,error,calls,aborted,progress}));
+})().catch(error=>{console.error(error);process.exitCode=1;});
+'''
+        run = subprocess.run([shutil.which('node'), '-e', program],
+                             input=json.dumps({'manifest': manifest, 'chunks': chunks}),
+                             text=True, capture_output=True, check=True, timeout=30)
+        actual = json.loads(run.stdout)
+        self.assertIsNone(actual['records'])
+        self.assertIn('integrity', actual['error'])
+        self.assertEqual(actual['calls'], list(range(6)))
+        self.assertEqual(sorted(actual['aborted']), [0, 1, 2, 4, 5])
+        self.assertTrue(all(value['loaded'] == 0 for value in actual['progress']))
+
 
 if __name__ == '__main__':
     unittest.main()

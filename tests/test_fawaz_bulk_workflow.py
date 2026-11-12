@@ -1,5 +1,6 @@
 """Exercise source-batch publication against concurrent local Git writers."""
 import os
+import json
 from pathlib import Path
 import shlex
 import shutil
@@ -11,16 +12,24 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def save_step():
+def workflow_step(name):
     lines = (ROOT / '.github/workflows/import-fawaz-bulk.yml').read_text().splitlines()
-    start = lines.index('      - name: Save the validated whole-book batch')
-    start = lines.index('        run: |', start) + 1
+    start = lines.index('      - name: ' + name)
+    end = next((index for index in range(start + 1, len(lines))
+                if lines[index].startswith('      - name: ')), len(lines))
+    start = next(index for index in range(start, end)
+                 if lines[index] in ('        run: |', '        run: >-'))
+    folded = lines[start] == '        run: >-'
     body = []
-    for line in lines[start:]:
+    for line in lines[start + 1:end]:
         if line and not line.startswith('          '):
             break
         body.append(line[10:])
-    return '\n'.join(body)
+    return (' ' if folded else '\n').join(body)
+
+
+def save_step():
+    return workflow_step('Save the validated whole-book batch')
 
 
 class FawazBulkWorkflowTests(unittest.TestCase):
@@ -150,6 +159,108 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertEqual(second.returncode, 0, second.stderr)
         self.assertEqual(self.git(self.remote, 'rev-parse', 'main'), saved)
         self.assertEqual(self.validations.read_text(), 'validated\n')
+
+    def record_outcome(self, plan, fetched=21):
+        folder = self.work / 'catalog'
+        folder.mkdir(exist_ok=True)
+        (folder / 'fawaz-bulk-plan.json').write_text(json.dumps(plan))
+        checkpoint = self.source.parent / 'progress.json'
+        checkpoint.write_text(json.dumps({'status': 'partial', 'fetched_editions': fetched,
+                                         'registered_occurrences': 123, 'complete': False}))
+        summary = self.root / 'step-summary.md'
+        environment = {**self.env, 'GITHUB_STEP_SUMMARY': str(summary),
+                       'PYTHONPATH': str(ROOT / 'scripts'),
+                       'SOURCE_INTEGRITY_OUTCOME': 'success'}
+        result = subprocess.run(['bash', '-c', workflow_step('Record the batch outcome')],
+            cwd=self.work, env=environment, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        context = json.loads((self.work / '.work/fawaz-bulk-run/run-context.json').read_text())
+        return context, summary.read_text()
+
+    def test_outcome_counts_only_published_editions_and_distinguishes_partial_checkpoint(self):
+        plan = json.loads((ROOT / 'catalog/fawaz-bulk-plan.json').read_text())
+        self.assertEqual(plan['languages'], ['ara', 'eng', 'urd', 'ben'])
+        self.assertEqual(len(plan['books']), 8)
+        self.assertIn('nawawi', plan['books'])
+        context, summary = self.record_outcome(plan)
+        self.assertEqual(context['planned_languages'], ['ara', 'eng', 'urd', 'ben'])
+        self.assertEqual(context['planned_editions'], 31)
+        self.assertEqual(context['planned_books'], plan['books'])
+        self.assertEqual(context['progress']['fetched_editions'], 21)
+        self.assertFalse(context['progress']['complete'])
+        self.assertEqual(context['SOURCE_INTEGRITY_OUTCOME'], 'success')
+        self.assertIn('ara, eng, urd, ben', summary)
+        self.assertIn('planned whole editions: 31', summary)
+        self.assertIn('source integrity: success', summary)
+
+    def test_outcome_uses_actual_plan_for_prior_and_restricted_book_selections(self):
+        current = json.loads((ROOT / 'catalog/fawaz-bulk-plan.json').read_text())
+        original_books = [book for book in current['books'] if book != 'nawawi']
+        for books, languages, expected in (
+                (original_books, ['ara', 'eng', 'urd', 'ben'], 28),
+                (original_books, ['ara', 'eng', 'urd'], 21),
+                (['nawawi'], ['ara', 'eng', 'urd', 'ben'], 3)):
+            with self.subTest(books=len(books), languages=len(languages)):
+                context, summary = self.record_outcome(
+                    {**current, 'books': books, 'languages': languages}, fetched=2)
+                self.assertEqual(context['planned_editions'], expected)
+                self.assertEqual(context['planned_books'], books)
+                self.assertEqual(context['planned_languages'], languages)
+                self.assertEqual(context['progress']['fetched_editions'], 2)
+
+    def run_integrity_step(self, fail=False):
+        scripts = self.work / 'scripts'
+        shutil.copyfile(ROOT / 'scripts/run_logged_task.py', scripts / 'run_logged_task.py')
+        (scripts / 'validate_fawaz_sources.py').write_text(
+            'import argparse, json, os\nfrom pathlib import Path\n'
+            'parser = argparse.ArgumentParser()\n'
+            'parser.add_argument("--root", required=True)\n'
+            'parser.add_argument("--output", required=True, type=Path)\n'
+            'args = parser.parse_args()\n'
+            'assert args.root == "."\n'
+            'assert str(args.output) == "imports/web-fawaz-20261112/source-integrity-validation.json"\n'
+            'if os.environ.get("TEST_SOURCE_INTEGRITY_FAIL"):\n'
+            '    raise SystemExit("TEST source text differs from its saved spans")\n'
+            'args.output.parent.mkdir(parents=True, exist_ok=True)\n'
+            'args.output.write_text(json.dumps({"status": "passed", "acquisition_complete": False}))\n')
+        return subprocess.run(['bash', '-c', workflow_step(
+            'Verify exact saved source text and complete occurrence accounting')],
+            cwd=self.work, env={**self.env, 'TEST_SOURCE_INTEGRITY_FAIL': '1' if fail else ''},
+            capture_output=True, text=True, timeout=30)
+
+    def test_source_validation_gate_retains_report_for_a_valid_partial_checkpoint(self):
+        result = self.run_integrity_step()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        report = self.source.parent / 'source-integrity-validation.json'
+        self.assertEqual(json.loads(report.read_text()), {'status': 'passed', 'acquisition_complete': False})
+        status = json.loads((self.work / '.work/fawaz-source-integrity/status.json').read_text())
+        self.assertEqual(status['exit_code'], 0)
+
+    def test_source_validation_failure_stops_the_gate_and_retains_diagnostics(self):
+        result = self.run_integrity_step(fail=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse((self.source.parent / 'source-integrity-validation.json').exists())
+        status = json.loads((self.work / '.work/fawaz-source-integrity/status.json').read_text())
+        self.assertNotEqual(status['exit_code'], 0)
+        self.assertIn('TEST source text differs',
+                      (self.work / '.work/fawaz-source-integrity/output.log').read_text())
+
+    def test_source_integrity_gate_precedes_registry_and_save_with_adequate_export_budget(self):
+        source = (ROOT / '.github/workflows/import-fawaz-bulk.yml').read_text()
+        gate = source.split('      - name: Verify exact saved source text and complete occurrence accounting\n', 1)[1]
+        gate = gate.split('      - name: ', 1)[0]
+        self.assertNotIn('continue-on-error:', gate)
+        self.assertNotIn('if:', gate)
+        order = [source.index('      - name: ' + name) for name in (
+            'Rebuild only complete verified books from saved sources',
+            'Verify exact saved source text and complete occurrence accounting',
+            'Validate the complete material registry', 'Save the validated whole-book batch')]
+        self.assertEqual(order, sorted(order))
+        export = shlex.split(workflow_step('Rebuild only complete verified books from saved sources'))
+        self.assertEqual(export[export.index('--timeout') + 1], '900')
+        self.assertIn("      - 'scripts/validate_fawaz_sources.py'", source.split('permissions:', 1)[0])
+        self.assertIn('            .work/fawaz-source-integrity/', source)
+        self.assertIn('            imports/web-fawaz-20261112/source-integrity-validation.json', source)
 
 
 if __name__ == '__main__':

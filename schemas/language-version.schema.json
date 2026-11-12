@@ -25,8 +25,10 @@
       ]
     },
     "text": {
-      "type": "string",
-      "minLength": 1
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "source": {
       "type": "object",
@@ -90,7 +92,111 @@
         "string",
         "null"
       ]
+    },
+    "quotation_status": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          {
+            "properties": {
+              "scope": {
+                "const": "external_source"
+              },
+              "quotation_status": {
+                "const": "boundary_pending"
+              }
+            },
+            "required": [
+              "scope",
+              "quotation_status"
+            ]
+          },
+          {
+            "properties": {
+              "scope": {
+                "const": "source_context"
+              },
+              "quotation_status": {
+                "const": "content_mismatch"
+              }
+            },
+            "required": [
+              "scope",
+              "quotation_status"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "properties": {
+          "text": {
+            "const": null
+          },
+          "source": {
+            "anyOf": [
+              {
+                "required": [
+                  "record_url"
+                ],
+                "properties": {
+                  "record_url": {
+                    "type": "string",
+                    "pattern": "^https?://[^/\\s]+"
+                  }
+                }
+              },
+              {
+                "required": [
+                  "url"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "pattern": "^https?://[^/\\s]+"
+                  }
+                }
+              }
+            ]
+          },
+          "comments": {
+            "contains": {
+              "type": "object",
+              "required": [
+                "scope",
+                "text"
+              ],
+              "properties": {
+                "scope": {
+                  "const": "source_context_not_narration"
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "comments"
+        ]
+      },
+      "else": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  ]
 }
