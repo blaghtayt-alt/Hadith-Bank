@@ -1,0 +1,39 @@
+{
+  "schema": "hadith-bank-recovered-input-checkpoint-v1",
+  "recorded_on_japan": "2026-11-13",
+  "status": "source_bound_review_inputs_preserved_not_yet_published",
+  "previous_review_branch_head": "8930e8a2f6425550e3644b76c0b7a4f66694646d",
+  "baseline_registered": 29911,
+  "baseline_held": 6553,
+  "provider_occurrences": 36464,
+  "durable_decisions": 3081,
+  "baseline_decisions": 593,
+  "recovered_new_language_decisions": 2488,
+  "recovered_positive_provider_ids": 2292,
+  "projected_registered": 32203,
+  "projected_held": 4261,
+  "lost_previous_candidate_count": 4946,
+  "missing_later_candidate_decisions_require_fresh_source_review": true,
+  "files": [
+    {
+      "path": "recovered-catalog.json.gz",
+      "sha256": "f6bd06c8aecbb216505a4fda8f704f04fd082a2334f69432cae062fea42d2047",
+      "raw_sha256": "a0535ce79669c8a5ca32f89abb0bfffe457864cc99ab361b5e38e931417b024e",
+      "bytes": 416490
+    },
+    {
+      "path": "grouped-code.patch.gz",
+      "sha256": "7dd9077691b5df66d68b075ef2c88edfed5f6f325c9cf7b5ac8cadef7887ce4e",
+      "bytes": 9270
+    }
+  ],
+  "validation": {
+    "source_bound_decisions_passed": 3081,
+    "fawaz_tests_passed": 185,
+    "language_reading_tests_passed": 18,
+    "full_written_export": "pending",
+    "registered_source_preservation": "pending",
+    "reader_publication": "pending"
+  },
+  "scope": "Preserves actual recovered decision bytes and newly rebuilt grouped-report code, not the unavailable earlier 4946-candidate catalog. All remaining source IDs retained for fresh review."
+}
