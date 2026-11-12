@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **79,461 source occurrences** in 11 languages, plus **83 preserved legacy source files**.
+This public bank contains **79,795 source occurrences** in 11 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -16,13 +16,13 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | hadeethenc | `sqlite-a22a0e545c70b320` | 2,256 | [Read](../browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite) |
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
-| Hindi | abu-dawud | `deenhindi-web-20261112` | 274 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
-| Hindi | bukhari | `deenhindi-web-20261112` | 299 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
-| Hindi | ibn-majah | `deenhindi-web-20261112` | 321 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
-| Hindi | malik | `deenhindi-web-20261112` | 157 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
-| Hindi | muslim | `deenhindi-web-20261112` | 252 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
-| Hindi | nasai | `deenhindi-web-20261112` | 280 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
-| Hindi | tirmidhi | `deenhindi-web-20261112` | 337 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
+| Hindi | abu-dawud | `deenhindi-web-20261112` | 326 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
+| Hindi | bukhari | `deenhindi-web-20261112` | 342 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
+| Hindi | ibn-majah | `deenhindi-web-20261112` | 379 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
+| Hindi | malik | `deenhindi-web-20261112` | 192 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
+| Hindi | muslim | `deenhindi-web-20261112` | 292 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
+| Hindi | nasai | `deenhindi-web-20261112` | 331 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
+| Hindi | tirmidhi | `deenhindi-web-20261112` | 392 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
 | Persian | bukhari | `faiz-al-bari-heravi-v1` | 412 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v1/README.md) | [Original file](../materials/fa-faiz-al-bari-v1/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v2` | 451 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v2/README.md) | [Original file](../materials/fa-faiz-al-bari-v2/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v3` | 504 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v3/README.md) | [Original file](../materials/fa-faiz-al-bari-v3/source.docx) |
@@ -252,7 +252,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 78,296 |
+| Human | 78,630 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -262,7 +262,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 39,665 |
+| `unknown` | 39,999 |
 | `human_translator_credited` | 30,506 |
 | `legacy_source_history` | 867 |
 
