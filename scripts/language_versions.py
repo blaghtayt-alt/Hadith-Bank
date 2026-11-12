@@ -58,7 +58,7 @@ def validate_language_versions(versions, location='language_versions'):
     return versions
 
 
-def quotation_qualification(version):
+def _quotation_status_qualification(version):
     if version.get('quotation_status') == 'content_mismatch':
         return ('This provider ID contains different material in this language. Its full source text is '
                 'preserved under Comments and is not a translation or Arabic counterpart of the displayed narration.')
@@ -71,11 +71,15 @@ def quotation_qualification(version):
         return ('This edition abbreviates the report and explicitly refers to another source entry. '
                 'The exact abbreviated wording is preserved here; open References for the cited report.')
     if version.get('quotation_status') == 'multiple_source_reports':
-        value = ('This source entry preserves two separately attributed reports in their original order. '
-                 'They remain one provider entry, with their distinct narrator introductions and source references.')
-        note = (version.get('source') or {}).get('source_report_alignment_note')
-        return value + (' ' + note if isinstance(note, str) and note.strip() else '')
+        return ('This source entry preserves two separately attributed reports in their original order. '
+                'They remain one provider entry, with their distinct narrator introductions and source references.')
     return ''
+
+
+def quotation_qualification(version):
+    value = _quotation_status_qualification(version)
+    note = (version.get('source') or {}).get('source_report_alignment_note')
+    return ' '.join(part for part in (value, note.strip() if isinstance(note, str) else '') if part)
 
 
 def project_language_versions(versions, default_policy=None):

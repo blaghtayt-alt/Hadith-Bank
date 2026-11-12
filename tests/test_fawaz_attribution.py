@@ -454,6 +454,129 @@ class FawazAttributionTests(unittest.TestCase):
         self.assertIsNone(explicit_report_evidence({"ara": {"quotation": "TEST"},
                                                    "eng": {"row": {"text": "the Prophet came TEST"}}}))
 
+    def test_source_observed_finite_actions_keep_the_named_subject(self):
+        # Arabic report syntax from Bukhari184/478/1836/2069/4031,
+        # Muslim774/1546 and the separately logged held-source cohort.
+        for verb in ("انصرف", "تغيظ", "رد", "أراد", "شبك", "أخر", "احتجم", "حلق", "رهن",
+                     "حرق", "عاب", "حالف", "أردفني", "صعد", "اتخذ", "اشتكى", "زجر",
+                     "قنت", "رخص", "اعتمر", "رمل", "رجم", "ضرب", "سمل", "تبنى"):
+            with self.subTest(verb=verb):
+                self.evidence("ara", "TEST " + verb + " رسول الله ﷺ TEST", "arabic_reported_action")
+        # Explicit narrated nonaction is not an absence of attribution.
+        self.evidence("ara", "TEST ما عاب النبي طعاما TEST", "arabic_reported_action")
+        for quotation in ("TEST هل اتخذ النبي TEST", "TEST هل قنت رسول الله TEST",
+                          "TEST كيف انصرف رسول الله TEST", "TEST لو رجم النبي TEST",
+                          "TEST احتجم صاحب رسول الله TEST", "TEST شبك عمر TEST"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_object_command_and_witnessed_service_preserve_actor(self):
+        # Nasai286/374; Malik132; AbuDawud1745/376/2940/885/881.
+        for quotation, rule in (
+            ("TEST أمرها رسول الله TEST", "arabic_reported_command_to_person"),
+            ("TEST نهاهم النبي TEST", "arabic_reported_command_to_person"),
+            ("TEST كنت أرجل رأس رسول الله TEST", "arabic_witnessed_service_or_practice"),
+            ("TEST كنت أطيب رسول الله TEST", "arabic_witnessed_service_or_practice"),
+            ("TEST كنت أخدم رسول الله TEST", "arabic_witnessed_service_or_practice"),
+            ("TEST كنا نبايع رسول الله TEST", "arabic_witnessed_service_or_practice"),
+            ("TEST رمقت النبي TEST", "arabic_witnessed_service_or_practice"),
+            ("TEST صليت إلى جنب رسول الله TEST", "arabic_reported_adjacent_prayer"),
+        ):
+            with self.subTest(quotation=quotation):
+                self.evidence("ara", quotation, rule)
+        for quotation in ("TEST أمرها عمر TEST", "TEST كنت أخدم صاحب رسول الله TEST",
+                          "TEST كنت أرجل رأس عمر TEST", "TEST لو صليت إلى جنب رسول الله TEST",
+                          "TEST كنا على عهد رسول الله TEST"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_reported_encounter_and_demonstration_are_qualified(self):
+        # Bukhari182 and186 report an encounter and reproduced ablution.
+        self.evidence("ara", "TEST أنه كان مع رسول الله ﷺ في سفر TEST",
+                      "arabic_qualified_shared_encounter")
+        value = self.evidence("ara", "TEST فتوضأ لهم وضوء النبي TEST",
+                              "arabic_reproduced_prophetic_practice")
+        self.assertEqual(value["scope"], "explicit_prophetic_practice_or_description")
+        for quotation in ("TEST أنه كان مع رسول الله TEST unspecified", "TEST فتوضأ لهم وضوء عمر TEST",
+                          "TEST لو أنه كان مع رسول الله في سفر TEST"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_shared_bathing_and_expeditions_have_actual_narrated_predicate(self):
+        # Bukhari225/250/261/299/300/301 and Muslim731/4696.
+        for quotation in ("TEST كنت أغتسل أنا ورسول الله ﷺ TEST",
+                          "TEST كنا نغزو مع النبي TEST", "TEST غزا مع رسول الله TEST"):
+            with self.subTest(quotation=quotation):
+                self.evidence("ara", quotation, "arabic_explicit_shared_practice")
+        self.evidence("ara", "TEST رأيتني أنا والنبي ﷺ نتماشى TEST", "arabic_witnessed_shared_walk")
+        for quotation in ("TEST أنا والنبي TEST", "TEST كنت أغتسل أنا وزوج النبي TEST",
+                          "TEST لو كنا نغزو مع النبي TEST", "TEST رأيتني أنا والنبي TEST"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_retrospective_hearing_and_prophetic_pledge_have_explicit_target(self):
+        # Bukhari179, Muslim219/240, IbnMajah114. These are indirect report
+        # constructions, not a claim that all narrator framing is direct speech.
+        for quotation in ("TEST سمعته من رسول الله TEST", "TEST سمعت أذناي من رسول الله TEST",
+                          "TEST سمع أذناى من رسول الله TEST"):
+            with self.subTest(quotation=quotation):
+                self.evidence("ara", quotation, "arabic_retrospective_hearing_attribution")
+        for quotation in ("TEST عهد إلي النبي الأمي ﷺ TEST",
+                          "TEST إنه لعهد النبي الأمي صلى الله عليه وسلم إلي TEST"):
+            with self.subTest(quotation=quotation):
+                self.evidence("ara", quotation, "arabic_explicit_prophetic_pledge")
+        for quotation in ("TEST لم سمعته من رسول الله TEST deliberately negated fixture",
+                          "TEST ما سمعت هذا من رسول الله TEST", "TEST سمعته من عمر TEST",
+                          "TEST إن كانت سمعت هذا من رسول الله TEST conjecture",
+                          "TEST إني لأظنها سمعت هذا من رسول الله TEST conjecture",
+                          "TEST اكتب إلي بحديث سمعته من رسول الله TEST request without response",
+                          "TEST لا أدع شيئا سمعته من رسول الله TEST generic transmission claim",
+                          "TEST وقد سَمِعْتَهُ من رسول الله TEST second-person unspecified report",
+                          "TEST كيف كان عبد الله يقرأ TEST وقد سمعتها من رسول الله TEST Quran context",
+                          "TEST أكتب لها مصحفا TEST سمعتها من رسول الله TEST Quran context",
+                          "TEST على عهد النبي ﷺ إلى المدينة TEST lifetime and destination",
+                          "TEST هل عهد إلي النبي TEST", "TEST على عهد النبي TEST independent event"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+        source = "TEST أشيء سَمِعْتَهُ من رسول الله TEST قال بل سَمِعْتُهُ من رسول الله TEST"
+        value = self.evidence("ara", source, "arabic_retrospective_hearing_attribution")
+        self.assertIn("سَمِعْتُهُ", value["text"])
+        self.assertNotIn("سَمِعْتَهُ", value["text"])
+
+    def test_habit_question_requires_its_actual_answer(self):
+        # Nasai8 / AbuDawud51. A question by itself is insufficient.
+        source = "TEST قلت لعائشة بأي شيء كان يبدأ النبي صلى الله عليه وسلم إذا دخل بيته قالت بالسواك TEST"
+        self.evidence("ara", source, "arabic_habit_question_with_reported_answer")
+        for quotation in (source.replace("قالت بالسواك", "قالت لا أدري"),
+                          source.replace("قالت بالسواك", "قال عمر بالسواك"),
+                          source.replace("النبي", "عمر"),
+                          source.replace("قالت بالسواك", "TEST unanswered")):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_owned_vessel_and_affirmed_prohibition_are_actual_report_evidence(self):
+        # AbuDawud24 / Nasai32 and AbuDawud7 / Tirmidhi16.
+        self.evidence("ara", "TEST كان للنبي ﷺ قدح من عيدان TEST", "arabic_owned_practice_object")
+        self.evidence("ara", "TEST قد علمكم نبيكم ﷺ كل شيء حتى الخراءة فقال سلمان أجل نهانا TEST",
+                      "arabic_explicit_taught_and_prohibited")
+        for quotation in ("TEST كان لصاحب النبي قدح TEST", "TEST كان للنبي زوجة TEST",
+                          "TEST قد علمكم نبيكم كل شيء حتى الخراءة فقال سلمان لا أدري TEST",
+                          "TEST إن صاحبكم ليعلمكم حتى الخراءة قال أجل نهانا TEST unknown antecedent"):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
+    def test_endpoint_raised_attribution_does_not_complete_abbreviated_text(self):
+        # Muslim208 explicitly says رفعه and identifies Shu'ba's other report.
+        source = 'TEST عن أبي هريرة، رفعه قال " TEST ثم ذكر بمثل حديث شعبة TEST'
+        value = self.evidence("ara", source, "arabic_endpoint_raised_transmission")
+        self.assertEqual(value["scope"], "source_explicit_abbreviated_report")
+        for quotation in ('TEST عن أبي هريرة، لم يرفعه قال " TEST',
+                          'TEST عن أبي هريرة، رفع الثوب قال " TEST',
+                          'TEST عن أبي هريرة، رفعه TEST no supplied quoted clause',
+                          'TEST ولم يرفعاه زاد " TEST'):
+            with self.subTest(quotation=quotation):
+                self.assertIsNone(explicit_report_evidence(versions("ara", quotation)))
+
 
 if __name__ == "__main__":
     unittest.main()

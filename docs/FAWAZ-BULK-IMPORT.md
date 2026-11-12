@@ -305,3 +305,42 @@ decisions identify their exact line and the compressed/uncompressed hashes of
 this ledger. This batch's proposals are frozen decisions for the pinned revision;
 future source changes require a new review. The ledger is not a certification of
 translation equivalence or narrational authenticity.
+
+## Final continuation snapshot — 12 November 2026
+
+The recovered final export uses all 31 pinned editions and the reviewed-span
+catalog with SHA-256
+`8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c`.
+Its 593 language decisions retain all 359 previous decisions unchanged and add
+234 exact source-bound decisions across 73 provider occurrences. These new
+decisions keep Companion statements, compiler notes and source-language
+discrepancies visible separately from their supported narration spans. Original
+source wording is unchanged.
+
+| Count | Original published source snapshot | Final continuation export | Change |
+| --- | ---: | ---: | ---: |
+| Whole edition files | 21 | 31 | +10 |
+| Provider occurrences | 36,422 | 36,464 | +42 |
+| Registered reader occurrences | 24,867 | 29,911 | +5,044 |
+| Retained source occurrences outside narration search | 11,555 | 6,553 | −5,002 |
+
+Every original provider ID remains accounted for. All 24,867 previously
+registered occurrences remain registered. Of the original 11,555 held
+occurrences, 5,002 are now registered and 6,553 remain readable in the complete
+source views. The additional 42 provider occurrences belong to Nawawi; adding
+Bengali language fields to an existing provider occurrence does not increase
+the occurrence count. The earlier continuation snapshot of 29,707 registered
+and 6,757 retained occurrences remains historical evidence; the final correction
+adds 204 registrations relative to it.
+
+The whole-bank published baseline at commit
+`95abca88db8f511fb3c8f085de2d812d96068d37` was 73,026 occurrences. With other
+source registrations unchanged, this final export yields 78,070 occurrences.
+The source-import workflow and subsequent reader deployment must confirm that
+total for the deployed revision; a local export alone is not publication.
+
+The retained 6,553 occurrences are not all declared non-hadith. Their source
+records distinguish unresolved attribution or quotation boundaries,
+independent statements, source discussion and empty placeholders. Complete
+source visibility, source-integrity checks and software tests do not constitute
+independent authentication or translation certification.

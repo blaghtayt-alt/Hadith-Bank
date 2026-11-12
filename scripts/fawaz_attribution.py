@@ -25,7 +25,7 @@ import re
 import unicodedata
 
 
-RULE_VERSION = "fawaz-explicit-report-v2"
+RULE_VERSION = "fawaz-explicit-report-v3"
 LANGUAGE_CODES = {"ara": "ar", "eng": "en", "urd": "ur", "ben": "bn"}
 
 # Strip only detection noise, retaining an offset for every surviving character.
@@ -65,7 +65,8 @@ AR_SPEECH = re.compile(
 AR_ACTION = re.compile(
     AR_START + r"(?:مر|اتي|اتانا|اتاني|اتاه|جاء|جاءنا|جاءني|قدم|بال|شرب|اكل|لبس|مسح|قبل|نام|اضطجع|ركب|سافر|"
     r"صام|افطر|ذبح|ضحي|اعطي|اخذ|ناول|بعث|ارسل|جمع|رمي|طاف|سعي|اشتري|باع|تزوج|طلق|صلي|قام|خرج|دخل|دعا|"
-    r"استسقي|استيقظ|رفع|صبح|خطبني|تخلف|وضع|يضع)\s+"
+    r"استسقي|استيقظ|رفع|صبح|خطبني|تخلف|وضع|يضع|انصرف|تغيظ|رد|اراد|شبك|اخر|احتجم|حلق|رهن|حرق|عاب|"
+    r"حالف|اردفني|صعد|اتخذ|اشتكي|زجر|قنت|رخص|اعتمر|رمل|رجم|ضرب|سمل|تبني)\s+"
     r"(?:(?:بنا|بهم|بي|لي|لنا|علي|علينا|فينا|معنا|عندنا|عنا)\s+)?" + AR_NAME)
 AR_ENCOUNTER = re.compile(
     AR_START + r"(?:(?:بايعت|بايعنا|اتيت|اتينا|جئت|جئنا|صحبت|صحبنا|خدمت|خدمنا|سقيت|سقينا|طيبت|التَمست|التمست|اتبعت|اتبعنا)\s+|"
@@ -107,8 +108,55 @@ AR_TARGETED_TRANSMISSION = re.compile(
     r"(?:يرفعه|رفعه|ينميه|نماه)\s+الي\s+|يبلغ\s+به\s+)" + AR_NAME)
 AR_TECHNICAL_MARFU = re.compile(
     r"(?<!\w)(?:الحديث|حديث(?:\s+(?:ايوب|الاعمش|سفيان))?|نحو\s+حديث\s+(?:ايوب|الاعمش|سفيان))\s+مرفوعا\b")
-AR_VARIANT = re.compile(r"(?<!\w)(?:بمثله|بنحوه|بمعناه|مثله|نحوه|نحو\s+حديث|بمعني\s+حديث)\b")
+AR_VARIANT = re.compile(r"(?<!\w)(?:بمثله|بنحوه|بمعناه|مثله|نحوه|بمثل\s+حديث|نحو\s+حديث|بمعني\s+حديث)\b")
 AR_EXPLICIT_ABRIDGEMENT = re.compile(r"(?<!\w)(?:بنحو|بمعني)\s+حديث\s+\S+")
+
+# Finite constructions observed in the retained source queue. These report an
+# actual action, instruction or description, including an indirect report. They
+# do not use a bare Prophetic name as the evidence and do not assign the whole
+# surrounding paragraph to the Prophet as direct speech.
+AR_OBJECT_COMMAND = re.compile(
+    AR_START + r"(?:امر(?:ه|ها|هم|هن)|نها(?:ه|ها|هم|هن)|علم(?:ني|نا|ه|ها|هم)|"
+    r"اوص(?:اني|انا|اه|اها)|حذر(?:ني|نا|ه|ها|هم))\s+" + AR_NAME)
+AR_WITNESSED_SERVICE = re.compile(
+    AR_START + r"(?:(?:كنت|كنا)\s+(?:اطيب|نطيب|اخدم|نخدم|نبايع|ابايع)\s+|"
+    r"(?:رمقت|رمقنا)\s+|(?:كنت|كنا)\s+(?:ارجل|نرجل|اغسل|نغسل)\s+(?:راس|ثوب)\s+|"
+    r"ارجل\s+راس\s+)" + AR_NAME)
+AR_SHARED_REPORTED_PRACTICE = re.compile(
+    AR_START + r"(?:كنت\s+اغتسل\s+انا\s+و\s*|كنا\s+نغزو\s+مع\s+|غزا\s+مع\s+)" + AR_NAME)
+AR_WITNESSED_SHARED_WALK = re.compile(
+    AR_START + r"رايتني\s+انا\s+و\s*" + AR_NAME + AR_JOIN + r"نتماشي\b")
+AR_ADJACENT_PRAYER = re.compile(
+    AR_START + r"(?:صليت|صلينا)\s+(?:الي|عن)\s+(?:جنب|يمين|يسار)\s+" + AR_NAME)
+AR_QUALIFIED_ENCOUNTER = re.compile(
+    r"(?<!\w)(?:انه|انها)\s+كان(?:ت)?\s+مع\s+" + AR_NAME + AR_JOIN +
+    r"في\s+(?:سفر|سفرة|غزوة|جنازة)\b")
+AR_REPRODUCED_PRACTICE = re.compile(
+    AR_START + r"(?:توضا|توضات|توضانا)\s+(?:(?:لهم|لنا)\s+)?وضوء\s+" + AR_NAME)
+AR_HEARD_RETROSPECTIVE = re.compile(
+    AR_START + r"(?:سمعته|سمعناها|سمعتها|سمعناه|سمعت\s+هذا|سمعت\s+ذلك|سمعت\s+اذناي|سمع\s+اذناي)"
+    r"\s+من\s+" + AR_NAME)
+AR_PROPHETIC_PLEDGE = re.compile(
+    AR_START + r"(?:عهد\s+(?:الي|الينا)\s+" + AR_NAME + r"(?:\s+الامي)?|"
+    r"(?:انه\s+)?لعهد\s+" + AR_NAME + r"(?:\s+الامي)?" + AR_JOIN + r"(?:الي|الينا)\b)")
+AR_OWNED_PRACTICE = re.compile(
+    AR_START + r"كان\s+(?:لرسول\s+الله|للنبي|لنبي\s+الله)\b" + AR_JOIN +
+    r"(?:قدح|خاتم|نعلان|فراش|وسادة|حصير|سيف|درع|جبة|قميص)\b")
+AR_HABIT_QUESTION = re.compile(
+    r"(?<!\w)باي\s+شيء\s+كان\s+يبدا\s+" + AR_NAME + AR_JOIN +
+    r"اذا\s+دخل\s+بيته\s*[,،?؟]*\s*ف?قالت?\s*[,،:]*\s*بالسواك\b")
+# The same bounded question/answer explicitly establishes the antecedent of
+# نهانا; nearby Prophet mentions in an unrelated Companion saying cannot pass.
+AR_TAUGHT_AND_PROHIBITED = re.compile(
+    r"(?<!\w)(?:قد|لقد)?\s*علمكم\s+نبيكم" + AR_JOIN +
+    r"كل\s+شيء\s+حتي\s+الخراءة\s*[.،,]*\s*ف?قال(?:\s+سلمان)?\s*[,،:]*\s*"
+    r"اجل\s+(?:لقد\s+)?نهانا\b")
+# رفعه قال following a named isnad endpoint is the source's technical raised
+# attribution, not a physical act of raising an object. A quote must follow;
+# absent wording is never filled from a neighbouring transmission.
+AR_ENDPOINT_RAISED = re.compile(
+    r"(?<!\w)عن\s+(?:ابي\s+هريرة|ابن\s+عباس|ابن\s+عمر|انس|جابر|عائشة)"
+    r"\s*[,،]\s*رفعه\s+قال\s*[\"«“]\s*[^\s\"»”]+")
 
 EN_NAME = (r"\b(?:the\s+(?:Holy\s+)?Prophet(?:\s+of\s+Alla+h)?|(?:the\s+)?(?:Messenger|Apostle)\s+of\s+Alla+h|"
            r"Alla+h['’]s\s+(?:Messenger|Apostle|Prophet))\b"
@@ -241,6 +289,11 @@ def _unsafe_context(text, start, end, language):
     if language == "ara":
         if re.search(r"(?:وددت|وددنا|ليتني|ليتنا|ليت|لو|لان\s+يكون|لا\s+ادري|اراه|احسبه)\b[^.؛\n]{0,150}$", before):
             return True
+        # An unanswered question mentioning an action does not assert that the
+        # action occurred. Verified question-and-answer rules start earlier and
+        # retain the answer inside their own evidence span.
+        if re.search(r"(?:هل|اهل|كيف|متي|اين)\s*$", before):
+            return True
         # 'Umar, on the Prophet's pulpit, saying ...' has another subject.
         if re.search(r"(?:منبر|عهد|زمن|وقت|قبر|دار|مولى|مولي|صاحب|اصحاب|بنت|زوجة|زوج|ازواج|ابن)\s*$", before):
             return True
@@ -305,7 +358,20 @@ RULES = {
             ("arabic_reported_response", AR_RESPONSE),
             ("arabic_attributed_dhikr_formula", AR_DHIKR),
             ("arabic_explicit_transmission_target", AR_TARGETED_TRANSMISSION),
-            ("arabic_technical_marfu_report", AR_TECHNICAL_MARFU)),
+            ("arabic_technical_marfu_report", AR_TECHNICAL_MARFU),
+            ("arabic_reported_command_to_person", AR_OBJECT_COMMAND),
+            ("arabic_witnessed_service_or_practice", AR_WITNESSED_SERVICE),
+            ("arabic_explicit_shared_practice", AR_SHARED_REPORTED_PRACTICE),
+            ("arabic_witnessed_shared_walk", AR_WITNESSED_SHARED_WALK),
+            ("arabic_reported_adjacent_prayer", AR_ADJACENT_PRAYER),
+            ("arabic_qualified_shared_encounter", AR_QUALIFIED_ENCOUNTER),
+            ("arabic_reproduced_prophetic_practice", AR_REPRODUCED_PRACTICE),
+            ("arabic_retrospective_hearing_attribution", AR_HEARD_RETROSPECTIVE),
+            ("arabic_explicit_prophetic_pledge", AR_PROPHETIC_PLEDGE),
+            ("arabic_owned_practice_object", AR_OWNED_PRACTICE),
+            ("arabic_habit_question_with_reported_answer", AR_HABIT_QUESTION),
+            ("arabic_explicit_taught_and_prohibited", AR_TAUGHT_AND_PROHIBITED),
+            ("arabic_endpoint_raised_transmission", AR_ENDPOINT_RAISED)),
     "eng": (("english_explicit_named_predicate", EN_PREDICATE),
             ("english_reported_subject_action", EN_REPORTED_ACTION),
             ("english_direct_encounter_or_practice", EN_ENCOUNTER),
@@ -340,6 +406,26 @@ def explicit_report_evidence(versions):
         normalized, offsets = _normalized(original, source_language)
         for rule, pattern in rules:
             for match in pattern.finditer(normalized):
+                if rule == "arabic_retrospective_hearing_attribution":
+                    before = normalized[max(0, match.start()-160):match.start()]
+                    if (re.search(r"(?:لم|ما|لا|هل|بحديث|حديثا|حديث|شيئا|شيء|كل)\s*$", before) or
+                            re.search(r"(?:ل?اظن(?:ه|ها)?|ان\s+كانت?)\b[^.؛\n]{0,145}$", before)):
+                        # Abu Dawud1875 explicitly conjectures that the woman
+                        # heard it. Nasai1343 first requests a hadith heard by
+                        # somebody: its later actual reply needs its own proof.
+                        continue
+                    original_match = original[offsets[match.start()]:offsets[match.end()-1]+1]
+                    if re.search(r"تَ", original_match):
+                        # A supplied fatha identifies 'you heard', not 'I
+                        # heard'. Muslim7271 is a later conversation about an
+                        # unspecified report. Nasai5098's question is followed
+                        # by an independently explicit first-person answer.
+                        continue
+                    if re.search(r"(?:مصحفا|هذه\s+الاية|كيف\s+كان\b[^.؛\n]{0,65}\bيقرا)", normalized[:match.start()]):
+                        # The object is Quran/reading-variant material in
+                        # Bukhari6278, Malik312 and Tirmidhi2982. Attribution
+                        # alone cannot supply the required component boundary.
+                        continue
                 if (rule == "english_reported_subject_action" and
                         EN_GENERAL_TRANSMISSION_CLAIM.search(normalized[match.start():match.end()+100])):
                     # Abu Dawud4612 is a later writer's general assertion that
@@ -355,7 +441,8 @@ def explicit_report_evidence(versions):
                         continue
                 scope = "explicit_prophetic_report"
                 if rule in ("arabic_demonstrated_prophetic_practice", "english_owned_practice_object",
-                            "english_reported_property_description"):
+                            "english_reported_property_description", "arabic_owned_practice_object",
+                            "arabic_habit_question_with_reported_answer", "arabic_reproduced_prophetic_practice"):
                     scope = "explicit_prophetic_practice_or_description"
                 if source_language == "eng" and EN_ABRIDGED.search(normalized):
                     scope = "source_explicit_abbreviated_report"
