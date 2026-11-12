@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **45,719 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **72,289 source occurrences** in 10 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -16,13 +16,13 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | hadeethenc | `sqlite-a22a0e545c70b320` | 2,256 | [Read](../browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite) |
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
-| Hindi | abu-dawud | `deenhindi-web-20261112` | 6 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
-| Hindi | bukhari | `deenhindi-web-20261112` | 9 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
-| Hindi | ibn-majah | `deenhindi-web-20261112` | 8 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
-| Hindi | malik | `deenhindi-web-20261112` | 5 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
-| Hindi | muslim | `deenhindi-web-20261112` | 2 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
-| Hindi | nasai | `deenhindi-web-20261112` | 8 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
-| Hindi | tirmidhi | `deenhindi-web-20261112` | 10 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
+| Hindi | abu-dawud | `deenhindi-web-20261112` | 56 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
+| Hindi | bukhari | `deenhindi-web-20261112` | 64 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
+| Hindi | ibn-majah | `deenhindi-web-20261112` | 64 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
+| Hindi | malik | `deenhindi-web-20261112` | 33 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
+| Hindi | muslim | `deenhindi-web-20261112` | 3 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
+| Hindi | nasai | `deenhindi-web-20261112` | 59 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
+| Hindi | tirmidhi | `deenhindi-web-20261112` | 65 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
 | Persian | bukhari | `faiz-al-bari-heravi-v1` | 412 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v1/README.md) | [Original file](../materials/fa-faiz-al-bari-v1/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v2` | 451 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v2/README.md) | [Original file](../materials/fa-faiz-al-bari-v2/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v3` | 504 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v3/README.md) | [Original file](../materials/fa-faiz-al-bari-v3/source.docx) |
@@ -35,17 +35,41 @@ Counts describe source occurrences across translations and editions. They are no
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v1` | 2,416 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v1/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v1/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v2` | 2,834 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v2/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v2/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v3` | 2,054 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v3/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v3/source.docx) |
+| ar | abu-dawud | `fawaz-api-df57907be352` | 2,001 | [Read](../browse/ar/abu-dawud/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-abudawud-df57907be352-ar/source-index.json) |
+| ar | abu-dawud | `fawaz-api-df57907be352-part-002` | 1,624 | [Read](../browse/ar/abu-dawud/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-abudawud-df57907be352-ar-part-002/source-index.json) |
+| en | abu-dawud | `fawaz-api-df57907be352` | 3 | [Read](../browse/en/abu-dawud/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-abudawud-df57907be352-en/source-index.json) |
+| Urdu | abu-dawud | `fawaz-api-df57907be352` | 4 | [Read](../browse/ur/abu-dawud/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-abudawud-df57907be352-ur/source-index.json) |
+| ar | bukhari | `fawaz-api-df57907be352` | 2,469 | [Read](../browse/ar/bukhari/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-bukhari-df57907be352-ar/source-index.json) |
+| ar | bukhari | `fawaz-api-df57907be352-part-002` | 2,388 | [Read](../browse/ar/bukhari/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-bukhari-df57907be352-ar-part-002/source-index.json) |
+| ar | bukhari | `fawaz-api-df57907be352-part-003` | 653 | [Read](../browse/ar/bukhari/fawaz-api-df57907be352-part-003/README.md) | [Original file](../materials/fawaz-bukhari-df57907be352-ar-part-003/source-index.json) |
+| Urdu | bukhari | `fawaz-api-df57907be352` | 2 | [Read](../browse/ur/bukhari/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-bukhari-df57907be352-ur/source-index.json) |
+| ar | ibn-majah | `fawaz-api-df57907be352` | 2,112 | [Read](../browse/ar/ibn-majah/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-ibnmajah-df57907be352-ar/source-index.json) |
+| ar | ibn-majah | `fawaz-api-df57907be352-part-002` | 1,352 | [Read](../browse/ar/ibn-majah/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-ibnmajah-df57907be352-ar-part-002/source-index.json) |
+| en | ibn-majah | `fawaz-api-df57907be352` | 2 | [Read](../browse/en/ibn-majah/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-ibnmajah-df57907be352-en/source-index.json) |
+| ar | malik | `fawaz-api-df57907be352` | 699 | [Read](../browse/ar/malik/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-malik-df57907be352-ar/source-index.json) |
+| Urdu | malik | `fawaz-api-df57907be352` | 1 | [Read](../browse/ur/malik/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-malik-df57907be352-ur/source-index.json) |
+| ar | muslim | `fawaz-api-df57907be352` | 2,496 | [Read](../browse/ar/muslim/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-muslim-df57907be352-ar/source-index.json) |
+| ar | muslim | `fawaz-api-df57907be352-part-002` | 2,310 | [Read](../browse/ar/muslim/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-muslim-df57907be352-ar-part-002/source-index.json) |
+| Urdu | muslim | `fawaz-api-df57907be352` | 3 | [Read](../browse/ur/muslim/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-muslim-df57907be352-ur/source-index.json) |
+| ar | nasai | `fawaz-api-df57907be352` | 2,191 | [Read](../browse/ar/nasai/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-nasai-df57907be352-ar/source-index.json) |
+| ar | nasai | `fawaz-api-df57907be352-part-002` | 1,831 | [Read](../browse/ar/nasai/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-nasai-df57907be352-ar-part-002/source-index.json) |
+| Urdu | nasai | `fawaz-api-df57907be352` | 3 | [Read](../browse/ur/nasai/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-nasai-df57907be352-ur/source-index.json) |
+| ar | tirmidhi | `fawaz-api-df57907be352` | 1,935 | [Read](../browse/ar/tirmidhi/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-ar/source-index.json) |
+| ar | tirmidhi | `fawaz-api-df57907be352-part-002` | 761 | [Read](../browse/ar/tirmidhi/fawaz-api-df57907be352-part-002/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-ar-part-002/source-index.json) |
+| en | tirmidhi | `fawaz-api-df57907be352` | 1 | [Read](../browse/en/tirmidhi/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-en/source-index.json) |
+| Urdu | tirmidhi | `fawaz-api-df57907be352` | 26 | [Read](../browse/ur/tirmidhi/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-ur/source-index.json) |
 | Filipino / Tagalog | hisn-al-muslim | `pdf-3e409dd7-third-edition` | 298 | [Read](../browse/fil/hisn-al-muslim/pdf-3e409dd7-third-edition/README.md) | [Original file](../materials/fil-hisn-muslim-3e409dd7/FIL-HISN-PRIVATE.pdf) |
+| Uzbek | tirmidhi | `hadisuz-tirmidhi-web-20261112` | 18 | [Read](../browse/uz/tirmidhi/hadisuz-tirmidhi-web-20261112/README.md) | [Original file](../materials/hadisuz-tirmidhi-uz-web/source-evidence.json) |
 | Uzbek | book-17 | `publisher-web-20261112` | 285 | [Read](../browse/uz/book-17/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-17-uz-web/source-evidence.json) |
 | Uzbek | book-22 | `publisher-web-20261112` | 80 | [Read](../browse/uz/book-22/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-22-uz-web/source-evidence.json) |
 | Uzbek | book-23 | `publisher-web-20261112` | 1,443 | [Read](../browse/uz/book-23/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-23-uz-web/source-evidence.json) |
 | Uzbek | book-24 | `publisher-web-20261112` | 40 | [Read](../browse/uz/book-24/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-24-uz-web/source-evidence.json) |
-| Uzbek | book-25 | `publisher-web-20261112` | 226 | [Read](../browse/uz/book-25/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-25-uz-web/source-evidence.json) |
-| Uzbek | book-26 | `publisher-web-20261112` | 153 | [Read](../browse/uz/book-26/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-26-uz-web/source-evidence.json) |
+| Uzbek | book-25 | `publisher-web-20261112` | 395 | [Read](../browse/uz/book-25/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-25-uz-web/source-evidence.json) |
+| Uzbek | book-26 | `publisher-web-20261112` | 290 | [Read](../browse/uz/book-26/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-26-uz-web/source-evidence.json) |
 | Uzbek | book-27 | `publisher-web-20261112` | 401 | [Read](../browse/uz/book-27/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-27-uz-web/source-evidence.json) |
 | Uzbek | book-28 | `publisher-web-20261112` | 1,817 | [Read](../browse/uz/book-28/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-28-uz-web/source-evidence.json) |
 | Uzbek | book-29 | `publisher-web-20261112` | 123 | [Read](../browse/uz/book-29/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-29-uz-web/source-evidence.json) |
-| Uzbek | book-30 | `publisher-web-20261112` | 931 | [Read](../browse/uz/book-30/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-30-uz-web/source-evidence.json) |
+| Uzbek | book-30 | `publisher-web-20261112` | 2,014 | [Read](../browse/uz/book-30/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-30-uz-web/source-evidence.json) |
 | Uzbek | book-32 | `publisher-web-20261112` | 1,447 | [Read](../browse/uz/book-32/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-32-uz-web/source-evidence.json) |
 | Japanese | hisn-al-muslim | `pdf-f96783671a38` | 261 | [Read](../browse/ja/hisn-al-muslim/pdf-f96783671a38/README.md) | [Original file](../materials/ja-hisn-2007-research-v3/source.pdf) |
 | Japanese | islam-message | `pdf-cf59932bec72` | 306 | [Read](../browse/ja/islam-message/pdf-cf59932bec72/README.md) | [Original file](../materials/ja-islam-message-research-v3/source.pdf) |
@@ -215,7 +239,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 44,554 |
+| Human | 71,124 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -225,7 +249,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 5,923 |
+| `unknown` | 32,493 |
 | `human_translator_credited` | 30,506 |
 | `legacy_source_history` | 867 |
 

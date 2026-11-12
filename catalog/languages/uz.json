@@ -3,7 +3,7 @@
   "language": "uz",
   "name": "Uzbek",
   "scope": "public_source_snapshots",
-  "record_count": 7498,
+  "record_count": 8905,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -52,6 +52,401 @@
       }
     },
     {
+      "dataset_id": "hadisuz-tirmidhi-uz-web",
+      "language": "uz",
+      "book_key": "tirmidhi",
+      "edition": "hadisuz-tirmidhi-web-20261112",
+      "count": 18,
+      "release_status": "source_imported",
+      "source_file": "materials/hadisuz-tirmidhi-uz-web/source-evidence.json",
+      "source_sha256": "cb9d9bb4135dcc7281dce6087db089a620bb63a56e77f471b58c213b9ac40640",
+      "canonical_records_path": "materials/hadisuz-tirmidhi-uz-web/records.jsonl",
+      "canonical_records_sha256": "fbca607116f95a8424f976a52a9ee6de05d46b66748e7e9a39c8101ac39cfa30",
+      "source_descriptor": {
+        "format": "web-source-evidence-json",
+        "name": "Сунани Термизий — Sunan at-Tirmidhi — Hadis.uz",
+        "path": "materials/hadisuz-tirmidhi-uz-web/source-evidence.json",
+        "sha256": "cb9d9bb4135dcc7281dce6087db089a620bb63a56e77f471b58c213b9ac40640",
+        "url": "https://hadis.uz/hadiths/1"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/hadisuz-tirmidhi-uz-web/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/hadisuz-tirmidhi-uz-web/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "compression": "gzip",
+          "original_response_sha256": "e4035ce4567f56b092ad0847695e5af1feb901bb0cca7a1e1dbfdee11fc0679e",
+          "path": "imports/web-hadisuz-20261112/snapshots/d9fa3c346abe6747-e4035ce4567f56b0.html.gz",
+          "sha256": "a823494bff053882801aa8040ac622b1c34c0cbefb19770522b1cc2327222549",
+          "size_bytes": 4368,
+          "url": "https://hadis.uz/hadith/597"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "98a28abf8d5df7fd7a9e18d2a485701fba8aee77daa4310dd21507d0685ee67f",
+          "path": "imports/web-hadisuz-20261112/snapshots/ca696180784281c3-98a28abf8d5df7fd.html.gz",
+          "sha256": "4ae035c3794b5517bd59890a33d74434c7b2ba2808782fe61e461900b1f87d7f",
+          "size_bytes": 5626,
+          "url": "https://hadis.uz/hadith/598"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "594a887c0167f3ff4b597f45bb21cb5ab22cffebb98079915bab0e44b59ff883",
+          "path": "imports/web-hadisuz-20261112/snapshots/c044069551aafe16-594a887c0167f3ff.html.gz",
+          "sha256": "51c3d178ea46557a287d75339479caf75f1f893184cee1986321668357baa3e5",
+          "size_bytes": 4419,
+          "url": "https://hadis.uz/hadith/599"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "bbbafacda0f30eef5fe3ec928013fc2965ff0a8796daf3070593cc52fbca6150",
+          "path": "imports/web-hadisuz-20261112/snapshots/c28cb9ff7be8a5ab-bbbafacda0f30eef.html.gz",
+          "sha256": "8502d9aef402a048d4ea39430686d33e4def9237743136ec7b47f7fbecd1c37a",
+          "size_bytes": 4966,
+          "url": "https://hadis.uz/hadith/600"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "bd116c15c94a99d7ab79a77937989229036565f83b2bb42b29a9abc301ea1c91",
+          "path": "imports/web-hadisuz-20261112/snapshots/a721047ad740be64-bd116c15c94a99d7.html.gz",
+          "sha256": "9617ec5f60b2e1c36988486705ed69251411e8923e338708bbbbc12915ef196b",
+          "size_bytes": 4688,
+          "url": "https://hadis.uz/hadith/601"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "1cd8409933560be4da3a2e40c05db1662d612eb292df303faf545929f2ed8c74",
+          "path": "imports/web-hadisuz-20261112/snapshots/aced26782643528f-1cd8409933560be4.html.gz",
+          "sha256": "47ca8d44322d5773a0eea286eaaed7f74adcfc78d7bdee8e31448db53d06f35a",
+          "size_bytes": 4851,
+          "url": "https://hadis.uz/hadith/602"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "a31347f0fd43b7f5df254847981b7e94568b5292411cab740cb6376bfd62facc",
+          "path": "imports/web-hadisuz-20261112/snapshots/42e9eb78f6cf93d0-a31347f0fd43b7f5.html.gz",
+          "sha256": "483b75181c24668d646010159c8993a597d59775317d5867877e49153f7d4d83",
+          "size_bytes": 5825,
+          "url": "https://hadis.uz/hadith/603"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "395738bde1ad12b162ac06fbb2f1c1b154d8f1f2e6305ce5d14de9ed83499281",
+          "path": "imports/web-hadisuz-20261112/snapshots/6719f50f3b31d164-395738bde1ad12b1.html.gz",
+          "sha256": "1891ed0fb429bacc53145bcb4ec4bcb3441ccf9edb95df01a4461195b37800e9",
+          "size_bytes": 4304,
+          "url": "https://hadis.uz/hadith/604"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "d49d7ee4c04798639af5f5ce3d2743eccdf3d680a22511dcac07bfbd820ad5fa",
+          "path": "imports/web-hadisuz-20261112/snapshots/720ad6c8a45d90d6-d49d7ee4c0479863.html.gz",
+          "sha256": "20b7306b62f002e157dbbc017d1939da5ec7739377db2245843a56f419c4cb46",
+          "size_bytes": 4223,
+          "url": "https://hadis.uz/hadith/605"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "258ef30a38cdd14d32d8a12f858b60d93b8713bc473e55c19918afec89d7b568",
+          "path": "imports/web-hadisuz-20261112/snapshots/570deb8318e3721a-258ef30a38cdd14d.html.gz",
+          "sha256": "54493c923a70fbd8c5352d9f499fcaf106944cf47aa095c1e7c56ebcad6eb32a",
+          "size_bytes": 4257,
+          "url": "https://hadis.uz/hadith/606"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "cbbeeae8cb897c69479df695aa2106cfafbd8bb6e8a1d94e295b360c6906bf2e",
+          "path": "imports/web-hadisuz-20261112/snapshots/1ab11aaa727e3023-cbbeeae8cb897c69.html.gz",
+          "sha256": "bbf24532822faff5ce7e86e8817b58d04717d0f81e64369ea32d6f07e71fded3",
+          "size_bytes": 4831,
+          "url": "https://hadis.uz/hadith/607"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "8d0cd7c12d2f69e893dff3146d69de0cfd745e588a9128abc72db50d137a43f9",
+          "path": "imports/web-hadisuz-20261112/snapshots/81ed3d72a3f87f30-8d0cd7c12d2f69e8.html.gz",
+          "sha256": "76eb440a7bf0615aa0ce2efc87bd5129fe0f07bdbccbd4594eea8d166973a881",
+          "size_bytes": 4351,
+          "url": "https://hadis.uz/hadith/608"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "19c71b83e327b7f284c4bc0dbd22047b1ca19a0699eab198f0cdc73238af011b",
+          "path": "imports/web-hadisuz-20261112/snapshots/6d3ac38e814bdd2f-19c71b83e327b7f2.html.gz",
+          "sha256": "0802e2a64c54ee49afb3f2f467e440027f68239fa3647681c6b6f1d51800aab6",
+          "size_bytes": 4277,
+          "url": "https://hadis.uz/hadith/609"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "b5b4f17f317777a27541ebf5812a26535fa36508e9d513028c1041bd1a53c45e",
+          "path": "imports/web-hadisuz-20261112/snapshots/7478cf65a52e8e21-b5b4f17f317777a2.html.gz",
+          "sha256": "53757d9c47aed5d920c5556048ed5574e41e9cd10dd736830daea3e8ab0659de",
+          "size_bytes": 4522,
+          "url": "https://hadis.uz/hadith/610"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "3fbce5944a8c5f8be4d2593587effddc6784bac2f2c39e668c86ff0725680522",
+          "path": "imports/web-hadisuz-20261112/snapshots/1e07abe9ff71d7f3-3fbce5944a8c5f8b.html.gz",
+          "sha256": "3c7c9c495897312fc8bbc807e31ea0ac60222e3453679f0467eaa6cd913472f1",
+          "size_bytes": 4117,
+          "url": "https://hadis.uz/hadith/611"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "2d4765bed90b2fa2d4d45aab0e07414954f7c825a47734b637c1068ea3cd3b3d",
+          "path": "imports/web-hadisuz-20261112/snapshots/08b9e5f299f29949-2d4765bed90b2fa2.html.gz",
+          "sha256": "a91f4651111bdc2962853fe628bc08ddba0894186109e7af41bbb3e0a8712179",
+          "size_bytes": 4073,
+          "url": "https://hadis.uz/hadith/612"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "8e2edb145f33a58d2f7a0707beb5bc5a25555d1382718ef7e5c6bbb602542e29",
+          "path": "imports/web-hadisuz-20261112/snapshots/3a4010de937bf874-8e2edb145f33a58d.html.gz",
+          "sha256": "d4c141738d6102101a114bc7324aab18724fcd5a759d4cf11bc5ec7873d89f32",
+          "size_bytes": 4520,
+          "url": "https://hadis.uz/hadith/613"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "0fd745e8e8d8963ac1ae0f3d07f9e18ed6f4481ed95cebcf492ef9fc60459f7d",
+          "path": "imports/web-hadisuz-20261112/snapshots/650bf2003885c5d5-0fd745e8e8d8963a.html.gz",
+          "sha256": "dab15f55d90ab4ea31ab820ab2e26d79905487fc55df002d80fcb3a20aa40869",
+          "size_bytes": 4515,
+          "url": "https://hadis.uz/hadith/614"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "140c64de0660b5969e9df4bf03488a8c512b603acabc4c679a4c57448fe7840b",
+          "path": "imports/web-hadisuz-20261112/snapshots/0b5faeac0e9641b7-140c64de0660b596.html.gz",
+          "sha256": "352c6ef63aac931cdec57d6989b3e41ea1f9b86c012bc5724a25182bd47732f6",
+          "size_bytes": 4133,
+          "url": "https://hadis.uz/hadith/615"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "6965fcd966a376538d5b0d38599837cba903470c9cd0b5be6366c97b5d00b1d6",
+          "path": "imports/web-hadisuz-20261112/snapshots/de378fe50f65db5d-6965fcd966a37653.html.gz",
+          "sha256": "13bfa2b633ad9df2b14e66a0ad7e128fdbff1b82186d96c39b14a4f173cb7edc",
+          "size_bytes": 5533,
+          "url": "https://hadis.uz/hadiths/1"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "f7e283f6189acda7248b8d32980fa00063af5bf4143b0af7d455f433ddcc21df",
+          "path": "imports/web-hadisuz-20261112/snapshots/b51389403db3b8fc-f7e283f6189acda7.html.gz",
+          "sha256": "fce9740cf59542860013070bc78033511e5f6cc30868d7e946e417346e3e5574",
+          "size_bytes": 6166,
+          "url": "https://hadis.uz/hadiths/1?page=2"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "854d8c22a033393a2069d80b0739ea93c84e100a8995e48b44ba2dd860452b53",
+          "path": "imports/web-hadisuz-20261112/snapshots/6dc03b965d902d9d-854d8c22a033393a.html.gz",
+          "sha256": "1aa03df6c8533c43cec2b40d16429b25ffe07df56d5c74e7c75dabb40419db2c",
+          "size_bytes": 5006,
+          "url": "https://hadis.uz/page/about-project"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "e91a6a7507f25968508705742d96c038a4bcbae3051de7bd63fc3b10681d52e0",
+          "path": "imports/web-hadisuz-20261112/snapshots/408659a791f583b9-e91a6a7507f25968.html.gz",
+          "sha256": "b91c58acb9f48bb7771ece29a2405c5dd8cc7f8f49575e321cd73ea350d9577f",
+          "size_bytes": 19689,
+          "url": "https://hadis.uz/page/sunani-termiziy"
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "6a4828f17ee7f76a87aed49187518e0188886fce0f3a994ab9b240785e9c6603",
+          "path": "imports/web-hadisuz-20261112/snapshots/c1adabc9c45170e8-6a4828f17ee7f76a.txt.gz",
+          "sha256": "f42986800db8b82e9aaee5e1d606f383d75b695ca5dcae2c307a81b5cf5af73f",
+          "size_bytes": 177,
+          "url": "https://hadis.uz/robots.txt"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/597-ed8e4bc02aff6776.json.gz",
+          "sha256": "e223c38385f465610cdfbd9bc616fbc72ff25f43c57df3c49d5add0d82e251de",
+          "size_bytes": 942,
+          "uncompressed_sha256": "ed8e4bc02aff6776a9edafbcc84d07c4043d548d887757480c35d11fb357e166"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/598-cccdf10ccc4173b2.json.gz",
+          "sha256": "95440245e99157c934aca17c27c137abc68af5c9e6e24709f128ea774ce16cb3",
+          "size_bytes": 2266,
+          "uncompressed_sha256": "cccdf10ccc4173b2ae1abfbadf4aa6a6eabe8fcea5d5edbf7a2bb7c2bb30d4d2"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/599-27523cd767575a01.json.gz",
+          "sha256": "49022808940367497afa956cbaaec22cf98d816b11aefda16475314d7ed2e866",
+          "size_bytes": 976,
+          "uncompressed_sha256": "27523cd767575a0135b3b790e0e3462c1dff83fec6fc878fb70b8eb2350a6ca1"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/600-5f65587a22cd822c.json.gz",
+          "sha256": "d3e924d15d0fb2433b9f4baafcceb58999d3b9b23b5f434d2327ca9ad3bf0a98",
+          "size_bytes": 1650,
+          "uncompressed_sha256": "5f65587a22cd822c066391b8d5aec3a233f299b41ccf3183e6c0c029e4af3004"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/601-31ce71b71befb3d3.json.gz",
+          "sha256": "ca1a1b9c8b48416f40afb0071c175b4c703169e0ecfc169c05978d71bb8ae9ee",
+          "size_bytes": 1277,
+          "uncompressed_sha256": "31ce71b71befb3d3989ff7b83accb74380468d052af3ff984668e76d00ac1901"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/602-692be0c19d3a0d91.json.gz",
+          "sha256": "0f50496930201df558422eb2737eef3b879bfeef0c0784449740c660aa3b2eb6",
+          "size_bytes": 1441,
+          "uncompressed_sha256": "692be0c19d3a0d91ac899b60284abc1e984a7eedf7d0ea329dbf01fc94ca3192"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/603-ec490bd8d27880f0.json.gz",
+          "sha256": "1c6947a7298b12f95dfae2dac84d0df65d7f365178dad96dbbe74ade3136572d",
+          "size_bytes": 2473,
+          "uncompressed_sha256": "ec490bd8d27880f0be7bd2ce911f1d69b4ba42b45eae1255ddf0547a4cf3f243"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/604-a746dad7f9ed75f5.json.gz",
+          "sha256": "5d0b83fe6f03bb636c85e1745bad5c94bbf0ca0c97b167843cb1af095c0a7bab",
+          "size_bytes": 860,
+          "uncompressed_sha256": "a746dad7f9ed75f5e098f8e96e4d843fdae643509c1bfb8d0d0e83e4896e53cf"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/605-ec7d6bc01505cccb.json.gz",
+          "sha256": "813373aed9d6793589da0a6361303cd1348bd15d1b419a261d69d41136240585",
+          "size_bytes": 769,
+          "uncompressed_sha256": "ec7d6bc01505cccb7ea038c55e17ac0a85fffd2980f4dcf65fde1f7b4fef1c0d"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/606-1bb1f04fa27ed17f.json.gz",
+          "sha256": "3f2eebfe7d014a3df1b9db9dfa74114f34ca19121fc280c395a46ee3ee6efa2a",
+          "size_bytes": 828,
+          "uncompressed_sha256": "1bb1f04fa27ed17fe523165ddb530f90aec646a3850465bfb9519d5a8fdc6f56"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/607-792e76abe53a4f76.json.gz",
+          "sha256": "c2de9722986a6e0440649fca0749aa7452dcb113d011c64068254feeef2a19e0",
+          "size_bytes": 1431,
+          "uncompressed_sha256": "792e76abe53a4f7638a0cbb50f119ff9714403e412d19d24efeeacefe0ee870a"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/608-ed594dd0961bd950.json.gz",
+          "sha256": "b56f0be11937b82396d1492580ae1e2cd2a48e65eaa2f736d822ebf0053114b4",
+          "size_bytes": 934,
+          "uncompressed_sha256": "ed594dd0961bd950f00326c3e9f0d2b0aced8222066fc025a3afa2d48d4d5989"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/609-5efc1738f82e4bfe.json.gz",
+          "sha256": "c7828746acf77d96701c47d8b72c06634816a5eb6b75c8708190eeda9a2e7054",
+          "size_bytes": 858,
+          "uncompressed_sha256": "5efc1738f82e4bfe1e3c7ac31862aae6f982f50bf1cdec52756da63121befc77"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/610-db5ffc14df8944cb.json.gz",
+          "sha256": "9973a1535f7508fcc489cd3a71b38244faee41bada656fa1214dbed132d323d5",
+          "size_bytes": 1170,
+          "uncompressed_sha256": "db5ffc14df8944cb03a9a093256fcea610037dca1c4a0a05b2c9d3c74201da56"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/611-05fa37b04e1e2907.json.gz",
+          "sha256": "758d33ab5eac5ad6afb1e254e81b2d04019f9e063a78461b1e439a9a6eb78762",
+          "size_bytes": 690,
+          "uncompressed_sha256": "05fa37b04e1e2907a7b1ac8a63bdb2f30be23018a6f5a6b64c885e70f5cc051f"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/612-43217c92e996a56c.json.gz",
+          "sha256": "d3394f5a776c62b2f22d54af955158236b9235699842204783007c5a40131099",
+          "size_bytes": 552,
+          "uncompressed_sha256": "43217c92e996a56cb52c8bb6eb0661956c8223cb8a966b1c747a3ff00276683a"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/613-ebaf1342e721a89d.json.gz",
+          "sha256": "5b0934ba8f3d3d613a268d6c8aade509b73860229699f631b7109f756644b781",
+          "size_bytes": 1102,
+          "uncompressed_sha256": "ebaf1342e721a89dd4a0e0b419357e701b45f6d6423b033d5a67b1ce1e78938e"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/614-4f02689bb32b5eef.json.gz",
+          "sha256": "3b5605160d4e8185950676931d7be1ae59ccd87b03bf062033c3f04cbce0cf17",
+          "size_bytes": 1084,
+          "uncompressed_sha256": "4f02689bb32b5eefcd6b1801674677a1ee13e2445a1e50af481b1ff38251f6a2"
+        },
+        {
+          "compression": "gzip",
+          "path": "imports/web-hadisuz-20261112/parsed/615-94334589a43e2fad.json.gz",
+          "sha256": "7185553d59c2f099b1416182b121602363d0183675bd273dd820e3bc7db3c47e",
+          "size_bytes": 685,
+          "uncompressed_sha256": "94334589a43e2fadd4eea9a87d240998b0efccff3b30b2b87a067932397a1fa0"
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Only source-bound language versions are displayed; source-local URL IDs do not establish canonical equivalents."
+      },
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "Сунани Термизий — Sunan at-Tirmidhi — Hadis.uz",
+      "translation_provenance": {
+        "ai_translation": "unknown",
+        "basis": "Exact entry has no translation-origin declaration; current new-book display policy is separate.",
+        "evidence": "imports/web-hadisuz-20261112/snapshots/d9fa3c346abe6747-e4035ce4567f56b0.html.gz",
+        "label": "Unknown",
+        "origin": "unknown",
+        "translator": null,
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "islom-book-17-uz-web",
       "language": "uz",
       "book_key": "book-17",
@@ -59,14 +454,14 @@
       "count": 285,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-17-uz-web/source-evidence.json",
-      "source_sha256": "2777713d15bb480b7ec315fe135da8c9e768dbd51d3c8c4daf2863a171ede17e",
+      "source_sha256": "a3b697343853d52abf92670a27de0165c0f4d0c2da0ca2ec84e2ce3cc048c405",
       "canonical_records_path": "materials/islom-book-17-uz-web/records.jsonl",
       "canonical_records_sha256": "8e0ca8329b45ab625b2daee696fb1446cc2c77482fd086dc0e0bdff6cdc8a09c",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Ал-Азкор — Hadis.islom.uz",
         "path": "materials/islom-book-17-uz-web/source-evidence.json",
-        "sha256": "2777713d15bb480b7ec315fe135da8c9e768dbd51d3c8c4daf2863a171ede17e",
+        "sha256": "a3b697343853d52abf92670a27de0165c0f4d0c2da0ca2ec84e2ce3cc048c405",
         "url": "https://hadis.islom.uz/kitob/17"
       },
       "adapter": "records-v1",
@@ -192,14 +587,14 @@
       "count": 80,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-22-uz-web/source-evidence.json",
-      "source_sha256": "e917def82c6bbfb55376a7e7565ce5bf157570ffcba12703f6672ff8a81a67d0",
+      "source_sha256": "421ea6dda663da5f83dc4e6c4d411e162390cfdf4366c20c8d7cb818f423375e",
       "canonical_records_path": "materials/islom-book-22-uz-web/records.jsonl",
       "canonical_records_sha256": "c2255f0e7a396ece5ba4b442ec38f19cbf01b76faeac9aaba3046f7e34158c72",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "101 ҳадис — Hadis.islom.uz",
         "path": "materials/islom-book-22-uz-web/source-evidence.json",
-        "sha256": "e917def82c6bbfb55376a7e7565ce5bf157570ffcba12703f6672ff8a81a67d0",
+        "sha256": "421ea6dda663da5f83dc4e6c4d411e162390cfdf4366c20c8d7cb818f423375e",
         "url": "https://hadis.islom.uz/kitob/22"
       },
       "adapter": "records-v1",
@@ -289,14 +684,14 @@
       "count": 1443,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-23-uz-web/source-evidence.json",
-      "source_sha256": "78c8aad8e8005cb4ac54f87120d03943846e6ce50aed2869b893d0e6ed609bce",
+      "source_sha256": "8c04a2a0907666a7cc2348a7f31378c00af5c84ca9dd0d775a0062c63565ddbc",
       "canonical_records_path": "materials/islom-book-23-uz-web/records.jsonl",
       "canonical_records_sha256": "4eae48b796b6ee28e7897e7a125564ea1fd79a90a8c32e0ac1fe97687287222d",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "2002 ҳадис — Hadis.islom.uz",
         "path": "materials/islom-book-23-uz-web/source-evidence.json",
-        "sha256": "78c8aad8e8005cb4ac54f87120d03943846e6ce50aed2869b893d0e6ed609bce",
+        "sha256": "8c04a2a0907666a7cc2348a7f31378c00af5c84ca9dd0d775a0062c63565ddbc",
         "url": "https://hadis.islom.uz/kitob/23"
       },
       "adapter": "records-v1",
@@ -331,78 +726,6 @@
           "sha256": "b6e5d5b29778ad317342c5b49074732ceb373889f8752b8c2e353ed1ed6cf3d8",
           "size_bytes": 146209,
           "url": "https://hadis.islom.uz/kitob/23/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "e3e700beea24a2ca2cac07639c916f81c90470a6a4716e17dd3f12143a8dd822",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/7e0fc423ed05e8f9-e3e700beea24a2ca.html.gz",
-          "sha256": "2bf152a1f63b2e8f9552af66b8bdbf3a8d3e5dde90040adf8f275275b4b9d6d1",
-          "size_bytes": 20025,
-          "url": "https://hadis.islom.uz/kitob/23/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "5f098ba257e5521eb54a1268987570f7c7e78e3bc9b711d01b5ee1280edf2b6c",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/5020ee4ad70d307e-5f098ba257e5521e.html.gz",
-          "sha256": "31014bf2eb69681768834ad78e40d19fe071b42d38f2895797e26755cf48f6d7",
-          "size_bytes": 18193,
-          "url": "https://hadis.islom.uz/kitob/23/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "7f06e4e3bf83fe12af7a8ef9443d724dc4d20f16fd901c0e07a4ed2e066c51dc",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/ab9c415eb09dfb03-7f06e4e3bf83fe12.html.gz",
-          "sha256": "6db16d0b4baf9bb6c7c4ccdb3eb4ef7d0aeac8b2b43d23e18decc149877c6e71",
-          "size_bytes": 14356,
-          "url": "https://hadis.islom.uz/kitob/23/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "3174caa4054bf091d4001b7abbf545fad5ab1b4ef420491bae18ed06674a560d",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/403878a855d19528-3174caa4054bf091.html.gz",
-          "sha256": "a33b8a271edcdab98610079586bbe9eee919c0af853f7f317f9665d8a3dd87b2",
-          "size_bytes": 10346,
-          "url": "https://hadis.islom.uz/kitob/23/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "714f4f33bc0202239951690d6ebfdf309a31664060a2fa70f0c5942304a5ea5a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/bf354053df9c527d-714f4f33bc020223.html.gz",
-          "sha256": "ec00e4e2ad132d20f31aa6fbd7ba9ab971d5f068ac85138fd560950b488e54b7",
-          "size_bytes": 19144,
-          "url": "https://hadis.islom.uz/kitob/23/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "0f1440778b946f9e84b72104972dffb7f65551f0e7d7d8eaf893324028149c57",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/13eb75edd9c4e508-0f1440778b946f9e.html.gz",
-          "sha256": "9a06b46fd9455df061a81c23b726487568bf3d5c763edc268d6336e5210e3c88",
-          "size_bytes": 22259,
-          "url": "https://hadis.islom.uz/kitob/23/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "8d85a8b37199a6811cea797a5be7dc702cc56965df05cc7688d766998c2fd97e",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/6f55771708012e18-8d85a8b37199a681.html.gz",
-          "sha256": "1d4192647b73f381d28938bc66d51fc5eb08e7f6467c1b1b17998d309197c7ce",
-          "size_bytes": 14884,
-          "url": "https://hadis.islom.uz/kitob/23/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "d96b7934446dca316cf705774e722368d89905364fac7ff19618a8887e27a458",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/80f2c546434ad487-d96b7934446dca31.html.gz",
-          "sha256": "2ba7d3bc9dd5d0be353dfd18b97b64dc33bab505e2ec33e7a1b98e7936516259",
-          "size_bytes": 11574,
-          "url": "https://hadis.islom.uz/kitob/23/9"
         },
         {
           "compression": "gzip",
@@ -497,6 +820,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "e3e700beea24a2ca2cac07639c916f81c90470a6a4716e17dd3f12143a8dd822",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7e0fc423ed05e8f9-e3e700beea24a2ca.html.gz",
+          "sha256": "2bf152a1f63b2e8f9552af66b8bdbf3a8d3e5dde90040adf8f275275b4b9d6d1",
+          "size_bytes": 20025,
+          "url": "https://hadis.islom.uz/kitob/23/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "1aeb8f0d9df224babfdd03e1073c25244a76f58bd56378a6325f331f7af21f3d",
           "path": "imports/web-uzbek-20261112/islom/snapshots/e10c9a6acf3598ec-1aeb8f0d9df224ba.html.gz",
           "sha256": "00a936e7600f29e04ff1a273dd6b95889a101d26121d1ed24961dc457796316e",
@@ -587,11 +919,74 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "5f098ba257e5521eb54a1268987570f7c7e78e3bc9b711d01b5ee1280edf2b6c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5020ee4ad70d307e-5f098ba257e5521e.html.gz",
+          "sha256": "31014bf2eb69681768834ad78e40d19fe071b42d38f2895797e26755cf48f6d7",
+          "size_bytes": 18193,
+          "url": "https://hadis.islom.uz/kitob/23/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "8bad0c379db29cf036ab570dc5b74a0c659d62c8d9161dcb9a3331049d20b8c1",
           "path": "imports/web-uzbek-20261112/islom/snapshots/3b8fa36c0f2fcfa7-8bad0c379db29cf0.html.gz",
           "sha256": "0451cf7d097b5125545f967f6ee3cf92eed429e547b6a741003c7559818287e2",
           "size_bytes": 86376,
           "url": "https://hadis.islom.uz/kitob/23/30"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "7f06e4e3bf83fe12af7a8ef9443d724dc4d20f16fd901c0e07a4ed2e066c51dc",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ab9c415eb09dfb03-7f06e4e3bf83fe12.html.gz",
+          "sha256": "6db16d0b4baf9bb6c7c4ccdb3eb4ef7d0aeac8b2b43d23e18decc149877c6e71",
+          "size_bytes": 14356,
+          "url": "https://hadis.islom.uz/kitob/23/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3174caa4054bf091d4001b7abbf545fad5ab1b4ef420491bae18ed06674a560d",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/403878a855d19528-3174caa4054bf091.html.gz",
+          "sha256": "a33b8a271edcdab98610079586bbe9eee919c0af853f7f317f9665d8a3dd87b2",
+          "size_bytes": 10346,
+          "url": "https://hadis.islom.uz/kitob/23/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "714f4f33bc0202239951690d6ebfdf309a31664060a2fa70f0c5942304a5ea5a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/bf354053df9c527d-714f4f33bc020223.html.gz",
+          "sha256": "ec00e4e2ad132d20f31aa6fbd7ba9ab971d5f068ac85138fd560950b488e54b7",
+          "size_bytes": 19144,
+          "url": "https://hadis.islom.uz/kitob/23/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0f1440778b946f9e84b72104972dffb7f65551f0e7d7d8eaf893324028149c57",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/13eb75edd9c4e508-0f1440778b946f9e.html.gz",
+          "sha256": "9a06b46fd9455df061a81c23b726487568bf3d5c763edc268d6336e5210e3c88",
+          "size_bytes": 22259,
+          "url": "https://hadis.islom.uz/kitob/23/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8d85a8b37199a6811cea797a5be7dc702cc56965df05cc7688d766998c2fd97e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6f55771708012e18-8d85a8b37199a681.html.gz",
+          "sha256": "1d4192647b73f381d28938bc66d51fc5eb08e7f6467c1b1b17998d309197c7ce",
+          "size_bytes": 14884,
+          "url": "https://hadis.islom.uz/kitob/23/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d96b7934446dca316cf705774e722368d89905364fac7ff19618a8887e27a458",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/80f2c546434ad487-d96b7934446dca31.html.gz",
+          "sha256": "2ba7d3bc9dd5d0be353dfd18b97b64dc33bab505e2ec33e7a1b98e7936516259",
+          "size_bytes": 11574,
+          "url": "https://hadis.islom.uz/kitob/23/9"
         },
         {
           "compression": "gzip",
@@ -647,14 +1042,14 @@
       "count": 40,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-24-uz-web/source-evidence.json",
-      "source_sha256": "a644a4757e71ba7b72aa48b75890dfce3431a2daaf9ddea7ba7e0499a9957f16",
+      "source_sha256": "7b2c2f5f2e87c189d90ded79e07cf378dd01bac5a3347ede129fa36aa4545b8f",
       "canonical_records_path": "materials/islom-book-24-uz-web/records.jsonl",
       "canonical_records_sha256": "198445d35098d181a475ab8abf44ea99aa97f5e150d4ad3e636010d49a42b660",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Арбаъин — Hadis.islom.uz",
         "path": "materials/islom-book-24-uz-web/source-evidence.json",
-        "sha256": "a644a4757e71ba7b72aa48b75890dfce3431a2daaf9ddea7ba7e0499a9957f16",
+        "sha256": "7b2c2f5f2e87c189d90ded79e07cf378dd01bac5a3347ede129fa36aa4545b8f",
         "url": "https://hadis.islom.uz/kitob/24"
       },
       "adapter": "records-v1",
@@ -741,17 +1136,17 @@
       "language": "uz",
       "book_key": "book-25",
       "edition": "publisher-web-20261112",
-      "count": 226,
+      "count": 395,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-25-uz-web/source-evidence.json",
-      "source_sha256": "202abb29dad87a0ae99b08debec323add20562b67b57bba3a2beff291b2bb355",
+      "source_sha256": "a9d54df9c809e44c59c607f95d8c7ea6d833ee3642d378e914115956ea525565",
       "canonical_records_path": "materials/islom-book-25-uz-web/records.jsonl",
-      "canonical_records_sha256": "61969fef2ddb7200aa664dfbe3e726a5db6f7c8ccc5fd932b80fb0ac46569ef7",
+      "canonical_records_sha256": "819a87342aab40fb5e1c1f49fdc550de78eafbbeb66f73dd0a6a480a711a3d22",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Шамоилул-Муҳаммадия — Hadis.islom.uz",
         "path": "materials/islom-book-25-uz-web/source-evidence.json",
-        "sha256": "202abb29dad87a0ae99b08debec323add20562b67b57bba3a2beff291b2bb355",
+        "sha256": "a9d54df9c809e44c59c607f95d8c7ea6d833ee3642d378e914115956ea525565",
         "url": "https://hadis.islom.uz/kitob/25"
       },
       "adapter": "records-v1",
@@ -786,78 +1181,6 @@
           "sha256": "37a9caab05b7c562d213af370972f64c8b2058e1bc53f223b7618e48a23bf83e",
           "size_bytes": 29164,
           "url": "https://hadis.islom.uz/kitob/25/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "d521ea48b7693227c6ac6dbf7a7258c22bd75c320d2c8d82315f5f4b26bbba54",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/44a5212eea6dbe52-d521ea48b7693227.html.gz",
-          "sha256": "c0fdbbc355c7adfe2be0c965336e86af8cae8a22275faf788f4e748e67949327",
-          "size_bytes": 12874,
-          "url": "https://hadis.islom.uz/kitob/25/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "695575c78962a7e12fdf28b56940e2efd20b26b1d919dc2e40b61acb88c6c151",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/eb059414d04769b8-695575c78962a7e1.html.gz",
-          "sha256": "28eb34880edb4f0238430203f6ee4a2af5fa0d9de631a4d6a33d29e3b6b9924a",
-          "size_bytes": 10058,
-          "url": "https://hadis.islom.uz/kitob/25/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "91959eab13d78b7ca58016c5e11208df1515d8aa3a856c31c722e848a675bbc1",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/b47cb583cb17afa5-91959eab13d78b7c.html.gz",
-          "sha256": "989ba0e175f5c37ca501f43cd562ec51038dd0d95040d61bf55b576bc8cf92d7",
-          "size_bytes": 9259,
-          "url": "https://hadis.islom.uz/kitob/25/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "4c71b0b050e37ab58968492b4fe2eebceeb8d1492af028df3987446fc7f107f0",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/507b703d843d1a2f-4c71b0b050e37ab5.html.gz",
-          "sha256": "1ceb24cc0090ae3828915e1e67aaa8af4b452fa4bd9ff0b984831c667a63810a",
-          "size_bytes": 10750,
-          "url": "https://hadis.islom.uz/kitob/25/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "968463935bfd08b6deb7dd3a25075c9cf44ad362fb5ad4a152a3e0da2a63e763",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/9726a4d84f5486ef-968463935bfd08b6.html.gz",
-          "sha256": "4771dc02274d993f14795f25985a1a22c86593452e828666ffa8488ec8ce1b66",
-          "size_bytes": 9600,
-          "url": "https://hadis.islom.uz/kitob/25/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "dd8e724038c105017d9396c91071cdf54027dce33b3c915c081bd06c71783e6e",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/c4d042c9c4fff1b4-dd8e724038c10501.html.gz",
-          "sha256": "07b6d81c54da2dae914350d1174997dd83e2e32dcb772db4ec02a70c0516cbbd",
-          "size_bytes": 9233,
-          "url": "https://hadis.islom.uz/kitob/25/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "e39c7591e9869231d69f26b6d321d23f8555a74e9d12c058855710dfe2de6dfb",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/6b4335f335398f58-e39c7591e9869231.html.gz",
-          "sha256": "d93b86b059085c55201edb817ba45d8f85ec983029702b439ebedda5effd700a",
-          "size_bytes": 13850,
-          "url": "https://hadis.islom.uz/kitob/25/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "8f0ac2d913ca538d75ba3168aae4be80b6bee1a8094bcaefe990f202fa9558db",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/19b3a201eb9bc233-8f0ac2d913ca538d.html.gz",
-          "sha256": "3267c95278c2f84fe934ad1f05b4d7b4a5c07407ba7bc4306a7c8aff4307f374",
-          "size_bytes": 8759,
-          "url": "https://hadis.islom.uz/kitob/25/9"
         },
         {
           "compression": "gzip",
@@ -952,6 +1275,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "d521ea48b7693227c6ac6dbf7a7258c22bd75c320d2c8d82315f5f4b26bbba54",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/44a5212eea6dbe52-d521ea48b7693227.html.gz",
+          "sha256": "c0fdbbc355c7adfe2be0c965336e86af8cae8a22275faf788f4e748e67949327",
+          "size_bytes": 12874,
+          "url": "https://hadis.islom.uz/kitob/25/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "9666cd31c78ea4e98f64c987e1c776c69f323aec27af219317ab5a5f0f85da16",
           "path": "imports/web-uzbek-20261112/islom/snapshots/85f8b52651c944f4-9666cd31c78ea4e9.html.gz",
           "sha256": "4934130656eb1e234ebf1e07521779bc7d9629cd93d4afe3f4a7d0e52d963581",
@@ -1042,6 +1374,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "695575c78962a7e12fdf28b56940e2efd20b26b1d919dc2e40b61acb88c6c151",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/eb059414d04769b8-695575c78962a7e1.html.gz",
+          "sha256": "28eb34880edb4f0238430203f6ee4a2af5fa0d9de631a4d6a33d29e3b6b9924a",
+          "size_bytes": 10058,
+          "url": "https://hadis.islom.uz/kitob/25/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "cc49f00b0ee74b2f166287be47771571578d0311be148480ca95936e3defe44c",
           "path": "imports/web-uzbek-20261112/islom/snapshots/60de6a7ce5d03b21-cc49f00b0ee74b2f.html.gz",
           "sha256": "b048a25d3aaf4aa030cfef0925c94dcaa738eacdeadaaaba9a5a75d650d3097c",
@@ -1095,12 +1436,255 @@
         },
         {
           "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "91959eab13d78b7ca58016c5e11208df1515d8aa3a856c31c722e848a675bbc1",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b47cb583cb17afa5-91959eab13d78b7c.html.gz",
+          "sha256": "989ba0e175f5c37ca501f43cd562ec51038dd0d95040d61bf55b576bc8cf92d7",
+          "size_bytes": 9259,
+          "url": "https://hadis.islom.uz/kitob/25/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4c71b0b050e37ab58968492b4fe2eebceeb8d1492af028df3987446fc7f107f0",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/507b703d843d1a2f-4c71b0b050e37ab5.html.gz",
+          "sha256": "1ceb24cc0090ae3828915e1e67aaa8af4b452fa4bd9ff0b984831c667a63810a",
+          "size_bytes": 10750,
+          "url": "https://hadis.islom.uz/kitob/25/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "968463935bfd08b6deb7dd3a25075c9cf44ad362fb5ad4a152a3e0da2a63e763",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/9726a4d84f5486ef-968463935bfd08b6.html.gz",
+          "sha256": "4771dc02274d993f14795f25985a1a22c86593452e828666ffa8488ec8ce1b66",
+          "size_bytes": 9600,
+          "url": "https://hadis.islom.uz/kitob/25/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "dd8e724038c105017d9396c91071cdf54027dce33b3c915c081bd06c71783e6e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c4d042c9c4fff1b4-dd8e724038c10501.html.gz",
+          "sha256": "07b6d81c54da2dae914350d1174997dd83e2e32dcb772db4ec02a70c0516cbbd",
+          "size_bytes": 9233,
+          "url": "https://hadis.islom.uz/kitob/25/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e39c7591e9869231d69f26b6d321d23f8555a74e9d12c058855710dfe2de6dfb",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6b4335f335398f58-e39c7591e9869231.html.gz",
+          "sha256": "d93b86b059085c55201edb817ba45d8f85ec983029702b439ebedda5effd700a",
+          "size_bytes": 13850,
+          "url": "https://hadis.islom.uz/kitob/25/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8f0ac2d913ca538d75ba3168aae4be80b6bee1a8094bcaefe990f202fa9558db",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/19b3a201eb9bc233-8f0ac2d913ca538d.html.gz",
+          "sha256": "3267c95278c2f84fe934ad1f05b4d7b4a5c07407ba7bc4306a7c8aff4307f374",
+          "size_bytes": 8759,
+          "url": "https://hadis.islom.uz/kitob/25/9"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "277023cd7b5683c7259a901a5fe2ceab25737bed502576fc3ca0151a691ca2c6",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/3fb868864514254a-277023cd7b5683c7.html.gz",
+          "sha256": "180d80863050e0966dd1b1832f633bf9c9c59bd2b6cf5ef1c5763fecfaef2f17",
+          "size_bytes": 11539,
+          "url": "https://hadis.islom.uz/kitob/25/36"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "7583a2df0c983cb6c452f38681305dbfa7b480541890a77e9b4fa3ea614fa570",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/8c327efe86547e18-7583a2df0c983cb6.html.gz",
+          "sha256": "350801f38386f0e56c737645da4c9ef42ea9f72604259e102ee8f4e7ae8d0bbd",
+          "size_bytes": 12553,
+          "url": "https://hadis.islom.uz/kitob/25/37"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e25e6abb5723fafaeb7afa891ef39f385da8d600a71399654017b27514978c44",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/94e42434fb3e3331-e25e6abb5723fafa.html.gz",
+          "sha256": "92179cdb05cee514bd9da8bcd8c3f949dae0c1b19d8895360c83cd07df6785e2",
+          "size_bytes": 11961,
+          "url": "https://hadis.islom.uz/kitob/25/38"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "92d21e12565a5ad37aa35138c46edabd9256e6fcf5ba8b6c1e6269158743e63c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/df4e4ce1bc52de7b-92d21e12565a5ad3.html.gz",
+          "sha256": "1843544dfbffdfce408c3523848a8fa44f927dc25c3b25ce6f9b7e50cb06456c",
+          "size_bytes": 10825,
+          "url": "https://hadis.islom.uz/kitob/25/39"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8deaca90dc072d4511fa8e24e76fa94aaf089b10bfc6da3166cb47a106ea6a21",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b83ad1fa4c6d3c61-8deaca90dc072d45.html.gz",
+          "sha256": "8e32aed1a5fcdb12db44012d8ccd2267be3e6b31185783706581ef48550b93df",
+          "size_bytes": 18457,
+          "url": "https://hadis.islom.uz/kitob/25/40"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6e01030171fcf6bd3333ac4783932b5c1f1c5b6b7e874a34f81943dab5f74169",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f6ea9187476a0965-6e01030171fcf6bd.html.gz",
+          "sha256": "cec2d800908ce4677e3114f2714c1fa9cdebba8efbdb74d1cfbe9f2e4c7ab79d",
+          "size_bytes": 11132,
+          "url": "https://hadis.islom.uz/kitob/25/41"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "b95583cd12fbebee663121e68e0792d0f30ffd72c8a33a13687a469ccdd22291",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/31ea6d8810f2e4dc-b95583cd12fbebee.html.gz",
+          "sha256": "79270bbbb4da459a2d76ef6370866e446ce0c9e8acf36df892f54449d53d42a6",
+          "size_bytes": 8001,
+          "url": "https://hadis.islom.uz/kitob/25/42"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e4195d555d71ee79c78bddf3f3360bc45a8aa92c30bd95c926eff7ad4ddc2704",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/eb09fac2478312c6-e4195d555d71ee79.html.gz",
+          "sha256": "5a1b0cab61f64cfefa9b036e776cc5a4241c7b81075ad5f99d8a88e2098afa26",
+          "size_bytes": 14123,
+          "url": "https://hadis.islom.uz/kitob/25/43"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "aa59cd8322e49485c21946bc4c80dd986a239873d2d2cc13cecd52d1c8f58bf6",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6dd5919cb8848115-aa59cd8322e49485.html.gz",
+          "sha256": "bd18bddeaf420e1d386a8b9eafbd81bddba1d3538c4c528717076440ff29ccd7",
+          "size_bytes": 11746,
+          "url": "https://hadis.islom.uz/kitob/25/44"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1be49d8b8a87ef3f3f4c1f5c08af264dea5a5be8e2bbab69c90d1fb510194d08",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/56bd88a360a1f0e2-1be49d8b8a87ef3f.html.gz",
+          "sha256": "9449cab5cccebbbf486ca0802cf085d636aa154b99cf1e7ee6480470fd10a7d8",
+          "size_bytes": 11620,
+          "url": "https://hadis.islom.uz/kitob/25/45"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "67c501e13939f12bbb613cf71c58371135f656e90a3430d6f1f61f6c707e7b7e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/d30cf27193ce68f4-67c501e13939f12b.html.gz",
+          "sha256": "35d53481b821c737f831c5073c679ec2b2c430c19f33c811d1e5788f7ccb42ed",
+          "size_bytes": 8762,
+          "url": "https://hadis.islom.uz/kitob/25/46"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e144444a7ac6f6a6a92cd3b4db5e59663b091088de8b3f0bd0103a4373d1a937",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7a30fe3ca29b4d46-e144444a7ac6f6a6.html.gz",
+          "sha256": "139eba227a59a42a48eb57f2b5183368931299251b6a049a4e38849675a29add",
+          "size_bytes": 15318,
+          "url": "https://hadis.islom.uz/kitob/25/47"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "112b55f03e4db4108b4f6e0492a4aab7443daa4377ee8e9e43fd497240b286e9",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/095e2c71b9bb486e-112b55f03e4db410.html.gz",
+          "sha256": "f74d9fa09440209b1b2c07de7b1d7a5fe31717bd3c10833b571437b58f476a5b",
+          "size_bytes": 16517,
+          "url": "https://hadis.islom.uz/kitob/25/48"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "cb08f4837d46b79fd11a834e3875988d248e3d893c18a4418cc269eb1134a296",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/309b734d98fb21fb-cb08f4837d46b79f.html.gz",
+          "sha256": "0d01e305c5d1dcd3fc854147ebc40c6929a7f24e92e09e99ae32dc228b8d26f6",
+          "size_bytes": 8440,
+          "url": "https://hadis.islom.uz/kitob/25/49"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "33ae9bd4594041ee60a45a590831b863f6277ee76fb13ccf242880f522c84d1d",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/afdaf3bedfa92712-33ae9bd4594041ee.html.gz",
+          "sha256": "accc7d36cb92ef92be4d28ff7c77e5360f7fa5632a15341eb6ce126b0c3edb66",
+          "size_bytes": 10173,
+          "url": "https://hadis.islom.uz/kitob/25/50"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "faa2b1508fa906ccbe5d665678963e04dd2c4f296f984f4438803d7c1f54ccbf",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/195722a3c37dc7c0-faa2b1508fa906cc.html.gz",
+          "sha256": "869ab5a282b6cdf9af11cf746ad4a351a2a283beca6ad51050073c89e08879c2",
+          "size_bytes": 8775,
+          "url": "https://hadis.islom.uz/kitob/25/51"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3fbbaf9e2e84a70d8c3aecabc4107850704d59bfc1d963468b13b06313cc4b73",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/9e97578589cc540f-3fbbaf9e2e84a70d.html.gz",
+          "sha256": "c7054ea3c456e333a2d33a8e39cf51ea36da73267cabf7d14af8ecfe371f6dc9",
+          "size_bytes": 15408,
+          "url": "https://hadis.islom.uz/kitob/25/52"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "927614611a00df70254c0e41301fd49c78c3ebbdad7e0be5de6bf0937fe8231e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b15bb51b6e25d3ae-927614611a00df70.html.gz",
+          "sha256": "e15c2e0d7c994ca3c7e9edd8ee6e6819950791ea32d109c6f3789a5f7ec74529",
+          "size_bytes": 10084,
+          "url": "https://hadis.islom.uz/kitob/25/53"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "274e2a85c744e2348862c39c0652de47ff75149821d2b9cd698bea7223045ae6",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/31d2a67268e83c42-274e2a85c744e234.html.gz",
+          "sha256": "672026185adc5f07a9014e38bb9d27168bcfc71f7e5dcdd8e6ad9910dc41a1df",
+          "size_bytes": 15095,
+          "url": "https://hadis.islom.uz/kitob/25/54"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f2c6acab9254267bb7e2ee25b32471f8c77c2d643780543eda82589b9ce88e03",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/02bf2725236bd62d-f2c6acab9254267b.html.gz",
+          "sha256": "336811893e2c1401454a4f05771c674db93bf0bd3e1f71b3f05e3116008174c2",
+          "size_bytes": 10791,
+          "url": "https://hadis.islom.uz/kitob/25/55"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e53be9a19e574beb7e6791580fe2d27e6519e65cef6f30dfa205e1cf804df54f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/bfcd36d5f275f9f3-e53be9a19e574beb.html.gz",
+          "sha256": "3ecb5de0179130f073630280933d72848a6585d800ea32abb2d2e646f33a8c1c",
+          "size_bytes": 11772,
+          "url": "https://hadis.islom.uz/kitob/25/56"
+        },
+        {
+          "compression": "gzip",
           "format": "jsonl+gzip",
           "path": "imports/web-uzbek-20261112/islom/collection-book-25.jsonl.gz",
           "role": "complete_source_entry_and_commentary_ledger",
-          "sha256": "19f9d2e7e9e06e20ffccba3e1f1a038b44ac505dcd771e7c602f8fa15958b2f5",
-          "size_bytes": 164853,
-          "uncompressed_sha256": "be5e25da73d84847b89654eef478baff174072d95936cda22223d77a7b3453f7"
+          "sha256": "ed1cccf5cf087c37e2a00bfe78791d203c88ec1817653e0a3d6b9c2e5ff09ba4",
+          "size_bytes": 296518,
+          "uncompressed_sha256": "f8704e429f3080cf3da2a206eec9ded87f25a59606fdeb53042f431b92ae3a66"
         }
       ],
       "counterpart_policy": {
@@ -1144,17 +1728,17 @@
       "language": "uz",
       "book_key": "book-26",
       "edition": "publisher-web-20261112",
-      "count": 153,
+      "count": 290,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-26-uz-web/source-evidence.json",
-      "source_sha256": "b18eae926c3dde0747e716b203b024c8aa94a7b2ade5d9328a15228fca00ced4",
+      "source_sha256": "b398159f7a5b06ef3279981ec8e7d42cedd4132b600a289be374895bb8acbf4c",
       "canonical_records_path": "materials/islom-book-26-uz-web/records.jsonl",
-      "canonical_records_sha256": "8e65fad75994ae19d80020d05cd60892b0eeeb6a1c40143abea500f4d87a70f3",
+      "canonical_records_sha256": "87c1fecda1d7f0396180ae76381d0a1cca5ea7830fdf27123fd9a9e309a5fb34",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Саҳиҳул Бухорийнинг мухтасари — Hadis.islom.uz",
         "path": "materials/islom-book-26-uz-web/source-evidence.json",
-        "sha256": "b18eae926c3dde0747e716b203b024c8aa94a7b2ade5d9328a15228fca00ced4",
+        "sha256": "b398159f7a5b06ef3279981ec8e7d42cedd4132b600a289be374895bb8acbf4c",
         "url": "https://hadis.islom.uz/kitob/26"
       },
       "adapter": "records-v1",
@@ -1189,78 +1773,6 @@
           "sha256": "b5680b2a02a236c571f9b05af271e683ad6969aaf3e9304b9206cbeac202ed91",
           "size_bytes": 11426,
           "url": "https://hadis.islom.uz/kitob/26/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "52841aa554848309da6e5e6ad09bb52b430fa3e5ceea952c55547d2ad07774ae",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/97d6040c8ac936cd-52841aa554848309.html.gz",
-          "sha256": "ebd7c452209b61a85ec44df3139cd7db991d287e409e963edf8cec156408c52b",
-          "size_bytes": 12896,
-          "url": "https://hadis.islom.uz/kitob/26/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "d2d29d29a1a1153035848f1b591a499f3d37b8435a68e3d7349bd8c6e8c4a69c",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/2c3734b18861f46b-d2d29d29a1a11530.html.gz",
-          "sha256": "a8156705b4a441698a1829d61b8a0da38500dd813e687c857ee0a45b6efa5bbc",
-          "size_bytes": 12549,
-          "url": "https://hadis.islom.uz/kitob/26/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "344aac7d5ec49735f4def692a728dc140bbcd9197e55bb76fe570ed40a22ffa3",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/7d538ffed882c80e-344aac7d5ec49735.html.gz",
-          "sha256": "6d60ce33d26e3bccac2afeef1fa76ce9909d8cc57a54c2ee5dbcacfa3a55a10b",
-          "size_bytes": 9561,
-          "url": "https://hadis.islom.uz/kitob/26/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "292ae2e029331bd12f767cdb073f5b3cc4b0863c8022e1f4100c06d68571bf07",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/216288556d9ab1c1-292ae2e029331bd1.html.gz",
-          "sha256": "e2d1448557dde44d9af2e4990cd1e151c511fb9ca5ff6c8e3160aaa8e771aaff",
-          "size_bytes": 9099,
-          "url": "https://hadis.islom.uz/kitob/26/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "69285d30ed30570622945c7ffbe7cc27117a9a974a634517ee1604d93540d561",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/111081acc61bb80c-69285d30ed305706.html.gz",
-          "sha256": "f7a92cb3c5d3eb8696238867c9e96b8fc857ad8978ac10f251ac2542bdfd1c51",
-          "size_bytes": 12172,
-          "url": "https://hadis.islom.uz/kitob/26/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "3e409d1dd3ce1935de040ec882f918eee4cc43e6acf6b84fdb42f4a9f12aa481",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/31ffdf88a0c7dae9-3e409d1dd3ce1935.html.gz",
-          "sha256": "4cbfa575c1ce924c2282501c859072fd829d987cf7827a0ea56364c68383a864",
-          "size_bytes": 8976,
-          "url": "https://hadis.islom.uz/kitob/26/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "97abf7b6c69f68060c6464d42fe7f45ae2f4cfdaedf75f3bb050c33953b23d69",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/b8171d5439335e5e-97abf7b6c69f6806.html.gz",
-          "sha256": "fce9af6267cd06deffaf7a1bc4935739745835d59ac77a5a72ede656e23b1d3f",
-          "size_bytes": 18816,
-          "url": "https://hadis.islom.uz/kitob/26/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "d79eeed34a4c7da9e58025c9e7564bc835138c0b6ff46414205185fd46f42ed1",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/233844d5b2a70c86-d79eeed34a4c7da9.html.gz",
-          "sha256": "bf0e507506470eff2b880e4363f97494498fdf5d81d8db1b51375603f504e3fa",
-          "size_bytes": 11158,
-          "url": "https://hadis.islom.uz/kitob/26/9"
         },
         {
           "compression": "gzip",
@@ -1355,6 +1867,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "52841aa554848309da6e5e6ad09bb52b430fa3e5ceea952c55547d2ad07774ae",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/97d6040c8ac936cd-52841aa554848309.html.gz",
+          "sha256": "ebd7c452209b61a85ec44df3139cd7db991d287e409e963edf8cec156408c52b",
+          "size_bytes": 12896,
+          "url": "https://hadis.islom.uz/kitob/26/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "f5837189b14eb5de2f237f336df8f4cb748e89e995e2ef980e118da66d0eda55",
           "path": "imports/web-uzbek-20261112/islom/snapshots/b957c60f4e70e5e5-f5837189b14eb5de.html.gz",
           "sha256": "d5d2f1c60c28a4a8fb890639a5c179f202f1056e3095ccd8e6f3b03dacd1d5b4",
@@ -1445,6 +1966,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "d2d29d29a1a1153035848f1b591a499f3d37b8435a68e3d7349bd8c6e8c4a69c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2c3734b18861f46b-d2d29d29a1a11530.html.gz",
+          "sha256": "a8156705b4a441698a1829d61b8a0da38500dd813e687c857ee0a45b6efa5bbc",
+          "size_bytes": 12549,
+          "url": "https://hadis.islom.uz/kitob/26/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "b505abe82efbdcb94a3a0b2ca1cd09c1d795f5cba511691eb9be3d4c11383bbd",
           "path": "imports/web-uzbek-20261112/islom/snapshots/6efd6174f3c960c7-b505abe82efbdcb9.html.gz",
           "sha256": "d296ed744e123945f350af7b206615465b1cb29cd371d5156f46acb28c339e9d",
@@ -1498,12 +2028,318 @@
         },
         {
           "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "344aac7d5ec49735f4def692a728dc140bbcd9197e55bb76fe570ed40a22ffa3",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7d538ffed882c80e-344aac7d5ec49735.html.gz",
+          "sha256": "6d60ce33d26e3bccac2afeef1fa76ce9909d8cc57a54c2ee5dbcacfa3a55a10b",
+          "size_bytes": 9561,
+          "url": "https://hadis.islom.uz/kitob/26/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "292ae2e029331bd12f767cdb073f5b3cc4b0863c8022e1f4100c06d68571bf07",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/216288556d9ab1c1-292ae2e029331bd1.html.gz",
+          "sha256": "e2d1448557dde44d9af2e4990cd1e151c511fb9ca5ff6c8e3160aaa8e771aaff",
+          "size_bytes": 9099,
+          "url": "https://hadis.islom.uz/kitob/26/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "69285d30ed30570622945c7ffbe7cc27117a9a974a634517ee1604d93540d561",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/111081acc61bb80c-69285d30ed305706.html.gz",
+          "sha256": "f7a92cb3c5d3eb8696238867c9e96b8fc857ad8978ac10f251ac2542bdfd1c51",
+          "size_bytes": 12172,
+          "url": "https://hadis.islom.uz/kitob/26/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3e409d1dd3ce1935de040ec882f918eee4cc43e6acf6b84fdb42f4a9f12aa481",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/31ffdf88a0c7dae9-3e409d1dd3ce1935.html.gz",
+          "sha256": "4cbfa575c1ce924c2282501c859072fd829d987cf7827a0ea56364c68383a864",
+          "size_bytes": 8976,
+          "url": "https://hadis.islom.uz/kitob/26/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "97abf7b6c69f68060c6464d42fe7f45ae2f4cfdaedf75f3bb050c33953b23d69",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b8171d5439335e5e-97abf7b6c69f6806.html.gz",
+          "sha256": "fce9af6267cd06deffaf7a1bc4935739745835d59ac77a5a72ede656e23b1d3f",
+          "size_bytes": 18816,
+          "url": "https://hadis.islom.uz/kitob/26/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d79eeed34a4c7da9e58025c9e7564bc835138c0b6ff46414205185fd46f42ed1",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/233844d5b2a70c86-d79eeed34a4c7da9.html.gz",
+          "sha256": "bf0e507506470eff2b880e4363f97494498fdf5d81d8db1b51375603f504e3fa",
+          "size_bytes": 11158,
+          "url": "https://hadis.islom.uz/kitob/26/9"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0b925326b7533528b8623398072e950343370853c812c0c37ef9cc9c3f951ba8",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/78b9c71fa6b54fff-0b925326b7533528.html.gz",
+          "sha256": "81165d264f6ae5b203947b51fe6ec2d5acf4376701c788e1a611f64c149a74c1",
+          "size_bytes": 25892,
+          "url": "https://hadis.islom.uz/kitob/26/36"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1ad281bd73a9c5a8c96b0693d3321893ac24929160a8382b88932ba66ac5e845",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c173c267226194d6-1ad281bd73a9c5a8.html.gz",
+          "sha256": "609bb37e6e2d16815c34c473f0949ede2508595f44a54f0d44d492f38176476c",
+          "size_bytes": 16765,
+          "url": "https://hadis.islom.uz/kitob/26/37"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "c7d80327506f5339d168627780fce3380fbe2711800a9ac41ce9c2de54d399c8",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/06847625b545fd5b-c7d80327506f5339.html.gz",
+          "sha256": "38b7edfc3dd1d7eb82640cc0891d36b46981e8ae83f2b153765edb240425b6d9",
+          "size_bytes": 7919,
+          "url": "https://hadis.islom.uz/kitob/26/39"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a3af36366c01689eb0dc12d66bc3207a5479f641c6b157a313aec3c94dbc89f7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f9b2d005b43e2c8a-a3af36366c01689e.html.gz",
+          "sha256": "bc48b4b4d44ab93d0284c60aeb903b4ae9d65d55b8d5bcd917169ae15a1c7c7c",
+          "size_bytes": 12333,
+          "url": "https://hadis.islom.uz/kitob/26/40"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "509625b89e6a553f9e89a82d4033f652633e8dd5585e0f11b1a8a445fa2e4b9f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/68b4106fbbe28de7-509625b89e6a553f.html.gz",
+          "sha256": "e4a5d229c1d474933eacbd1d0ddba73431a33c768d540b2a2dd67524eb3d3662",
+          "size_bytes": 8324,
+          "url": "https://hadis.islom.uz/kitob/26/41"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f0ab52e58bf9230616df83139b501dca8a2bfbf3ad50282db659bdaec6010aee",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/612fd7d7d2489564-f0ab52e58bf92306.html.gz",
+          "sha256": "8f540c683303ba0c9e1b070ec7a3789e461346b4864cb3ca445b6761097d8ca5",
+          "size_bytes": 9146,
+          "url": "https://hadis.islom.uz/kitob/26/42"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "008b759840d090b5582ac68774c3b5bbeb8b6e0ba37f0d25f4c4b230c97ada37",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/8afc971fb44f9e19-008b759840d090b5.html.gz",
+          "sha256": "4b0bdf90990b0df53673a5c04364ea46108657f1c8174b0f7309fd06077e1bba",
+          "size_bytes": 9405,
+          "url": "https://hadis.islom.uz/kitob/26/43"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "01e3c0136e7dd5f06c63fec0019319121054ecee598a1bc88b65ce60c81baf44",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/74b41de79609647e-01e3c0136e7dd5f0.html.gz",
+          "sha256": "6f7c50dad67c2a8d18dfd092faa39b475e6ba341b3f8aa0fb6d31cbcce0a0e2c",
+          "size_bytes": 8186,
+          "url": "https://hadis.islom.uz/kitob/26/44"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "11add67ea68045b1855ca7ef3f75d2596a1f9deca434a912c293f5b78b16a1b5",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/a3b4a4f75b5ab4c4-11add67ea68045b1.html.gz",
+          "sha256": "172ee39b5c1e658325e5bba320ceb2b5dc30a4057dddbff74be14086a2b3fca7",
+          "size_bytes": 8075,
+          "url": "https://hadis.islom.uz/kitob/26/45"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0bc477229256f86fc2f0a475753926e83ab382bb65784fbdace9a046c50ba7f1",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/60fd3aa6b69a589e-0bc477229256f86f.html.gz",
+          "sha256": "d4c8ac45be92308b2e2502cff1e2c8138646f76761f482dc1d66ef1bcb7aca12",
+          "size_bytes": 8524,
+          "url": "https://hadis.islom.uz/kitob/26/46"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "c41f18b4dedccf75445f8826bf5069fa1e9d27557a8e9d83dd9fe739eaa7f34b",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e9d19b9e00f1c6a2-c41f18b4dedccf75.html.gz",
+          "sha256": "34fdb91fcd84e24c7bee40404ffab3511f10a459f67b6cf54f0fb85c524f2a33",
+          "size_bytes": 10305,
+          "url": "https://hadis.islom.uz/kitob/26/47"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8aeb2b4c09113a755e1fd0b27ffca4038c298a48fc1639d3f0725a3f838e9746",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f5c30c15110907ef-8aeb2b4c09113a75.html.gz",
+          "sha256": "be1c861976debf213ba39da7909de7e2805486d965392fd08a3299a2688e9fe5",
+          "size_bytes": 11185,
+          "url": "https://hadis.islom.uz/kitob/26/48"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0de3ec18bac019287d841a433af64d1b41886753f30cdf6cd53ddaf2df39008f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ce4f9506953d333e-0de3ec18bac01928.html.gz",
+          "sha256": "8e3cb9f097ef6a796ed859beaea302492252e827df35310f16196e6222c77e0f",
+          "size_bytes": 8638,
+          "url": "https://hadis.islom.uz/kitob/26/49"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "32aaeaa403396f2c7c6ebd70c8643260115164252ecb6062aa6425d14b725913",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/1972d96b9723da70-32aaeaa403396f2c.html.gz",
+          "sha256": "ebc22841e366ab8bb91de2ca2566a2c469bc1bde60ff00ff7ef3b86968b8e76c",
+          "size_bytes": 27083,
+          "url": "https://hadis.islom.uz/kitob/26/50"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3b109e83680915dcba0dae9099cf0677f0c23e51e2438d15fdc046f331fc9544",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/caedaa9448831a2d-3b109e83680915dc.html.gz",
+          "sha256": "e5e5d8bfa9af9cf2b47b592c48ba73ffadd088c93ef16ebbeceb18b4e63a2f2d",
+          "size_bytes": 10093,
+          "url": "https://hadis.islom.uz/kitob/26/51"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "51a2378611046ba83bf3fffd230d50cc581410928822f8f39bc4d0ab98e089c3",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ca47d6dda7a5f29a-51a2378611046ba8.html.gz",
+          "sha256": "fdc93dabf98ecbe6ce9d145b08c3cc11817d5318fe6b14a1b0bd0cd65da6e178",
+          "size_bytes": 10129,
+          "url": "https://hadis.islom.uz/kitob/26/52"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6d9e5fa75eab559a1f9a77cecde3589ec48b463b4b2fd296be9a725a5bdc87c5",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/d01df2ee94bf35c4-6d9e5fa75eab559a.html.gz",
+          "sha256": "8d96b3fff65abb224bfa36598b4db3fda0036ce8bfe880ed88139da75bc365a7",
+          "size_bytes": 15231,
+          "url": "https://hadis.islom.uz/kitob/26/53"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "df0457385ac62e13fcbabc35cde1118bddf420e3006e233368b612ddf38adaef",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/624d0abb7b3347a0-df0457385ac62e13.html.gz",
+          "sha256": "2fd012b0df79f59127853d506f7736d17461e154d9d10fdbe6bfb0955ce95eca",
+          "size_bytes": 9918,
+          "url": "https://hadis.islom.uz/kitob/26/54"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "9c0244d6bf0c526725ff30a4fc8cead42b08c66c592cec0576e9a60816746856",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7fd38873e2ea95f1-9c0244d6bf0c5267.html.gz",
+          "sha256": "a2850dca340f73120e80341f025f0fb0da8e2a52b28f140e9573e964748f3108",
+          "size_bytes": 9878,
+          "url": "https://hadis.islom.uz/kitob/26/55"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "af1636b99cc8789ad195d618092688279b99dbbdfbce694ed0d2e76e679c809f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5b8512dfe5c1ca74-af1636b99cc8789a.html.gz",
+          "sha256": "53fe466a5df5bdb6ec174fa40315c6a13618afe09f35e1e13e93530f89170851",
+          "size_bytes": 11763,
+          "url": "https://hadis.islom.uz/kitob/26/56"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0fa06dfd0835f3c198dd27e48623ac40cc7701aded8bf52b025d1179870b2fd7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/18e7734bba5b665c-0fa06dfd0835f3c1.html.gz",
+          "sha256": "4e2d21a08db65d2ab2630738368ad9650c6e49f0862c3619b26c4c058c74366d",
+          "size_bytes": 7703,
+          "url": "https://hadis.islom.uz/kitob/26/57"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "b89b2f4e854cc48e4b77887dd3324660a59579a4dc3f91cdd9d65c24d5d2cca7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/68f18da0af943765-b89b2f4e854cc48e.html.gz",
+          "sha256": "d98b98b0c0cc356c1b49a2dd4bd6e9c46b58823b4e010f906c5f9ed7fa717c54",
+          "size_bytes": 8486,
+          "url": "https://hadis.islom.uz/kitob/26/58"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "64d5e06ea5b378fea799343275a0c7112f5b36d99509ee36952f7788bedb43f0",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ab7a96c59c62072d-64d5e06ea5b378fe.html.gz",
+          "sha256": "9dc8dd2b2036029c640cddc37ff7e525ec67a66d932b42e46d50ecba36b3589f",
+          "size_bytes": 8531,
+          "url": "https://hadis.islom.uz/kitob/26/59"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "87a3f1b893c1e8c03e6cc0fa95f731162eb4627dd7391d790b6c3f12a1ed45f4",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e5f0af2c0458f56a-87a3f1b893c1e8c0.html.gz",
+          "sha256": "662754a95e56e13aac63ba6b585ea79b92853596a88e990c3e0d331052fbcd8d",
+          "size_bytes": 10903,
+          "url": "https://hadis.islom.uz/kitob/26/60"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "cdfd591506a1b5f9b46a3476f5d487eecb26464f11534c54bd72eb1ba80c0943",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2fa9009e4a43c966-cdfd591506a1b5f9.html.gz",
+          "sha256": "2df7869c4ff9c9c269468b989bf84c252bf2ea5e24d81d5bf86a4c9edf3b959c",
+          "size_bytes": 10072,
+          "url": "https://hadis.islom.uz/kitob/26/61"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "76c98e51b744da6a7dc42182766569bb68d1224ec5ee34b2ca466430f71f527f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/1df5b5473d282c12-76c98e51b744da6a.html.gz",
+          "sha256": "e3a878a1db7adb3bb0bb494f01194d50247bd44933f4c72bcecfe8e0ae97bda9",
+          "size_bytes": 8172,
+          "url": "https://hadis.islom.uz/kitob/26/62"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "03a4b78fdc984f998c344008afb5e1a67d2fbaf9efda8c4de4291defbc1cd7c2",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/94618fe06dc6a6f0-03a4b78fdc984f99.html.gz",
+          "sha256": "48391a6feed02a52ac1fdef31e4efdebff35357761c1e786fe3ddd8fb298b673",
+          "size_bytes": 8365,
+          "url": "https://hadis.islom.uz/kitob/26/63"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "485a44f962050e533dbe2dcbcbd7fc5fb7c6c8f842c2e416fb304b5d2fef0741",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/238a62177967acec-485a44f962050e53.html.gz",
+          "sha256": "cf9ffb3168d795a9df87fc6a656679561850ae65890598f3e65ad0f86802a360",
+          "size_bytes": 11703,
+          "url": "https://hadis.islom.uz/kitob/26/64"
+        },
+        {
+          "compression": "gzip",
           "format": "jsonl+gzip",
           "path": "imports/web-uzbek-20261112/islom/collection-book-26.jsonl.gz",
           "role": "complete_source_entry_and_commentary_ledger",
-          "sha256": "734126b07fec7e387ef931556cd917e959fe1dd678dec3dfc189fdf497a6951e",
-          "size_bytes": 176873,
-          "uncompressed_sha256": "05a4ca8733a9a750b5729819b4de924f3eae72744bf8d40456c123c64bfb87ae"
+          "sha256": "0884d6a73f869057861841a5e47bc847d081d383b94465ac8cabedc510b3e460",
+          "size_bytes": 289498,
+          "uncompressed_sha256": "81819c62192a178a5dc6f457606b5c703ee25b92c739c20ed0e8702013ad9e68"
         }
       ],
       "counterpart_policy": {
@@ -1550,14 +2386,14 @@
       "count": 401,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-27-uz-web/source-evidence.json",
-      "source_sha256": "5fccadc4b10f6a70b5018c6a64b57360c2d23f1cead4420dfa2b6d4724438c73",
+      "source_sha256": "3f38d60cebe2c33764f5ba02447ae5a56b265a8411899aef6780d678d3027501",
       "canonical_records_path": "materials/islom-book-27-uz-web/records.jsonl",
       "canonical_records_sha256": "80ded250177582e9eba9a0eb7c1b18c72e52c6f295f052d34335ee9c61b2a50f",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Имомлари иттифоқ қилган ҳадислар — Hadis.islom.uz",
         "path": "materials/islom-book-27-uz-web/source-evidence.json",
-        "sha256": "5fccadc4b10f6a70b5018c6a64b57360c2d23f1cead4420dfa2b6d4724438c73",
+        "sha256": "3f38d60cebe2c33764f5ba02447ae5a56b265a8411899aef6780d678d3027501",
         "url": "https://hadis.islom.uz/kitob/27"
       },
       "adapter": "records-v1",
@@ -1592,78 +2428,6 @@
           "sha256": "e16b0104fdae92d74b7950796fadca4709204c5f444acb3ae63490eb3c921d07",
           "size_bytes": 292521,
           "url": "https://hadis.islom.uz/kitob/27/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "b116876f957fb52f861d9a3f6219f120b697dda0ce309581083cff6145b494fe",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/8a402f8ceeef9410-b116876f957fb52f.html.gz",
-          "sha256": "970a172cfc7e46aaae689c2633e3d61a0865f4df09db3ed2ac39161a0568b0b3",
-          "size_bytes": 18574,
-          "url": "https://hadis.islom.uz/kitob/27/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "cc5c5396951d0df918a65694ee3f33b9bb76abf9fa5b8b5373f894e2dbcfcf02",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/fa9289af42b8a866-cc5c5396951d0df9.html.gz",
-          "sha256": "f494f403a7b6f36563c7c142ed51d23ff273ff68af62dcd05beaf38f7960ad18",
-          "size_bytes": 39180,
-          "url": "https://hadis.islom.uz/kitob/27/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "fa87ede91277eb42d8b4446619d174da894daed415d3bfe79b07ed13b2eec65a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/e6fed4fc23516350-fa87ede91277eb42.html.gz",
-          "sha256": "ebc73491666b4af07e77cae8d392bc4dd5e49dbecfa7a23470dd1a18f772729d",
-          "size_bytes": 24137,
-          "url": "https://hadis.islom.uz/kitob/27/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "1e1f04e22ec694f2529062fe66829c5f1b1429ebd7666639617818cbb1bc7199",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/b206bf9cbedbb8db-1e1f04e22ec694f2.html.gz",
-          "sha256": "4a11a774f469c50c03bf418e0a2b52e78aac9fdd5584e21f8992e7f621d3f148",
-          "size_bytes": 10806,
-          "url": "https://hadis.islom.uz/kitob/27/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "eb0c783210b47ddd98487d89c96cba583ea9b37e7b050fc601638d844ec53386",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/85a0e64836efbc57-eb0c783210b47ddd.html.gz",
-          "sha256": "f65aca4c390be5adec981b841a33db27b4d1273a3878da25753db6a62f53649c",
-          "size_bytes": 9578,
-          "url": "https://hadis.islom.uz/kitob/27/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "572aaebf5b4fd16bb11cbf82ba925d1901fa52ed22776fbe4ba25bc46efb0861",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/80212618b29ccb65-572aaebf5b4fd16b.html.gz",
-          "sha256": "6ecd408d61e133599ce89dde92ff18abb95e57b312cb5ae220655fd6f9e77734",
-          "size_bytes": 8081,
-          "url": "https://hadis.islom.uz/kitob/27/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "7fbced23cae9eb665f180cf486901be916c64dfb2260ef70c7a8a00376c2431a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/8fa5227e6bb6481a-7fbced23cae9eb66.html.gz",
-          "sha256": "982cd867460f3c9925384ed11fe5f661e2944282c4efd08a35cc10c94c6d85f9",
-          "size_bytes": 10920,
-          "url": "https://hadis.islom.uz/kitob/27/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "20923f18dd203c27ad60f2c94c186614390a9b0fd25b2c03324b9a900aa1bbac",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/5310ae8fe874159e-20923f18dd203c27.html.gz",
-          "sha256": "4322de82896a6287465905962628688c7b725767ca1486a587efa5fb5228dee6",
-          "size_bytes": 19124,
-          "url": "https://hadis.islom.uz/kitob/27/9"
         },
         {
           "compression": "gzip",
@@ -1758,6 +2522,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "b116876f957fb52f861d9a3f6219f120b697dda0ce309581083cff6145b494fe",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/8a402f8ceeef9410-b116876f957fb52f.html.gz",
+          "sha256": "970a172cfc7e46aaae689c2633e3d61a0865f4df09db3ed2ac39161a0568b0b3",
+          "size_bytes": 18574,
+          "url": "https://hadis.islom.uz/kitob/27/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "0009b95612025d91f5d8d83ffd8de2889cea8a3732aee48dfb227471120d9de5",
           "path": "imports/web-uzbek-20261112/islom/snapshots/f7bbd4f9637b1ad0-0009b95612025d91.html.gz",
           "sha256": "6b3009c760f2e0897cade813bd11c7ff762c6d189ad0034179ac429c8eaab768",
@@ -1848,6 +2621,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "cc5c5396951d0df918a65694ee3f33b9bb76abf9fa5b8b5373f894e2dbcfcf02",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/fa9289af42b8a866-cc5c5396951d0df9.html.gz",
+          "sha256": "f494f403a7b6f36563c7c142ed51d23ff273ff68af62dcd05beaf38f7960ad18",
+          "size_bytes": 39180,
+          "url": "https://hadis.islom.uz/kitob/27/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "e11748ff306fde2f39ef61b81f6cf863c7cbad979ce57754c28f1fda57a79459",
           "path": "imports/web-uzbek-20261112/islom/snapshots/506b7cb759e74c45-e11748ff306fde2f.html.gz",
           "sha256": "d25030b2f09c83a4f91a2273b19e7bc53abe7f6b03eff8b8bef428d1f3f4e523",
@@ -1898,6 +2680,96 @@
           "sha256": "7fbbfd2b7f1150396dcea90382fbc1d449a2c6f4b9a253c001878452b542621d",
           "size_bytes": 12382,
           "url": "https://hadis.islom.uz/kitob/27/35"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "fa87ede91277eb42d8b4446619d174da894daed415d3bfe79b07ed13b2eec65a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e6fed4fc23516350-fa87ede91277eb42.html.gz",
+          "sha256": "ebc73491666b4af07e77cae8d392bc4dd5e49dbecfa7a23470dd1a18f772729d",
+          "size_bytes": 24137,
+          "url": "https://hadis.islom.uz/kitob/27/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1e1f04e22ec694f2529062fe66829c5f1b1429ebd7666639617818cbb1bc7199",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b206bf9cbedbb8db-1e1f04e22ec694f2.html.gz",
+          "sha256": "4a11a774f469c50c03bf418e0a2b52e78aac9fdd5584e21f8992e7f621d3f148",
+          "size_bytes": 10806,
+          "url": "https://hadis.islom.uz/kitob/27/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "eb0c783210b47ddd98487d89c96cba583ea9b37e7b050fc601638d844ec53386",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/85a0e64836efbc57-eb0c783210b47ddd.html.gz",
+          "sha256": "f65aca4c390be5adec981b841a33db27b4d1273a3878da25753db6a62f53649c",
+          "size_bytes": 9578,
+          "url": "https://hadis.islom.uz/kitob/27/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "572aaebf5b4fd16bb11cbf82ba925d1901fa52ed22776fbe4ba25bc46efb0861",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/80212618b29ccb65-572aaebf5b4fd16b.html.gz",
+          "sha256": "6ecd408d61e133599ce89dde92ff18abb95e57b312cb5ae220655fd6f9e77734",
+          "size_bytes": 8081,
+          "url": "https://hadis.islom.uz/kitob/27/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "7fbced23cae9eb665f180cf486901be916c64dfb2260ef70c7a8a00376c2431a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/8fa5227e6bb6481a-7fbced23cae9eb66.html.gz",
+          "sha256": "982cd867460f3c9925384ed11fe5f661e2944282c4efd08a35cc10c94c6d85f9",
+          "size_bytes": 10920,
+          "url": "https://hadis.islom.uz/kitob/27/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "20923f18dd203c27ad60f2c94c186614390a9b0fd25b2c03324b9a900aa1bbac",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5310ae8fe874159e-20923f18dd203c27.html.gz",
+          "sha256": "4322de82896a6287465905962628688c7b725767ca1486a587efa5fb5228dee6",
+          "size_bytes": 19124,
+          "url": "https://hadis.islom.uz/kitob/27/9"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "ed139ec1e44a711b7944f384136ee36bf5d4a7d21632fd128f38a05039c13681",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5ad4a9067b2a0a8f-ed139ec1e44a711b.html.gz",
+          "sha256": "93bd429ac4c25b6de3c6ac5a2d45af65b2ab8c3abef9d447ebb4586f928a7e8b",
+          "size_bytes": 9661,
+          "url": "https://hadis.islom.uz/kitob/27/36"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "de11ddc2d4ba256a26cb4e100354deeb102f3001f70292cc8275518479127a67",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b4c55b4cd5c5d4ba-de11ddc2d4ba256a.html.gz",
+          "sha256": "f037582fc97a7a7e2174b6509bf7e908579185e08629016a2a38ed6571cbae92",
+          "size_bytes": 21296,
+          "url": "https://hadis.islom.uz/kitob/27/37"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "2c6d71cd4e554833fdf8a302244f8a95f3fed000e54d5d818e9244541530dc8d",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b9d78805f72abf2e-2c6d71cd4e554833.html.gz",
+          "sha256": "abe1ef8d98c4c8bf11b61766bb8bcfec0abd656477bae114b5ac63728b005d5c",
+          "size_bytes": 8265,
+          "url": "https://hadis.islom.uz/kitob/27/38"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4f1cd256658ff926a8ddf43af850ce7b33a328c620013ec8f5ec8e53c18bdc5b",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/88373f62756f31bf-4f1cd256658ff926.html.gz",
+          "sha256": "0a70d3ef459090fb11f7a82e2dae240c436077e0660c5edd3eefff01d6e18911",
+          "size_bytes": 10512,
+          "url": "https://hadis.islom.uz/kitob/27/39"
         },
         {
           "compression": "gzip",
@@ -1953,14 +2825,14 @@
       "count": 1817,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-28-uz-web/source-evidence.json",
-      "source_sha256": "6fc9143a500dd54e5137f6ac132d122bd862b72b6710be3b93804357c02ad6ea",
+      "source_sha256": "210f58148291948f31d2d8de92ff0863fe67b64f22d265a074ecaf65715fd009",
       "canonical_records_path": "materials/islom-book-28-uz-web/records.jsonl",
       "canonical_records_sha256": "df817f63ea39ca9bb49df9c7a183aa96109f1f29a69086f90c8a8108c234c1a3",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Риёзус солиҳийн — Hadis.islom.uz",
         "path": "materials/islom-book-28-uz-web/source-evidence.json",
-        "sha256": "6fc9143a500dd54e5137f6ac132d122bd862b72b6710be3b93804357c02ad6ea",
+        "sha256": "210f58148291948f31d2d8de92ff0863fe67b64f22d265a074ecaf65715fd009",
         "url": "https://hadis.islom.uz/kitob/28"
       },
       "adapter": "records-v1",
@@ -2004,78 +2876,6 @@
           "sha256": "c458146ac6ef60316616edcd4530af746ddc081455f5932678079dbb4408e471",
           "size_bytes": 46656,
           "url": "https://hadis.islom.uz/kitob/28/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "578cf725ce15564a0348c41e0e803dab0073284ec9b22829a2e65801806ef6c1",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/7cb5097fdd41cf2b-578cf725ce15564a.html.gz",
-          "sha256": "b41fade6c98667755fbfa3788419076e1856afdfccb26dab2f7721eff8bb704e",
-          "size_bytes": 32525,
-          "url": "https://hadis.islom.uz/kitob/28/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "386df0551e0b18fa1ff1228a369c353819be6a075a66b7d35088e58c59bef97a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/19f236a781b991cf-386df0551e0b18fa.html.gz",
-          "sha256": "dae7f3b9c12628f952e8f666a483adbe62dd4e43e546c2f689cfbd47eea32188",
-          "size_bytes": 28514,
-          "url": "https://hadis.islom.uz/kitob/28/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "8f4ed7b62fbd0f3c4df3f2b823e157e544868ea59976329a59b2756070da1da0",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/207871b7e9bea9b5-8f4ed7b62fbd0f3c.html.gz",
-          "sha256": "f595dc6361957884cf66e3abbce37d558ebb8931403cfeffa50e29929fb8543a",
-          "size_bytes": 22795,
-          "url": "https://hadis.islom.uz/kitob/28/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "16961fabd0887ab2d774e3f4a94d4a711687a9c5ea06cb6946792ffb7a8c0931",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/d9f6e3834166fb48-16961fabd0887ab2.html.gz",
-          "sha256": "d67e58089cb374afe2792febc7e547d1fd39d44ebe12e2fc298dca6b9c502d3a",
-          "size_bytes": 31594,
-          "url": "https://hadis.islom.uz/kitob/28/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "a0e6c8d408acf64ad6d31a7afcfb330efb6cd2e8a9719c9cf7e6295d2dd5ca5a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/dc1e4262ded5234b-a0e6c8d408acf64a.html.gz",
-          "sha256": "29a23f85461a549e73c3a659453e9917780a53404de88407eabbb73b0017d1a5",
-          "size_bytes": 48941,
-          "url": "https://hadis.islom.uz/kitob/28/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "8e910a62dbd4024ccde9ea12a0e198ac0720097f15c87f39e21339daa8ed6198",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/c19597dd4d7ff543-8e910a62dbd4024c.html.gz",
-          "sha256": "eb19012647e79ce25377c5cf878cc2fc9475d772939f3a85ee9e29e19d7504aa",
-          "size_bytes": 31548,
-          "url": "https://hadis.islom.uz/kitob/28/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "6be1f5a9e940c729bc5990a797c765f1afce7efb8fe53514b304ef9e6fe21f6e",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/63e7fe69a2d6a83f-6be1f5a9e940c729.html.gz",
-          "sha256": "0dc9c8e2858ef0056e371950d5f46650289f31270059c61faa2c7b368a35c0c3",
-          "size_bytes": 142230,
-          "url": "https://hadis.islom.uz/kitob/28/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "bf08bb7fe804ae8b83adaa4808fe013b3fd2bde2e2b81fe74d77fb54c201fdd6",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/f8a5014daed6f337-bf08bb7fe804ae8b.html.gz",
-          "sha256": "f718c85e27d39f32815d556606c1b6c04ce7b2c75aabca179a2043d077526fde",
-          "size_bytes": 8342,
-          "url": "https://hadis.islom.uz/kitob/28/9"
         },
         {
           "compression": "gzip",
@@ -2169,6 +2969,78 @@
         },
         {
           "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "578cf725ce15564a0348c41e0e803dab0073284ec9b22829a2e65801806ef6c1",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7cb5097fdd41cf2b-578cf725ce15564a.html.gz",
+          "sha256": "b41fade6c98667755fbfa3788419076e1856afdfccb26dab2f7721eff8bb704e",
+          "size_bytes": 32525,
+          "url": "https://hadis.islom.uz/kitob/28/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "386df0551e0b18fa1ff1228a369c353819be6a075a66b7d35088e58c59bef97a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/19f236a781b991cf-386df0551e0b18fa.html.gz",
+          "sha256": "dae7f3b9c12628f952e8f666a483adbe62dd4e43e546c2f689cfbd47eea32188",
+          "size_bytes": 28514,
+          "url": "https://hadis.islom.uz/kitob/28/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8f4ed7b62fbd0f3c4df3f2b823e157e544868ea59976329a59b2756070da1da0",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/207871b7e9bea9b5-8f4ed7b62fbd0f3c.html.gz",
+          "sha256": "f595dc6361957884cf66e3abbce37d558ebb8931403cfeffa50e29929fb8543a",
+          "size_bytes": 22795,
+          "url": "https://hadis.islom.uz/kitob/28/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "16961fabd0887ab2d774e3f4a94d4a711687a9c5ea06cb6946792ffb7a8c0931",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/d9f6e3834166fb48-16961fabd0887ab2.html.gz",
+          "sha256": "d67e58089cb374afe2792febc7e547d1fd39d44ebe12e2fc298dca6b9c502d3a",
+          "size_bytes": 31594,
+          "url": "https://hadis.islom.uz/kitob/28/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a0e6c8d408acf64ad6d31a7afcfb330efb6cd2e8a9719c9cf7e6295d2dd5ca5a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/dc1e4262ded5234b-a0e6c8d408acf64a.html.gz",
+          "sha256": "29a23f85461a549e73c3a659453e9917780a53404de88407eabbb73b0017d1a5",
+          "size_bytes": 48941,
+          "url": "https://hadis.islom.uz/kitob/28/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8e910a62dbd4024ccde9ea12a0e198ac0720097f15c87f39e21339daa8ed6198",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c19597dd4d7ff543-8e910a62dbd4024c.html.gz",
+          "sha256": "eb19012647e79ce25377c5cf878cc2fc9475d772939f3a85ee9e29e19d7504aa",
+          "size_bytes": 31548,
+          "url": "https://hadis.islom.uz/kitob/28/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6be1f5a9e940c729bc5990a797c765f1afce7efb8fe53514b304ef9e6fe21f6e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/63e7fe69a2d6a83f-6be1f5a9e940c729.html.gz",
+          "sha256": "0dc9c8e2858ef0056e371950d5f46650289f31270059c61faa2c7b368a35c0c3",
+          "size_bytes": 142230,
+          "url": "https://hadis.islom.uz/kitob/28/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "bf08bb7fe804ae8b83adaa4808fe013b3fd2bde2e2b81fe74d77fb54c201fdd6",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f8a5014daed6f337-bf08bb7fe804ae8b.html.gz",
+          "sha256": "f718c85e27d39f32815d556606c1b6c04ce7b2c75aabca179a2043d077526fde",
+          "size_bytes": 8342,
+          "url": "https://hadis.islom.uz/kitob/28/9"
+        },
+        {
+          "compression": "gzip",
           "format": "jsonl+gzip",
           "path": "imports/web-uzbek-20261112/islom/collection-book-28.jsonl.gz",
           "role": "complete_source_entry_and_commentary_ledger",
@@ -2221,14 +3093,14 @@
       "count": 123,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-29-uz-web/source-evidence.json",
-      "source_sha256": "84d471a9d42ba0d2772c225228d1bcb39989751e9bb800fcf9b42b0cb28cbf78",
+      "source_sha256": "9b332d3c2a692f823bbb6cf848c078d6504a4bbe020c88adc6919f52aa44c575",
       "canonical_records_path": "materials/islom-book-29-uz-web/records.jsonl",
       "canonical_records_sha256": "ced2f7039469cefe278062a98589b8f1ef6ae20344a5612b9ceae0b8659fc683",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Риёзус солиҳийн (болалар учун) — Hadis.islom.uz",
         "path": "materials/islom-book-29-uz-web/source-evidence.json",
-        "sha256": "84d471a9d42ba0d2772c225228d1bcb39989751e9bb800fcf9b42b0cb28cbf78",
+        "sha256": "9b332d3c2a692f823bbb6cf848c078d6504a4bbe020c88adc6919f52aa44c575",
         "url": "https://hadis.islom.uz/kitob/29"
       },
       "adapter": "records-v1",
@@ -2315,17 +3187,17 @@
       "language": "uz",
       "book_key": "book-30",
       "edition": "publisher-web-20261112",
-      "count": 931,
+      "count": 2014,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-30-uz-web/source-evidence.json",
-      "source_sha256": "c66639441c12b908c3e034574118637649d84d3706feb92d785e7bb8b60e649d",
+      "source_sha256": "77fafa3d3751166c69b9791c96d12ad574fec808c8d21cef972a528acaeaf42a",
       "canonical_records_path": "materials/islom-book-30-uz-web/records.jsonl",
-      "canonical_records_sha256": "f555f877a0953c5bac2b822f7b855c8f849c7c5608b5738848f8ad3a06a2b1b1",
+      "canonical_records_sha256": "127afe5c0ea082996440c02dc88c851b1ac5ea5742d045f9eebbe29e16faea89",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Забидий — Hadis.islom.uz",
         "path": "materials/islom-book-30-uz-web/source-evidence.json",
-        "sha256": "c66639441c12b908c3e034574118637649d84d3706feb92d785e7bb8b60e649d",
+        "sha256": "77fafa3d3751166c69b9791c96d12ad574fec808c8d21cef972a528acaeaf42a",
         "url": "https://hadis.islom.uz/kitob/30"
       },
       "adapter": "records-v1",
@@ -2360,78 +3232,6 @@
           "sha256": "c8d814d845509fe6ac476d8072f3c482ca62e2d03a87fd0296038f5b2f1b3e1a",
           "size_bytes": 21622,
           "url": "https://hadis.islom.uz/kitob/30/1"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "c1d5d69e3fad1053415c2ced08c65433341d7b3b40ecd9d9f662b59f420b5d6a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/5641e67a14079eb5-c1d5d69e3fad1053.html.gz",
-          "sha256": "619fb3c5c7eb1f5a7dce38f9dfae082809c1078032a756240aa66fded7b574da",
-          "size_bytes": 38180,
-          "url": "https://hadis.islom.uz/kitob/30/2"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "3afba01b139c045e84e6b4599b7d3f7844d15f8e22bca5216152281b392bb297",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/341969911018b45a-3afba01b139c045e.html.gz",
-          "sha256": "b5fb7a05129104aa0119455378e874f3482a15193e3f1aba8e186f95bff19ac5",
-          "size_bytes": 49548,
-          "url": "https://hadis.islom.uz/kitob/30/3"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "00c8583ba32897c82869d66f3b9960a566d374685d5c5df6b4d2ab579f03ac68",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/7f9db3f90751e8d5-00c8583ba32897c8.html.gz",
-          "sha256": "744be9ad1b8664b343bc48c246785c91dcb7e0f516748893003c13948bb12d5c",
-          "size_bytes": 51970,
-          "url": "https://hadis.islom.uz/kitob/30/4"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "ce42eb3d62a2817d32fac094484655a01d9a2f36f9e307d70be227d58096509f",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/8bac90a325de7362-ce42eb3d62a2817d.html.gz",
-          "sha256": "41b6421c3ec00c1966af7217f60d4f5ede6b98aed6d8f74db3b22b272b026ab1",
-          "size_bytes": 17665,
-          "url": "https://hadis.islom.uz/kitob/30/5"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "cdd50206e6189aa3ad4ec9b8a89e540ac00acd708d60db01a787b2f490a5ef6a",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/2f8d9fe180a34a31-cdd50206e6189aa3.html.gz",
-          "sha256": "f4e5c485a90712533e69b5295d271b10c02cd561f6ebd286147e8ed821b20b9b",
-          "size_bytes": 22035,
-          "url": "https://hadis.islom.uz/kitob/30/6"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "bae24dae08e9848f7841cea768910c3b449068c53f82f6145d3b75e989df5eb7",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/e7772a4a5e387341-bae24dae08e9848f.html.gz",
-          "sha256": "b0bf12808f316ba74542fc29667da38ca4457232211677706348ce93d2619fe2",
-          "size_bytes": 16208,
-          "url": "https://hadis.islom.uz/kitob/30/7"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "53223d260ba9d251a7a9a38e8d5d2ddd842d4ebb332f089e1440c0bfb427eebf",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/659c62d3273b141d-53223d260ba9d251.html.gz",
-          "sha256": "7b629a7174b7216c2239d1f90ef2348e2a19ebbbc6a90a24c89a4e561d7c4f0a",
-          "size_bytes": 67194,
-          "url": "https://hadis.islom.uz/kitob/30/8"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "2623e1615fc733da3b56e5ccbb9174d2560a461d2908ee6abf64e77a2b45c748",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/f56400d9f7dc7202-2623e1615fc733da.html.gz",
-          "sha256": "b61d701fdb9b02af252c3a2336dffcabd30bdc1c930ad25bc445ff17630a7fc7",
-          "size_bytes": 16189,
-          "url": "https://hadis.islom.uz/kitob/30/9"
         },
         {
           "compression": "gzip",
@@ -2526,6 +3326,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "c1d5d69e3fad1053415c2ced08c65433341d7b3b40ecd9d9f662b59f420b5d6a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5641e67a14079eb5-c1d5d69e3fad1053.html.gz",
+          "sha256": "619fb3c5c7eb1f5a7dce38f9dfae082809c1078032a756240aa66fded7b574da",
+          "size_bytes": 38180,
+          "url": "https://hadis.islom.uz/kitob/30/2"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "811a19b5703fb5a7342976f8ae202bece9d0805fa4c52eff9feba97e9e3bec5a",
           "path": "imports/web-uzbek-20261112/islom/snapshots/8a6fd2da87aed25b-811a19b5703fb5a7.html.gz",
           "sha256": "b1e20731264381b7bd43759ec34a8f89678fb28205c1896eef54378c10027ecf",
@@ -2616,6 +3425,15 @@
         {
           "compression": "gzip",
           "format": "html+gzip",
+          "original_response_sha256": "3afba01b139c045e84e6b4599b7d3f7844d15f8e22bca5216152281b392bb297",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/341969911018b45a-3afba01b139c045e.html.gz",
+          "sha256": "b5fb7a05129104aa0119455378e874f3482a15193e3f1aba8e186f95bff19ac5",
+          "size_bytes": 49548,
+          "url": "https://hadis.islom.uz/kitob/30/3"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
           "original_response_sha256": "7827aee5d7c6d49c27e05a71930f1da3e6606265f19bb615fc2d00e7ca2aca59",
           "path": "imports/web-uzbek-20261112/islom/snapshots/d65ef02edbfea9a7-7827aee5d7c6d49c.html.gz",
           "sha256": "f0386a86ded1472fcbbb88fc7bdb08fb6a606432e2a65217db6bade94533ac37",
@@ -2660,12 +3478,615 @@
         },
         {
           "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "00c8583ba32897c82869d66f3b9960a566d374685d5c5df6b4d2ab579f03ac68",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7f9db3f90751e8d5-00c8583ba32897c8.html.gz",
+          "sha256": "744be9ad1b8664b343bc48c246785c91dcb7e0f516748893003c13948bb12d5c",
+          "size_bytes": 51970,
+          "url": "https://hadis.islom.uz/kitob/30/4"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "ce42eb3d62a2817d32fac094484655a01d9a2f36f9e307d70be227d58096509f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/8bac90a325de7362-ce42eb3d62a2817d.html.gz",
+          "sha256": "41b6421c3ec00c1966af7217f60d4f5ede6b98aed6d8f74db3b22b272b026ab1",
+          "size_bytes": 17665,
+          "url": "https://hadis.islom.uz/kitob/30/5"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "cdd50206e6189aa3ad4ec9b8a89e540ac00acd708d60db01a787b2f490a5ef6a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2f8d9fe180a34a31-cdd50206e6189aa3.html.gz",
+          "sha256": "f4e5c485a90712533e69b5295d271b10c02cd561f6ebd286147e8ed821b20b9b",
+          "size_bytes": 22035,
+          "url": "https://hadis.islom.uz/kitob/30/6"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "bae24dae08e9848f7841cea768910c3b449068c53f82f6145d3b75e989df5eb7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e7772a4a5e387341-bae24dae08e9848f.html.gz",
+          "sha256": "b0bf12808f316ba74542fc29667da38ca4457232211677706348ce93d2619fe2",
+          "size_bytes": 16208,
+          "url": "https://hadis.islom.uz/kitob/30/7"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "53223d260ba9d251a7a9a38e8d5d2ddd842d4ebb332f089e1440c0bfb427eebf",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/659c62d3273b141d-53223d260ba9d251.html.gz",
+          "sha256": "7b629a7174b7216c2239d1f90ef2348e2a19ebbbc6a90a24c89a4e561d7c4f0a",
+          "size_bytes": 67194,
+          "url": "https://hadis.islom.uz/kitob/30/8"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "2623e1615fc733da3b56e5ccbb9174d2560a461d2908ee6abf64e77a2b45c748",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f56400d9f7dc7202-2623e1615fc733da.html.gz",
+          "sha256": "b61d701fdb9b02af252c3a2336dffcabd30bdc1c930ad25bc445ff17630a7fc7",
+          "size_bytes": 16189,
+          "url": "https://hadis.islom.uz/kitob/30/9"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1c017796fe874ef7e69ef83e7fd2a5f4fadbd68f8b43388bb8af9dd775b877fa",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/041f85313bed424d-1c017796fe874ef7.html.gz",
+          "sha256": "20450c0b418d312235aa9d4ba8058d9641a5eb8cde8bcaa95b608a538bb8d910",
+          "size_bytes": 10641,
+          "url": "https://hadis.islom.uz/kitob/30/35"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3c8f71e1b547bbb9070a5c48d599dee020e0a054919c4b174db38b27033d794c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5bb70267c981eb7a-3c8f71e1b547bbb9.html.gz",
+          "sha256": "acff7bef82b617f7f14446f303d1a861f231ec13a263f18edc99905eaea6ac50",
+          "size_bytes": 11128,
+          "url": "https://hadis.islom.uz/kitob/30/36"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6843d0ffeb3186ba76afc987c7c695235a0adf4e6b116ac2f3a2b073392d489d",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/0f374e8886f61434-6843d0ffeb3186ba.html.gz",
+          "sha256": "cb3f062a533bebea7cf494ff71d771fe5426e9cbc63b3c0fe4d85a87177e660c",
+          "size_bytes": 55980,
+          "url": "https://hadis.islom.uz/kitob/30/37"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "439ebd681381a3a634e8b20f89edb1a65badc711d970da691be7e111fc400f64",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/effacaca425e0f77-439ebd681381a3a6.html.gz",
+          "sha256": "1fff613d996cfcfb8387454e95c8e5e31536beb00d475f3c3266675e63248182",
+          "size_bytes": 10164,
+          "url": "https://hadis.islom.uz/kitob/30/38"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "60d7bc71840f2282a797d3ad33f7829f406dbd89a56afbcf7e5398ea36da8a50",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/bec1bb5ace449b7b-60d7bc71840f2282.html.gz",
+          "sha256": "437ffe7d0e116d9ea5a6e2cf87450fda135d1842996a7d4e332b907d5a311f6a",
+          "size_bytes": 9068,
+          "url": "https://hadis.islom.uz/kitob/30/39"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "48c38721440065c182195be339ead5cc23cf3f34931f136c615f543ddfabb9c4",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/d4f682377055db73-48c38721440065c1.html.gz",
+          "sha256": "ec2feea73199db7eb30f229567dcff6823e68cbe2dc7b9e7450d360db2dc5f7d",
+          "size_bytes": 14249,
+          "url": "https://hadis.islom.uz/kitob/30/40"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "9b0ab72901d8348e90e6ef51c4354b659a87661a5f96f614ef37e9cfe150b2d7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c1a8a1ce7647852c-9b0ab72901d8348e.html.gz",
+          "sha256": "4b1074df7557e600cfcc038087d395db5e4648bb95a94709f308e0c428de6bb4",
+          "size_bytes": 11122,
+          "url": "https://hadis.islom.uz/kitob/30/41"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "15768f0975c231120cca7c3f94b5c6e96901115947429df75e4d7e68625a5453",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/0746311405a5bbd8-15768f0975c23112.html.gz",
+          "sha256": "d7aa9b4d0214a074f7954547f5b3741b892772b1fe5e1d8a49a2111061721a28",
+          "size_bytes": 15327,
+          "url": "https://hadis.islom.uz/kitob/30/42"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "479dadd2b858e4466cb96c89b5d93d7262155e2ae96b1b3271f2f9c611c8f4b9",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/bbaba9bf1f7be362-479dadd2b858e446.html.gz",
+          "sha256": "ef72e46ad4218ced0a8726126545f53ba00d7f0b1d32fd6062d7bdf72130cc1d",
+          "size_bytes": 18120,
+          "url": "https://hadis.islom.uz/kitob/30/43"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4c4bb7ac600cb4964231a53e1c596b4281684e7e4e08dd006f91f10a5f26d0d7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c86ee45e570d5119-4c4bb7ac600cb496.html.gz",
+          "sha256": "63d73b413c944d0e5684e067e0cb9285cec75eca147e5fc03ae440dc120e3472",
+          "size_bytes": 20593,
+          "url": "https://hadis.islom.uz/kitob/30/44"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "de03a8172740008baa9aabef4d9f89e4405d80515579eae9aea662df7f191a70",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/718178d59d378021-de03a8172740008b.html.gz",
+          "sha256": "c5c1461a0617b2b52d222b74b6ebb6f79f8adda83dbd2499fc3ece97a629bd94",
+          "size_bytes": 13361,
+          "url": "https://hadis.islom.uz/kitob/30/45"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "5c84e84de6dc70c1b1333e199071b51c6ddc144bb4882bbd3a9a762b5e39ae17",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/40a6a7810f48f5bc-5c84e84de6dc70c1.html.gz",
+          "sha256": "b082a891c255f0e83951264e9f2d631769e58b8155afae536907c7c6a1cec1f6",
+          "size_bytes": 12084,
+          "url": "https://hadis.islom.uz/kitob/30/46"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a7bc0b65fe00b0e88c55ede71d48f50fc8bf60b08ec4cb477342df1ef7255cf7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e536fc9c20d8fa2b-a7bc0b65fe00b0e8.html.gz",
+          "sha256": "986be4d61b2ab776eba5a5818849d4d070b88fbd7cb34e059c745b00ad90e050",
+          "size_bytes": 9371,
+          "url": "https://hadis.islom.uz/kitob/30/47"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "df04678022882d4293812dad679293a11827f50b519ee1f1b346a4224ffe6776",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6d6bf9f543b1d0a2-df04678022882d42.html.gz",
+          "sha256": "3d9e69b9d5ba10554275797d40d1625b9842f7883e69d8a383dae40e5462a49d",
+          "size_bytes": 20865,
+          "url": "https://hadis.islom.uz/kitob/30/48"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "2058d46a13daa5b83d7437b074473cd0dd5d39eef9041fde004ee009c461241e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ffc0e5dde5aa07a0-2058d46a13daa5b8.html.gz",
+          "sha256": "f8e8bce62ea30fee0022ba244d7df816a5300451466f24bbd4ba870ece297361",
+          "size_bytes": 14309,
+          "url": "https://hadis.islom.uz/kitob/30/49"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "b9b48533038a5cd9cd5b5995c1e35b827af71cef7f6f06225f6c5d071db368a2",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ef4fba0aa2151253-b9b48533038a5cd9.html.gz",
+          "sha256": "69f852ff9a2c5f98a00b4e55f110b7f7fe00c33cd6da2203549b6ecfadf8c5a8",
+          "size_bytes": 8584,
+          "url": "https://hadis.islom.uz/kitob/30/50"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "856b6132463fb2b2438ab80d364dfe3e4f61bcdd198ebf5a3aaa97e2324ce5fc",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/caab86c04137f47c-856b6132463fb2b2.html.gz",
+          "sha256": "26124131af2aa691682dbb66a3ad7f1bd425cf8a8a5c623de0164f1afc9f151b",
+          "size_bytes": 14901,
+          "url": "https://hadis.islom.uz/kitob/30/51"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d0dbd67baf435c6775c374fba057ad6d6fc09e7e0b4bb15f065463ddebd1078b",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/a731fb6a623f90de-d0dbd67baf435c67.html.gz",
+          "sha256": "36821ffaa3ce12372e284d1510f3e80b6bad44e5f620a9de31604aac1d4eb61e",
+          "size_bytes": 8770,
+          "url": "https://hadis.islom.uz/kitob/30/52"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "296bed683c2b29749af9eb902b5427e3d1e67781a75fca8712bfd6b50668cf38",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6aaf0d0f8b56ab0e-296bed683c2b2974.html.gz",
+          "sha256": "5daf4c1bf851764028b9c04b351ad830077627a8ccde119b05a337fe6e6520e0",
+          "size_bytes": 24756,
+          "url": "https://hadis.islom.uz/kitob/30/53"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "8bc7474c669070f67e37223b8ccf86eae296ae46cb6c2b542158dde8a6713b84",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ec2747e6040dfdfb-8bc7474c669070f6.html.gz",
+          "sha256": "f2cb5a169af326fb83ed8b8f8dc4bd8509ec59e28a10af1022441dd3a2205998",
+          "size_bytes": 23465,
+          "url": "https://hadis.islom.uz/kitob/30/54"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "95965f37f7dd768bca61f6eb3fa32feabf207661b8e6504c60c6f5cb84473168",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/343d4104008cd290-95965f37f7dd768b.html.gz",
+          "sha256": "7609c48dedca558e27195396a304f443dc9e8a09538e875ba53d234ec35f7055",
+          "size_bytes": 13268,
+          "url": "https://hadis.islom.uz/kitob/30/55"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "df6f0aad69fa521554f805d280b89ca6e4de8324ae8f45186b8f6e6c9a48ae22",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/09c319d923da332a-df6f0aad69fa5215.html.gz",
+          "sha256": "6a2fed9e367cb6233d1193b7e8ec757536631e2f8d1288442d84c5a4271654da",
+          "size_bytes": 26421,
+          "url": "https://hadis.islom.uz/kitob/30/56"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "15d79bc720689b3d306cf8f6dc3f0b6b4876ea533d091504c4fc0cbe43e2f084",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/0c20e7f0b4d08615-15d79bc720689b3d.html.gz",
+          "sha256": "d51ce8f382b6b0f28525a8d162c4fb87b6d5b8169394d007bafb102f939b6e65",
+          "size_bytes": 16646,
+          "url": "https://hadis.islom.uz/kitob/30/57"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "69394a96a9e824ceaedd0bb4b1e4201de62de9694b6e5d3bbc667514e4b1f319",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/3de90b8c5f7ea1cf-69394a96a9e824ce.html.gz",
+          "sha256": "f067760cfb91c2811aa99a0eefe06d5c8edb350d7f53966d6407e1bf999eb640",
+          "size_bytes": 22645,
+          "url": "https://hadis.islom.uz/kitob/30/59"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "529583d0906983542903e38a4e884511c5a0c5063c312100ac478df3513254a7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/127f06ff37879c2c-529583d090698354.html.gz",
+          "sha256": "04056e00b3c87d42c9072b2d95bde9778d4ec9c0a708b428dcfea6c1960672bb",
+          "size_bytes": 40832,
+          "url": "https://hadis.islom.uz/kitob/30/61"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4793501d281b658fdf8965af3123775fa9fbdb117cdbb3b8452c39b35d152c78",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e0cab8e66effeb5b-4793501d281b658f.html.gz",
+          "sha256": "b7036b3093a5992bb541b4908cc4417b45c1e4aadb2681caac8ad247ebcde5cb",
+          "size_bytes": 58525,
+          "url": "https://hadis.islom.uz/kitob/30/62"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d60225ff8f08dbb8ca821e7a3bcdae2a85f3f2277ca1cd0f2f81f7541e93b3fb",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7a7ec5cced2af420-d60225ff8f08dbb8.html.gz",
+          "sha256": "cf02d71a63daf1b2bfb8ec836627ef4bdf76540c46fd91f4240a4d297ef9c36c",
+          "size_bytes": 49151,
+          "url": "https://hadis.islom.uz/kitob/30/63"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "374b76a5d934010e113274079ee089962b24987138bf71033e3c8b9fd389ee7a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ddfe51549cb1d7e5-374b76a5d934010e.html.gz",
+          "sha256": "6eb49e18d4df1fbe5a83bfad54728625d26c273c4bb97f737bbcd12512a4ad3f",
+          "size_bytes": 30953,
+          "url": "https://hadis.islom.uz/kitob/30/64"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "5ac49916c12532af2dc76168c50ffa4ceea2a2a37e2371b844eeaa680334155a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/4cb75f19142ff478-5ac49916c12532af.html.gz",
+          "sha256": "5ca928d521b21b4d34539984755591480059ad26bec906a03f2c82fc13d8e642",
+          "size_bytes": 66651,
+          "url": "https://hadis.islom.uz/kitob/30/65"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4e7dd75c51943f63fb6be2704452c8fbfcfa9a946ae0f92d5e444fb52448a904",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/79c3420f39cf1613-4e7dd75c51943f63.html.gz",
+          "sha256": "3e4bc1d4d494e09801f1fb512028e81cfa0308b4699ddcd24a8305b3cf2fe36d",
+          "size_bytes": 111005,
+          "url": "https://hadis.islom.uz/kitob/30/66"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "64f8ca14bae67af2220a4cd2eb998efa579fdb172cf1ec487be8338763a76ec7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7a91c7428951b9a8-64f8ca14bae67af2.html.gz",
+          "sha256": "61a89b3c51b94ab79c9615157412e6691d068f739ad77c01449c27d464efd835",
+          "size_bytes": 96030,
+          "url": "https://hadis.islom.uz/kitob/30/67"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a90d85aa84b3c67342765c487f9127a3fa83a7ffc6942b34b1870ddd7a399add",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/45fd2b996fa78c7b-a90d85aa84b3c673.html.gz",
+          "sha256": "0bcc8cc6300e6dea7bab915db0feb76bd331749525cb47420d8968d8e3224b57",
+          "size_bytes": 23784,
+          "url": "https://hadis.islom.uz/kitob/30/68"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "118b8984e68ef71eb8ba488b611faff8b0f475bcc3ba26889fe49120f430fe36",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7b4f97a57e44259a-118b8984e68ef71e.html.gz",
+          "sha256": "e4a969fd004d97812ba37495823a9a6436794cd0b9a00079ee22dd0734c81b2c",
+          "size_bytes": 41492,
+          "url": "https://hadis.islom.uz/kitob/30/69"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "684c4a46f1dff16a08d2f7cf862b3f19a428c6d5c5f4809dd663782a9c9a414d",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2077898fe280eec5-684c4a46f1dff16a.html.gz",
+          "sha256": "8d9a93c1bb9d26a475bef80a4db1ec0dc217d667741b047c43ff7cca38e3168e",
+          "size_bytes": 18062,
+          "url": "https://hadis.islom.uz/kitob/30/70"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e4152c4422bd8574a2f208c5f4b7401bc15a7f3e0c1072a997bffa9a14d97a6f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/09a22186f3d1fa4d-e4152c4422bd8574.html.gz",
+          "sha256": "64e290c95a145c8bd6a17cc324cdf4c31a9c5900145a61ec1ea8d85075ec8c38",
+          "size_bytes": 9072,
+          "url": "https://hadis.islom.uz/kitob/30/71"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "b9ab876c6a4997bdacb3def2e836a3ce4ce854eed8e3e08dd50163fbc1273449",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/ab35c6a6c85811d9-b9ab876c6a4997bd.html.gz",
+          "sha256": "414d6da098495e0f60c502e98275bd9c22664f9ad8a57730eb1d88aea4434d07",
+          "size_bytes": 23099,
+          "url": "https://hadis.islom.uz/kitob/30/72"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "2b32e0c0eebdf96a468c78ddb3ba0e986ccaded5de8b2bd29189eba65c83156c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5e94420373a714b3-2b32e0c0eebdf96a.html.gz",
+          "sha256": "80e1a37ba0db2fba7e61f995e1e3fc61106481d687871aefebd3f2dbdc836cb2",
+          "size_bytes": 10313,
+          "url": "https://hadis.islom.uz/kitob/30/73"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "4cd23a295e05f0cd8a8baefa3ef384cc4751dd3256b189b90735f05738ed3c65",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/7cbc1ada3b36c8df-4cd23a295e05f0cd.html.gz",
+          "sha256": "62bf4ae02cba9f497c16525bd0c624f5d7aa4e0a76c08afc2d9fd4d36a19b313",
+          "size_bytes": 15422,
+          "url": "https://hadis.islom.uz/kitob/30/74"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "7488a8a93615c17ee5d5bee991bbdef3cf5661f104e55de336cbe5eebaecbde3",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b206900380ab191b-7488a8a93615c17e.html.gz",
+          "sha256": "41de67ed4eff8bfeb3d15cf0b6ada2596dc9e47677923a84b4bd28d0eeeefd66",
+          "size_bytes": 8950,
+          "url": "https://hadis.islom.uz/kitob/30/75"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "393870f6e33d4c5dd8ce16931b930ebc249671002f20818ec90dba7d03144219",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/0de3c791d4ef0aaf-393870f6e33d4c5d.html.gz",
+          "sha256": "a8bc432d2ca2a0def8efe14280653dc8eed0696dcb55713b0bfd8c3488ce78b4",
+          "size_bytes": 18935,
+          "url": "https://hadis.islom.uz/kitob/30/76"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f82e19ac993ec7b6ed22f5c243f4fc33211516d43e19f7ed98877551bbe2ded1",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/d1216d4804fa2f7e-f82e19ac993ec7b6.html.gz",
+          "sha256": "13f37a8201a6f92ed25ceaf8b8bb5f77671bca9f32e4e19a958cc119603dc33c",
+          "size_bytes": 16734,
+          "url": "https://hadis.islom.uz/kitob/30/77"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "07e32a557cf2daff6bdda84fdbf486427ad4963fb49d7700dbc7192cb75ae6df",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/48bc0bf949291131-07e32a557cf2daff.html.gz",
+          "sha256": "e2cafa6f3a516a76a70ef87a5e76f1e62f7ffc379d7be73f09d64ea56a953f24",
+          "size_bytes": 21648,
+          "url": "https://hadis.islom.uz/kitob/30/78"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a3e5a1336811448ac066df9f66c33cecd59e9957226a774f3496ee0a3bfcf1a3",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/70869f9f5fedf032-a3e5a1336811448a.html.gz",
+          "sha256": "4cd400a165b6d1c0a392f2b05ada5f83c143854ae26ab1cfe6da6cffc2cde8a8",
+          "size_bytes": 18647,
+          "url": "https://hadis.islom.uz/kitob/30/79"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "9550cc55bff3e82e2d2e8643161ab6946cb1d2f57d13015009d55c95f5c07f6e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/0cddb1bbbea6ba10-9550cc55bff3e82e.html.gz",
+          "sha256": "5680ea9853fcc2c3031167bce694722a61753c94446bc28c49743fd3abee81db",
+          "size_bytes": 32755,
+          "url": "https://hadis.islom.uz/kitob/30/80"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f5bca1cdfc7f68a0a6137ec5b2e95a52a0d67bdf459cf448f3482bfede24bac9",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2e4bfb98532c29c9-f5bca1cdfc7f68a0.html.gz",
+          "sha256": "dcf2bc426d9875edf3e677c4d537929ca91ec2ba9ee0d1c0d0ef3518a9b97e6b",
+          "size_bytes": 13889,
+          "url": "https://hadis.islom.uz/kitob/30/81"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f9a684e42c7ba737ecb1461c2d4553c0ff4d08c5a79704b5aacfa5f4043e6aaa",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/a2016749a42e1652-f9a684e42c7ba737.html.gz",
+          "sha256": "df5834d636a6e7743b960378aa9637869c1273c1794a7c95b5121cc5e35e175d",
+          "size_bytes": 34597,
+          "url": "https://hadis.islom.uz/kitob/30/82"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f6231ad5a291e0642f1d3cd0dd077b70d8bfa50496bdd3f88be14e4b2ea82789",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/b02743f2918c20f6-f6231ad5a291e064.html.gz",
+          "sha256": "4a76612ec4162f78737a6a5eee053ddfbd1d1ad4b7885d4808c2d1fbf98ab4f0",
+          "size_bytes": 35564,
+          "url": "https://hadis.islom.uz/kitob/30/83"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "afc24369c620f67786935c41002e1a200e35c1eedacc0f59d5c8ef852baf1d88",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/6de21ab6dd2b0f17-afc24369c620f677.html.gz",
+          "sha256": "6265f5094d6be3aaf461598e64ca5bd53e0356f1b0de68de88efabb2a00655d2",
+          "size_bytes": 10556,
+          "url": "https://hadis.islom.uz/kitob/30/84"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "a636d294b537a10bcc0ad814eefc5f831077ec2fd8331a7655866d3907518245",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/42a91369d6e5be48-a636d294b537a10b.html.gz",
+          "sha256": "1422ca42871b1e446d001e0232c0d0ff28f4d3976364d3f4e542c9135dbbfc94",
+          "size_bytes": 12680,
+          "url": "https://hadis.islom.uz/kitob/30/85"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "67ba45c668d8a8495d0dec4e8cd743285d0e3e22f3c9b89bd367685cc2577940",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/db29333a3dffeaed-67ba45c668d8a849.html.gz",
+          "sha256": "6da1404d1987bf17674ca7a6aa06812357b466a11abf4a9ab21440ae88c9eb3c",
+          "size_bytes": 8689,
+          "url": "https://hadis.islom.uz/kitob/30/86"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "f40b065c4b0d194171b2333e42bf036346548c1668d1ef3009ca0cabdb26ba71",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/77d7d65a2b6d79dd-f40b065c4b0d1941.html.gz",
+          "sha256": "7ca3f7d98bc00a2cb3c663869fb5da41ad449ada7998bad00838dc7addfcd0d0",
+          "size_bytes": 11090,
+          "url": "https://hadis.islom.uz/kitob/30/87"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3bc134774d2f2dd18b235a36dd858d9a0e6dc0c36cfd9271cc4e524bf94040b8",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/fb6647fbf835af49-3bc134774d2f2dd1.html.gz",
+          "sha256": "053ca41ad7d067a802cecd5464cd2c3ab11a830f4772743b57f705c4faefc49e",
+          "size_bytes": 10267,
+          "url": "https://hadis.islom.uz/kitob/30/88"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1af1796c475b31db601d49152452479700b1afd0b5246455e5a7743b383a1b6c",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/e5e33304cbae4d73-1af1796c475b31db.html.gz",
+          "sha256": "1386288406191009ba3bc036e32cedb8a5f91e1ecb7a86892079e1477d21eed2",
+          "size_bytes": 9261,
+          "url": "https://hadis.islom.uz/kitob/30/89"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "090498c48a51080c23c1c1895372c10955c85a59c0f890df07f0ef7aa6682de9",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/765d92ee678bb47f-090498c48a51080c.html.gz",
+          "sha256": "735aa9d74491c484ecdcc9f526da1452078bbe08f98cf531b1c1d8e048878dea",
+          "size_bytes": 11208,
+          "url": "https://hadis.islom.uz/kitob/30/90"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "ef3880f7c6e00d12a0e86f608389b079922e233bdc42cbcd249fc06fd79468dc",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/9f55602da80a6b9e-ef3880f7c6e00d12.html.gz",
+          "sha256": "ac2d8d7ef7a525cac0425557ac2e984854cdc48f95c6473df23ca94d0ba63967",
+          "size_bytes": 8183,
+          "url": "https://hadis.islom.uz/kitob/30/91"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6cd4801fc86fc0a36bb69335fe289f98dab049b9c2f9251115c46ccb42a3d37a",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/35318d71f81845ff-6cd4801fc86fc0a3.html.gz",
+          "sha256": "eb2895d116f955149ce4cfb96039da63dc535930ef4cb4b4cecba1fc358b3717",
+          "size_bytes": 15401,
+          "url": "https://hadis.islom.uz/kitob/30/92"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d74ed63cd82c435c02f093dfe858170933ce6cc7bcf762f3358919cf68a69e9f",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/9967bb22f53eb821-d74ed63cd82c435c.html.gz",
+          "sha256": "cb219bdec21e9557c4966a874a624578fe4bd383d52da3962f769b04340b7897",
+          "size_bytes": 14857,
+          "url": "https://hadis.islom.uz/kitob/30/93"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "e82695cec3741c299ab8c958a4fdfa3385f8257cda1280312cd069d19599d600",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/928d4e65a51e589c-e82695cec3741c29.html.gz",
+          "sha256": "0b7ea004fef56e88ba347d5cd76cd35046c22ff8143ff688a93a698503f91389",
+          "size_bytes": 14249,
+          "url": "https://hadis.islom.uz/kitob/30/94"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "0cc9e5777e1c91b211f9aeb3e7d84b365354c36f931f939ac191d801496794fa",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/5d2fc47b3b880796-0cc9e5777e1c91b2.html.gz",
+          "sha256": "eb5df52fb3ca51936e7ff146a0faf0e7b6c37ef5c9b900a5553253fd79e8e25c",
+          "size_bytes": 8204,
+          "url": "https://hadis.islom.uz/kitob/30/95"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "280847a743513593f0f24470abe5192ce9b10ca482730ec4d943b8d336c3ca11",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/38dcd6c0611f7b0f-280847a743513593.html.gz",
+          "sha256": "e426ec508c000f3dc6933c21948e55bf94b348bb09bbc3a1fd3efbbdfaa74afe",
+          "size_bytes": 13573,
+          "url": "https://hadis.islom.uz/kitob/30/96"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "1b50882f48d02464f64df5b71a21fe32062a9a504370c39215ba07dd67e6f3d0",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/f7a86e71cc83efab-1b50882f48d02464.html.gz",
+          "sha256": "78dda0bca53d3a9373291b9c6bbb3c9bfc2a71bca14f4b53c3d9afe4b1288939",
+          "size_bytes": 17213,
+          "url": "https://hadis.islom.uz/kitob/30/97"
+        },
+        {
+          "compression": "gzip",
           "format": "jsonl+gzip",
           "path": "imports/web-uzbek-20261112/islom/collection-book-30.jsonl.gz",
           "role": "complete_source_entry_and_commentary_ledger",
-          "sha256": "e96dec2f0164faba5d588a2209c3785ecb7fe3254cce58979fedb7a4c0c27a7e",
-          "size_bytes": 798627,
-          "uncompressed_sha256": "e7349fc17acb51b2ea2e27c10941810c75f6e64f3d70c719dceef450bd4b5b83"
+          "sha256": "954b6d4a153f6c1ae48399104cdafdd3f25da16ece3ba4a0349297c57846423a",
+          "size_bytes": 1962433,
+          "uncompressed_sha256": "2566fdfa33f7751c7ba55f50ea0f73d26b8c6262c142a60e8653e4c197fe3748"
         }
       ],
       "counterpart_policy": {
@@ -2712,14 +4133,14 @@
       "count": 1447,
       "release_status": "source_imported",
       "source_file": "materials/islom-book-32-uz-web/source-evidence.json",
-      "source_sha256": "8dd58f84b9bfa59070d130a097dc08f965d13f0fd7ce9c4038a9031ec0842851",
+      "source_sha256": "7069a2b0c2b313bdbe9e9bb577b8819a6be3eea7f73e488467af4c6abf78d4e8",
       "canonical_records_path": "materials/islom-book-32-uz-web/records.jsonl",
       "canonical_records_sha256": "fd8394fba44f8afb3b4fd69d4cbc219fc69ecfb63769db346a7ec218fcfddb27",
       "source_descriptor": {
         "format": "web-source-evidence-json",
         "name": "Риёзус солиҳийн шарҳи — Hadis.islom.uz",
         "path": "materials/islom-book-32-uz-web/source-evidence.json",
-        "sha256": "8dd58f84b9bfa59070d130a097dc08f965d13f0fd7ce9c4038a9031ec0842851",
+        "sha256": "7069a2b0c2b313bdbe9e9bb577b8819a6be3eea7f73e488467af4c6abf78d4e8",
         "url": "https://hadis.islom.uz/kitob/32"
       },
       "adapter": "records-v1",
@@ -2763,6 +4184,78 @@
           "sha256": "5df5d8d54ddf1bee6327d4af6db0fee9a36d855b5775469901d6b23e13f846e1",
           "size_bytes": 10138,
           "url": "https://hadis.islom.uz/kitob/32/1"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "cea8cdaf32569be0bb215869da9aff8d2065f7e1da0b3ae4b51ba8f22c21de65",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/79010f20a229e338-cea8cdaf32569be0.html.gz",
+          "sha256": "49699be4337ec5548dbf66ec26153a45351a689921ea24660ac39844bc8e7758",
+          "size_bytes": 21449,
+          "url": "https://hadis.islom.uz/kitob/32/10"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "c182a279cd9542de9b5ed627cdd39a66f8a2c32cd616b4180112bcac7f00883e",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/c2816938cf53a1ac-c182a279cd9542de.html.gz",
+          "sha256": "b921030b9869dba5fe7eda830c2a65b0826e78f3e9b921740087c1ae8b71bcb3",
+          "size_bytes": 32206,
+          "url": "https://hadis.islom.uz/kitob/32/12"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "d9c7fd02d48a5a8c6a66d6c87cbb60304dad554c75b15bc83c5f332b762a1342",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2c7649504e8c6b95-d9c7fd02d48a5a8c.html.gz",
+          "sha256": "611aadd8914c845922fa7918a0e25129d32338084843aa157423167f674b4407",
+          "size_bytes": 10220,
+          "url": "https://hadis.islom.uz/kitob/32/13"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "82173cfec9c3bc947ed90e6e20ba943f1cc31d7c1063d858205247f15744a6d4",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/daecab9c50b982f2-82173cfec9c3bc94.html.gz",
+          "sha256": "7115f79841e0f65e8a8539debbd1b72ecace23586c2650c2edd45ce6843890cc",
+          "size_bytes": 17455,
+          "url": "https://hadis.islom.uz/kitob/32/14"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "3f79760516434646eb324c03b13bada0b8c703a8882f09c20a55e582c87967b8",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/12f2473329809004-3f79760516434646.html.gz",
+          "sha256": "c09f34040a8e5dff9556092f230560234edf666466109fdb7dd50406c3f9811f",
+          "size_bytes": 83240,
+          "url": "https://hadis.islom.uz/kitob/32/15"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "142fd4b98f5ed59811e0bfa1f5ae4460c3eee8651ee297cfbdd25db6eb952bc4",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/bee8463eaac9cdd1-142fd4b98f5ed598.html.gz",
+          "sha256": "a992b7e73edc60290b09295594012949a2fbb8233d1175c7ab481a3cec5fb3a1",
+          "size_bytes": 73833,
+          "url": "https://hadis.islom.uz/kitob/32/16"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "6acd2004aa3d5892124914630c160478442cebe4c8210d7d85ae6a3078a05607",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/cc27af6a4eeef4f6-6acd2004aa3d5892.html.gz",
+          "sha256": "4f04859bddcf0f58524802dd08e6f5c655463dd944962efc936cb6605473f12e",
+          "size_bytes": 80771,
+          "url": "https://hadis.islom.uz/kitob/32/18"
+        },
+        {
+          "compression": "gzip",
+          "format": "html+gzip",
+          "original_response_sha256": "392dbf71ef8848c3f63f9dfa0fb2a1baa2969534d8b92aba5649ff99cb2f15e7",
+          "path": "imports/web-uzbek-20261112/islom/snapshots/2552d5ac2f7fe1f2-392dbf71ef8848c3.html.gz",
+          "sha256": "0e2e4154ea1615e4325c8a5ac3d5882479b964f850b50563b21f7d91517238f2",
+          "size_bytes": 29422,
+          "url": "https://hadis.islom.uz/kitob/32/19"
         },
         {
           "compression": "gzip",
@@ -2835,78 +4328,6 @@
           "sha256": "520161a237a5b6d7bcd46082c7748a2330dbce612c273b27f7a52ae75405fadd",
           "size_bytes": 15833,
           "url": "https://hadis.islom.uz/kitob/32/9"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "cea8cdaf32569be0bb215869da9aff8d2065f7e1da0b3ae4b51ba8f22c21de65",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/79010f20a229e338-cea8cdaf32569be0.html.gz",
-          "sha256": "49699be4337ec5548dbf66ec26153a45351a689921ea24660ac39844bc8e7758",
-          "size_bytes": 21449,
-          "url": "https://hadis.islom.uz/kitob/32/10"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "d9c7fd02d48a5a8c6a66d6c87cbb60304dad554c75b15bc83c5f332b762a1342",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/2c7649504e8c6b95-d9c7fd02d48a5a8c.html.gz",
-          "sha256": "611aadd8914c845922fa7918a0e25129d32338084843aa157423167f674b4407",
-          "size_bytes": 10220,
-          "url": "https://hadis.islom.uz/kitob/32/13"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "c182a279cd9542de9b5ed627cdd39a66f8a2c32cd616b4180112bcac7f00883e",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/c2816938cf53a1ac-c182a279cd9542de.html.gz",
-          "sha256": "b921030b9869dba5fe7eda830c2a65b0826e78f3e9b921740087c1ae8b71bcb3",
-          "size_bytes": 32206,
-          "url": "https://hadis.islom.uz/kitob/32/12"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "82173cfec9c3bc947ed90e6e20ba943f1cc31d7c1063d858205247f15744a6d4",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/daecab9c50b982f2-82173cfec9c3bc94.html.gz",
-          "sha256": "7115f79841e0f65e8a8539debbd1b72ecace23586c2650c2edd45ce6843890cc",
-          "size_bytes": 17455,
-          "url": "https://hadis.islom.uz/kitob/32/14"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "3f79760516434646eb324c03b13bada0b8c703a8882f09c20a55e582c87967b8",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/12f2473329809004-3f79760516434646.html.gz",
-          "sha256": "c09f34040a8e5dff9556092f230560234edf666466109fdb7dd50406c3f9811f",
-          "size_bytes": 83240,
-          "url": "https://hadis.islom.uz/kitob/32/15"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "142fd4b98f5ed59811e0bfa1f5ae4460c3eee8651ee297cfbdd25db6eb952bc4",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/bee8463eaac9cdd1-142fd4b98f5ed598.html.gz",
-          "sha256": "a992b7e73edc60290b09295594012949a2fbb8233d1175c7ab481a3cec5fb3a1",
-          "size_bytes": 73833,
-          "url": "https://hadis.islom.uz/kitob/32/16"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "6acd2004aa3d5892124914630c160478442cebe4c8210d7d85ae6a3078a05607",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/cc27af6a4eeef4f6-6acd2004aa3d5892.html.gz",
-          "sha256": "4f04859bddcf0f58524802dd08e6f5c655463dd944962efc936cb6605473f12e",
-          "size_bytes": 80771,
-          "url": "https://hadis.islom.uz/kitob/32/18"
-        },
-        {
-          "compression": "gzip",
-          "format": "html+gzip",
-          "original_response_sha256": "392dbf71ef8848c3f63f9dfa0fb2a1baa2969534d8b92aba5649ff99cb2f15e7",
-          "path": "imports/web-uzbek-20261112/islom/snapshots/2552d5ac2f7fe1f2-392dbf71ef8848c3.html.gz",
-          "sha256": "0e2e4154ea1615e4325c8a5ac3d5882479b964f850b50563b21f7d91517238f2",
-          "size_bytes": 29422,
-          "url": "https://hadis.islom.uz/kitob/32/19"
         },
         {
           "compression": "gzip",
