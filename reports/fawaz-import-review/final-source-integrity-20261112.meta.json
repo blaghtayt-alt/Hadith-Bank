@@ -1,0 +1,38 @@
+{
+  "schema": "hadith-bank-final-source-integrity-receipt-v1",
+  "status": "passed",
+  "source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "code_commit": "fee9f4017ec6ecf0cdd3a3b8d585fefce3c2676a",
+  "published_baseline_commit": "95abca88db8f511fb3c8f085de2d812d96068d37",
+  "reviewed_catalog_sha256": "8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c",
+  "report": {
+    "path": "reports/fawaz-import-review/final-source-integrity-20261112.json.gz",
+    "bytes": 3429374,
+    "sha256": "c65fb9cc82acecf6f9b64e888ef8f11d20decb2343aa8177d3d230defcaf424f",
+    "gzip_bytes": 180849,
+    "gzip_sha256": "b539c931c2aa5a737dc4ed5d1de6c87d77c70310b652667b16e90e51654afc24"
+  },
+  "counts": {
+    "verified_edition_snapshots": 31,
+    "source_edition_rows": 145718,
+    "provider_occurrences": 36464,
+    "registered_occurrences": 29911,
+    "held_occurrences": 6553,
+    "verified_language_readings": 117115
+  },
+  "comparison": {
+    "previous_held": 11555,
+    "previous_held_now_registered": 5002,
+    "previous_held_still_held": 6553,
+    "previous_provider_occurrences": 36422,
+    "previous_registered": 24867,
+    "previous_registered_language_changes_count": 1221,
+    "previous_registered_now_held_count": 0
+  },
+  "whole_bank_baseline": 73026,
+  "expected_whole_bank_after_export": 78070,
+  "publication_confirmed_by_this_receipt": false,
+  "independent_authenticity_assessment": false,
+  "scope": "Exact source fidelity and accounting only; held nonempty text is not automatically classified as non-hadith.",
+  "historical_reports_preserved": true
+}

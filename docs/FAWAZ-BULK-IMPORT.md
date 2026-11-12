@@ -333,6 +333,14 @@ the occurrence count. The earlier continuation snapshot of 29,707 registered
 and 6,757 retained occurrences remains historical evidence; the final correction
 adds 204 registrations relative to it.
 
+The exact-final [source-integrity report](../reports/fawaz-import-review/final-source-integrity-20261112.json.gz)
+preserves the complete original-ID reconciliation and the source-bound changes
+to existing language readings. Its [receipt](../reports/fawaz-import-review/final-source-integrity-20261112.meta.json)
+pins the report and catalog hashes. This check passed against all 31 original
+edition snapshots, 145,718 source-edition rows and 117,115 registered language
+readings. Earlier comparison and source-view reports are retained as dated
+checkpoints, not evidence for a later deployment.
+
 The whole-bank published baseline at commit
 `95abca88db8f511fb3c8f085de2d812d96068d37` was 73,026 occurrences. With other
 source registrations unchanged, this final export yields 78,070 occurrences.
