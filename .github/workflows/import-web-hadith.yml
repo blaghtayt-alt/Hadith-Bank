@@ -9,6 +9,9 @@ on:
     paths:
       - '.github/workflows/import-web-hadith.yml'
       - 'catalog/web-import-plan.json'
+      - 'scripts/import_deenhindi.py'
+      - 'scripts/import_uzbek_web.py'
+      - 'scripts/web_import_batch.py'
 
 permissions:
   contents: read
@@ -59,7 +62,7 @@ jobs:
           import subprocess
           paths = [str(path) for pattern in ('imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
               'imports/web-import-status.json', 'imports/web-import-worker-stops.json',
-              'materials/deenhindi-*', 'materials/rivoyat-*', 'materials/islom-*') for path in Path('.').glob(pattern)]
+              'materials/deenhindi-*', 'materials/islom-*') for path in Path('.').glob(pattern)]
           if paths:
               subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
           PY
@@ -169,5 +172,4 @@ jobs:
             imports/web-import-status.json
             imports/web-import-worker-stops.json
             materials/deenhindi-*/
-            materials/rivoyat-*/
             materials/islom-*/

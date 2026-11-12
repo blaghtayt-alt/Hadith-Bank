@@ -69,8 +69,10 @@ Before publishing, fetch current main and preserve concurrent work. Use normal f
 The reader workflow also checks the remote after its single normal generated-file
 push through `scripts/push_reader_commit.py`. This handles a source commit arriving
 between the initial check and the push: the older reader exits with
-`publish=false`, while the source import's separately requested build publishes
-the newer revision. If the generated commit is already remote after a lost push
+`publish=false` and explicitly requests a build of current main. The same
+request is made if main advances before deployment, so a lost importer dispatch
+does not leave the new sources without a build. A failed build request remains
+a visible workflow failure. If the generated commit is already remote after a lost push
 acknowledgement, the helper recognizes that result. A failed push with unchanged
 remote state or an unreadable remote remains a failure. No force push or stale
 site deployment is used to resolve a race.

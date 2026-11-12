@@ -37,6 +37,7 @@ import urllib.robotparser
 BASE = 'imports/web-uzbek-20261112'
 SCHEMA = 'hadith-bank-web-import-checkpoint-v1'
 AGENT = 'HadithBankImporter/0.1 (+public-source-import; no-model-training)'
+PUBLICATION_PART_BYTES = 40 * 1024 * 1024
 SITES = {'rivoyat': 'https://rivoyat.com', 'islom': 'https://hadis.islom.uz'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
 BLOCK = {'p', 'div', 'blockquote', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'tr'}
@@ -49,6 +50,14 @@ def sha(data):
 
 def now():
     return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+
+
+def excluded_by_owner(root, site):
+    path = Path(root) / 'catalog/web-import-plan.json'
+    if not path.exists():
+        return False
+    plan = json.loads(path.read_text(encoding='utf-8'))
+    return bool(plan.get('sources', {}).get(site, {}).get('excluded_by_owner'))
 
 
 def json_bytes(value):
@@ -265,6 +274,140 @@ def prose_references(value, url, language):
     return out
 
 
+def rivoyat_language_text(node, language, source_titles=False):
+    """Project publisher-labelled scripts without translating or mixing them.
+
+    Arabic labels in grading/source metadata are supplied in HTML title
+    attributes. They are used only for those labels, never as narration text.
+    """
+    if node is None:
+        return ''
+
+    def visit(item):
+        if not isinstance(item, Node):
+            if language == 'ar' and re.search(r'[A-Za-z\u0400-\u052f]', item):
+                return ''
+            return item
+        if item.tag in ('script', 'style', 'svg'):
+            return ''
+        if item.has('lat'):
+            return item.text() if language == 'uz-Latn' else ''
+        if item.has('kir') or item.attrs.get('lang') == 'uz-Cyrl':
+            return item.text() if language == 'uz-Cyrl' else ''
+        if item.attrs.get('lang') == 'ar' or item.has('hk-ar'):
+            return item.text() if language == 'ar' else ''
+        title = item.attrs.get('title', '')
+        if language == 'ar' and source_titles and re.search(r'[\u0600-\u06ff]', title):
+            return title
+        if item.tag == 'br':
+            return '\n'
+        text = ''.join(visit(child) for child in item.children)
+        return '\n' + text + '\n' if item.tag in BLOCK else text
+
+    return '\n'.join(line.strip() for line in visit(node).splitlines() if line.strip())
+
+
+def rivoyat_detail_metadata(source, row, snapshot):
+    """Read bounded detail metadata only after all supplied texts match.
+
+    Cross-references are statements made by this publisher, not independently
+    accepted identities or evidence for the translation's upstream publisher.
+    Similar-hadith suggestions and site-wide credits are outside this parser.
+    """
+    url = row['source']['record_url']
+    if snapshot.get('url') != url or snapshot.get('final_url', url) != url:
+        raise ValueError('detail_source_identity_mismatch: response URL differs')
+    part = rivoyat_payloads(source).get(url)
+    if part is None:
+        raise ValueError('detail_source_identity_unresolved: exact copy payload absent')
+    fields = {'ar': 'arabic', 'uz-Latn': 'latin', 'uz-Cyrl': 'cyrillic'}
+    for version in row.get('language_versions', []):
+        field = fields.get(version['language'])
+        if field is None or part.get(field) != version['text']:
+            raise ValueError('detail_source_text_mismatch: ' + version['language'])
+    tree = Tree(source).root
+    main = tree.first(lambda n: n.tag == 'main')
+    cards = list(main.all(lambda n: n.has('h-card'))) if main else []
+    if len(cards) != 1:
+        raise ValueError('detail_layout_unresolved: expected one narration card')
+    container = main.first(lambda n: n.has('hukm'))
+    output = {'schema': 'hadith-bank-rivoyat-detail-metadata-v1',
+              'source_url': url, 'snapshot_path': snapshot['path'],
+              'snapshot_sha256': snapshot['sha256'],
+              'identity_basis': 'Exact publisher URL and all source-language text SHA256 values',
+              'matched_language_text_sha256': {v['language']: sha(v['text'].encode())
+                  for v in row.get('language_versions', [])},
+              'scope': 'Publisher detail grading, its attached notes and explicitly listed other sources; similar-hadith suggestions excluded',
+              'translation_upstream_source_verified': False,
+              'languages': {language: {'references': [], 'comments': [], 'grading_details': []}
+                            for language in fields},
+              'grading_rows': 0, 'listed_source_rows': 0,
+              'metadata_container_present': container is not None}
+    if container is None:
+        return output
+
+    def citation(node, language, kind, boundary, collection_node=None, locator_node=None):
+        value = rivoyat_language_text(node, language, source_titles=True)
+        if not value:
+            return None
+        return {'collection': rivoyat_language_text(collection_node, language, source_titles=True) or None,
+                'number': None, 'source_citation': value,
+                'source_locator_text': plain(locator_node) or None,
+                'url': url, 'scope': kind, 'source_language': language,
+                'canonical_mapping_status': 'not_inferred',
+                'translation_source_verified': False,
+                'boundary_basis': boundary, 'snapshot_path': snapshot['path'],
+                'snapshot_sha256': snapshot['sha256']}
+
+    for listing in container.all(lambda n: n.has('hk-list')):
+        for ordinal, item in enumerate(n for n in listing.children if isinstance(n, Node) and n.tag == 'li'):
+            output['grading_rows'] += 1
+            chip = item.first(lambda n: n.has('chip'))
+            who = item.first(lambda n: n.has('hk-who'))
+            sources = list(item.all(lambda n: n.has('hk-src') or n.has('hk-also')))
+            notes = list(item.all(lambda n: n.has('hk-tx')))
+            for language, values in output['languages'].items():
+                grade = rivoyat_language_text(chip, language, source_titles=True)
+                grader = rivoyat_language_text(who, language, source_titles=True)
+                details = {'grade': grade or None, 'grader': grader or None,
+                           'is_primary_as_marked_by_publisher': item.has('is-main'),
+                           'source_order': ordinal + 1, 'source_url': url,
+                           'snapshot_path': snapshot['path'], 'snapshot_sha256': snapshot['sha256'],
+                           'basis': 'Publisher-supplied detail-page assessment; no independent authenticity decision'}
+                if grade or grader:
+                    values['grading_details'].append(details)
+                if grade:
+                    values['comments'].append({'kind': 'publisher_grade', 'text': grade,
+                        'attributed_to': grader or None, 'source_url': url,
+                        'boundary_basis': '.hukm .hk-list > li .chip',
+                        'snapshot_path': snapshot['path'], 'snapshot_sha256': snapshot['sha256']})
+                for node in sources:
+                    title = node.first(lambda n: bool(n.attrs.get('title')))
+                    reference = citation(node, language, 'publisher_grading_reference',
+                                         '.hukm .hk-list > li .hk-src/.hk-also', title)
+                    if reference:
+                        values['references'].append(reference)
+                for node in notes:
+                    text = rivoyat_language_text(node, language)
+                    if text:
+                        values['comments'].append({'kind': 'source_grading_commentary', 'text': text,
+                            'attributed_to': grader or None, 'source_url': url,
+                            'boundary_basis': '.hukm .hk-list > li .hk-tx',
+                            'snapshot_path': snapshot['path'], 'snapshot_sha256': snapshot['sha256'],
+                            'contains_independently_quoted_material': 'not_separately_audited'})
+    for listing in container.all(lambda n: n.has('mb-list')):
+        for item in (n for n in listing.children if isinstance(n, Node) and n.tag == 'li'):
+            output['listed_source_rows'] += 1
+            title = item.first(lambda n: bool(n.attrs.get('title')))
+            locator = item.first(lambda n: n.has('mb-loc'))
+            for language, values in output['languages'].items():
+                reference = citation(item, language, 'publisher_listed_other_source',
+                                     '.hukm .mb-list > li', title, locator)
+                if reference:
+                    values['references'].append(reference)
+    return output
+
+
 def base_record(site, collection, source_entry_id, record_url, texts, references, snapshot,
                 source_title, source_number, comments=None, grade=None, metadata=None):
     identity = f'{site}:{collection["key"]}:{source_entry_id}'
@@ -345,6 +488,8 @@ def base_record(site, collection, source_entry_id, record_url, texts, references
 class Importer:
     def __init__(self, root, site, max_pages, delay, timeout=45, max_seconds=600):
         self.root, self.site, self.origin = Path(root).resolve(), site, SITES[site]
+        if excluded_by_owner(self.root, site):
+            raise ValueError('Source excluded by owner; acquisition and registration disabled: ' + site)
         self.folder = self.root / BASE / site
         self.folder.mkdir(parents=True, exist_ok=True)
         self.state_path = self.folder / 'checkpoint.json'
@@ -428,6 +573,121 @@ class Importer:
             if any(row['book_key'] == key for row in self.records.values()):
                 self.checkpoint_records(key)
 
+    def prepare_detail_metadata_queue(self):
+        """Retain a resumable task for every exact source occurrence."""
+        if self.site != 'rivoyat':
+            return
+        tasks = self.state.setdefault('detail_metadata_tasks', {})
+        for row in self.records.values():
+            task = tasks.setdefault(row['id'], {
+                'record_id': row['id'], 'record_url': row['source']['record_url'],
+                'status': 'pending', 'stage': 'awaiting_source_detail_snapshot',
+                'language_codes': [v['language'] for v in row.get('language_versions', [])],
+                'fields_to_check': ['language_specific_citations', 'source_commentary',
+                                    'upstream_source_credit', 'grading_details'],
+                'section_snapshot_path': row.get('source_locator', {}).get('path'),
+                'section_snapshot_sha256': row.get('source_locator', {}).get('sha256'),
+                'expected_language_text_sha256': {
+                    v['language']: sha(v['text'].encode()) for v in row.get('language_versions', [])},
+            })
+            task.update({'url': task['record_url'], 'kind': 'detail', 'collection': row['book_key']})
+            status = 'detail_metadata_pending' if task['status'] != 'done' else 'detail_metadata_source_parsed'
+            row['detail_metadata_status'] = status
+            row['source']['detail_metadata_status'] = status
+            row['source']['detail_metadata_queue_path'] = BASE + '/rivoyat/detail-metadata-queue.json'
+            for version in row.get('language_versions', []):
+                version['source']['detail_metadata_status'] = status
+                if task['status'] != 'done':
+                    version['references_status'] = 'section_reference_only_detail_metadata_pending'
+                    if not version.get('comments'):
+                        version['comments_status'] = 'detail_metadata_pending'
+        counts = dict(collections.Counter(task['status'] for task in tasks.values()))
+        self.state['detail_metadata_counts'] = counts
+        atomic_json(self.folder / 'detail-metadata-queue.json', {
+            'schema': 'hadith-bank-detail-metadata-queue-v1', 'site': self.site,
+            'task_counts': counts, 'tasks': list(tasks.values()),
+            'section_import_fetches_detail_pages': False,
+            'bounded_detail_worker_implemented': True,
+            'completion_requirement': 'Fetch the exact linked detail page under the same robots/rate controls; retain original response bytes; validate source-text identity and language-specific field boundaries before accepting enrichment.',
+            'no_missing_field_content_inferred': True})
+
+    def apply_detail_metadata(self, task, source, snapshot):
+        row = self.records[task['record_id']]
+        hashes = {v['language']: sha(v['text'].encode()) for v in row.get('language_versions', [])}
+        if hashes != task['expected_language_text_sha256']:
+            raise ValueError('detail_queue_source_hash_mismatch')
+        metadata = rivoyat_detail_metadata(source, row, snapshot)
+        # No narration field or accepted language identity is modified here.
+        for version in row.get('language_versions', []):
+            values = metadata['languages'].get(version['language'], {})
+            for field in ('references', 'comments', 'grading_details'):
+                existing = version.setdefault(field, [])
+                known = {json_bytes(value) for value in existing}
+                for value in values.get(field, []):
+                    if json_bytes(value) not in known:
+                        existing.append(value)
+                        known.add(json_bytes(value))
+            # Citations to other works do not establish the source of this
+            # particular Uzbek translation. Keep that distinction explicit.
+            version['source']['cited_works'] = values.get('references', [])
+            version['source']['translation_upstream_source_verified'] = False
+            version['source']['detail_snapshot_path'] = snapshot['path']
+            version['source']['detail_snapshot_sha256'] = snapshot['sha256']
+            version['references_status'] = 'source_detail_fields_parsed_canonical_identity_unverified'
+            version['comments_status'] = ('source_detail_notes_preserved' if values.get('comments')
+                                          else 'no_notes_in_supported_detail_blocks')
+        row['references']['items'] = [ref for version in row.get('language_versions', [])
+                                     for ref in version['references']]
+        row['source']['detail_metadata'] = {key: value for key, value in metadata.items() if key != 'languages'}
+        row['grading']['source_details'] = {lang: value['grading_details']
+                                           for lang, value in metadata['languages'].items()}
+        row['source']['original_metadata']['detail_page_metadata_status'] = 'source_snapshot_parsed'
+        task.update({'status': 'done', 'stage': 'source_snapshot_parsed', 'finished_at': now(),
+                     'snapshot_path': snapshot['path'], 'snapshot_sha256': snapshot['sha256'],
+                     'grading_rows': metadata['grading_rows'],
+                     'listed_source_rows': metadata['listed_source_rows']})
+        task.pop('error', None)
+
+    def enrich_cached_details(self):
+        """Parse only already saved detail snapshots; never initiates HTTP."""
+        if self.site != 'rivoyat':
+            return
+        for task in self.state.get('detail_metadata_tasks', {}).values():
+            if task['status'] != 'pending' or task['record_url'] not in self.state['snapshots']:
+                continue
+            try:
+                source, snapshot = self.fetch({'url': task['record_url']})
+                self.apply_detail_metadata(task, source, snapshot)
+            except Exception as error:
+                task.update({'status': 'failed', 'attempts': 3,
+                             'error': type(error).__name__ + ': ' + str(error)[:300],
+                             'stage': 'source_identity_or_parser_review_required'})
+
+    def preserve_request_error(self, url, error):
+        """Retain an error response without retrying or changing access routes."""
+        evidence = {'url': url, 'retrieved_at': now(), 'error': type(error).__name__ + ': ' + str(error)[:300]}
+        if isinstance(error, urllib.error.HTTPError):
+            evidence['status'] = error.code
+            try:
+                body = error.read(60 * 1024 * 1024 + 1)
+                if len(body) <= 60 * 1024 * 1024:
+                    path = self.folder / 'responses' / (sha(url.encode())[:16] + '-' + sha(body)[:16] + '.body.gz')
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    if not path.exists():
+                        path.write_bytes(gzip.compress(body, mtime=0))
+                    evidence.update({'path': str(path.relative_to(self.root)), 'bytes': len(body),
+                                     'sha256': sha(body), 'stored_sha256': sha(path.read_bytes()),
+                                     'compression': 'gzip', 'response_complete': True})
+                else:
+                    evidence['response_body_status'] = 'exceeds_preservation_limit_not_saved'
+            except Exception as capture_error:
+                evidence['response_body_status'] = 'unavailable: ' + type(capture_error).__name__
+        self.state['events'].append(evidence)
+        if getattr(error, 'code', None) in (401, 403, 429) or str(error).startswith('robots_disallowed'):
+            self.state['site_access_block'] = evidence
+            self.state['site_stop_reason'] = 'Source access denied; automatic acquisition paused. No automatic bypass or retry.'
+        return evidence
+
     def enqueue(self, url, kind, collection=None):
         parsed = urllib.parse.urlsplit(urllib.parse.urljoin(self.origin, url))
         if parsed.netloc != urllib.parse.urlsplit(self.origin).netloc:
@@ -441,8 +701,10 @@ class Importer:
         self.state['updated_at'] = now()
         self.state['counts'] = dict(collections.Counter(t['status'] for t in self.state['tasks']))
         self.state['record_counts'] = dict(collections.Counter(row['content_kind'] for row in self.records.values()))
+        self.state['detail_metadata_counts'] = dict(collections.Counter(
+            task['status'] for task in self.state.get('detail_metadata_tasks', {}).values()))
         pending = any(t['status'] != 'done' for t in self.state['tasks'])
-        self.state['all_linked_pages_processed'] = (not self.state.get('access_block')
+        self.state['all_linked_pages_processed'] = (not (self.state.get('access_block') or self.state.get('site_access_block'))
                                                     and not pending and bool(self.state['tasks']))
         # Site content may exceed declared/indexed items or quote additional
         # narrations inside commentary: never equate queue exhaustion to all.
@@ -450,6 +712,8 @@ class Importer:
         atomic_json(self.state_path, self.state)
 
     def request(self, url, robots=False):
+        if self.state.get('access_block') or self.state.get('site_access_block'):
+            raise RuntimeError('prior_source_access_block: automatic acquisition paused')
         if not robots and self.robot is not None and not self.robot.can_fetch(AGENT, url):
             raise RuntimeError('robots_disallowed: ' + url)
         if self.requests >= self.max_pages:
@@ -697,42 +961,59 @@ class Importer:
             old.unlink()
 
     def run(self):
-        # Check durable access stops before even requesting robots.txt again.
-        if self.state.get('access_block') or any(task['status'] == 'blocked' for task in self.state['tasks']):
+        self.prepare_detail_metadata_queue()
+        self.enqueue('/', 'home')
+        detail_tasks = self.state.get('detail_metadata_tasks', {})
+        if self.state.get('access_block') or self.state.get('site_access_block') or any(task['status'] == 'blocked'
+                for task in [*self.state['tasks'], *detail_tasks.values()]):
             self.state['site_stop_reason'] = 'Prior HTTP/robots block requires an explicit access review; no automatic bypass or block retry.'
+            self.save()
+            return self.export()
+        robots_url = self.origin + '/robots.txt'
+        robots_task = next((t for t in self.state['tasks'] if t['url'] == robots_url), None)
+        if robots_task and robots_task['status'] == 'failed' and robots_task.get('attempts', 0) >= 3:
+            self.state['last_stop_reason'] = 'robots_transient_retry_limit_requires_attention'
             self.save()
             return self.export()
         try:
             self.robots()
-        except urllib.error.HTTPError as error:
-            if error.code not in (401, 403, 429):
-                raise
-            block = {'phase': 'robots', 'url': self.origin + '/robots.txt',
-                     'http_status': error.code, 'error': 'HTTP ' + str(error.code),
-                     'at': now(), 'automatic_retry_allowed': False}
-            self.state['access_block'] = block
-            self.state['events'].append(dict(block))
-            self.state['site_stop_reason'] = 'Robots startup access block requires an explicit access review; no automatic retry.'
+            if robots_task:
+                robots_task.update({'status': 'done', 'finished_at': now()})
+                robots_task.pop('error', None)
+        except StopIteration as reason:
+            self.state['last_stop_reason'] = str(reason)
             self.save()
             return self.export()
-        self.enqueue('/', 'home')
+        except Exception as error:
+            if robots_task is None:
+                robots_task = {'url': robots_url, 'kind': 'robots', 'collection': None}
+                self.state['tasks'].append(robots_task)
+            evidence = self.preserve_request_error(robots_url, error)
+            robots_task.update({'status': 'blocked' if self.state.get('site_access_block') else 'failed',
+                                'attempts': robots_task.get('attempts', 0) + 1,
+                                'error': 'HTTP ' + str(error.code) if isinstance(error, urllib.error.HTTPError) else evidence['error']})
+            self.state['last_stop_reason'] = 'robots_access_blocked' if robots_task['status'] == 'blocked' else 'robots_request_failed'
+            self.save()
+            return self.export()
         # Retry transient failures only in a subsequent run, at most three
         # times. Authentication/rate/robots blocks are never retried here.
-        for task in self.state['tasks']:
+        for task in [*self.state['tasks'], *detail_tasks.values()]:
             if task['status'] == 'failed' and task.get('attempts', 1) < 3 and not task.get('error', '').startswith('HTTP 404'):
                 task['status'] = 'pending'
         while True:
             if time.monotonic() >= self.deadline:
                 self.state['last_stop_reason'] = 'time_budget'
                 break
-            pending = [task for task in self.state['tasks'] if task['status'] == 'pending']
+            pending = [task for task in [*self.state['tasks'], *detail_tasks.values()] if task['status'] == 'pending']
             if not pending:
                 break
             completed = collections.Counter(task['collection'] for task in self.state['tasks']
                 if task['kind'] == 'section' and task['status'] == 'done')
             # First enumerate the complete collection catalogue; then fairly
             # alternate collections rather than exhaust a giant work first.
-            rank = {'home': 0, 'collection': 1, 'evidence': 2, 'section': 3}
+            rank = {'home': 0, 'robots': 0, 'collection': 1, 'evidence': 2,
+                    'section': 4 if self.state.get('last_work_kind') == 'section' else 3,
+                    'detail': 3 if self.state.get('last_work_kind') == 'section' else 4}
             task = min(pending, key=lambda t: (rank[t['kind']], completed[t['collection']]))
             try:
                 task['attempts'] = task.get('attempts', 0) + 1
@@ -748,8 +1029,14 @@ class Importer:
                     else:
                         self.islom_records(tree, source, task, snapshot)
                     self.checkpoint_records(task['collection'])
+                    self.prepare_detail_metadata_queue()
+                    detail_tasks = self.state.get('detail_metadata_tasks', {})
+                elif task['kind'] == 'detail':
+                    self.apply_detail_metadata(task, source, snapshot)
+                    self.checkpoint_records(task['collection'])
                 task['status'], task['finished_at'] = 'done', now()
                 task['snapshot_path'] = snapshot['path']
+                self.state['last_work_kind'] = task['kind']
             except StopIteration as reason:
                 task['attempts'] -= 1
                 self.state['last_stop_reason'] = str(reason)
@@ -757,7 +1044,7 @@ class Importer:
             except urllib.error.HTTPError as error:
                 task['status'] = 'blocked' if error.code in (401, 403, 429) else 'failed'
                 task['error'] = 'HTTP ' + str(error.code)
-                self.state['events'].append({'at': now(), 'url': task['url'], 'error': task['error']})
+                self.preserve_request_error(task['url'], error)
                 self.save()
                 # Never switch credentials, hosts, API routes or proxies to get
                 # around a rejection; a rate/auth block stops this whole site.
@@ -766,14 +1053,20 @@ class Importer:
             except Exception as error:
                 task['status'] = 'blocked' if str(error).startswith('robots_disallowed') else 'failed'
                 task['error'] = type(error).__name__ + ': ' + str(error)[:300]
-                self.state['events'].append({'at': now(), 'url': task['url'], 'error': task['error']})
+                self.preserve_request_error(task['url'], error)
+                if task['kind'] == 'detail' and isinstance(error, ValueError):
+                    task['attempts'] = 3
+                    task['stage'] = 'source_identity_or_parser_review_required'
+                if task['status'] == 'blocked':
+                    self.save()
+                    break
             self.save()
         self.save()
         return self.export()
 
     def write_material_parts(self, slug, manifest, records):
         """Keep stable occurrence-to-part assignments below GitHub blob limits."""
-        target = 40 * 1024 * 1024
+        target = PUBLICATION_PART_BYTES
         mapping = self.state.setdefault('material_partitions', {}).setdefault(slug, {})
         groups, sizes = {}, collections.Counter()
         fresh = []
@@ -802,24 +1095,48 @@ class Importer:
             mapping[row['id']] = part
             groups.setdefault(part, []).append((row, encoded))
             sizes[part] += len(encoded)
+        source_descriptor = manifest['source']
+        source_bytes = (self.root / source_descriptor['path']).read_bytes()
+        if sha(source_bytes) != source_descriptor['sha256']:
+            raise ValueError('Publication source evidence checksum mismatch')
+        source_filename = Path(source_descriptor['path']).name
+        source_edition = manifest['edition']
         for part, entries in groups.items():
             if sizes[part] > 90 * 1024 * 1024:
                 raise ValueError('Existing publication part grew above 90MiB; preserve it and review a partition migration before upload')
             part_slug = slug if part == 1 else slug + '-part-' + str(part).zfill(4)
             folder = self.root / 'materials' / part_slug
             folder.mkdir(parents=True, exist_ok=True)
-            part_bytes = b''.join(encoded for _, encoded in sorted(entries, key=lambda e: e[0]['id']))
+            # Each registered part owns its source file and a unique internal
+            # edition key. This suffix identifies a publication partition, not
+            # a newly inferred publisher edition. Occurrence/version IDs stay
+            # unchanged, and persistent assignments keep earlier parts stable.
+            part_edition = source_edition if part == 1 else source_edition + '-part-' + str(part).zfill(4)
+            part_rows = []
+            for row, _ in sorted(entries, key=lambda e: e[0]['id']):
+                row['edition'] = part_edition
+                part_rows.append(row)
+            part_bytes = b''.join(json_bytes(row) for row in part_rows)
             (folder / 'records.jsonl').write_bytes(part_bytes)
+            owned_source = folder / source_filename
+            owned_source.write_bytes(source_bytes)
             part_manifest = json.loads(json.dumps(manifest, ensure_ascii=False))
             part_manifest['id'] = part_manifest['source_id'] = part_slug
+            part_manifest['edition'] = part_edition
+            part_manifest['source'] = {**source_descriptor,
+                'path': str(owned_source.relative_to(self.root)), 'sha256': sha(source_bytes)}
             part_manifest['records'] = {'path': str((folder / 'records.jsonl').relative_to(self.root)),
                                         'sha256': sha(part_bytes), 'count': len(entries)}
+            part_manifest['extraction_scope']['source_edition_key_before_partitioning'] = source_edition
             part_manifest['extraction_scope']['publication_part'] = part
             part_manifest['extraction_scope']['records_in_this_part'] = len(entries)
             part_manifest['extraction_scope']['part_assignment_basis'] = 'Persistent source-occurrence IDs; new entries append without moving previous assignments'
             atomic_json(folder / 'manifest.json', part_manifest)
 
     def export(self):
+        self.prepare_detail_metadata_queue()
+        self.enrich_cached_details()
+        self.prepare_detail_metadata_queue()
         self.enrich_local_metadata()
         summaries = []
         for key, collection in self.state['collections'].items():
@@ -827,9 +1144,12 @@ class Importer:
             accepted = [r for r in all_rows if r['content_kind'] == 'prophetic_report']
             held = [r for r in all_rows if r['content_kind'] != 'prophetic_report']
             tasks = [t for t in self.state['tasks'] if t.get('collection') == key]
+            detail_tasks = [t for t in self.state.get('detail_metadata_tasks', {}).values()
+                            if t.get('collection') == key]
             summary = {'collection': key, 'title': collection['title'], 'advertised_count': collection['advertised_count'],
                        'source_entries_obtained': len(all_rows), 'prophetic_source_entries_registered': len(accepted),
                        'classification_pending_hidden': len(held), 'page_tasks': dict(collections.Counter(t['status'] for t in tasks)),
+                       'detail_metadata_tasks': dict(collections.Counter(t['status'] for t in detail_tasks)),
                        'all_declared_entries_obtained': len(all_rows) == collection['advertised_count'] if collection['advertised_count'] is not None else None,
                        'complete_import_certified': False}
             summaries.append(summary)
@@ -848,11 +1168,14 @@ class Importer:
             records.sort(key=lambda r: r['id'])
             record_bytes = b''.join(json_bytes(row) for row in records)
             (folder / 'records.jsonl').write_bytes(record_bytes)
-            snapshots = [v for u, v in self.state['snapshots'].items() if u == collection['url'] or any(t['url'] == u for t in tasks)]
+            source_urls = {collection['url'], *(t['url'] for t in tasks), *(t['record_url'] for t in detail_tasks)}
+            snapshots = [v for u, v in self.state['snapshots'].items() if u in source_urls]
             bundle = {'schema': 'hadith-bank-web-source-evidence-v1', 'publisher': self.site,
                       'collection': collection, 'snapshots': snapshots, 'checkpoint': str(self.state_path.relative_to(self.root)),
                       'source_entry_ledger': BASE + '/' + self.site + '/collection-' + key + '.jsonl.gz',
                       'retrieval_method': 'ordinary_public_HTTP_HTML', 'api_used': False,
+                      'detail_metadata_scope': 'bounded_source_details_with_explicit_remaining_queue' if self.site == 'rivoyat' else 'source_language_columns',
+                      'detail_metadata_queue_path': BASE + '/rivoyat/detail-metadata-queue.json' if self.site == 'rivoyat' else None,
                       'rights': {'status': 'not_assessed_for_publication', 'robots': self.state.get('robots')},
                       'scope': summary}
             atomic_json(folder / 'source-evidence.json', bundle)
@@ -880,17 +1203,32 @@ class Importer:
                 'format': 'jsonl+gzip', 'compression': 'gzip',
                 'uncompressed_sha256': sha(gzip.decompress(ledger_path.read_bytes())),
                 'role': 'complete_source_entry_and_commentary_ledger'})
+            if self.site == 'rivoyat':
+                queue_path = self.folder / 'detail-metadata-queue.json'
+                manifest['supporting_files'].append({'path': str(queue_path.relative_to(self.root)),
+                    'sha256': sha(queue_path.read_bytes()), 'size_bytes': queue_path.stat().st_size,
+                    'format': 'json', 'role': 'detail_metadata_queue_and_source_parse_receipts'})
             self.write_material_parts(slug, manifest, records)
+        self.save()
         report = {'site': self.site, 'updated_at': now(), 'requests_this_run': self.requests,
                   'collections': summaries, 'task_counts': self.state.get('counts', {}),
                   'source_entries_obtained': len(self.records),
                   'prophetic_source_entries_registered': sum(s['prophetic_source_entries_registered'] for s in summaries),
                   'classification_pending_hidden': sum(s['classification_pending_hidden'] for s in summaries),
-                  'blocked': bool(self.state.get('access_block')) or any(t['status'] == 'blocked' for t in self.state['tasks']),
-                  'access_block': self.state.get('access_block'),
+                  'access_block': self.state.get('site_access_block') or self.state.get('access_block'),
                   'site_stop_reason': self.state.get('site_stop_reason'),
                   'all_linked_pages_processed': self.state.get('all_linked_pages_processed', False),
                   'all_available_content_imported': False,
+                  'blocked': bool(self.state.get('site_access_block') or self.state.get('access_block')) or any(t['status'] == 'blocked'
+                      for t in [*self.state['tasks'], *self.state.get('detail_metadata_tasks', {}).values()]),
+                  'block_reason': self.state.get('site_stop_reason'),
+                  'errors': sum(t['status'] == 'failed'
+                      for t in [*self.state['tasks'], *self.state.get('detail_metadata_tasks', {}).values()]),
+                  'page_task_scope': 'catalogue_and_section_pages',
+                  'detail_metadata_pending_count': sum(task.get('status') != 'done' for task in self.state.get('detail_metadata_tasks', {}).values()),
+                  'detail_metadata_counts': self.state.get('detail_metadata_counts', {}),
+                  'detail_metadata_queue_path': BASE + '/rivoyat/detail-metadata-queue.json' if self.site == 'rivoyat' else None,
+                  'all_detail_metadata_processed': (bool(self.state.get('detail_metadata_tasks')) and all(task.get('status') == 'done' for task in self.state.get('detail_metadata_tasks', {}).values())) if self.site == 'rivoyat' else None,
                   'scope_note': 'Advertised counts are publisher counts, not unique Prophetic hadiths. Completeness remains unverified until all linked sections and held classifications are reconciled.'}
         atomic_json(self.folder / 'progress.json', report)
         self.save()
@@ -909,6 +1247,10 @@ def main():
     if args.max_pages < 1 or args.delay < 0.5 or args.max_seconds < 1:
         parser.error('max-pages and max-seconds must be positive; delay must be at least 0.5 seconds')
     for site in SITES if args.site == 'all' else [args.site]:
+        if excluded_by_owner(args.root, site):
+            print(json.dumps({'site': site, 'state': 'excluded_by_owner',
+                              'acquisition_enabled': False, 'registered_occurrences': 0}), flush=True)
+            continue
         importer = Importer(args.root, site, args.max_pages, args.delay, max_seconds=args.max_seconds)
         report = importer.export() if args.export_only else importer.run()
         print(json.dumps({k: v for k, v in report.items() if k != 'collections'}, ensure_ascii=False), flush=True)

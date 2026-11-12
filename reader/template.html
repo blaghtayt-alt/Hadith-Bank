@@ -650,9 +650,21 @@ function sourceDownloadLink(source) {
   link.target="_blank";link.rel="noopener noreferrer";
   return link;
 }
-function citationList(items){
+function citationList(items,omitURL=""){
   const list=element("ul","citation-list");
-  for(const item of items){const row=element("li","citation-item"),data=citationData(item);if(data){row.append(element("div","citation-title",data.label),element("div","citation-scope",data.scope));if(data.source_citation){const quote=element("p","citation-verbatim",data.source_citation);quote.dir="auto";row.append(quote);}}else row.append(element("pre","audit-text",typeof item==="string"?item:JSON.stringify(item,null,2)));list.append(row);}
+  for(const item of items){
+    const row=element("li","citation-item"),data=citationData(item);
+    if(data){
+      row.append(element("div","citation-title",data.label),element("div","citation-scope",data.scope));
+      if(data.source_citation){const quote=element("p","citation-verbatim",data.source_citation);quote.dir="auto";row.append(quote);}
+      for(const [field,label] of [["numbering_system","Numbering"],["canonical_mapping_status","Canonical mapping"]]){
+        if(typeof item[field]==="string" && item[field])row.append(element("div","citation-scope",label+": "+item[field].replace(/_/g," ")));
+      }
+    }else row.append(element("pre","audit-text",typeof item==="string"?item:JSON.stringify(item,null,2)));
+    const href=sourceURL({url:item && item.url});
+    if(href && href!==omitURL){const link=element("a","note-source","Reference at source");link.href=href;link.target="_blank";link.rel="noopener noreferrer";row.append(link);}
+    list.append(row);
+  }
   return list;
 }
 function languageReading(reading,index,position){
@@ -673,9 +685,9 @@ function languageReading(reading,index,position){
   const source=reading.source || {},url=sourceURL(source),credit=element(url?"a":"span","reading-source",source.name || "Source not named");
   if(url){credit.href=url;credit.target="_blank";credit.rel="noopener noreferrer";credit.append(icon("external-link"));}
   citation.append(credit);
-  const referenceLinks=element("div","reading-reference-links");
-  for(const reference of reading.references){const href=sourceURL({url:reference && reference.url});if(!href || href===url)continue;const data=citationData(reference),link=element("a",null,data?data.label:"Reference at source");link.href=href;link.target="_blank";link.rel="noopener noreferrer";referenceLinks.append(link);}
-  if(referenceLinks.childNodes.length)citation.append(referenceLinks);content.append(citation);
+  content.append(citation);
+  if(source.detail_metadata_status==="detail_metadata_pending")content.append(element("p","counterpart-note reading-pending","Detailed source references and notes have not been retrieved yet."));
+  if(reading.references.length)content.append(detail("References for this reading ("+reading.references.length+")",citationList(reading.references,url),"reading-references"));
   if(reading.comments.length){
     const notes=element("div","reading-notes-body");
     for(const note of reading.comments){const text=typeof note==="string"?note:note && note.text;if(typeof text==="string" && text){const paragraphNode=paragraph(text,base==="ar",reading.language);paragraphNode.dir=readingDirection(reading);notes.append(paragraphNode);}const noteURL=sourceURL({url:note && typeof note==="object"?note.source_url:null});if(noteURL){const link=element("a","note-source","Commentary source");link.href=noteURL;link.target="_blank";link.rel="noopener noreferrer";notes.append(link);}}

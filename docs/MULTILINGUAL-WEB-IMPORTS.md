@@ -1,8 +1,12 @@
 # Multilingual website imports
 
-The owner authorized importing Deen Hindi, Rivoyat and Hadis.islom.uz on
-12 November 2026, including source-specific references, comments, collapsible
-language panels and language/book/collection filters. Current repository intake
+The active website intake covers Deen Hindi and Hadis.islom.uz, with
+source-specific references, comments, collapsible language panels and
+language/book/collection filters. On 12 November 2026 the owner withdrew
+Rivoyat because its translation source was not established. Its 30 staged
+occurrences and their source payloads were removed from this publication patch;
+no Rivoyat material is registered. Acquisition and offline re-registration are
+disabled until the owner explicitly reauthorizes that source. Current repository intake
 totals are in [web-import-status.json](../imports/web-import-status.json).
 These count preserved source occurrences, not unique canonical hadiths.
 
@@ -13,6 +17,13 @@ English and the primary source language open first. Each version has its own
 exact text, publisher/record link, references, translation attribution, and
 nested comments. Missing source text remains absent; no translations or Arabic
 originals are generated.
+
+Each language's reference disclosure also retains literal citations that have
+no parsed collection or number, source-local numbering qualifications, and
+canonical-mapping status. A pending detail-page notice is shown on the affected
+reading until its detailed source references and notes have actually been
+retrieved. An empty comments array does not establish that the publisher has no
+comments.
 
 Language filters match all stored readings, including approved counterparts.
 Uzbek Latin, Uzbek Cyrillic and Roman Urdu retain their script codes.
@@ -45,7 +56,7 @@ stays with its own language.
 | Website | Acquisition route | Discovery |
 | --- | --- | --- |
 | [Deen Hindi](https://deenhindi.com/hadith) | Ordinary public HTML with embedded structured source objects | Seven observed collection inventories; preserve their actual identifiers and suffixes |
-| [Rivoyat](https://rivoyat.com/) | Public catalogue, book/section pagination and exact language copy payloads | 26 observed catalogue collections |
+| Rivoyat | Excluded by owner; acquisition and registration disabled | No active materials |
 | [Hadis.islom.uz](https://hadis.islom.uz/) | Public collection/section HTML and Arabic/Uzbek columns | 11 observed catalogue collections |
 
 Robots evidence and public-page responses are preserved. No private API, login
@@ -137,7 +148,9 @@ Commands:
 
 Deen's remaining queue counts entry pages. Uzbek remaining queues count linked
 catalogue/section pages, often containing many entries and revealing further
-pagination. Do not add these together as remaining hadith counts. Queue
+pagination; Rivoyat also maintains a separate detail-metadata queue. The status
+report separates pending page and detail requests. Do not add these together as
+remaining hadith counts. Queue
 completion still leaves held classifications and completeness to reconcile.
 
 ## Large-corpus delivery
@@ -173,3 +186,22 @@ manual source-bound override was reconstructed from memory. Fresh publication
 counts must come from real reacquisition and checked source bytes. See
 [Uzbek recovery](UZBEK-WEB-IMPORT-RECOVERY.md) and
 [Deen intake operations](../imports/web-deenhindi-20261112/README.md).
+
+### Historical recovery and subsequent withdrawal
+
+A surviving source checkpoint was verified locally, including 30 candidate
+Rivoyat occurrences and their 90 exact supplied language texts. The owner then
+withdrew Rivoyat before the recovery patch was merged. Those candidates, their
+snapshots and the combined recovery archive are omitted from publication.
+Earlier 7,024/44,225 projections included those candidates and are superseded.
+The existing Deen Hindi and Islom source identities remain unchanged.
+
+## Current exclusion and batch boundary
+
+The previously described Rivoyat recovery counts are historical. The current
+active website-source checkpoint contains 6,994 registered occurrences: 48
+from Deen Hindi and 6,946 from Hadis.islom.uz, with 275 source entries held.
+No Rivoyat record, snapshot or combined recovery archive is included in this
+patch. Original local recovery work remains outside the publication set.
+The owner subsequently selected hadis.uz/hadiths/1 for Uzbek Tirmidhi; its
+separate importer is added in the following source batch.

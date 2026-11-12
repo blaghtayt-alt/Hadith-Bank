@@ -2,7 +2,8 @@
 """Publish a generated commit only while it is still the current bank revision.
 
 Use one ordinary fast-forward push and read back the remote ref. A concurrent
-source update is a clean skip; an uncertain or genuinely failed push is an error.
+source update withholds the stale artifact; an uncertain or genuinely failed
+push is an error. The workflow can request a current build after a clean skip.
 """
 import argparse
 import json
@@ -78,7 +79,12 @@ def main(argv=None):
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--expected-start', required=True)
     parser.add_argument('--github-output', default=os.environ.get('GITHUB_OUTPUT'))
+    parser.add_argument('--request-current-build', action='store_true',
+                        help='Dispatch the current main build after a superseded result')
+    parser.add_argument('--repository', default=os.environ.get('GITHUB_REPOSITORY'))
     args = parser.parse_args(argv)
+    if args.request_current_build and not args.repository:
+        parser.error('--request-current-build requires --repository or GITHUB_REPOSITORY')
     try:
         result = synchronize(args.root, args.expected_start)
     except (OSError, SynchronizationError) as error:
@@ -86,6 +92,19 @@ def main(argv=None):
         print(json.dumps({'status': 'failed', 'publish': False, 'error': str(error)}), file=sys.stderr)
         return 1
     write_outputs(args.github_output, result)
+    if result['status'] == 'superseded' and args.request_current_build:
+        try:
+            dispatched = subprocess.run(
+                ['gh', 'workflow', 'run', 'reader-pages.yml', '--ref', 'main',
+                 '--repo', args.repository], cwd=args.root, check=False)
+        except OSError as error:
+            print(json.dumps({**result, 'build_request': 'failed', 'error': str(error)}), file=sys.stderr)
+            return 1
+        if dispatched.returncode:
+            print(json.dumps({**result, 'build_request': 'failed',
+                              'dispatch_exit_code': dispatched.returncode}), file=sys.stderr)
+            return dispatched.returncode if dispatched.returncode > 0 else 1
+        result['build_request'] = 'submitted'
     print(json.dumps(result))
     return 0
 
