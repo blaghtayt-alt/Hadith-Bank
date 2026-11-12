@@ -1,0 +1,62 @@
+{
+  "attribution_helper_sha256": "6623861ebe05cc8f49ae35d83ec66bb8db4b8c08a8033a80e8fabc789e32f617",
+  "boundary_helper_sha256": "ab5e28f57f88db054a85d376a28e5ec0994847a75490adaeb571ce1582efdf8b",
+  "files": [
+    {
+      "bytes": 133102,
+      "path": "reports/fawaz-import-review/nasai-boundaries-20261112.json.gz",
+      "sha256": "43887eeee487278941a871cf7427ce4940bc91ee8abec99f8d06f0bcee4a189f",
+      "uncompressed_bytes": 2420557,
+      "uncompressed_sha256": "e6a6b9a8854e1be2e804211d6156af74a1f8798b01ea16b00583556504f2acbe"
+    },
+    {
+      "bytes": 17890,
+      "path": "reports/fawaz-import-review/nasai-boundaries-catalog-at-audit-20261112.json.gz",
+      "sha256": "76e99340ed2cfbbe96d1a657362dd59825979dab77caef58dbde5992a437f42e",
+      "uncompressed_bytes": 155695,
+      "uncompressed_sha256": "b93a0e7acde79f2ba1bd24568954bec026470fcacc8766855cc8c28c38339cd9"
+    },
+    {
+      "bytes": 11705,
+      "path": "reports/fawaz-import-review/audit_nasai_boundaries.py",
+      "sha256": "35d339465c046c9c3107dea07d2302d0d2323c9bb5ea4ed1e12cf9d61b6b0c3b"
+    }
+  ],
+  "importer_sha256": "f840d88e9500d7e21184cd9cea22dbf7eaeb839e1229ce06f9e90cd5d30ff9d2",
+  "revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "schema": "hadith-bank-fawaz-nasai-boundary-audit-summary-v1",
+  "scope": "Exact source fidelity of all four pinned Nasai editions and every changed language field; source-local compiler/grade/bibliography separation, not independent authenticity or semantic translation certification.",
+  "summary": {
+    "abudawud_english_changed_ids": [
+      "2251"
+    ],
+    "abudawud_english_rows_checked_for_unintended_changes": 5274,
+    "affected_after_hadith": 353,
+    "affected_after_held": 73,
+    "affected_baseline_hadith": 343,
+    "affected_baseline_held": 83,
+    "affected_newly_matched_classifier_occurrences": 12,
+    "affected_provider_occurrences": 426,
+    "classification_demotions": [
+      "4147"
+    ],
+    "classifier_promotions_prevented_or_existing_matn_demoted": 1,
+    "effective_changed_fields_ar": 183,
+    "effective_changed_fields_bn": 71,
+    "effective_changed_fields_en": 302,
+    "effective_changed_fields_total": 672,
+    "effective_changed_fields_ur": 116,
+    "matched_fields_ar": 184,
+    "matched_fields_bn": 72,
+    "matched_fields_en": 303,
+    "matched_fields_total": 676,
+    "matched_fields_ur": 117,
+    "pending_language_fields": [
+      {
+        "provider_edition": "ara-nasai",
+        "typed_hadithnumber": "444"
+      }
+    ],
+    "verified_fields": 23060
+  }
+}

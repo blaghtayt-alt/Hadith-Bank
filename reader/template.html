@@ -104,18 +104,32 @@ async function loadReaderShards(manifest,baseURL,onProgress=()=>{}){
     if(size!==expected)throw new Error("Reader data size differs from its manifest.");
     const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}return bytes;
   };
-  const result=[],decoder=new TextDecoder("utf-8",{fatal:true});let pending="",sinceYield=0;
-  for(let index=0;index<manifest.shards.length;index++){
-    const part=manifest.shards[index],controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);
+  // Bound both requests and prefetched plaintext; decode only in manifest order.
+  const concurrency=6,active=new Set(),queued=new Map();let failure=null;
+  const stop=()=>{for(const controller of active)controller.abort();};
+  const loadPart=async part=>{
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),30000);active.add(controller);
     try{
-      onProgress({loaded:result.length,total:manifest.record_count,part:index+1,parts:manifest.shards.length});
       const response=await fetch(new URL(part.path,base).href,{credentials:"same-origin",redirect:"error",signal:controller.signal});
       if(!response.ok)throw new Error("Reader data could not be loaded (HTTP "+response.status+").");
       const bytes=await boundedBytes(response.body,part.bytes);
       const digest=Array.from(new Uint8Array(await globalThis.crypto.subtle.digest("SHA-256",bytes)),value=>value.toString(16).padStart(2,"0")).join("");
       if(digest!==part.sha256)throw new Error("Reader data integrity check failed.");
       const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-      const plain=await boundedBytes(stream,part.uncompressed_bytes);
+      return await boundedBytes(stream,part.uncompressed_bytes);
+    }finally{clearTimeout(timer);active.delete(controller);}
+  };
+  const queue=index=>queued.set(index,loadPart(manifest.shards[index]).then(
+    plain=>({plain}),error=>{if(!failure)failure=error;stop();return {error};}
+  ));
+  const result=[],decoder=new TextDecoder("utf-8",{fatal:true});let pending="",sinceYield=0;
+  try{
+    for(let index=0;index<Math.min(concurrency,manifest.shards.length);index++)queue(index);
+    for(let index=0;index<manifest.shards.length;index++){
+      const part=manifest.shards[index];
+      onProgress({loaded:result.length,total:manifest.record_count,part:index+1,parts:manifest.shards.length});
+      const {plain}=await queued.get(index);queued.delete(index);
+      if(failure)throw failure;
       pending+=decoder.decode(plain,{stream:true});
       let start=0,count=0,newline;
       while((newline=pending.indexOf("\n",start))!==-1){
@@ -129,13 +143,16 @@ async function loadReaderShards(manifest,baseURL,onProgress=()=>{}){
       }
       pending=pending.slice(start);
       if(count!==part.count)throw new Error("Reader shard record count does not match its manifest.");
-    }finally{clearTimeout(timer);}
-    onProgress({loaded:result.length,total:manifest.record_count,part:index+1,parts:manifest.shards.length});
-    await new Promise(resolve=>setTimeout(resolve,0));
-  }
-  pending+=decoder.decode();
-  if(pending || result.length!==manifest.record_count)throw new Error("Reader data is incomplete or has an incorrect record count.");
-  return result;
+      if(failure)throw failure;
+      if(index+concurrency<manifest.shards.length)queue(index+concurrency);
+      onProgress({loaded:result.length,total:manifest.record_count,part:index+1,parts:manifest.shards.length});
+      await new Promise(resolve=>setTimeout(resolve,0));
+    }
+    if(failure)throw failure;
+    pending+=decoder.decode();
+    if(pending || result.length!==manifest.record_count)throw new Error("Reader data is incomplete or has an incorrect record count.");
+    return result;
+  }finally{stop();}
 }
 let records, snapshot, hostedData=false;
 try {
@@ -490,14 +507,14 @@ const readingView = (item,options) => {
   return {id:item.id ?? null,language,script:item.script ?? null,text:item.text ?? null,
     source:item.source && typeof item.source==="object"?item.source:{},
     references:Array.isArray(item.references)?item.references:[],comments:Array.isArray(item.comments)?item.comments:[],
-    translation_provenance:item.translation_provenance ?? null,scope:item.scope ?? null,match_status:item.match_status ?? null,
+    translation_provenance:item.translation_provenance ?? null,scope:item.scope ?? null,match_status:item.match_status ?? null,quotation_status:item.quotation_status ?? null,
     role:options.role,primary:!!options.primary,heading:options.heading || languageLabel(language),
-    citation:options.citation || counterpartCitation(item,arabic?"arabic":"english"),qualification:options.qualification || "",
+    citation:options.citation || counterpartCitation(item,arabic?"arabic":"english"),qualification:options.qualification || ((item.quotation_status==="content_mismatch"?"This provider ID contains different material in this language. Its full source text is preserved under Comments and is not a translation or Arabic counterpart of the displayed narration.":item.quotation_status==="boundary_pending"?"This source combines narration and commentary. Its complete text is preserved under Comments while the narration boundary is reviewed.":item.quotation_status==="disjoint_source_spans"?"This reading preserves separate source spans. Intervening compiler text is retained under Comments.":item.quotation_status==="abbreviated_source_report"?"This edition abbreviates the report and explicitly refers to another source entry. The exact abbreviated wording is preserved here; open References for the cited report.":item.quotation_status==="multiple_source_reports"?"This source entry preserves two separately attributed reports in their original order. They remain one provider entry, with their distinct narrator introductions and source references."+(typeof (item.source || {}).source_report_alignment_note==="string" && item.source.source_report_alignment_note.trim()?" "+item.source.source_report_alignment_note:""):"")+(item.quotation_status!=="multiple_source_reports" && typeof (item.source || {}).source_report_alignment_note==="string" && item.source.source_report_alignment_note.trim()?" "+item.source.source_report_alignment_note.trim():"")).trim(),
     translation_origin:arabic?null:originCategory({translation_provenance:item.translation_provenance || {}})};
 };
 function languageReadings(record){
   const hasText=value=>typeof value==="string" && !!value.trim();
-  const supplied=(Array.isArray(record.language_versions)?record.language_versions:[]).filter(item=>item && typeof item==="object" && typeof item.language==="string" && item.language && (hasText(item.text) || item.scope==="external_source"));
+  const supplied=(Array.isArray(record.language_versions)?record.language_versions:[]).filter(item=>item && typeof item==="object" && typeof item.language==="string" && item.language && (hasText(item.text) || ["external_source","source_context"].includes(item.scope)));
   const language=record.language || "",original=record.text_translation,alias=(code,text)=>supplied.some(item=>sameReadingLanguage(item.language,code) && item.text===text && sameReadingSource(item,record));
   const views=supplied.map(item=>readingView(item,{role:"supplied",primary:sameReadingLanguage(item.language,language) && item.text===original && sameReadingSource(item,record)}));
   const refs=record.references && Array.isArray(record.references.items)?record.references.items:[],commentary=record.commentary || {};
@@ -541,6 +558,8 @@ const languages=new Map(), books=new Map(), sources=new Map();
 records.forEach(r=>{availableLanguageCodes(r).forEach(code=>languages.set(code,languageLabel(code)));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key,r.language)+" · "+editionLabel(r));});
 legacy.forEach(item=>{if(typeof item.language==="string" && item.language)languages.set(item.language,languageLabel(item.language));});
 fillFilter("language-filter",languages,"All languages");
+const linkedLanguage=new URLSearchParams(window.location.search).get("language");
+if(languages.has(linkedLanguage) && (!state.exactOccurrence || records.some(record=>record.id===state.exactOccurrence && availableLanguageCodes(record).includes(linkedLanguage))))$("language-filter").value=linkedLanguage;
 $("brand-title").textContent=snapshot.title || "Hadith Bank";
 document.title=(snapshot.title || "Hadith Bank")+" · Reader";
 $("total-count").textContent=nf.format(records.length);
@@ -696,7 +715,7 @@ function languageReading(reading,index,position){
   const content=element("div","reading-content");
   if(reading.qualification)content.append(element("p","counterpart-note",reading.qualification));
   if(reading.text){const text=paragraph(reading.text,base==="ar",reading.language);text.dir=readingDirection(reading);content.append(text);}
-  else content.append(element("p","counterpart-note","This language is available at its source link."));
+  else content.append(element("p","counterpart-note",["boundary_pending","content_mismatch"].includes(reading.quotation_status)?"Open Comments for the preserved source text.":"This language is available at its source link."));
   const citation=element("div","reading-reference"),quotation=element("p","reading-citation",reading.citation);
   quotation.dir="auto";citation.append(quotation);
   const source=reading.source || {},url=sourceURL(source),credit=element(url?"a":"span","reading-source",source.name || "Source not named");

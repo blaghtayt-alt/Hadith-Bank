@@ -255,6 +255,8 @@ Promise.all(rows.map(row=>recordPageURL(row,{live_url:'https://example.invalid/b
     @unittest.skipUnless(shutil.which('node'), 'Node is required for browser parity')
     def test_browser_views_filters_and_commentary_search_match_python(self):
         records = [multilingual_fixture(), fixture(2)]
+        note = 'TEST source narrator differs <script>preserve literal note</script>'
+        records[0]['language_versions'][1]['source']['source_report_alignment_note'] = note
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
@@ -266,12 +268,52 @@ process.stdout.write(JSON.stringify({views:languageReadings(records[0]),language
                              text=True, capture_output=True, check=True)
         actual = json.loads(run.stdout)
         self.assertEqual(actual['views'], language_readings(records[0]))
+        english = next(item for item in actual['views'] if item['language'] == 'en')
+        self.assertEqual(english['qualification'], note)
+        self.assertEqual(english['text'], records[0]['language_versions'][1]['text'])
+        page = render_language_reading(english)
+        self.assertIn(html.escape(note), page)
+        self.assertNotIn('<script>', page)
         self.assertEqual(actual['languages'], available_language_codes(records[0]))
         self.assertEqual(actual['englishRows'], [records[0]['id']])
         self.assertIn('test english quotation', actual['key'])
         self.assertNotIn('comment-only-en', actual['key'])
         self.assertIn('comment-only-en', actual['notes'])
         self.assertEqual(actual['records'], records)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for browser parity')
+    def test_pending_language_context_has_own_panel_but_is_not_searchable_matn(self):
+        record = multilingual_fixture()
+        record['language_versions'][1].update(text=None, scope='external_source', quotation_status='boundary_pending')
+        record['language_versions'][0]['quotation_status'] = 'disjoint_source_spans'
+        record['language_versions'][0]['source']['source_report_alignment_note'] = 'TEST source word differs.'
+        record['language_versions'][4]['quotation_status'] = 'multiple_source_reports'
+        record['language_versions'][4]['source']['source_report_alignment_note'] = 'TEST first report only has parallel readings.'
+        record['language_versions'][3].update(text=None, scope='source_context', quotation_status='content_mismatch')
+        record['language_versions'][2].update(scope='source_excerpt', quotation_status='abbreviated_source_report')
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify({views:languageReadings(records[0]),languages:availableLanguageCodes(records[0]),
+key:primarySearchKey(records[0]),notes:annotationSearchKey(records[0])}));'''
+        run = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([record]),
+                             text=True, capture_output=True, check=True)
+        actual = json.loads(run.stdout)
+        self.assertEqual(actual['views'], language_readings(record))
+        own = next(item for item in actual['views'] if item['language'] == 'en')
+        self.assertIsNone(own['text'])
+        self.assertIn('narration boundary', own['qualification'])
+        self.assertIn('EN-24', own['citation'])
+        self.assertNotIn('en', actual['languages'])
+        self.assertNotIn('comment-only-en', actual['key'])
+        self.assertIn('comment-only-en', actual['notes'])
+        self.assertIn('separate source spans', actual['views'][0]['qualification'])
+        self.assertIn('TEST source word differs.', actual['views'][0]['qualification'])
+        self.assertIn('two separately attributed reports', next(item for item in actual['views'] if item['language'] == 'uz-Cyrl')['qualification'])
+        self.assertIn('TEST first report only', next(item for item in actual['views'] if item['language'] == 'uz-Cyrl')['qualification'])
+        self.assertIn('not a translation or Arabic counterpart', next(item for item in actual['views'] if item['language'] == 'ur-Latn')['qualification'])
+        self.assertIn('exact abbreviated wording', next(item for item in actual['views'] if item['language'] == 'hi')['qualification'])
 
     @unittest.skipUnless(shutil.which('node'), 'Node is required for DOM construction regression')
     def test_language_panel_dom_owns_sources_notes_and_open_controls(self):

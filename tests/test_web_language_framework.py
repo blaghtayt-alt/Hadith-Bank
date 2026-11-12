@@ -72,6 +72,39 @@ class LanguageFrameworkTests(unittest.TestCase):
         row['language_versions'][0]['source']['record_url'] = 'javascript:alert(1)'
         self.assertEqual(availability_for(row)['english'], 'missing')
 
+    def test_boundary_pending_language_preserves_context_without_becoming_narration(self):
+        own = version('en', None)
+        own.update(scope='external_source', quotation_status='boundary_pending')
+        own['comments'] = [{'scope': 'source_context_not_narration', 'text': 'CONTEXT-ONLY compiler discussion'}]
+        self.assertEqual(validate_language_versions([own]), [own])
+        row = {'language': 'ar', 'language_versions': [own, version('ar')]}
+        body, comments = _keys(row)
+        self.assertNotIn('context-only', body)
+        self.assertIn('context-only', comments)
+        self.assertNotIn('en', available_language_codes(row))
+        self.assertEqual(availability_for(row)['english'], 'external_link')
+        for change in ({'quotation_status': None}, {'comments': []}, {'text': ''},
+                       {'source': {'name': 'TEST', 'url': 'javascript:alert(1)'}}):
+            bad = copy.deepcopy(own)
+            bad.update(change)
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                validate_language_versions([bad])
+
+    def test_mismatched_provider_language_is_context_and_not_a_counterpart_link(self):
+        own = version('en', None)
+        own.update(scope='source_context', quotation_status='content_mismatch', match_status='provider_entry_content_mismatch')
+        own['comments'] = [{'scope': 'source_context_not_narration', 'text': 'UNRELATED source ruling'}]
+        self.assertEqual(validate_language_versions([own]), [own])
+        record = {'language': 'ur', 'language_versions': [own, version('ur')]}
+        self.assertEqual(availability_for(record)['english'], 'missing')
+        self.assertNotIn('en', available_language_codes(record))
+        body, comments = _keys(record)
+        self.assertNotIn('unrelated source ruling', body)
+        self.assertIn('unrelated source ruling', comments)
+        own['text'] = 'UNRELATED source ruling'
+        with self.assertRaises(ValueError):
+            validate_language_versions([own])
+
     def test_new_links_are_exact_and_old_urls_remain(self):
         row = {'id': 'TEST:web:1&other=2', 'source_id': 'deenhindi-bukhari',
             'language_versions': [version('hi')], 'language': 'hi', 'book_key': 'bukhari', 'edition': 'test'}
