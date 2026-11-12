@@ -1,0 +1,1802 @@
+{
+  "author_role": "reconstruction_coauthor_dialogue_not_independent_final_evaluator",
+  "input_v1_sha256": "8043d352e722d8c38ba49bdb54f4f273bb91e3fe4fba111d0d809b36ed17c7ad",
+  "scope": "Targeted classification/context proposals; exact source wording and historical candidate membership preserved. Parent must reconcile proposed annotations into reconstruction.",
+  "records": [
+    {
+      "record_id": "N039",
+      "before_content_class": "OTHER_SPEAKER_OR_CUSTOM_REPORT_SEPARATE_NON_HADITH",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_NARRATED_PRAISE_WITH_PROPHETIC_APPROVAL",
+      "decision_basis": "Printed praise belongs to a man praying behind the Prophet. The retained Bukhari799 passage explicitly continues with the Prophet asking who spoke and describing the angels competing to record it. Preserve the other-speaker identity while retaining this as hadith-narrated dhikr with approval context. The approval is in the retained external evidence, not added to the PDF-verbatim text.",
+      "source_pages_inspected": [
+        62
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "P062-S003",
+          "pdf_page": 62,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "15e5145ad0461ae235eb3641f9ec7c1083c2937a0bed03caca0a2c0d9a587c68",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "NON_PROPHETIC_REPORTS",
+          "proposed_semantic_role": "OTHER_SPEAKER_PRAISE_WITH_PROPHETIC_APPROVAL_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P062-S004",
+          "pdf_page": 62,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "3141d95b3086e68002677120834fb7faecdc6c4462ee6e1682f452a154a45633",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "NON_PROPHETIC_REPORTS",
+          "proposed_semantic_role": "TRANSLITERATION_OF_OTHER_SPEAKER_APPROVED_PRAISE",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P062-S005",
+          "pdf_page": 62,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "537fd8021246959c88a7970a29beb41acec524c179e3fe5c4b0a5ea7d7120d2c",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "NON_PROPHETIC_REPORTS",
+          "proposed_semantic_role": "TRANSLATION_OF_OTHER_SPEAKER_APPROVED_PRAISE",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P062-S009",
+          "pdf_page": 62,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "687a73426027c7f7fe8422c06a72df25637f4308b00d95a2f6b1e2da1c9f356f",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "REFERENCES_AND_FOOTNOTES",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-N039-bukhari-799",
+          "source_url_preserved": "https://sunnah.com/bukhari:799",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N039",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": null,
+          "retained_passage_sha256": "8e76a3a121c7927611d1323cd14ca97653db2548df5312792f51cedc3e052ca3",
+          "finite_quote_reread": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ مَسْلَمَةَ، عَنْ مَالِكٍ، عَنْ نُعَيْمِ بْنِ عَبْدِ اللَّهِ الْمُجْمِرِ، عَنْ عَلِيِّ بْنِ يَحْيَى بْنِ خَلاَّدٍ الزُّرَقِيِّ، عَنْ أَبِيهِ، عَنْ رِفَاعَةَ بْنِ رَافِعٍ الزُّرَقِيِّ، قَالَ كُنَّا يَوْمًا نُصَلِّي وَرَاءَ النَّبِيِّ صلى الله عليه وسلم فَلَمَّا رَفَعَ رَأْسَهُ مِنَ الرَّكْعَةِ قَالَ ‏\"‏ سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ ‏\"‏‏.‏ قَالَ رَجُلٌ وَرَاءَهُ رَبَّنَا وَلَكَ الْحَمْدُ، حَمْدًا كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ، فَلَمَّا انْصَرَفَ قَالَ ‏\"‏ مَنِ الْمُتَكَلِّمُ ‏\"‏‏.‏ قَالَ أَنَا‏.‏ قَالَ ‏\"‏ رَأَيْتُ بِضْعَةً وَثَلاَثِينَ مَلَكًا يَبْتَدِرُونَهَا، أَيُّهُمْ يَكْتُبُهَا أَوَّلُ ‏\"‏‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N061",
+      "before_content_class": "OTHER_SPEAKER_TEXT_WITH_PROPHETIC_APPROVAL_CONTEXT_REQUIRED",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_NARRATED_SUPPLICATION_WITH_PROPHETIC_APPROVAL",
+      "decision_basis": "Printed supplication is the unnamed man's answer. Retained AbuDawud792 records the Prophet's question and reply حولها ندندن. Keep speaker distinction and report context; do not rename the anonymous transmitting Companion or identify the supplicant as Muadh.",
+      "source_pages_inspected": [
+        79
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "P079-S004",
+          "pdf_page": 79,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "9430ceeb21bcd9a7956437439976e14c715ccf91e20c6f7d50ac34d55be91b45",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "OTHER_SPEAKER_SUPPLICATION_WITH_PROPHETIC_APPROVAL_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P079-S005",
+          "pdf_page": 79,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "8ba6e20ff63d021b1fcf5efe9c6a2c43667e02b64a4448b07e3cf1cc03473ccb",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "TRANSLITERATION_OF_OTHER_SPEAKER_APPROVED_SUPPLICATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P079-S006",
+          "pdf_page": 79,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "64c2f9bad2c337066a9df23c49f12e9d903cd538772413d74689488605626aeb",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "TRANSLATION_OF_OTHER_SPEAKER_APPROVED_SUPPLICATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P079-S008",
+          "pdf_page": 79,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "001bb5b9ce2c1c5ec88068bb7b08b9127edc1e85a11b6d2936e96f5fe6115e3f",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "NON_HADITH_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-N061-abudawud-792",
+          "source_url_preserved": "https://sunnah.com/abudawud:792",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N061",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": null,
+          "retained_passage_sha256": "a060fa2ae83a8cd7a9e0e0b9a7ddd3702a86ec934284ccc634e0db68e4f3d7c2",
+          "finite_quote_reread": "حَدَّثَنَا عُثْمَانُ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا حُسَيْنُ بْنُ عَلِيٍّ، عَنْ زَائِدَةَ، عَنْ سُلَيْمَانَ، عَنْ أَبِي صَالِحٍ، عَنْ بَعْضِ، أَصْحَابِ النَّبِيِّ صلى الله عليه وسلم قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم لِرَجُلٍ ‏\"‏ كَيْفَ تَقُولُ فِي الصَّلاَةِ ‏\"‏ ‏.‏ قَالَ أَتَشَهَّدُ وَأَقُولُ اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ أَمَا إِنِّي لاَ أُحْسِنُ دَنْدَنَتَكَ وَلاَ دَنْدَنَةَ مُعَاذٍ ‏.‏ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ حَوْلَهَا نُدَنْدِنُ ‏\"‏ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N063",
+      "before_content_class": "OTHER_SPEAKER_TEXT_WITH_PROPHETIC_APPROVAL_CONTEXT_REQUIRED",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_NARRATED_SUPPLICATION_WITH_PROPHETIC_APPROVAL",
+      "decision_basis": "Retained Nasai1301 has a man praying and the Prophet replying قد غفر له three times. Keep the formula as the unnamed man's supplication in an approval report; Mihjan is the reporter, not thereby the supplicant.",
+      "source_pages_inspected": [
+        82,
+        83
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "P082-S003",
+          "pdf_page": 82,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "2a586cc163a970f1622ea37b423334761eefc23733c204aaabc88c004b8d3509",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "OTHER_SPEAKER_SUPPLICATION_WITH_PROPHETIC_APPROVAL_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P083-S002",
+          "pdf_page": 83,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "4ee5d8d21a34b3d24660a19e7bafe57239d976ded749355a77d3f6311fe0614e",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "TRANSLITERATION_OF_OTHER_SPEAKER_APPROVED_SUPPLICATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P083-S003",
+          "pdf_page": 83,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "09fef111226c6118aa908fddee38042b8ebca5301ac4050f8756a7ddc2367bd7",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "UNRESOLVED_OTHER_SPEAKER_APPROVAL_REPORT_CONTEXT",
+          "proposed_semantic_role": "TRANSLATION_OF_OTHER_SPEAKER_APPROVED_SUPPLICATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P083-S005",
+          "pdf_page": 83,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "3c68926b068c6cbdfbb100894045e2ff5d99f018a974be4973ebd16a2510ef66",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "NON_HADITH_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-N063-nasai-1301",
+          "source_url_preserved": "https://sunnah.com/nasai:1301",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N063",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": null,
+          "retained_passage_sha256": "8dd97011ffff5027f1007651587932139eb7f6b55f4375659146f82e51b66af5",
+          "finite_quote_reread": "أَخْبَرَنَا عَمْرُو بْنُ يَزِيدَ أَبُو بُرَيْدٍ الْبَصْرِيُّ، عَنْ عَبْدِ الصَّمَدِ بْنِ عَبْدِ الْوَارِثِ، قَالَ حَدَّثَنَا أَبِي قَالَ، حَدَّثَنَا حُسَيْنٌ الْمُعَلِّمُ، عَنِ ابْنِ بُرَيْدَةَ، قَالَ حَدَّثَنِي حَنْظَلَةُ بْنُ عَلِيٍّ، أَنَّ مِحْجَنَ بْنَ الأَدْرَعِ، حَدَّثَهُ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم دَخَلَ الْمَسْجِدَ إِذَا رَجُلٌ قَدْ قَضَى صَلاَتَهُ وَهُوَ يَتَشَهَّدُ فَقَالَ اللَّهُمَّ إِنِّي أَسْأَلُكَ يَا اللَّهُ بِأَنَّكَ الْوَاحِدُ الأَحَدُ الصَّمَدُ الَّذِي لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ أَنْ تَغْفِرَ لِي ذُنُوبِي إِنَّكَ أَنْتَ الْغَفُورُ الرَّحِيمُ ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ قَدْ غُفِرَ لَهُ ‏\"‏ ‏.‏ ثَلاَثًا ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N227",
+      "before_content_class": "PROPHETIC_INSTRUCTION_WITH_EDITORIAL_GREETING_EXPANSION",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_INSTRUCTION_WITH_EXPLANATORY_GREETING",
+      "decision_basis": "Printed Assalamu alaikom is an explanatory example embedded in the Filipino instruction. Bukhari6258 supports the conditional greeting-response instruction. Preserve the example inside the coherent source record with editorial-expansion labeling; it is not separately established as a verbatim incoming greeting in that Arabic matn.",
+      "source_pages_inspected": [
+        237
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p237-r003",
+          "pdf_page": 237,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "8d41c606beaf02500a679e2f3f22fdeac15fa6cb624c9be8d3d8093a1eac4172",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "PROPHETIC_REPORT_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_ARABIC",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r004",
+          "pdf_page": 237,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "3cb3b37da747a9784062a896116777aa2de1321f808b2b9c034d98ce8174350e",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r005",
+          "pdf_page": 237,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "5ca72d48d910c37b9631c6c8e6fb775416c9d66f2235deab66b06313bb5b1cae",
+          "before_partition": "editorial_commentary",
+          "before_specific_role": "EDITORIAL_GREETING_EXPANSION",
+          "proposed_semantic_role": "EDITORIAL_GREETING_EXAMPLE_WITHIN_HADITH_INSTRUCTION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r006",
+          "pdf_page": 237,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "39f3ee04537831e73feadf02a0d38d5f7d6f503630aea69b9f26da7d86216224",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r007",
+          "pdf_page": 237,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "6227155c35434d4dfe269a0ec8fe1936fb946a5a664928ef926ee7efa8f12036",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLITERATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r008",
+          "pdf_page": 237,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "70dbae24a6d4aec19841f53fd818be9f9c085c354b954a94140dea023bd3f9a4",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p237-r012",
+          "pdf_page": 237,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "80b6ffb7d32b0dbe7dce9ec47cd67cf78260e55e82e9ceb73f9234f1d47f3007",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p237-r005",
+          "start_codepoint": 0,
+          "end_codepoint": 16,
+          "text_verbatim": "Assalamu alaikom",
+          "role": "EDITORIAL_EXAMPLE",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N227-01",
+          "source_url_preserved": "https://sunnah.com/bukhari:6258",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N227",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_bukhari_6258.json",
+          "retained_passage_sha256": "1f667e4a5d409fcaeddc7df84bfd96f4af06937410dfd912044d4d4e86b1cbef",
+          "finite_quote_reread": "حَدَّثَنَا عُثْمَانُ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا هُشَيْمٌ، أَخْبَرَنَا عُبَيْدُ اللَّهِ بْنُ أَبِي بَكْرِ بْنِ أَنَسٍ، حَدَّثَنَا أَنَسُ بْنُ مَالِكٍ ـ رضى الله عنه ـ قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ إِذَا سَلَّمَ عَلَيْكُمْ أَهْلُ الْكِتَابِ فَقُولُوا وَعَلَيْكُمْ ‏\"‏‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N231",
+      "before_content_class": "MIXED_PROPHETIC_EXCERPTS_AND_EDITORIAL_INSTRUCTIONS",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_INSTRUCTION_WITH_EXPLANATORY_INSERTIONS",
+      "decision_basis": "Muslim3000a supports the instruction and formula. Name-insertion guidance and translated explanatory parentheticals belong to the source presentation of that instruction, not an independent saying. Retain them as editorial explanations within the full record. The final أحسبه order differs from the retained source occurrence; this remains a localized exact-occurrence/alignment issue, not grounds to exclude the whole hadith instruction.",
+      "source_pages_inspected": [
+        239,
+        240
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p239-r007",
+          "pdf_page": 239,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "bd8dc6633b24fe75ef39f7be84108e51e18de6f92256dd247ba52dc21c0487d1",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_ARABIC",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r002",
+          "pdf_page": 240,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "655f012f76ebfd4fe5c8918a9c7a705c911ba86b7a45871780c487cd3347691f",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_NARRATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r003",
+          "pdf_page": 240,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "2532ffdbe5abde807f6dc523b1f2e56a67332c31636ea3baf6d4b1a30caccdc2",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_ARABIC",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r004",
+          "pdf_page": 240,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "e895fcd77c8d585afe1c92b1b062684cd37c1f6ea12b37064bf9f923ca4a374a",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r005",
+          "pdf_page": 240,
+          "source_type_preserved": "commentary",
+          "source_text_sha256": "f86a9776ca9806d66bceab04233eb1b7b743d4f50514959b41fc18381715cb6c",
+          "before_partition": "editorial_commentary",
+          "before_specific_role": "EDITORIAL_INSTRUCTION",
+          "proposed_semantic_role": "EDITORIAL_NAME_INSERTION_INSTRUCTION_WITHIN_HADITH",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r006",
+          "pdf_page": 240,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "aaf8510436ee4f42d50c78b06c36cf9c37673d03261c1c156bb5e8b9b0e6ef5f",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r007",
+          "pdf_page": 240,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "98ff1b971124f2165584d933d02e8c29f631717309ccb7d8c9f976dfe5e931b5",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_EDITORIAL_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_HADITH_WITH_EDITORIAL_PARENTHETICAL",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r008",
+          "pdf_page": 240,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "ae5003aea3086881866c85ef6d8a3e2c326c9b80d4f8947ef11cb23b21865fec",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_ARABIC",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r009",
+          "pdf_page": 240,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "0568ca668183a9307e56720842e6efb46a9bd14019cdc5b49b5e81572523d687",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r010",
+          "pdf_page": 240,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "44ea2cc0e1246d53a26fb30927cf8a8b9d7329da688a1dcc3c80dff50bc6b13c",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r011",
+          "pdf_page": 240,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "ce2efa6097a89e845435a50c438bdefe8d86d3af0a955103008859f3a4925a80",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "PROPHETIC_CONTENT_EXACT_OCCURRENCE_UNRESOLVED",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_ARABIC",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r012",
+          "pdf_page": 240,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "eb430cbe6241ee1babe32359ec365a55a00f5b81223032b7497bfb33cbb092a7",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_EDITORIAL_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_HADITH_WITH_EDITORIAL_EXPLANATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p240-r013",
+          "pdf_page": 240,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "3f9daae0212ee6274d034c08980018bdc34cb054700ddbd79533324a84f469a0",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p240-r005",
+          "start_codepoint": 0,
+          "end_codepoint": 41,
+          "text_verbatim": "(sabihin ang pangalan ng taong pupurihin)",
+          "role": "EDITORIAL_INSTRUCTION",
+          "edits_source": false
+        },
+        {
+          "segment_id": "p240-r007",
+          "start_codepoint": 28,
+          "end_codepoint": 69,
+          "text_verbatim": "(sabihin ang pangalan\nng taong pupurihin)",
+          "role": "EDITORIAL_INSTRUCTION",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N231-01",
+          "source_url_preserved": "https://sunnah.com/muslim:3000a",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N231",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_muslim_3000a.json",
+          "retained_passage_sha256": "08bfa09065eb14256dc28f058ae3dcd00f91bfdbc2e8f20cdc7822b11194fd71",
+          "finite_quote_reread": "حَدَّثَنَا يَحْيَى بْنُ يَحْيَى، حَدَّثَنَا يَزِيدُ بْنُ زُرَيْعٍ، عَنْ خَالِدٍ الْحَذَّاءِ، عَنْ عَبْدِ الرَّحْمَنِ، بْنِ أَبِي بَكْرَةَ عَنْ أَبِيهِ، قَالَ مَدَحَ رَجُلٌ رَجُلاً عِنْدَ النَّبِيِّ صلى الله عليه وسلم - قَالَ - فَقَالَ ‏\"‏ وَيْحَكَ قَطَعْتَ عُنُقَ صَاحِبِكَ قَطَعْتَ عُنُقَ صَاحِبِكَ ‏\"‏ ‏.‏ مِرَارًا ‏\"‏ إِذَا كَانَ أَحَدُكُمْ مَادِحًا صَاحِبَهُ لاَ مَحَالَةَ فَلْيَقُلْ أَحْسِبُ فُلاَنًا وَاللَّهُ حَسِيبُهُ وَلاَ أُزَكِّي عَلَى اللَّهِ أَحَدًا أَحْسِبُهُ إِنْ كَانَ يَعْلَمُ ذَاكَ كَذَا وَكَذَا ‏\"‏ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N236",
+      "before_content_class": "MIXED_QURAN_PROPHETIC_REPORT_AND_EDITORIAL_ELISION",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_NARRATED_ACTION_DHIKR_QURAN_AND_COMPILER_TRANSITION",
+      "decision_basis": "Muslim1218a grounds the Safa/Marwah narrative and dhikr. Source Quran text remains distinctly Quran; الحديث. وفيه is compiler elision/transition within the intact narration, not Prophetic speech. Filipino Safa/Marwah reversals and formula/transliteration conflicts remain as printed and retain localized holds. Context retention does not certify the conflicting text or create a single exact occurrence.",
+      "source_pages_inspected": [
+        244,
+        245,
+        246
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p244-r003",
+          "pdf_page": 244,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "d4441c6c88a3d93fc44937fd1ccd8683d791bad0a8adad67d50345f249886230",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "PROPHETIC_REPORT_CANDIDATE",
+          "proposed_semantic_role": "NARRATOR_REPORT_OF_PROPHETIC_ACTION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p244-r004",
+          "pdf_page": 244,
+          "source_type_preserved": "quran_arabic",
+          "source_text_sha256": "1f43c876ef6b551317cdb9042e5b7c1b1a5a55345824d706da2ee0ef5dac0108",
+          "before_partition": "quran",
+          "before_specific_role": "QURAN_PASSAGE",
+          "proposed_semantic_role": "QURAN_WITHIN_REPORTED_PROPHETIC_RECITATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p244-r005",
+          "pdf_page": 244,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "6f2d6c6cd81f380da99723b3696ff6cecf4f1a2df48b5ec3ea9fa7593fe88952",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_EDITORIAL_SUBSPANS",
+          "proposed_semantic_role": "HADITH_NARRATION_DHIKR_WITH_COMPILER_ELISION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p244-r006",
+          "pdf_page": 244,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "2ea2481e2c25817a5ca51c03136c75fd4c9cde1025daf414ffd0a5452ae775e5",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "PROPHETIC_REPORT_CANDIDATE",
+          "proposed_semantic_role": "TRANSLATED_NARRATOR_FRAMING",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p244-r007",
+          "pdf_page": 244,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "068f4023d957866f2a648ed58d1e700f49bd68638adfcf355bbf6d207c0c024b",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_QURAN_AND_OTHER_CONTENT",
+          "proposed_semantic_role": "MIXED_QURAN_AND_HADITH_TRANSLITERATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r002",
+          "pdf_page": 245,
+          "source_type_preserved": "quran_translation",
+          "source_text_sha256": "5a53a7d3eef90cecb03032b202d9645226e926acf4f08917ae9b3e85fbd06b18",
+          "before_partition": "quran",
+          "before_specific_role": "QURAN_PASSAGE",
+          "proposed_semantic_role": "QURAN_TRANSLATION_WITHIN_NARRATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r003",
+          "pdf_page": 245,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "ba93f66d047bd6de4083c78930d292a0e0e7103950fbf32674b26a7f55e6f979",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r004",
+          "pdf_page": 245,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "2954e76352b238fc389670ab875f626984602c1a918e45a9e49930e21250418c",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "SOURCE_TRANSLATION_CONFLICT",
+          "proposed_semantic_role": "NARRATED_PROPHETIC_ACTION_WITH_LOCAL_SOURCE_TRANSLATION_CONFLICT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r005",
+          "pdf_page": 245,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "7dd41c4a5c20f23f0162450f46a69d4c085c5619b78778c050a99eecb4e997f0",
+          "before_partition": "editorial_commentary",
+          "before_specific_role": "EDITORIAL_FORMULA_EXPANSION",
+          "proposed_semantic_role": "EDITORIAL_EXPLICIT_RENDERING_OF_NARRATED_TAHLIL_TAKBIR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r006",
+          "pdf_page": 245,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "1b4fc3dbb8a3bdcc68b24dbda47b9037c27100a4be152bc07f54017ce7e7ca98",
+          "before_partition": "editorial_commentary",
+          "before_specific_role": "EDITORIAL_FORMULA_EXPANSION",
+          "proposed_semantic_role": "TRANSLATION_OF_EDITORIAL_EXPLICIT_RENDERING",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r007",
+          "pdf_page": 245,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "c245751db96821cd7c60320a9574cb18807ddb1b3d446664ab621ef9712a2a90",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "SOURCE_TRANSLITERATION_CONFLICT",
+          "proposed_semantic_role": "HADITH_DHIKR_TRANSLITERATION_WITH_LOCAL_ALIGNMENT_HOLD",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p245-r008",
+          "pdf_page": 245,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "bb54218d8a8d93cc7f2fd02bde8fb598f6872058c437ea7cf6a4bd3dddeba32c",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p246-r002",
+          "pdf_page": 246,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "752919045c3b6128fadd1ed3eb6094452c0f668c6a3fec26e310e485316737af",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p246-r003",
+          "pdf_page": 246,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "35ba5bd27b5b741f75326cb81c3bea1b86460cc30628199aca66226ff2d3f9ea",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "SOURCE_TRANSLATION_CONFLICT",
+          "proposed_semantic_role": "NARRATED_PROPHETIC_ACTION_WITH_LOCAL_SOURCE_TRANSLATION_CONFLICT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p246-r006",
+          "pdf_page": 246,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "384b019eb1577e02341cd99689b72a7ee86e4c32c27da8cd6af3ab1d40810ad4",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p244-r005",
+          "start_codepoint": 456,
+          "end_codepoint": 475,
+          "text_verbatim": "الْحَدِيثُ.\nوَفِيهِ",
+          "role": "COMPILER_ELISION_AND_TRANSITION",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N236-01",
+          "source_url_preserved": "https://sunnah.com/muslim:1218a",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N236",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_muslim_1218a.json",
+          "retained_passage_sha256": "2bd9bbe4238d4b20b948ebca636195bbbbf241644b2f4995bc04ec3d175d7e26",
+          "finite_quote_reread": "ثُمَّ خَرَجَ مِنَ الْبَابِ إِلَى الصَّفَا فَلَمَّا دَنَا مِنَ الصَّفَا قَرَأَ ‏‏{‏ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ‏}‏ ‏\"‏ أَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ ‏\"‏ ‏.‏ فَبَدَأَ بِالصَّفَا فَرَقِيَ عَلَيْهِ حَتَّى رَأَى الْبَيْتَ فَاسْتَقْبَلَ الْقِبْلَةَ فَوَحَّدَ اللَّهَ وَكَبَّرَهُ وَقَالَ ‏\"‏ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كَلِّ شَىْءٍ قَدِيرٌ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ أَنْجَزَ وَعْدَهُ وَنَصَرَ عَبْدَهُ وَهَزَمَ الأَحْزَابَ وَحْدَهُ ‏\"‏ ‏.‏ ثُمَّ دَعَا بَيْنَ ذَلِكَ قَالَ مِثْلَ هَذَا ثَلاَثَ مَرَّاتٍ ثُمَّ نَزَلَ إِلَى الْمَرْوَةِ حَتَّى إِذَا انْصَبَّتْ قَدَمَاهُ فِي بَطْنِ الْوَادِي سَعَى حَتَّى إِذَا صَعِدَتَا مَشَى حَتَّى أَتَى الْمَرْوَةَ فَفَعَلَ عَلَى الْمَرْوَةِ كَمَا فَعَلَ عَلَى الصَّفَا",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Only the Safa/Marwah passage (exact retained substring), not the entire long external report, was used for this decision.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N258",
+      "before_content_class": "PROPHETIC_REPORT_WITH_SEPARATE_LISTENER_SPEECH",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_DIALOGUE_WITH_UNNAMED_LISTENER",
+      "decision_basis": "Source and retained Muslim2698 contain the Prophet's question, an unnamed listener's question, and the Prophet's reply. Preserve the complete dialogue and speaker roles. The either/or reward wording remains unchanged; no listener identity is invented.",
+      "source_pages_inspected": [
+        262,
+        263
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p262-r006",
+          "pdf_page": 262,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "c56b209458976a9f1c492ee7956d232add1457ccfcc10142a56d3db15a543053",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "HADITH_DIALOGUE_WITH_DISTINCT_UNNAMED_LISTENER",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p262-r007",
+          "pdf_page": 262,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "68e22383f9b820d7cd393439dafb183364d4498e12a0682c31113fdeb4a1a4f9",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p263-r002",
+          "pdf_page": 263,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "daa1cebfaf88158765f9e8598eabe9b5a1905c08d448942c4b7fe792927c45d3",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_HADITH_DIALOGUE_WITH_DISTINCT_UNNAMED_LISTENER",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p263-r007",
+          "pdf_page": 263,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "88908c2646ad42bf2bf00a86eef238a5816790a28cac81d9b2abf90d491b6d7e",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p262-r006",
+          "start_codepoint": 78,
+          "end_codepoint": 156,
+          "text_verbatim": "فَسَأَلَهُ سَائِلٌ مِنْ جُلَسَائِهِ كَيْفَ يَكْسِبُ\nأَحَدُنَا أَلْفَ حَسَنَةٍ؟",
+          "role": "NARRATOR_AND_UNNAMED_LISTENER_QUESTION",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N258-01",
+          "source_url_preserved": "https://sunnah.com/muslim:2698",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N258",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_muslim_2698.json",
+          "retained_passage_sha256": "d51f3273e8aaaf8bfc82f1ebdbe7620a5ced7be479345859ef5284d9b0235df4",
+          "finite_quote_reread": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا مَرْوَانُ، وَعَلِيُّ بْنُ مُسْهِرٍ، عَنْ مُوسَى الْجُهَنِيِّ، ح وَحَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ نُمَيْرٍ، - وَاللَّفْظُ لَهُ - حَدَّثَنَا أَبِي، حَدَّثَنَا مُوسَى الْجُهَنِيُّ، عَنْ مُصْعَبِ بْنِ سَعْدٍ، حَدَّثَنِي أَبِي قَالَ، كُنَّا عِنْدَ رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ أَيَعْجِزُ أَحَدُكُمْ أَنْ يَكْسِبَ كُلَّ يَوْمٍ أَلْفَ حَسَنَةٍ ‏\"‏ ‏.‏ فَسَأَلَهُ سَائِلٌ مِنْ جُلَسَائِهِ كَيْفَ يَكْسِبُ أَحَدُنَا أَلْفَ حَسَنَةٍ قَالَ ‏\"‏ يُسَبِّحُ مِائَةَ تَسْبِيحَةٍ فَيُكْتَبُ لَهُ أَلْفُ حَسَنَةٍ أَوْ يُحَطُّ عَنْهُ أَلْفُ خَطِيئَةٍ ‏\"‏ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N260",
+      "before_content_class": "PROPHETIC_DIALOGUE_WITH_SEPARATE_COMPANION_REPLY",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_DIALOGUE_WITH_COMPANION_REPLY",
+      "decision_basis": "Source and retained Muslim2704a contain the direct question and Companion reply. Retained Bukhari6384 is a related wording with differences, not a character-identical whole occurrence. Preserve أَلَا أَدُلُّكَ and all synchronized v1 text fields. The Companion reply is coherent hadith dialogue, not an independent non-hadith exclusion.",
+      "source_pages_inspected": [
+        264
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p264-r003",
+          "pdf_page": 264,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "169bff8f464851090a71d9d2bac749ab04321c306edaceed70316ea6b2252c5a",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_COMPANION_SUBSPANS",
+          "proposed_semantic_role": "HADITH_DIALOGUE_WITH_DISTINCT_COMPANION_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p264-r004",
+          "pdf_page": 264,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "0f32127da70fcc2010f80a7e81ba73ccaa47122f320b0a888ebcf2ad78614397",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_COMPANION_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_HADITH_DIALOGUE_WITH_DISTINCT_COMPANION_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p264-r005",
+          "pdf_page": 264,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "1fe17aa5552f8beea8c254d3a02828e4fa592eae611c5adb9387cbcd6829ece3",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLITERATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p264-r006",
+          "pdf_page": 264,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "6a985cad145d3c67417fcc37d8338b164a4531401bffd35bacd0dcfe654c33a9",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p264-r008",
+          "pdf_page": 264,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "32d4c39d40f9f417c76ec658870d094328b0ab76cb71f591d8483976695c39a3",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p264-r003",
+          "start_codepoint": 97,
+          "end_codepoint": 132,
+          "text_verbatim": "فَقُلْتُ: بَلَى يَا رَسُولَ اللَّهِ",
+          "role": "COMPANION_REPLY",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N260-01",
+          "source_url_preserved": "https://sunnah.com/bukhari:6384",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N260",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_bukhari_6384.json",
+          "retained_passage_sha256": "99442ee6e365ff1767698f1826834a1eb52703c55559222af15407b108130e43",
+          "finite_quote_reread": "حَدَّثَنَا سُلَيْمَانُ بْنُ حَرْبٍ، حَدَّثَنَا حَمَّادُ بْنُ زَيْدٍ، عَنْ أَيُّوبَ، عَنْ أَبِي عُثْمَانَ، عَنْ أَبِي مُوسَى ـ رضى الله عنه ـ قَالَ كُنَّا مَعَ النَّبِيِّ صلى الله عليه وسلم فِي سَفَرٍ فَكُنَّا إِذَا عَلَوْنَا كَبَّرْنَا فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ أَيُّهَا النَّاسُ ارْبَعُوا عَلَى أَنْفُسِكُمْ، فَإِنَّكُمْ لاَ تَدْعُونَ أَصَمَّ وَلاَ غَائِبًا، وَلَكِنْ تَدْعُونَ سَمِيعًا بَصِيرًا ‏\"‏‏.‏ ثُمَّ أَتَى عَلَىَّ وَأَنَا أَقُولُ فِي نَفْسِي لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ‏.‏ فَقَالَ ‏\"‏ يَا عَبْدَ اللَّهِ بْنَ قَيْسٍ قُلْ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ فَإِنَّهَا‏.‏ كَنْزٌ مِنْ كُنُوزِ الْجَنَّةِ ‏\"‏‏.‏ أَوْ قَالَ ‏\"‏ أَلاَ أَدُلُّكَ عَلَى كَلِمَةٍ هِيَ كَنْزٌ مِنْ كُنُوزِ الْجَنَّةِ، لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ ‏\"‏‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V3-LATE-N260-02",
+          "source_url_preserved": "https://sunnah.com/muslim:2704a",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N260",
+          "field_path": "external_narration_evidence/1/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_muslim_2704a.json",
+          "retained_passage_sha256": "f76d3597e0101684d7a211e3e67fc4c81c8f201cf38f83225bd880a10597b873",
+          "finite_quote_reread": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا مُحَمَّدُ بْنُ فُضَيْلٍ، وَأَبُو مُعَاوِيَةَ عَنْ عَاصِمٍ، عَنْ أَبِي عُثْمَانَ، عَنْ أَبِي مُوسَى، قَالَ كُنَّا مَعَ النَّبِيِّ صلى الله عليه وسلم فِي سَفَرٍ فَجَعَلَ النَّاسُ يَجْهَرُونَ بِالتَّكْبِيرِ فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ أَيُّهَا النَّاسُ ارْبَعُوا عَلَى أَنْفُسِكُمْ إِنَّكُمْ لَيْسَ تَدْعُونَ أَصَمَّ وَلاَ غَائِبًا إِنَّكُمْ تَدْعُونَ سَمِيعًا قَرِيبًا وَهُوَ مَعَكُمْ ‏\"‏ ‏.‏ قَالَ وَأَنَا خَلْفَهُ وَأَنَا أَقُولُ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ فَقَالَ ‏\"‏ يَا عَبْدَ اللَّهِ بْنَ قَيْسٍ أَلاَ أَدُلُّكَ عَلَى كَنْزٍ مِنْ كُنُوزِ الْجَنَّةِ ‏\"‏ ‏.‏ فَقُلْتُ بَلَى يَا رَسُولَ اللَّهِ ‏.‏ قَالَ ‏\"‏ قُلْ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ ‏\" ‏ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N262",
+      "before_content_class": "PROPHETIC_DIALOGUE_WITH_SEPARATE_UNNAMED_PERSON_SPEECH",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_DIALOGUE_WITH_UNNAMED_BEDOUIN",
+      "decision_basis": "Source and Muslim2696 retain the Bedouin's request, the Prophet's first formula, the Bedouin's follow-up, and the Prophet's four petitions. Preserve all speakers. Musa's uncertainty about عافني is a narration/variant note in the external evidence; do not insert a fifth petition or assign an authenticity grade from it.",
+      "source_pages_inspected": [
+        265,
+        266,
+        267
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p265-r007",
+          "pdf_page": 265,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "7381202debed23baee0c459938de93a350f874ace0dbf9ac211215f3c9e583be",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "NARRATOR_AND_BEDOUIN_REQUEST_WITH_PROPHETIC_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p266-r002",
+          "pdf_page": 266,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "1c34d45c7b4f1c98a33c626d06a5aa6f7548dc1400b874a31a6424425f78913e",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "PROPHETIC_FORMULA_BEDOUIN_FOLLOWUP_PROPHETIC_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p266-r003",
+          "pdf_page": 266,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "88a2d3b95b45fc080defce8ffefb57065dc7462a92214e66aaca4371aad0a774",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_NARRATOR_BEDOUIN_REQUEST_AND_PROPHETIC_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p266-r004",
+          "pdf_page": 266,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "0791836e9513839d2f56b37015170f6e1c9e65afce9aa3abe92c38ff9f3bc700",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLITERATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p266-r005",
+          "pdf_page": 266,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "73e447eb62b817dd497827407b86019cba47222483dc0633cf532151d15a4e39",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r002",
+          "pdf_page": 267,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "2281297711548a7d09a28aef44b254fd67cf4beccdab3142a40fcab728665e9d",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r003",
+          "pdf_page": 267,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "7e2d36e973b85bfc00dec12c9d7699cc196b99705dc92f7e8f8a24e039200664",
+          "before_partition": "unresolved_attribution_or_mixed",
+          "before_specific_role": "MIXED_PROPHETIC_AND_OTHER_SPEAKER_SUBSPANS",
+          "proposed_semantic_role": "TRANSLATED_BEDOUIN_FOLLOWUP_AND_PROPHETIC_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r004",
+          "pdf_page": 267,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "da282cedb2a99f263ce57639afd43c20cf5988b8c25d2b0b39d393c37def1437",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLITERATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLITERATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r005",
+          "pdf_page": 267,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "33b1b57549ecfc4ca646f658337356f9d58a71f16cc3e7ea6847190b2e1cbd5b",
+          "before_partition": "prophetic_report_candidates_HOLD",
+          "before_specific_role": "SOURCE_TRANSLATION_OF_PROPHETIC_CANDIDATE",
+          "proposed_semantic_role": "HADITH_REPORT_OR_NARRATIVE_CONTEXT_TRANSLATION",
+          "was_prior_prophetic_candidate": true,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r008",
+          "pdf_page": 267,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "ead537d6ca86dfcd7d91761cce50eb19a3ee8f7c05a5a7a29df1b55c04ee89f1",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [
+        {
+          "segment_id": "p265-r007",
+          "start_codepoint": 50,
+          "end_codepoint": 79,
+          "text_verbatim": "عَلِّمْنِي كَلَاماً\nأَقُولُهُ",
+          "role": "BEDOUIN_REQUEST",
+          "edits_source": false
+        },
+        {
+          "segment_id": "p266-r002",
+          "start_codepoint": 158,
+          "end_codepoint": 189,
+          "text_verbatim": "فَهَؤُلَاءِ لِرَبِّي فَمَا لِي؟",
+          "role": "BEDOUIN_FOLLOWUP",
+          "edits_source": false
+        }
+      ],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N262-01",
+          "source_url_preserved": "https://sunnah.com/muslim:2696",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N262",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_muslim_2696.json",
+          "retained_passage_sha256": "f434dcaa1bb8ee36647eb4c55d3cadde03ccb7ce076c93ed684d0c2fda4d9a99",
+          "finite_quote_reread": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَلِيُّ بْنُ مُسْهِرٍ، وَابْنُ، نُمَيْرٍ عَنْ مُوسَى الْجُهَنِيِّ، ح وَحَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ نُمَيْرٍ، - وَاللَّفْظُ لَهُ - حَدَّثَنَا أَبِي، حَدَّثَنَا مُوسَى الْجُهَنِيُّ، عَنْ مُصْعَبِ بْنِ سَعْدٍ، عَنْ أَبِيهِ، قَالَ جَاءَ أَعْرَابِيٌّ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ عَلِّمْنِي كَلاَمًا أَقُولُهُ قَالَ ‏\"‏ قُلْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ اللَّهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا سُبْحَانَ اللَّهِ رَبِّ الْعَالَمِينَ لاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ الْعَزِيزِ الْحَكِيمِ ‏\"‏ ‏.‏ قَالَ فَهَؤُلاَءِ لِرَبِّي فَمَا لِي قَالَ ‏\"‏ قُلِ اللَّهُمَّ اغْفِرْ لِي وَارْحَمْنِي وَاهْدِنِي وَارْزُقْنِي ‏\" ‏ ‏.‏ قَالَ مُوسَى أَمَّا عَافِنِي فَأَنَا أَتَوَهَّمُ وَمَا أَدْرِي ‏.‏ وَلَمْ يَذْكُرِ ابْنُ أَبِي شَيْبَةَ فِي حَدِيثِهِ قَوْلَ مُوسَى ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "U-P267-01",
+      "before_content_class": "SOURCE_FOOTNOTE_CONTAINING_PROPHETIC_REPORT",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "HADITH_BEARING_FOOTNOTE_WITH_COMPILER_COMPARISON",
+      "decision_basis": "The source footnote has a compiler comparison, a quotation attributed to the Prophet, and a reference. Retained AbuDawud832 corroborates the closing good-filled-hand quotation but belongs to a different Quran-learning report. Keep the footnote as hadith-bearing context linked to N262, with the comparison unverified; do not merge the two occurrences.",
+      "source_pages_inspected": [
+        267
+      ],
+      "printed_form": "printed_narration_instruction_or_hadith_bearing_note",
+      "component_annotations": [
+        {
+          "segment_id": "p267-r009",
+          "pdf_page": 267,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "f7f93bd5516e5fca0219976063b83e5d9945ee935e80988f171ccfd4dae23c33",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "SOURCE_FOOTNOTE_OR_COMMENTARY",
+          "proposed_semantic_role": "COMPILER_CROSS_REPORT_COMPARISON_NOT_VERIFIED_AS_SAME_OCCURRENCE",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r010",
+          "pdf_page": 267,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "8d028a01689da4c27aa2bbf8aa0a45066c5c367fbeb03370ad58ebc29be04a3d",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "SOURCE_FOOTNOTE_OR_COMMENTARY",
+          "proposed_semantic_role": "HADITH_BEARING_FOOTNOTE_QUOTATION_WITH_DISTINCT_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p267-r011",
+          "pdf_page": 267,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "113922af3ddf8a913757f242757d0e26ddbda0b467297206244081ec2b7b248a",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-U-P267-01-01",
+          "source_url_preserved": "https://sunnah.com/abudawud:832",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "U-P267-01",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_abudawud_832.json",
+          "retained_passage_sha256": "c90914f6b7824e7422e2725e5dcf8af878b909c8388b5bc04bfb0e2fc30ddb24",
+          "finite_quote_reread": "حَدَّثَنَا عُثْمَانُ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا وَكِيعُ بْنُ الْجَرَّاحِ، حَدَّثَنَا سُفْيَانُ الثَّوْرِيُّ، عَنْ أَبِي خَالِدٍ الدَّالاَنِيِّ، عَنْ إِبْرَاهِيمَ السَّكْسَكِيِّ، عَنْ عَبْدِ اللَّهِ بْنِ أَبِي أَوْفَى، قَالَ جَاءَ رَجُلٌ إِلَى النَّبِيِّ صلى الله عليه وسلم فَقَالَ إِنِّي لاَ أَسْتَطِيعُ أَنْ آخُذَ مِنَ الْقُرْآنِ شَيْئًا فَعَلِّمْنِي مَا يُجْزِئُنِي مِنْهُ ‏.‏ قَالَ ‏\"‏ قُلْ سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ ‏\"‏ ‏.‏ قَالَ يَا رَسُولَ اللَّهِ هَذَا لِلَّهِ عَزَّ وَجَلَّ فَمَا لِي قَالَ ‏\"‏ قُلِ اللَّهُمَّ ارْحَمْنِي وَارْزُقْنِي وَعَافِنِي وَاهْدِنِي ‏\"‏ ‏.‏ فَلَمَّا قَامَ قَالَ هَكَذَا بِيَدِهِ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ أَمَّا هَذَا فَقَدْ مَلأَ يَدَهُ مِنَ الْخَيْرِ ‏\"‏ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N200",
+      "before_content_class": "OTHER_PERSON_REPLY_IN_PROPHETIC_REPORT",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "OTHER_SPEAKER_REPLY_WITHIN_HADITH_NARRATIVE",
+      "decision_basis": "The printed source contains only the selected response and citation. Retained AbuDawud5125 and Silsilah418 show an unnamed man's reply after the Prophet instructs another man to tell him of his love. This grounds hadith-context association but neither makes the reply direct Prophetic speech nor proves an explicit approval of the reply. Keep the source excerpt and archived context distinct and linked.",
+      "source_pages_inspected": [
+        214
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "p214-r003",
+          "pdf_page": 214,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "fd85969f8218ba2cd9da30d0d6b24921c4613c982c6998a4035558f8cdf3b5d3",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "OTHER_PERSON_REPLY_IN_PROPHETIC_REPORT",
+          "proposed_semantic_role": "OTHER_SPEAKER_REPLY_IN_HADITH_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r004",
+          "pdf_page": 214,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "66f69c322dfc1d3d6cefc0dafcf9146616635e3a302ca1dd807a63ed4c229f7f",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "OTHER_PERSON_REPLY_IN_PROPHETIC_REPORT",
+          "proposed_semantic_role": "TRANSLITERATION_OF_OTHER_SPEAKER_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r005",
+          "pdf_page": 214,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "5d7fce745cc8801799ac493ce955f140bdc8a5f240275fb5e45f8ed9370d165e",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "OTHER_PERSON_REPLY_IN_PROPHETIC_REPORT",
+          "proposed_semantic_role": "TRANSLATION_OF_OTHER_SPEAKER_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r010",
+          "pdf_page": 214,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "86bf410fb095c4f7e04df6d16924f0fbe88370fa5833daae11a6b8937c6076ae",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N200-01",
+          "source_url_preserved": "https://sunnah.com/abudawud:5125",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N200",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_abudawud_5125.json",
+          "retained_passage_sha256": "735745b0aa3a7daba2429cd42ad16a35c38a09db330e07e5e30d50845df601c8",
+          "finite_quote_reread": "حَدَّثَنَا مُسْلِمُ بْنُ إِبْرَاهِيمَ، حَدَّثَنَا الْمُبَارَكُ بْنُ فَضَالَةَ، حَدَّثَنَا ثَابِتٌ الْبُنَانِيُّ، عَنْ أَنَسِ بْنِ مَالِكٍ، أَنَّ رَجُلاً، كَانَ عِنْدَ النَّبِيِّ صلى الله عليه وسلم فَمَرَّ بِهِ رَجُلٌ فَقَالَ يَا رَسُولَ اللَّهِ إِنِّي لأُحِبُّ هَذَا ‏.‏ فَقَالَ لَهُ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ أَعْلَمْتَهُ ‏\"‏ ‏.‏ قَالَ لاَ قَالَ ‏\"‏ أَعْلِمْهُ ‏\"‏ ‏.‏ قَالَ فَلَحِقَهُ فَقَالَ إِنِّي أُحِبُّكَ فِي اللَّهِ ‏.‏ فَقَالَ أَحَبَّكَ الَّذِي أَحْبَبْتَنِي لَهُ ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V4-LATE-SILSILA-418",
+          "source_url_preserved": "https://arabic-books.amuslim.org/كتب%20الألباني/Web/9442/001.htm",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N200",
+          "field_path": "external_narration_evidence/1/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v4/evidence/late/V4-LATE-SILSILA-418.json",
+          "retained_passage_sha256": "ef0ee22d571c66676bbae00038b176e00f78edf7df1f3db2da885f8c14fa880a",
+          "finite_quote_reread": "كنت جالسا عند رسول الله صلى الله عليه وسلم إذ مر رجل، فقال رجل من القوم: يا رسول الله إني لأحب هذا الرجل، قال: هل أعلمته ذلك؟ قال: لا، فقال: قم فأعلمه، قال: فقام إليه فقال: يا هذا والله إني لأحبك في الله، قال: أحبك الذي أحببتني له",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N201",
+      "before_content_class": "COMPANION_SAYING",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "COMPANION_BLESSING_WITHIN_HADITH_NARRATIVE",
+      "decision_basis": "The printed source contains only the blessing and citation. Retained Bukhari2049 assigns the words to Abd al-Rahman ibn Awf responding to Sad ibn al-Rabi within the narrated brotherhood established by the Prophet and subsequent marriage dialogue. Keep as Companion speech associated with the complete hadith narrative; do not turn the selected words into direct Prophetic speech or assert a separately unrecorded approval. The Fath route note belongs to its own route.",
+      "source_pages_inspected": [
+        214
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "p214-r007",
+          "pdf_page": 214,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "2e02b5ddc437d6b9a2e349aa3787f2a780cf0f6885fa1c3849363c6f8410c79e",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_SAYING",
+          "proposed_semantic_role": "COMPANION_BLESSING_IN_HADITH_CONTEXT",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r008",
+          "pdf_page": 214,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "9590903a6f085c13fff31c19ec914022164567b33760ce97a5c601874f276372",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_SAYING",
+          "proposed_semantic_role": "TRANSLITERATION_OF_COMPANION_BLESSING",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r009",
+          "pdf_page": 214,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "9a6898efb03ec0596f081080d6a536e40a54b5ca5f2acdec808a9f725b0df73f",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_SAYING",
+          "proposed_semantic_role": "TRANSLATION_OF_COMPANION_BLESSING",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p214-r011",
+          "pdf_page": 214,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "0f5037327bead4ae0ffbb96134b1e808925295bbcc83815e238920f2ce9ff87b",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N201-01",
+          "source_url_preserved": "https://sunnah.com/bukhari:2049",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N201",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_bukhari_2049.json",
+          "retained_passage_sha256": "d1ba410982c533f282be26fd50b8c21e949f5105de7d3ea596ee868e3459c5f3",
+          "finite_quote_reread": "حَدَّثَنَا أَحْمَدُ بْنُ يُونُسَ، حَدَّثَنَا زُهَيْرٌ، حَدَّثَنَا حُمَيْدٌ، عَنْ أَنَسٍ ـ رضى الله عنه ـ قَالَ قَدِمَ عَبْدُ الرَّحْمَنِ بْنُ عَوْفٍ الْمَدِينَةَ فَآخَى النَّبِيُّ صلى الله عليه وسلم بَيْنَهُ وَبَيْنَ سَعْدِ بْنِ الرَّبِيعِ الأَنْصَارِيِّ، وَكَانَ سَعْدٌ ذَا غِنًى، فَقَالَ لِعَبْدِ الرَّحْمَنِ أُقَاسِمُكَ مَالِي نِصْفَيْنِ، وَأُزَوِّجُكَ‏.‏ قَالَ بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ، دُلُّونِي عَلَى السُّوقِ‏.‏ فَمَا رَجَعَ حَتَّى اسْتَفْضَلَ أَقِطًا وَسَمْنًا، فَأَتَى بِهِ أَهْلَ مَنْزِلِهِ، فَمَكَثْنَا يَسِيرًا ـ أَوْ مَا شَاءَ اللَّهُ ـ فَجَاءَ وَعَلَيْهِ وَضَرٌ مِنْ صُفْرَةٍ، فَقَالَ لَهُ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ مَهْيَمْ ‏\"‏‏.‏ قَالَ يَا رَسُولَ اللَّهِ تَزَوَّجْتُ امْرَأَةً مِنَ الأَنْصَارِ‏.‏ قَالَ ‏\"‏ مَا سُقْتَ إِلَيْهَا ‏\"‏‏.‏ قَالَ نَوَاةً مِنْ ذَهَبٍ، أَوْ وَزْنَ نَوَاةٍ مِنْ ذَهَبٍ‏.‏ قَالَ ‏\"‏ أَوْلِمْ وَلَوْ بِشَاةٍ ‏\"‏‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Narrative text only; preceding chapter/Quran introduction is not used as hadith evidence.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V4-LATE-FATH-201",
+          "source_url_preserved": "https://www.islamweb.net/ar/library/content/52/6866/باب-إخاء-النبي-صلى-الله-عليه-وسلم-بين-المهاجرين-والأنصار",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N201",
+          "field_path": "external_narration_evidence/1/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v4/evidence/late/V4-LATE-FATH-201.json",
+          "retained_passage_sha256": "9ec70effd24697619aa5dc9ca8af7160a0538fa5e18aff70d692e7d693becd46",
+          "finite_quote_reread": "بارك الله لك في أهلك ومالك",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N204",
+      "before_content_class": "ADAPTED_COMPANION_RESPONSE_FORMULA",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "COMPILED_SINGULAR_ADAPTATION_OF_COMPANION_REPLY_IN_NARRATED_REPORT",
+      "decision_basis": "Printed وفيك بارك الله is a singular adaptation. Retained NasaiKubra gift-distribution passage begins with the Prophet's order اقسميها and describes Aishah's response وفيهم بارك الله when the servant returned. This grounds association with a narrated Prophetic-event context while the selected wording remains an editorial singular adaptation of Companion speech. It is NOT an exact Prophetic quotation and NO new Prophetic approval is asserted. This reconstruction recommends context routing with those limitations; a prior decision putting it among independent sayings would be a documented routing discrepancy, not silently reproduced.",
+      "source_pages_inspected": [
+        216
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "p216-r005",
+          "pdf_page": 216,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "37d99252ff95446a86daacfc53130071d43f60e8023605165ba1a75a52a7ce2f",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "ADAPTED_COMPANION_RESPONSE_FORMULA",
+          "proposed_semantic_role": "EDITORIAL_SINGULAR_ADAPTATION_OF_COMPANION_REPLY",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p216-r006",
+          "pdf_page": 216,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "fa036b50b8f8041c41c1d584435517a112912221eced2b5f9d2a183d0766596f",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "ADAPTED_COMPANION_RESPONSE_FORMULA",
+          "proposed_semantic_role": "TRANSLITERATION_OF_EDITORIAL_SINGULAR_ADAPTATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p216-r007",
+          "pdf_page": 216,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "f18342fe61b426bfde476fc6597c3a17ae2704b88498aacba0c614acf878a545",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "ADAPTED_COMPANION_RESPONSE_FORMULA",
+          "proposed_semantic_role": "TRANSLATION_OF_EDITORIAL_SINGULAR_ADAPTATION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p216-r009",
+          "pdf_page": 216,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "93bdd76c0044562a44b9d6596aff1446d4d1ed2a89c02566dcdaf6cb7016fa54",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N204-01",
+          "source_url_preserved": "https://www.islamweb.net/amp/ar/library/content/406/10358/ما-يقول-لمن-أهدى-له",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N204",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/www.islamweb.net_amp_ar_library_content_406_10358_-_-_-_-_.json",
+          "retained_passage_sha256": "c23d4de14fd5d638448b0dfc3def4f394f75aa4676498ed195b2a1e76b9a1f77",
+          "finite_quote_reread": "10243 - أخبرنا طليق بن محمد بن السكن ، قال : أخبرنا أبو معاوية ، قال : حدثنا يزيد بن زياد ، عن عبيد بن أبي الجعد ، عن عائشة قالت : أهديت لرسول الله صلى الله عليه وسلم شاة ، فقال : \" اقسميها \" ، قال : وكانت عائشة إذا رجعت الخادم قالت : ما قالوا لك ؟ تقول ما يقولون ، يقول : بارك الله فيكم ، فتقول عائشة : وفيهم بارك الله ، نرد عليهم مثل ما قالوا ، ويبقى أجرنا لنا .",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V4-LATE-WABIL-204",
+          "source_url_preserved": "https://www.emaanlibrary.com/wp-content/uploads/2020/01/01-%D8%A7%D9%84%D9%88%D8%A7%D8%A8%D9%84-%D8%A7%D9%84%D8%B5%D9%8A%D8%A8-%D9%88%D8%B1%D8%A7%D9%81%D8%B9-%D8%A7%D9%84%D9%83%D9%84%D9%85-%D8%A7%D9%84%D8%B7%D9%8A%D8%A8-%D8%B7-%D8%A7%D9%84%D9%85%D8%AC%D9%85%D8%B9-%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D9%85-%D8%A5%D8%A8%D9%86-%D8%A7%D9%84%D9%82%D9%8A%D9%85.pdf",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N204",
+          "field_path": "external_narration_evidence/1/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v4/evidence/late/V4-LATE-WABIL-204.json",
+          "retained_passage_sha256": "1d0533f249eb8a59f3074dc11a40024a2cf8f590c2559017a6d0618f910d2438",
+          "finite_quote_reread": "وفيهم بارك الله، رُدَّ عليهم مثل ما قالوا، ويبقى أجرنا لنا",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N241",
+      "before_content_class": "COMPANION_COLLECTIVE_RESPONSE_RENDERING",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "COMPILED_FORMULA_RENDERING_OF_COMPANIONS_NARRATED_TAKBIR",
+      "decision_basis": "Printed Allahu akbar is a formula with citation, not a full printed report. Retained Bukhari4741 records فكبرنا as Companions' repeated response during the Prophet's good-news discourse. The source expands the named action into its familiar formula. Retain as an editorial rendering of narrated Companion action associated with that hadith; no literal direct Prophetic quotation or explicit approval sentence is newly claimed. Other printed Tirmidhi/Ahmad occurrence alignment remains unresolved.",
+      "source_pages_inspected": [
+        250
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "p250-r003",
+          "pdf_page": 250,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "0f55d2e0475912f34c3a5198ed454c3525e63b40cbc2dddd9ca3d6eda3f69b68",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_COLLECTIVE_RESPONSE_RENDERING",
+          "proposed_semantic_role": "EDITORIAL_FORMULA_RENDERING_OF_NARRATED_COMPANION_TAKBIR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p250-r004",
+          "pdf_page": 250,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "d4b39f212b1610643fd3e3e064ef341531cb7ab5d67e27cf3f50e6e9f8f20df0",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_COLLECTIVE_RESPONSE_RENDERING",
+          "proposed_semantic_role": "TRANSLITERATION_OF_EDITORIAL_ACTION_RENDERING",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p250-r005",
+          "pdf_page": 250,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "3a53310935c8f248d09f467342548230f2c974426292adda617108798019759a",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPANION_COLLECTIVE_RESPONSE_RENDERING",
+          "proposed_semantic_role": "TRANSLATION_OF_EDITORIAL_ACTION_RENDERING",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p250-r010",
+          "pdf_page": 250,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "535508a57f8cc5024902a2c29db9c8402fb5e9f220353656f857ffe14c10015e",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N241-01",
+          "source_url_preserved": "https://sunnah.com/bukhari:4741",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N241",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_bukhari_4741.json",
+          "retained_passage_sha256": "54e7790f6fd8e210d7010fd222dde98fae420c33d13e7662631987cfe89c70d1",
+          "finite_quote_reread": "حَدَّثَنَا عُمَرُ بْنُ حَفْصٍ، حَدَّثَنَا أَبِي، حَدَّثَنَا الأَعْمَشُ، حَدَّثَنَا أَبُو صَالِحٍ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ يَقُولُ اللَّهُ عَزَّ وَجَلَّ يَوْمَ الْقِيَامَةِ يَا آدَمُ‏.‏ يَقُولُ لَبَّيْكَ رَبَّنَا وَسَعْدَيْكَ، فَيُنَادَى بِصَوْتٍ إِنَّ اللَّهَ يَأْمُرُكَ أَنْ تُخْرِجَ مِنْ ذُرِّيَّتِكَ بَعْثًا إِلَى النَّارِ‏.‏ قَالَ يَا رَبِّ وَمَا بَعْثُ النَّارِ قَالَ مِنْ كُلِّ أَلْفٍ ـ أُرَاهُ قَالَ ـ تِسْعَمِائَةٍ وَتِسْعَةً وَتِسْعِينَ فَحِينَئِذٍ تَضَعُ الْحَامِلُ حَمْلَهَا وَيَشِيبُ الْوَلِيدُ ‏‏{‏وَتَرَى النَّاسَ سُكَارَى وَمَا هُمْ بِسُكَارَى وَلَكِنَّ عَذَابَ اللَّهِ شَدِيدٌ‏}‏ ‏\"‏‏.‏ فَشَقَّ ذَلِكَ عَلَى النَّاسِ حَتَّى تَغَيَّرَتْ وُجُوهُهُمْ، فَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ مِنْ يَأْجُوجَ وَمَأْجُوجَ تِسْعَمِائَةٍ وَتِسْعَةً وَتِسْعِينَ، وَمِنْكُمْ وَاحِدٌ، ثُمَّ أَنْتُمْ فِي النَّاسِ كَالشَّعْرَةِ السَّوْدَاءِ فِي جَنْبِ الثَّوْرِ الأَبْيَضِ، أَوْ كَالشَّعْرَةِ الْبَيْضَاءِ فِي جَنْبِ الثَّوْرِ الأَسْوَدِ، وَإِنِّي لأَرْجُو أَنْ تَكُونُوا رُبُعَ أَهْلِ الْجَنَّةِ ‏\"‏‏.‏ فَكَبَّرْنَا ثُمَّ قَالَ ‏\"‏ ثُلُثَ أَهْلِ الْجَنَّةِ ‏\"‏‏.‏ فَكَبَّرْنَا ثُمَّ قَالَ ‏\"‏ شَطْرَ أَهْلِ الْجَنَّةِ ‏\"‏‏.‏ فَكَبَّرْنَا‏ .‏ قَالَ أَبُو أُسَامَةَ عَنِ الأَعْمَشِ ‏‏{‏تَرَى النَّاسَ سُكَارَى وَمَا هُمْ بِسُكَارَى‏}‏ وَقَالَ مِنْ كُلِّ أَلْفٍ تِسْعَمِائَةٍ وَتِسْعَةً وَتِسْعِينَ‏.‏ وَقَالَ جَرِيرٌ وَعِيسَى بْنُ يُونُسَ وَأَبُو مُعَاوِيَةَ ‏{‏سَكْرَى وَمَا هُمْ بِسَكْرَى‏}‏‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N265",
+      "before_content_class": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+      "recommended_record_partition": "hadith_dhikr_context_HOLD",
+      "proposed_content_class": "COMPILED_DHIKR_WITH_DISTINCT_COMPANION_AND_PROPHETIC_PARALLELS",
+      "decision_basis": "Ahmad513 assigns the five-formula explanation to Uthman after his narrated ablution/prayer account. Hakim, Ibn Hibban and Bulugh retained passages provide distinct explicitly Prophetic parallels with wording, action-name or order differences. Preserve the compiled source list in hadith/dhikr/context with explicit compiled-formula status; do not merge routes, transfer grades, identify the exact printed sequence as one verbatim Prophetic occurrence, or relabel Uthman's explanation as Prophetic speech.",
+      "source_pages_inspected": [
+        269
+      ],
+      "printed_form": "selected_formula_with_reference_not_full_report",
+      "component_annotations": [
+        {
+          "segment_id": "p269-r002",
+          "pdf_page": 269,
+          "source_type_preserved": "arabic",
+          "source_text_sha256": "97a3f5c04af0f4927075dad7b3c1aa6be152ff47fd9e426a77ac3ba7a3d3ca2c",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "COMPILED_DHIKR_SEQUENCE_NOT_ONE_EXACT_OCCURRENCE",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r003",
+          "pdf_page": 269,
+          "source_type_preserved": "narration",
+          "source_text_sha256": "3e9b5e7323d68318a0bda0d2695394594cf4c2755e84038d53e6a3bf2d5439a8",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "EDITORIAL_COMPILED_DHIKR_INTRODUCTION",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r004",
+          "pdf_page": 269,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "80bcdcd39e463ed1aa6a4c99353e1ea2efa53e28e40ae3c5ccc53f88700a1d60",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r005",
+          "pdf_page": 269,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "bd4c44a9ec5d1dcafa10364a3306c2ab41940936196686685357a1486afa244e",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r006",
+          "pdf_page": 269,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "e1370a949d7cd0b04b742b79cafda5c5ad572e6d23a1a92198c339a3bba7b3ac",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r007",
+          "pdf_page": 269,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "8ebfecaa18ad26f55284f2f3daf6522903e09f62119a07e9bc073f5dd2c5da4e",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r008",
+          "pdf_page": 269,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "247ae47058e02fde04d6f6c962255b66b69e64334a6df870eb2a2065f5e9be7f",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r009",
+          "pdf_page": 269,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "3662a863f28861c835f0a38c3da2f5f99ac7b17d00879ec4549b93dc403743e8",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r010",
+          "pdf_page": 269,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "77e3c7b55f72bb6c17adc13620f5780c9a450f3a1c4d1bd7cceb29d3e4bb8bf8",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r011",
+          "pdf_page": 269,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "4b98b1167db3a99aeec18673c387c226f2ac4235e0c6217a842c588d291b33b0",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r012",
+          "pdf_page": 269,
+          "source_type_preserved": "transliteration",
+          "source_text_sha256": "3b1011b1c21da483f0971ae0121344f78c97e13143ae751598eae39a40cfc776",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r013",
+          "pdf_page": 269,
+          "source_type_preserved": "translation",
+          "source_text_sha256": "24a3e2ed9a0d09db4d61cc5b0e6232c0809aef4f42b95a35532af47dbad5debd",
+          "before_partition": "non_prophetic_reports",
+          "before_specific_role": "COMPILED_DHIKR_WITH_COMPANION_EXPLANATION_AND_PROPHETIC_PARALLELS",
+          "proposed_semantic_role": "SOURCE_RENDITION_OF_COMPILED_DHIKR",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p269-r014",
+          "pdf_page": 269,
+          "source_type_preserved": "reference",
+          "source_text_sha256": "3c20e0d7f856fb67283bba43fe4bdd40f24f89a2a94915c99cf0bf6ea13c147a",
+          "before_partition": "references_and_footnotes",
+          "before_specific_role": "BIBLIOGRAPHIC_REFERENCE",
+          "proposed_semantic_role": "BIBLIOGRAPHIC_REFERENCE_OR_PRINTED_GRADING_CLAIM",
+          "was_prior_prophetic_candidate": false,
+          "source_text_unchanged": true
+        }
+      ],
+      "exact_subspan_annotations": [],
+      "retained_primary_evidence_reread": [
+        {
+          "enrichment_id": "EXT-V3-LATE-N265-01",
+          "source_url_preserved": "https://sunnah.com/ahmad:513",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N265",
+          "field_path": "external_narration_evidence/0/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_ahmad_513.json",
+          "retained_passage_sha256": "5c03fbb6834db84b9ac6da382fd12bcd50f06cb0d03e3b7e812f9949ac994e6a",
+          "finite_quote_reread": "حَدَّثَنَا أَبُو عَبْدِ الرَّحْمَنِ الْمُقْرِئُ، حَدَّثَنَا حَيْوَةُ، أَنْبَأَنَا أَبُو عَقِيلٍ، أَنَّهُ سَمِعَ الْحَارِثَ، مَوْلَى عُثْمَانَ يَقُولُ جَلَسَ عُثْمَانُ يَوْمًا وَجَلَسْنَا مَعَهُ فَجَاءَهُ الْمُؤَذِّنُ فَدَعَا بِمَاءٍ فِي إِنَاءٍ أَظُنُّهُ سَيَكُونُ فِيهِ مُدٌّ فَتَوَضَّأَ ثُمَّ قَالَ رَأَيْتُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ يَتَوَضَّأُ وُضُوئِي هَذَا ثُمَّ قَالَ وَمَنْ تَوَضَّأَ وُضُوئِي ثُمَّ قَامَ فَصَلَّى صَلَاةَ الظُّهْرِ غُفِرَ لَهُ مَا كَانَ بَيْنَهَا وَبَيْنَ الصُّبْحِ ثُمَّ صَلَّى الْعَصْرَ غُفِرَ لَهُ مَا بَيْنَهَا وَبَيْنَ صَلَاةِ الظُّهْرِ ثُمَّ صَلَّى الْمَغْرِبَ غُفِرَ لَهُ مَا بَيْنَهَا وَبَيْنَ صَلَاةِ الْعَصْرِ ثُمَّ صَلَّى الْعِشَاءَ غُفِرَ لَهُ مَا بَيْنَهَا وَبَيْنَ صَلَاةِ الْمَغْرِبِ ثُمَّ لَعَلَّهُ أَنْ يَبِيتَ يَتَمَرَّغُ لَيْلَتَهُ ثُمَّ إِنْ قَامَ فَتَوَضَّأَ وَصَلَّى الصُّبْحَ غُفِرَ لَهُ مَا بَيْنَهَا وَبَيْنَ صَلَاةِ الْعِشَاءِ وَهُنَّ الْحَسَنَاتُ يُذْهِبْنَ السَّيِّئَاتِ قَالُوا هَذِهِ الْحَسَنَاتُ فَمَا الْبَاقِيَاتُ يَا عُثْمَانُ قَالَ هُنَّ لَا إِلَهَ إِلَّا اللَّهُ وَسُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَاللَّهُ أَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ‏.‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V3-LATE-N265-02",
+          "source_url_preserved": "https://sunnah.com/hakim/18",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N265",
+          "field_path": "external_narration_evidence/1/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/hakim_1821.json",
+          "retained_passage_sha256": "a785d02cee00a38033186f2a2ffb460d98609c1c15ba1638940e4682908aa600",
+          "finite_quote_reread": "حَدَّثَنَا أَبُو سَعِيدٍ أَحْمَدُ بْنُ يَعْقُوبَ الثَّقَفِيُّ ، وَأَبُو مُحَمَّدٍ عَبْدُ اللَّهِ بْنُ مُحَمَّدٍ ، قَالا : ثنا أَبُو عَبْدِ اللَّهِ مُحَمَّدُ بْنُ أَيُّوبَ الْبَجَلِيُّ ، ثنا أَحْمَدُ بْنُ عِيسَى الْمِصْرِيُّ ، ثنا عَبْدُ اللَّهِ بْنُ وَهْبٍ ، أَخْبَرَنِي عَمْرُو بْنُ الْحَارِثِ ، عَنْ أَبِي السَّمْحِ ، عَنْ أَبِي الْهَيْثَمِ ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ رَضِيَ اللَّهُ عَنْهُ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ قَالَ : \" اسْتَكْثِرُوا مِنَ الْبَاقِيَاتِ الصَّالِحَاتِ \" , قِيلَ : وَمَا هُنَّ يَا رَسُولَ اللَّهِ ؟ قَالَ : \" الْمِلَّةُ \" , قِيلَ : وَمَا هِيَ ؟ قَالَ : \" التَّكْبِيرُ وَالتَّهْلِيلُ ، وَالتَّسْبِيحُ ، وَالتَّحْمِيدُ ، وَلا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ \" .\nهَذَا أَصَحُّ إِسْنَادِ الْمِصْرِيِّينَ ، فَلَمْ يُخَرِّجَاهُ",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V3-LATE-N265-03",
+          "source_url_preserved": "https://sunnah.com/ibnhibban/7",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N265",
+          "field_path": "external_narration_evidence/2/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/ibnhibban_840.json",
+          "retained_passage_sha256": "291172ebe26eaea4a07b412c24b680d3fd08f4340b64cc9f1033fd9a31b834eb",
+          "finite_quote_reread": "أَخْبَرَنَا ابْنُ سَلْمٍ ، حَدَّثَنَا حَرْمَلَةُ ، حَدَّثَنَا ابْنُ وَهْبٍ ، أَخْبَرَنِي عَمْرُو بْنُ الْحَارِثِ ، عَنْ دَرَّاجٍ ، عَنْ أَبِي الْهَيْثَمِ ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ ، أَنّ رَسُولَ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ ، قَالَ : \" اسْتَكْثِرُوا مِنَ الْبَاقِيَاتِ الصَّالِحَاتِ \" قِيلَ : وَمَا هُنَّ يَا رَسُولَ اللَّهِ ؟ قَالَ : \" التَّكْبِيرُ ، وَالتَّهْلِيلُ ، وَالتَّسْبِيحُ ، وَالْحَمْدُ لِلَّهِ ، وَلا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ \"",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        },
+        {
+          "enrichment_id": "EXT-V3-LATE-N265-04",
+          "source_url_preserved": "https://sunnah.com/bulugh/16/109",
+          "archive_path": "data/corrected_all_records.json",
+          "record_id": "N265",
+          "field_path": "external_narration_evidence/3/external_arabic_verbatim",
+          "original_evidence_file_reference_preserved": "qc_v3/evidence/late/sunnah.com_bulugh_16_109.json",
+          "retained_passage_sha256": "e24d440f2e62faf82ce015f5b35f5ede47607f3625fc2e97d7a1280cf629f4b4",
+          "finite_quote_reread": "وَعَنْ أَبِي سَعِيدٍ اَلْخُدْرِيِّ ‏- رضى الله عنه ‏- قَالَ: قَالَ رَسُولُ اَللَّهِ ‏- صلى الله عليه وسلم ‏-{ اَلْبَاقِيَاتُ اَلصَّالِحَاتُ: لَا إِلَهَ إِلَّا اَللَّهُ, وَسُبْحَانَ اَللَّهِ, وَاَللَّهُ أَكْبَرُ, وَالْحَمْدُ لِلَّهِ, وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاَللَّهِ } أَخْرَجَهُ النَّسَائِيُّ, وَصَحَّحَهُ اِبْنُ حِبَّانَ, وَالْحَاكِمُ .‏ ^{1}‏ .‏",
+          "quote_is_exact_retained_substring": true,
+          "scope": "Complete retained passage field reread for this finite record.",
+          "retrieved_live_in_this_reconstruction": false,
+          "printed_edition_alignment_newly_verified": false
+        }
+      ],
+      "direct_prophetic_speech_blanket_asserted": false,
+      "authenticity_grade_added": null,
+      "new_canonical_id_assigned": null,
+      "source_wording_changes": 0,
+      "release_approved": false,
+      "separate_independent_final_evaluation": "NOT_RUN"
+    }
+  ],
+  "preservation_requirement": "Keep all 493 prior candidate components. This audit proposes context association, not release certification or replacement of original candidate membership.",
+  "output_evaluation_status": "Draft coauthor decisions; newly changed final bytes have no separate independent final evaluation."
+}

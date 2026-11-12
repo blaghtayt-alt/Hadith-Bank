@@ -1,0 +1,2537 @@
+{
+  "status": "PARTIAL",
+  "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+  "purpose": "Source front/back matter and section headings; not additional hadith occurrence rows. Unreadable text remains null, with precise local qualifications.",
+  "pages": [
+    {
+      "pdf_page": 1,
+      "ancillary_page_id": "ANC-P001",
+      "page_type": "cover",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p001.png",
+      "source_image_sha256": "4087133f7f25993179861a5b9e680e1987bbda0f1111ed50a5f1528dc2cfb974",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P001-B01",
+          "kind": "emblem",
+          "language": "ar",
+          "text": null,
+          "source_location": "upper-left round emblem",
+          "transcription_status": "unresolved",
+          "unresolved_reason": "The small lettering around the emblem is blurred/pixelated in the source image. No exact transcription asserted.",
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "unresolved",
+            "qualification": null,
+            "unresolved_reason": "The small lettering around the emblem is blurred/pixelated in the source image. No exact transcription asserted.",
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B01",
+            "disposition": "unresolved_no_text_change",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B01",
+            "reason": "The enlarged emblem consists of blurred color blocks; no complete letter sequence around the ring is reliably readable.",
+            "established_reading": null,
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Circular emblem lettering",
+                "reason": "Insufficient original pixels."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_emblem_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999655+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_emblem_1200.png": "8e4364bf161cefb5e9153aaaec365c3bea9f6e063b31120e6117a7449b7e257d"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B02",
+          "kind": "title",
+          "language": "fil",
+          "text": "Hisnul Muslim\nKUTANG-TANGGULAN NG MUSLIM\nMga Panalangin mula sa Kor’an at Sunnah",
+          "source_location": "large central title",
+          "transcription_status": "visually_transcribed_under_explicit_convention",
+          "normalization_note": "Printed apostrophe is represented by U+2019; its exact font outline remains in the linked source image, not an unresolved textual error.",
+          "v1_transcription_state": {
+            "text": "Hisnul Muslim\nKUTANG-TANGGULAN NG MUSLIM\nMga Panalangin mula sa Kor’an at Sunnah",
+            "transcription_status": "visually_transcribed",
+            "qualification": null,
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B02",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B02",
+            "reason": "The title reads Hisnul Muslim and the subtitle contains a clearly raised apostrophe after Kor. Exact font outline is not a separate textual ambiguity.",
+            "established_reading": "Hisnul Muslim\nKUTANG-TANGGULAN NG MUSLIM\nMga Panalangin mula sa Kor’an at Sunnah",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Use U+2019 RIGHT SINGLE QUOTATION MARK for the printed apostrophe in Kor’an. This choice transcribes the punctuation function; the crop records its source outline.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_400.png",
+              "qc_v2/evidence/other/p001_apostrophe_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999657+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_400.png": "b91a9634d90911fd43416052e94cdd2ee14c6c577755a94585524ff1fba47ea1",
+              "qc_v2/evidence/other/p001_apostrophe_1200.png": "67e67e278a87fab6a2c7a609262498ca9b30034b4b3c3af4cadc0a3f69d92d3d"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B03",
+          "kind": "author_credit",
+          "language": "fil",
+          "text": "Isinulat ni:\nSA’EED IBN ALI IBN WAHF AL-QAHTANI",
+          "source_location": "middle author credit",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P001-B04",
+          "kind": "translator_credit",
+          "language": "fil",
+          "text": "Isinalin sa Wikang Tagalog ni:\nABDULKHALIQ SHARIF SARIPADA",
+          "source_location": "lower-middle translator credit",
+          "transcription_status": "visually_read_with_qualification",
+          "qualification": "Some lower-right surname strokes are blurred on this cover; the same spelling is independently clear on PDF page 2.",
+          "source_character_uncertainties": [
+            {
+              "span": "cover surname",
+              "verified_text": null,
+              "candidate": "SARIPADA"
+            }
+          ],
+          "metadata_corroboration": {
+            "pdf_page": 2,
+            "name": "ABDULKHALIQ SHARIF SARIPADA"
+          },
+          "v1_transcription_state": {
+            "text": "Isinalin sa Wikang Tagalog ni:\nABDULKHALIQ SHARIF SARIPADA",
+            "transcription_status": "visually_read_with_qualification",
+            "qualification": "Some lower-right surname strokes are blurred on this cover; the same spelling is independently clear on PDF page 2.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B04",
+            "disposition": "partially_resolved_with_local_unknowns",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B04",
+            "reason": "ABDULKHALIQ and SHARIF are readable, but several merged strokes in the cover surname do not establish every letter independently. Page 2 clearly prints the complete name; it is corroboration for book metadata, not a substitute for the blurred cover pixels.",
+            "established_reading": {
+              "readable_cover_prefix": "ABDULKHALIQ SHARIF",
+              "clear_page_2_name": "ABDULKHALIQ SHARIF SARIPADA"
+            },
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Cover surname after SHARIF",
+                "provisional_baseline": "SARIPADA",
+                "reason": "Merged small original color strokes."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_translator_1200.png",
+              "qc_v2/evidence/other/p002_400.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999661+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_translator_1200.png": "674b129a68d2fcd0d37bb9cc9d14a73a8fb774377e1bd6e8f396a7271888eac3",
+              "qc_v2/evidence/other/p002_400.png": "edbeb4d940b04a3e76763fe1d0e7277b640224cdf7e79679f8fed36b4cacc66b"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B05",
+          "kind": "correction_credit",
+          "language": "fil",
+          "text": "Iwinasto ni:\nDAUD M. ANGNI",
+          "source_location": "lower-left credit",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P001-B06",
+          "kind": "publication_code",
+          "language": "en",
+          "text": "TAGALOG 0401015",
+          "source_location": "horizontal strip above contact panel",
+          "transcription_status": "visually_transcribed",
+          "readable_fragment": "TAGALOG",
+          "publication_date_inferred": null,
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "unresolved",
+            "qualification": null,
+            "unresolved_reason": "Following digits appear to read 0401015, but the blurred source does not support exact certification; left null.",
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B06",
+            "disposition": "resolved_with_source_transcription",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B06",
+            "reason": "Seven digits are distinguishable in the fresh enlargement: 0, 4, 0, 1, 0, 1, 5. Record as a printed code only.",
+            "established_reading": "TAGALOG 0401015",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": null,
+            "confidence": 0.97,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_code_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999667+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_code_1200.png": "4804be5c348b2c185c9b064e538e027d1d2e5da936cbebdc23b95f0b15405d87"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B07",
+          "kind": "office_contact",
+          "language": "en",
+          "text": null,
+          "source_location": "orange contact panel, first line",
+          "transcription_status": "partially_transcribed_with_local_unknown",
+          "readable_fragment": "THE COOPERATIVE OFFICE FOR CALL",
+          "unresolved_reason": "Only the separator between AL and SULAY remains unknown; the surrounding office words are readable as recorded.",
+          "readable_fragments": [
+            "THE COOPERATIVE OFFICE FOR CALL & GUIDANCE AL",
+            "SULAY RIYADH"
+          ],
+          "source_character_uncertainties": [
+            {
+              "location": "separator between AL and SULAY",
+              "verified_text": null
+            }
+          ],
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "unresolved",
+            "qualification": null,
+            "unresolved_reason": "The remainder of the office/address line is blurred; no exact complete transcription asserted.",
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B07",
+            "disposition": "partially_resolved_with_local_unknowns",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B07",
+            "reason": "The words are readable as THE COOPERATIVE OFFICE FOR CALL & GUIDANCE AL ... SULAY RIYADH, but the small separator between AL and SULAY cannot be assigned confidently.",
+            "established_reading": {
+              "left": "THE COOPERATIVE OFFICE FOR CALL & GUIDANCE AL",
+              "right": "SULAY RIYADH"
+            },
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Between AL and SULAY",
+                "reason": "Small merged punctuation-like strokes; do not infer a hyphen or apostrophe."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_office_left_1200.png",
+              "qc_v2/evidence/other/p001_office_right_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999673+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_office_left_1200.png": "4f2f607cdcafd7f541c909f96431133ba041b2f44078cdfc5c6b41f9419c7b19",
+              "qc_v2/evidence/other/p001_office_right_1200.png": "df9a2e115b6f7e8fc9183dd6bb7326581fc6a7e4e06c364ce8ee24e354440b2c"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B08",
+          "kind": "postal_phone_fax",
+          "language": "en",
+          "text": null,
+          "source_location": "orange contact panel, second line",
+          "transcription_status": "unresolved",
+          "readable_fragment": "P.O.BOX 1419 ZIP CODE 11431, TEL.NO",
+          "unresolved_reason": "Telephone/fax glyphs are blurred; contact digits are intentionally not reconstructed.",
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "unresolved",
+            "qualification": null,
+            "unresolved_reason": "Telephone/fax glyphs are blurred; contact digits are intentionally not reconstructed.",
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B08",
+            "disposition": "partially_resolved_with_local_unknowns",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B08",
+            "reason": "The source retains the clear stencil prefix P.O.BOX 1419 ZIP CODE 11431, TEL.NO. The following original-color phone/fax digits and delimiters are too merged for full character certification. No contact digits are filled from another cover.",
+            "established_reading": "P.O.BOX 1419 ZIP CODE 11431, TEL.NO",
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Telephone and fax strings after TEL.NO",
+                "reason": "Merged original color pixels, particularly parenthesis/separator forms and fax terminal digits."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_400.png",
+              "qc_v2/evidence/other/p001_phones_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999677+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_400.png": "b91a9634d90911fd43416052e94cdd2ee14c6c577755a94585524ff1fba47ea1",
+              "qc_v2/evidence/other/p001_phones_1200.png": "994b37f0903cd1eaef5b98110e418c5047cc43e7d61233a83f878971b2872e4d"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P001-B09",
+          "kind": "email",
+          "language": "en",
+          "text": "E.mail: sulay@W.CN",
+          "source_location": "orange contact panel, last line",
+          "transcription_status": "visually_transcribed_under_explicit_spacing_convention",
+          "readable_fragment": "E.mail:",
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "unresolved",
+            "qualification": null,
+            "unresolved_reason": "Exact email characters are not recoverable confidently from this cover.",
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P001-B09",
+            "disposition": "resolved_with_source_transcription",
+            "pdf_page": 1,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P001-B09",
+            "reason": "The fresh crop distinguishes the email characters sulay@W.CN, including uppercase W, C and N. Colon spacing is represented by a single normal word space.",
+            "established_reading": "E.mail: sulay@W.CN",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Retain printed letter case; use normal Unicode spaces rather than attempting physical spacing widths.",
+            "confidence": 0.97,
+            "evidence_files": [
+              "qc_v2/evidence/other/p001_email_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999679+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p001_email_1200.png": "a5b04d55c6bcc1a8bc445a78a69c40cc8e51cb0fc408262d975b10057bb91330"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        }
+      ],
+      "metadata_evidence": {
+        "title": "Hisnul Muslim",
+        "subtitle": "KUTANG-TANGGULAN NG MUSLIM",
+        "language_as_printed": "Wikang Tagalog",
+        "author_as_printed": "SA’EED IBN ALI IBN WAHF AL-QAHTANI",
+        "translator_as_printed": "ABDULKHALIQ SHARIF SARIPADA",
+        "corrector_as_printed": "DAUD M. ANGNI"
+      },
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 2,
+      "ancillary_page_id": "ANC-P002",
+      "page_type": "title_page",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p002.png",
+      "source_image_sha256": "a44494a0e8a23192649f0d09110fa71db2ab0604c6cd111c24e90f81a7e2eb31",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P002-B01",
+          "kind": "title",
+          "language": "fil",
+          "text": "Hisnul Muslim\nKUTANG-TANGGULAN NG MUSLIM\nMga Panalangin mula sa Kor’an at Sunnah",
+          "source_location": "upper-middle title",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P002-B02",
+          "kind": "author_credit",
+          "language": "fil",
+          "text": "Isinulat ni:\nSA’EED IBN ALI IBN WAHF AL-QAHTANI",
+          "source_location": "middle",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P002-B03",
+          "kind": "translator_credit",
+          "language": "fil",
+          "text": "Isinalin sa Wikang Tagalog ni:\nABDULKHALIQ SHARIF SARIPADA",
+          "source_location": "lower-middle",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P002-B04",
+          "kind": "correction_credit",
+          "language": "fil",
+          "text": "Iwinasto ni:\nDAUD M. ANGNI",
+          "source_location": "bottom credit",
+          "transcription_status": "visually_transcribed"
+        }
+      ],
+      "metadata_evidence": {
+        "title": "Hisnul Muslim",
+        "subtitle": "KUTANG-TANGGULAN NG MUSLIM",
+        "description_as_printed": "Mga Panalangin mula sa Kor’an at Sunnah",
+        "language_as_printed": "Wikang Tagalog",
+        "author_as_printed": "SA’EED IBN ALI IBN WAHF AL-QAHTANI",
+        "translator_as_printed": "ABDULKHALIQ SHARIF SARIPADA",
+        "corrector_as_printed": "DAUD M. ANGNI"
+      },
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 3,
+      "ancillary_page_id": "ANC-P003",
+      "page_type": "catalogue_imprint",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p003.png",
+      "source_image_sha256": "0ac9c9947102e978cf4a5eb4c9ef52512cf481f6c4c03a1a634d295fe21b32d0",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P003-B01",
+          "kind": "copyright_symbol",
+          "language": "ar",
+          "text": "ح",
+          "source_location": "first line, circled glyph at right",
+          "transcription_status": "visually_transcribed_under_explicit_symbol_convention",
+          "rendering_note": "The Arabic letter is enclosed in a printed circle, treated as a symbol rather than a word.",
+          "symbol_representation": {
+            "base_character": "ح",
+            "enclosure": "circle"
+          },
+          "v1_transcription_state": {
+            "text": "ح",
+            "transcription_status": "visually_transcribed",
+            "qualification": null,
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P003-B01",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 3,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P003-B01",
+            "reason": "The circled character is clearly ح. No letter is missing or ambiguous.",
+            "established_reading": "ح",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Encode base letter U+062D and record circular enclosure as symbol/layout metadata; do not invent a different copyright glyph.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p003_circled_ha_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999683+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p003_circled_ha_1200.png": "28e5e7b10427dd0865ca6c478092b06f0e11d65acc538b9b3f55adaea44597b3"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P003-B02",
+          "kind": "publisher_year",
+          "language": "ar",
+          "text": "دار خالد بن الوليد للنشر والتوزيع ، ١٤٢٥هـ",
+          "source_location": "top line of large catalogue box",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B03",
+          "kind": "catalogue_heading",
+          "language": "ar",
+          "text": "فهرسة مكتبة الملك فهد الوطنية أثناء النشر",
+          "source_location": "second line",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B04",
+          "kind": "catalogue_author",
+          "language": "ar",
+          "text": "القحطاني ، سعيد بن علي بن وهف",
+          "source_location": "author line",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B05",
+          "kind": "catalogue_description",
+          "language": "ar",
+          "text": "حصن المسلم من أذكار الكتاب والسنة - سعيد بن\nعلي بن وهف القحطاني - الرياض ، ١٤٢٥هـ\n٢٨٠ ص ؛ ٨ × ١٢ سم",
+          "source_location": "three bibliographic lines",
+          "transcription_status": "visually_transcribed",
+          "qualification": "The dimension order follows Arabic reading order; the displayed line places ١٢ to the left of × and ٨ to its right.",
+          "v1_transcription_state": {
+            "text": "حصن المسلم من أذكار الكتاب والسنة - سعيد بن\nعلي بن وهف القحطاني  الرياض ، ١٤٢٥هـ\n٢٨٠ ص ؛ ٨ × ١٢ سم",
+            "transcription_status": "visually_transcribed",
+            "qualification": "The dimension order follows Arabic reading order; the displayed line places ١٢ to the left of × and ٨ to its right.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P003-B05",
+            "disposition": "resolved_with_text_correction_and_direction_convention",
+            "pdf_page": 3,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P003-B05",
+            "reason": "The dimensions clearly show ٨ to the right of × and ١٢ to its left; RTL logical order ٨ × ١٢ is retained. The same crop shows a printed dash between القحطاني and الرياض that the baseline omitted.",
+            "established_reading": "حصن المسلم من أذكار الكتاب والسنة - سعيد بن\nعلي بن وهف القحطاني - الرياض ، ١٤٢٥هـ\n٢٨٠ ص ؛ ٨ × ١٢ سم",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Store Arabic in logical right-to-left reading order. The physical dimension order is ١٢ [left], × [middle], ٨ [right]. Encode the visible dash with U+002D.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p003_400.png",
+              "qc_v2/evidence/other/p003_catalogue_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999688+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p003_400.png": "aac831d1ace9e2702bf9341d789917aef29071d488425eccd9022bb23635303c",
+              "qc_v2/evidence/other/p003_catalogue_1200.png": "e32835973fddc9dc452cc96da836a6b378a19e6bdaba4755a1161c0118d2217a"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P003-B06",
+          "kind": "isbn",
+          "language": "ar",
+          "text": "ردمك : 9960 - 9578 - 7 - X",
+          "source_location": "ISBN line",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B07",
+          "kind": "language",
+          "language": "ar",
+          "text": "( النص باللغة الفلبينية )",
+          "source_location": "parenthesized language line",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B08",
+          "kind": "subject_headings",
+          "language": "ar",
+          "text": "١ - الأدعية والأوراد\n٢ - القرآن - أدعية\nأ - العنوان",
+          "source_location": "subject lines",
+          "transcription_status": "visually_transcribed",
+          "layout_note": "The two numbered subject headings share one horizontal line in the source."
+        },
+        {
+          "block_id": "ANC-P003-B09",
+          "kind": "classification_deposit",
+          "language": "ar",
+          "text": "ديوي ٢١٢,٩٣\n١٤٢٥/٧٦٢٨",
+          "source_location": "bottom of large box",
+          "transcription_status": "visually_transcribed_under_explicit_punctuation_convention",
+          "qualification": "The printed comma-shaped separator is represented by U+002C under the stated transcription convention; source digits and ordering are retained.",
+          "normalization_note": "Printed comma-shaped decimal separator is represented by U+002C; its font outline is retained in the evidence crop.",
+          "v1_transcription_state": {
+            "text": "ديوي ٢١٢,٩٣\n١٤٢٥/٧٦٢٨",
+            "transcription_status": "visually_transcribed",
+            "qualification": "Comma-shaped decimal punctuation is preserved as a comma; its precise Unicode equivalent cannot be proven from the image.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P003-B09",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 3,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P003-B09",
+            "reason": "The source visibly prints ٢١٢ followed by a comma-shaped separator and ٩٣. Underlying font codepoint cannot be determined from a scan and is not required to identify the printed punctuation.",
+            "established_reading": "ديوي ٢١٢,٩٣\n١٤٢٥/٧٦٢٨",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Represent the printed comma-shaped decimal separator by U+002C COMMA, preserving the source digits and ordering. No numeric normalization.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p003_decimal_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999691+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p003_decimal_1200.png": "98ace1d915b66f924be0dc8a06a762f707ce73b392c3dfc6ca676b851eceb21e"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P003-B10",
+          "kind": "deposit_isbn",
+          "language": "ar",
+          "text": "رقم الإيداع: ١٤٢٥/٧٦٢٨\nردمك: 9960 - 9578 - 7 - X",
+          "source_location": "small rounded box",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P003-B11",
+          "kind": "rights_statement",
+          "language": "ar",
+          "text": "حقوق الطبع محفوظة للمكتب",
+          "source_location": "black rounded footer",
+          "transcription_status": "visually_transcribed"
+        }
+      ],
+      "metadata_evidence": {
+        "publisher_as_printed": "دار خالد بن الوليد للنشر والتوزيع",
+        "catalogue_year_as_printed": "١٤٢٥هـ",
+        "arabic_title_as_printed": "حصن المسلم من أذكار الكتاب والسنة",
+        "arabic_author_as_printed": "سعيد بن علي بن وهف القحطاني",
+        "catalogue_extent_as_printed": "٢٨٠ ص",
+        "actual_pdf_pages": 276,
+        "extent_note": "The catalogue says 280 pages; this is retained separately from the verified 276-page PDF extent.",
+        "isbn_as_printed": "9960 - 9578 - 7 - X",
+        "deposit_as_printed": "١٤٢٥/٧٦٢٨"
+      },
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 4,
+      "ancillary_page_id": "ANC-P004",
+      "page_type": "opening_formula",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p004.png",
+      "source_image_sha256": "fb1fc082afd51d5564a2118b7dc29dfea7bf3a7a3af9b7b55b2488603f7e7b78",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P004-B01",
+          "kind": "basmala",
+          "language": "ar",
+          "text": "بسم الله الرحمن الرحيم",
+          "source_location": "central calligraphic formula",
+          "transcription_status": "lexical_transcription_with_graphic_facsimile",
+          "qualification": "The lexical formula is readable; the calligraphic placement and individual vowel/decorative strokes are not represented or certified in this unvocalized transcription.",
+          "text_representation": "unvocalized lexical projection; graphical mark arrangement retained in evidence",
+          "source_facsimile": "qc_v2/evidence/other/p004_basmala_1200.png",
+          "fully_vocalized_transcription_asserted": false,
+          "v1_transcription_state": {
+            "text": "بسم الله الرحمن الرحيم",
+            "transcription_status": "lexical_transcription_only",
+            "qualification": "The lexical formula is readable; the calligraphic placement and individual vowel/decorative strokes are not represented or certified in this unvocalized transcription.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P004-B01",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 4,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P004-B01",
+            "reason": "The lexical formula is readable in the ornate calligraphy; its layered layout and flourishes are represented by the source facsimile.",
+            "established_reading": "بسم الله الرحمن الرحيم",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Ancillary decorative formulas have an explicitly unvocalized lexical transcription plus a linked source facsimile. Do not label that lexical projection as a fully vocalized or pixel-identical transcription. No missing lexical character is established.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p004_400.png",
+              "qc_v2/evidence/other/p004_basmala_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999695+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p004_400.png": "e50b2581f15b53d0be08c3d2fef960ccb949d0a5c8bb3a029d01599341106077",
+              "qc_v2/evidence/other/p004_basmala_1200.png": "4f6491f3e146ca46e914384a55f7157f59256580ac0c7408e6f40e760ce612db"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P004-B02",
+          "kind": "translation",
+          "language": "fil",
+          "text": "SA NGALAN NG ALLAH,\nANG MAHABAGIN, ANG MAAWAIN",
+          "source_location": "two bold lines below calligraphy",
+          "transcription_status": "visually_transcribed"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 5,
+      "ancillary_page_id": "ANC-P005",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p005.png",
+      "source_image_sha256": "4b49d46bf156198ae07a75e46293d31c6fbaec74d3ee68a564f5402fc4de9138",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P005-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "MGA NILALAMAN",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": null
+        },
+        {
+          "block_id": "ANC-P005-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Pangunahing Salita",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": "11"
+        },
+        {
+          "block_id": "ANC-P005-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang Kahalagahan ng mga\npaggunita sa Allah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": "14"
+        },
+        {
+          "block_id": "ANC-P005-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa panahon ng\npagkagising.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "1",
+          "target_page_as_printed": "23"
+        },
+        {
+          "block_id": "ANC-P005-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin pagkasuot ng\ndamit.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "2",
+          "target_page_as_printed": "31"
+        },
+        {
+          "block_id": "ANC-P005-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag magsusuot\nng bagong damit.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "3",
+          "target_page_as_printed": "32"
+        },
+        {
+          "block_id": "ANC-P005-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng isang nakasuot\nng bagong damit.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "4",
+          "target_page_as_printed": "32"
+        },
+        {
+          "block_id": "ANC-P005-B08",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag\nmaghuhubad ng damit.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "5",
+          "target_page_as_printed": "33"
+        },
+        {
+          "block_id": "ANC-P005-B09",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang panalangin bago pumasok\nsa palikuran.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "6",
+          "target_page_as_printed": "34"
+        },
+        {
+          "block_id": "ANC-P005-B10",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang panalangin pagkatapos\ngamitin ang palikuran.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "7",
+          "target_page_as_printed": "34"
+        },
+        {
+          "block_id": "ANC-P005-B11",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin bago\numpisahan ang pag-\nwuwudho.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "8",
+          "target_page_as_printed": "35"
+        },
+        {
+          "block_id": "ANC-P005-B12",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag natapos\nsa pag-wuwudho.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "9",
+          "target_page_as_printed": "35"
+        },
+        {
+          "block_id": "ANC-P005-B13",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag aalis o\niiwan ang bahay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "10",
+          "target_page_as_printed": "37"
+        },
+        {
+          "block_id": "ANC-P005-B14",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag\npapasok sa bahay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "11",
+          "target_page_as_printed": "38"
+        },
+        {
+          "block_id": "ANC-P005-B15",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalanging kapag pumunta sa\nMasjid.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "12",
+          "target_page_as_printed": "39"
+        },
+        {
+          "block_id": "ANC-P005-B16",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin pagpasok ng\nMasjid.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "13",
+          "target_page_as_printed": "42"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 6,
+      "ancillary_page_id": "ANC-P006",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p006.png",
+      "source_image_sha256": "2548ce3df7f79f67af66bced51a8fef7eb008db67c55700165f049fb65dafc60",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P006-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "pagkain subalit tinanggihan\nito.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": null
+        },
+        {
+          "block_id": "ANC-P006-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang sasabihin mo kapag ikaw\nay nag-ayuno at mayroong\ngustong umaway sa iyo.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "75",
+          "target_page_as_printed": "204"
+        },
+        {
+          "block_id": "ANC-P006-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag nakita mo\nang unang bunga ng\npalmera.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "76",
+          "target_page_as_printed": "204"
+        },
+        {
+          "block_id": "ANC-P006-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag bumahin.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "77",
+          "target_page_as_printed": "205"
+        },
+        {
+          "block_id": "ANC-P006-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang dapat banggitin kapag\nbumahin ang isang kafir sa\npanahong bumahin at pinuri\nang Allah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "78",
+          "target_page_as_printed": "206"
+        },
+        {
+          "block_id": "ANC-P006-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa bagong\nkasal.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "79",
+          "target_page_as_printed": "207"
+        },
+        {
+          "block_id": "ANC-P006-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng bagong kasal.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "80",
+          "target_page_as_printed": "207"
+        },
+        {
+          "block_id": "ANC-P006-B08",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin bago makipagtalik.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "81",
+          "target_page_as_printed": "208"
+        },
+        {
+          "block_id": "ANC-P006-B09",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng isang nagagalit.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "82",
+          "target_page_as_printed": "209"
+        },
+        {
+          "block_id": "ANC-P006-B10",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag nakakita ng\nisang tinamaan ng\nkamalasan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "83",
+          "target_page_as_printed": "209"
+        },
+        {
+          "block_id": "ANC-P006-B11",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin habang\nnakaupo sa isang pagtitipon.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "84",
+          "target_page_as_printed": "210"
+        },
+        {
+          "block_id": "ANC-P006-B12",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin sa pagtitipon\npara sa paghingi ng\nkapatawaran kung may\nnasabing hindi maganda\n(Kaffaratul Majlis).",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "85",
+          "target_page_as_printed": "211"
+        },
+        {
+          "block_id": "ANC-P006-B13",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa isang sinabihan\nka na “Nawa patawarin ka ng\nAllah.”",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "86",
+          "target_page_as_printed": "212"
+        },
+        {
+          "block_id": "ANC-P006-B14",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa isang gumawa sa",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "87",
+          "target_page_as_printed": "212"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 7,
+      "ancillary_page_id": "ANC-P007",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p007.png",
+      "source_image_sha256": "4a5face30d456b45411fbc020ff8fd99589470a88651741f08e1be248bd9caa4",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P007-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "iyo ng kabutihan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": null
+        },
+        {
+          "block_id": "ANC-P007-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa panga-\nngalaga ng Allah mula sa\nkasamaan ng Dajjal.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "88",
+          "target_page_as_printed": "213"
+        },
+        {
+          "block_id": "ANC-P007-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa isang\nnagsabi sa iyo ng “Mahal kita\nalang-alang sa Allah.”",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "89",
+          "target_page_as_printed": "214"
+        },
+        {
+          "block_id": "ANC-P007-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa isang nag-\nalok sa iyo upang bahagian\nka sa kanyang kayamanan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "90",
+          "target_page_as_printed": "214"
+        },
+        {
+          "block_id": "ANC-P007-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa isang\nnagpautang sa iyo ng pera,\npagkatanggap nito...",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "91",
+          "target_page_as_printed": "215"
+        },
+        {
+          "block_id": "ANC-P007-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng dahil sa\npagkatakot sa Shirk.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "92",
+          "target_page_as_printed": "215"
+        },
+        {
+          "block_id": "ANC-P007-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa isang nagsabi sa\niyo ng “Pagpalain ka nawa ng\nAllah.”",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "93",
+          "target_page_as_printed": "216"
+        },
+        {
+          "block_id": "ANC-P007-B08",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa hudyat ng mga\nmasasamang pangitain.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "94",
+          "target_page_as_printed": "217"
+        },
+        {
+          "block_id": "ANC-P007-B09",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag nakasakay\nng sasakyan o ng hayop.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "95",
+          "target_page_as_printed": "218"
+        },
+        {
+          "block_id": "ANC-P007-B10",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga panalangin sa pagla-\nlakbay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "96",
+          "target_page_as_printed": "219"
+        },
+        {
+          "block_id": "ANC-P007-B11",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa pagpasok sa\nisang bayan o siyudad.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "97",
+          "target_page_as_printed": "222"
+        },
+        {
+          "block_id": "ANC-P007-B12",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa pagpasok\nsa palingke.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "98",
+          "target_page_as_printed": "224"
+        },
+        {
+          "block_id": "ANC-P007-B13",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag ang iyong\nsinasakyan o sasakyan ay\nnag-uumpisa ng masira.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "99",
+          "target_page_as_printed": "225"
+        },
+        {
+          "block_id": "ANC-P007-B14",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng naglalakbay para",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "100",
+          "target_page_as_printed": "225"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 8,
+      "ancillary_page_id": "ANC-P008",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p008.png",
+      "source_image_sha256": "8fdc2456530e44704b2c313d262e6739c18ccd2a6671891fb19e0275c7db4d47",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P008-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "sa kanyang mga iniwan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": null
+        },
+        {
+          "block_id": "ANC-P008-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng mga iniwanan\npara sa naglakbay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "101",
+          "target_page_as_printed": "226"
+        },
+        {
+          "block_id": "ANC-P008-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang Takbeer at Tasbeeh sa\nPaglalakbay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "102",
+          "target_page_as_printed": "227"
+        },
+        {
+          "block_id": "ANC-P008-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang panalangin ng isang\nnaglalakbay sa umaga.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "103",
+          "target_page_as_printed": "228"
+        },
+        {
+          "block_id": "ANC-P008-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag bumaba o\nnagpahinga pansamantala\nhabang naglalakbay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "104",
+          "target_page_as_printed": "229"
+        },
+        {
+          "block_id": "ANC-P008-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin habang pauwi\nmula sa paglalakbay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "105",
+          "target_page_as_printed": "229"
+        },
+        {
+          "block_id": "ANC-P008-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag may\npangyayaring dumating na\nnakapagpasaya sa iyo o hindi\nmo nagustuhan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "106",
+          "target_page_as_printed": "231"
+        },
+        {
+          "block_id": "ANC-P008-B08",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga kahalagahan ng pagpa-\npadala ng salawat sa\nPropeta.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "107",
+          "target_page_as_printed": "232"
+        },
+        {
+          "block_id": "ANC-P008-B09",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga kahalagahan ng pagbati ng\n(Salam) kapayapaan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "108",
+          "target_page_as_printed": "235"
+        },
+        {
+          "block_id": "ANC-P008-B10",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Paano sagutin ang isang kafir\nkapag sinabihan ka ng\n“Assalamu alaykom”.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "109",
+          "target_page_as_printed": "237"
+        },
+        {
+          "block_id": "ANC-P008-B11",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag naring mo\nang tilaok ng manok o hiyaw\n(iyak) ng asno.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "110",
+          "target_page_as_printed": "237"
+        },
+        {
+          "block_id": "ANC-P008-B12",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag narinig mo\nang kahol ng aso sa gabi.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "111",
+          "target_page_as_printed": "238"
+        },
+        {
+          "block_id": "ANC-P008-B13",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin para sa isang\nnapagsabihan mo ng hindi\nmaganda (o insulto).",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "112",
+          "target_page_as_printed": "239"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 9,
+      "ancillary_page_id": "ANC-P009",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p009.png",
+      "source_image_sha256": "2a30af7dbfc1eb53ea7bb70c9401f085151d659c2df2c66633aa92b9b7ff839e",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P009-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Paano purihin ang Muslim ang\nkapwa Muslim.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "113",
+          "target_page_as_printed": "239"
+        },
+        {
+          "block_id": "ANC-P009-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang dapat sabihin ng isang\nMuslim kapag siya ay pinuri.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "114",
+          "target_page_as_printed": "241"
+        },
+        {
+          "block_id": "ANC-P009-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang Talbiyyah sa Hajj at\nUmrah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "115",
+          "target_page_as_printed": "241"
+        },
+        {
+          "block_id": "ANC-P009-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang pagbanggit ng “Allahu\nAkbar” kapag dumaan sa\nHajar Al-Aswad.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "116",
+          "target_page_as_printed": "242"
+        },
+        {
+          "block_id": "ANC-P009-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin sa pagitan ng Rukn\nAl-Yamani at Hajar Al-Aswad.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "117",
+          "target_page_as_printed": "243"
+        },
+        {
+          "block_id": "ANC-P009-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin habang nakatayo sa\nSafa at Marwah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "118",
+          "target_page_as_printed": "244"
+        },
+        {
+          "block_id": "ANC-P009-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalanagin sa Araw ng Arafah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "119",
+          "target_page_as_printed": "246"
+        },
+        {
+          "block_id": "ANC-P009-B08",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin kapag nasa\nMuzdalifa.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "120",
+          "target_page_as_printed": "247"
+        },
+        {
+          "block_id": "ANC-P009-B09",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang Takbir sa bawat pagbato\nsa Jamarat.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "121",
+          "target_page_as_printed": "248"
+        },
+        {
+          "block_id": "ANC-P009-B10",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag nabigla\no natuwa.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "122",
+          "target_page_as_printed": "249"
+        },
+        {
+          "block_id": "ANC-P009-B11",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag may\npangyayaring nakapagpasiya\nsa iyo.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "123",
+          "target_page_as_printed": "250"
+        },
+        {
+          "block_id": "ANC-P009-B12",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag\nmayroon kang nararam-\ndaman sa iyong katawan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "124",
+          "target_page_as_printed": "251"
+        },
+        {
+          "block_id": "ANC-P009-B13",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Panalangin ng sinumang may\npangamba na maaaring....",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "125",
+          "target_page_as_printed": "252"
+        },
+        {
+          "block_id": "ANC-P009-B14",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin sa panahon ng\npagkatakot.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "126",
+          "target_page_as_printed": "252"
+        },
+        {
+          "block_id": "ANC-P009-B15",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin kapag kakatay\nng hayop o hayop pang-alay.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "127",
+          "target_page_as_printed": "253"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 10,
+      "ancillary_page_id": "ANC-P010",
+      "page_type": "contents",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p010.png",
+      "source_image_sha256": "a4aefcf69393e0fd3101ac7909138ab67ccf5614d4166e0fa5cb4b333a72cd37",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P010-B01",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Ang babanggitin upang supilin\nang balak ng Shaytan.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "128",
+          "target_page_as_printed": "254"
+        },
+        {
+          "block_id": "ANC-P010-B02",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga pagsisisi (Istighfar) at\npaghingi ng kapatawaran\n(Taubat).",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "129",
+          "target_page_as_printed": "255"
+        },
+        {
+          "block_id": "ANC-P010-B03",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga kahalagahan ng Tasbih,\nTahmeed, Tahleel at Takbeer.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "130",
+          "target_page_as_printed": "259"
+        },
+        {
+          "block_id": "ANC-P010-B04",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Paano pinuri ng Propeta ang",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "131",
+          "target_page_as_printed": "270"
+        },
+        {
+          "block_id": "ANC-P010-B05",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Allah.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": "132",
+          "target_page_as_printed": "270"
+        },
+        {
+          "block_id": "ANC-P010-B06",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "Mga uri ng kabutihan at\nmagandang pakikitungo para\nsa lahat.",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": null
+        },
+        {
+          "block_id": "ANC-P010-B07",
+          "kind": "contents_entry",
+          "language": "fil",
+          "text": "BIBLIOGRAFIA",
+          "source_location": "contents table, in printed reading order",
+          "transcription_status": "visually_transcribed",
+          "chapter_number_as_printed": null,
+          "target_page_as_printed": "272"
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 11,
+      "ancillary_page_id": "ANC-P011",
+      "page_type": "author_foreword",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p011.png",
+      "source_image_sha256": "f01a0e3644c4db109a29892c71747964bbd269a761e7ebba17efa26fff346c2f",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P011-B01",
+          "kind": "basmala",
+          "language": "ar",
+          "text": "بسم الله الرحمن الرحيم",
+          "source_location": "top opening formula",
+          "transcription_status": "lexical_transcription_with_graphic_facsimile",
+          "qualification": "Unvocalized lexical transcription; extended letter shapes and the small superscript/diacritic strokes above Allah are not represented or certified.",
+          "text_representation": "unvocalized lexical projection; graphical mark arrangement retained in evidence",
+          "source_facsimile": "qc_v2/evidence/other/p011_basmala_1200.png",
+          "fully_vocalized_transcription_asserted": false,
+          "v1_transcription_state": {
+            "text": "بسم الله الرحمن الرحيم",
+            "transcription_status": "lexical_transcription_only",
+            "qualification": "Unvocalized lexical transcription; extended letter shapes and the small superscript/diacritic strokes above Allah are not represented or certified.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P011-B01",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 11,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P011-B01",
+            "reason": "The lexical formula is readable. Extended strokes and the small stacked Allah ligature details belong to this graphical rendering.",
+            "established_reading": "بسم الله الرحمن الرحيم",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Ancillary decorative formulas have an explicitly unvocalized lexical transcription plus a linked source facsimile. Do not label that lexical projection as a fully vocalized or pixel-identical transcription. No missing lexical character is established.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p011_400.png",
+              "qc_v2/evidence/other/p011_basmala_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999698+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p011_400.png": "69bb5103c26ea3e87948b481ef27365b9ceeafa41034235ea20f2c1232ef610e",
+              "qc_v2/evidence/other/p011_basmala_1200.png": "e71f3d6ca477cbb21ee965277c9f494508d2250b7a6bc516f2be243ff4ab69f0"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P011-B02",
+          "kind": "heading",
+          "language": "fil",
+          "text": "PANGUNAHING SALITA",
+          "source_location": "bold heading",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P011-B03",
+          "kind": "foreword",
+          "language": "fil",
+          "text": "Katotohanan, ang lahat ng pagpupuri\nay para sa Allah. Siya ay ating\npinupuri at ang Kanyang tulong ang\nating hinahangad. Hinahangad din\nnatin ang Kanyang kapatawaran at\ntayo ay nagpapakupkop sa Kanya\nmula sa kasamaan ng ating sarili at\nmula rin sa kasamaan ng ating mga\ngawa. Sinumang Kanyang binigyan\nng patnubay ay kailanman hindi\nmaliligaw, at sinumang Kanyang\npinayagang maligaw ay kailanman\nhindi makakakita ng patnubay. Ako\nay sumasaksi na walang diyos na\nmay karapatan upang sambahin\nmaliban sa Allah ng nag-iisa, walang\nkatambal, at ako ay sumasaksi na si\nMuhammad ay Kanyang Alipin at\nSugo, sumakanya nawa ang\nkapayapaan at pagpapala ng Allah, sa\nkanyang pamilya at mga kasamahan\nat para rin sa lahat ng sumunod sa",
+          "source_location": "body; continues on PDF page 12",
+          "transcription_status": "visually_transcribed",
+          "continues_to_pdf_page": 12
+        }
+      ],
+      "metadata_evidence": null,
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 12,
+      "ancillary_page_id": "ANC-P012",
+      "page_type": "author_foreword_continuation",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p012.png",
+      "source_image_sha256": "b2942aa316b3413e2f69d38ad9e49acdc1aed19a5ebef5cb8e240cbd85d5e5d0",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P012-B01",
+          "kind": "foreword_continuation",
+          "language": "fil",
+          "text": "kanila sa pananampalataya hanggang\nsa Araw ng Paghuhukom.",
+          "source_location": "first two lines",
+          "transcription_status": "visually_transcribed",
+          "continues_from_pdf_page": 11
+        },
+        {
+          "block_id": "ANC-P012-B02",
+          "kind": "foreword",
+          "language": "fil",
+          "text": "Ang aklat na ito ay maiksing kabuuan\nng una kong ginawa, Ath-Thikr wad-\nDua wal-Ilaj bir-Ruqa minal Kitab\nwas-Sunnah. Upang ito ay maging\nmaiksi at magaang dalhin kahit-saan\nay mga katagang panggunita lamang\nang aking napili upang ito ay lumiit.\nPara maisakatuparan ito, ay mga\nteksto lamang ng paggunita ang\naking isinulat sa halip na buong\nHadith. Itinakda ko na rin ang aking\nsarili sa pagbibigay ng isa o dalawang\nbatayan mula sa orihinal na aklat sa\nbawat Hadith. Sinumang may\ngustong alamin ang ibang mga\nkasamahang nag-ulat sa isang\npartikular na Hadith, o di kaya ay\nupang magkaroon ng kaalaman o\nimpormasyon kung saan ito naitala,\nay dapat na isangguni ito sa orihinal\nna gawa (Ath-Thikr wad-Dua wal-Ilaj\nbir-Ruqa minal Kitab was-Sunnah).",
+          "source_location": "main paragraph",
+          "transcription_status": "visually_transcribed"
+        }
+      ],
+      "metadata_evidence": {
+        "longer_work_as_printed": "Ath-Thikr wad-Dua wal-Ilaj bir-Ruqa minal Kitab was-Sunnah",
+        "compilation_scope_source": "The author explicitly says he selected remembrance texts instead of whole hadith and usually supplies one or two original-book sources. This is source editorial framing, not a newly attributed hadith."
+      },
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 13,
+      "ancillary_page_id": "ANC-P013",
+      "page_type": "author_foreword_conclusion",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p013.png",
+      "source_image_sha256": "17c07698b9ca57d892a3b5f3c9049b6f0fd4c1c93125ffcf5baeb7a38c73ade7",
+      "reviewer": "/root/qc_pages_001_092",
+      "blocks": [
+        {
+          "block_id": "ANC-P013-B01",
+          "kind": "foreword",
+          "language": "fil",
+          "text": "Dalangin ko sa Allah, ang\nMaluwalhati, Ang Makapangyarihan,\nat sa Magaganda Niyang Pangalan at\nKahanga-hangang mga Katangian\nupang tanggapin na ito· ay ginawa\npara lamang sa Kanya. Hinihiling ko\nsa Kanya na iparating sa akin ang\nmga benipisyo nito habang ako ay\nnabubuhay pa at hanggang sa aking\npagpanao. Sana ay magkaroon na rin\nng benipisyo ang mga taong\nnakakabasa rito, ang mga\nnagpalimbag rito o yaong mga taong\nnaging kasangkapan sa libreng\npamimigay sa aklat na ito.\nKatotohanan, Siya, (ang Allah)\nKaluwalhatian sa Kanya, ay may\nKakayahang makapangyari sa lahat\nng bagay. Nawa ang kapayapaan at\npagpapala ng Allah ay makamit ng\nating Propeta Muhammad at sa\nkanyang pamilya, Kasamahan at sa\nlahat ng sumunod sa kanila hanggang\nsa Araw ng Paghuhukom.",
+          "source_location": "main paragraph",
+          "transcription_status": "visually_transcribed_under_explicit_punctuation_convention",
+          "qualification": "The visible raised dot after ito is represented by U+00B7; its editorial function is not inferred. Source spellings benipisyo and pagpanao are retained.",
+          "normalization_note": "The printed mid-height dot after ito is represented by U+00B7; its editorial function is not inferred.",
+          "v1_transcription_state": {
+            "text": "Dalangin ko sa Allah, ang\nMaluwalhati, Ang Makapangyarihan,\nat sa Magaganda Niyang Pangalan at\nKahanga-hangang mga Katangian\nupang tanggapin na ito· ay ginawa\npara lamang sa Kanya. Hinihiling ko\nsa Kanya na iparating sa akin ang\nmga benipisyo nito habang ako ay\nnabubuhay pa at hanggang sa aking\npagpanao. Sana ay magkaroon na rin\nng benipisyo ang mga taong\nnakakabasa rito, ang mga\nnagpalimbag rito o yaong mga taong\nnaging kasangkapan sa libreng\npamimigay sa aklat na ito.\nKatotohanan, Siya, (ang Allah)\nKaluwalhatian sa Kanya, ay may\nKakayahang makapangyari sa lahat\nng bagay. Nawa ang kapayapaan at\npagpapala ng Allah ay makamit ng\nating Propeta Muhammad at sa\nkanyang pamilya, Kasamahan at sa\nlahat ng sumunod sa kanila hanggang\nsa Araw ng Paghuhukom.",
+            "transcription_status": "visually_transcribed_with_local_qualification",
+            "qualification": "A small raised dot-like source mark after ito on line 5 is rendered with ·; its precise glyph/function is unresolved. Source spellings benipisyo and pagpanao are retained.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P013-B01",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 13,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P013-B01",
+            "reason": "The source visibly contains a raised dot immediately after ito. Its purpose is not stated, but its presence is not ambiguous; retain it as printed. Source spellings benipisyo and pagpanao remain unchanged.",
+            "established_reading": "ito· ay",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Represent the visible mid-height dot by U+00B7 MIDDLE DOT. Its unassigned editorial function does not make its visible glyph unresolved.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p013_400.png",
+              "qc_v2/evidence/other/p013_dot_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:44:38.999702+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p013_400.png": "17eec49f4c2eaf30624ee0b5e95574444bf35e792a7a9d4f05fa5a8fbc5c5370",
+              "qc_v2/evidence/other/p013_dot_1200.png": "d4df563784072b31c65dfd7622610a018316f7a3f08b3b9b293dadc7093bf705"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "ANC-P013-B02",
+          "kind": "author_signature",
+          "language": "fil",
+          "text": "Sa’id bin Ali bin Wahaf Al-Qahtani",
+          "source_location": "bold italic signature",
+          "transcription_status": "visually_transcribed"
+        },
+        {
+          "block_id": "ANC-P013-B03",
+          "kind": "date",
+          "language": "fil",
+          "text": "Safar, 1409H",
+          "source_location": "last line",
+          "transcription_status": "visually_transcribed"
+        }
+      ],
+      "metadata_evidence": {
+        "signature_as_printed": "Sa’id bin Ali bin Wahaf Al-Qahtani",
+        "preface_date_as_printed": "Safar, 1409H",
+        "name_variant_note": "Wahaf is the spelling in this signature; page 2 instead prints WAHF. Both source occurrences are retained."
+      },
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 14,
+      "ancillary_page_id": "ANC-P014",
+      "page_type": "section_heading_only_quotes_are_in_primary_records",
+      "printed_page_as_seen": "14",
+      "source_image": "rendered/p014.png",
+      "source_image_sha256": "4c95bd7a297c0b3db1f4f396651a43edb0a9f24203aa6b20f0f258ce9c341e7a",
+      "reviewer": "/root",
+      "blocks": [
+        {
+          "block_id": "ANC-P014-B01",
+          "kind": "section_heading",
+          "language": "fil",
+          "text": "Mga Kahalagahan ng Paggugunita",
+          "source_location": "large calligraphic heading above first Quran quotation",
+          "transcription_status": "lexical_heading_read_font_shape_not_facsimile"
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 272,
+      "ancillary_page_id": "A-P272",
+      "page_type": "bibliography",
+      "printed_page_as_seen": "272",
+      "source_image": "rendered/p272.png",
+      "source_image_sha256": "5a132ae7f7154eda84657492642570ece1f165d0d26b71a4f246631d9c4c26fc",
+      "reviewer": "/root/qc_pages_185_276",
+      "blocks": [
+        {
+          "block_id": "ANC-P272-B01",
+          "kind": "bibliography",
+          "text": "BIBLIOGRAFIA\n\nAbu Dawud, Sunan\nAhmad bin Hanbal (d. 241 h.), Al-Musnad, 6\n    vols. Beirut: Al-Maktab Al-Islami.\nAl-Albani, Muhjammad Nasir Ad-Din.\n-Ahkam Al-Jana’iz\n-Irawa;ul-Ghalil\n-Mukhtasar Shama’il At-Tirmithi\n-Sahih Al-Adab Al-Mufrad\n-Sahih Al-Jami’ As-Saghir\n-Sahih At-Targhib wat-Tarhib\n-Sahih Sunan Ibn Majah\n-Sahih Sunan At-Tirmithi\n-Silsilatul-Ahadith As-Sahihah\nAsqalani Al-, see Ibn Hajar\nBaghawi, Abu Muhammad Al-Husain bin Mas’ud\n    Al-Farra, Al-, (d. 516), Mar’alam At-Tanzil\n    (Tafsir Al0Baghawi), in the margins of Tafsir\n    Al-Khazin, 4 vols. Bierut: Dar Al-Fikr, 1979.\nBaihaqi, Abu Bakr Ahmad bin Husain bin Ali, Al-,\n    (d. 458 h.),\n-As-Sunan Al-Kubra, 10 vols. Beirut: Dar Al-Fikr,\n    n.d.\n-Shu’ab Al-Iman\nBukhari, Abi ‘Abdullah Muhammad bin Isma’il bin\n    Ibrahim bin Al-Mughira bin Bardizbah Al-\n    Bukhari Al-Juffi, Al-, (d. 256 h.)",
+          "transcription_status": "visually_transcribed_with_qualification",
+          "qualifications": [
+            "The glyph after Al in Al0Baghawi is round: 0 versus capital O is not distinguishable from this source font; provisional 0 retained in text_as_read.",
+            "The heading is underlined in print; source typography is not reproduced."
+          ],
+          "source_errors_preserved": [
+            "Muhjammad",
+            "Irawa;ul-Ghalil",
+            "Mar’alam",
+            "Al0Baghawi (0/O uncertain)",
+            "Bierut",
+            "Al-Juffi"
+          ],
+          "source_character_uncertainties": [
+            {
+              "prefix": "Al",
+              "character": null,
+              "suffix": "Baghawi",
+              "candidates": [
+                "0",
+                "O"
+              ],
+              "provisional_text": "Al0Baghawi"
+            }
+          ],
+          "formatting": {
+            "heading": "BIBLIOGRAFIA",
+            "underlined": true
+          },
+          "v1_transcription_state": {
+            "text": "BIBLIOGRAFIA\n\nAbu Dawud, Sunan\nAhmad bin Hanbal (d. 241 h.), Al-Musnad, 6\n    vols. Beirut: Al-Maktab Al-Islami.\nAl-Albani, Muhjammad Nasir Ad-Din.\n-Ahkam Al-Jana’iz\n-Irawa;ul-Ghalil\n-Mukhtasar Shama’il At-Tirmithi\n-Sahih Al-Adab Al-Mufrad\n-Sahih Al-Jami’ As-Saghir\n-Sahih At-Targhib wat-Tarhib\n-Sahih Sunan Ibn Majah\n-Sahih Sunan At-Tirmithi\n-Silsilatul-Ahadith As-Sahihah\nAsqalani Al-, see Ibn Hajar\nBaghawi, Abu Muhammad Al-Husain bin Mas’ud\n    Al-Farra, Al-, (d. 516), Mar’alam At-Tanzil\n    (Tafsir Al0Baghawi), in the margins of Tafsir\n    Al-Khazin, 4 vols. Bierut: Dar Al-Fikr, 1979.\nBaihaqi, Abu Bakr Ahmad bin Husain bin Ali, Al-,\n    (d. 458 h.),\n-As-Sunan Al-Kubra, 10 vols. Beirut: Dar Al-Fikr,\n    n.d.\n-Shu’ab Al-Iman\nBukhari, Abi ‘Abdullah Muhammad bin Isma’il bin\n    Ibrahim bin Al-Mughira bin Bardizbah Al-\n    Bukhari Al-Juffi, Al-, (d. 256 h.)",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": null,
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-ANC-P272-B01",
+            "disposition": "unresolved_no_text_change",
+            "pdf_page": 272,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "ANC-P272-B01",
+            "reason": "The round glyph after Al has no internal slash or other unique discriminating feature. It resembles the printed zero in 10 on the same page, but that comparison alone does not establish whether this round letterform was intended as zero or capital O. Preserve source spelling as provisional and identify this single character as unknown; the underlined heading is only a layout fact.",
+            "established_reading": null,
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "One round character between Al and Baghawi",
+                "candidates": [
+                  "0",
+                  "O"
+                ],
+                "baseline_provisional": "0",
+                "reason": "Round outline without a unique discriminating stroke."
+              }
+            ],
+            "transcription_convention": "The heading underline is recorded as formatting, not an unresolved textual character.",
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p272_400.png",
+              "qc_v2/evidence/other/p272_round_glyph_1200.png",
+              "qc_v2/evidence/other/p272_zero_comparison_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335431+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p272_400.png": "874bfc73387a84db8136ebf2facc9d373a88fb0f49a4b421359a5172c4779a56",
+              "qc_v2/evidence/other/p272_round_glyph_1200.png": "ed1ad8c765b936833270375456d691cef05b82adeecc42f249360d440314f10d",
+              "qc_v2/evidence/other/p272_zero_comparison_1200.png": "f15964d44c1f7034cfb0d5126c17daa90ff83d832f8ffe837da73004135613ea"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 273,
+      "ancillary_page_id": "A-P273",
+      "page_type": "bibliography",
+      "printed_page_as_seen": "273",
+      "source_image": "rendered/p273.png",
+      "source_image_sha256": "d747683dbdd04db773b5555aa238f1331f8d442958d402e16b2b6effe68f64e5",
+      "reviewer": "/root/qc_pages_185_276",
+      "blocks": [
+        {
+          "block_id": "ANC-P273-B01",
+          "kind": "bibliography",
+          "text": "-Sahih Al-Bukhari, 8 vols. Iatanbul: Maktabah\n    Al-Islamiyah, 1981.\n-Al-Adab Al-Mufrad\nHaithami, Al-Majma’ Az-Zawa’id\nHakim, Al-Hafidh Muhammad bin Abdullah bin\n    Muhammad, Al-, (d. 404 h.)\nAl-Mustadrak, 4 vols. Beirut: Dar Al-Kitab Al-\n    Arabi, n.d.\nIbn Al-Athir, see Shaibani, Al-,\nIbn As-Sunni, ‘Amal Al-Yawm wal-Lailah\nIbn Baz, Abdul Aziz, Tuhfatul Akhyar\nIbn Hajar Al-Asqalani, Ahmad bin ‘Ali (d. 852\n    h.), Fath Al-Bari: Sharh Sahih Al-Bukhari, 13\n    vols, Beirut: Mustafa Al-Halabi, n.d.\nIbn Hibban, Mawarid\nIbn Hibban, Abu Hatim Muhammad bin Hibban\n    Al-Busti (d. 354), Sahih Ibn Hibban, Beirut:\n    Mua’assasah Al-Risalah, 1984.\nIbn Khuzaimah\nIbn Majah, Sahih Sunan Ibn Majah, (ed.\n    Muhammad Nasir Ad-Din Al-Albani, Riyadh:\n    1408/1988).\nIbn Majah, Al-Hafidh Abi Abdullah Muhammad\n    bin Yazid Al-Qazwini (d 283 h.), Sunan Ibn\n    Majah, 4 Vols. Riyadh: Sharikah Al-Tiba’ah\n    Al-’Arabiyah Al-Sa’udiyyah, 1404/1984.\nIbn Qayyim Al-Jawziyyah, Abi ‘Abdullah\n    Muhammad bin Abi Bakr (d. 751 h.)\n-Al-Wabil As-Sayib",
+          "transcription_status": "visually_transcribed_with_qualification",
+          "qualifications": [],
+          "source_errors_preserved": [
+            "Iatanbul",
+            "Mua’assasah",
+            "d 283 h."
+          ]
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 274,
+      "ancillary_page_id": "A-P274",
+      "page_type": "bibliography",
+      "printed_page_as_seen": "274",
+      "source_image": "rendered/p274.png",
+      "source_image_sha256": "773e106f1b4f10ee127589f75de18b1ff210fc78fbbb5fe9a86bc8229b2672f2",
+      "reviewer": "/root/qc_pages_185_276",
+      "blocks": [
+        {
+          "block_id": "ANC-P274-B01",
+          "kind": "bibliography",
+          "text": "-Zad Al-Ma’ad (Al-Arnout & Arnout, ed)\nIbn Qudamah, Muwaffaq Ad-Din Abi Muhammad\n    Abdullah bin Ahmad bin Muhammad (d. 630\n    h.) Kitab Al-Mughni, 15 vols. Hijr: Cairo,\n    1990.\nMalik bin Anas, Abi Abdullah Malik bin Anas bin\n    Abi ‘Aamir bin ‘Amr Al-Asbahi (d. 179 h.), Al-\n    Muwatta.\nMuslim, Abi Al-Husain Muslim bin Al-Hajjaj Al-\n    Qushairi An-Nisaburi (d. 261 h.), Sahih\n    Muslim, 5 voils. Beirut: Dar Ihya Al-Turath\n    Al-’arabi, n.d.\nNasai, Abi ‘Abd Al-Rahman Ahmad bin Shu’aib\n    bin ‘Ali bin Bahr, Al-, (d. 303 h.), Sunan Al-\n    Nasai, 8 vols. Beirut: Dar Al-Kitab Al-Arabi,\n    n.d.\n-Sahih Sunan An-Nasa’i\n-‘Amal Al-Yawm wal-Layl\nNawawi, Abi Zakariya Yahya bin Sharaf bin muri\n    bin Hasan bin Husain bin Jum’a bin Hizam Al-\n    Hizami Al-Haurani Muhi Al-Din, Al-, (d. 676\n    h.), Kitabul-A’thkar, Beirut: Dar Al-Fikr, n.d.\nShaibani, Ibn Al-Athir Al-Muhaddith\nMubarak bin Muhammad, Al-, Jami’ Al-Usool li-\n    Ahadith Ar-Rasool (ed. Al-Arnout).\nTirmithi, Abi Isa Muhammad bin Isa bin Saurah,\n    At-, (d. 279 h.), Al-Jami’a As-Sahih, 5 vols.\n    Beirut: Dar Al-Fikr, 1983.\nSunan At-Tirmithi.",
+          "transcription_status": "visually_transcribed_with_qualification",
+          "qualifications": [],
+          "source_errors_preserved": [
+            "voils.",
+            "muri",
+            "Arnout"
+          ]
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 275,
+      "ancillary_page_id": "A-P275",
+      "page_type": "Arabic title and credits",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p275.png",
+      "source_image_sha256": "10e1d76c6717d0b7855c523fde2b3b62582540f5b4763e58ca2dff6ee595c66b",
+      "reviewer": "/root/qc_pages_185_276",
+      "blocks": [
+        {
+          "block_id": "A-P275-B01",
+          "kind": "Arabic title and credits",
+          "text": "حصن المسلم",
+          "source_location": "ornate title x320–740 y240–440",
+          "transcription_status": "lexical_transcription_with_graphic_facsimile",
+          "qualification": "Lexical title read; stylized scattered vowel/ornamental marks are not securely assignable to base letters. No complete vocalized Unicode title certified.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "text_representation": "unvocalized lexical title; full decorative arrangement retained in evidence",
+          "source_facsimile": "qc_v2/evidence/other/p275_ornate_title_1200.png",
+          "fully_vocalized_transcription_asserted": false,
+          "v1_transcription_state": {
+            "text": "حصن المسلم",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Lexical title read; stylized scattered vowel/ornamental marks are not securely assignable to base letters. No complete vocalized Unicode title certified.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P275-B01",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 275,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P275-B01",
+            "reason": "The ornate title clearly reads حصن المسلم. Repeated wing-like and curved strokes form an ornamental arrangement; lexical title identity is established independently of assigning every ornament to a Unicode combining mark.",
+            "established_reading": "حصن المسلم",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Use an unvocalized lexical title plus a source facsimile for the complete ornamented typography. This is not a fully vocalized Unicode reconstruction; no unresolved lexical character is asserted.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p275_400.png",
+              "qc_v2/evidence/other/p275_ornate_title_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335447+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p275_400.png": "0806ac8e94bfef8d0fb6e984f406ad8c09216eaf6c06f82ff577bbe97849fad8",
+              "qc_v2/evidence/other/p275_ornate_title_1200.png": "4a6354e88fa4bd7aba11f7aa53aa218515dda6acb8135cb9aeae293346ca9670"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P275-B02",
+          "kind": "Arabic title and credits",
+          "text": "من أذكار الكتاب والسنة\nتأليف\nسعيد بن علي بن وهف القحطاني",
+          "source_location": "x215–860 y485–810",
+          "transcription_status": "visually_transcribed",
+          "qualification": null,
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null
+        },
+        {
+          "block_id": "A-P275-B03",
+          "kind": "Arabic title and credits",
+          "text": "ترجمه باللغة الفلبينية\nعبد الخالق شريف شريفادا\nالداعية بالمكتب التعاوني بالسلي\nراجعه\nداود مكاء أنجني",
+          "source_location": "x225–850 y905–1395",
+          "transcription_status": "visually_transcribed",
+          "qualification": "Names transcribed in Arabic exactly as visually read, not normalized to Roman title-page spelling. Fine isolated strokes over ta-marbuta in اللغة/الفلبينية/الداعية are source font dot forms, not inferred added vowels.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "normalization_note": "Arabic credit spellings retained independently of Roman spellings. Short font-shaped dot strokes on ta marbuta are represented by ة, not extra harakat.",
+          "v1_transcription_state": {
+            "text": "ترجمه باللغة الفلبينية\nعبد الخالق شريف شريفادا\nالداعية بالمكتب التعاوني بالسلي\nراجعه\nداود مكاء أنجني",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Names transcribed in Arabic exactly as visually read, not normalized to Roman title-page spelling. Fine isolated strokes over ta-marbuta in اللغة/الفلبينية/الداعية are source font dot forms, not inferred added vowels.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P275-B03",
+            "disposition": "resolved_retained_source_text",
+            "pdf_page": 275,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P275-B03",
+            "reason": "Fresh enlargement confirms all source words and Arabic names as supplied. The short horizontal forms above ta marbuta are the font treatment of its two dots; they are not extra fatha marks. No Roman-title-page normalization is used.",
+            "established_reading": "ترجمه باللغة الفلبينية\nعبد الخالق شريف شريفادا\nالداعية بالمكتب التعاوني بالسلي\nراجعه\nداود مكاء أنجني",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Encode the lexical letters and dots through ordinary Arabic base characters; do not add vowel marks for the font-shaped dot strokes.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p275_400.png",
+              "qc_v2/evidence/other/p275_translator_1200.png",
+              "qc_v2/evidence/other/p275_corrector_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335452+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p275_400.png": "0806ac8e94bfef8d0fb6e984f406ad8c09216eaf6c06f82ff577bbe97849fad8",
+              "qc_v2/evidence/other/p275_translator_1200.png": "5e7d614eb5fe23a9295ace3eb098610763ebe7b0d904b5a385c197cac2f222ca",
+              "qc_v2/evidence/other/p275_corrector_1200.png": "7668610ba16111b2f6da12321f623ac5cfa37cdad2c2e6869d80341ba5567fff"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    },
+    {
+      "pdf_page": 276,
+      "ancillary_page_id": "A-P276",
+      "page_type": "back cover",
+      "printed_page_as_seen": null,
+      "source_image": "rendered/p276.png",
+      "source_image_sha256": "c6ffdf09e8881a66eb80bd713f00a32302c2e56c6feae662a2a7a7ac50d82995",
+      "reviewer": "/root/qc_pages_185_276",
+      "blocks": [
+        {
+          "block_id": "A-P276-B01",
+          "kind": "back cover",
+          "text": null,
+          "source_location": "small top-left cartouche x150–450 y50–140",
+          "transcription_status": "visually_transcribed_with_qualification",
+          "qualification": "Low-resolution raster: first word cannot be read with sufficient confidence. Candidate not established transcription.",
+          "candidate_reading_not_established": "كتب الجاليات",
+          "candidate_numeric_code_not_established": null,
+          "readable_fragment": "الجاليات",
+          "source_character_uncertainties": [
+            {
+              "location": "first word",
+              "verified_text": null,
+              "candidate": "كتب"
+            },
+            {
+              "location": "stacked icon forms",
+              "verified_text": null
+            }
+          ],
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Low-resolution raster: first word cannot be read with sufficient confidence. Candidate not established transcription.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B01",
+            "disposition": "partially_resolved_with_local_unknowns",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B01",
+            "reason": "الجاليات is readable in the cartouche, but the first word and the small stacked forms within the adjacent icon do not have enough original pixels for complete transcription. The candidate كتب الجاليات remains a candidate only.",
+            "established_reading": {
+              "readable_word": "الجاليات"
+            },
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "First cartouche word to the right of الجاليات",
+                "candidate": "كتب",
+                "reason": "Merged original color strokes."
+              },
+              {
+                "text": null,
+                "location": "Stacked forms inside adjacent cartouche icon",
+                "reason": "Cannot establish whether these include text or numerals."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_400.png",
+              "qc_v2/evidence/other/p276_cartouche_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335455+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_400.png": "0bc36717740b6064db8281c1e5e7b82ee79dd21aeeda00f1ef33d987dd901f63",
+              "qc_v2/evidence/other/p276_cartouche_1200.png": "cbfcfbc9b5bcabaffd9cbb8762663dbb7a70247acab73dd1e1c77998e161e334"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B02",
+          "kind": "back cover",
+          "text": null,
+          "source_location": "circular upper-right office logo x1010–1190 y120–325",
+          "transcription_status": "visually_transcribed_with_qualification",
+          "qualification": "Microtext around circular seal illegible; not inferred from footer.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "v1_transcription_state": {
+            "text": null,
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Microtext around circular seal illegible; not inferred from footer.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B02",
+            "disposition": "unresolved_no_text_change",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B02",
+            "reason": "Enlargement confirms that the seal microtext has collapsed into color blocks. Do not derive its wording from the clearer office footer.",
+            "established_reading": null,
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Circular seal microtext",
+                "reason": "Insufficient original pixel information."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_emblem_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335459+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_emblem_1200.png": "da1d7379b0529150c6f725b9c184351da27e9904ece51bcf457815e34b21f0c2"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B03",
+          "kind": "back cover",
+          "text": "حصن المسلم\nمن أذكار الكتاب والسنة\nتأليف\nسعيد بن علي بن وهف القحطاني",
+          "source_location": "main cover title/author x180–1170 y320–890",
+          "transcription_status": "lexical_transcription_with_graphic_facsimile",
+          "qualification": "Lexical text legible. Fine decorative title-font vowel marks/outline details cannot be completely certified from this low-resolution raster.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "source_facsimile": "qc_v2/evidence/other/p276_title_1200.png",
+          "fully_vocalized_transcription_asserted": false,
+          "v1_transcription_state": {
+            "text": "حصن المسلم\nمن أذكار الكتاب والسنة\nتأليف\nسعيد بن علي بن وهف القحطاني",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Lexical text legible. Fine decorative title-font vowel marks/outline details cannot be completely certified from this low-resolution raster.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B03",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B03",
+            "reason": "All lexical title, subtitle and author words are legible and match the baseline. The colored outline and dimensional title design are graphical treatment, not additional lexical text.",
+            "established_reading": "حصن المسلم\nمن أذكار الكتاب والسنة\nتأليف\nسعيد بن علي بن وهف القحطاني",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Preserve lexical Arabic in text and the complete colored outline/title typography in the linked source facsimile. Do not infer additional harakat from outline offsets.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_400.png",
+              "qc_v2/evidence/other/p276_title_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335461+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_400.png": "0bc36717740b6064db8281c1e5e7b82ee79dd21aeeda00f1ef33d987dd901f63",
+              "qc_v2/evidence/other/p276_title_1200.png": "1afac19a450ac7cabaa99d946653e9d8ed170ba1ffd15243b7fb34c8dd8fe296"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B04",
+          "kind": "back cover",
+          "text": "ترجمة\nقسم الجاليات بالمكتب",
+          "source_location": "x490–865 y1310–1445",
+          "transcription_status": "visually_transcribed",
+          "qualification": null,
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null
+        },
+        {
+          "block_id": "A-P276-B05",
+          "kind": "back cover",
+          "text": "الطبعة الثالثة\nفلبيني\n٠٤٠١٠١٥",
+          "source_location": "edition strip x490–1150 y1515–1580",
+          "transcription_status": "visually_transcribed",
+          "qualification": "Printed code ٠٤٠١٠١٥ is resolved; the edition is third. The code is not interpreted as a date.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "numeric_code_as_printed": "٠٤٠١٠١٥",
+          "prior_candidate_retained_in_audit": "٠٤٠٦٠١٥",
+          "publication_date_inferred": null,
+          "v1_transcription_state": {
+            "text": "الطبعة الثالثة\nفلبيني",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Numeric code visually reads ٠٤٠٦٠١٥ but blurred small digits remain provisional; no date interpretation. Edition ordinal is third.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": "٠٤٠٦٠١٥"
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B05",
+            "disposition": "resolved_with_source_transcription",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B05",
+            "reason": "The edition statement and language label are clear. Direct comparison of this code with the same cover telephone digits distinguishes its fourth digit as narrow ١, like its sixth digit; the telephone ٦ has a substantially broader horizontal top. Read ٠٤٠١٠١٥, correcting the former unestablished candidate ٠٤٠٦٠١٥. Front-cover 0401015 independently corroborates this reading but was not used to supply missing digits.",
+            "established_reading": "الطبعة الثالثة\nفلبيني\n٠٤٠١٠١٥",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Record the string as a printed publication/catalogue code, not a calendar date; retain Arabic-Indic digits and logical text ordering.",
+            "confidence": 0.96,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_edition_1200.png",
+              "qc_v2/evidence/other/p276_code_digits_1200.png",
+              "qc_v2/evidence/other/p276_phone_digits_1200.png",
+              "qc_v2/evidence/other/p001_code_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335464+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_edition_1200.png": "ceecf13b3a821d4850b649a3dfcfec5f48cffc486ac6ad43331f78a6949644a6",
+              "qc_v2/evidence/other/p276_code_digits_1200.png": "57ae157570e8cb1a5548a72065168a1bc4bc4dd6f4a51b5741f36520aa0d618a",
+              "qc_v2/evidence/other/p276_phone_digits_1200.png": "93e0af132cdd6d33564f3223843649fe30cc7d5ddf218932ca871c9032c27aba",
+              "qc_v2/evidence/other/p001_code_1200.png": "4804be5c348b2c185c9b064e538e027d1d2e5da936cbebdc23b95f0b15405d87"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B06",
+          "kind": "back cover",
+          "text": "المكتب التعاوني للدعوة والإرشاد وتوعية الجاليات بالسلي",
+          "source_location": "calligraphic issuing-office footer x160–1175 y1590–1675",
+          "transcription_status": "lexical_transcription_with_graphic_facsimile",
+          "qualification": "Lexical office name legible; decorative marks do not establish every Unicode haraka.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "source_facsimile": "qc_v2/evidence/other/p276_office_1200.png",
+          "fully_vocalized_transcription_asserted": false,
+          "v1_transcription_state": {
+            "text": "المكتب التعاوني للدعوة والإرشاد وتوعية الجاليات بالسلي",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Lexical office name legible; decorative marks do not establish every Unicode haraka.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B06",
+            "disposition": "resolved_by_explicit_transcription_convention",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B06",
+            "reason": "The full office name is lexically legible. Its thin calligraphic outlines and elongated connections are retained in the evidence rather than expanded into guessed vowel marks.",
+            "established_reading": "المكتب التعاوني للدعوة والإرشاد وتوعية الجاليات بالسلي",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Store the ordinary unvocalized lexical Arabic office name and link the complete calligraphic source image; ornamental strokes are not separate undecided letters.",
+            "confidence": 0.99,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_400.png",
+              "qc_v2/evidence/other/p276_office_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335468+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_400.png": "0bc36717740b6064db8281c1e5e7b82ee79dd21aeeda00f1ef33d987dd901f63",
+              "qc_v2/evidence/other/p276_office_1200.png": "87fdbfad3beff69276bd4e918d9ab8e396f3516a9a64fd44eed5ff05d6e539ef"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B07",
+          "kind": "back cover",
+          "text": "ص-ب/١٤١٩ الرياض/١١٤٢١ هاتف/٢٤١٠٦١٥ ناسوخ/٢٤١٤٤٨٨-٢٢٢",
+          "source_location": "contact line x160–1175 y1680–1730",
+          "transcription_status": "visually_transcribed_under_explicit_direction_convention",
+          "qualification": "Contact digits and separators are resolved. The ص-ب abbreviation contains a dash; fax fields use the explicit logical/physical direction convention.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "contact_fields_as_read": {
+            "post_box": "١٤١٩",
+            "Riyadh_code": "١١٤٢١",
+            "telephone": "٢٤١٠٦١٥",
+            "fax": "٢٤١٤٤٨٨",
+            "fax_extension": "٢٢٢"
+          },
+          "fax_physical_left_to_right": "٢٢٢-٢٤١٤٤٨٨",
+          "numeric_date_inference": null,
+          "v1_transcription_state": {
+            "text": "ص.ب/١٤١٩ الرياض/١١٤٢١ هاتف/٢٤١٠٦١٥ ناسوخ/٢٤١٤٤٨٨-٢٢٢",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Small blurred digits provisionally read as shown. Exact dot/colon and separator positioning not certain; fax extension order rendered in logical text order rather than physical RTL placement.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B07",
+            "disposition": "resolved_with_text_correction_and_direction_convention",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B07",
+            "reason": "The source digits and slash separators are distinguishable. A short horizontal dash separates ص and ب, rather than a full stop. The fax extension is physically left of the fax number; keep the documented logical contact-field representation and record physical placement explicitly.",
+            "established_reading": "ص-ب/١٤١٩ الرياض/١١٤٢١ هاتف/٢٤١٠٦١٥ ناسوخ/٢٤١٤٤٨٨-٢٢٢",
+            "unresolved_characters_or_spans": [],
+            "transcription_convention": "Logical Arabic contact fields are stored in reading order. Numeral strings are retained exactly. Physical fax left-to-right layout is ٢٢٢-٢٤١٤٤٨٨; semantic number and extension are recorded separately, without claiming Unicode plain text reproduces the physical bidirectional layout.",
+            "confidence": 0.98,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_contacts_1200.png",
+              "qc_v2/evidence/other/p276_phone_digits_1200.png",
+              "qc_v2/evidence/other/p276_postal_digits_1200.png",
+              "qc_v2/evidence/other/p276_fax_digits_1200.png",
+              "qc_v2/evidence/other/p276_pobox_label_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335474+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_contacts_1200.png": "a2c38070d09038d2f1364e04ba6501cdb702852fe4559e1cb7fbbce74ab616d4",
+              "qc_v2/evidence/other/p276_phone_digits_1200.png": "93e0af132cdd6d33564f3223843649fe30cc7d5ddf218932ca871c9032c27aba",
+              "qc_v2/evidence/other/p276_postal_digits_1200.png": "82a8246bd4f24061eba2e51d718466464c1ba19abe25d049ed2c3b7178dbc22e",
+              "qc_v2/evidence/other/p276_fax_digits_1200.png": "8c98c6bf6be3084b17e34d289d15047e6281373777e889013cd8192507cf345b",
+              "qc_v2/evidence/other/p276_pobox_label_1200.png": "d82121a6e4f5245705b8e0d97ea4b790bcfb1e1b3b0859c8faa4b1bd27241a14"
+            },
+            "resolved_without_remaining_character_unknowns": true
+          },
+          "character_perfect_certified": false
+        },
+        {
+          "block_id": "A-P276-B08",
+          "kind": "back cover",
+          "text": "البريد الالكتروني sulay@w.cn",
+          "source_location": "bottom email x460–895 y1735–1785",
+          "transcription_status": "partially_transcribed_with_local_unknown",
+          "qualification": "Email letters sulay@w.cn are resolved. Only the printed label/email separator remains unknown (null); no hamza is added to الالكتروني.",
+          "candidate_reading_not_established": null,
+          "candidate_numeric_code_not_established": null,
+          "source_tokens": [
+            {
+              "text": "البريد الالكتروني",
+              "role": "label"
+            },
+            {
+              "text": null,
+              "role": "printed_separator",
+              "candidates": [
+                ":",
+                ";",
+                "؛"
+              ]
+            },
+            {
+              "text": "sulay@w.cn",
+              "role": "email"
+            }
+          ],
+          "source_character_uncertainties": [
+            {
+              "location": "label/email separator",
+              "verified_text": null
+            }
+          ],
+          "email_as_read": "sulay@w.cn",
+          "former_email_cn_uncertainty_resolved": true,
+          "v1_transcription_state": {
+            "text": "البريد الالكتروني sulay@w.cn",
+            "transcription_status": "visually_transcribed_with_qualification",
+            "qualification": "Email reads sulay@w.cn; final small cn is low-resolution and remains provisional. Hamza is not visibly printed on الالكتروني and has not been supplied.",
+            "unresolved_reason": null,
+            "candidate_numeric_code_not_established": null
+          },
+          "continuation_decision": {
+            "finding_id": "ANC-UNC-A-P276-B08",
+            "disposition": "partially_resolved_with_local_unknowns",
+            "pdf_page": 276,
+            "record_id": null,
+            "segment_id": null,
+            "ancillary_block_id": "A-P276-B08",
+            "reason": "The complete email letters sulay@w.cn are now distinct, including cn. The Arabic label is legible and has no added hamza. However, a small two-part punctuation mark is visible between the label and the email; its original pixels do not distinguish colon from semicolon confidently. The baseline plain-text omission of this separator must not be treated as fully exact.",
+            "established_reading": {
+              "label": "البريد الالكتروني",
+              "email": "sulay@w.cn"
+            },
+            "unresolved_characters_or_spans": [
+              {
+                "text": null,
+                "location": "Printed punctuation immediately between Arabic label and email address",
+                "candidates": [
+                  ":",
+                  ";",
+                  "؛"
+                ],
+                "reason": "Tiny two-part mark with fused/elongated lower stroke; mark identity not securely established."
+              }
+            ],
+            "transcription_convention": null,
+            "confidence": null,
+            "evidence_files": [
+              "qc_v2/evidence/other/p276_email_1200.png",
+              "qc_v2/evidence/other/p276_email_separator_1200.png"
+            ],
+            "source_pdf_sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07",
+            "reviewer": "/root/qc_pages_185_276",
+            "review_round": "v2_targeted_continuation_not_final_independent_evaluation",
+            "actually_viewed": true,
+            "reviewed_at_utc": "2026-11-10T14:51:40.335480+00:00",
+            "evidence_sha256": {
+              "qc_v2/evidence/other/p276_email_1200.png": "1918d4f35995ff69db3b38e71167efbeca5f41899bf0c0b7e61a269fdff771f5",
+              "qc_v2/evidence/other/p276_email_separator_1200.png": "49e1675d80299d87d8ea1c1981cfd84832d3ff96ebe9d1a2ca5bac36bc0f4f0a"
+            },
+            "resolved_without_remaining_character_unknowns": false
+          },
+          "character_perfect_certified": false
+        }
+      ],
+      "character_perfect_certified": false,
+      "new_hadith_occurrence": false
+    }
+  ],
+  "continuation": {
+    "version": "v2",
+    "status": "PARTIAL",
+    "scope": "Assigned ancillary findings only; source facsimiles remain authoritative for unreadable/ornamental detail.",
+    "final_independent_pro_gate": "NOT_RUN"
+  }
+}

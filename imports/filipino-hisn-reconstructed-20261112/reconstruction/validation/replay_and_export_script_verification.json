@@ -1,0 +1,65 @@
+{
+  "scope": "Executable replay/export smoke verification only; not independent semantic review",
+  "actual_check_count": 14,
+  "passed": 14,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "delivered_patch_script_executes",
+      "passed": true
+    },
+    {
+      "name": "patch_script_reproduces_exact_corrected_JSON_bytes",
+      "passed": true
+    },
+    {
+      "name": "delivered_metadata_patch_script_executes",
+      "passed": true
+    },
+    {
+      "name": "metadata_patch_reproduces_exact_bytes",
+      "passed": true
+    },
+    {
+      "name": "delivered_export_script_executes",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:data/components.csv",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:data/components.jsonl",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:data/corrected_all_records.csv",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:data/corrected_all_records.jsonl",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:data/records_export_envelope.json",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:partitions/attribution_unresolved_HOLD.json",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:partitions/hisn_hadith_dhikr_context_HOLD.json",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:partitions/independent_non_prophetic_HOLD.json",
+      "passed": true
+    },
+    {
+      "name": "exact_export_bytes:partitions/quran_and_author_only_HOLD.json",
+      "passed": true
+    }
+  ],
+  "separate_independent_final_evaluation": "NOT_RUN"
+}

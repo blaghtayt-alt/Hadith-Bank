@@ -1,0 +1,51 @@
+{
+  "source_of_expectation": "Lost original v2 report as reproduced by user; not verified original-v2 bytes.",
+  "expected_record_partitions": {
+    "hisn_hadith_dhikr_context": 295,
+    "independent_non_prophetic": 15,
+    "quran_and_author_only": 8,
+    "attribution_unresolved": 5
+  },
+  "actual_record_partitions": {
+    "quran_and_author_only": 6,
+    "hisn_hadith_dhikr_context": 298,
+    "independent_non_prophetic": 14,
+    "attribution_unresolved": 5
+  },
+  "deltas": {
+    "hisn_hadith_dhikr_context": 3,
+    "independent_non_prophetic": -1,
+    "quran_and_author_only": -2,
+    "attribution_unresolved": 0
+  },
+  "expected_total": 323,
+  "actual_total": 323,
+  "expected_unresolved_ids": [
+    "N015",
+    "N083",
+    "N214",
+    "U-P100-01",
+    "U-P114-01"
+  ],
+  "actual_unresolved_ids": [
+    "N015",
+    "N083",
+    "N214",
+    "U-P100-01",
+    "U-P114-01"
+  ],
+  "unresolved_id_match": true,
+  "reported_original_v2_wording_changes": 0,
+  "actual_reconstruction_wording_changes": 0,
+  "reported_original_v2_mechanical_check_count": 474,
+  "current_check_count": "See validation/mechanical_validation.json; not forced to474.",
+  "reported_original_v2_visual_images_reopened": 16,
+  "actual_reconstruction_distinct_pages_reopened": 36,
+  "decision_differences_documented": [
+    "N004 and N235: Quran text remains Quran, but whole records retain explicit archived Prophetic recitation associations.",
+    "N204: singular editorial adaptation remains linked to Aishah reply inside the sheep-distribution narration; no new Prophetic speech/approval is asserted."
+  ],
+  "attribution_of_count_delta_to_lost_original": "The complete original-v2 per-record routing is unavailable. These three policy decisions explain the reconstruction approach and are potential reasons for the aggregate delta; they are NOT a verified item-by-item diff against unavailable v2.",
+  "no_counts_forced": true,
+  "not_byte_identical_recovery": true
+}

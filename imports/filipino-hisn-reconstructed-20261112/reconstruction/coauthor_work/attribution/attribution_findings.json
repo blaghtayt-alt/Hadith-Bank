@@ -1,0 +1,921 @@
+{
+  "artifact_type": "COAUTHOR_TARGETED_ATTRIBUTION_RECONSTRUCTION",
+  "scope_record_ids": [
+    "N007",
+    "N118",
+    "N160",
+    "N161",
+    "N177",
+    "N225",
+    "N015",
+    "N083",
+    "U-P100-01",
+    "U-P114-01",
+    "N214"
+  ],
+  "reconstructed_from": "Exact v1 archive and current user-supplied reconstruction instructions; no original v2 bytes inspected.",
+  "scope_record_count": 11,
+  "actual_existing_images_visually_inspected": 10,
+  "newly_rendered_pages": 0,
+  "source_wording_changes": 0,
+  "proposed_partition_counts_within_this_scope": {
+    "independent_non_prophetic_HOLD": 6,
+    "attribution_unresolved_HOLD": 5
+  },
+  "prior_v2_claim_comparison": "The six specifically named independent cases and five specifically named unresolved cases are supported with stated limitations. This is not confirmation of full-package partition totals or original-v2 byte identity.",
+  "coverage_limits": "Targeted readable loci and selected retained Arabic witness passages only. Historical all276-page review is inherited, not newly performed. No fresh web retrieval or authenticity review.",
+  "separate_independent_final_evaluation": "NOT_RUN",
+  "generated_utc": "2026-11-12T08:12:58.416994+00:00",
+  "decisions": [
+    {
+      "record_id": "N007",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "OTHER_SPEAKER_OR_CUSTOM_REPORT_SEPARATE_NON_HADITH",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_COMPANION_CUSTOM_GREETING_REPORTED_BY_ABU_NADRA",
+      "attribution_statement": "Unspecified speaker in the greeting said to a Companion; Abu Nadra is the reporter, not an identified speaker of the greeting.",
+      "decision_rationale": "The selected greeting is the appended custom report introduced by Abu Nadra after a distinct Prophetic clothing supplication. The captured witness does not say that the Prophet said or approved this particular greeting. Preserve its collection context and distinguish the selected independent formula; do not transfer the preceding Prophetic attribution to it.",
+      "evidence": [
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/early/sources/sunnah_com_abudawud_4020.json",
+          "json_pointer_or_locus": "/arabic/0/text",
+          "verbatim_anchor": "قَالَ أَبُو نَضْرَةَ فَكَانَ أَصْحَابُ النَّبِيِّ",
+          "scope": "Appended custom-report transition; entire retained passage was read, including preceding Prophetic clause.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N007/P033-S010",
+          "verbatim_anchor": "¹. Abu Dawud 4/41. Tingnan ang Sahih Abi Dawud 2/760.",
+          "scope": "Printed source reference, visually inspected on p33; exact edition equivalence remains unverified.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        33
+      ],
+      "record_source_sha256_preserved": "ed6d64a04b37a113392a7ba87697ce38f10beed8b77d95655c1ddf4ca20e87a7",
+      "components": [
+        {
+          "segment_id": "P032-S007",
+          "source_type": "arabic",
+          "pdf_page": 32,
+          "text_sha256": "8561f09f96a9ffb597c7a4f75cf89eba874240df7eae104c3d4151470a194968",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P032-S008",
+          "source_type": "transliteration",
+          "pdf_page": 32,
+          "text_sha256": "9996d113513e38e5552eea73e873d99f0bd04f39047b1592e3f1883fc0428bc1",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P033-S002",
+          "source_type": "translation",
+          "pdf_page": 33,
+          "text_sha256": "628965b6b8dcf7502eae5924c23f4bbaf589866b6f5d486f735d831b2827b13d",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P033-S010",
+          "source_type": "reference",
+          "pdf_page": 33,
+          "text_sha256": "53486435f50943ac7a002c397a762e8f82a053c8518db8c5c41fe9c580e3efd8",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N118",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "COMPANION_ATHAR_UMAR",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_COMPANION_QUNUT_UMAR",
+      "attribution_statement": "Umar, as printed in the Filipino source footnote and the retained Bayhaqi occurrence.",
+      "decision_rationale": "The Filipino footnote attributes this qunut to Umar. The retained Bayhaqi passage reports hearing Umar recite it. Its chain assessment is a separate matter from who speaks. No Prophetic attribution is added.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N118/p151-r004",
+          "verbatim_anchor": "sa mga kasabihan ni Umar.",
+          "scope": "Visible ending of the source footnote.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/qc_v5/reviews/middle_a/evidence/reused_primary/V3-EXT-N118-bayhaqi_sunan-3187.json",
+          "json_pointer_or_locus": "/external_arabic_verbatim",
+          "verbatim_anchor": "صليت خلف عمر بن الخطاب رضي الله عنه صلاة الصبح، فسمعته يقول",
+          "scope": "Umar is the reciter. Retained source-specific display3187 is not newly verified against the printed edition.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        151
+      ],
+      "record_source_sha256_preserved": "8bbda6928b03f4c89cd8e887749e50c3afbcbd3a54fbff4ab5ea1b793cf16a96",
+      "components": [
+        {
+          "segment_id": "p150-r003",
+          "source_type": "arabic",
+          "pdf_page": 150,
+          "text_sha256": "264373ae3c85c559697e746757fb432317a35661c81bec91f94ddffe3552c42f",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p150-r004",
+          "source_type": "transliteration",
+          "pdf_page": 150,
+          "text_sha256": "2a6484c99fbd4d938e9101b5182a03d264288588a7ccd596c0b7a23b87716648",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p151-r002",
+          "source_type": "transliteration",
+          "pdf_page": 151,
+          "text_sha256": "7d9d22690a52ed0f9b5a4aaf543e1a29c23736601a219886e03dca15510cde95",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p151-r003",
+          "source_type": "translation",
+          "pdf_page": 151,
+          "text_sha256": "31fb1a7c5923b8008f6df145d495d7898626e014368bef1e0318afa9f0729595",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p151-r004",
+          "source_type": "reference",
+          "pdf_page": 151,
+          "text_sha256": "b1cf73c3d9e9dafd932a9440089fd38caec52056f1d713b11e3995a8d4a39cff",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N160",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "COMPANION_FUNERAL_PRAYER_ABU_HURAYRAH",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_COMPANION_FUNERAL_DUA_ABU_HURAYRA",
+      "attribution_statement": "Abu Hurayra in the retained Muwatta occurrence.",
+      "decision_rationale": "The p185 formula is matched by the retained Muwatta report in which Said ibn al-Musayyab hears Abu Hurayra pray over a child. The selected clause is not raised to the Prophet in this evidence. The neighboring long compiler-recommended prayer remains a separate linked record and is not merged into this attribution.",
+      "evidence": [
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/qc_v5/reviews/middle_b/evidence/V5-MB-REUSE-V3-EXT-N160-malik_muwatta-776.json",
+          "json_pointer_or_locus": "/external_arabic_verbatim",
+          "verbatim_anchor": "صَلَّيْتُ وَرَاءَ أَبِي هُرَيْرَةَ عَلَى صَبِيٍّ",
+          "scope": "Explicit observed reciter; retained passage continues with the matching prayer.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N160/p185-r003",
+          "verbatim_anchor": "اللَّهُمَّ أَعِذْهُ مِنْ عَذَابِ الْقَبْرِ",
+          "scope": "Readable formula and adjacent separate recommendation visually inspected; no fine-character certificate.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        185
+      ],
+      "record_source_sha256_preserved": "5f882edb59bb04e321fde051b81c493dacc4e81648ae964aeda1ebbda897d3e7",
+      "components": [
+        {
+          "segment_id": "p185-r003",
+          "source_type": "arabic",
+          "pdf_page": 185,
+          "text_sha256": "fd5281bb3e97262c9ab31d10d4a8060a1ce82d30d1679095a0e46537debfeae1",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p185-r004",
+          "source_type": "transliteration",
+          "pdf_page": 185,
+          "text_sha256": "c0b6f4f4c81b11a6316f0b682a98f48357cd6aaac07a40f240840e19a992dac7",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p185-r005",
+          "source_type": "translation",
+          "pdf_page": 185,
+          "text_sha256": "0ff4cfa4ce62fd006b7de28967da4726460dff2aaec64d66149896aa2e5bf729",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [
+        {
+          "relationship": "child_or_footnote_record",
+          "record_id": "U-P185-01",
+          "reference_segment_ids": [
+            "p187-r009"
+          ]
+        }
+      ],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N161",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "SUCCESSOR_ATHAR_AL_HASAN_AL_BASRI",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_SUCCESSOR_FUNERAL_DUA_AL_HASAN_AL_BASRI",
+      "attribution_statement": "Al-Hasan al-Basri, successor; not a Companion.",
+      "decision_rationale": "The printed footnote names Al-Hasan (Al-Basri). The retained Ayni passage quotes and identifies al-Hasan al-Basri. Keep the successor attribution and the prayer together. The Filipino wording issue concerning isanasaulo is not corrected or conflated with attribution.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N161/p187-r010",
+          "verbatim_anchor": "Kalimitan ang ginagawa ni Al-Hasan (Al-Basri)",
+          "scope": "Visible source footnote attribution.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/qc_v5/reviews/middle_b/evidence/V5-MB-REUSE-V3-EXT-N161-ayni_umdat_alqari-mainId394052.json",
+          "json_pointer_or_locus": "/external_arabic_verbatim",
+          "verbatim_anchor": "الحسن هو البصري",
+          "scope": "Explicit identification in retained commentary, read together with its quoted chapter statement.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        187
+      ],
+      "record_source_sha256_preserved": "0fc2d5e362d2cc31035b2413288910c4c25a2a41086558d00e501a7d6ae79718",
+      "components": [
+        {
+          "segment_id": "p187-r003",
+          "source_type": "arabic",
+          "pdf_page": 187,
+          "text_sha256": "bce2ea78b4121d2bf379ede74b2b45b81c3b82cc6f0eccade604d30c192675b4",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p187-r004",
+          "source_type": "transliteration",
+          "pdf_page": 187,
+          "text_sha256": "95952681e66fc64ec0f4abef4706b0af284bc7a5f0150b68550c10c094c9db3f",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p187-r005",
+          "source_type": "translation",
+          "pdf_page": 187,
+          "text_sha256": "4bcfced7ab9bac1493acbbb61bd0af115d84ca6e7b1add23ba081db484af5f68",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p187-r010",
+          "source_type": "footnote",
+          "pdf_page": 187,
+          "text_sha256": "6e4c0c33c220f32307434868f650d3f53dff3e48d9f2e07d0be7efd6750a1a22",
+          "proposed_context_role": "source_narration_or_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p187-r010-ref",
+          "source_type": "reference",
+          "pdf_page": 187,
+          "text_sha256": "f466b92b2c009ab59b1b7f3defd971aaf15b294419581d92c9c948677b127dae",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N177",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "COMPANION_IFTR_PRAYER_ABDULLAH_IBN_AMR",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_COMPANION_IFTAR_DUA_ABDULLAH_IBN_AMR",
+      "attribution_statement": "Abdullah ibn Amr, as printed in the footnote and appended report.",
+      "decision_rationale": "The source footnote calls this Abdullah bin Amr's prayer. Ibn Majah1753 contains a preceding Prophetic teaching about a fasting person's supplication, then a distinct report of Abdullah ibn Amr's own formula. Preserve both roles in external context; the preceding Prophetic teaching does not make the selected appended formula the Prophet's words.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N177/p198-r009",
+          "verbatim_anchor": "mula sa dalangin ni Abdullah bin Amr.",
+          "scope": "Printed attribution visually inspected.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/middle/source_evidence.json",
+          "json_pointer_or_locus": "/sources/82/selected_arabic_evidence",
+          "verbatim_anchor": "قَالَ ابْنُ أَبِي مُلَيْكَةَ سَمِعْتُ عَبْدَ اللَّهِ بْنَ عَمْرٍو يَقُولُ إِذَا أَفْطَرَ",
+          "scope": "Distinct appended Companion formula after the Prophetic premise; complete selected passage read.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        198
+      ],
+      "record_source_sha256_preserved": "b9465b610c80e2ba19db8f9ff30a21c85be1c14cda4ae3166df5ba055e9bf349",
+      "components": [
+        {
+          "segment_id": "p198-r003",
+          "source_type": "arabic",
+          "pdf_page": 198,
+          "text_sha256": "743a277cf2acda76b67198f514311c6c21a9b178f52c70a88dc0cd861ca734c5",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p198-r004",
+          "source_type": "transliteration",
+          "pdf_page": 198,
+          "text_sha256": "0c55cf9369e23396036b9da7ae492d8550b68062959a3bc3525186fc5b6c12be",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p198-r005",
+          "source_type": "translation",
+          "pdf_page": 198,
+          "text_sha256": "6bb06967987023f606e2cd52b4085e3b5f3a6f1a8af72c89e85cc0ab7adf44a0",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p198-r009",
+          "source_type": "reference",
+          "pdf_page": 198,
+          "text_sha256": "4463f3cff98287480e3a9933e1386ec041c1db4b1bf6eaf5ec444ae5bad15d25",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N225",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "COMPANION_SAYING",
+      "proposed_record_partition": "independent_non_prophetic_HOLD",
+      "proposed_content_class": "INDEPENDENT_COMPANION_SAYING_AMMAR",
+      "attribution_statement": "Ammar, as explicitly printed and retained in the Bukhari chapter quotation.",
+      "decision_rationale": "The printed footnote attributes the virtues to Ammar and the retained chapter quotation says وقال عمار. Keep this source attribution. Historical commentary claims about hukm-marfu or other raised routes do not establish the exact printed occurrence as a direct Prophetic saying, and no grade is assigned here.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N225/p236-r005",
+          "verbatim_anchor": "kasamahan na si ‘Ammar.",
+          "scope": "Visible printed attribution.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/late/bukhari_iman_ammar_chapter.json",
+          "json_pointer_or_locus": "/arabic_lines/1",
+          "verbatim_anchor": "وَقَالَ عَمَّارٌ:",
+          "scope": "Explicit Companion chapter quotation; no numbered following hadith is substituted.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        236
+      ],
+      "record_source_sha256_preserved": "281484483da257724a8b1e94d7834bd0152669644be56677607a99ba6e403494",
+      "components": [
+        {
+          "segment_id": "p235-r005",
+          "source_type": "arabic",
+          "pdf_page": 235,
+          "text_sha256": "a0ec8a03123489077f416c0fc8482a27943c3a80a7c448bac465577c7db522de",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p236-r002",
+          "source_type": "translation",
+          "pdf_page": 236,
+          "text_sha256": "ed995a6eef64b15f2c73422014df495d6e9d8d96903cdf58593179937489a5c4",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p236-r005",
+          "source_type": "reference",
+          "pdf_page": 236,
+          "text_sha256": "3d81b7fd2ecfc0a387779ca7ed34b8f5ac6a696ecd80812f2c2061499d154e3b",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N015",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "ATTRIBUTION_OR_MIXED_SPAN_UNRESOLVED_HOLD",
+      "proposed_record_partition": "attribution_unresolved_HOLD",
+      "proposed_content_class": "DHIKR_WITH_DISPUTED_RAISED_VERSUS_STOPPED_ATTRIBUTION",
+      "attribution_statement": null,
+      "decision_rationale": "The retained Nasai10019 passage displays a raised route and the compiler's correction that the correct route is stopped. This is a route-specific attribution conflict, not merely a weak grade. Preserve the dhikr as devotional/report material with unresolved attribution; do not label it definitively non-hadith or certify direct Prophetic wording.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N015/P037-S008",
+          "verbatim_anchor": "An-Nasa’i, ‘Amal al-Yawm wal-Lailah, p. 173.",
+          "scope": "Printed reference inspected; no canonical/edition equivalence newly assigned.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/early/sources/islamweb_nasai_kubra_10019.json",
+          "json_pointer_or_locus": "/arabic/1/text",
+          "verbatim_anchor": "هَذَا خَطَأٌ ، وَالصَّوَابُ مَوْقُوفٌ",
+          "scope": "Compiler explicitly critiques attribution of the preceding raised route.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        37
+      ],
+      "record_source_sha256_preserved": "ff615e119c94197ba1b32cdd3e59e82fa42dbeac7bb5dacfb1c2da24e7d9d9f8",
+      "components": [
+        {
+          "segment_id": "P036-S005",
+          "source_type": "arabic",
+          "pdf_page": 36,
+          "text_sha256": "369104dd0ae57b73961623f92b5757838aa38d9705d58e2ad47641081f8c850b",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P036-S006",
+          "source_type": "transliteration",
+          "pdf_page": 36,
+          "text_sha256": "d31ee66ee827cc14f24e606f55fcb7553d3b45ec7795885f32ef165b344196d9",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P036-S007",
+          "source_type": "translation",
+          "pdf_page": 36,
+          "text_sha256": "f0e322a0ecb362586fb7056d322728464f16fa1f4ac35f9aa51e9cdd4c5fe838",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P037-S002",
+          "source_type": "translation",
+          "pdf_page": 37,
+          "text_sha256": "50f9e34c40a2f7e5be41cf1b7cfb124edac72f324dfc886f116b06f1a0db7d6b",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "P037-S008",
+          "source_type": "reference",
+          "pdf_page": 37,
+          "text_sha256": "f7efd733d26d2e02de25e09c895c588538982b47f42741c13c09fc8156ba4c6e",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N083",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "ATTRIBUTION_CONFLICT_COMPANION_VERSUS_MARFU_CLAIM_HOLD",
+      "proposed_record_partition": "attribution_unresolved_HOLD",
+      "proposed_content_class": "DHIKR_WITH_PRINTED_MARFU_CLAIM_AND_DISTINCT_STOPPED_WITNESS",
+      "attribution_statement": null,
+      "decision_rationale": "The printed linked footnote claims marfu attribution, while the retained Abu Dawud occurrence stops at Abu al-Darda. A separate retained Ibn al-Qayyim quotation uses qualified reported Prophetic attribution without a chain. Preserve these distinct witnesses and the Quran-derived formula; the exact cited occurrence remains unresolved. This disposition is not based on the site's grade alone.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "U-P114-01/p114-r010",
+          "verbatim_anchor": "Ang mga-ulat na ito ay pinaniniwalaang galing sa\nPropeta ﷺ --Marfu’.",
+          "scope": "Printed marfu claim visually inspected with its parent formula.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/early/sources/sunnah_com_abudawud_5081.json",
+          "json_pointer_or_locus": "/arabic/0/text",
+          "verbatim_anchor": "عَنْ أَبِي الدَّرْدَاءِ رضى الله عنه قَالَ",
+          "scope": "Stopped attribution in this particular retained occurrence.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/early/sources/islamweb_zad_2_342.json",
+          "json_pointer_or_locus": "/arabic/1/text",
+          "verbatim_anchor": "ويذكر عنه صلى الله عليه وسلم أنه قال",
+          "scope": "Qualified raised report in a separate compilation; no chain or exact printed occurrence identity supplied.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        114
+      ],
+      "record_source_sha256_preserved": "7abf7b9e3e2a5cd5d16af1ea498ee7e2ee1a589c23ea46ae90fb762da9a71f32",
+      "components": [
+        {
+          "segment_id": "p114-r002",
+          "source_type": "arabic",
+          "pdf_page": 114,
+          "text_sha256": "942078098e68f45ed7c279363527dd657e46ef0f266f3a826b78b60f7e8d2c49",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p114-r003",
+          "source_type": "commentary",
+          "pdf_page": 114,
+          "text_sha256": "ae50aad5b419191e18ad182cfc36244f8d5eab22618528b969851ceace948733",
+          "proposed_context_role": "contextual_instruction",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p114-r004",
+          "source_type": "transliteration",
+          "pdf_page": 114,
+          "text_sha256": "b0c152344bdbce8741b2adc3cd37c9f2a993db8deea2c4cda14f431f28564b3c",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p114-r005",
+          "source_type": "commentary",
+          "pdf_page": 114,
+          "text_sha256": "cd71e06f6ed71c315dad8a020e4b96a40da6880262f7be7d90c5a134c6ea2c3b",
+          "proposed_context_role": "contextual_instruction",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p114-r006",
+          "source_type": "translation",
+          "pdf_page": 114,
+          "text_sha256": "8779d064904c83865b30e4de670cd84fa848a11fdc2d242e587b589aa4208d8a",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [
+        {
+          "relationship": "child_or_footnote_record",
+          "record_id": "U-P114-01",
+          "reference_segment_ids": [
+            "p114-r010"
+          ]
+        }
+      ],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "U-P100-01",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "UNATTRIBUTED_OPENING_DHIKR_NOT_ESTABLISHED_AS_PROPHETIC",
+      "proposed_record_partition": "attribution_unresolved_HOLD",
+      "proposed_content_class": "UNATTRIBUTED_OPENING_PRAISE_AND_SALAWAT_FORMULA",
+      "attribution_statement": null,
+      "decision_rationale": "The visible opening formula supplies no speaker attribution. Its footnote begins a different explicitly Prophetic report about sitting with people remembering Allah. Preserve that child U-P100-02 as hadith-bearing context and retain the parent relation; it does not establish this opening formula as Prophetic wording. No compiler authorship or unsupported attribution is invented.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "U-P100-01/p100-r005",
+          "verbatim_anchor": "الْحَمْدُ لِلَّهِ وَحْدَهُ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى مَنْ لَا نَبِي بَعْدُهُ.",
+          "scope": "Opening formula in source, visually inspected in its immediate heading context.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "U-P100-02/p100-r009",
+          "verbatim_anchor": "Sinabi ni Anas ؓ na narinig niyang sinabi ng Propeta ﷺ:",
+          "scope": "Separate hadith-bearing footnote introduction, visually inspected on p100. Child continuation on p101 read as stored text only; no p101 visual claim.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        100
+      ],
+      "record_source_sha256_preserved": "f4c7b05be56ce0a4a89a384bf09ebf094bbd265d2ecff3645a4747c6e885fe3a",
+      "components": [
+        {
+          "segment_id": "p100-r005",
+          "source_type": "arabic",
+          "pdf_page": 100,
+          "text_sha256": "26c109f62ef2b2db1de78108279a48e828a7056754f793deb5759018f16979b5",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p100-r006",
+          "source_type": "transliteration",
+          "pdf_page": 100,
+          "text_sha256": "5a7f68999a2c08ed1a7839f6212a4dbf0623eb5021df5d5413b075cfdd074bdb",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p100-r007",
+          "source_type": "translation",
+          "pdf_page": 100,
+          "text_sha256": "981649e070c1dd19a49ee7386a587ddfc7785aef13724ab9b49c80def6497733",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [
+        {
+          "relationship": "child_or_footnote_record",
+          "record_id": "U-P100-02",
+          "reference_segment_ids": [
+            "p101-r006"
+          ]
+        }
+      ],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "U-P114-01",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "ATTRIBUTION_CONFLICT_COMPANION_VERSUS_MARFU_CLAIM_HOLD",
+      "proposed_record_partition": "attribution_unresolved_HOLD",
+      "proposed_content_class": "LINKED_REWARD_REPORT_WITH_UNRESOLVED_RAISED_ATTRIBUTION",
+      "attribution_statement": null,
+      "decision_rationale": "Retain the parent link to N083. The printed reward and marfu claim exceed what the stopped AbuDawud5081 witness establishes; the qualified Ibn al-Qayyim quotation supplies a related variant but does not establish exact occurrence equivalence. Keep attribution and source translation/alignment limitations separate from authenticity grading.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "U-P114-01/p114-r009",
+          "verbatim_anchor": "anuman ang kanyang gustuhin dito sa\nMundo at kabilang daigdig.",
+          "scope": "Printed reward wording visually inspected and retained verbatim.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/early/sources/islamweb_zad_2_342.json",
+          "json_pointer_or_locus": "/arabic/1/text",
+          "verbatim_anchor": "كفاه الله ما أهمه من أمر الدنيا والآخرة",
+          "scope": "Related concern/world-and-hereafter wording; not verification of the unrestricted wishes translation.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        114
+      ],
+      "record_source_sha256_preserved": "b8cddcb927dd071e1dae46c6c4f7091236f774dd05970ee2a18a7c812df286e1",
+      "components": [
+        {
+          "segment_id": "p114-r009",
+          "source_type": "narration",
+          "pdf_page": 114,
+          "text_sha256": "f5fe8be6ca6730714380ea42e8dcfb8b55e12f2b626f2fb0be078cb49e21af3c",
+          "proposed_context_role": "source_narration_or_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p114-r010",
+          "source_type": "reference",
+          "pdf_page": 114,
+          "text_sha256": "7f3f32e40a2f287c3b86b13498b3282d5dae8359391d67dbd5d973c8f535cc57",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [
+        "N083"
+      ],
+      "related_reference_records_preserved": [
+        {
+          "relationship": "parent_record",
+          "record_id": "N083",
+          "reference_segment_ids": []
+        }
+      ],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    },
+    {
+      "record_id": "N214",
+      "decision_kind": "COAUTHOR_TARGETED_RECONSTRUCTION",
+      "prior_content_class": "COMPANION_COLLECTIVE_ACTION_REPORT",
+      "proposed_record_partition": "attribution_unresolved_HOLD",
+      "proposed_content_class": "COMPANION_REPORTED_COLLECTIVE_DHIKR_WITH_PROPHETIC_CONTEXT_UNRESOLVED",
+      "attribution_statement": "Jabir reports collective conduct; Prophetic participation/approval for this exact captured occurrence is not established here.",
+      "decision_rationale": "The source and retained Bukhari2993 passage give Jabir's first-person-plural report of takbir/tasbih while travelling. A Companion's narration is not automatically non-hadith. The finite capture does not itself resolve whether the selected collective conduct is anchored to Prophetic practice or approval. Move out of a definitive independent non-hadith conclusion into attribution HOLD pending the missing context; preserve all instructional expansions within the intact record, distinctly annotated.",
+      "evidence": [
+        {
+          "source_file": "data/corrected_all_records.json",
+          "json_pointer_or_locus": "N214/p227-r004",
+          "verbatim_anchor": "قَالَ جَابِر رَضِيَ اللَّهُ عَنْهُ: كُنَّا إِذَا صَعِدْنَا كَبَّرْنَا،\nوَإِذَا نَزَلْنَا سَبَّحْنَا.",
+          "scope": "Visible source report; source also expands takbir/tasbih in translation.",
+          "new_live_retrieval": false
+        },
+        {
+          "source_file": "inputs/FIL_HISN_QC_v5_REVIEW_PACKAGE.zip!/evidence/late/sunnah.com_bukhari_2993.json",
+          "json_pointer_or_locus": "/arabic_lines/3",
+          "verbatim_anchor": "كُنَّا إِذَا صَعِدْنَا كَبَّرْنَا، وَإِذَا نَزَلْنَا سَبَّحْنَا",
+          "scope": "Finite retained witness supplies the same collective conduct, without explicit Prophetic context.",
+          "new_live_retrieval": false
+        }
+      ],
+      "actual_visual_pages_reopened": [
+        227
+      ],
+      "record_source_sha256_preserved": "219efa3b9d7c9a87c5cb4a50a1d62a1d85f71acd9c405b17969316934e5dbdda",
+      "components": [
+        {
+          "segment_id": "p227-r004",
+          "source_type": "arabic",
+          "pdf_page": 227,
+          "text_sha256": "c70dc1f8cb85aef99b77d1bc377d00a6c4a21e3b88ca41a367cf531f35e1c962",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r005",
+          "source_type": "translation",
+          "pdf_page": 227,
+          "text_sha256": "57e9d51e786aadf224019cbbf5d2eae5d87abc95f26420b320211bb1717543c3",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r006",
+          "source_type": "transliteration",
+          "pdf_page": 227,
+          "text_sha256": "6d575520f0c0b0dfad81a4bcb9dd62cbca72b4fb0d41fd760382bc6cea0562bd",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r007",
+          "source_type": "translation",
+          "pdf_page": 227,
+          "text_sha256": "ffceb59714a1100fbe441dff65ca9ecd4ab46e42f515d34f1759f031807c9ecd",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r008",
+          "source_type": "arabic",
+          "pdf_page": 227,
+          "text_sha256": "c536f607bebf8d4d40ceb710049472c7e4a7252210ba8f3440dc7d80c8b79fcd",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r009",
+          "source_type": "translation",
+          "pdf_page": 227,
+          "text_sha256": "4e37648f8481f9da83783bb7e156c7713d2eedb6dc0f9adcdb8ba883145057c4",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r010",
+          "source_type": "transliteration",
+          "pdf_page": 227,
+          "text_sha256": "bd3c11137f4c11703ad19de384e36c016acdaaa7d27ac546355fd7d002d94d5c",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r011",
+          "source_type": "translation",
+          "pdf_page": 227,
+          "text_sha256": "ac0fbeb0d04c5f2d46aeb03993e2e2d39b0b90e6c06c3864cbd85d94282b90e3",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r012",
+          "source_type": "arabic",
+          "pdf_page": 227,
+          "text_sha256": "f04704a3deb939ed8b1fb68a9efaebe7e5aa3b6c9a2b7872dc8e010ca4c0b9b7",
+          "proposed_context_role": "source_explanatory_dhikr_expansion_inside_intact_report",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r013",
+          "source_type": "translation",
+          "pdf_page": 227,
+          "text_sha256": "0f5b3daf6ef03a80dd31cb3f27cf851323ae51a17839a468253695cf86b95c62",
+          "proposed_context_role": "formula_or_report_text",
+          "source_text_unchanged": true
+        },
+        {
+          "segment_id": "p227-r015",
+          "source_type": "reference",
+          "pdf_page": 227,
+          "text_sha256": "9b89367db6f71b488689c45de2e0fba39a86e4f4977041c6fe442ea782195ccb",
+          "proposed_context_role": "source_reference",
+          "source_text_unchanged": true
+        }
+      ],
+      "parent_record_ids_preserved": [],
+      "related_reference_records_preserved": [],
+      "classification_is_not_authenticity_grade": true,
+      "new_grade": null,
+      "new_isnad": null,
+      "new_canonical_occurrence_id": null,
+      "source_wording_changes": 0,
+      "approved_for_bank": false,
+      "approved_for_html": false,
+      "further_separate_independent_final_evaluation": "NOT_RUN"
+    }
+  ]
+}
