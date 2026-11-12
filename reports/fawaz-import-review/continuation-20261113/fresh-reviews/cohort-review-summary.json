@@ -1,0 +1,124 @@
+{
+  "schema": "hadith-bank-fawaz-residual-cohort-review-v1",
+  "status": "source_review_completed",
+  "source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+  "published_baseline": {
+    "commit": "ca5f3f18e682376ce2c91e5f97f4b0d7e24eb4c6",
+    "registered": 29911,
+    "held": 6553,
+    "provider_ids": 36464
+  },
+  "recovered_new_positive_ids": 4014,
+  "residual_provider_ids_reviewed": 2539,
+  "fresh_positive_provider_ids": 2295,
+  "expected_new_registrations_since_baseline": 6309,
+  "expected_registered": 36220,
+  "expected_held": 244,
+  "held_categories": {
+    "source_explanation_or_commentary": 73,
+    "chain_or_introduction_without_report": 1,
+    "source_empty": 169,
+    "missing_marker": 1
+  },
+  "by_collection": {
+    "abudawud": {
+      "recovered_residual_ids": 374,
+      "newly_selected_ids": 341,
+      "held_ids": 33,
+      "source_explanation_or_commentary": 33
+    },
+    "bukhari": {
+      "recovered_residual_ids": 8,
+      "newly_selected_ids": 2,
+      "held_ids": 6,
+      "chain_or_introduction_without_report": 1,
+      "source_empty": 5
+    },
+    "malik": {
+      "recovered_residual_ids": 903,
+      "held_ids": 51,
+      "source_empty": 18,
+      "newly_selected_ids": 852,
+      "source_explanation_or_commentary": 32,
+      "missing_marker": 1
+    },
+    "muslim": {
+      "recovered_residual_ids": 765,
+      "held_ids": 56,
+      "source_empty": 55,
+      "newly_selected_ids": 709,
+      "source_explanation_or_commentary": 1
+    },
+    "nasai": {
+      "recovered_residual_ids": 480,
+      "newly_selected_ids": 391,
+      "held_ids": 89,
+      "source_explanation_or_commentary": 7,
+      "source_empty": 82
+    },
+    "tirmidhi": {
+      "recovered_residual_ids": 9,
+      "held_ids": 9,
+      "source_empty": 9
+    }
+  },
+  "assembled_decisions": 13922,
+  "fresh_field_decisions": 8783,
+  "individually_reviewed_nonempty_fields": {
+    "eng": 2332,
+    "ben": 128,
+    "ara": 237,
+    "urd": 139
+  },
+  "unread_fresh_fields_retained_as_context": {
+    "ara": 2099,
+    "ben": 2147,
+    "urd": 1866
+  },
+  "unread_fresh_fields_total": 6112,
+  "all_held_nonempty_fields_inspected": true,
+  "all_provider_ids_accounted_for": true,
+  "source_index_snapshots": {
+    "abudawud": {
+      "bytes": 2808742,
+      "sha256": "5ca2cf7525293867c5637f86315b39357b9f17f69faa0eb177308ddf5b425e7a",
+      "provider_ids": 374
+    },
+    "bukhari": {
+      "bytes": 42019,
+      "sha256": "167dce237feea4a25b7ca07f859e01aa2fb73b6bf6212a02c052aedc8b9c0c55",
+      "provider_ids": 8
+    },
+    "ibnmajah": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "provider_ids": 0
+    },
+    "malik": {
+      "bytes": 6726559,
+      "sha256": "41fbabf507c6408109c654ec666ef7433cf020e4b5c302933dfbd6c0aa1a62ee",
+      "provider_ids": 903
+    },
+    "muslim": {
+      "bytes": 4054741,
+      "sha256": "c354f377b84762114322213b37374f1484ec1b2194693639e42ad4727ce4f153",
+      "provider_ids": 765
+    },
+    "nasai": {
+      "bytes": 3038469,
+      "sha256": "6f6b0929be3c9c595e55685040e6591043e0c99759f34cf4ab31eba7a6f9d4b2",
+      "provider_ids": 480
+    },
+    "nawawi": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "provider_ids": 0
+    },
+    "tirmidhi": {
+      "bytes": 32046,
+      "sha256": "3b4a0ca10eeec182112416b3bcbd4cc1b24b0b8de3cdfc8eff22660dd374f686",
+      "provider_ids": 9
+    }
+  },
+  "scope": "Provider-ID review is complete. Positive IDs may retain unread sibling-language fields as complete source context, excluded from narration text and narration search. Written export and publication are separate gates."
+}

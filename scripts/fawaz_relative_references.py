@@ -135,6 +135,13 @@ def propose(nodes, negatives=None, aliases=None):
         if direct:
             resolved[key] = {'root': key, 'path': [key], 'direct': True,
                              'root_evidence': node.get('independent_attribution_evidence')}
+        elif (node.get('status') == 'hadith' and previous is not None and
+              node.get('reviewed_relative_parent') == previous['id'] and previous['id'] in resolved and
+              node.get('reviewed_relative_parent_span') == previous.get('span')):
+            # Reuse an already validated, hash-bound Arabic relation. It is
+            # still a dependency, never a newly invented independent anchor.
+            prior = resolved[previous['id']]
+            resolved[key] = {**prior, 'path': [key] + prior['path'], 'direct': False}
         if node.get('status') != 'held':
             previous = node
             continue
@@ -222,6 +229,59 @@ def single_span(spans):
     return values[0] if len(values) == 1 and values[0][1] > values[0][0] else None
 
 
+def registered_arabic_attribution(node, classification):
+    """Use only an independently established attribution in this Arabic field.
+
+    Newer explicit-report classifications retain original offsets, while legacy
+    classifications retain normalized evidence. A reviewed Arabic quotation is
+    eligible only when it has no relative-source dependency of its own. An
+    English/Urdu/Bengali decision never supplies the missing Arabic attribution.
+    """
+    own = node.get('quotation', '')
+    if classification.get('classification') != 'hadith' or not own or not node.get('span'):
+        return None
+    reason = classification.get('reason')
+    normalized, offsets = normalize(own)
+    if reason == 'explicit_prophetic_attribution' and classification.get('evidence_language') == 'ar':
+        needle = normalize(classification.get('evidence', ''))[0]
+        start = normalized.find(needle) if needle else -1
+        if start < 0:
+            return None
+        proof = source_evidence(node, (start, start + len(needle)), offsets,
+                                'independent_registered_prophetic_attribution')
+        method = classification.get('method')
+    elif reason == 'explicit_source_report_attribution' and classification.get('source_language') == 'ara':
+        span = classification.get('span')
+        if (not isinstance(span, list) or len(span) != 2 or
+                not all(type(v) is int for v in span) or not 0 <= span[0] < span[1] <= len(own) or
+                own[span[0]:span[1]] != classification.get('text')):
+            return None
+        start, end = node['span'][0] + span[0], node['span'][0] + span[1]
+        proof = {'edition': node['edition'], 'typed_hadithnumber': node['id'],
+                 'source_position': node['position'], 'source_raw_sha256': node['source_sha256'],
+                 'source_text_sha256': digest(node['text'].encode()), 'span': [start, end],
+                 'text': node['text'][start:end], 'role': 'independent_registered_prophetic_attribution',
+                 **node.get('source_info', {})}
+        method = classification.get('rule')
+    elif reason == 'reviewed_explicit_source_attribution':
+        decision = classification.get('evidence') or {}
+        if (decision.get('provider_edition') != node['edition'] or decision.get('source_reference') or
+                decision.get('typed_hadithnumber') != node['id'] or
+                decision.get('source_text_sha256') != digest(node['text'].encode()) or
+                decision.get('quotation_spans') != [node['span']]):
+            return None
+        proof = {'edition': node['edition'], 'typed_hadithnumber': node['id'],
+                 'source_position': node['position'], 'source_raw_sha256': node['source_sha256'],
+                 'source_text_sha256': digest(node['text'].encode()), 'span': node['span'],
+                 'text': own, 'role': 'independent_registered_prophetic_attribution',
+                 **node.get('source_info', {})}
+        method = 'hash_bound_reviewed_own_arabic_quotation'
+    else:
+        return None
+    return {**proof, 'classification_method': method, 'classification_reason': reason,
+            'independent_of_relative_reference_chain': True, 'independent_authenticity_assessment': False}
+
+
 def load_export(root):
     state = json.loads((root / IMPORT / 'state.json').read_text())
     if state['revision'] != REVISION:
@@ -301,9 +361,6 @@ def audit(root, negatives_path=None):
             classification = statuses.get((book, ident), {})
             span = spans.get((book, ident, 'ara')) if duplicates[ident] == 1 else None
             own = row['text'][span[0]:span[1]] if span else ''
-            evidence_language = classification.get('evidence_language')
-            direct = (classification.get('classification') == 'hadith' and
-                      classification.get('reason') == 'explicit_prophetic_attribution' and evidence_language == 'ar')
             node = {'book': book, 'edition': edition, 'id': ident, 'position': position,
                 'section': row.get('reference', {}).get('book'), 'text': row['text'],
                 'span': span, 'quotation': own, 'source_sha256': source['descriptor']['sha256'],
@@ -311,19 +368,26 @@ def audit(root, negatives_path=None):
                 'source_info': {'source_url': source['descriptor']['url'],
                     'source_path': source['descriptor']['path'],
                     'source_json_pointer': f'/hadiths/{position}/text'}}
-            if direct and own:
-                normalized_own, own_offsets = normalize(own)
-                normalized_attribution = normalize(classification.get('evidence', ''))[0]
-                location = normalized_own.find(normalized_attribution) if normalized_attribution else -1
-                if location >= 0:
-                    node['independent_prophetic'] = True
-                    node['independent_attribution_evidence'] = {
-                        **source_evidence(node, (location, location + len(normalized_attribution)),
-                                          own_offsets, 'independent_registered_prophetic_attribution'),
-                        'classification_method': classification['method'],
-                        'classification_reason': classification['reason'],
-                        'independent_of_relative_reference_chain': True,
-                        'independent_authenticity_assessment': False}
+            attribution = registered_arabic_attribution(node, classification)
+            if attribution:
+                node['independent_prophetic'] = True
+                node['independent_attribution_evidence'] = attribution
+            decision = classification.get('evidence')
+            if isinstance(decision, dict) and decision.get('source_reference'):
+                relation = decision['source_reference']
+                parent = relation.get('parent_source', {})
+                parent_position = parent.get('source_position')
+                if (decision.get('provider_edition') == edition and decision.get('typed_hadithnumber') == ident and
+                        decision.get('source_text_sha256') == digest(row['text'].encode()) and
+                        decision.get('quotation_spans') == [span] and
+                        relation.get('relation') == 'source_explicit_previous_report_variant' and
+                        parent.get('provider_edition') == edition and type(parent_position) is int and
+                        parent_position + 1 == position and parent_position >= 0 and
+                        parent.get('typed_hadithnumber') == typed(source['rows'][parent_position]['hadithnumber']) and
+                        parent.get('source_text_sha256') == digest(source['rows'][parent_position]['text'].encode()) and
+                        parent.get('source_raw_sha256') == source['descriptor']['sha256']):
+                    node['reviewed_relative_parent'] = parent['typed_hadithnumber']
+                    node['reviewed_relative_parent_span'] = single_span({'quotation_spans':parent['quotation_spans']})
             enspan = spans.get((book, ident, 'eng'))
             if enspan and ident in english:
                 enposition, enrow = english[ident]

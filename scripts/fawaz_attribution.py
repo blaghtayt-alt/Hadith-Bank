@@ -25,7 +25,7 @@ import re
 import unicodedata
 
 
-RULE_VERSION = "fawaz-explicit-report-v3"
+RULE_VERSION = "fawaz-explicit-report-v4"
 LANGUAGE_CODES = {"ara": "ar", "eng": "en", "urd": "ur", "ben": "bn"}
 
 # Strip only detection noise, retaining an offset for every surviving character.
@@ -323,9 +323,14 @@ def _unsafe_context(text, start, end, language):
     elif language == "urd":
         if re.search(r"(?:کاش|اگر|کیا|معلوم\s+نہیں)\s*(?:کہ\s+)?$", before):
             return True
+        # A compiler's explicit denial of a wording is not affirmative source
+        # attribution (observed in Abu Dawud290's Urdu commentary).
+        if re.search(r"(?:نہیں|نہ)\s+(?:کہا|بیان\s+کیا|ذکر\s+کیا)\s+(?:ہے\s+)?کہ\s*$", before):
+            return True
         # Do not let a later narrator's own verb become the Prophet's predicate.
-        first_ne = matched.find("نے")
-        if first_ne >= 0 and "نے" in matched[first_ne + 2:]:
+        # The agent marker is the standalone word نے. Infinitives such as
+        # کرنے, لڑانے and بیچنے contain the same letters without a new subject.
+        if len(re.findall(r"(?<!\w)نے(?!\w)", matched)) > 1:
             return True
     elif language == "ben":
         if re.search(r"(?:যদি|হয়তো|হয়তো|সম্ভবত|মনে\s+হয়|মনে\s+হয়)\s*$", before):

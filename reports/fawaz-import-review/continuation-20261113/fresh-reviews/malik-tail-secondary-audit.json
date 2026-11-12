@@ -1,0 +1,1689 @@
+{
+  "schema": "hadith-bank-independent-content-audit-v1",
+  "reviewer": "assistant /root/recover_fawaz_checkpoint",
+  "scope": "Root Malik residual indices 700 through 902 inclusive; independent source-content audit",
+  "input_manifest": {
+    "/workspace/scratch/4603ffc1bd05/fawaz-root-review/malik-tail/reviewed-decisions.json": {
+      "bytes": 1116776,
+      "sha256": "f8e3753fb7207a112731fb052e9744ef3d2e068e5eb61e1557e5c79c6f717fed"
+    },
+    "/workspace/scratch/4603ffc1bd05/fawaz-root-review/malik-tail/reviewed-ledger.json": {
+      "bytes": 180576,
+      "sha256": "1e17a3a32ddda07d38c021c1e303255f9a098353789bd8e8008114c25c62565e"
+    },
+    "/workspace/scratch/4603ffc1bd05/fawaz-work/.work/residual-source/malik.json": {
+      "bytes": 6726559,
+      "sha256": "41fbabf507c6408109c654ec666ef7433cf020e4b5c302933dfbd6c0aa1a62ee"
+    }
+  },
+  "coverage": {
+    "ledger_records": 203,
+    "positive_provider_ids": 169,
+    "positive_fields_fully_read": 172,
+    "positive_fields_by_language": {
+      "ara": 2,
+      "ben": 1,
+      "eng": 167,
+      "urd": 2
+    },
+    "held_records_fully_reviewed": 34,
+    "held_nonempty_fields_fully_read": 31,
+    "held_nonempty_fields_by_language": {
+      "ara": 1,
+      "ben": 1,
+      "eng": 1,
+      "urd": 28
+    },
+    "held_all_empty_records": [
+      "1492",
+      "1528",
+      "1583",
+      "1748"
+    ],
+    "read_batches": {
+      "positive": [
+        [
+          0,
+          20
+        ],
+        [
+          20,
+          40
+        ],
+        [
+          40,
+          60
+        ],
+        [
+          60,
+          80
+        ],
+        [
+          80,
+          100
+        ],
+        [
+          100,
+          124
+        ],
+        [
+          124,
+          148
+        ],
+        [
+          148,
+          172
+        ]
+      ],
+      "held": [
+        [
+          0,
+          17
+        ],
+        [
+          17,
+          34
+        ]
+      ]
+    },
+    "positive_fields_read": [
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1434"
+        ],
+        "source_text_sha256": "f1bc708615af4eb26a3b3a622c85804a418fd8cf7fe9d92c83ddec9db11e682f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1435"
+        ],
+        "source_text_sha256": "b46909792101dde2fe505ee7ce8e73fca58f986eb03efd38f16a11f9e000bfdc"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1438"
+        ],
+        "source_text_sha256": "5f6b99890d743257615e9d873b817678eb3732e2c19c8737dd8ad40d9fc08fcf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1440"
+        ],
+        "source_text_sha256": "2d712b78d29e60ce630a0f4bb9f4792e2098b1cf04bb9cdc5f2445d2c0c01208"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1441"
+        ],
+        "source_text_sha256": "b834de08891f4523144cd10409f90b5255fefc4a36be2cc8ba44f240fff72ebf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1442"
+        ],
+        "source_text_sha256": "23ad6589965556ac148455e1bb1948fed33bfd76507da30b348914e4d1ae58cb"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1444"
+        ],
+        "source_text_sha256": "e762715912ab3a1a682639d086bb5612f690ca383248157870eb825cac4ca7bf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1445"
+        ],
+        "source_text_sha256": "6d2413667f0bb19be5080eb194efb97fe5090774337211ed17dc8c7fffd9524a"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1447"
+        ],
+        "source_text_sha256": "7da342e0643e7debf54f5c84cd3e673aed6128ab0792ddbec3a0ad1f8481cb59"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1448"
+        ],
+        "source_text_sha256": "96b31517ca9a9de003b3f8f625e69df9e08b49b4bd6c8badcbed35e73735a2f6"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1449"
+        ],
+        "source_text_sha256": "4020377645a879f4486cfdc8be4c9cfe8917d30b30744aea16fa10e333346729"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1450"
+        ],
+        "source_text_sha256": "8dc1d3bee4ec70222a3111336f1afd4e6333b6afe4fd8612cd64d5cd299a1fbb"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1451"
+        ],
+        "source_text_sha256": "96d264d0afa119c781eb130633819dbe051a8a1b0220dbd0e46395293c65f2bc"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1456"
+        ],
+        "source_text_sha256": "f2e6cbd7f6fa2ac56b16abafa9974daabfa8e8023e58919fd4dc7a4c354bb767"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1457"
+        ],
+        "source_text_sha256": "e6b8e3f7d61040d550ae4374728e04f028e16924e1ad6828b7687f221b3c9c0b"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1460"
+        ],
+        "source_text_sha256": "1fa355b58b4a528072146dea3d66eccf3ce7ee24839e83bd7eb7844bc038c604"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1461"
+        ],
+        "source_text_sha256": "8b397c314ef8b1e548edeaecdb234f339eb1fc348a19bfc17f936d535213576f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1462"
+        ],
+        "source_text_sha256": "2163a414405a66384d440d2b265850223b7e7d365f7b288c37f677296eba2521"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1463"
+        ],
+        "source_text_sha256": "cdbe172f86fae7a8720b0bf866c58cf2cf64a2dddbc24470d4ec01981f53199b"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1466"
+        ],
+        "source_text_sha256": "cfc830f8e416563da27e4a6505e2ab4f516d23479419ff1a208e0c3543a2d246"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1467"
+        ],
+        "source_text_sha256": "6cc7f09dddbc62d35168fd3c96e79ef16468704774d1296d447a103c57f50201"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1468"
+        ],
+        "source_text_sha256": "8520eb3552e3239a06fa4a1d6896983c7e32ea1ff6e037fb270e7761b34f40a0"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1469"
+        ],
+        "source_text_sha256": "8478e49a956d2f490909314c5f3d87643ce6c219e159d6929668ea7fd6a2e9ca"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1472"
+        ],
+        "source_text_sha256": "fe941753d63f774df820f5744be192899d57fa46573bf08e7206ffa6a441cc0f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1473"
+        ],
+        "source_text_sha256": "e271b8883b81d4de649f2c583f76ea11affb285b98ad3d7812e46733252568d0"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1474"
+        ],
+        "source_text_sha256": "13cefec6cb98d1db74375b2ca27bee447f1edc73f9541da28f5bfaa71a1a0b80"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1476"
+        ],
+        "source_text_sha256": "8e93d6223aebbcf9af855c67f0dbfe0f0b4266a15462f68deab8acd8781d1961"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1478"
+        ],
+        "source_text_sha256": "57cdc39229303cd4d874504d30b675d39a3e3653fdc6fb7f98286f9293fc7707"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1484"
+        ],
+        "source_text_sha256": "2b83c479d8da641fa13b8ff8e864133ff15df4b35a242776c01231f45c831aa0"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1485"
+        ],
+        "source_text_sha256": "abb067197395ffd1264e757fd30ecd70f00c0502e77bf882448793746970f115"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1486"
+        ],
+        "source_text_sha256": "f026d62dbf7d3d535456dfc2ebb0205ec259cd845374107024d4419c472f4a1c"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1487"
+        ],
+        "source_text_sha256": "6552ddac14e7ad85eaa0db1682dce31c2209c94eac0a72a0795c758e8e6df1cd"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1488"
+        ],
+        "source_text_sha256": "d3289193f4623926fd49dbad919a8da55ef6dcda7e30a1e39b42a6e4e6ff250a"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1489"
+        ],
+        "source_text_sha256": "0e984f4a1cf4037f565825913ad2939ca38bca65fc1dd4bc6644e9c7f74d234a"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1490"
+        ],
+        "source_text_sha256": "46e731f04d32bc2c1990b9bdd173d163f28a89a130764ecda366acf76efe7a14"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1494"
+        ],
+        "source_text_sha256": "ca58931a1de7f8707e646df9506f0d7afc71aa99ec059247fa96ffd1baa13998"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1495"
+        ],
+        "source_text_sha256": "d3023de23d0cf9fc989ca26f0e5e0385339c40cf68d1bbc825a6ba374cbbac38"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1498"
+        ],
+        "source_text_sha256": "735dc974535086dcf79c33a188c06fa16ae5f9f1f54d72ce63e4a19f1a9a43a6"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1499"
+        ],
+        "source_text_sha256": "d1992e4ccce8ecf687536fe8b234945f4339c91d1f9049ed2c80c3efd764053f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1507"
+        ],
+        "source_text_sha256": "9510d7003dd0461d53fa987954a4aae9452273c09d4ff75467fdd34570e1f0f1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1508"
+        ],
+        "source_text_sha256": "c0fe638f240e91bfecf72c33461e8a6236e1889c316ac0fecae0ef0c81466f9c"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1510"
+        ],
+        "source_text_sha256": "2eab0beacaaa02d3e0338031492185dbd3d27009e2a29263a061904869fc64fa"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1512"
+        ],
+        "source_text_sha256": "984f0ff125dc4d9df3dbc2cdf16be185614df951f46fb8289ae4a099107d1e85"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1514"
+        ],
+        "source_text_sha256": "4b62b93c92dd06572e43a77d5b370ff903f66db6d1ebe6711582a4723d2ef839"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1515"
+        ],
+        "source_text_sha256": "d1d5676b663e58299dc859d4f8c4868ce05bbdc1d88e44ff5ccc5aaf4640d978"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1516"
+        ],
+        "source_text_sha256": "6b70bcb4a1c968abc9e3421bf21c8f2508dbc696dc97c9d5a399370c62ad660e"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1517"
+        ],
+        "source_text_sha256": "9072b8ce7e4a392f264f87d6eebb555908823b13bc34851fec93172449572058"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1518"
+        ],
+        "source_text_sha256": "750542da9e9f2d0899179374aea5ca23151ff80d087b71da8798b48db323b767"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1520"
+        ],
+        "source_text_sha256": "e81c679fd97dd16168572d251b92b2e08f7def8ac7315f5877788d4663366423"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1523"
+        ],
+        "source_text_sha256": "763f57c734cc3bc0c138b3a00087d81b2b3acb3b6a35b4ce309652a45efab139"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1524"
+        ],
+        "source_text_sha256": "a43c01b25d4e5112d25df236caaae3d16af188b29718fcf22cf5fcdf9080ed48"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1526"
+        ],
+        "source_text_sha256": "ee1e28bb8a9997bc4a3d86586faf6b38e46ccb94fe7f5dd9b5b4daee07cd2e38"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1527"
+        ],
+        "source_text_sha256": "d24bac387f6d422256bba5719b6b94a01dff2fea94bd30060819920ae5dd5426"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1530"
+        ],
+        "source_text_sha256": "a6b7ea20f61ad08fb020bf562975225c6ee604b563eaed2a0587f7b17423169c"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1531"
+        ],
+        "source_text_sha256": "bb56f419dd65ff206771f6688255ad33fc102c3579e825065487e302dac65115"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1532"
+        ],
+        "source_text_sha256": "e723defd121ea4a16fd55d53382d95f0e50fb6fb42a84962e8b65f4dcffa525f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1534"
+        ],
+        "source_text_sha256": "000bc220bdcc21a1e69c68238bba12435f670b4c6c8465ebaa7f977f835c5c85"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1535"
+        ],
+        "source_text_sha256": "8dc58a1789c9a4a04abeb4017821d9e2cb18fc434487a8307b915a6673592510"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1536"
+        ],
+        "source_text_sha256": "1ad104cac59debe550af9d42e65a898b57ad453a3050e4ca4939eeabddf1fb8a"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1537"
+        ],
+        "source_text_sha256": "fffbd4341333484c21f9bb709a1320b22630fbacd0d884c35451a888bf632ebc"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1538"
+        ],
+        "source_text_sha256": "391f3efbd2da8e2d3a44681552c57df3ef1b5386730fea27131c2a23fc025cf6"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1539"
+        ],
+        "source_text_sha256": "0cc5ee8391429c3363313088cc6dc205df74871b98db2cdb48e39124f17e76d5"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1540"
+        ],
+        "source_text_sha256": "ae8bc797d5977f7047756b3d1f7a44bc2530fd0cfab2a1c3faddaa902509bd77"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1549"
+        ],
+        "source_text_sha256": "c3d25001e9566b859712bb237ac6aec98d314832c1f8f5c6346e0bfd9a67e9b2"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1550"
+        ],
+        "source_text_sha256": "a36de66b1e21d6dfa9fdf4dfd65e4fe1b77a017f2f58c0b54fca869470ab67b9"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1551"
+        ],
+        "source_text_sha256": "b1a38d8a7aca554d046772f813e0bf872412216897d72e26232feea73933b056"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1553"
+        ],
+        "source_text_sha256": "e54735e08a852a0f1360c806b1417914b43b1a698024da9f363097fb93bdb27e"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1554"
+        ],
+        "source_text_sha256": "a8b54ebbd3cfbbf3cc6e28c932a56fb12b69f02450c4ad781e27c5f32d2f5226"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1555"
+        ],
+        "source_text_sha256": "29fa4c75e154f1ef6cda2c49d39a3465b56ad3321d744e2a3103f4adf68c2685"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1556"
+        ],
+        "source_text_sha256": "f1a903cdcaf673200af07fe3d223290cacf93e672e74c2a994dca6c37a9cdfc7"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1557"
+        ],
+        "source_text_sha256": "2b3c513955ca067da8d8c27d88871314e281b0481caa69d0133f2d93ad3a84c7"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1558"
+        ],
+        "source_text_sha256": "9af4b6c3d31f821c743d6eb13bc7738fa54eee82333d40ce1c1553a02549cbd9"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1559"
+        ],
+        "source_text_sha256": "c28762bc5c11e0962887103574b93a3453604572eb8b75c71d3e192573f854cf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1560"
+        ],
+        "source_text_sha256": "919cbb197769e113a056373bbbbeb88a83ddcb3247a43d5b13253c496ebf2256"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1564"
+        ],
+        "source_text_sha256": "b6cac5670842d7d5eb2644895127574715c665e8ce055deb58c7a6cd54b95ead"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1565"
+        ],
+        "source_text_sha256": "2a088e6cdb2bcd647e527e2858750efa6ea8287841969def9baee6b1290986e1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1566"
+        ],
+        "source_text_sha256": "5f736540e266b0cfbdf4a6e57853f9a41a339df07a524dba3020f8dfcabfefb0"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1568"
+        ],
+        "source_text_sha256": "7072e81790bda640f60b7b37056f69f9d3dda2a07b5385ad0b304a28ef7d7759"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1570"
+        ],
+        "source_text_sha256": "e3b7e6ed4d8a8f5def1b9680f6c73b5a00cb0144c2a089d65c525098c0b6690f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1571"
+        ],
+        "source_text_sha256": "ab545a47d75c8138e18f813fd8259f07678dfe815174107590c168aec3b0c8c5"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1572"
+        ],
+        "source_text_sha256": "ce416ded397e1c94911a29f3d6186df8a91ed95f6f05e0ece88e7bf036bafd06"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1573"
+        ],
+        "source_text_sha256": "29f726a467d846a345c56da5bbeb427b8e80a70c8e106a16c49a8625dcc8db40"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1574"
+        ],
+        "source_text_sha256": "12035b50fa60c02161558b965266c3d84c7abb28105ea177784a0edfa5f94531"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1577"
+        ],
+        "source_text_sha256": "11de15e461e1fbfd63f27618d6fc22b5279f604fda1bdc673675f8bb9c3d8703"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1578"
+        ],
+        "source_text_sha256": "6d2505914087c373621ce74b782379a71506b088211353abcf334710c6013085"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1579"
+        ],
+        "source_text_sha256": "11cbea5400fdcfe3a5a84ebe98b534cd05f28857112cb25e874b9b91d7a72665"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1580"
+        ],
+        "source_text_sha256": "1ee77fae31c72096670a31268d85f22e419e5cbb150e6ee806eb334da8de0e0e"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1581"
+        ],
+        "source_text_sha256": "007928ab5e8c88fcc40e344d77eef036be3b386142729bd7c8f25086fdcb7c75"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1582"
+        ],
+        "source_text_sha256": "427a2e862676115ac54a5b65dd90f2d0ef2fad751ecd6991c400db0593e3a219"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1584"
+        ],
+        "source_text_sha256": "7324ebcad6cecacb7277f5626075ba18e5a675461a7fc81ccaa46aa958cefbee"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1587"
+        ],
+        "source_text_sha256": "f6c8f5f629a70edb6d4168ca1dd33c593fae788a24e7c5f9b35a815cecde84e9"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1588"
+        ],
+        "source_text_sha256": "ea5b0029195b75ba3a7f8cfa4abf868eabf6f21c2d3dbbbb6a743866f2f58e05"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1590"
+        ],
+        "source_text_sha256": "2b6aacaedb2988c40f72d3a2c454a92be269691415786030c440182f98bbfad7"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1591"
+        ],
+        "source_text_sha256": "3197844de66ffddeb14ca2821f77b11d8607f0635867b7e883a1fc054daab1af"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1592"
+        ],
+        "source_text_sha256": "203c1f283b29d7015e703dc6cffae59f3d6c61a69e08fe3b47e99bacfa326772"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1593"
+        ],
+        "source_text_sha256": "df28fc92563764e923d239a9554656a6dc43f32944661891e1901688faf12fa4"
+      },
+      {
+        "key": [
+          "malik",
+          "ara-malik",
+          "1594"
+        ],
+        "source_text_sha256": "eb9a229eaa296a07985d44a7e6944462d1dfb284c4a87f36d0e6fe3b5307a4df"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1594"
+        ],
+        "source_text_sha256": "1c738c8602f2381dc77845093d89a76be1fc22c49419fc5547ed8335885718e3"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1595"
+        ],
+        "source_text_sha256": "2039df92b4516c08d9a4b57afadafd667eadf56bfd0fce037ed67925ce01f19f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1606"
+        ],
+        "source_text_sha256": "ccbbbccfa5babbffb2b22557e776bcaf784bc4737e303dd636b405d0d7c6df1b"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1609"
+        ],
+        "source_text_sha256": "86662a34c4a4ca165753223813c2cc92c1240628da29fdfe1ea76e7942ef7a00"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1610"
+        ],
+        "source_text_sha256": "47afcae3eba24d18ed8999e3e6d9b22ebe24e3dbde8673c3611fde14aec9e7d6"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1612"
+        ],
+        "source_text_sha256": "631f7e9cbc3fbe5b934b56ec1967435f9e9c0b2c47ebe874afcd192ffe3c9806"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1617"
+        ],
+        "source_text_sha256": "1d1ccf5aacb2fcb4976c456a2c7d6b6739aacb627abc928f3b7fed2615ad2a3f"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1621"
+        ],
+        "source_text_sha256": "a5dc142e94fcee8e79760599acd8c52fff5d638901d327eb567eab5dce6afc67"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1622"
+        ],
+        "source_text_sha256": "808e9fb6f3881af449286ac6c4d53768341b6ed5963827984eb32fc3a9afe0c2"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1627"
+        ],
+        "source_text_sha256": "3943a0a8d77c854757487335679aa6dc7f182a8ff68fca10019b752e7e5d6f5d"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1628"
+        ],
+        "source_text_sha256": "aa344d117d0d689597e1d2c3538eb63eb66bb0868b2113728b1707ffeb93ddcb"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1631"
+        ],
+        "source_text_sha256": "0ae1bcbd271dae3e1979d8adc791118d81e2635ce677271ba2dd22b043c77829"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1632"
+        ],
+        "source_text_sha256": "1aa9f18907e814b2a51612d32acd76e1dbc4409f1ebd0debd8c7e334522e0be3"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1637"
+        ],
+        "source_text_sha256": "b86f48fb55d8948ab9e3dea9d8119a3b4581730047fa860cd985e72a4402ad72"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1638"
+        ],
+        "source_text_sha256": "73f1a07659b67db8d83b768c94eaa2f8c97614bac68aa4f89b8b5968e3ad4071"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1650"
+        ],
+        "source_text_sha256": "eae02fe19792dfba9ad4e3f6caf438a522b991f60eb4ed3250d6909604c0cb5c"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1652"
+        ],
+        "source_text_sha256": "0373654da3a7e9bc63e7fd8c569f44480c59d1845a8ced746746ec9fb909c2cf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1653"
+        ],
+        "source_text_sha256": "4892e81953797e13e02930e62012cda0e6fc16b760e1f9d0b282a9e9e7e65af4"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1654"
+        ],
+        "source_text_sha256": "4bbacb606864a7b1936cd9def1b45565bbadde699326eca731c4ac0e3044ccaf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1656"
+        ],
+        "source_text_sha256": "f978d36f75340ee99bdae0607f10decc8d646dcd2586b0bae8c901420722597b"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1657"
+        ],
+        "source_text_sha256": "f622d74d6a9f0f8e31ac3d1aa929d72b04762fdefc72d3e7a547deef1b9ef6d2"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1658"
+        ],
+        "source_text_sha256": "01e73882f2eb1f9846140d8a83c556a796b03dc930df61355280664b50eeffd1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1667"
+        ],
+        "source_text_sha256": "c8356a2d336c17caa200009322ad354c1429cb8b64f955daca6cd4bd234f1167"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1670"
+        ],
+        "source_text_sha256": "b9204ada7df203ab64c2d56162f5b916117e950bf3e472e3bb70718789bf60c1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1673"
+        ],
+        "source_text_sha256": "2648daa938fa13914a26ca59b0d274d332042b9ff2bc39e0d012e5301a4309e8"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1674"
+        ],
+        "source_text_sha256": "64c8927078446fe064ee139fc3299ea337fa8b53413bf263914875018e517fc1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1683"
+        ],
+        "source_text_sha256": "9e96fa3ed8520b25fb01463d81f9eb49f833fdf0c6d5a04d2e0e216cccb86859"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1684"
+        ],
+        "source_text_sha256": "c530309a1b9c9c665078a5a5ec0d520ac5dac00b5e39f056637acae6c3465bc5"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1685"
+        ],
+        "source_text_sha256": "86b7ea13b07058470f9f859c1a1d230c4ca0f909a7f0349bad98cf4cdbda25d1"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1686"
+        ],
+        "source_text_sha256": "492ba48c8fed188c22d64dc3bdaf37394831864c67ef429134b3fa5c7fefccdf"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1697"
+        ],
+        "source_text_sha256": "791a6eb524451871c468f6b079788cfd03cdcbe03b584e6d543b9a18bf4f4cc9"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1699"
+        ],
+        "source_text_sha256": "e8589f2b3ea95a2ee96a853f0417ae6559a0d840cff0b2c75107b76208695814"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1700"
+        ],
+        "source_text_sha256": "b316b1564d4a6ae753a34a654f504982e4c14ed1aa6b252c4641b596dcd03e38"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1701"
+        ],
+        "source_text_sha256": "0835e249cff6f2f54266f0fb8af59c3d400f3425b4adbe463801bd7ceec43a76"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1702"
+        ],
+        "source_text_sha256": "0b7d0fc586673b863653057981a1b498c624d72cc8cce6cd5c3b89d7393dfd11"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1704"
+        ],
+        "source_text_sha256": "5ae265ec842022ad5dce196b54d2cf6d0104e6440dd33e1df94a7a2cc4cd8b94"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1705"
+        ],
+        "source_text_sha256": "5b699230cb968915fe61df06b22ec7fc0cd5394bdbf1b899ceff4e1b2df595a6"
+      },
+      {
+        "key": [
+          "malik",
+          "ara-malik",
+          "1706"
+        ],
+        "source_text_sha256": "cc385eade9fe96461f2883d87023c651da319f27706b202360091d42249c0fd6"
+      },
+      {
+        "key": [
+          "malik",
+          "urd-malik",
+          "1706"
+        ],
+        "source_text_sha256": "21f3e98080ed00d2f8af1bcfdb49dd6e6e22bd623ae67d8d63cb5228b3b01ed9"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1707"
+        ],
+        "source_text_sha256": "887d81da63eb8a9fba9953b965aa1e63b0ca6527042103c053f33de8987bf693"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1709"
+        ],
+        "source_text_sha256": "a932a6e8c1799bc18efa3815660eab7a0b2b76f7495e7149170606e1b173e8fc"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1721"
+        ],
+        "source_text_sha256": "bda78cc434bc65eaae05951d521118b27caeaf85940ae95ca10f3f5f88439a1d"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1724"
+        ],
+        "source_text_sha256": "cf790e68bb1e277c37fbc48b1b1eaaa29782b63d6c633064e8572bcbe0bf6a67"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1733"
+        ],
+        "source_text_sha256": "32cd52a9d63f0799375da664d33f7541bf8c740f2dc5967bb120d14645f9e3bd"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1741"
+        ],
+        "source_text_sha256": "91b1a292cd2b7b48b58288527bcd169f2b185de6d1a1b53d51003a2cb3b9f690"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1746"
+        ],
+        "source_text_sha256": "da08a1c2b4b86b371f05d0f772fc0b3a979e88b71c388ec3c730f272e3b9fbce"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1752"
+        ],
+        "source_text_sha256": "8bc437dfd02eb842743c9aaef85de408a0c2006a0bb882ab208c3914be7a7079"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1755"
+        ],
+        "source_text_sha256": "116dce1f12ed70be2e2f517c7c0fe13055966e0a5985a5bd9bed9a7102715331"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1757"
+        ],
+        "source_text_sha256": "b22bbd1e96bdb883ec21b4066c859ef7ed60f07d3696fa83afa5de8139b30f41"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1760"
+        ],
+        "source_text_sha256": "fb80a278ad8fe714eec04d3d3dec493a997fe5fca0ef81f41f92232f6f5adc0b"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1761"
+        ],
+        "source_text_sha256": "d412e81d35de507b4e6043f468dd7a46d287f93ae3474631f905568d55b9eeaf"
+      },
+      {
+        "key": [
+          "malik",
+          "urd-malik",
+          "1762"
+        ],
+        "source_text_sha256": "07b5c6c106f452257a9528dcc724883a70012dd40cef1c91149a85d4e0147b25"
+      },
+      {
+        "key": [
+          "malik",
+          "ben-malik",
+          "1762"
+        ],
+        "source_text_sha256": "1297b5ee3ddfe465b124b34d65aded33d4eccb8c71d27ccd81af6e6d93f023e8"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1767"
+        ],
+        "source_text_sha256": "0e7249479e9007f115acf8e81a6f4c49b723e8eb02681b2efda328560d719f71"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1781"
+        ],
+        "source_text_sha256": "4c85e2c765c66fb50cd332b4f7d72623b4b4cea8f6074424b7e6a5b45de2408d"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1787"
+        ],
+        "source_text_sha256": "5eeda60d7a008acb950241e6ed7839d8a2daa7b1ed4e7e81182a7a4c6a303628"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1805"
+        ],
+        "source_text_sha256": "148278fa4120124c4dbfb2e312921edb22a6a858eacceabc201b3c6d86a17d82"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1807"
+        ],
+        "source_text_sha256": "b29191d68d3efd5e8184f26ffe7e9b82d67b1ed72c0d9cba62a27339e947213e"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1810"
+        ],
+        "source_text_sha256": "6404e7916c05d06e48c3a754faa578042e62a19496a158a793348e4ddd2be044"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1814"
+        ],
+        "source_text_sha256": "2699880336297ba831bbeebc4d89956243fcc7974c9f3a8241504b57895a57d5"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1816"
+        ],
+        "source_text_sha256": "1ba7aed844539fcaf433bf3e6bec31f1b6eea64af74593b3cdefeb2ba2f69d75"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1818"
+        ],
+        "source_text_sha256": "627d846ac6eb99535df2456213402265d7ab42d4ce4ad20a0635d0058e08fd2e"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1822"
+        ],
+        "source_text_sha256": "2f1321c7f060c0b3645157aa2d141232f08ebbec8331871c8d15882fda3432ec"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1827"
+        ],
+        "source_text_sha256": "95b680f0f1195f86ee823930333cb4b94c3143884e0119fc5f112ece115edceb"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1828"
+        ],
+        "source_text_sha256": "f29ac46a15a3f5a4195dd12501786b3791daed8d770b162e802752ad7a396af4"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1833"
+        ],
+        "source_text_sha256": "4f46bf5b9c1ed1eb6caecfda068c2b6d5e6009a945f2295c732df2437dcb9c05"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1834"
+        ],
+        "source_text_sha256": "847534011792a549b036dbc6c5ce1a5059be4addbb769443da7c103c7379a59a"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1835"
+        ],
+        "source_text_sha256": "18ee112c897e0bc747e01e8353af417b2aa08f0075de1675c83933c8e77f9fdd"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1836"
+        ],
+        "source_text_sha256": "07896641450124d5ea0dd222b2efb749778d070315e2348990bfa073d4bda5f6"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1840"
+        ],
+        "source_text_sha256": "af5638e7c94722ea988156db02c6ab4e71d01d27adb956e619ee1e13ff39e473"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1846"
+        ],
+        "source_text_sha256": "85a9a51d8b1aac10fefebdfd9ee624b30db2127f86e85d0e2054fc7dfc08a0c8"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1852"
+        ],
+        "source_text_sha256": "ab35886a8618bc15a1722fe568b7c8a5b75779f0e150c50d7134f8db191182f4"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1855"
+        ],
+        "source_text_sha256": "33cd805ad6c6fbba957f6d1e8a005aa6f80abe44dbc709359cd9ab7c3b5411ff"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1856"
+        ],
+        "source_text_sha256": "f5b4a47405eba05924c8b2420df7280c001033394544676771c8a24fe91294aa"
+      },
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1857"
+        ],
+        "source_text_sha256": "ac30e648e69181036f90aca5315405c0bb38ad576013f21a3638f51ca0e1b5d1"
+      }
+    ],
+    "held_nonempty_fields_read": [
+      {
+        "typed_hadithnumber": "1519",
+        "source_language": "urd",
+        "source_text_sha256": "6ac1b61f66315663af8644fa18c0be1c8153feb68c8f54533b9040be86bf598b"
+      },
+      {
+        "typed_hadithnumber": "1569",
+        "source_language": "ara",
+        "source_text_sha256": "9198dda6e1927736f94366a638114574ae49824e1a6598c70a45e3e278fba5e5"
+      },
+      {
+        "typed_hadithnumber": "1569",
+        "source_language": "eng",
+        "source_text_sha256": "1fb0eaabf954532e5ab63847dfa71fb4d279f160f888d0823d3897e94f1a66ef"
+      },
+      {
+        "typed_hadithnumber": "1597",
+        "source_language": "ben",
+        "source_text_sha256": "cb0e509388bd6eb3000f086dc0246faca2c4eefa1085e3e081941ac4b4c471bb"
+      },
+      {
+        "typed_hadithnumber": "631.5",
+        "source_language": "urd",
+        "source_text_sha256": "bef3430f1c5d3c1a2c6d6ad5488edc341078b8eb02e3641d872d5458ee22bb6b"
+      },
+      {
+        "typed_hadithnumber": "787.5",
+        "source_language": "urd",
+        "source_text_sha256": "cab891116210c43d5c8a7cf6a26a9008b0c9758eed4c0137f12ab817675c04db"
+      },
+      {
+        "typed_hadithnumber": "874.5",
+        "source_language": "urd",
+        "source_text_sha256": "d952834ffa799a3f141755ffb64485fcfa4d48e02b67016ae8dc6b268910c298"
+      },
+      {
+        "typed_hadithnumber": "904.5",
+        "source_language": "urd",
+        "source_text_sha256": "07b5c043f2258960f1180172b8d426abc475e0786b6e3126b18d53b00470a271"
+      },
+      {
+        "typed_hadithnumber": "926.5",
+        "source_language": "urd",
+        "source_text_sha256": "668ef4a32c051026894d240cafc0740f5d5c199a629fa538d4ffe9fc918554a5"
+      },
+      {
+        "typed_hadithnumber": "943.5",
+        "source_language": "urd",
+        "source_text_sha256": "4a6a59da62745adc7d041215f6184db6d0f8678734c772aab400c37e6b2a2772"
+      },
+      {
+        "typed_hadithnumber": "956.5",
+        "source_language": "urd",
+        "source_text_sha256": "32d2363b9a6390f7203ad1160cae32f1ddb98c7ba93196c2dfe81e28a18d85cf"
+      },
+      {
+        "typed_hadithnumber": "974.5",
+        "source_language": "urd",
+        "source_text_sha256": "a5a1bb836091c7718c677b3a48166515fda2be2978a289f1de78f01a7fff8286"
+      },
+      {
+        "typed_hadithnumber": "1014.5",
+        "source_language": "urd",
+        "source_text_sha256": "b231f3961624e9bd291ce5dd6590ba949dd7decabe8b234b67808103b2deb315"
+      },
+      {
+        "typed_hadithnumber": "1063.5",
+        "source_language": "urd",
+        "source_text_sha256": "25007293a4e147b1020b24e94af5c6e9413745216233eb514d286332eb4ec071"
+      },
+      {
+        "typed_hadithnumber": "1066.5",
+        "source_language": "urd",
+        "source_text_sha256": "afb7ad86c24094c8af23bf3cb74505f970cc153a8b75412991403fea9c63a00f"
+      },
+      {
+        "typed_hadithnumber": "1167.75",
+        "source_language": "urd",
+        "source_text_sha256": "22558a1cafd880eae7efa0f4b30c0644ad4d19044d948775ae24617ffc1c68b5"
+      },
+      {
+        "typed_hadithnumber": "1208.5",
+        "source_language": "urd",
+        "source_text_sha256": "d1c48ad2cfdd6bbd55301decea5aeafbd6120ec4538cdfc50667023daff14f40"
+      },
+      {
+        "typed_hadithnumber": "1226.5",
+        "source_language": "urd",
+        "source_text_sha256": "8c46b93f8684e06aaf1edea501d4f690648da6d3c9c959bc256b200cd8336320"
+      },
+      {
+        "typed_hadithnumber": "1322.25",
+        "source_language": "urd",
+        "source_text_sha256": "5cb24e4ed04272be20927b3e6634c6286db54dc361d09272dd84ffea6caa3893"
+      },
+      {
+        "typed_hadithnumber": "1355.5",
+        "source_language": "urd",
+        "source_text_sha256": "5c89b4876e7d19c82746eaddab4998bc4be36b6ca4328ae7c6b488e1be8de110"
+      },
+      {
+        "typed_hadithnumber": "1370.5",
+        "source_language": "urd",
+        "source_text_sha256": "eeb98aaa9221853e327bfdfa47e1cd59da75211a857a324e59f801d8898c812e"
+      },
+      {
+        "typed_hadithnumber": "1388.5",
+        "source_language": "urd",
+        "source_text_sha256": "8c00f1e2257e7cb36ab26333069d82b5139cdc26f338526905abd67cd89287c4"
+      },
+      {
+        "typed_hadithnumber": "1408.5",
+        "source_language": "urd",
+        "source_text_sha256": "6a34f98b73f0634942eb087dbe2402fe715393d9344e3d7be47b398bc055bd8f"
+      },
+      {
+        "typed_hadithnumber": "1424.5",
+        "source_language": "urd",
+        "source_text_sha256": "4357f9dc06ab77f71778214abd7066099e97539e58a938f07ae8f6b4243911f1"
+      },
+      {
+        "typed_hadithnumber": "1439.5",
+        "source_language": "urd",
+        "source_text_sha256": "115804f6b5c3ad8982f89e7f392dc98a34d4bc00eef05a30bd54f87bbf3d0675"
+      },
+      {
+        "typed_hadithnumber": "1441.5",
+        "source_language": "urd",
+        "source_text_sha256": "e77c2a11ac095f7c32ee673b6e4a6617463b6689eb364d7dee4987762a98bd2e"
+      },
+      {
+        "typed_hadithnumber": "1442.5",
+        "source_language": "urd",
+        "source_text_sha256": "eab7bd3afea755de99ae2fb41242f8d71a6a8be54884ce0f9b5de0cd27dd34d4"
+      },
+      {
+        "typed_hadithnumber": "1448.5",
+        "source_language": "urd",
+        "source_text_sha256": "ee074ca892d0716c327f8e01e337679ae5696464c934bd1bce04e27425667c62"
+      },
+      {
+        "typed_hadithnumber": "1460.5",
+        "source_language": "urd",
+        "source_text_sha256": "ffaac0efcffd374b4bc26e6e18d0a9dddead5597747779d1073b6e25ea65285c"
+      },
+      {
+        "typed_hadithnumber": "1462.5",
+        "source_language": "urd",
+        "source_text_sha256": "485156fca26671bc1198fecad13ffdecb16840ad48c9daf8b430bff780170ebd"
+      },
+      {
+        "typed_hadithnumber": "1515.5",
+        "source_language": "urd",
+        "source_text_sha256": "95fabca938fc7589ca367f013d5f4da12066d4dd89e2d75ff48d80720c6d6709"
+      }
+    ],
+    "fresh_decision_fields_total": 645,
+    "fresh_nonselected_fields_total": 473,
+    "fresh_nonselected_fields_by_review_status": {
+      "not_reviewed_source_context": 445,
+      "reviewed_source_context": 28
+    },
+    "held_nonempty_fields_by_decision_status": {
+      "fresh_reviewed_source_context": 27,
+      "prior_hash_bound_decision_preserved": 4
+    },
+    "root_reviewed_context_fields_outside_declared_audit": [
+      {
+        "key": [
+          "malik",
+          "eng-malik",
+          "1706"
+        ],
+        "scope_note": "Root-reviewed English context; outside this audit of selected fields and all nonempty held fields."
+      }
+    ],
+    "root_ledger_field_status_counts": {
+      "not_reviewed_source_context": 445,
+      "reviewed_selected_quotation": 172,
+      "reviewed_source_context": 28,
+      "prior_hash_bound_decision_preserved": 4,
+      "empty": 82
+    }
+  },
+  "method": "Read complete own-language source text for every selected field alongside report/context boundaries, named speakers, role, classification note and any grouped-report components. Read every nonempty supplied field for all held records; verified the four all-empty records. This was semantic reading, not merely a rerun of hash/span validators.",
+  "findings": [
+    {
+      "key": [
+        "malik",
+        "eng-malik",
+        "1444"
+      ],
+      "category": "speaker_evidence_precision",
+      "status": "corrected_by_owner_and_observed_in_bound_input",
+      "name_as_supplied": "al-Qasim ibn Muhammad",
+      "original_source_spans": [
+        [
+          63,
+          84
+        ]
+      ],
+      "corrected_source_spans": [
+        [
+          114,
+          135
+        ]
+      ],
+      "reason": "The original name substring was inside the chain transmitter Abd ar-Rahman ibn al-Qasim ibn Muhammad. The corrected occurrence directly names the person Makhul asked and therefore supports the selected Successor speaker without patronymic ambiguity.",
+      "quotation_report_type_or_admission_changed": false,
+      "owner_change_comparison": "Parent compared all canonical decisions against the two previously uploaded source parts and reported only this decision changing, with related explanatory notes; ledger changed only 1444.review_note."
+    }
+  ],
+  "remaining_concrete_corrections": [],
+  "held_reclassifications_proposed": [],
+  "outcome": "No additional concrete content defect detected in the reviewed scope after the Malik 1444 speaker evidence correction.",
+  "limits": [
+    "The 645 fresh decisions contain 473 nonselected fields: 445 unread source-context fields and 28 root-reviewed context fields. Of those 28 reviewed context fields, 27 were included in this audit of held records; the English context field at Malik 1706 was outside the declared selected-field and held-record audit. The 31 audited nonempty held fields comprise those 27 fresh context decisions plus four preserved prior decisions. No unread fields were promoted.",
+    "No translation equivalence, external canonical identity or independent authenticity assessment was performed.",
+    "This is bounded assistant source-content review and does not constitute Pro certification or a guarantee of error-free content."
+  ],
+  "mutation_scope": "Audit records only in fawaz-recovery/malik-tail-audit; no root input or remote repository edits."
+}

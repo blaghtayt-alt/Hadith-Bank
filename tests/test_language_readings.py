@@ -63,6 +63,48 @@ def multilingual_translator_fixture():
 
 
 class LanguageReadingTests(unittest.TestCase):
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for browser parity')
+    def test_separate_reports_and_internal_citations_render_without_joining(self):
+        record = multilingual_fixture()
+        version = record['language_versions'][1]
+        parts = ['TEST report A 🧪.', 'TEST source citation.', 'TEST report B.', 'TEST report C.']
+        version['text'] = ''.join(parts)
+        version['quotation_status'] = 'multiple_source_reports'
+        offsets, cursor = [], 0
+        for part in parts:
+            offsets.append([cursor, cursor + len(part)])
+            cursor += len(part)
+        version['source'].update(source_report_count=3,
+            source_report_boundaries=[offsets[0], offsets[2], offsets[3]],
+            text_spans={'quotation_spans': [[0, cursor]], 'retained_internal_citation_spans': [offsets[1]]})
+        pending = record['language_versions'][3]
+        pending.update(text=None, scope='external_source', quotation_status='attribution_pending')
+        pending['comments'] = [{'text':'TEST original unnamed subject.', 'scope':'source_context_not_narration'}]
+        before = copy.deepcopy(record)
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
+        program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
+const valueText = ''' + helpers + '''
+process.stdout.write(JSON.stringify(languageReadings(records[0])));'''
+        run = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([record]),
+                             text=True, capture_output=True, check=True)
+        views = language_readings(record)
+        self.assertEqual(json.loads(run.stdout), views)
+        own = next(item for item in views if item['language'] == 'en')
+        self.assertEqual([item['text'] for item in own['quotation_parts']], parts)
+        self.assertEqual([item['label'] for item in own['quotation_parts']],
+                         ['Source report 1', 'Source citation', 'Source report 2', 'Source report 3'])
+        self.assertIn('3 separately attributed reports', own['qualification'])
+        unnamed = next(item for item in views if item['language'] == 'ur-Latn')
+        self.assertIsNone(unnamed['text'])
+        self.assertIn('another language is not used to supply an unnamed speaker', unnamed['qualification'])
+        page = render_language_reading(own)
+        self.assertEqual(page.count('class="text quotation"'), 4)
+        for part in parts:
+            self.assertIn(html.escape(part), page)
+        self.assertNotIn(html.escape(version['text']), page)
+        self.assertEqual(record, before)
+
     def test_markdown_online_links_use_existing_shared_or_static_destinations(self):
         record = multilingual_fixture()
         record.update(id='TEST:1&other=2', source_id='fawaz-TEST')

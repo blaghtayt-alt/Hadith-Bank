@@ -209,8 +209,14 @@ def render_language_reading(reading):
     if reading.get('qualification'):
         body.append('<p class="notice">' + esc(reading['qualification']) + '</p>')
     if reading.get('text'):
-        body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
-                    reading_direction(reading) + '">' + esc(reading['text']) + '</div>')
+        for part in reading.get('quotation_parts') or [{'text': reading['text']}]:
+            if part.get('label'):
+                body.append('<p class="notice">' + esc(part['label']) + '</p>')
+            for passage in part.get('passages') or [part]:
+                if passage.get('gap_before'):
+                    body.append('<p class="notice">Intervening source text is retained under Comments.</p>')
+                body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
+                            reading_direction(reading) + '">' + esc(passage['text']) + '</div>')
     if reading.get('citation'):
         body.append('<p class="reading-citation" dir="auto">' + esc(reading['citation']) + '</p>')
     body.append('<p class="reading-source">' + ('<a href="' + esc(url) +

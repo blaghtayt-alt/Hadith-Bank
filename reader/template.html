@@ -343,9 +343,9 @@ const recordTypeInfo = record => {
   let kind=record.record_type || record.content_kind;
   const aliases={hadith_occurrence:"hadith",main_hadith_occurrence:"hadith",translation_occurrence:"hadith",quoted_hadith:"hadith_excerpt",hadith_quote:"hadith_excerpt",quoted_companion_report:"companion_report_excerpt"};
   if(typeof kind==="string" && Object.prototype.hasOwnProperty.call(aliases,kind))kind=aliases[kind];
-  if(record.content_kind==="source_fragment")kind="source_fragment";else if(record.content_kind==="unnumbered_source_variant")kind="hadith_variant";else if(record.content_kind==="quoted_companion_saying")kind="companion_report_excerpt";
+  if(record.content_kind==="source_fragment")kind="source_fragment";else if(record.content_kind==="unnumbered_source_variant")kind="hadith_variant";else if(record.content_kind==="quoted_companion_saying")kind="companion_report_excerpt";else if(record.content_kind==="source_numbered_attributed_report")kind="source_report_or_saying";
   if(record.extraction && record.extraction.is_excerpt===true){if(kind==="hadith")kind="hadith_excerpt";else if(kind==="companion_report")kind="companion_report_excerpt";}
-  const kinds={hadith:{label:"Hadith",note:"A narration preserved from the source."},hadith_variant:{label:"Hadith variant",note:"A separately preserved variant narration in the source."},source_fragment:{label:"Source fragment",note:"An incomplete narration fragment preserved as supplied by the source."},hadith_excerpt:{label:"Hadith excerpt",note:"A quotation preserved from the source; it may contain only part of the narration."},hadith_meaning_excerpt:{label:"Reported meaning",note:"The source presents this passage as the meaning of a hadith."},companion_report:{label:"Companion report",note:"Words or a report attributed to a Companion in the source."},companion_report_excerpt:{label:"Companion report",note:"An excerpt of words or a report attributed to a Companion in the source."}};
+  const kinds={source_report_or_saying:{label:"Report or saying",note:"The source attribution is explained separately for each language reading."},hadith:{label:"Hadith",note:"A narration preserved from the source."},hadith_variant:{label:"Hadith variant",note:"A separately preserved variant narration in the source."},source_fragment:{label:"Source fragment",note:"An incomplete narration fragment preserved as supplied by the source."},hadith_excerpt:{label:"Hadith excerpt",note:"A quotation preserved from the source; it may contain only part of the narration."},hadith_meaning_excerpt:{label:"Reported meaning",note:"The source presents this passage as the meaning of a hadith."},companion_report:{label:"Companion report",note:"Words or a report attributed to a Companion in the source."},companion_report_excerpt:{label:"Companion report",note:"An excerpt of words or a report attributed to a Companion in the source."}};
   return typeof kind==="string" && Object.prototype.hasOwnProperty.call(kinds,kind)?kinds[kind]:null;
 };
 const textDirection = (language,arabic=false) => {const parts=String(language||"").toLowerCase().replace(/_/g,"-").split("-");return parts.includes("latn")?"ltr":arabic || ["ar","fa","ur"].includes(parts[0])?"rtl":"auto";};
@@ -502,14 +502,69 @@ const legacyReadingCitation = (record,language) => {
   const number=record.number || {},label=bookLabel(record.book_key || "",record.language || "") || "Collection not supplied";
   return "["+label+" · "+(number.in_book!=null?"Source number "+number.in_book:"hadith number not supplied")+"]";
 };
+const quotationParts = item => {
+  const text=item.text,source=item.source || {},spans=source.text_spans || {};let pairs=[];
+  if(typeof text!=="string" || !text)return [];
+  if(Object.hasOwn(source,"source_report_groups")){
+    const groups=source.source_report_groups;
+    if(!Array.isArray(groups) || !groups.length || groups.some(group=>!Array.isArray(group) || !group.length) ||
+        !Number.isInteger(source.source_report_count) || source.source_report_count!==groups.length ||
+        source.source_report_boundaries!=null)return [];
+    const flattened=groups.flat();
+    if(JSON.stringify(flattened)!==JSON.stringify(spans.quotation_spans))return [];
+    let previous=0;
+    for(const span of flattened){
+      if(!Array.isArray(span) || span.length!==2 || !span.every(Number.isInteger) ||
+          !(0<=previous && previous<=span[0] && span[0]<span[1]))return [];
+      previous=span[1];
+    }
+    const characters=Array.from(text);
+    if(flattened.reduce((n,[start,end])=>n+end-start,0)!==characters.length)return [];
+    let cursor=0;
+    return groups.map((group,index)=>{
+      const passages=group.map((span,position)=>{
+        const end=cursor+span[1]-span[0],passage={text:characters.slice(cursor,end).join(""),
+          source_span:span,gap_before:position>0 && group[position-1][1]<span[0]};
+        cursor=end;return passage;
+      });
+      return {label:"Source report "+(index+1),text:passages.map(passage=>passage.text).join(""),source_spans:group,passages};
+    });
+  }
+  if(item.quotation_status==="multiple_source_reports" && Array.isArray(source.source_report_boundaries)){
+    pairs=source.source_report_boundaries.map((span,i)=>[span,"Source report "+(i+1)]);
+    pairs.push(...(spans.retained_internal_citation_spans || []).map(span=>[span,"Source citation"]));
+  }else if(item.quotation_status==="disjoint_source_spans" && Array.isArray(spans.quotation_spans)){
+    pairs=spans.quotation_spans.map((span,i)=>[span,"Source excerpt "+(i+1)]);
+  }else return [];
+  if(pairs.length<2 || pairs.some(([span])=>!Array.isArray(span) || span.length!==2 ||
+      !span.every(Number.isInteger) || !(0<=span[0] && span[0]<span[1])))return [];
+  pairs.sort((a,b)=>a[0][0]-b[0][0]);
+  if(pairs.some(([span],i)=>i && pairs[i-1][0][1]>span[0]))return [];
+  const characters=Array.from(text);
+  if(pairs.reduce((n,[span])=>n+span[1]-span[0],0)!==characters.length)return [];
+  let cursor=0;
+  return pairs.map(([span,label])=>{const end=cursor+span[1]-span[0],part={label,text:characters.slice(cursor,end).join(""),source_span:span};cursor=end;return part;});
+};
+const quotationQualification = item => {
+  const source=item.source || {};
+  let value="";
+  if(item.quotation_status==="content_mismatch")value="This provider ID contains different material in this language. Its full source text is preserved under Comments and is not a translation or Arabic counterpart of the displayed narration.";
+  else if(item.quotation_status==="attribution_pending")value="The attribution in this language remains under review. Its complete source text is preserved under Comments; another language is not used to supply an unnamed speaker.";
+  else if(item.quotation_status==="boundary_pending")value="This source combines narration and commentary. Its complete text is preserved under Comments while the narration boundary is reviewed.";
+  else if(item.quotation_status==="disjoint_source_spans")value="This reading preserves separate source spans. Intervening source notes are retained under Comments.";
+  else if(item.quotation_status==="abbreviated_source_report")value="This edition abbreviates the report and explicitly refers to another source entry. The exact abbreviated wording is preserved here; open References for the cited report.";
+  else if(item.quotation_status==="multiple_source_reports")value="This source entry preserves "+(Number.isInteger(source.source_report_count) && source.source_report_count>2?String(source.source_report_count):"two")+" separately attributed reports in their original order. They remain one provider entry, with their distinct narrator introductions and source references.";
+  const groupedNote=Array.isArray(source.source_report_groups) && source.source_report_groups.some(group=>Array.isArray(group) && group.length>1)?"Some reports contain separate source passages. Intervening source text is retained under Comments.":"";
+  return [value,source.report_classification_note,source.source_report_alignment_note,groupedNote].filter(note=>typeof note==="string" && note.trim()).map(note=>note.trim()).join(" ");
+};
 const readingView = (item,options) => {
   const language=item.language || "",arabic=language.split("-")[0]==="ar";
   return {id:item.id ?? null,language,script:item.script ?? null,text:item.text ?? null,
     source:item.source && typeof item.source==="object"?item.source:{},
     references:Array.isArray(item.references)?item.references:[],comments:Array.isArray(item.comments)?item.comments:[],
-    translation_provenance:item.translation_provenance ?? null,scope:item.scope ?? null,match_status:item.match_status ?? null,quotation_status:item.quotation_status ?? null,
+    translation_provenance:item.translation_provenance ?? null,scope:item.scope ?? null,match_status:item.match_status ?? null,quotation_status:item.quotation_status ?? null,quotation_parts:quotationParts(item),
     role:options.role,primary:!!options.primary,heading:options.heading || languageLabel(language),
-    citation:options.citation || counterpartCitation(item,arabic?"arabic":"english"),qualification:options.qualification || ((item.quotation_status==="content_mismatch"?"This provider ID contains different material in this language. Its full source text is preserved under Comments and is not a translation or Arabic counterpart of the displayed narration.":item.quotation_status==="boundary_pending"?"This source combines narration and commentary. Its complete text is preserved under Comments while the narration boundary is reviewed.":item.quotation_status==="disjoint_source_spans"?"This reading preserves separate source spans. Intervening compiler text is retained under Comments.":item.quotation_status==="abbreviated_source_report"?"This edition abbreviates the report and explicitly refers to another source entry. The exact abbreviated wording is preserved here; open References for the cited report.":item.quotation_status==="multiple_source_reports"?"This source entry preserves two separately attributed reports in their original order. They remain one provider entry, with their distinct narrator introductions and source references."+(typeof (item.source || {}).source_report_alignment_note==="string" && item.source.source_report_alignment_note.trim()?" "+item.source.source_report_alignment_note:""):"")+(item.quotation_status!=="multiple_source_reports" && typeof (item.source || {}).source_report_alignment_note==="string" && item.source.source_report_alignment_note.trim()?" "+item.source.source_report_alignment_note.trim():"")).trim(),
+    citation:options.citation || counterpartCitation(item,arabic?"arabic":"english"),qualification:options.qualification || quotationQualification(item),
     translation_origin:arabic?null:originCategory({translation_provenance:item.translation_provenance || {}})};
 };
 function languageReadings(record){
@@ -714,8 +769,17 @@ function languageReading(reading,index,position){
   metaLine.append(icon("chevron-down"));summary.append(metaLine);section.append(summary);
   const content=element("div","reading-content");
   if(reading.qualification)content.append(element("p","counterpart-note",reading.qualification));
-  if(reading.text){const text=paragraph(reading.text,base==="ar",reading.language);text.dir=readingDirection(reading);content.append(text);}
-  else content.append(element("p","counterpart-note",["boundary_pending","content_mismatch"].includes(reading.quotation_status)?"Open Comments for the preserved source text.":"This language is available at its source link."));
+  if(reading.text){
+    const parts=(reading.quotation_parts || []).length?reading.quotation_parts:[{text:reading.text}];
+    for(const part of parts){
+      if(part.label)content.append(element("p","counterpart-note",part.label));
+      for(const passage of part.passages || [part]){
+        if(passage.gap_before)content.append(element("p","counterpart-note","Intervening source text is retained under Comments."));
+        const text=paragraph(passage.text,base==="ar",reading.language);text.dir=readingDirection(reading);content.append(text);
+      }
+    }
+  }
+  else content.append(element("p","counterpart-note",["boundary_pending","content_mismatch","attribution_pending"].includes(reading.quotation_status)?"Open Comments for the preserved source text.":"This language is available at its source link."));
   const citation=element("div","reading-reference"),quotation=element("p","reading-citation",reading.citation);
   quotation.dir="auto";citation.append(quotation);
   const source=reading.source || {},url=sourceURL(source),credit=element(url?"a":"span","reading-source",source.name || "Source not named");
