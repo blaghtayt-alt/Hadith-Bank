@@ -3,9 +3,12 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
+import traceback
 
 PROGRESS = {
     'deenhindi': 'imports/web-deenhindi-20261112/progress.json',
@@ -23,7 +26,18 @@ def write_changed(path, value):
     data = json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + '\n'
     if not path.exists() or path.read_text(encoding='utf-8') != data:
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(data, encoding='utf-8')
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
+                                             prefix='.' + path.name + '.', delete=False) as stream:
+                temporary = Path(stream.name)
+                stream.write(data)
+                stream.flush()
+                os.fsync(stream.fileno())
+            os.replace(temporary, path)
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
 
 
 def source_status(root, name):
@@ -85,28 +99,50 @@ def run_source(root, name, settings, logs):
         with path.open('wb') as stream:
             result = subprocess.run(command(root, name, settings), cwd=root, stdin=subprocess.DEVNULL,
                 stdout=stream, stderr=subprocess.STDOUT, timeout=int(settings['max_seconds_per_batch']) + 180, check=False)
-        return {'source': name, 'exit_code': result.returncode, 'log': str(path.relative_to(root))}
+        result = {'source': name, 'exit_code': result.returncode, 'log': str(path.relative_to(root))}
     except subprocess.TimeoutExpired:
-        return {'source': name, 'exit_code': 124, 'log': str(path.relative_to(root)),
-                'error': 'Importer exceeded its graceful budget; inspect the retained checkpoint.'}
+        result = {'source': name, 'exit_code': 124, 'log': str(path.relative_to(root)),
+                  'error': 'Importer exceeded its graceful budget; inspect the retained checkpoint.'}
+    except Exception as error:
+        with path.open('a', encoding='utf-8') as stream:
+            traceback.print_exc(file=stream)
+        result = {'source': name, 'exit_code': 1, 'log': str(path.relative_to(root)),
+                  'error': type(error).__name__ + ': ' + str(error)[:300]}
+    # Each result survives a later worker or registry failure and is included
+    # in the run's diagnostic artifact. A hard timeout is not safe to retry.
+    write_changed(logs / (name + '.result.json'), result)
+    return result
 
 
 def summarize(root, plan):
     sources = [source_status(root, name) for name in PROGRESS]
     stops = read_json(root / STOP_FILE, {})
     for item in sources:
+        item['enabled'] = bool(plan['sources'][item['source']]['enabled'])
         if item['source'] in stops:
             item['worker_stop'] = stops[item['source']]
             item['has_fetch_work'] = False
+        if item.get('worker_stop') or item['blocked']:
+            item['fetch_queue_done'] = False
+        item['state'] = ('blocked' if item['blocked'] else 'stopped' if item.get('worker_stop')
+                         else 'complete' if item['fetch_queue_done'] else 'pending' if item['has_fetch_work']
+                         else 'failed' if item['errors'] else 'paused')
+    has_work = bool(plan['enabled']) and any(item['has_fetch_work'] and item['enabled'] for item in sources)
+    done = all(item['fetch_queue_done'] for item in sources)
+    attention = bool(stops) or any(item['blocked'] or item['errors'] for item in sources)
     return {
         'schema': 'hadith-bank-web-import-status-v1',
         'enabled': plan['enabled'], 'source_status': sources,
         'fetched_entries': sum(item['fetched_entries'] for item in sources),
         'registered_occurrences': sum(item['registered_occurrences'] for item in sources),
         'held_entries': sum(item['held_entries'] for item in sources),
-        'requires_attention': bool(stops) or any(item['blocked'] or item['errors'] for item in sources),
-        'fetch_queues_done': all(item['fetch_queue_done'] for item in sources),
-        'has_fetch_work': any(item['has_fetch_work'] and plan['sources'][item['source']]['enabled'] for item in sources),
+        'requires_attention': attention,
+        'fetch_queues_done': done,
+        'has_fetch_work': has_work,
+        'schedule_should_pause': not has_work,
+        'schedule_pause_reason': (None if has_work else 'plan_disabled' if not plan['enabled']
+                                  else 'fetch_queues_complete' if done else 'inspection_required' if attention
+                                  else 'no_enabled_fetch_work'),
         'complete_content_import_certified': False,
         'note': 'Counts describe preserved source entries, not unique canonical hadiths. Queue completion still requires reconciliation of held entries, source omissions and embedded quotations.',
     }
@@ -126,23 +162,41 @@ def main(argv=None):
         pending = [name for name in PROGRESS if name not in stops and plan['sources'][name]['enabled']
                    and source_status(root, name)['has_fetch_work']]
         with ThreadPoolExecutor(max_workers=3) as executor:
-            jobs = []
+            jobs = {}
             for name in pending:
                 settings = dict(plan['sources'][name])
                 if not (root / PROGRESS[name]).exists():
                     settings['max_seconds_per_batch'] = min(settings['max_seconds_per_batch'], plan.get('initial_max_seconds', 300))
-                jobs.append(executor.submit(run_source, root, name, settings, root / '.work/web-import-batch'))
+                jobs[executor.submit(run_source, root, name, settings, root / '.work/web-import-batch')] = name
             for future in as_completed(jobs):
-                result = future.result()
+                try:
+                    result = future.result()
+                except Exception as error:
+                    # An unexpected worker wrapper failure must not discard
+                    # other hosts' completed results or their saved stops.
+                    result = {'source': jobs[future], 'exit_code': 1,
+                              'error': type(error).__name__ + ': ' + str(error)[:300]}
+                    write_changed(root / '.work/web-import-batch' / (jobs[future] + '.result.json'), result)
                 print(json.dumps(result), flush=True)
-                if result['exit_code'] and not source_status(root, result['source'])['blocked']:
+                if result['exit_code']:
                     stops[result['source']] = {**result,
                         'reason': 'Inspect the saved log/checkpoint, fix the cause, then explicitly remove this worker stop.'}
-    from material_registry import load_public_materials
-    registry = load_public_materials(root)
-    del registry
+                # Persist control state before global validation. Invalid
+                # source evidence still raises below and prevents publication.
+                write_changed(root / STOP_FILE, stops)
     write_changed(root / STOP_FILE, stops)
     status = summarize(root, plan)
+    from material_registry import load_public_materials
+    try:
+        registry = load_public_materials(root)
+        del registry
+    except Exception as error:
+        write_changed(root / '.work/web-import-batch/status.json', {
+            **status, 'validation_state': 'failed',
+            'validation_error': type(error).__name__ + ': ' + str(error)[:300],
+        })
+        raise
+    write_changed(root / '.work/web-import-batch/status.json', {**status, 'validation_state': 'passed'})
     write_changed(root / 'imports/web-import-status.json', status)
     print(json.dumps({k: v for k, v in status.items() if k != 'source_status'}, ensure_ascii=False), flush=True)
     # Valid stopped/blocked checkpoints must be committed. Invalid evidence

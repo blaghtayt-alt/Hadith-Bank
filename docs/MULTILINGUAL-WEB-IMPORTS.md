@@ -89,9 +89,36 @@ checkpoint. Unexpected worker failures are persisted in
 require inspection before explicit removal. Saved authentication/rate/robots
 blocks are never automatically retried. Failed jobs retain recovery artifacts.
 
-Completed pages are not refreshed. Once the finite queues are exhausted, the workflow disables its schedule. It can
-be enabled again explicitly if a new source intake is authorized. The plan's global or per-source enabled
-field can pause further intake.
+Each worker now saves a separate result receipt as it finishes. Status and stop
+files use atomic replacement, so an interrupted write cannot leave half a JSON
+checkpoint. A failed worker does not discard the other hosts' completed results.
+Hard process timeouts remain stopped for inspection; reaching the importer's
+normal time budget leaves a resumable queue.
+
+Every workflow outcome retains a small diagnostic artifact, including successful
+runs with blocked or stopped sources. It contains worker logs/results, the logged
+test and batch commands, run/attempt IDs, the checked-out commit, and the
+available checkpoint. The job summary distinguishes batch and save outcomes;
+counts from a failed save do not establish repository publication. Failed or
+canceled jobs additionally retain acquired source evidence for recovery.
+Website build dispatch is a separate step after saving the checkpoint, and it
+also runs when the source files are unchanged. If a source push succeeds but
+the build request fails, the next run retries that request before it can pause
+the schedule. A completed source save and a completed website deployment remain
+separate outcomes.
+
+Completed pages are not refreshed. The workflow disables its schedule when all
+fetch queues are complete or when no enabled source can continue. A paused,
+blocked or failed queue is never labelled complete. Inspect the retained cause,
+repair the affected checkpoint/code if needed, and re-enable the workflow to
+resume the already authorized intake. The plan's global or per-source enabled
+field can pause further intake. A newly authorized source requires an explicit
+plan update.
+
+The public material registry also rejects canonical rows explicitly marked
+`show_in_html_hadith=false`. Keep those rows in original source or supporting
+evidence outside the registered reader subset; registration cannot silently
+strip their hold marker or change the declared record counts.
 
 Commands:
 

@@ -177,8 +177,17 @@ def counterpart_policy_for(manifest, relative):
 
 
 
+def require_reader_visibility(row):
+    """An import-level publication decision cannot override an explicit row hold."""
+    require(row.get('show_in_html_hadith') is not False,
+            'Record explicitly withheld from Hadith HTML/search (show_in_html_hadith=false): ' +
+            str(row.get('id', '<unknown>')) + '. Preserve held records as source/evidence outside ' +
+            'the registered reader subset; do not remove the hold to make a build pass.')
+
+
 def normalized_projection(row, material, position):
     require(isinstance(row.get('id'), str) and bool(row['id'].strip()), 'Every material occurrence needs a stable id')
+    require_reader_visibility(row)
     text = row.get('text')
     require(isinstance(text, dict) and {'arabic', 'translation'} <= set(text),
             'Record text requires explicit arabic and translation fields (string or null): ' + row['id'])
@@ -291,6 +300,7 @@ def project_for_material(row, material, position):
     if material.get('adapter') == 'records-v1':
         return normalized_projection(row, material, position)
     require(material.get('adapter') == 'pdf-intake-package-v1', 'Unsupported material adapter')
+    require_reader_visibility(row)
     from integrate_private_intakes import project
     prefix = material['intake_root']
     collection = {'book': material['book_key'], 'edition': material['edition'],

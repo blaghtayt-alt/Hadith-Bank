@@ -140,3 +140,7 @@ Ordinary new additions use the simpler `records-v1` format documented above. Do 
 Extracting a PDF, checking every character against its pages, repairing Arabic and evaluating source/translation authenticity are separate tasks. Automatic integration validates the registered data and builds the reader; it does not perform those reviews.
 
 [Website and deployment details](WEBSITE.md) · [Material manifest schema](../schemas/material-manifest.schema.json) · [Material record schema](../schemas/material-record.schema.json) · [Review and rights policy](REVIEW-AND-RIGHTS.md)
+
+## Pending source transfers
+
+- [Japanese research-v3 integration request](../imports/japanese-research-v3-20261112/README.md): source-package transfer is blocked; no package or reader records have been added. The request preserves the exact recovery hash and the existing release/display holds.

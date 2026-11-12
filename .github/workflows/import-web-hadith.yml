@@ -36,10 +36,19 @@ jobs:
         with:
           python-version: '3.13'
       - name: Check importer and reader regressions
-        run: python -m unittest discover -s tests
+        id: regressions
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/web-import-tests --cwd . --timeout 600 --
+          python -m unittest discover -s tests
       - name: Resume bounded public-page batches
-        run: python scripts/web_import_batch.py --root .
+        id: batch
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/web-import-run --cwd . --timeout 2400 --
+          python scripts/web_import_batch.py --root .
       - name: Save validated source snapshots and queue checkpoints
+        id: save
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -68,17 +77,57 @@ jobs:
           python scripts/web_import_batch.py --root . --status-only
           git diff --exit-code -- imports materials
           git push origin HEAD:refs/heads/main
-          gh workflow run reader-pages.yml --ref main
-      - name: Report saved source stops
+      - name: Request the website build after a saved or unchanged checkpoint
+        id: dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # A GITHUB_TOKEN source push does not trigger another workflow. Keep
+        # dispatch separate so the next no-diff run can recover a lost request.
+        run: gh workflow run reader-pages.yml --ref main
+      - name: Record the run outcome and source progress
+        if: always()
+        env:
+          REGRESSION_OUTCOME: ${{ steps.regressions.outcome }}
+          BATCH_OUTCOME: ${{ steps.batch.outcome }}
+          SAVE_OUTCOME: ${{ steps.save.outcome }}
+          DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
         run: |
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
-          status = json.loads(Path('imports/web-import-status.json').read_text())
+          import subprocess
+          context = {key: os.environ.get(key) for key in (
+              'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_SHA',
+              'REGRESSION_OUTCOME', 'BATCH_OUTCOME', 'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
+          head = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
+          context['checked_out_commit'] = head.stdout.strip() if head.returncode == 0 else None
+          status_path = Path('imports/web-import-status.json')
+          try:
+              status = json.loads(status_path.read_text())
+          except (OSError, ValueError) as error:
+              status = {}
+              context['status_read_error'] = str(error)
+          folder = Path('.work/web-import-batch')
+          folder.mkdir(parents=True, exist_ok=True)
+          (folder / 'run-context.json').write_text(json.dumps(context, indent=2) + '\n')
+          lines = ['## Website import checkpoint', '',
+              'Tests: ' + str(context['REGRESSION_OUTCOME']) +
+              '; batch: ' + str(context['BATCH_OUTCOME']) +
+              '; source save: ' + str(context['SAVE_OUTCOME']) +
+              '; website build request: ' + str(context['DISPATCH_OUTCOME']) + '.', '',
+              'Counts below describe the available checkpoint; a failed save does not confirm publication.', '',
+              '| Source | Fetched | Registered | Held | State |',
+              '| --- | ---: | ---: | ---: | --- |']
+          for item in status.get('source_status', []):
+              lines.append('| {source} | {fetched_entries} | {registered_occurrences} | {held_entries} | {state} |'.format(
+                  **{**item, 'state': item.get('state', 'unknown')}))
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('\n'.join(lines) + '\n')
           if status.get('requires_attention'):
               print('::warning::A source queue needs inspection. Its saved stop/checkpoint is retained; other authorized queues continue.')
           PY
-      - name: Stop the finite schedule when every fetch queue is complete
+      - name: Pause the finite schedule when no source can continue
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -87,16 +136,32 @@ jobs:
           import subprocess
           from pathlib import Path
           status = json.loads(Path('imports/web-import-status.json').read_text())
-          if status.get('fetch_queues_done'):
+          if status.get('schedule_should_pause'):
+              reason = 'All fetch queues are complete.' if status.get('fetch_queues_done') else 'No enabled source can continue; inspect the retained stop/checkpoint before re-enabling.'
+              print(reason)
               subprocess.run(['gh', 'workflow', 'disable', 'import-web-hadith.yml'], check=True)
           PY
-      - name: Preserve interrupted intake evidence for recovery
-        if: failure()
+      - name: Retain diagnostic logs for every outcome
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: web-import-recovery-${{ github.run_id }}
+          name: web-import-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          include-hidden-files: true
+          path: |
+            .work/web-import-tests/
+            .work/web-import-run/
+            .work/web-import-batch/
+            imports/web-import-status.json
+            imports/web-import-worker-stops.json
+      - name: Preserve interrupted intake evidence for recovery
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-import-recovery-${{ github.run_id }}-${{ github.run_attempt }}
           retention-days: 7
           compression-level: 0
+          include-hidden-files: true
           path: |
             .work/web-import-batch/
             imports/web-deenhindi-20261112/

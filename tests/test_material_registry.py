@@ -95,6 +95,47 @@ class MaterialRegistryTests(unittest.TestCase):
         self.assertEqual(first_html, second_html)
         self.assertEqual(len({row['id'] for row in second_records}), 1)
 
+    def test_explicit_record_hold_rejects_publication_without_rewriting_source_or_counts(self):
+        held = dict(self.record, id='TEST:explicit-held', show_in_html_hadith=False)
+        self.write_records([self.record, held])
+        self.register(replace=True)
+        source_before = (self.folder / 'records.json').read_bytes()
+        manifest_before = (self.folder / 'manifest.json').read_bytes()
+        site = self.root / '_site'
+        site.mkdir()
+        (site / 'index.html').write_text('TEST previously published site')
+        message = r'show_in_html_hadith=false.*TEST:explicit-held.*outside the registered reader subset'
+        with self.assertRaisesRegex(ValueError, message):
+            material_registry.load_public_materials(self.root)
+        with self.assertRaisesRegex(ValueError, message):
+            refresh_bank.refresh(self.root, '_site')
+        self.assertEqual((site / 'index.html').read_text(), 'TEST previously published site')
+        self.assertEqual((self.folder / 'records.json').read_bytes(), source_before)
+        self.assertEqual((self.folder / 'manifest.json').read_bytes(), manifest_before)
+        self.assertEqual(self.manifest()['records']['count'], 2)
+        self.assertFalse((self.root / 'search/records.jsonl').exists())
+
+    def test_record_hold_blocks_each_material_projection_adapter(self):
+        held = dict(self.record, show_in_html_hadith=False)
+        for adapter in ('records-v1', 'pdf-intake-package-v1'):
+            with self.subTest(adapter=adapter), self.assertRaisesRegex(
+                    ValueError, 'Record explicitly withheld.*TEST:source:one'):
+                material_registry.project_for_material(held, {'adapter': adapter}, 0)
+        with self.assertRaisesRegex(ValueError, 'Record explicitly withheld'):
+            material_registry.normalized_projection(held, {}, 0)
+
+    def test_pending_review_without_explicit_visibility_hold_remains_authorized(self):
+        for record in (self.record, dict(self.record, show_in_html_hadith=True)):
+            with self.subTest(explicit_visibility=record.get('show_in_html_hadith')):
+                self.write_records([record])
+                self.register(replace=True)
+                registry = material_registry.load_public_materials(self.root)
+                embedded, _ = self.render(registry)
+                self.assertEqual(len(embedded), 1)
+                self.assertEqual(embedded[0]['text_translation'], record['text']['translation'])
+                self.assertFalse(embedded[0]['review']['release_eligible'])
+                self.assertEqual(embedded[0]['review']['independent_pro_qc'], 'pending')
+
     def test_material_counterpart_opt_out_preserves_source_and_review(self):
         source_bytes = (self.folder / 'records.json').read_bytes()
         policy = {'mode': 'disabled', 'reason': 'TEST source-specific alignment remains pending'}
