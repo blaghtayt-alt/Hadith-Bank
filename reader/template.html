@@ -240,7 +240,7 @@ const recordPageURL = async (record, site) => {
   try { base=new URL(site.live_url); } catch(_) { return null; }
   if(base.protocol!=="https:" || base.username || base.password || base.search || base.hash) return null;
   base.pathname=base.pathname.replace(/\/$/,"")+"/";
-  if(Array.isArray(record.language_versions) && /^(?:deenhindi|rivoyat|islom)-/.test(record.source_id || "")){const url=new URL("index.html",base);url.searchParams.set("occurrence",record.id);return url.href;}
+  if(Array.isArray(record.language_versions) && /^(?:deenhindi|rivoyat|islom|hadisuz|fawaz)-/.test(record.source_id || "")){const url=new URL("index.html",base);url.searchParams.set("occurrence",record.id);return url.href;}
   if(!globalThis.crypto || !globalThis.crypto.subtle)return null;
   const digest=await globalThis.crypto.subtle.digest("SHA-256",new TextEncoder().encode(record.id));
   const token=Array.from(new Uint8Array(digest),byte=>byte.toString(16).padStart(2,"0")).join("").slice(0,24);
@@ -471,6 +471,14 @@ const readingDirection = reading => {
   const parts=String(reading.language || "").replace(/_/g,"-").toLowerCase().split("-");
   return parts.includes("latn") || reading.script==="Latn"?"ltr":["ar","fa","ur"].includes(parts[0])?"rtl":"auto";
 };
+const readingTranslator = reading => {
+  if(reading.language.split("-")[0]==="ar")return null;
+  const supplied=(reading.source || {}).translator,credited=(reading.translation_provenance || {}).translator;
+  const unnamed=["unknown","not named","not supplied","unspecified","n/a"];
+  const name=[supplied && supplied.name,credited && typeof credited==="object"?credited.name:credited]
+    .find(value=>typeof value==="string" && value.trim() && !unnamed.includes(value.trim().toLowerCase()));
+  return typeof name==="string"?name.trim():null;
+};
 const legacyReadingCitation = (record,language) => {
   const relevant=(record.references && Array.isArray(record.references.items)?record.references.items:[]).filter(item=>item && typeof item==="object" && !["commentary","unresolved"].includes(item.scope));
   if(relevant.length)return counterpartCitation({references:relevant},language==="ar"?"arabic":"english");
@@ -694,6 +702,8 @@ function languageReading(reading,index,position){
   const source=reading.source || {},url=sourceURL(source),credit=element(url?"a":"span","reading-source",source.name || "Source not named");
   if(url){credit.href=url;credit.target="_blank";credit.rel="noopener noreferrer";credit.append(icon("external-link"));}
   citation.append(credit);
+  const translator=readingTranslator(reading);
+  if(translator)citation.append(element("span","reading-translator"," · Translator: "+translator));
   content.append(citation);
   if(source.detail_metadata_status==="detail_metadata_pending")content.append(element("p","counterpart-note reading-pending","Detailed source references and notes have not been retrieved yet."));
   if(reading.references.length)content.append(detail("References for this reading ("+reading.references.length+")",citationList(reading.references,url),"reading-references"));

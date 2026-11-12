@@ -1,5 +1,6 @@
 """Synthetic fixtures: no test text represents an actual religious quotation."""
 import copy
+import html
 import json
 from pathlib import Path
 import shutil
@@ -9,7 +10,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
-from build_discovery import render_language_reading
+from build_discovery import render_language_reading, uses_shared_web_reader, occurrence_link
 from language_display import language_readings, available_languages, reading_direction
 from language_versions import available_language_codes
 from test_reader import fixture, READER_SNAPSHOT_JS
@@ -42,7 +43,49 @@ def multilingual_fixture():
     return record
 
 
+def multilingual_translator_fixture():
+    record = multilingual_fixture()
+    record['translator'] = {'name': 'TEST parent translator'}
+    record['source']['translator'] = {'name': 'TEST parent source translator'}
+    record['translation_provenance']['translator'] = 'TEST parent provenance translator'
+    versions = {item['language']: item for item in record['language_versions']}
+    versions['ar']['source']['translator'] = {'name': 'TEST Arabic catalog author'}
+    versions['ar']['translation_provenance'] = {'translator': 'TEST Arabic metadata name'}
+    names = {'ar': None, 'en': 'TEST English translator <script>TEST-LITERAL</script>',
+             'hi': 'TEST Hindi translator', 'ur-Latn': None, 'uz-Cyrl': None}
+    versions['en']['source']['translator'] = {'name': names['en']}
+    versions['en']['translation_provenance']['translator'] = 'TEST English fallback translator'
+    versions['hi']['source']['translator'] = {'name': None}
+    versions['hi']['translation_provenance']['translator'] = names['hi']
+    versions['ur-Latn']['source']['translator'] = {'name': ' Unknown '}
+    versions['ur-Latn']['translation_provenance']['translator'] = 'unknown'
+    return record, names
+
+
 class LanguageReadingTests(unittest.TestCase):
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for shared-reader link parity')
+    def test_bulk_and_hadisuz_links_use_exact_shared_reader_occurrences(self):
+        records = []
+        for prefix in ('fawaz-', 'hadisuz-'):
+            record = multilingual_fixture()
+            record.update(id=prefix + 'TEST:1.5', source_id=prefix + 'TEST')
+            self.assertTrue(uses_shared_web_reader(record))
+            self.assertEqual(occurrence_link(record, 'languages/uz.html'),
+                             '../?occurrence=' + prefix + 'TEST%3A1.5')
+            records.append(record)
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        function = 'const recordPageURL =' + template.split('const recordPageURL =', 1)[1].split('const recordFileURL =', 1)[0]
+        program = function + '''
+const rows=JSON.parse(require('fs').readFileSync(0,'utf8'));
+Promise.all(rows.map(row=>recordPageURL(row,{live_url:'https://example.invalid/bank/'})))
+.then(urls=>process.stdout.write(JSON.stringify(urls)));
+'''
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(records),
+                                text=True, capture_output=True, check=True)
+        self.assertEqual(json.loads(result.stdout), [
+            'https://example.invalid/bank/index.html?occurrence=fawaz-TEST%3A1.5',
+            'https://example.invalid/bank/index.html?occurrence=hadisuz-TEST%3A1.5'])
+
     def test_one_view_per_explicit_version_preserves_own_citations_and_bytes(self):
         record = multilingual_fixture()
         before = copy.deepcopy(record)
@@ -188,6 +231,27 @@ class LanguageReadingTests(unittest.TestCase):
         readings['en']['source']['detail_metadata_status'] = 'detail_metadata_source_parsed'
         self.assertNotIn(notice, render_language_reading(readings['en']))
 
+    def test_static_translator_credit_is_explicit_and_language_owned(self):
+        record, names = multilingual_translator_fixture()
+        before = copy.deepcopy(record)
+        for reading in language_readings(record):
+            with self.subTest(language=reading['language']):
+                page = render_language_reading(reading)
+                name = names[reading['language']]
+                if name:
+                    source = page.split('<p class="reading-source">', 1)[1].split('</p>', 1)[0]
+                    self.assertIn('<span class="reading-translator"> · Translator: ' +
+                                  html.escape(name) + '</span>', source)
+                else:
+                    self.assertNotIn('reading-translator', page)
+                    self.assertNotIn('Translator:', page)
+                if reading['language'] == 'ar':
+                    self.assertNotIn('Translation origin:', page)
+                self.assertNotIn('TEST parent', page)
+                self.assertNotIn('TEST English fallback translator', page)
+                self.assertNotIn('<script>', page)
+        self.assertEqual(record, before)
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for browser parity')
     def test_browser_views_filters_and_commentary_search_match_python(self):
         records = [multilingual_fixture(), fixture(2)]
@@ -212,7 +276,7 @@ process.stdout.write(JSON.stringify({views:languageReadings(records[0]),language
     @unittest.skipUnless(shutil.which('node'), 'Node is required for DOM construction regression')
     def test_language_panel_dom_owns_sources_notes_and_open_controls(self):
         """Exercise DOM construction, not a substitute for a browser layout test."""
-        record = multilingual_fixture()
+        record, translator_names = multilingual_translator_fixture()
         record['language_versions'][1]['source']['detail_metadata_status'] = 'detail_metadata_pending'
         record['language_versions'][1]['references'].append({'collection': None, 'number': None,
             'source_citation': 'TEST raw-only citation <script>preserve as text</script>',
@@ -250,6 +314,9 @@ process.stdout.write(JSON.stringify({count:sections.length,arabicOpen:sections.f
  pendingNotice:englishNodes.find(node=>node.className==='counterpart-note reading-pending')?.textContent,
  completedNotice:nodes(completed).some(node=>node.className==='counterpart-note reading-pending'),
  referenceText:englishNodes.filter(node=>['citation-verbatim','citation-scope'].includes(node.className)).map(node=>node.textContent),
+ translators:Object.fromEntries(sections.map(section=>[section.dataset.language,
+   nodes(section).find(node=>node.className==='reading-reference').children
+     .filter(node=>node.className==='reading-translator').map(node=>node.textContent)])),
  hindiText:nodes(sections.find(node=>node.dataset.language==='hi')).map(node=>node.textContent || '').join(' '),
  englishLinks:englishNodes.filter(node=>node.tag==='a').map(node=>({href:node.href,target:node.target,rel:node.rel})),
  citation:englishNodes.find(node=>node.className==='reading-citation').textContent,
@@ -269,6 +336,8 @@ process.stdout.write(JSON.stringify({count:sections.length,arabicOpen:sections.f
         self.assertIn(record['language_versions'][1]['references'][1]['source_citation'], actual['referenceText'])
         self.assertIn('Numbering: publisher source local', actual['referenceText'])
         self.assertIn('Canonical mapping: not inferred', actual['referenceText'])
+        self.assertEqual(actual['translators'], {language: [' · Translator: ' + name] if name else []
+                                                for language, name in translator_names.items()})
         self.assertNotIn('TEST raw-only citation', actual['hindiText'])
         self.assertEqual(sum(link['href'] == record['language_versions'][1]['source']['record_url']
                              for link in actual['englishLinks']), 1)

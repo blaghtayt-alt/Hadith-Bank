@@ -1,14 +1,13 @@
 # Multilingual website imports
 
-The active website intake covers Deen Hindi and Hadis.islom.uz, with
-source-specific references, comments, collapsible language panels and
-language/book/collection filters. On 12 November 2026 the owner withdrew
-Rivoyat because its translation source was not established. Its 30 staged
-occurrences and their source payloads were removed from this publication patch;
-no Rivoyat material is registered. Acquisition and offline re-registration are
-disabled until the owner explicitly reauthorizes that source. Current repository intake
-totals are in [web-import-status.json](../imports/web-import-status.json).
-These count preserved source occurrences, not unique canonical hadiths.
+The active website intake covers Deen Hindi, Hadis.islom.uz and the Hadis.uz
+Tirmidhi collection, with source-specific references, comments, collapsible
+language panels and language/book/collection filters. A separate whole-book
+intake preserves the identified Fawaz upstream editions as their own source
+occurrences. Current website checkpoints are reported in
+[web-import-status.json](../imports/web-import-status.json); Fawaz has its own
+progress report under `imports/web-fawaz-20261112/`. These counts describe
+preserved source occurrences, not unique canonical hadiths or deployment status.
 
 ## Reading framework
 
@@ -56,8 +55,13 @@ stays with its own language.
 | Website | Acquisition route | Discovery |
 | --- | --- | --- |
 | [Deen Hindi](https://deenhindi.com/hadith) | Ordinary public HTML with embedded structured source objects | Seven observed collection inventories; preserve their actual identifiers and suffixes |
-| Rivoyat | Excluded by owner; acquisition and registration disabled | No active materials |
 | [Hadis.islom.uz](https://hadis.islom.uz/) | Public collection/section HTML and Arabic/Uzbek columns | 11 observed catalogue collections |
+| [Hadis.uz Tirmidhi](https://hadis.uz/hadiths/1) | Public catalogue and detail HTML; Uzbek Cyrillic narration with separately preserved comments | Observed catalogue pagination and detail links for Sunan/Jami al-Tirmidhi only |
+
+Hadis.uz and Hadis.islom.uz remain separate publishers and source identities.
+See [Hadis.uz intake](HADISUZ-IMPORT.md) for exact paragraph boundaries, source
+attribution and the separate resume checkpoint. Its numeric detail URLs are
+publisher database IDs, not established canonical hadith numbers.
 
 Robots evidence and public-page responses are preserved. No private API, login
 or access-block workaround is used. Exact original responses are compressed
@@ -85,6 +89,29 @@ missing translator, independent certification or a new publisher license.
 Arabic receives no translation-origin label; digital HTML extraction receives
 no OCR badge.
 
+## Identified upstream whole-book intake
+
+The separate [Fawaz bulk intake](FAWAZ-BULK-IMPORT.md) acquires the Arabic,
+English and Urdu editions of seven collections from the provider revision pinned
+in [fawaz-bulk-plan.json](../catalog/fawaz-bulk-plan.json). It checkpoints whole
+source files and registers a book only after all three expected editions and
+their source documents validate. It supplies no missing Hindi or generated text.
+
+Fawaz occurrences keep their own language-specific references, grades, comments,
+translator metadata and source snapshots. Provider-declared identities can group
+its corresponding language versions; matching numbers do not merge Fawaz with
+Deen Hindi or any other publisher. This acquisition does not change Deen Hindi's
+fetch queue or claim that its pages were retrieved. Source-wide credits and
+rights qualifications remain separate from verified per-translation ancestry.
+
+    python scripts/import_fawaz_bulk.py --root . --fetch
+    python scripts/import_fawaz_bulk.py --root . --export-only
+
+The default finite batch covers seven books, with a checkpoint after each
+successful source file. Offline export verifies saved snapshots and retains
+completed books after a later acquisition failure. See the dedicated guide for
+the exact source revision, resume rules and held-record classification.
+
 ## Bounded continuation
 
 [import-web-hadith.yml](../.github/workflows/import-web-hadith.yml) resumes the
@@ -103,9 +130,8 @@ blocks are never automatically retried. Failed jobs retain recovery artifacts.
 An access denial during the first robots request is a site-level block too.
 The importer saves the URL, HTTP status and event before exporting its existing
 local records, then checks that stop before any subsequent robots request.
-The initial GitHub run's Rivoyat HTTP 403 is documented in its retained worker
-stop with the verified diagnostic artifact hash. That stop remains in place;
-the other two authorized sources continue independently.
+Stops apply to the affected source; the other enabled sources can continue
+independently.
 
 Each worker now saves a separate result receipt as it finishes. Status and stop
 files use atomic replacement, so an interrupted write cannot leave half a JSON
@@ -143,19 +169,20 @@ Commands:
     python scripts/web_import_batch.py --root .
     python scripts/web_import_batch.py --root . --status-only
     python scripts/import_deenhindi.py --root . --max-records 100 --max-seconds 600 --delay-seconds 1.25
-    python scripts/import_uzbek_web.py --root . --site rivoyat --max-pages 100 --max-seconds 600 --delay 1.25
     python scripts/import_uzbek_web.py --root . --site islom --max-pages 100 --max-seconds 600 --delay 1.25
+    python scripts/import_hadisuz.py --root . --max-pages 100 --max-seconds 600 --delay 1.25
 
-Deen's remaining queue counts entry pages. Uzbek remaining queues count linked
+Deen's remaining queue counts entry pages. Hadis.islom.uz queues count linked
 catalogue/section pages, often containing many entries and revealing further
-pagination; Rivoyat also maintains a separate detail-metadata queue. The status
-report separates pending page and detail requests. Do not add these together as
-remaining hadith counts. Queue
-completion still leaves held classifications and completeness to reconcile.
+pagination. Hadis.uz tracks observed catalogue and detail requests. These are
+pending requests, not remaining narration counts; discovering a later page can
+expand a queue. Fawaz progress counts complete source editions and books
+separately from provider occurrences. Exhausting any fetch queue still leaves
+held classifications and source completeness to reconcile.
 
 ## Large-corpus delivery
 
-New web editions use normal language/book/edition indexes and exact
+New web and Fawaz editions use normal language/book/edition indexes and exact
 ?occurrence=stable-id links into the shared reader. Existing static occurrence
 URLs remain available. This avoids duplicating full HTML pages for hundreds of
 thousands of new records.
@@ -187,21 +214,34 @@ counts must come from real reacquisition and checked source bytes. See
 [Uzbek recovery](UZBEK-WEB-IMPORT-RECOVERY.md) and
 [Deen intake operations](../imports/web-deenhindi-20261112/README.md).
 
-### Historical recovery and subsequent withdrawal
+### Historical Rivoyat exclusion
 
-A surviving source checkpoint was verified locally, including 30 candidate
-Rivoyat occurrences and their 90 exact supplied language texts. The owner then
-withdrew Rivoyat before the recovery patch was merged. Those candidates, their
-snapshots and the combined recovery archive are omitted from publication.
-Earlier 7,024/44,225 projections included those candidates and are superseded.
-The existing Deen Hindi and Islom source identities remain unchanged.
+On 12 November 2026 the owner withdrew Rivoyat because its translation source
+was not established. Its 30 staged occurrences, source snapshots and combined
+recovery archive are excluded from this publication patch; no Rivoyat material
+is registered. Acquisition and offline re-registration remain disabled until
+explicitly reauthorized. Earlier 7,024/44,225 projections included those
+candidates and are superseded.
 
-## Current exclusion and batch boundary
+## Current verified batch boundary
 
-The previously described Rivoyat recovery counts are historical. The current
-active website-source checkpoint contains 6,994 registered occurrences: 48
-from Deen Hindi and 6,946 from Hadis.islom.uz, with 275 source entries held.
-No Rivoyat record, snapshot or combined recovery archive is included in this
-patch. Original local recovery work remains outside the publication set.
-The owner subsequently selected hadis.uz/hadiths/1 for Uzbek Tirmidhi; its
-separate importer is added in the following source batch.
+The prepared website-source checkpoint contains **7,012 registered
+occurrences** and **276 held source entries**:
+
+| Active website source | Registered occurrences |
+| --- | ---: |
+| Deen Hindi | 48 |
+| Hadis.islom.uz | 6,946 |
+| Hadis.uz Tirmidhi | 18 |
+| **Website total** | **7,012** |
+
+The separate verified local Fawaz export has acquired all **21 configured
+editions** across seven books. Its **36,422 provider occurrences** comprise
+**24,867 registered occurrences** and **11,555 held entries**. Complete source
+acquisition does not mean that every entry is an accepted Prophetic narration
+or that every language field contains text. Exact source files and held entries
+remain preserved for further source-bound review.
+
+These are validated input and local export counts for the prepared batch.
+Publication of this batch is not yet complete; neither a registered count nor
+a completed acquisition queue establishes a deployed website update.

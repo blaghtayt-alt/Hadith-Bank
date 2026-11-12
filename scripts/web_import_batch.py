@@ -14,6 +14,7 @@ PROGRESS = {
     'deenhindi': 'imports/web-deenhindi-20261112/progress.json',
     'rivoyat': 'imports/web-uzbek-20261112/rivoyat/progress.json',
     'islom': 'imports/web-uzbek-20261112/islom/progress.json',
+    'hadisuz': 'imports/web-hadisuz-20261112/progress.json',
 }
 STOP_FILE = 'imports/web-import-worker-stops.json'
 
@@ -42,6 +43,26 @@ def write_changed(path, value):
 
 def source_status(root, name):
     progress = read_json(root / PROGRESS[name], {})
+    if name == 'hadisuz':
+        blocked = bool(progress.get('blocked') or progress.get('access_block'))
+        stopped = bool(progress.get('startup_stopped'))
+        pending = int(progress.get('pending_requests', 0))
+        retryable = int(progress.get('retryable_errors', 0))
+        errors = int(progress.get('errors', 0))
+        return {
+            'source': name, 'source_progress': PROGRESS[name],
+            'last_source_update': progress.get('updated_at'),
+            'fetched_entries': progress.get('source_entries_obtained', 0),
+            'registered_occurrences': progress.get('prophetic_source_entries_registered', 0),
+            'held_entries': progress.get('classification_pending_hidden', 0),
+            'pending_requests': pending,
+            'pending_unit': 'observed catalogue and detail pages; pagination may discover more',
+            'fetch_queue_done': bool(progress.get('done')) and not (blocked or stopped or errors),
+            'blocked': blocked, 'startup_stopped': stopped,
+            'access_block': progress.get('access_block'), 'errors': errors,
+            'has_fetch_work': not blocked and not stopped and
+                (not progress or (not progress.get('done') and bool(pending or retryable))),
+        }
     if name == 'deenhindi':
         books = progress.get('by_collection', {})
         unfinished_inventory = len(books) < 7 or any(not item.get('inventory') for item in books.values())
@@ -98,6 +119,8 @@ def command(root, name, settings):
         raise ValueError('Invalid bounded source budget')
     if name == 'deenhindi':
         args = ['scripts/import_deenhindi.py', '--max-records', str(count), '--delay-seconds', str(delay)]
+    elif name == 'hadisuz':
+        args = ['scripts/import_hadisuz.py', '--max-pages', str(count), '--delay', str(delay)]
     else:
         args = ['scripts/import_uzbek_web.py', '--site', name, '--max-pages', str(count), '--delay', str(delay)]
     return [sys.executable, *args, '--root', str(root), '--max-seconds', str(seconds)]
@@ -149,7 +172,8 @@ def summarize(root, plan):
     active_sources = [item for item in sources if not item['excluded_by_owner']]
     has_work = bool(plan['enabled']) and any(item['has_fetch_work'] and item['enabled'] for item in sources)
     done = bool(active_sources) and all(item['fetch_queue_done'] for item in active_sources)
-    attention = any(item.get('worker_stop') or item['blocked'] or item['errors'] for item in active_sources)
+    attention = any(item.get('worker_stop') or item['blocked'] or item['errors'] or
+                    item.get('startup_stopped') for item in active_sources)
     return {
         'schema': 'hadith-bank-web-import-status-v1',
         'enabled': plan['enabled'], 'source_status': sources,

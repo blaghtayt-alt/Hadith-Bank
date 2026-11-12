@@ -1,0 +1,215 @@
+name: Import authorized upstream hadith books
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-fawaz-bulk.yml'
+      - 'catalog/fawaz-bulk-plan.json'
+      - 'scripts/import_fawaz_bulk.py'
+
+permissions:
+  contents: read
+
+# Keep this provider's checkpoints serialized. Other providers write disjoint
+# source paths; the save step rebases and revalidates concurrent main updates.
+concurrency:
+  group: hadith-bank-fawaz-bulk-imports
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Check out current main and saved whole-book checkpoints
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Check importer and reader regressions
+        id: regressions
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/fawaz-bulk-tests --cwd . --timeout 600 --
+          python -m unittest discover -s tests
+      - name: Fetch the finite whole-book edition batch
+        id: fetch
+        # Complete verified books can still be saved when a later fetch stops.
+        # The final outcome step restores failure after safe checkpoint saving.
+        continue-on-error: true
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/fawaz-bulk-fetch --cwd . --timeout 1800 --
+          python scripts/import_fawaz_bulk.py --root . --fetch
+      - name: Rebuild only complete verified books from saved sources
+        id: export
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/fawaz-bulk-export --cwd . --timeout 300 --
+          python scripts/import_fawaz_bulk.py --root . --export-only
+      - name: Validate the complete material registry
+        id: validate
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'scripts')
+          from material_registry import load_public_materials
+          result = load_public_materials(Path('.').resolve())
+          print('Validated material manifests:', len(result['manifests']))
+          PY
+      - name: Save the validated whole-book batch
+        id: save
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = [str(path) for pattern in (
+              'imports/web-fawaz-20261112', 'materials/fawaz-*')
+              for path in Path('.').glob(pattern)]
+          if paths:
+              subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo "The saved whole-book checkpoint is unchanged."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Import verified upstream whole-book source snapshots'
+          # Retry only a verified concurrent advance. Every rebase is followed
+          # by registry validation; authentication or unchanged-ref failures stop.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            before_push="$(git rev-parse refs/remotes/origin/main)"
+            git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              rebase origin/main
+            python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'scripts')
+          from material_registry import load_public_materials
+          load_public_materials(Path('.').resolve())
+          print('Revalidated the integrated material registry before push.')
+          PY
+            git diff --exit-code -- imports materials
+            saved_commit="$(git rev-parse HEAD)"
+            push_status=0
+            git push origin HEAD:refs/heads/main || push_status=$?
+            current_main="$(git ls-remote --exit-code origin refs/heads/main | cut -f1)"
+            [[ "$current_main" =~ ^[0-9a-f]{40}$ ]]
+            if [[ "$current_main" == "$saved_commit" ]]; then
+              echo "Confirmed source checkpoint on main: $saved_commit"
+              exit 0
+            fi
+            if [[ "$current_main" == "$before_push" ]]; then
+              echo "Source checkpoint was not saved; the remote did not advance."
+              exit 1
+            fi
+            if [[ "$push_status" == 0 ]]; then
+              # A source writer can advance main immediately after a successful
+              # push. Verify our commit remains in history before confirming.
+              git fetch origin main
+              if git merge-base --is-ancestor "$saved_commit" origin/main; then
+                echo "Confirmed source checkpoint retained by a newer main revision."
+                exit 0
+              fi
+              echo "The saved source commit is not retained by current main."
+              exit 1
+            fi
+            echo "Main advanced during push; revalidating the next normal attempt."
+          done
+          echo "Main kept advancing; retain this checkpoint for the next run."
+          exit 1
+      - name: Request the reader build after saving or confirming the checkpoint
+        id: dispatch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # GITHUB_TOKEN commits do not trigger the reader's push event. A rerun
+        # also reaches this step with no source diff to recover a lost dispatch.
+        run: gh workflow run reader-pages.yml --ref main --repo "$GITHUB_REPOSITORY"
+      - name: Report an interrupted fetch after preserving verified work
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo "Whole-book acquisition stopped. Valid completed books were saved when validation succeeded; inspect the retained stop and logs before resuming."
+          exit 1
+      - name: Record the batch outcome
+        if: always()
+        env:
+          REGRESSION_OUTCOME: ${{ steps.regressions.outcome }}
+          FETCH_OUTCOME: ${{ steps.fetch.outcome }}
+          EXPORT_OUTCOME: ${{ steps.export.outcome }}
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          SAVE_OUTCOME: ${{ steps.save.outcome }}
+          DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          context = {key: os.environ.get(key) for key in (
+              'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_SHA',
+              'REGRESSION_OUTCOME', 'FETCH_OUTCOME', 'EXPORT_OUTCOME',
+              'VALIDATE_OUTCOME', 'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
+          head = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
+          context['checked_out_commit'] = head.stdout.strip() if head.returncode == 0 else None
+          try:
+              progress = json.loads(Path('imports/web-fawaz-20261112/progress.json').read_text())
+              context['progress'] = {key: progress.get(key) for key in (
+                  'status', 'revision', 'fetched_editions', 'registered_occurrences',
+                  'completed_books', 'pending_books', 'complete')}
+          except (OSError, ValueError) as error:
+              context['progress_read_error'] = str(error)
+          folder = Path('.work/fawaz-bulk-run')
+          folder.mkdir(parents=True, exist_ok=True)
+          (folder / 'run-context.json').write_text(json.dumps(context, indent=2) + '\n')
+          lines = ['## Upstream whole-book import', '',
+              'Tests: ' + str(context['REGRESSION_OUTCOME']) +
+              '; fetch: ' + str(context['FETCH_OUTCOME']) +
+              '; export: ' + str(context['EXPORT_OUTCOME']) +
+              '; registry validation: ' + str(context['VALIDATE_OUTCOME']) +
+              '; source save: ' + str(context['SAVE_OUTCOME']) +
+              '; reader request: ' + str(context['DISPATCH_OUTCOME']) + '.', '',
+              'Progress describes the retained checkpoint. A failed source save does not confirm publication.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('\n'.join(lines) + '\n')
+          PY
+      - name: Retain diagnostics for every outcome
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fawaz-bulk-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          include-hidden-files: true
+          path: |
+            .work/fawaz-bulk-tests/
+            .work/fawaz-bulk-fetch/
+            .work/fawaz-bulk-export/
+            .work/fawaz-bulk-run/
+            imports/web-fawaz-20261112/progress.json
+      - name: Preserve interrupted source evidence for recovery
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fawaz-bulk-recovery-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          include-hidden-files: true
+          path: |
+            imports/web-fawaz-20261112/
+            materials/fawaz-*/
+            .work/fawaz-bulk-run/

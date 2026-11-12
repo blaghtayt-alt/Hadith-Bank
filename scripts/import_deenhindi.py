@@ -57,9 +57,9 @@ UPSTREAM = [
 DIACRITICS = re.compile(r"[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u0640]")
 PROPHETIC = re.compile(
     r"(?:قال|يقول|سمعت|سمع|سمعنا|رايت|راي|راينا|سال|سالت|سئل|كان|عن|ان|نهانا|امرنا|صلي|توضا|اغتسل|سجد|قام|جلس|خرج|دخل|دعا)"
-    r"\s+(?:(?:لنا|لهم|لي|له)\s+)?(?:رسول الله|النبي|نبي الله)"
-    r"|(?:رسول الله|النبي|نبي الله)\s+(?:صلي الله عليه وسلم\s+)?(?:قال|يقول|فقال|كان|امر|نهي)"
-    r"|(?:كنت مع|كنا مع|دخلت علي|جاء رجل الي|اتي رجل الي)\s+(?:رسول الله|النبي|نبي الله)"
+    r"\s+(?:(?:لنا|لهم|لي|له)\s+)?(?:رسول الله|النبي|نبي الله)\b"
+    r"|(?:رسول الله|النبي|نبي الله)\b\s+(?:صلي الله عليه وسلم\s+)?(?:قال|يقول|فقال|كان|امر|نهي)"
+    r"|(?:كنت مع|كنا مع|دخلت علي|جاء رجل الي|اتي رجل الي)\s+(?:رسول الله|النبي|نبي الله)\b"
 )
 
 
@@ -223,12 +223,12 @@ def classify(value):
     match = PROPHETIC.search(normalized)
     if match:
         return {"classification": "hadith", "method": "explicit_prophetic_attribution_in_source_arabic",
-                "rule_version": "deenhindi-attribution-v2", "evidence_language": "ar",
+                "rule_version": "deenhindi-attribution-v3-token-boundaries", "evidence_language": "ar",
                 "evidence": match.group(), "evidence_normalization": "Arabic diacritics/tatweel removed, alef/ya normalized only for attribution check; source text unchanged",
                 "independent_authenticity_assessment": False,
                 "scope_note": "Prophetic attribution evidence includes narrated speech, actions, dhikr and dialogue; source grade is a separate claim."}
     return {"classification": "unknown", "method": "no_unambiguous_supported_attribution_pattern",
-            "rule_version": "deenhindi-attribution-v2",
+            "rule_version": "deenhindi-attribution-v3-token-boundaries",
             "evidence": None, "independent_authenticity_assessment": False,
             "scope_note": "Not excluded as non-hadith; retained for classification. Book membership or a grade alone does not establish Prophetic attribution."}
 
