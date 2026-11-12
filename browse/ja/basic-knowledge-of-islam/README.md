@@ -1,4 +1,4 @@
-# 日本語 — Japanese / basic-knowledge-of-islam
+# 日本語 — Japanese / イスラームの基本知識 — Basic Knowledge of Islam
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/basic-knowledge-of-islam/)
 

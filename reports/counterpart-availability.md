@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**45,421 source occurrences**: Arabic text 32,862; English text 9,617; English source links 2,677.
+**45,719 source occurrences**: Arabic text 33,121; English text 9,617; English source links 2,677.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -11,7 +11,7 @@ Text and external-only links are counted separately. An English source link requ
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
-| fil | 2,056 | 2,017 | 1,998 | 0 | 39 | 58 |
+| fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
 | hi | 2,632 | 2,600 | 2,452 | 0 | 32 | 180 |
 | ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
 | uz | 7,498 | 7,377 | 452 | 0 | 121 | 7,046 |
@@ -86,6 +86,7 @@ Text and external-only links are counted separately. An English source link requ
 | fa-targhib-bazmandegan-v1 | fa | 2,416 | 2,395 | 19 | 7 | 21 | 2,390 |
 | fa-targhib-bazmandegan-v2 | fa | 2,834 | 2,828 | 33 | 3 | 6 | 2,798 |
 | fa-targhib-bazmandegan-v3 | fa | 2,054 | 2,034 | 13 | 3 | 20 | 2,038 |
+| fil-hisn-muslim-3e409dd7 | fil | 298 | 259 | 0 | 0 | 39 | 298 |
 | hadeethenc-hi-sqlite-3b74b6c4da6dc883 | hi | 2,314 | 2,314 | 2,308 | 0 | 0 | 6 |
 | hadeethenc-ja-sqlite-a81da9af28f854f6 | ja | 281 | 281 | 278 | 0 | 0 | 3 |
 | hadeethenc-tl-sqlite-e8fa6e4c26c11c06 | fil | 1,949 | 1,949 | 1,943 | 0 | 0 | 6 |

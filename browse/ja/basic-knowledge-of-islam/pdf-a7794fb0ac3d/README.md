@@ -1,4 +1,4 @@
-# 日本語 — Japanese / basic-knowledge-of-islam
+# 日本語 — Japanese / イスラームの基本知識 — Basic Knowledge of Islam
 
 <p dir="auto">イスラームの基本知識</p>
 

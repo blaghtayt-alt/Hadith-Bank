@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **45,421 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
+This public bank contains **45,719 source occurrences** in 7 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -35,6 +35,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v1` | 2,416 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v1/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v1/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v2` | 2,834 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v2/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v2/source.docx) |
 | Persian | targhib-wa-tarhib | `bazmandegan-1397-v3` | 2,054 | [Read](../browse/fa/targhib-wa-tarhib/bazmandegan-1397-v3/README.md) | [Original file](../materials/fa-targhib-bazmandegan-v3/source.docx) |
+| Filipino / Tagalog | hisn-al-muslim | `pdf-3e409dd7-third-edition` | 298 | [Read](../browse/fil/hisn-al-muslim/pdf-3e409dd7-third-edition/README.md) | [Original file](../materials/fil-hisn-muslim-3e409dd7/FIL-HISN-PRIVATE.pdf) |
 | Uzbek | book-17 | `publisher-web-20261112` | 285 | [Read](../browse/uz/book-17/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-17-uz-web/source-evidence.json) |
 | Uzbek | book-22 | `publisher-web-20261112` | 80 | [Read](../browse/uz/book-22/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-22-uz-web/source-evidence.json) |
 | Uzbek | book-23 | `publisher-web-20261112` | 1,443 | [Read](../browse/uz/book-23/publisher-web-20261112/README.md) | [Original file](../materials/islom-book-23-uz-web/source-evidence.json) |
@@ -214,7 +215,7 @@ Counts describe source occurrences across translations and editions. They are no
 
 | Classification | Source occurrences |
 | --- | ---: |
-| Human | 44,256 |
+| Human | 44,554 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -225,7 +226,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
 | `unknown` | 5,923 |
-| `human_translator_credited` | 30,208 |
+| `human_translator_credited` | 30,506 |
 | `legacy_source_history` | 867 |
 
 Human involvement is displayed with its source and scope. Individual AI-use flags and bank review status remain separate.

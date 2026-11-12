@@ -1,4 +1,4 @@
-# 日本語 — Japanese / islam-message
+# 日本語 — Japanese / イスラームのメッセージ — The Message of Islam
 
 [Read this collection online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/islam-message/)
 

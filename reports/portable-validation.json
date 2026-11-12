@@ -3,15 +3,15 @@
   "status": "passed",
   "scope": "public_source_snapshots",
   "current_translation_origins": {
-    "human": 44256,
+    "human": 44554,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-12T08:49:53.949696+00:00",
-  "record_count": 45421,
-  "source_dataset_count": 199,
+  "checked_at_utc": "2026-11-12T09:19:18.260685+00:00",
+  "record_count": 45719,
+  "source_dataset_count": 200,
   "by_language": {
     "fa": 14382,
-    "fil": 2056,
+    "fil": 2354,
     "hi": 2632,
     "ja": 3463,
     "uz": 7498,
@@ -83,6 +83,7 @@
     "fa-targhib-bazmandegan-v1": 2416,
     "fa-targhib-bazmandegan-v2": 2834,
     "fa-targhib-bazmandegan-v3": 2054,
+    "fil-hisn-muslim-3e409dd7": 298,
     "hadeethenc-hi-sqlite-3b74b6c4da6dc883": 2314,
     "hadeethenc-ja-sqlite-a81da9af28f854f6": 281,
     "hadeethenc-tl-sqlite-e8fa6e4c26c11c06": 1949,
@@ -220,14 +221,14 @@
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 45421,
-    "projection_objects_compared": 45421,
-    "exact_arabic_and_translation_codepoints_compared": 25633179,
-    "canonical_record_files_hashed": 199,
-    "source_and_legacy_files_hashed": 823,
-    "ordered_search_shards_hashed": 605,
-    "canonical_record_digest_checks": 45421,
-    "complete_public_projection_objects_reconstructed": 45421,
+    "canonical_occurrences_compared": 45719,
+    "projection_objects_compared": 45719,
+    "exact_arabic_and_translation_codepoints_compared": 25799864,
+    "canonical_record_files_hashed": 200,
+    "source_and_legacy_files_hashed": 904,
+    "ordered_search_shards_hashed": 608,
+    "canonical_record_digest_checks": 45719,
+    "complete_public_projection_objects_reconstructed": 45719,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -1006,6 +1007,411 @@
       "path": "materials/fa-targhib-bazmandegan-v3/records.jsonl",
       "bytes": 14155747,
       "sha256": "6407aacf70c4f0978ec706a309febb623d5b36539377ac9b12c3a48dab0fe558"
+    },
+    {
+      "path": "materials/fil-hisn-muslim-3e409dd7/FIL-HISN-PRIVATE.pdf",
+      "bytes": 5321887,
+      "sha256": "3e409dd7266c2a150645ecfea548f266edf80c9c5df5129aa8df7a977d248a07"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/FINAL_RECONSTRUCTION_REPORT.txt",
+      "bytes": 12494,
+      "sha256": "4638fd77218e97f9ce67c23a057343b3e72aebc798504b57d1d6fb7ad4945af7"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/README.txt",
+      "bytes": 4859,
+      "sha256": "e2eb9a953c775927d346db01292e78d5fc1c55ebe1a3883a81a290a5ed8644b1"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/SHA256_MANIFEST.json",
+      "bytes": 14619,
+      "sha256": "5e222acc49e87d96fa6272c54c422d40b0555af5a5333d52fb9cb218157bc043"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/book_metadata_replayable_patch.json",
+      "bytes": 590,
+      "sha256": "23d0c4a070a6aff04d3cead7e9e00d84c8aeb4612424e3f57d119fadaf963eab"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/build_counts.json",
+      "bytes": 717,
+      "sha256": "b479bb5cf40f7f8f4a246e84fea0d7a058261297b3e6fdb7230f2cd32e30b730"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/classification_before_after_decisions.jsonl.gz",
+      "bytes": 214145,
+      "sha256": "aa8fcf4a8a21b1087a95d7df6db866092e316d7223d877b12eb4521c85e3e88e"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/component_routing.json.gz",
+      "bytes": 82889,
+      "sha256": "d6c84c9bffd757bbbf86550226f16700d83308a1ab35b4b2b77a935356c5bda1"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/full_before_after_correction_log.jsonl.gz",
+      "bytes": 171651,
+      "sha256": "be0fb1f17afa5208fba64de901ad653181c9537ce99760c19e1a3fb2f3b1635e"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/lost_v2_expectation_comparison.json",
+      "bytes": 1943,
+      "sha256": "bf57f0baa9ced31ce45f4e822e131604e158695e1b4b98f7b4d742988f36913b"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/preserved_source_hashes.json.gz",
+      "bytes": 180306,
+      "sha256": "7a0e4390a9db07b5ad949c5b1cea31868df2b7b2f72ec4351e75aa1eff149ca1"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/record_blocker_index.json.gz",
+      "bytes": 24116,
+      "sha256": "0a5fb352637c8c5bc4399caa86c2c212719c3d57841b622b9b1a2f23da5d4b29"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/replayable_patch.json.gz",
+      "bytes": 179409,
+      "sha256": "97bbe98bdbcc6b3fbe05d1d6807566b3b45d54cfbbd71ce29bcdd91f4a7abc99"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/root_exact_source_subspan_annotations.json",
+      "bytes": 5213,
+      "sha256": "e7da7533a52e04485c009fe580c7d02488393218be059d10670882f813986b7a"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/root_targeted_decisions.json",
+      "bytes": 41815,
+      "sha256": "7c32c5588075545476755960337440ec7379819c5ac08406b93f0264cd2cbd6f"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/unresolved_exceptions.csv.gz",
+      "bytes": 46614,
+      "sha256": "57f1a15aa6bc0a0b42e57506a12de29dd29ccf75536d7244d6da650560f67c2d"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/unresolved_exceptions.json.gz",
+      "bytes": 46280,
+      "sha256": "8e514a078b18b0681cc71b174d53501ad3e73a40a3ae9e6d5a97867025d014fa"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/unresolved_exceptions.jsonl.gz",
+      "bytes": 41399,
+      "sha256": "2234f2e46831cee394e356abddb71df7ea3e7788aa6f76dab3b9fa8590b4f9ab"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/audit/v1_dependency_preservation_ledger.json",
+      "bytes": 26048,
+      "sha256": "9feccccb79f820da978b439c0a9e7ae8faee2acfce7c374f6168a432a12c0d61"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/anchor_validation.json",
+      "bytes": 159,
+      "sha256": "abb14919645eb8dd4c21141e83340bb761111ff59ef718818f6a1d2f06ad3ad2"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/attribution_findings.json",
+      "bytes": 43367,
+      "sha256": "870a9724c70c3c6e4e5f1eb04d77841f0130ea5deb7d307900efd98eb4518538"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/build_findings.py",
+      "bytes": 19209,
+      "sha256": "3dc0b24fcc58098e004429eea994d0d297c05b443376cdff9dbc11917cac527a"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/decision_coverage.json",
+      "bytes": 960,
+      "sha256": "17c9a750e169c124968fe1d7547542bfd21e140b806074694976211aed83acc0"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/evidence_manifest.json",
+      "bytes": 2664,
+      "sha256": "42481e66bdb150e550b568b3bab7cc3fccaf4522a902da7a485e96a00e171af4"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/output_sha256_manifest.json",
+      "bytes": 2818,
+      "sha256": "f579eb7dc9ebab1fd7949f25d10249bf62e9d3a9a53f152c08c45e724312ceb7"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/policy_consistency_notes.json",
+      "bytes": 1685,
+      "sha256": "0b43fd72f2c4666949e6c5495dad05968761ce18639e30db534403e5ada9e59c"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/N177_source_evidence_selected.json",
+      "bytes": 3331,
+      "sha256": "e81a1a8e4991da5bd96edff1b0bb49d7d469354336718ef0b11ed3d9f0aa7f32"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/V3-EXT-N118-bayhaqi_sunan-3187.json",
+      "bytes": 6396,
+      "sha256": "8ef087e0b00ad91e31a26ed5bc4f2fc8d6d5030c47f875442f10b3f43be25fca"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/V5-MB-REUSE-V3-EXT-N160-malik_muwatta-776.json",
+      "bytes": 1249,
+      "sha256": "746ddb305aeac1c3e897cdfc9b01c6404281a3118e09b6b99d80825254417dab"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/V5-MB-REUSE-V3-EXT-N161-ayni_umdat_alqari-mainId394052.json",
+      "bytes": 1646,
+      "sha256": "90371dc83b480d88b7858fdd35813a4adf3e300cb06c25bb29b1cede16b8d131"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/bukhari_iman_ammar_chapter.json",
+      "bytes": 854,
+      "sha256": "0e3547f96eba2a7b4a6112188bc861085191b356fa520cf2bc4d9dab621db114"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/islamweb_nasai_kubra_10019.json",
+      "bytes": 3217,
+      "sha256": "0ca08a2700a32479c7b33d7e162bb3c13b50762ffb974a63eaad828efe4df7cb"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/islamweb_zad_2_342.json",
+      "bytes": 2616,
+      "sha256": "1c8ed2a26b39c7146d99a806bf8142cd01a952dc0062fa795eba459fab6b11bd"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/sunnah.com_bukhari_2993.json",
+      "bytes": 2003,
+      "sha256": "372c3832bf371f431208b43bb691b348f4cc1b67ae87ce6f23abb2c0b9073d96"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/sunnah_com_abudawud_4020.json",
+      "bytes": 1904,
+      "sha256": "f8b2ec3cc51365cd867ade613dcd15b6434f9dae548bb652b19bf1513d50e4d3"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/retained_evidence/sunnah_com_abudawud_5081.json",
+      "bytes": 2158,
+      "sha256": "d7b6e9a90662c503c15ae1b009421d66d939f463d9eb6a92b04b0497c3f26981"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/attribution/visual_inspection_ledger.json",
+      "bytes": 6394,
+      "sha256": "737be1359b008054dea353257faee5069d5ffe71a4d584339613797580e5df15"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/blockers/blocker_scope_proposal.json",
+      "bytes": 212692,
+      "sha256": "27aa27a034e29a7d746285cb65f25f5d0fc21803af81e97b208c00ed6e6349fe"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/blockers/record_blocker_mapping_proposal.json",
+      "bytes": 203668,
+      "sha256": "0aa5f2f1ff2cc6e5adc233aa7c6abeeebae89d4abcd88ce290689f6adbcd9e4e"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/blockers/scope_audit_coverage.json",
+      "bytes": 856,
+      "sha256": "79f5fb9b0de02ab31a519c5cdfef633f22481198c0cb30e61ef9ae9c96ff66b2"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/blockers/v1_dependency_preservation_ledger.json",
+      "bytes": 26048,
+      "sha256": "9feccccb79f820da978b439c0a9e7ae8faee2acfce7c374f6168a432a12c0d61"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/blockers/validate_reconstructed_package.py",
+      "bytes": 21740,
+      "sha256": "36554b33840f29da2928e62a90a8735d23e7c80e8445b95e6f4da351f4b31152"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/dialogue/build_decisions.py",
+      "bytes": 17690,
+      "sha256": "ea81a4650b33217511823210efa0ec3fd60df0ee04dcae862cb32873c91f8a06"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/dialogue/coauthor_local_checks.json",
+      "bytes": 237,
+      "sha256": "08b9c393bd6bd517cfb4ee8463e2d2f4385490ebaec61c3e165c470b4a236e09"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/dialogue/dialogue_context_decisions.json",
+      "bytes": 118939,
+      "sha256": "e822721f8b6b4b098c6478f52c4290ca9ffefd05a0fbdaecd860254f8f773868"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/dialogue/scoped_records.json",
+      "bytes": 196279,
+      "sha256": "fcc6b7a8aff97cb2e8a2915eb7a30ced1ade40794ba07d9aca208ab79be30301"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coauthor_work/dialogue/visual_decision_coverage.json",
+      "bytes": 14982,
+      "sha256": "99241bb6cddf91a1b0401458bdb7c7be46a890efae52e7697f33650ca1eaa224"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coverage/decision_coverage.json",
+      "bytes": 145646,
+      "sha256": "5934879a813e0e17d89a40d1044aefeed7e4f4085862e46b1104da9892e262f2"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coverage/historical_coverage_reference.json",
+      "bytes": 1206,
+      "sha256": "788f730afb2712981eb0f411b61ddf6fd2eb8d2015265916ef81af7b0ec4f32d"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coverage/root_visual_inspection_log.json",
+      "bytes": 3869,
+      "sha256": "22ac58e25e0a8557c35f95fa81ee0af08b92cc84562c92ec595804ad7283eccb"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/coverage/visual_decision_coverage.json",
+      "bytes": 27447,
+      "sha256": "f819ecd80a5bf8947f2fc88e37d40d069b606c2aacb152674dbe69f8572751e3"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/ancillary_source_text_preserved.json",
+      "bytes": 130135,
+      "sha256": "be4a5ab3c92b359c94ebe6a5f12ae88f2ba6ed9f6c29560b5a9b99b4399a6492"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/book_metadata.json",
+      "bytes": 5122,
+      "sha256": "8e28533cc1353b8d862924bf132ab0e37c55480ab71e469ddf856a1a923140bd"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/components.csv.gz",
+      "bytes": 185004,
+      "sha256": "b41e778a40bfac73651c4a95c24f30eaa5472b573d6ce452a7c11aa017107977"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/components.jsonl.gz",
+      "bytes": 171821,
+      "sha256": "675157ab5cbeffd62f63762c819fc291bdb525fb8df363f52a0affa635dae820"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/content_classification_reconstructed_v2.json.gz",
+      "bytes": 172862,
+      "sha256": "0425cfb62ef9d139193620c2641e7667daee72aa67ac28cc9d3faff0febee966"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/corrected_all_records.csv.gz",
+      "bytes": 3627166,
+      "sha256": "955e772f9d162d6ef958081181cb5f0caba3f0d00b3c116ed67b63cf25ef4408"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/corrected_all_records.json.gz",
+      "bytes": 3959033,
+      "sha256": "568630a5324111dc64a991bd696dd1a51c551b953ddd5f60838e0d7a754d7af0"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/corrected_all_records.jsonl.gz",
+      "bytes": 3541868,
+      "sha256": "cbaa5bc3eefce99f068c028372fd1d35a63f4882fa8d620bf99b5e4dfa3e9539"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/records_export_envelope.json",
+      "bytes": 108910,
+      "sha256": "5b5c81391a05b5b30b7c3f6399ce25d5957c5d318e4e0330d94b3733de98c019"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/source_heading_contexts_preserved.json",
+      "bytes": 49346,
+      "sha256": "f5e0b550876208452a7c18e98bb15869a557b12df3fd85654fb1751a28399638"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/data/source_heading_supplement.json",
+      "bytes": 723,
+      "sha256": "a7dcc6318bedb6ac26c63516e5cf7e1433d4375898443e8505219de168e1381e"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/attribution_unresolved_HOLD.json",
+      "bytes": 337209,
+      "sha256": "18f10d34d77691f5ccb1c5ff996c72024fcf228aa05d687ffae87b1e75ff867b"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/hadith_only_release.json",
+      "bytes": 315,
+      "sha256": "773976a01c0902483db83d7890330ff55badbfce66fd53ec821f9fb269a08872"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/hisn_hadith_dhikr_context_HOLD.json.gz",
+      "bytes": 3657681,
+      "sha256": "e3e806a4ab064e9c0e3d9631d43b51aa62814d5f10bd1669e8aa18ff687827ae"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/independent_non_prophetic_HOLD.json.gz",
+      "bytes": 170889,
+      "sha256": "a31e9b05f0c5f0a3e65d3f20baaa7c4d9bd844f1b8a3f6484262cc16da0b6cef"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/index.json",
+      "bytes": 415,
+      "sha256": "01e57612faac5980493d7281f4d479448b87faef4b0bd6a2a4b584bbfe3c801a"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/prophetic_report_candidates_preserved_HOLD.json.gz",
+      "bytes": 92998,
+      "sha256": "5e8b9a77aaf9d1a61849691bb479c1816c52055b86846a83ad4a0568041b6c89"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/partitions/quran_and_author_only_HOLD.json",
+      "bytes": 330156,
+      "sha256": "36236fc93c306ce9cc73645e7903f736b23e624681a59f8b1195bdafd6db051c"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/provenance/input_verification.json",
+      "bytes": 494,
+      "sha256": "d1d2d67fd0960206b10571041b78dfb2220b6e45e8dff387247254be94c6fbcc"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/provenance/preserved_v1_member_sha256.json",
+      "bytes": 104499,
+      "sha256": "31dc5cfad12e4b4855d2ff8210e9f4f2b090eef432499e23ced7b95178d0c311"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/provenance/reconstruction_provenance.json",
+      "bytes": 1871,
+      "sha256": "be3db2dbe09ac0df2b17d0aaad18dc94245cd7badb60367b753c09b860b455bc"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/scripts/apply_reconstruction_patch.py",
+      "bytes": 2656,
+      "sha256": "a2a5975916f1f42c1d34440f15a0a0bba3f9ee464a8b4656cfe107080b3f0bc1"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/scripts/build_reconstructed_v2_session.py",
+      "bytes": 42160,
+      "sha256": "701ff91edbabee2d447bf8d713f3063cf46e7f678499768c9666a0ad5aa3d48a"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/scripts/export_reconstructed_data.py",
+      "bytes": 2747,
+      "sha256": "e981e420c4e6a0f4933621eef4cbcf4fefcf2ff5a50d4247e70ef5d06eaa9764"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/scripts/validate_reconstructed_package.py",
+      "bytes": 21740,
+      "sha256": "36554b33840f29da2928e62a90a8735d23e7c80e8445b95e6f4da351f4b31152"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/validation/mechanical_validation.json.gz",
+      "bytes": 43941,
+      "sha256": "f615e4a81934be34f52dc4a4a52a3eed784c12d03ef2dcc5778efbba15e80b39"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/reconstruction/validation/replay_and_export_script_verification.json",
+      "bytes": 1631,
+      "sha256": "b51ba95751b631ff8657e0a4eff7c87662597ddfb9cd32337265d70fcc9553eb"
+    },
+    {
+      "path": "imports/filipino-hisn-reconstructed-20261112/preservation-manifest.json",
+      "bytes": 23194,
+      "sha256": "774beaba44962bd3785d92e9d2f9c0ffb7f5c1217ff159657ead12ba61895885"
+    },
+    {
+      "path": "materials/fil-hisn-muslim-3e409dd7/integration-audit.json",
+      "bytes": 9140,
+      "sha256": "e29e5f216339be6ccd712bfe19eee2e0058e429ac5443e3f47c1f2f09afbacf0"
+    },
+    {
+      "path": "materials/fil-hisn-muslim-3e409dd7/records.jsonl",
+      "bytes": 5159517,
+      "sha256": "49d36ab35d2ab2156f80786b3a845d2fd8877cc1fa00e7c12a0ca00051fc6042"
     },
     {
       "path": "materials/islom-book-17-uz-web/source-evidence.json",
@@ -4348,19 +4754,19 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "52729056e4bfe9182264a24ff03a970c82ff17f3f40222e1af5b24287c18c819",
+  "search_stream_sha256": "fafb6629537b7fc49fe34b1553ae295739eee2a5268a17f370a95f505518ede9",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "a0c469546798bce12c4afb7d978e9535821d6e77a7ef0faca3b54812f10f178e",
-    "bytes": 63781732,
-    "embedded_objects_compared": 45421,
+    "sha256": "c4c6c1e8d64bfa0312773f59360ff302db2b5642bfc823f055500e519f8a234f",
+    "bytes": 64300250,
+    "embedded_objects_compared": 45719,
     "data_shards_verified": 0,
     "external_script_or_stylesheet_dependencies": false
   },
   "navigation": {
-    "markdown_files_checked": 2260,
-    "local_targets_checked": 105331,
-    "external_links_not_requested": 219878,
+    "markdown_files_checked": 2273,
+    "local_targets_checked": 106013,
+    "external_links_not_requested": 221805,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -4369,10 +4775,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 199,
+    "authorized_dataset_count": 200,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 149,
+    "registered_material_manifests_verified": 150,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

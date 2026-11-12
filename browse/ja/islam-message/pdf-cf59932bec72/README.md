@@ -1,4 +1,4 @@
-# 日本語 — Japanese / islam-message
+# 日本語 — Japanese / イスラームのメッセージ — The Message of Islam
 
 <p dir="auto">イスラームのメッセージ</p>
 

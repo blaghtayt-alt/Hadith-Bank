@@ -10,7 +10,7 @@
 - [صحيح البخاري — Sahih al-Bukhari](bukhari/README.md) — 36 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 1949 source occurrences
 - [الحاكم — Reports attributed to al-Hakim](hakim/README.md) — 1 source occurrences
-- [KUTANG-TANGGULAN NG MUSLIM — Hisn al-Muslim](hisn-al-muslim/README.md) — 2 source occurrences
+- [KUTANG-TANGGULAN NG MUSLIM — Hisn al-Muslim](hisn-al-muslim/README.md) — 300 source occurrences
 - [ابن حبان — Reports attributed to Ibn Hibban](ibn-hibban/README.md) — 1 source occurrences
 - [صحيح مسلم — Sahih Muslim](muslim/README.md) — 36 source occurrences
 - [الطبراني — Reports attributed to al-Tabarani](tabarani/README.md) — 3 source occurrences

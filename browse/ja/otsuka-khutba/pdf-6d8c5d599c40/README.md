@@ -1,4 +1,4 @@
-# 日本語 — Japanese / otsuka-khutba
+# 日本語 — Japanese / 大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日 — Otsuka Friday sermon summary
 
 <p dir="auto">大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日</p>
 
