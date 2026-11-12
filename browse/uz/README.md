@@ -24,5 +24,5 @@
 - [Сунани Ибн Можа — Sunan Ibn Majah](ibn-majah/README.md) — 4 source occurrences
 - [Саҳиҳ Муслим — Sahih Muslim](muslim/README.md) — 49 source occurrences
 - [Риёзус-солиҳийн — Riyad al-Salihin](riyad-as-salihin/README.md) — 3 source occurrences
-- [Жомеъ ат-Термизий — Jami al-Tirmidhi](tirmidhi/README.md) — 460 source occurrences
+- [Жомеъ ат-Термизий — Jami al-Tirmidhi](tirmidhi/README.md) — 585 source occurrences
 - [Тўплам аниқланмаган — Collection not identified in the source](unclassified/README.md) — 13 source occurrences

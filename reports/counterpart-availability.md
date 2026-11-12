@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**78,070 source occurrences**: Arabic text 64,902; English text 39,995; English source links 2,740.
+**78,527 source occurrences**: Arabic text 65,234; English text 40,327; English source links 2,740.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -15,10 +15,10 @@ Text and external-only links are counted separately. An English source link requ
 | en | 49 | 0 | 49 | 0 | 4 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 3,238 | 3,206 | 3,058 | 0 | 32 | 180 |
+| hi | 3,570 | 3,538 | 3,390 | 0 | 32 | 180 |
 | ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
 | ur | 74 | 0 | 0 | 6 | 72 | 68 |
-| uz | 9,332 | 8,766 | 452 | 0 | 566 | 8,880 |
+| uz | 9,457 | 8,766 | 452 | 0 | 691 | 9,005 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
 
@@ -71,13 +71,13 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
-| deenhindi-abudawud | hi | 102 | 102 | 102 | 0 | 0 | 0 |
-| deenhindi-bukhari | hi | 117 | 117 | 117 | 0 | 0 | 0 |
-| deenhindi-ibnmajah | hi | 111 | 111 | 111 | 0 | 0 | 0 |
-| deenhindi-malik | hi | 51 | 51 | 51 | 0 | 0 | 0 |
-| deenhindi-muslim | hi | 47 | 47 | 47 | 0 | 0 | 0 |
-| deenhindi-nasai | hi | 107 | 107 | 107 | 0 | 0 | 0 |
-| deenhindi-tirmidhi | hi | 119 | 119 | 119 | 0 | 0 | 0 |
+| deenhindi-abudawud | hi | 152 | 152 | 152 | 0 | 0 | 0 |
+| deenhindi-bukhari | hi | 167 | 167 | 167 | 0 | 0 | 0 |
+| deenhindi-ibnmajah | hi | 159 | 159 | 159 | 0 | 0 | 0 |
+| deenhindi-malik | hi | 78 | 78 | 78 | 0 | 0 | 0 |
+| deenhindi-muslim | hi | 100 | 100 | 100 | 0 | 0 | 0 |
+| deenhindi-nasai | hi | 158 | 158 | 158 | 0 | 0 | 0 |
+| deenhindi-tirmidhi | hi | 172 | 172 | 172 | 0 | 0 | 0 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
@@ -133,7 +133,7 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 417 | 0 | 0 | 3 |
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
-| hadisuz-tirmidhi-uz-web | uz | 445 | 0 | 0 | 0 | 445 | 445 |
+| hadisuz-tirmidhi-uz-web | uz | 570 | 0 | 0 | 0 | 570 | 570 |
 | islom-book-17-uz-web | uz | 285 | 283 | 0 | 0 | 2 | 285 |
 | islom-book-22-uz-web | uz | 80 | 80 | 0 | 0 | 0 | 80 |
 | islom-book-23-uz-web | uz | 1,443 | 1,378 | 0 | 0 | 65 | 1,443 |
