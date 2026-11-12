@@ -114,8 +114,16 @@ process.stdout.write(JSON.stringify({source:sourceFiles(input.source),materials:
     @staticmethod
     def dom():
         return '''
-class TestNode {constructor(tag){this.tag=tag;this.childNodes=[];}append(...children){this.childNodes.push(...children);}setAttribute(name,value){this[name]=value;}}
+class TestNode {constructor(tag){this.tag=tag;this.childNodes=[];this.dataset={};this.open=false;}append(...children){this.childNodes.push(...children);}setAttribute(name,value){this[name]=value;}addEventListener(){}}
 const document={createElement:tag=>new TestNode(tag),createTextNode:text=>({textContent:text})};
+const icon=name=>new TestNode('svg');
+'''
+
+    def language_panels(self):
+        constructors = 'function detail(' + self.template.split('function detail(', 1)[1].split('function sourceFiles(', 1)[0]
+        panels = 'function languageReading(' + self.template.split('function languageReading(', 1)[1].split('function card(', 1)[0]
+        return constructors + panels + '''
+const counterpartPanel=(record,language)=>languageReading(languageReadings(record).find(reading=>reading.role==="counterpart" && reading.language===language),0,0);
 '''
 
     def walk(self, node):
@@ -135,14 +143,13 @@ const document={createElement:tag=>new TestNode(tag),createTextNode:text=>({text
         self.record['counterparts'] = {'status': 'reviewed_parallel', 'english': source, 'arabic': None,
             'quotation_evidence': {'relation': 'source_excerpt', 'review': {'status': 'verified', 'human_review': False,
                 'qualifications': ['TEST source and target differ in narrator attribution.']}}}
-        presentation = 'function detail(' + self.template.split('function detail(', 1)[1].split('function suppliedText(', 1)[0]
-        disclosure = 'function languageDisclosure(' + self.template.split('function languageDisclosure(', 1)[1].split('function appendLanguageReadings(', 1)[0]
         actual = self.node(self.dom() + '''
-let checked=false;const $=()=>({checked});
-''' + presentation + disclosure + '''
-const closed=languageDisclosure(input.record,"english");checked=true;const opened=languageDisclosure(input.record,"english");
+let checked=false;const $=id=>id==="language-filter"?{value:""}:{checked};
+''' + self.language_panels() + '''
+const closed=counterpartPanel(input.record,"en");checked=true;const opened=counterpartPanel(input.record,"en");
+const card=new TestNode("article");appendLanguageReadings(card,input.record,0);
 process.stdout.write(JSON.stringify({closed,opened,key:primarySearchKey(input.record),pairs:[...recordCitationPairs(input.record)],
- note:counterpartQualification(input.record.counterparts.english,input.record),hasText:!!counterpartData(input.record,"english")}));''',
+ note:counterpartQualification(input.record.counterparts.english,input.record),hasText:!!counterpartData(input.record,"english"),card}));''',
             {'record': self.record})
         self.assertFalse(actual['closed']['open'])
         self.assertTrue(actual['opened']['open'])
@@ -154,11 +161,14 @@ process.stdout.write(JSON.stringify({closed,opened,key:primarySearchKey(input.re
         for state in ('closed', 'opened'):
             links = [node for node in self.walk(actual[state]) if node.get('tag') == 'a']
             self.assertEqual(links[0]['href'], source['source_url'])
-            self.assertTrue(links[0]['textContent'].startswith('Read English at source'))
+            self.assertEqual(links[0]['textContent'], source['source_name'])
             text = json.dumps(actual[state])
-            self.assertIn('Alignment notes', text)
-            self.assertIn('checked by an automated assistant', text)
-            self.assertIn('TEST source and target differ in narrator attribution.', text)
+            self.assertIn('English \\u00b7 read at source', text)
+            self.assertIn(source['citation_note'], text)
+        card_text = json.dumps(actual['card'])
+        self.assertIn('Source and alignment notes', card_text)
+        self.assertIn('checked by an automated assistant', card_text)
+        self.assertIn('TEST source and target differ in narrator attribution.', card_text)
         markdown = reader.markdown_record(self.record, 1)
         self.assertIn('English · read at source', markdown)
         self.assertIn('Translation origin: Unknown', markdown)
@@ -180,19 +190,18 @@ process.stdout.write(JSON.stringify({closed,opened,key:primarySearchKey(input.re
             'source_name': 'TEST Arabic source', 'translation_origin': 'unknown', 'references': []}
         self.record['counterparts'] = {'english': english, 'arabic': arabic}
         before = copy.deepcopy(self.record)
-        presentation = 'function detail(' + self.template.split('function detail(', 1)[1].split('function suppliedText(', 1)[0]
-        disclosure = 'function inlineArabicReading(' + self.template.split('function inlineArabicReading(', 1)[1].split('function appendLanguageReadings(', 1)[0]
-        actual = self.node(self.dom() + 'const $=()=>({checked:true});\n' + presentation + disclosure + '''
-process.stdout.write(JSON.stringify({english:languageDisclosure(input.record,"english"),
- arabic:languageDisclosure(input.record,"arabic"),origin:counterpartTranslationOrigin(input.record.counterparts.english)}));''',
+        actual = self.node(self.dom() + 'const $=id=>id==="language-filter"?{value:""}:{checked:true};\n' + self.language_panels() + '''
+process.stdout.write(JSON.stringify({english:counterpartPanel(input.record,"en"),
+ arabic:counterpartPanel(input.record,"ar"),origin:counterpartTranslationOrigin(input.record.counterparts.english)}));''',
             {'record': self.record})
         self.assertEqual(actual['origin'], counterpart_translation_origin(english))
-        self.assertIn('Translation origin: Human', json.dumps(actual['english']))
-        self.assertNotIn('Translation origin: Unknown', json.dumps(actual['english']))
-        self.assertNotIn('Translation origin:', json.dumps(actual['arabic']))
+        self.assertIn('Human translation', json.dumps(actual['english']))
+        self.assertNotIn('Origin unknown', json.dumps(actual['english']))
+        self.assertFalse(any(node.get('className', '').startswith('reading-origin')
+                             for node in self.walk(actual['arabic'])))
         markdown = reader.markdown_record(self.record, 1)
-        english_section = markdown.split('<summary>English · read at source</summary>', 1)[1].split('</details>', 1)[0]
-        arabic_section = markdown.split('<summary>Arabic source entry</summary>', 1)[1].split('</details>', 1)[0]
+        english_section = markdown.split('<h3>English · read at source</h3>', 1)[1].split('</section>', 1)[0]
+        arabic_section = markdown.split('<h3>Arabic source entry</h3>', 1)[1].split('</section>', 1)[0]
         self.assertIn('Translation origin: Human', english_section)
         self.assertNotIn('Translation origin:', arabic_section)
         self.assertEqual(self.record, before)
@@ -204,10 +213,8 @@ process.stdout.write(JSON.stringify({english:languageDisclosure(input.record,"en
             'match_status': 'reviewed_parallel', 'citation': '[TEST source no. 987654]'}
         self.record.update(language='zh-CN', counterparts={'status': 'reviewed_parallel', 'arabic': source,
             'quotation_evidence': {'relation': 'source_excerpt', 'review': {'human_review': False}}})
-        presentation = 'function detail(' + self.template.split('function detail(', 1)[1].split('function suppliedText(', 1)[0]
-        disclosure = 'function inlineArabicReading(' + self.template.split('function inlineArabicReading(', 1)[1].split('function appendLanguageReadings(', 1)[0]
-        actual = self.node(self.dom() + 'const $=()=>({checked:true});\n' + presentation + disclosure + '''
-process.stdout.write(JSON.stringify({view:languageDisclosure(input.record,"arabic"),
+        actual = self.node(self.dom() + 'const $=id=>id==="language-filter"?{value:""}:{checked:true};\n' + self.language_panels() + '''
+process.stdout.write(JSON.stringify({view:counterpartPanel(input.record,"ar"),
  note:counterpartQualification(input.record.counterparts.arabic,input.record)}));''', {'record': self.record})
         self.assertEqual(actual['note'], counterpart_qualification(source, self.record))
         self.assertIn("May include the compiler's notes; the Chinese source can be an excerpt.", actual['note'])
@@ -216,7 +223,7 @@ process.stdout.write(JSON.stringify({view:languageDisclosure(input.record,"arabi
         self.assertIn(source['text'], serialized)
         self.assertNotIn('full narration', serialized.lower())
         markdown = reader.markdown_record(self.record, 1)
-        self.assertIn('<summary>Arabic source entry</summary>', markdown)
+        self.assertIn('<h3>Arabic source entry</h3>', markdown)
         self.assertIn('Chinese source can be an excerpt.', markdown)
         self.assertNotIn('full narration', markdown.lower())
 
@@ -226,10 +233,8 @@ process.stdout.write(JSON.stringify({view:languageDisclosure(input.record,"arabi
             'source_url': 'https://example.invalid/TEST/en/987654', 'source_name': 'TEST publisher',
             'translation_origin': 'human', 'match_status': 'reviewed_parallel', 'citation': '[TEST no. 987654]'}
         self.record['counterparts'] = {'status': 'reviewed_parallel', 'english': source}
-        presentation = 'function detail(' + self.template.split('function detail(', 1)[1].split('function suppliedText(', 1)[0]
-        disclosure = 'function languageDisclosure(' + self.template.split('function languageDisclosure(', 1)[1].split('function appendLanguageReadings(', 1)[0]
-        actual = self.node(self.dom() + 'const $=()=>({checked:true});\n' + presentation + disclosure + '''
-process.stdout.write(JSON.stringify({view:languageDisclosure(input.record,"english"),
+        actual = self.node(self.dom() + 'const $=id=>id==="language-filter"?{value:""}:{checked:true};\n' + self.language_panels() + '''
+process.stdout.write(JSON.stringify({view:counterpartPanel(input.record,"en"),
  note:counterpartQualification(input.record.counterparts.english,input.record)}));''', {'record': self.record})
         self.assertEqual(actual['note'], counterpart_qualification(source, self.record))
         self.assertIn('does not supply the complete source entry', actual['note'])
@@ -238,7 +243,7 @@ process.stdout.write(JSON.stringify({view:languageDisclosure(input.record,"engli
         self.assertIn(source['text'], serialized)
         self.assertNotIn('full narration', serialized.lower())
         markdown = reader.markdown_record(self.record, 1)
-        self.assertIn('<summary>English source excerpt</summary>', markdown)
+        self.assertIn('<h3>English source excerpt</h3>', markdown)
         self.assertIn('does not supply the complete source entry', markdown)
         self.assertNotIn('full narration', markdown.lower())
 

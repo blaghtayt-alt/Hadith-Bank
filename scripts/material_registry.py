@@ -7,6 +7,7 @@ fidelity, independent review, licensing clearance, or narrational authenticity.
 import copy
 import datetime
 import hashlib
+import gzip
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -16,6 +17,7 @@ from build_reader import local, parse_json, valid_hash, validate_record
 from build_bank_views import SCHEMA, canonical, digest_file
 from current_provenance import apply_material_policy, apply_policy, classification, decision_for, load_policy
 from review_display_policy import extraction_metadata
+from language_versions import project_language_versions
 
 
 SCHEMA_NAME = 'hadith-bank-material-v1'
@@ -41,6 +43,42 @@ def checked_file(root, relative, expected):
     expected = valid_hash(expected, relative + '.sha256')
     require(digest_file(target) == expected, 'Material checksum mismatch: ' + relative)
     return target
+
+
+
+def checked_supporting_files(root, manifest, relative):
+    """Validate registered originals, including the bytes inside gzip files."""
+    entries = manifest.get('supporting_files', [])
+    require(isinstance(entries, list), 'supporting_files must be an array: ' + relative)
+    verified, seen = [], set()
+    for entry in entries:
+        require(isinstance(entry, dict), 'Invalid supporting source descriptor: ' + relative)
+        name = entry.get('path')
+        require(isinstance(name, str) and name.startswith(('imports/', 'materials/', 'sources/')),
+                'Supporting evidence must be a local source path: ' + relative)
+        require(name not in seen, 'Duplicate supporting source path: ' + name)
+        seen.add(name)
+        target = checked_file(root, name, entry.get('sha256'))
+        if 'size_bytes' in entry:
+            require(type(entry['size_bytes']) is int and entry['size_bytes'] == target.stat().st_size,
+                    'Supporting source byte count mismatch: ' + name)
+        compression = entry.get('compression')
+        require(compression in (None, 'none', 'gzip'), 'Unsupported evidence compression: ' + name)
+        expanded_hash = entry.get('uncompressed_sha256')
+        response_hash = entry.get('original_response_sha256')
+        if expanded_hash is not None or response_hash is not None:
+            checksum = hashlib.sha256()
+            opener = gzip.open if compression == 'gzip' else open
+            with opener(target, 'rb') as stream:
+                for block in iter(lambda: stream.read(1024 * 1024), b''):
+                    checksum.update(block)
+            for value, label in ((expanded_hash, 'uncompressed_sha256'),
+                                 (response_hash, 'original_response_sha256')):
+                if value is not None:
+                    require(checksum.hexdigest() == valid_hash(value, name + '.' + label),
+                            'Expanded source checksum mismatch: ' + name)
+        verified.append(copy.deepcopy(entry))
+    return verified
 
 
 def read_rows(path):
@@ -139,8 +177,17 @@ def counterpart_policy_for(manifest, relative):
 
 
 
+def require_reader_visibility(row):
+    """An import-level publication decision cannot override an explicit row hold."""
+    require(row.get('show_in_html_hadith') is not False,
+            'Record explicitly withheld from Hadith HTML/search (show_in_html_hadith=false): ' +
+            str(row.get('id', '<unknown>')) + '. Preserve held records as source/evidence outside ' +
+            'the registered reader subset; do not remove the hold to make a build pass.')
+
+
 def normalized_projection(row, material, position):
     require(isinstance(row.get('id'), str) and bool(row['id'].strip()), 'Every material occurrence needs a stable id')
+    require_reader_visibility(row)
     text = row.get('text')
     require(isinstance(text, dict) and {'arabic', 'translation'} <= set(text),
             'Record text requires explicit arabic and translation fields (string or null): ' + row['id'])
@@ -230,6 +277,8 @@ def normalized_projection(row, material, position):
         'canonical_record_sha256': hashlib.sha256(canonical(row)).hexdigest(),
     }
     with_publication(result, material['publication'])
+    if 'language_versions' in row:
+        result['language_versions'] = project_language_versions(row['language_versions'], material.get('language_version_default_policy'))
     if material.get('display_policy') is not None:
         result['display_policy'] = copy.deepcopy(material['display_policy'])
     if material.get('counterpart_policy') is not None:
@@ -251,6 +300,7 @@ def project_for_material(row, material, position):
     if material.get('adapter') == 'records-v1':
         return normalized_projection(row, material, position)
     require(material.get('adapter') == 'pdf-intake-package-v1', 'Unsupported material adapter')
+    require_reader_visibility(row)
     from integrate_private_intakes import project
     prefix = material['intake_root']
     collection = {'book': material['book_key'], 'edition': material['edition'],
@@ -295,6 +345,11 @@ def load_public_materials(root, validate_attachment_roots=True):
         require(adapter in ('records-v1', 'pdf-intake-package-v1'), 'Unsupported material adapter: ' + str(adapter))
         display_policy = display_policy_for(manifest, authorization, relative)
         counterpart_policy = counterpart_policy_for(manifest, relative)
+        supporting = checked_supporting_files(root, manifest, relative)
+        for descriptor in supporting:
+            previous = result['authorized_files'].get(descriptor['path'])
+            require(previous is None or previous == descriptor['sha256'], 'Conflicting supporting source hash: ' + descriptor['path'])
+            result['authorized_files'][descriptor['path']] = descriptor['sha256']
         result['manifests'].append({'path': relative, 'sha256': digest_file(path), 'id': identifier, 'adapter': adapter,
                                     'publication': authorization})
         collection_rows = []
@@ -360,10 +415,16 @@ def load_public_materials(root, validate_attachment_roots=True):
                     'Unsafe material language/book/edition path component')
             material.update({'adapter': adapter, 'manifest_path': relative, 'publication': authorization,
                              'available_locally': True, 'public_text_published': True})
+            if supporting:
+                material['supporting_files'] = copy.deepcopy(supporting)
             if display_policy is not None:
                 material['display_policy'] = copy.deepcopy(display_policy)
             if counterpart_policy is not None:
                 material['counterpart_policy'] = copy.deepcopy(counterpart_policy)
+            if any('language_versions' in row for row in rows):
+                version_default = decision_for({'kind': 'source_language_version'}, provenance_policy, registered_material=True)
+                if version_default is not None:
+                    material['language_version_default_policy'] = copy.deepcopy(version_default)
             projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
             for record in projected:
                 apply_policy(record, provenance_policy, registered_material=True)

@@ -90,6 +90,9 @@ jobs:
             reports/counterpart-review \
             reports/reading-views-validation.json \
             reports/portable-validation.json reports/site-build.json
+          if [[ -d hadith-bank-reader-data ]]; then
+            git add -A -- hadith-bank-reader-data
+          fi
           if ! git diff --cached --quiet; then
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \

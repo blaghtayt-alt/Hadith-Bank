@@ -29,6 +29,7 @@ from counterpart_display import (
 from current_provenance import classification
 from book_titles import book_label as collection_label
 from review_display_policy import review_badges, text_direction
+from language_display import language_readings, reading_direction
 
 
 PAGE_SIZE = 100
@@ -63,6 +64,7 @@ BOOK_NAMES = {
     'unclassified': 'Collection not identified in the source',
 }
 STYLE = '''
+.language-reading{padding:0;overflow:hidden}.language-reading>summary{padding:1rem 1.2rem;background:#f1f5ed}.language-reading>summary span{font-size:.8rem;color:var(--muted);font-weight:400;margin-inline-start:.7rem}.reading-content{padding:0 1.2rem 1rem}.language-reading .quotation{border:0;padding:0;background:transparent}.reading-source{border-top:1px solid var(--line);padding-top:.7rem;font-size:.9rem}.reading-notes{background:#f8f8f2}.reading-citation{font-size:.92rem;overflow-wrap:anywhere}
 :root{color-scheme:light;--ink:#173e35;--paper:#faf8ef;--line:#d9e2d9;--muted:#52665c}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.7 system-ui,sans-serif}
 a{color:#075e4b;text-decoration-thickness:.07em;text-underline-offset:.18em;overflow-wrap:anywhere}a:hover{color:#8a6114}
@@ -123,6 +125,17 @@ def record_path(record):
     return '/'.join(['hadith', *parts, token + '.html'])
 
 
+def uses_shared_web_reader(record):
+    return bool(record.get('language_versions')) and str(record.get('source_id') or '').startswith(
+        ('deenhindi-', 'rivoyat-', 'islom-'))
+
+
+def occurrence_link(record, current):
+    if uses_shared_web_reader(record):
+        return relative_link(current, 'index.html') + '?occurrence=' + quote(record['id'], safe='')
+    return relative_link(current, record_path(record))
+
+
 def public_path(relative):
     return relative[:-len('index.html')] if relative.endswith('index.html') else relative
 
@@ -166,6 +179,62 @@ def literal(value, language, css='text'):
 
 def detail(title, content):
     return '<details><summary>' + esc(title) + '</summary>' + content + '</details>'
+
+
+def render_language_reading(reading):
+    """Each reading retains its own quotation, references and source notes."""
+    language = reading['language']
+    source = reading.get('source') or {}
+    url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
+    credit = source.get('name') or 'Source not named'
+    opened = reading.get('primary') or language.split('-')[0] in ('ar', 'en')
+    body = ['<details class="language-reading"' + (' open' if opened else '') +
+            '><summary>' + esc(reading.get('heading') or language) + '<span>' +
+            esc(language) + '</span></summary><div class="reading-content">']
+    if reading.get('qualification'):
+        body.append('<p class="notice">' + esc(reading['qualification']) + '</p>')
+    if reading.get('text'):
+        body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
+                    reading_direction(reading) + '">' + esc(reading['text']) + '</div>')
+    if reading.get('citation'):
+        body.append('<p class="reading-citation" dir="auto">' + esc(reading['citation']) + '</p>')
+    body.append('<p class="reading-source">' + ('<a href="' + esc(url) +
+                '" target="_blank" rel="noopener noreferrer">' + esc(credit) + '</a>' if url else esc(credit)))
+    if language.split('-')[0] != 'ar' and reading.get('translation_origin'):
+        body.append(' · Translation origin: ' +
+                    {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[reading['translation_origin']])
+    body.append('</p>')
+    links = []
+    for reference in reading.get('references') or []:
+        own_url = safe_url(reference.get('url')) or safe_url(reference.get('source_url'))
+        if own_url:
+            label = reference.get('source_citation') or reference.get('citation') or reference.get('collection') or 'Source reference'
+            links.append('<p><a href="' + esc(own_url) + '" target="_blank" rel="noopener noreferrer">' + esc(label) + '</a></p>')
+    if links:
+        body.append(detail('References for this language', ''.join(links)))
+    upstream = []
+    for item in source.get('upstream_sources') or []:
+        if isinstance(item, dict):
+            own_url = safe_url(item.get('url'))
+            label = item.get('name') or 'Upstream source'
+            upstream.append('<p>' + ('<a href="' + esc(own_url) + '" target="_blank" rel="noopener noreferrer">' +
+                            esc(label) + '</a>' if own_url else esc(label)) +
+                            (' · ' + esc(item['scope']) if item.get('scope') else '') + '</p>')
+    if upstream:
+        body.append(detail('Upstream credits supplied by this source', ''.join(upstream)))
+    comments = []
+    for comment in reading.get('comments') or []:
+        value = comment.get('text') if isinstance(comment, dict) else comment
+        if value:
+            comments.append('<div class="text" dir="' + reading_direction(reading) + '">' + esc(value) + '</div>')
+        own_url = safe_url(comment.get('source_url')) if isinstance(comment, dict) else None
+        if own_url:
+            comments.append('<p><a href="' + esc(own_url) + '" target="_blank" rel="noopener noreferrer">Comment source</a></p>')
+    if comments:
+        body.append('<details class="reading-notes"><summary>Notes and comments · ' +
+                    str(len(reading['comments'])) + '</summary>' + ''.join(comments) + '</details>')
+    body.append('</div></details>')
+    return ''.join(body)
 
 
 def data_details(title, value):
@@ -283,39 +352,13 @@ def render_record(writer, record, downloads, sources):
         body.append('<p class="muted">Translation origin is unknown; no human or AI origin is asserted.</p>')
     if (record.get('display_policy') or {}).get('qc_tags') is not False:
         body.extend('<p class="notice">' + esc(badge['label']) + '</p>' for badge in review_badges(record))
-    translation = record.get('text_translation')
-    arabic = record.get('text_arabic')
-    if translation:
-        body.append(literal(translation, language, 'text quotation'))
-    elif arabic:
-        body.append(literal(arabic, 'ar', 'text quotation arabic'))
+    readings = language_readings(record)
+    if readings:
+        body.extend(render_language_reading(reading) for reading in readings)
     else:
         body.append('<p>Text is not supplied in this source projection; the source locator is preserved below.</p>')
-    if translation and arabic:
-        body.append('<h2>Arabic supplied with this source</h2>' + literal(arabic, 'ar', 'text quotation arabic'))
-    for counterpart_language, code in (('arabic', 'ar'), ('english', 'en')):
-        counterpart = counterpart_source_data(record, counterpart_language)
-        if counterpart is None:
-            continue
-        # Do not repeat an identical Arabic source quotation, but retain its citation.
-        counterpart_text = counterpart.get('text')
-        qualification = counterpart_qualification(counterpart, record)
-        heading = counterpart_language.title() + (' at the source' if counterpart.get('scope') == 'external_source' else ' counterpart')
-        content = '<h2>' + heading + '</h2>'
-        if qualification:
-            content += '<p class="notice">' + esc(qualification) + '</p>'
-        if counterpart_text and not (counterpart_language == 'arabic' and counterpart_text == arabic):
-            content += literal(counterpart_text, code, 'text quotation' + (' arabic' if code == 'ar' else ''))
-        content += literal(counterpart_citation(counterpart, counterpart_language), code)
-        counterpart_url = safe_url(counterpart.get('source_url'))
-        credit = counterpart.get('source_name') or 'Source not named'
-        content += '<p>' + ('<a href="' + esc(counterpart_url) + '">' + esc(credit) + '</a>' if counterpart_url else esc(credit))
-        if counterpart_language == 'english':
-            content += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[counterpart_translation_origin(counterpart)]
-        content += '</p>'
-        if counterpart_alignment_notes(record):
-            content += detail('Alignment notes', ''.join('<p>' + esc(note) + '</p>' for note in counterpart_alignment_notes(record)))
-        body.append(content)
+    if counterpart_alignment_notes(record):
+        body.append(detail('Alignment notes', ''.join('<p>' + esc(note) + '</p>' for note in counterpart_alignment_notes(record))))
     source_url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_display = '<a href="' + esc(source_url) + '">' + esc(source_title(record)) + '</a>' if source_url else esc(source_title(record))
     metadata = [('Source book or publication', source_display), ('Collection', title_markup(book_name(book, language))),
@@ -374,7 +417,7 @@ def occurrence_list(records, current):
         label = compact(record.get('title'), 110) or compact(record.get('text_translation') or record.get('text_arabic'), 110)
         if not label:
             label = (kind or {}).get('label', 'Source occurrence')
-        lines.append('<li><a href="' + esc(relative_link(current, record_path(record))) + '" dir="auto">' +
+        lines.append('<li><a href="' + esc(occurrence_link(record, current)) + '" dir="auto">' +
                      esc(label) + '</a><br><span class="muted">' + esc(number_label(record)) +
                      (' · ' + esc(kind['label']) if kind else '') + '</span></li>')
     return ''.join(lines) + '</ul>'
@@ -521,16 +564,20 @@ def build(root, output, site=None, records=None, catalog=None):
     writer = Writer(root, output, settings)
     writer.write('assets/discovery.css', STYLE)
     index_info = render_indexes(writer, records, downloads, sources)
+    static_record_count = 0
     for record in sorted(records, key=lambda item: (item['language'], item['book_key'], item['edition'], item['id'])):
-        render_record(writer, record, downloads, sources)
+        if not uses_shared_web_reader(record):
+            render_record(writer, record, downloads, sources)
+            static_record_count += 1
     writer.page('404.html', 'Page not found | Hadith Bank', 'Find a language, book or source text in Hadith Bank.',
                 '<h1>Page not found</h1><p>This address is not part of the published bank. '
                 '<a href="' + esc(canonical_url('browse/index.html', settings)) + '">Browse languages and books</a> '
                 'or use the search reader.</p>', indexable=False)
     sitemap_info = write_sitemaps(writer, writer.pages)
     site_bytes = sum(path.stat().st_size for path in output.rglob('*') if path.is_file())
-    report = {'schema': 'hadith-bank-discovery-v1', 'record_pages': len(records),
-              'index_pages': len(writer.pages) - len(records), 'indexable_pages': len(writer.pages),
+    report = {'schema': 'hadith-bank-discovery-v1', 'record_pages': static_record_count,
+              'shared_reader_occurrences': len(records) - static_record_count,
+              'index_pages': len(writer.pages) - static_record_count, 'indexable_pages': len(writer.pages),
               'generated_files': writer.files + 1, 'generated_bytes': writer.bytes,
               'site_bytes': site_bytes, 'source_records_sha256': catalog['search']['records_sha256'],
               'source_texts_unchanged': True, 'independent_qc_performed': False,

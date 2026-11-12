@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 from counterpart_display import counterpart_source_data
+from urllib.parse import urlsplit
 
 
 FIELDS = ('total', 'arabic_text', 'arabic_link', 'arabic_available',
@@ -29,9 +30,22 @@ def availability_for(record):
         data = counterpart_source_data(record, key)
         source_text = (record.get('text_arabic') if key == 'arabic' else None)
         native_text = record.get('text_translation') if language == code else None
-        if has_text(source_text) or has_text(native_text) or data and has_text(data.get('text')):
+        versions = [item for item in record.get('language_versions') or [] if isinstance(item, dict)
+                    and str(item.get('language', '')).split('-')[0].lower() == code]
+        version_text = any(has_text(item.get('text')) for item in versions)
+        version_link = False
+        for item in versions:
+            source = item.get('source') or {}
+            url = source.get('record_url') or source.get('url')
+            if item.get('scope') == 'external_source' and isinstance(url, str):
+                try:
+                    parsed = urlsplit(url)
+                    version_link = version_link or (parsed.scheme in ('http', 'https') and bool(parsed.netloc) and not parsed.username and not parsed.password)
+                except ValueError:
+                    pass
+        if version_text or has_text(source_text) or has_text(native_text) or data and has_text(data.get('text')):
             result[key] = 'text'
-        elif data is not None:
+        elif data is not None or version_link:
             result[key] = 'external_link'
         else:
             result[key] = 'missing'

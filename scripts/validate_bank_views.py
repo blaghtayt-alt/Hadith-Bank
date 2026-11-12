@@ -14,6 +14,7 @@ import datetime
 import gzip
 import hashlib
 import html
+import io
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -318,26 +319,89 @@ def verify_shards(root, search, expected, public):
     return projected_hashes, dict(sorted(by_language.items())), dict(sorted(by_dataset.items())), text_codepoints, dict(sorted(current_origins.items()))
 
 
+def reader_shard_records(path, manifest):
+    """Verify bounded local transport pieces and yield complete JSONL records."""
+    require(isinstance(manifest, dict) and manifest.get('schema') == 'hadith-bank-reader-shards-v1'
+            and manifest.get('encoding') == 'gzip-jsonl-shards', 'Unsupported reader shard manifest')
+    require(isinstance(manifest.get('shards'), list), 'Reader manifest shards must be an array')
+    expected_count = count(manifest.get('record_count'), 'reader.record_count')
+    require(isinstance(manifest.get('jsonl_sha256'), str) and
+            re.fullmatch(r'[0-9a-f]{64}', manifest['jsonl_sha256']), 'Invalid reader stream SHA-256')
+    seen, pending, total = set(), b'', 0
+    aggregate = hashlib.sha256()
+    for part in manifest['shards']:
+        require(isinstance(part, dict), 'Invalid reader shard descriptor')
+        relative = part.get('path')
+        require(isinstance(relative, str) and not re.search(r'[%?#]', relative),
+                'Unsafe reader shard path')
+        require(relative not in seen, 'Duplicate reader shard path')
+        seen.add(relative)
+        target = local(path.parent, relative)
+        expected_bytes = count(part.get('bytes'), 'reader.shard.bytes')
+        expected_plain = count(part.get('uncompressed_bytes'), 'reader.shard.uncompressed_bytes')
+        require(0 < expected_bytes <= 2 * 1024 * 1024 and expected_plain <= 2 * 1024 * 1024,
+                'Reader shard exceeds its size bound')
+        require(target.stat().st_size == expected_bytes, 'Reader shard byte count mismatch')
+        raw = target.read_bytes()
+        require(hashlib.sha256(raw).hexdigest() == part.get('sha256'), 'Reader shard SHA-256 mismatch')
+        with gzip.GzipFile(fileobj=io.BytesIO(raw), mode='rb') as stream:
+            plain = stream.read(expected_plain + 1)
+        require(len(plain) == expected_plain, 'Reader shard uncompressed byte count mismatch')
+        aggregate.update(plain)
+        require(plain.count(b'\n') == count(part.get('count'), 'reader.shard.count'),
+                'Reader shard record count mismatch')
+        lines = (pending + plain).split(b'\n')
+        pending = lines.pop()
+        for line in lines:
+            require(bool(line), 'Reader shard contains a blank JSONL record')
+            record = parse_json(line)
+            require(isinstance(record, dict), 'Reader shard contains a non-object record')
+            total += 1
+            require(total <= expected_count, 'Reader shard stream has excess records')
+            yield record
+    require(not pending, 'Reader shard stream lacks terminal newline')
+    require(total == expected_count, 'Reader shard stream record count mismatch')
+    require(aggregate.hexdigest() == manifest['jsonl_sha256'], 'Reader JSONL stream SHA-256 mismatch')
+
+
 def verify_reader(root, relative, projected_hashes, search):
     path = local(root, relative)
     source = path.read_text(encoding='utf-8')
     payload = re.search(r'<script\b[^>]*\bid="hadith-records"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
     require(payload is not None, 'Missing embedded reader payload')
-    if 'data-encoding="gzip-base64"' in payload.group(0).split('>', 1)[0]:
-        data = gzip.decompress(base64.b64decode(payload.group(1).strip(), validate=True))
+    encoding = payload.group(0).split('>', 1)[0]
+    sharded = 'data-encoding="gzip-jsonl-shards"' in encoding
+    shard_count = 0
+    if sharded:
+        manifest = parse_json(payload.group(1))
+        require(isinstance(manifest, dict) and isinstance(manifest.get('shards'), list),
+                'Invalid reader shard manifest')
+        shard_count = len(manifest['shards'])
+        records = reader_shard_records(path, manifest)
     else:
-        data = payload.group(1)
-    records = parse_json(data)
-    require(isinstance(records, list) and len(records) == len(projected_hashes), 'Reader occurrence count mismatch')
-    for record, (identifier, expected_hash) in zip(records, projected_hashes):
-        require(isinstance(record, dict) and record.get('id') == identifier and object_hash(record) == expected_hash, 'Reader differs from source projection: ' + identifier)
+        data = (gzip.decompress(base64.b64decode(payload.group(1).strip(), validate=True))
+                if 'data-encoding="gzip-base64"' in encoding else payload.group(1))
+        records = parse_json(data)
+        require(isinstance(records, list) and len(records) == len(projected_hashes),
+                'Reader occurrence count mismatch')
+    compared = 0
+    for record in records:
+        require(compared < len(projected_hashes), 'Reader has excess occurrences')
+        identifier, expected_hash = projected_hashes[compared]
+        require(isinstance(record, dict) and record.get('id') == identifier and object_hash(record) == expected_hash,
+                'Reader differs from source projection: ' + identifier)
+        compared += 1
+    require(compared == len(projected_hashes), 'Reader occurrence count mismatch')
     snapshot = re.search(r'<script\b[^>]*\bid="hadith-snapshot"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
     require(snapshot is not None, 'Missing reader snapshot')
     summary = parse_json(snapshot.group(1))
-    require(summary.get('record_count') == len(records) and summary.get('records_sha256') == search['records_sha256'], 'Reader snapshot differs from search catalog')
-    require(not re.search(r'<script\b[^>]*\bsrc\s*=|<link\b[^>]*\brel=["\']stylesheet', source, re.I), 'Reader has external script/style dependency')
+    require(summary.get('record_count') == compared and summary.get('records_sha256') == search['records_sha256'],
+            'Reader snapshot differs from search catalog')
+    require(not re.search(r'<script\b[^>]*\bsrc\s*=|<link\b[^>]*\brel=["\']stylesheet', source, re.I),
+            'Reader has external script/style dependency')
     return {'path': relative, 'sha256': file_hash(path), 'bytes': path.stat().st_size,
-            'embedded_objects_compared': len(records), 'external_script_or_stylesheet_dependencies': False}
+            'embedded_objects_compared': compared, 'data_shards_verified': shard_count,
+            'external_script_or_stylesheet_dependencies': False}
 
 
 def verify_navigation(root, anticipated_report=None):
@@ -450,6 +514,8 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
         require(identifier not in datasets and relative not in canonical_paths, 'Duplicate dataset or canonical path')
         datasets.add(identifier); canonical_paths.add(relative)
         checked_hash(root, material['source_file'], material['source_sha256'], evidence)
+        for supporting in material.get('supporting_files', []):
+            checked_hash(root, supporting['path'], supporting['sha256'], evidence)
         path = checked_hash(root, relative, material['canonical_records_sha256'], evidence)
         total = 0
         for position, row in source_rows(path):

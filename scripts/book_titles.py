@@ -105,10 +105,50 @@ LOCAL_TITLES = {'zh-CN': {'bukhari': '布哈里圣训实录',
  'fil': {'unclassified': 'Hindi natukoy ang koleksiyon', 'hisn-al-muslim': 'KUTANG-TANGGULAN NG MUSLIM'}}
 
 
+# Exact publisher catalogue display labels; these do not merge book identities.
+SOURCE_COLLECTION_TITLES = {
+    "abdurrazzoq": "Musannaf Abdurrazzoq",
+    "abu-dovud": "Sunan Abu Dovud",
+    "adab": "Al-Adab al-mufrad",
+    "bayhaqiy": "As-Sunan al-Kubro (Bayhaqiy)",
+    "bulugh": "Bulugʻ ul-marom",
+    "buxoriy": "Sahih al-Buxoriy",
+    "doraqutniy": "Sunan ad-Doraqutniy",
+    "dorimiy": "Sunan ad-Dorimiy",
+    "fazilatlar": "Qurʼon suralarining fazilatlari",
+    "hisn": "Hisn ul-muslim",
+    "hokim": "Mustadrak al-Hokim",
+    "ibn-abu-shayba": "Musannaf Ibn Abu Shayba",
+    "ibn-hibbon": "Sahih Ibn Hibbon",
+    "ibn-moja": "Sunan Ibn Moja",
+    "ibn-xuzayma": "Sahih Ibn Xuzayma",
+    "mishkot": "Mishkot ul-masobih",
+    "muvatto": "Muvatto Molik",
+    "nasoiy": "Sunan an-Nasoiy",
+    "nasoiy-kubro": "As-Sunan al-Kubro (Nasoiy)",
+    "qirq": "Qirq hadis toʻplamlari",
+    "riyoz": "Riyoz us-solihin",
+    "shamoil": "Shamoili Muhammadiya",
+    "sulosiyot": "Sulosiyot",
+    "termiziy": "Jomeʼ at-Termiziy",
+    "book-17": "Ал-Азкор",
+    "book-22": "101 ҳадис",
+    "book-23": "2002 ҳадис",
+    "book-24": "Арбаъин",
+    "book-25": "Шамоилул-Муҳаммадия",
+    "book-26": "Саҳиҳул Бухорийнинг мухтасари",
+    "book-27": "Имомлари иттифоқ қилган ҳадислар",
+    "book-28": "Риёзус солиҳийн",
+    "book-29": "Риёзус солиҳийн (болалар учун)",
+    "book-30": "Забидий",
+    "book-32": "Риёзус солиҳийн шарҳи"
+}
+
+
 def book_label(key, language='', english=None):
     """Return a plain-text label without changing a collection's identity."""
     canonical = BOOK_ALIASES.get(key, key)
-    label = english if english is not None else ENGLISH_TITLES.get(canonical, key)
+    label = english if english is not None else ENGLISH_TITLES.get(canonical, SOURCE_COLLECTION_TITLES.get(key, key))
     language = LANGUAGE_ALIASES.get(language, language)
     if not language or language.split('-', 1)[0] == 'en':
         return label
@@ -118,7 +158,7 @@ def book_label(key, language='', english=None):
 
 def title_metadata():
     """Embed the same resolved labels in the online and offline readers."""
-    keys = sorted(set(ENGLISH_TITLES) | set(BOOK_ALIASES))
+    keys = sorted(set(ENGLISH_TITLES) | set(BOOK_ALIASES) | set(SOURCE_COLLECTION_TITLES))
     languages = ['', 'en', 'ar', *LOCAL_TITLES, *LANGUAGE_ALIASES]
     return {language: {key: book_label(key, language) for key in keys}
             for language in languages}
