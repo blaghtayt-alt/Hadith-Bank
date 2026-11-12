@@ -141,6 +141,10 @@ def has_noncanonical_numbering(number):
 
 def record_citation_pairs(record):
     pairs = set()
+    for version in record.get('language_versions') or []:
+        if isinstance(version, dict):
+            for reference in version.get('references') or []:
+                pairs.update(reference_pairs(reference))
     for language in ('arabic', 'english'):
         item = counterpart_source_data(record, language)
         if item is None:

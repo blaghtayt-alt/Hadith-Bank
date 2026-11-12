@@ -356,3 +356,55 @@ details[open] > summary .disclosure-chevron { transform: rotate(180deg); }
 .counterpart-coverage th:first-child { text-align: left; }
 .counterpart-coverage thead th { font-size: .8rem; background: #f2f5ef; }
 .counterpart-coverage a { color: #225c49; text-underline-offset: .2em; }
+
+/* Each preserved occurrence contains independently attributed language readings. */
+.language-readings { display: grid; gap: 14px; margin: 12px 0 20px; }
+.reading-language-switches { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0; }
+.reading-language-button { min-height: 34px; border-radius: 999px; padding: 5px 12px; font-size: 11px; color: var(--green-dark); border-color: var(--jade-6); background: var(--jade-2); }
+.reading-language-button:hover { border-color: var(--jade-8); }
+.language-reading { min-width: 0; border: 1px solid var(--jade-6); border-radius: 8px; background: #fff; overflow: hidden; }
+.language-reading[data-language="ar"] { border-color: var(--gold-6); background: #fffcf3; }
+.language-reading[data-language="en"] { background: var(--jade-2); }
+.language-reading > summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 56px; list-style: none; padding: 14px 20px; color: var(--green-dark); }
+.language-reading > summary::-webkit-details-marker { display: none; }
+.language-reading > summary::marker { content: ""; }
+.language-reading[open] > summary { border-bottom: 1px solid var(--jade-5); }
+.language-reading[data-language="ar"][open] > summary { border-bottom-color: var(--gold-5); }
+.reading-language { font-size: 13px; font-weight: 650; }
+.reading-summary-meta { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
+.reading-summary-meta > .icon { width: 15px; height: 15px; transition: transform .16s; }
+.language-reading[open] > summary .reading-summary-meta > .icon { transform: rotate(180deg); }
+.reading-origin { display: inline-block; border-radius: 999px; font-size: 10px; font-weight: 550; padding: 3px 8px; background: var(--sand-3); color: var(--muted); }
+.reading-origin.human { color: var(--green-dark); background: var(--jade-4); }
+.reading-origin.ai { color: var(--amber); background: var(--amber-bg); }
+.reading-content { padding: 20px; }
+.reading-content > .narration:first-child { margin-top: 0; }
+.reading-content > .narration { overflow-wrap: anywhere; }
+.reading-content > .arabic { font-size: var(--arabic-size); line-height: 2.05; }
+.reading-reference { border-top: 1px solid var(--sand-5); margin-top: 18px; padding-top: 12px; }
+.reading-citation { margin: 0 0 6px; color: var(--ink); font-size: 12px; font-weight: 600; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.reading-source { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+.reading-source .icon { width: 12px; height: 12px; }
+.reading-reference-links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 7px; font-size: 11px; }
+.reading-notes, .reading-upstream { margin-top: 16px; border-top-color: var(--sand-5); }
+.reading-notes > summary, .reading-upstream > summary { font-size: 11px; }
+.reading-notes .narration { font-size: 14px; line-height: 1.85; }
+.reading-notes .arabic { font-size: 21px; }
+.note-source { display: inline-block; margin-bottom: 10px; font-size: 11px; }
+.upstream-sources { margin: 12px 0 0; padding-inline-start: 20px; font-size: 12px; }
+.upstream-sources li + li { margin-top: 8px; }
+.upstream-sources .citation-scope { display: block; margin-top: 3px; }
+.reading-availability { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.reading-unavailable { color: var(--muted); font-size: 11px; }
+@media (max-width: 600px) {
+  .language-reading > summary { padding: 12px 14px; gap: 8px; }
+  .reading-content { padding: 16px 14px; }
+  .reading-summary-meta { gap: 7px; }
+  .reading-origin { font-size: 9px; padding: 3px 6px; }
+  .reading-language { font-size: 12px; }
+}
+@media print {
+  .reading-language-switches { display: none; }
+  .language-reading { break-inside: avoid; }
+  .reading-content { padding: 14px; }
+}

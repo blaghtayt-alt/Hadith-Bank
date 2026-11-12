@@ -30,7 +30,9 @@ The [latest Arabic/English continuation audit](reports/counterpart-continuation-
 
 Every registered book enters the same language-linking workflow. The build refreshes a [source-bound candidate review queue](reports/counterpart-review/manifest.json) for missing counterparts. See [Arabic/English integration and future Chinese Abū Dāwūd additions](docs/LANGUAGE-COUNTERPARTS.md) for preparing and compiling new reviewed mappings. Future installments and editions retain separate source files, numbering and occurrence identities.
 
-Every indexed source occurrence also has a separate HTML reading page. These pages contain the text before JavaScript runs and link through language, book and edition indexes. They provide stable destinations for sharing a particular narration and for search-engine discovery. The [sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) is rebuilt with the corpus. See [search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) for the design and indexing setup.
+The established corpus retains separate HTML reading pages with text available before JavaScript runs. New large web editions use stable occurrence links into the multilingual reader and the same language, book and edition indexes. The [sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) is rebuilt with the corpus. See [search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) for the design and indexing setup.
+
+Deen Hindi, Rivoyat and Hadis.islom.uz use resumable source queues and language-specific references and collapsible comments. See the [multilingual import framework](docs/MULTILINGUAL-WEB-IMPORTS.md) and [current repository intake status](imports/web-import-status.json). Started intake does not mean every advertised source entry has been imported.
 
 ## Books and source collections
 

@@ -13,6 +13,13 @@ This repository contains the standalone Hadith Bank and its generated reader web
 9. Generate the website's language list from the accepted material manifests. The owner requested support for all bank languages and automatic integration of future additions. A new language is accepted through an explicitly authorized material manifest; do not silently publish an unrelated staged package.
 10. Do not rewrite or delete previously copied verbatim source bytes just to normalize style, remove source anomalies, or manufacture a clean QC status. Version changes must preserve before/after evidence.
 
+
+## Owner-authorized multilingual website intake
+
+On 12 November 2026 the owner requested proceeding with all three identified sites: deenhindi.com/hadith, rivoyat.com and hadis.islom.uz. The owner authorized importing their hadiths, retaining each language's own or explicitly cited upstream references and comments, adding collapsible language panels, and preserving language/book/collection filters. This covers source-preserving deenhindi-*, rivoyat-* and islom-* registrations and their imports/web-*-20261112 evidence.
+
+Continue the finite source queues through the bounded import plan. Preserve source bytes, empty fields, source-local numbering, supplied language versions and immutable evidence. Keep site-wide credits distinct from a verified per-translation upstream source. Do not merge identities by numbers or similar text. Retain mixed introductions, independent sayings and unresolved spans outside Hadith HTML until narration boundaries are supported. Prophetic practices, dhikr, dialogue and explicitly attributed abbreviated matn remain eligible; a literal speech marker is not mandatory. The authorization changes visibility only, with no new translation, independent certification or rights clearance asserted. Existing provenance and OCR-only display policies remain in effect.
+
 ## Reliable remote execution and transfer
 
 The owner requested fixing or avoiding repeated Remote Desktop Commander failures on 11 November 2026. Large encoded transfers and verbose command output repeatedly exhausted conversation context; a tool returning a running PID or call ID is not itself a failure.

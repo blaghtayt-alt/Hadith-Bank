@@ -30,6 +30,7 @@ read from that verified input, never from cached text. The cache is disposable,
 stays under root/.cache, and is refreshed when bytes or normalization change.
 This search performs no translation, authenticity assessment or release review.
 """
+from language_versions import available_language_codes, language_search_values, validate_language_versions
 import argparse
 import hashlib
 import json
@@ -48,7 +49,7 @@ from citation_search import has_noncanonical_numbering, record_citation_pairs, s
 
 
 VERSION = 'hadith-bank-search-v1'
-CACHE_VERSION = '7:literal-substrings:arabic-persian-cjk:arabic-digits:paired-citations:scoped-source-metadata:current-origin:record-metadata'
+CACHE_VERSION = '8:language-versions:literal-substrings:arabic-persian-cjk:arabic-digits:paired-citations:scoped-source-metadata:current-origin:record-metadata'
 CATALOG_PATH = 'catalog/materials.json'
 DEFAULT_DATABASE = '.cache/hadith-search.sqlite'
 LANGUAGE_ALIASES = {'zh': 'zh-CN', 'tl': 'fil'}
@@ -299,17 +300,21 @@ def _keys(record):
     values += [source.get(field) for field in _SOURCE_SEARCH_FIELDS]
     values += [narrator.get(field) for field in _NARRATOR_SEARCH_FIELDS]
     values += list(counterpart_search_values(record))
+    values += list(language_search_values(record))
     # Normalize within each source field, then separate fields so a CJK substring
     # cannot be manufactured by joining a title to the start of the narration.
     body = '\n'.join(_fold(s) for value in values for s in _strings(value))
     annotation_values = [record.get(field) for field in ('commentary', 'benefits', 'footnotes')]
     annotation_values += [source.get(field) for field in _SOURCE_CONTEXT_FIELDS]
     annotation_values.append(narrator.get('source_context'))
+    annotation_values += list(language_search_values(record, include_comments=True))
     annotations = '\n'.join(_fold(s) for value in annotation_values for s in _strings(value))
     return body, annotations
 
 
 def _validate_record(root, record):
+    if 'language_versions' in record:
+        validate_language_versions(record['language_versions'])
     missing = set(_REQUIRED_FIELDS) - set(record)
     if missing:
         raise ValueError('Flat narration is missing fields: ' + ', '.join(sorted(missing)))
@@ -417,6 +422,9 @@ def _build_cache(connection, stream):
             translation_origin TEXT NOT NULL, current_translation_origin TEXT NOT NULL,
             body TEXT NOT NULL, annotations TEXT NOT NULL
         );
+        CREATE TABLE record_languages(record_line INTEGER NOT NULL, language TEXT NOT NULL,
+            PRIMARY KEY(record_line, language), FOREIGN KEY(record_line) REFERENCES records(line));
+        CREATE INDEX available_languages ON record_languages(language, record_line);
         CREATE TABLE tags(record_line INTEGER NOT NULL, value TEXT NOT NULL,
             PRIMARY KEY(record_line, value), FOREIGN KEY(record_line) REFERENCES records(line));
         CREATE TABLE citation_pairs(record_line INTEGER NOT NULL, book_key TEXT NOT NULL, number TEXT NOT NULL,
@@ -441,6 +449,8 @@ def _build_cache(connection, stream):
                 record['provider_entry_id'], record['translation_provenance']['origin'],
                 current_translation_origin(record), body, annotations,
             ))
+            connection.executemany('INSERT INTO record_languages VALUES (?, ?)',
+                                   ((line, language) for language in available_language_codes(record)))
             connection.executemany('INSERT INTO tags VALUES (?, ?)',
                                    ((line, tag) for tag in sorted(_tag_values(record))))
             connection.executemany('INSERT INTO citation_pairs VALUES (?, ?, ?)',
@@ -521,7 +531,10 @@ def _like(value):
 
 def _where(terms, filters, include_commentary, engine, citation_pairs=()):
     clauses, parameters = [], []
-    for key in ('language', 'book_key', 'source_id'):
+    if filters.get('language') is not None:
+        clauses.append('EXISTS (SELECT 1 FROM record_languages l WHERE l.record_line = r.line AND l.language = ?)')
+        parameters.append(filters['language'])
+    for key in ('book_key', 'source_id'):
         if filters.get(key) is not None:
             clauses.append('r.' + key + ' = ?')
             parameters.append(filters[key])
@@ -557,7 +570,9 @@ def _where(terms, filters, include_commentary, engine, citation_pairs=()):
 def _matches(record, terms, filters, include_commentary, citation_pairs=()):
     origin = (current_translation_origin(record) if filters['translation_origin'] in ('human', 'ai', 'unknown')
               else record['translation_provenance']['origin'])
-    for key, value in [('language', record['language']), ('book_key', record['book_key']),
+    if filters.get('language') is not None and filters['language'] not in available_language_codes(record):
+        return False
+    for key, value in [('book_key', record['book_key']),
                        ('source_id', record['source_id']),
                        ('translation_origin', origin)]:
         if filters[key] is not None and value != filters[key]:

@@ -12,6 +12,7 @@ from pathlib import Path
 
 from build_bank_views import digest_file, write_json
 from build_reader import local, parse_json
+from language_versions import validate_language_versions
 from material_registry import COMPONENT, LANGUAGE, DECISION, PUBLICATION_DECISIONS, read_rows
 
 
@@ -40,6 +41,8 @@ def register(root, directory, language, book, edition, name, records, source,
     rows = read_rows(record_file)
     ids = set()
     for row in rows:
+        if 'language_versions' in row:
+            validate_language_versions(row['language_versions'])
         value = row.get('id')
         if not isinstance(value, str) or not value.strip() or value in ids:
             raise ValueError('Every occurrence needs a distinct stable id')

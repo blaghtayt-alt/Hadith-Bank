@@ -15,7 +15,7 @@ import subprocess
 import tempfile
 
 from build_bank_views import build as build_views, write_json
-from build_reader import build as build_reader, load_records
+from build_reader import build as build_reader, load_records, site_metadata
 from build_discovery import build as build_discovery
 from build_book_catalog import write_catalog as write_book_catalog
 from validate_bank_views import validate
@@ -41,8 +41,19 @@ def stage_site(root, output, info):
     staging = Path(tempfile.mkdtemp(prefix='.hadith-site-', dir=output.parent))
     backup = None
     try:
-        for filename in ('index.html', 'hadith-bank-reader.html'):
-            shutil.copyfile(root / 'hadith-bank-reader.html', staging / filename)
+        shutil.copyfile(root / 'hadith-bank-reader.html', staging / 'hadith-bank-reader.html')
+        settings = {'source_ref': info['source_ref'],
+                    **({'build_commit': info['source_commit']} if info.get('source_commit') else {})}
+        if info.get('reader_self_contained', True):
+            settings['offline_reader_url'] = site_metadata({}, settings)['live_url'].rstrip('/') + '/hadith-bank-reader.html'
+            data_name = 'reader-data'
+        else:
+            data_name = 'hadith-bank-reader-data'
+            shutil.copytree(root / data_name, staging / data_name)
+        hosted = build_reader(root, staging / 'index.html', site=settings,
+                              data_directory=staging / data_name)
+        info['hosted_reader'] = {key: hosted[key] for key in
+            ('html_bytes', 'embedded_encoding', 'self_contained', 'shard_count', 'shard_bytes')}
         discovery = build_discovery(root, staging, site={
             'source_ref': info['source_ref'],
             **({'build_commit': info['source_commit']} if info.get('source_commit') else {}),
@@ -78,7 +89,8 @@ def refresh(root, site_output='_site'):
     site = {'source_ref': os.environ.get('GITHUB_SHA') or 'main'}
     if source_commit:
         site['build_commit'] = source_commit
-    reader_result = build_reader(root, root / 'hadith-bank-reader.html', root / 'browse', site=site)
+    reader_result = build_reader(root, root / 'hadith-bank-reader.html', root / 'browse', site=site,
+                                 max_embedded_bytes=75_000_000)
     catalog = json.loads((root / 'catalog/materials.json').read_text(encoding='utf-8'))
     write_book_catalog(root, catalog, site)
     # Prepare generated navigation targets before checking README/book links.
@@ -95,6 +107,7 @@ def refresh(root, site_output='_site'):
             'source_dataset_count': len(catalog['materials']),
             'search_sha256': catalog['search']['records_sha256'],
             'reader_sha256': report['reader']['sha256'], 'reader_bytes': report['reader']['bytes'],
+            'reader_self_contained': reader_result['self_contained'],
             'canonical_source_bytes_unchanged': True, 'independent_qc_performed': False,
             'counterpart_review': {
                 **{key: value for key, value in review_queue.items() if key not in ('output', 'manifest')},

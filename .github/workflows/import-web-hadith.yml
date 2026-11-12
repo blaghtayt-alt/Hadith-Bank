@@ -1,0 +1,96 @@
+name: Continue authorized website imports
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-web-hadith.yml'
+      - 'catalog/web-import-plan.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hadith-bank-web-imports
+  cancel-in-progress: false
+
+jobs:
+  resume:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Check out the current bank and saved source queues
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Check importer and reader regressions
+        run: python -m unittest discover -s tests
+      - name: Resume bounded public-page batches
+        run: python scripts/web_import_batch.py --root .
+      - name: Save validated source snapshots and queue checkpoints
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = [str(path) for pattern in ('imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
+              'imports/web-import-status.json', 'imports/web-import-worker-stops.json',
+              'materials/deenhindi-*', 'materials/rivoyat-*', 'materials/islom-*') for path in Path('.').glob(pattern)]
+          if paths:
+              subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo "No unfinished source pages or changed intake data."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Continue source-preserving multilingual website imports'
+          git fetch origin main
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            rebase origin/main
+          python scripts/web_import_batch.py --root . --status-only
+          git diff --exit-code -- imports materials
+          git push origin HEAD:refs/heads/main
+          gh workflow run reader-pages.yml --ref main
+      - name: Report saved source stops
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status = json.loads(Path('imports/web-import-status.json').read_text())
+          if status.get('requires_attention'):
+              print('::warning::A source queue needs inspection. Its saved stop/checkpoint is retained; other authorized queues continue.')
+          PY
+      - name: Preserve interrupted intake evidence for recovery
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-import-recovery-${{ github.run_id }}
+          retention-days: 7
+          compression-level: 0
+          path: |
+            .work/web-import-batch/
+            imports/web-deenhindi-20261112/
+            imports/web-uzbek-20261112/
+            imports/web-import-status.json
+            imports/web-import-worker-stops.json
+            materials/deenhindi-*/
+            materials/rivoyat-*/
+            materials/islom-*/

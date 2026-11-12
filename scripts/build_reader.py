@@ -13,6 +13,7 @@ import collections
 import gzip
 import hashlib
 import html
+import io
 import json
 import math
 import os
@@ -28,13 +29,16 @@ from counterpart_display import (counterpart_data, counterpart_source_data,
                                  counterpart_translation_origin)
 from citation_search import has_noncanonical_numbering
 from book_titles import book_label as collection_label, title_metadata
+from language_display import language_readings, available_languages, reading_direction
 
 
 PAGE_SIZE = 25
+MAX_READER_SHARD_BYTES = 2 * 1024 * 1024
 LANGUAGE_NAMES = {
     'ar': 'Arabic', 'bn': 'Bengali', 'en': 'English', 'fa': 'Persian', 'fa-IR': 'Persian',
     'fil': 'Filipino', 'hi': 'Hindi',
-    'ja': 'Japanese', 'pt': 'Portuguese', 'ur': 'Urdu', 'uz': 'Uzbek',
+    'ja': 'Japanese', 'pt': 'Portuguese', 'ur': 'Urdu', 'ur-Latn': 'Roman Urdu',
+    'uz': 'Uzbek', 'uz-Latn': 'Uzbek · Latin', 'uz-Cyrl': 'Uzbek · Cyrillic',
     'vi': 'Vietnamese', 'zh': 'Chinese', 'zh-CN': 'Chinese (Simplified)',
 }
 DEFAULT_SITE = {
@@ -117,6 +121,10 @@ def validate_record(record, location):
         if not isinstance(record.get(field), list):
             raise ValueError(location + ': ' + field + ' must be an array')
 
+    if 'language_versions' in record:
+        from language_versions import validate_language_versions
+        validate_language_versions(record['language_versions'], location)
+
 
 def load_records(root):
     """Return all occurrences plus catalog after complete input verification."""
@@ -198,7 +206,7 @@ def safe_url(value):
         parsed = urlsplit(value)
     except ValueError:
         return None
-    return value if parsed.scheme.lower() in ('https', 'http') and parsed.netloc else None
+    return value if parsed.scheme.lower() in ('https', 'http') and parsed.netloc and not parsed.username and not parsed.password else None
 
 
 def text(value):
@@ -356,49 +364,57 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
     kind = record_type_info(record)
     if kind:
         lines += ['<p><strong>' + escaped(kind['label']) + '</strong> · ' + escaped(kind['note']) + '</p>', '']
-    primary = record.get('text_translation')
-    primary_arabic = not primary and bool(record.get('text_arabic'))
-    if primary_arabic:
-        primary = record['text_arabic']
-    if primary is not None:
-        lines += [prose(primary, text_direction(record.get('language'), primary_arabic)), '']
-    else:
+    readings = language_readings(record)
+    if not readings:
         lines += ['Text not supplied in this projection.', '']
-    supplied_arabic = counterpart_data(record, 'arabic')
-    if (record.get('text_arabic') and not primary_arabic and
-            (supplied_arabic is None or supplied_arabic['text'] != record['text_arabic'])):
-        lines += ['<details>', '<summary>Arabic source text</summary>', '',
-                  prose(record['text_arabic'], 'rtl'),
-                  '', '</details>', '']
-    for language in ('arabic', 'english'):
-        counterpart = counterpart_source_data(record, language)
-        if counterpart is None:
-            continue
-        label = language.title() + (' · read at source' if counterpart.get('scope') == 'external_source' else
-                                    ' · full narration' if counterpart.get('scope') == 'full_narration' else
-                                    ' source entry' if counterpart.get('scope') == 'source_entry' else
-                                    ' source excerpt' if counterpart.get('scope') == 'source_excerpt' else '')
-        direction = 'rtl' if language == 'arabic' else 'ltr'
-        lines += ['<details>', '<summary>' + label + '</summary>', '']
-        qualification = counterpart_qualification(counterpart, record)
-        if qualification:
-            lines += [prose(qualification), '']
-        if counterpart.get('text'):
-            lines += [prose(counterpart['text'], direction)]
-        lines += [prose(counterpart_citation(counterpart, language), direction), '']
-        alignment_notes = counterpart_alignment_notes(record)
-        if alignment_notes:
-            lines += ['<details>', '<summary>Alignment notes</summary>', '']
-            lines += [prose(note) for note in alignment_notes]
-            lines += ['', '</details>', '']
-        counterpart_url = safe_url(counterpart.get('source_url'))
-        credit = (('Read ' + language.title() + ' at source · ') if counterpart.get('scope') == 'external_source'
-                  else '') + (counterpart.get('source_name') or 'Source not named')
-        counterpart_credit = ('<a href="' + escaped(counterpart_url) + '">' + escaped(credit) + '</a>'
-                              if counterpart_url else escaped(credit))
-        if language == 'english':
-            counterpart_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[counterpart_translation_origin(counterpart)]
-        lines += ['<p>' + counterpart_credit + '</p>', '', '</details>', '']
+    for reading in readings:
+        direction = reading_direction(reading)
+        lines += ['<section class="language-reading" lang="' + escaped(reading['language']) + '">',
+                  '<h3>' + escaped(reading['heading']) + '</h3>', '']
+        if reading['qualification']:
+            lines += [prose(reading['qualification']), '']
+        if reading['text']:
+            lines += [prose(reading['text'], direction), '']
+        lines += [prose(reading['citation'], direction), '']
+        version_source = reading['source']
+        version_url = safe_url(version_source.get('record_url')) or safe_url(version_source.get('url'))
+        credit = version_source.get('name') or 'Source not named'
+        source_credit = ('<a href="' + escaped(version_url) + '" target="_blank" rel="noopener noreferrer">' +
+                         escaped(credit) + '</a>') if version_url else escaped(credit)
+        if reading['translation_origin'] is not None:
+            source_credit += ' · Translation origin: ' + {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[reading['translation_origin']]
+        lines += ['<p><strong>Source:</strong> ' + source_credit + '</p>', '']
+        for reference in reading['references']:
+            reference_url = safe_url(reference.get('url')) if isinstance(reference, dict) else None
+            if reference_url and reference_url != version_url:
+                lines += ['<p><a href="' + escaped(reference_url) + '" target="_blank" rel="noopener noreferrer">Reference at source</a></p>', '']
+        if reading['comments']:
+            lines += ['<details>', '<summary>' + escaped(reading['heading']) + ' · notes and commentary</summary>', '']
+            for note in reading['comments']:
+                value = note if isinstance(note, str) else note.get('text') if isinstance(note, dict) else None
+                if value:
+                    lines += [prose(value, direction), '']
+                note_url = safe_url(note.get('source_url')) if isinstance(note, dict) else None
+                if note_url:
+                    lines += ['<p><a href="' + escaped(note_url) + '" target="_blank" rel="noopener noreferrer">Commentary source</a></p>', '']
+            lines += ['</details>', '']
+        upstream = version_source.get('upstream_sources') or []
+        if upstream:
+            lines += ['<details>', '<summary>Sources credited by this publisher</summary>', '']
+            for item in upstream:
+                if not isinstance(item, dict):
+                    continue
+                upstream_url = safe_url(item.get('url'))
+                label = item.get('name') or upstream_url or 'Source not named'
+                lines += ['<p>' + ('<a href="' + escaped(upstream_url) + '">' + escaped(label) + '</a>'
+                                  if upstream_url else escaped(label)) + '</p>', '']
+            lines += ['</details>', '']
+        lines += ['</section>', '']
+    alignment_notes = counterpart_alignment_notes(record)
+    if alignment_notes:
+        lines += ['<details>', '<summary>Alignment notes</summary>', '']
+        lines += [prose(note) for note in alignment_notes]
+        lines += ['', '</details>', '']
     url = safe_url(source.get('record_url')) or safe_url(source.get('url'))
     source_name = source.get('name') or record['source_id']
     source_display = ('<a href="' + escaped(url) + '">' + escaped(source_name) + '</a>'
@@ -413,7 +429,7 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
         '<strong>Page:</strong> ' + escaped(page_label(record)) + '<br>',
         '<strong>Translator:</strong> ' + escaped(translator_name) + '<br>',
         '<strong>Narrator:</strong> ' + escaped(text((record.get('narrator') or {}).get('name')) or 'Not named in the supplied source') + '<br>',
-        '<strong>Translation origin:</strong> ' + escaped(label) + '</p>', '',
+        ('<strong>Translation origin:</strong> ' + escaped(label) if record.get('language', '').split('-')[0] != 'ar' else '') + '</p>', '',
     ]
     lines += ['<details><summary>Source translation-origin history</summary>', '',
               prose('Preserved source label: ' + text(provenance.get('label') or provenance.get('origin'))),
@@ -655,7 +671,7 @@ def site_metadata(catalog, override=None):
         raise ValueError('Reader site configuration must be an object')
     site = dict(DEFAULT_SITE)
     for source in (configured, override or {}):
-        for key in ('repository_url', 'live_url', 'source_ref', 'build_commit'):
+        for key in ('repository_url', 'live_url', 'source_ref', 'build_commit', 'offline_reader_url'):
             if key in source:
                 site[key] = source[key]
     repository = urlsplit(site['repository_url']) if isinstance(site.get('repository_url'), str) else None
@@ -675,6 +691,8 @@ def site_metadata(catalog, override=None):
     if 'build_commit' in site and (not isinstance(site['build_commit'], str) or
             not re.fullmatch(r'[0-9a-fA-F]{40,64}', site['build_commit'])):
         raise ValueError('Reader build_commit must be a full hexadecimal commit ID')
+    if site.get('offline_reader_url') is not None and safe_url(site['offline_reader_url']) is None:
+        raise ValueError('Reader offline_reader_url must be a safe HTTP(S) URL')
     return site
 
 
@@ -875,7 +893,103 @@ def discovery_head(records, site):
             '<meta property="og:url" content="' + escaped(canonical) + '">')
 
 
-def build(root, output, markdown_output=None, compress=True, site=None):
+def compressed_reader_payload(records, max_embedded_bytes=None):
+    """Stream compact JSON into gzip without allocating a full JSON copy."""
+    if max_embedded_bytes is not None:
+        valid_count(max_embedded_bytes, 'max_embedded_bytes')
+    output = io.BytesIO()
+    with gzip.GzipFile(fileobj=output, mode='wb', compresslevel=6, mtime=0) as stream:
+        stream.write(b'[')
+        for position, record in enumerate(records):
+            if position:
+                stream.write(b',')
+            stream.write(json.dumps(record, ensure_ascii=False, separators=(',', ':'),
+                                    allow_nan=False).encode('utf-8'))
+            if max_embedded_bytes is not None and 4 * ((output.tell() + 2) // 3) > max_embedded_bytes:
+                return None
+        stream.write(b']')
+    raw = output.getvalue()
+    if max_embedded_bytes is not None and 4 * ((len(raw) + 2) // 3) > max_embedded_bytes:
+        return None
+    return base64.b64encode(raw).decode('ascii')
+
+
+def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_SHARD_BYTES):
+    """Write bounded gzip JSONL pieces; a record may span several pieces."""
+    if type(max_shard_bytes) is not int or not 1024 <= max_shard_bytes <= MAX_READER_SHARD_BYTES:
+        raise ValueError('Reader shard size must be between 1024 and 2097152 bytes')
+    output = Path(output).absolute()
+    directory = Path(directory).absolute()
+    try:
+        relative = directory.relative_to(output.parent).as_posix()
+    except ValueError as error:
+        raise ValueError('Reader data directory must be inside the output directory') from error
+    if relative == '.' or re.search(r'[%:?#\\\x00-\x1f\x7f]', relative):
+        raise ValueError('Unsafe reader data directory')
+    directory = local(output.parent, relative)
+    manifest_path = local(output.parent, relative + '/manifest.json')
+    previous = {}
+    if manifest_path.exists():
+        try:
+            previous = parse_json(manifest_path.read_text(encoding='utf-8'))
+        except (ValueError, UnicodeError):
+            previous = {}
+    directory.mkdir(parents=True, exist_ok=True)
+    plain_limit = max_shard_bytes - max(256, max_shard_bytes // 128)
+    pending = bytearray()
+    shards, aggregate, record_count = [], hashlib.sha256(), 0
+
+    def flush():
+        if not pending:
+            return
+        plain = bytes(pending)
+        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        if len(compressed) > max_shard_bytes:
+            raise ValueError('Compressed reader shard exceeds its bound')
+        digest = hashlib.sha256(compressed).hexdigest()
+        name = 'part-' + str(len(shards) + 1).zfill(5) + '-' + digest[:16] + '.jsonl.gz'
+        target = local(output.parent, relative + '/' + name)
+        target.write_bytes(compressed)
+        shards.append({'path': relative + '/' + name, 'sha256': digest,
+                       'bytes': len(compressed), 'uncompressed_bytes': len(plain),
+                       'count': plain.count(b'\n')})
+        pending.clear()
+
+    for record in records:
+        raw = (json.dumps(record, ensure_ascii=False, separators=(',', ':'),
+                          allow_nan=False) + '\n').encode('utf-8')
+        aggregate.update(raw)
+        record_count += 1
+        offset = 0
+        while offset < len(raw):
+            take = min(plain_limit - len(pending), len(raw) - offset)
+            pending.extend(raw[offset:offset + take])
+            offset += take
+            if len(pending) == plain_limit:
+                flush()
+    flush()
+    manifest = {'schema': 'hadith-bank-reader-shards-v1', 'encoding': 'gzip-jsonl-shards',
+                'record_count': record_count, 'jsonl_sha256': aggregate.hexdigest(),
+                'max_shard_bytes': max_shard_bytes, 'shards': shards}
+    write(manifest_path, json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
+    retained = {part['path'] for part in shards}
+    if isinstance(previous, dict) and previous.get('schema') == manifest['schema']:
+        for part in previous.get('shards', []):
+            if not isinstance(part, dict) or part.get('path') in retained:
+                continue
+            candidate = part.get('path')
+            if (not isinstance(candidate, str) or
+                    PurePosixPath(candidate).parent.as_posix() != relative or
+                    not re.fullmatch(r'part-[0-9]{5,}-[0-9a-f]{16}\.jsonl\.gz', PurePosixPath(candidate).name)):
+                continue
+            target = local(output.parent, candidate)
+            if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == part.get('sha256'):
+                target.unlink()
+    return manifest
+
+
+def build(root, output, markdown_output=None, compress=True, site=None,
+          data_directory=None, max_embedded_bytes=None, max_shard_bytes=MAX_READER_SHARD_BYTES):
     root = Path(root).resolve()
     output = Path(output).absolute()
     records, catalog, info = load_records(root)
@@ -885,34 +999,50 @@ def build(root, output, markdown_output=None, compress=True, site=None):
     if output.is_symlink() or any(parent.is_symlink() for parent in output.parents):
         raise ValueError('Reader output must not use symlinks')
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
-                'materials': catalog.get('materials', []), 'language_names': LANGUAGE_NAMES,
-                'book_titles': title_metadata(),
+                'materials': [{key: value for key, value in material.items() if key != 'supporting_files'}
+                              for material in catalog.get('materials', [])],
+                'language_names': LANGUAGE_NAMES, 'book_titles': title_metadata(),
                 'site': site_metadata(catalog, site),
                 'review_display_policy': review_display_metadata(root),
                 'counterparts': catalog.get('counterparts'),
                 'source_downloads': source_downloads(root, records, catalog),
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
-    if compress:
-        payload = base64.b64encode(gzip.compress(
-            json.dumps(records, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode('utf-8'),
-            compresslevel=6, mtime=0)).decode('ascii')
+    if max_embedded_bytes is not None:
+        valid_count(max_embedded_bytes, 'max_embedded_bytes')
+    payload, manifest = None, None
+    if data_directory is None:
+        if compress:
+            payload = compressed_reader_payload(records, max_embedded_bytes)
+        else:
+            payload = script_json(records)
+            if max_embedded_bytes is not None and len(payload.encode('utf-8')) > max_embedded_bytes:
+                payload = None
+    if payload is None:
+        directory = Path(data_directory) if data_directory is not None else output.parent / (output.stem + '-data')
+        manifest = write_reader_shards(records, output, directory, max_shard_bytes)
+        payload, encoding = script_json(manifest), 'gzip-jsonl-shards'
     else:
-        payload = script_json(records)
+        encoding = 'gzip-base64' if compress else 'json'
+    metadata['data_delivery'] = {'encoding': encoding, 'self_contained': manifest is None,
+                                 'shard_count': len(manifest['shards']) if manifest is not None else 0}
     replacements = {'__HADITH_RECORDS_JSON__': payload,
-                    '__HADITH_ENCODING__': 'gzip-base64' if compress else 'json',
+                    '__HADITH_ENCODING__': encoding,
                     '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
-                    '__HADITH_UI_STYLES__': ui_styles,
-                    '__HADITH_UI_ICONS__': ui_icons,
+                    '__HADITH_UI_STYLES__': ui_styles, '__HADITH_UI_ICONS__': ui_icons,
                     '__HADITH_DISCOVERY_HEAD__': discovery_head(records, metadata['site']),
                     '__HADITH_DISCOVERY_NAV__': discovery_navigation(records, metadata['site'])}
-    # Substitute against the original template once; source text can itself
-    # contain either marker and must never be substituted a second time.
     document = render_template(template, replacements)
     write(output, document)
     result = {**info, 'html_output': str(output), 'html_bytes': output.stat().st_size,
-              'source_text_modified': False, 'network_dependencies': [],
-              'embedded_encoding': 'gzip-base64' if compress else 'json'}
+              'source_text_modified': False,
+              'network_dependencies': ['same-origin reader data shards'] if manifest is not None else [],
+              'embedded_encoding': encoding, 'self_contained': manifest is None}
+    if manifest is not None:
+        directory = Path(data_directory).absolute() if data_directory is not None else output.parent / (output.stem + '-data')
+        result.update(data_directory=str(directory), shard_manifest=str(directory / 'manifest.json'),
+                      shard_count=len(manifest['shards']),
+                      shard_bytes=sum(part['bytes'] for part in manifest['shards']))
     if markdown_output is not None:
         result.update(build_markdown(records, markdown_output, info, catalog, root))
     return result
@@ -925,9 +1055,12 @@ def main():
     parser.add_argument('--markdown-output', type=Path)
     parser.add_argument('--uncompressed', action='store_true',
                         help='Embed plain JSON for browsers without built-in DecompressionStream support.')
+    parser.add_argument('--data-directory', type=Path, help='Write same-origin gzip data shards and a hosted reader shell.')
+    parser.add_argument('--max-embedded-bytes', type=int, help='Switch to data shards if the embedded payload exceeds this size.')
     args = parser.parse_args()
     try:
-        result = build(args.root, args.output, args.markdown_output, compress=not args.uncompressed)
+        result = build(args.root, args.output, args.markdown_output, compress=not args.uncompressed,
+                       data_directory=args.data_directory, max_embedded_bytes=args.max_embedded_bytes)
     except (OSError, ValueError, KeyError, TypeError) as error:
         parser.exit(1, 'Reader build failed: ' + str(error) + '\n')
     print(json.dumps(result, ensure_ascii=False, indent=2))
