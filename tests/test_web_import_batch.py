@@ -36,6 +36,14 @@ class WebImportBatchTests(unittest.TestCase):
                      'pending_fetch_count': int(state == 'pending'),
                      'errors_count': int(state == 'failed'),
                      'by_collection': {str(i): {'inventory': 1} for i in range(7)}}
+        elif name == 'hadisuz':
+            value = {'source_entries_obtained': count,
+                     'prophetic_source_entries_registered': count,
+                     'classification_pending_hidden': 0,
+                     'done': state == 'done', 'blocked': state == 'blocked',
+                     'pending_requests': int(state == 'pending'),
+                     'retryable_errors': int(state == 'failed' and attempts < 3 and error != 'HTTP 404'),
+                     'errors': int(state == 'failed'), 'startup_stopped': False}
         else:
             value = {'source_entries_obtained': count,
                      'prophetic_source_entries_registered': count,
@@ -70,6 +78,30 @@ class WebImportBatchTests(unittest.TestCase):
             batch.write_changed(path, {'checkpoint': 'saved'})
         replace.assert_not_called()
 
+    def test_hadisuz_startup_stop_is_not_completed_or_retried(self):
+        for name in batch.PROGRESS:
+            self.progress(name, 'done')
+        path = self.root / batch.PROGRESS['hadisuz']
+        progress = self.read(batch.PROGRESS['hadisuz'])
+        progress.update(done=False, pending_requests=2, startup_stopped=True)
+        batch.write_changed(path, progress)
+        status = batch.summarize(self.root, self.plan)
+        source = next(item for item in status['source_status'] if item['source'] == 'hadisuz')
+        self.assertFalse(source['has_fetch_work'])
+        self.assertFalse(source['fetch_queue_done'])
+        self.assertTrue(status['requires_attention'])
+        self.assertTrue(status['schedule_should_pause'])
+
+    def test_hadisuz_retry_budget_and_command_use_separate_source_adapter(self):
+        self.progress('hadisuz', 'failed', attempts=2, error='HTTP 500')
+        self.assertTrue(batch.source_status(self.root, 'hadisuz')['has_fetch_work'])
+        self.progress('hadisuz', 'failed', attempts=3, error='HTTP 500')
+        self.assertFalse(batch.source_status(self.root, 'hadisuz')['has_fetch_work'])
+        command = batch.command(self.root, 'hadisuz', self.plan['sources']['hadisuz'])
+        self.assertIn('scripts/import_hadisuz.py', command)
+        self.assertIn('--max-pages', command)
+        self.assertNotIn('scripts/import_uzbek_web.py', command)
+
     def test_blocked_host_does_not_stop_another_pending_host(self):
         self.progress('deenhindi', 'blocked')
         self.progress('islom', 'done')
@@ -89,7 +121,7 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertTrue(status['requires_attention'])
         self.assertTrue(status['schedule_should_pause'])
         self.assertEqual(status['schedule_pause_reason'], 'inspection_required')
-        self.assertEqual(status['fetched_entries'], 6)
+        self.assertEqual(status['fetched_entries'], 2 * len(batch.PROGRESS))
 
     def test_owner_exclusion_removes_stale_counts_and_never_resumes_source(self):
         for name in batch.PROGRESS:
@@ -107,7 +139,7 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertEqual(excluded['state'], 'excluded_by_owner')
         self.assertEqual(excluded['registered_occurrences'], 0)
         self.assertFalse(excluded['enabled'])
-        self.assertEqual(status['fetched_entries'], 4)
+        self.assertEqual(status['fetched_entries'], 2 * (len(batch.PROGRESS) - 1))
         self.assertTrue(status['fetch_queues_done'])
         self.assertFalse(status['requires_attention'])
 
@@ -173,6 +205,7 @@ class WebImportBatchTests(unittest.TestCase):
         batch.write_changed(path, checkpoint)
         self.progress('deenhindi', 'done')
         self.progress('islom', 'done')
+        self.progress('hadisuz', 'done')
         status = batch.summarize(self.root, self.plan)
         rivoyat = next(item for item in status['source_status'] if item['source'] == 'rivoyat')
         self.assertTrue(rivoyat['blocked'])
@@ -213,6 +246,7 @@ class WebImportBatchTests(unittest.TestCase):
 
     def test_terminal_failed_tasks_pause_but_transient_queue_can_continue(self):
         self.progress('deenhindi', 'done')
+        self.progress('hadisuz', 'done')
         self.progress('islom', 'failed', attempts=1, error='HTTP 404')
         self.progress('rivoyat', 'failed', attempts=2, error='TEST timeout')
         status = batch.summarize(self.root, self.plan)
@@ -249,7 +283,7 @@ class WebImportBatchTests(unittest.TestCase):
         stops = self.read(batch.STOP_FILE)
         self.assertEqual(set(stops), {'deenhindi'})
         status = self.read('imports/web-import-status.json')
-        self.assertEqual(status['fetched_entries'], 6)
+        self.assertEqual(status['fetched_entries'], 3 * (len(batch.PROGRESS) - 1))
         self.assertTrue(status['schedule_should_pause'])
         self.assertFalse(status['fetch_queues_done'])
         self.assertIn('TEST unexpected worker exception', stops['deenhindi']['error'])
@@ -282,7 +316,7 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertEqual(self.run_batch(worker), 0)
         self.assertEqual(self.read(batch.STOP_FILE), {})
         status = self.read('imports/web-import-status.json')
-        self.assertEqual(status['fetched_entries'], 3)
+        self.assertEqual(status['fetched_entries'], len(batch.PROGRESS))
         self.assertTrue(status['has_fetch_work'])
         self.assertFalse(status['schedule_should_pause'])
         self.assertFalse(status['fetch_queues_done'])

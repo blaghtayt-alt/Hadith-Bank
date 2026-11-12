@@ -1,0 +1,386 @@
+{
+  "adapter": "records-v1",
+  "book": "tirmidhi",
+  "counterpart_policy": {
+    "mode": "disabled",
+    "reason": "Only source-bound language versions are displayed; source-local URL IDs do not establish canonical equivalents."
+  },
+  "edition": "hadisuz-tirmidhi-web-20261112",
+  "extraction_scope": {
+    "access_block": null,
+    "blocked": false,
+    "catalogue": "https://hadis.uz/hadiths/1",
+    "classification_pending_hidden": 1,
+    "complete_content_import_certified": false,
+    "done": false,
+    "errors": 0,
+    "pending_requests": 2,
+    "prophetic_source_entries_registered": 18,
+    "retryable_errors": 0,
+    "schema": "hadith-bank-hadisuz-progress-v1",
+    "scope_note": "Observed catalogue links only; source occurrences, not deduplicated canonical hadiths. Held classifications and commentary quotations remain separate.",
+    "site": "hadisuz",
+    "source_entries_obtained": 19,
+    "startup_stopped": false,
+    "task_counts": {
+      "done": 23,
+      "pending": 2
+    }
+  },
+  "id": "hadisuz-tirmidhi-uz-web",
+  "language": "uz",
+  "publication": {
+    "authorized": true,
+    "basis": "Owner explicitly supplied the Hadis.uz Tirmidhi catalogue and requested integration.",
+    "decision": "owner_requested_public_source_import",
+    "decision_date_japan": "2026-11-12"
+  },
+  "records": {
+    "count": 18,
+    "path": "materials/hadisuz-tirmidhi-uz-web/records.jsonl",
+    "sha256": "fbca607116f95a8424f976a52a9ee6de05d46b66748e7e9a39c8101ac39cfa30"
+  },
+  "schema": "hadith-bank-material-v1",
+  "source": {
+    "format": "web-source-evidence-json",
+    "name": "Сунани Термизий — Sunan at-Tirmidhi — Hadis.uz",
+    "path": "materials/hadisuz-tirmidhi-uz-web/source-evidence.json",
+    "sha256": "cb9d9bb4135dcc7281dce6087db089a620bb63a56e77f471b58c213b9ac40640",
+    "url": "https://hadis.uz/hadiths/1"
+  },
+  "source_id": "hadisuz-tirmidhi-uz-web",
+  "storage_shard": {
+    "max_canonical_bytes": 41943040,
+    "occurrence_ids_unchanged": true,
+    "original_source_edition": "hadisuz-tirmidhi-web-20261112",
+    "part": 1,
+    "parts": 1
+  },
+  "supporting_files": [
+    {
+      "compression": "gzip",
+      "original_response_sha256": "e4035ce4567f56b092ad0847695e5af1feb901bb0cca7a1e1dbfdee11fc0679e",
+      "path": "imports/web-hadisuz-20261112/snapshots/d9fa3c346abe6747-e4035ce4567f56b0.html.gz",
+      "sha256": "a823494bff053882801aa8040ac622b1c34c0cbefb19770522b1cc2327222549",
+      "size_bytes": 4368,
+      "url": "https://hadis.uz/hadith/597"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "98a28abf8d5df7fd7a9e18d2a485701fba8aee77daa4310dd21507d0685ee67f",
+      "path": "imports/web-hadisuz-20261112/snapshots/ca696180784281c3-98a28abf8d5df7fd.html.gz",
+      "sha256": "4ae035c3794b5517bd59890a33d74434c7b2ba2808782fe61e461900b1f87d7f",
+      "size_bytes": 5626,
+      "url": "https://hadis.uz/hadith/598"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "594a887c0167f3ff4b597f45bb21cb5ab22cffebb98079915bab0e44b59ff883",
+      "path": "imports/web-hadisuz-20261112/snapshots/c044069551aafe16-594a887c0167f3ff.html.gz",
+      "sha256": "51c3d178ea46557a287d75339479caf75f1f893184cee1986321668357baa3e5",
+      "size_bytes": 4419,
+      "url": "https://hadis.uz/hadith/599"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "bbbafacda0f30eef5fe3ec928013fc2965ff0a8796daf3070593cc52fbca6150",
+      "path": "imports/web-hadisuz-20261112/snapshots/c28cb9ff7be8a5ab-bbbafacda0f30eef.html.gz",
+      "sha256": "8502d9aef402a048d4ea39430686d33e4def9237743136ec7b47f7fbecd1c37a",
+      "size_bytes": 4966,
+      "url": "https://hadis.uz/hadith/600"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "bd116c15c94a99d7ab79a77937989229036565f83b2bb42b29a9abc301ea1c91",
+      "path": "imports/web-hadisuz-20261112/snapshots/a721047ad740be64-bd116c15c94a99d7.html.gz",
+      "sha256": "9617ec5f60b2e1c36988486705ed69251411e8923e338708bbbbc12915ef196b",
+      "size_bytes": 4688,
+      "url": "https://hadis.uz/hadith/601"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "1cd8409933560be4da3a2e40c05db1662d612eb292df303faf545929f2ed8c74",
+      "path": "imports/web-hadisuz-20261112/snapshots/aced26782643528f-1cd8409933560be4.html.gz",
+      "sha256": "47ca8d44322d5773a0eea286eaaed7f74adcfc78d7bdee8e31448db53d06f35a",
+      "size_bytes": 4851,
+      "url": "https://hadis.uz/hadith/602"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "a31347f0fd43b7f5df254847981b7e94568b5292411cab740cb6376bfd62facc",
+      "path": "imports/web-hadisuz-20261112/snapshots/42e9eb78f6cf93d0-a31347f0fd43b7f5.html.gz",
+      "sha256": "483b75181c24668d646010159c8993a597d59775317d5867877e49153f7d4d83",
+      "size_bytes": 5825,
+      "url": "https://hadis.uz/hadith/603"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "395738bde1ad12b162ac06fbb2f1c1b154d8f1f2e6305ce5d14de9ed83499281",
+      "path": "imports/web-hadisuz-20261112/snapshots/6719f50f3b31d164-395738bde1ad12b1.html.gz",
+      "sha256": "1891ed0fb429bacc53145bcb4ec4bcb3441ccf9edb95df01a4461195b37800e9",
+      "size_bytes": 4304,
+      "url": "https://hadis.uz/hadith/604"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "d49d7ee4c04798639af5f5ce3d2743eccdf3d680a22511dcac07bfbd820ad5fa",
+      "path": "imports/web-hadisuz-20261112/snapshots/720ad6c8a45d90d6-d49d7ee4c0479863.html.gz",
+      "sha256": "20b7306b62f002e157dbbc017d1939da5ec7739377db2245843a56f419c4cb46",
+      "size_bytes": 4223,
+      "url": "https://hadis.uz/hadith/605"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "258ef30a38cdd14d32d8a12f858b60d93b8713bc473e55c19918afec89d7b568",
+      "path": "imports/web-hadisuz-20261112/snapshots/570deb8318e3721a-258ef30a38cdd14d.html.gz",
+      "sha256": "54493c923a70fbd8c5352d9f499fcaf106944cf47aa095c1e7c56ebcad6eb32a",
+      "size_bytes": 4257,
+      "url": "https://hadis.uz/hadith/606"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "cbbeeae8cb897c69479df695aa2106cfafbd8bb6e8a1d94e295b360c6906bf2e",
+      "path": "imports/web-hadisuz-20261112/snapshots/1ab11aaa727e3023-cbbeeae8cb897c69.html.gz",
+      "sha256": "bbf24532822faff5ce7e86e8817b58d04717d0f81e64369ea32d6f07e71fded3",
+      "size_bytes": 4831,
+      "url": "https://hadis.uz/hadith/607"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "8d0cd7c12d2f69e893dff3146d69de0cfd745e588a9128abc72db50d137a43f9",
+      "path": "imports/web-hadisuz-20261112/snapshots/81ed3d72a3f87f30-8d0cd7c12d2f69e8.html.gz",
+      "sha256": "76eb440a7bf0615aa0ce2efc87bd5129fe0f07bdbccbd4594eea8d166973a881",
+      "size_bytes": 4351,
+      "url": "https://hadis.uz/hadith/608"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "19c71b83e327b7f284c4bc0dbd22047b1ca19a0699eab198f0cdc73238af011b",
+      "path": "imports/web-hadisuz-20261112/snapshots/6d3ac38e814bdd2f-19c71b83e327b7f2.html.gz",
+      "sha256": "0802e2a64c54ee49afb3f2f467e440027f68239fa3647681c6b6f1d51800aab6",
+      "size_bytes": 4277,
+      "url": "https://hadis.uz/hadith/609"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "b5b4f17f317777a27541ebf5812a26535fa36508e9d513028c1041bd1a53c45e",
+      "path": "imports/web-hadisuz-20261112/snapshots/7478cf65a52e8e21-b5b4f17f317777a2.html.gz",
+      "sha256": "53757d9c47aed5d920c5556048ed5574e41e9cd10dd736830daea3e8ab0659de",
+      "size_bytes": 4522,
+      "url": "https://hadis.uz/hadith/610"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "3fbce5944a8c5f8be4d2593587effddc6784bac2f2c39e668c86ff0725680522",
+      "path": "imports/web-hadisuz-20261112/snapshots/1e07abe9ff71d7f3-3fbce5944a8c5f8b.html.gz",
+      "sha256": "3c7c9c495897312fc8bbc807e31ea0ac60222e3453679f0467eaa6cd913472f1",
+      "size_bytes": 4117,
+      "url": "https://hadis.uz/hadith/611"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "2d4765bed90b2fa2d4d45aab0e07414954f7c825a47734b637c1068ea3cd3b3d",
+      "path": "imports/web-hadisuz-20261112/snapshots/08b9e5f299f29949-2d4765bed90b2fa2.html.gz",
+      "sha256": "a91f4651111bdc2962853fe628bc08ddba0894186109e7af41bbb3e0a8712179",
+      "size_bytes": 4073,
+      "url": "https://hadis.uz/hadith/612"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "8e2edb145f33a58d2f7a0707beb5bc5a25555d1382718ef7e5c6bbb602542e29",
+      "path": "imports/web-hadisuz-20261112/snapshots/3a4010de937bf874-8e2edb145f33a58d.html.gz",
+      "sha256": "d4c141738d6102101a114bc7324aab18724fcd5a759d4cf11bc5ec7873d89f32",
+      "size_bytes": 4520,
+      "url": "https://hadis.uz/hadith/613"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "0fd745e8e8d8963ac1ae0f3d07f9e18ed6f4481ed95cebcf492ef9fc60459f7d",
+      "path": "imports/web-hadisuz-20261112/snapshots/650bf2003885c5d5-0fd745e8e8d8963a.html.gz",
+      "sha256": "dab15f55d90ab4ea31ab820ab2e26d79905487fc55df002d80fcb3a20aa40869",
+      "size_bytes": 4515,
+      "url": "https://hadis.uz/hadith/614"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "140c64de0660b5969e9df4bf03488a8c512b603acabc4c679a4c57448fe7840b",
+      "path": "imports/web-hadisuz-20261112/snapshots/0b5faeac0e9641b7-140c64de0660b596.html.gz",
+      "sha256": "352c6ef63aac931cdec57d6989b3e41ea1f9b86c012bc5724a25182bd47732f6",
+      "size_bytes": 4133,
+      "url": "https://hadis.uz/hadith/615"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "6965fcd966a376538d5b0d38599837cba903470c9cd0b5be6366c97b5d00b1d6",
+      "path": "imports/web-hadisuz-20261112/snapshots/de378fe50f65db5d-6965fcd966a37653.html.gz",
+      "sha256": "13bfa2b633ad9df2b14e66a0ad7e128fdbff1b82186d96c39b14a4f173cb7edc",
+      "size_bytes": 5533,
+      "url": "https://hadis.uz/hadiths/1"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "f7e283f6189acda7248b8d32980fa00063af5bf4143b0af7d455f433ddcc21df",
+      "path": "imports/web-hadisuz-20261112/snapshots/b51389403db3b8fc-f7e283f6189acda7.html.gz",
+      "sha256": "fce9740cf59542860013070bc78033511e5f6cc30868d7e946e417346e3e5574",
+      "size_bytes": 6166,
+      "url": "https://hadis.uz/hadiths/1?page=2"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "854d8c22a033393a2069d80b0739ea93c84e100a8995e48b44ba2dd860452b53",
+      "path": "imports/web-hadisuz-20261112/snapshots/6dc03b965d902d9d-854d8c22a033393a.html.gz",
+      "sha256": "1aa03df6c8533c43cec2b40d16429b25ffe07df56d5c74e7c75dabb40419db2c",
+      "size_bytes": 5006,
+      "url": "https://hadis.uz/page/about-project"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "e91a6a7507f25968508705742d96c038a4bcbae3051de7bd63fc3b10681d52e0",
+      "path": "imports/web-hadisuz-20261112/snapshots/408659a791f583b9-e91a6a7507f25968.html.gz",
+      "sha256": "b91c58acb9f48bb7771ece29a2405c5dd8cc7f8f49575e321cd73ea350d9577f",
+      "size_bytes": 19689,
+      "url": "https://hadis.uz/page/sunani-termiziy"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "6a4828f17ee7f76a87aed49187518e0188886fce0f3a994ab9b240785e9c6603",
+      "path": "imports/web-hadisuz-20261112/snapshots/c1adabc9c45170e8-6a4828f17ee7f76a.txt.gz",
+      "sha256": "f42986800db8b82e9aaee5e1d606f383d75b695ca5dcae2c307a81b5cf5af73f",
+      "size_bytes": 177,
+      "url": "https://hadis.uz/robots.txt"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/597-ed8e4bc02aff6776.json.gz",
+      "sha256": "e223c38385f465610cdfbd9bc616fbc72ff25f43c57df3c49d5add0d82e251de",
+      "size_bytes": 942,
+      "uncompressed_sha256": "ed8e4bc02aff6776a9edafbcc84d07c4043d548d887757480c35d11fb357e166"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/598-cccdf10ccc4173b2.json.gz",
+      "sha256": "95440245e99157c934aca17c27c137abc68af5c9e6e24709f128ea774ce16cb3",
+      "size_bytes": 2266,
+      "uncompressed_sha256": "cccdf10ccc4173b2ae1abfbadf4aa6a6eabe8fcea5d5edbf7a2bb7c2bb30d4d2"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/599-27523cd767575a01.json.gz",
+      "sha256": "49022808940367497afa956cbaaec22cf98d816b11aefda16475314d7ed2e866",
+      "size_bytes": 976,
+      "uncompressed_sha256": "27523cd767575a0135b3b790e0e3462c1dff83fec6fc878fb70b8eb2350a6ca1"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/600-5f65587a22cd822c.json.gz",
+      "sha256": "d3e924d15d0fb2433b9f4baafcceb58999d3b9b23b5f434d2327ca9ad3bf0a98",
+      "size_bytes": 1650,
+      "uncompressed_sha256": "5f65587a22cd822c066391b8d5aec3a233f299b41ccf3183e6c0c029e4af3004"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/601-31ce71b71befb3d3.json.gz",
+      "sha256": "ca1a1b9c8b48416f40afb0071c175b4c703169e0ecfc169c05978d71bb8ae9ee",
+      "size_bytes": 1277,
+      "uncompressed_sha256": "31ce71b71befb3d3989ff7b83accb74380468d052af3ff984668e76d00ac1901"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/602-692be0c19d3a0d91.json.gz",
+      "sha256": "0f50496930201df558422eb2737eef3b879bfeef0c0784449740c660aa3b2eb6",
+      "size_bytes": 1441,
+      "uncompressed_sha256": "692be0c19d3a0d91ac899b60284abc1e984a7eedf7d0ea329dbf01fc94ca3192"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/603-ec490bd8d27880f0.json.gz",
+      "sha256": "1c6947a7298b12f95dfae2dac84d0df65d7f365178dad96dbbe74ade3136572d",
+      "size_bytes": 2473,
+      "uncompressed_sha256": "ec490bd8d27880f0be7bd2ce911f1d69b4ba42b45eae1255ddf0547a4cf3f243"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/604-a746dad7f9ed75f5.json.gz",
+      "sha256": "5d0b83fe6f03bb636c85e1745bad5c94bbf0ca0c97b167843cb1af095c0a7bab",
+      "size_bytes": 860,
+      "uncompressed_sha256": "a746dad7f9ed75f5e098f8e96e4d843fdae643509c1bfb8d0d0e83e4896e53cf"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/605-ec7d6bc01505cccb.json.gz",
+      "sha256": "813373aed9d6793589da0a6361303cd1348bd15d1b419a261d69d41136240585",
+      "size_bytes": 769,
+      "uncompressed_sha256": "ec7d6bc01505cccb7ea038c55e17ac0a85fffd2980f4dcf65fde1f7b4fef1c0d"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/606-1bb1f04fa27ed17f.json.gz",
+      "sha256": "3f2eebfe7d014a3df1b9db9dfa74114f34ca19121fc280c395a46ee3ee6efa2a",
+      "size_bytes": 828,
+      "uncompressed_sha256": "1bb1f04fa27ed17fe523165ddb530f90aec646a3850465bfb9519d5a8fdc6f56"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/607-792e76abe53a4f76.json.gz",
+      "sha256": "c2de9722986a6e0440649fca0749aa7452dcb113d011c64068254feeef2a19e0",
+      "size_bytes": 1431,
+      "uncompressed_sha256": "792e76abe53a4f7638a0cbb50f119ff9714403e412d19d24efeeacefe0ee870a"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/608-ed594dd0961bd950.json.gz",
+      "sha256": "b56f0be11937b82396d1492580ae1e2cd2a48e65eaa2f736d822ebf0053114b4",
+      "size_bytes": 934,
+      "uncompressed_sha256": "ed594dd0961bd950f00326c3e9f0d2b0aced8222066fc025a3afa2d48d4d5989"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/609-5efc1738f82e4bfe.json.gz",
+      "sha256": "c7828746acf77d96701c47d8b72c06634816a5eb6b75c8708190eeda9a2e7054",
+      "size_bytes": 858,
+      "uncompressed_sha256": "5efc1738f82e4bfe1e3c7ac31862aae6f982f50bf1cdec52756da63121befc77"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/610-db5ffc14df8944cb.json.gz",
+      "sha256": "9973a1535f7508fcc489cd3a71b38244faee41bada656fa1214dbed132d323d5",
+      "size_bytes": 1170,
+      "uncompressed_sha256": "db5ffc14df8944cb03a9a093256fcea610037dca1c4a0a05b2c9d3c74201da56"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/611-05fa37b04e1e2907.json.gz",
+      "sha256": "758d33ab5eac5ad6afb1e254e81b2d04019f9e063a78461b1e439a9a6eb78762",
+      "size_bytes": 690,
+      "uncompressed_sha256": "05fa37b04e1e2907a7b1ac8a63bdb2f30be23018a6f5a6b64c885e70f5cc051f"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/612-43217c92e996a56c.json.gz",
+      "sha256": "d3394f5a776c62b2f22d54af955158236b9235699842204783007c5a40131099",
+      "size_bytes": 552,
+      "uncompressed_sha256": "43217c92e996a56cb52c8bb6eb0661956c8223cb8a966b1c747a3ff00276683a"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/613-ebaf1342e721a89d.json.gz",
+      "sha256": "5b0934ba8f3d3d613a268d6c8aade509b73860229699f631b7109f756644b781",
+      "size_bytes": 1102,
+      "uncompressed_sha256": "ebaf1342e721a89dd4a0e0b419357e701b45f6d6423b033d5a67b1ce1e78938e"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/614-4f02689bb32b5eef.json.gz",
+      "sha256": "3b5605160d4e8185950676931d7be1ae59ccd87b03bf062033c3f04cbce0cf17",
+      "size_bytes": 1084,
+      "uncompressed_sha256": "4f02689bb32b5eefcd6b1801674677a1ee13e2445a1e50af481b1ff38251f6a2"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-hadisuz-20261112/parsed/615-94334589a43e2fad.json.gz",
+      "sha256": "7185553d59c2f099b1416182b121602363d0183675bd273dd820e3bc7db3c47e",
+      "size_bytes": 685,
+      "uncompressed_sha256": "94334589a43e2fadd4eea9a87d240998b0efccff3b30b2b87a067932397a1fa0"
+    }
+  ]
+}

@@ -90,6 +90,15 @@ class DeenHindiImporterTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Duplicate identifiers'):
             importer.parse_inventory(object_page('collection', inventory), 'bukhari')
 
+    def test_prophetic_name_is_a_complete_token_not_the_prefix_of_nabidh(self):
+        # Regression from a provider entry discussing النبيذ, not a Prophet attribution.
+        for text in ('TEST عَنِ النَّبِيذِ TEST', 'TEST عن النبيذ TEST', 'TEST عن النبيين TEST'):
+            with self.subTest(text=text):
+                self.assertEqual(importer.classify({'textArabic': text})['classification'], 'unknown')
+        for text in ('TEST عَنِ النَّبِيِّ TEST', 'TEST قال رسول الله TEST', 'TEST كان النبي TEST'):
+            with self.subTest(text=text):
+                self.assertEqual(importer.classify({'textArabic': text})['classification'], 'hadith')
+
     def test_resume_and_offline_export_are_idempotent(self):
         requested = []
 

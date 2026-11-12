@@ -127,7 +127,7 @@ def record_path(record):
 
 def uses_shared_web_reader(record):
     return bool(record.get('language_versions')) and str(record.get('source_id') or '').startswith(
-        ('deenhindi-', 'rivoyat-', 'islom-'))
+        ('deenhindi-', 'rivoyat-', 'islom-', 'hadisuz-', 'fawaz-'))
 
 
 def occurrence_link(record, current):
@@ -181,6 +181,21 @@ def detail(title, content):
     return '<details><summary>' + esc(title) + '</summary>' + content + '</details>'
 
 
+def reading_translator(reading):
+    """Return only this reading's explicitly named translator, never its parent's."""
+    if reading['language'].split('-')[0] == 'ar':
+        return None
+    source = reading.get('source') or {}
+    supplied = source.get('translator')
+    provenance = reading.get('translation_provenance') or {}
+    credited = provenance.get('translator') if isinstance(provenance, dict) else None
+    candidates = [supplied.get('name') if isinstance(supplied, dict) else None,
+                  credited.get('name') if isinstance(credited, dict) else credited]
+    unnamed = {'unknown', 'not named', 'not supplied', 'unspecified', 'n/a'}
+    return next((value.strip() for value in candidates if isinstance(value, str)
+                 and value.strip() and value.strip().lower() not in unnamed), None)
+
+
 def render_language_reading(reading):
     """Each reading retains its own quotation, references and source notes."""
     language = reading['language']
@@ -200,6 +215,9 @@ def render_language_reading(reading):
         body.append('<p class="reading-citation" dir="auto">' + esc(reading['citation']) + '</p>')
     body.append('<p class="reading-source">' + ('<a href="' + esc(url) +
                 '" target="_blank" rel="noopener noreferrer">' + esc(credit) + '</a>' if url else esc(credit)))
+    translator = reading_translator(reading)
+    if translator:
+        body.append('<span class="reading-translator"> · Translator: ' + esc(translator) + '</span>')
     if language.split('-')[0] != 'ar' and reading.get('translation_origin'):
         body.append(' · Translation origin: ' +
                     {'human': 'Human', 'ai': 'AI', 'unknown': 'Unknown'}[reading['translation_origin']])

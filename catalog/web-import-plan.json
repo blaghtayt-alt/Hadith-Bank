@@ -2,7 +2,7 @@
   "schema": "hadith-bank-web-import-plan-v1",
   "enabled": true,
   "owner_authorized_on": "2026-11-12",
-  "scope": "Finish the authorized public catalogues of Deen Hindi and Hadis.islom.uz; Rivoyat was excluded by the owner on 2026-11-12.",
+  "scope": "Finish authorized Deen Hindi and Uzbek Hadis.islom.uz/Hadis.uz Tirmidhi catalogues; Rivoyat remains excluded by the owner.",
   "refresh_completed_pages": false,
   "initial_max_seconds": 300,
   "sources": {
@@ -24,6 +24,15 @@
     },
     "islom": {
       "enabled": true,
+      "max_requests_per_batch": 500,
+      "max_seconds_per_batch": 1800,
+      "delay_seconds": 1.25
+    },
+    "hadisuz": {
+      "enabled": true,
+      "owner_authorized_on": "2026-11-12",
+      "catalogue": "https://hadis.uz/hadiths/1",
+      "scope": "Sunan/Jami al-Tirmidhi Uzbek edition only",
       "max_requests_per_batch": 500,
       "max_seconds_per_batch": 1800,
       "delay_seconds": 1.25
