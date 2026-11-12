@@ -1,8 +1,20 @@
 {
   "rivoyat": {
+    "automatic_retry_allowed": false,
+    "blocked": true,
+    "blocked_url": "https://rivoyat.com/robots.txt",
+    "diagnostic_evidence": {
+      "artifact_id": 13926296162,
+      "artifact_sha256": "f22a8cb5695401c5d3eb56180466fe6c5d04280e4f1fbb79bfbd630eedc87960",
+      "basis": "Verified original 6900-byte GitHub diagnostic ZIP and exact startup traceback; no source request repeated.",
+      "log": ".work/web-import-batch/rivoyat.log",
+      "reviewed_on": "2026-11-12",
+      "workflow_run_id": 43179396269
+    },
+    "error": "HTTP 403: Forbidden while retrieving robots.txt",
     "exit_code": 1,
     "log": ".work/web-import-batch/rivoyat.log",
-    "reason": "Inspect the saved log/checkpoint, fix the cause, then explicitly remove this worker stop.",
+    "reason": "The source rejected robots.txt with HTTP 403. Preserve this stop until an explicit access review; do not automatically retry or change routes to bypass it.",
     "source": "rivoyat"
   }
 }

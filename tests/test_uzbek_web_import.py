@@ -137,6 +137,56 @@ class UzbekWebImportTests(unittest.TestCase):
                 self.importer.request('https://rivoyat.com/fixture')
             network.assert_not_called()
 
+    def test_robots_startup_access_block_is_saved_and_not_retried(self):
+        for code in (401, 403, 429):
+            with self.subTest(http_status=code):
+                root = self.root / ('robots-block-' + str(code))
+                importer = web.Importer(root, 'rivoyat', 5, 1)
+                url = 'https://rivoyat.com/robots.txt'
+                error = web.urllib.error.HTTPError(url, code, 'TEST access block', {}, None)
+                with patch.object(web.urllib.request, 'urlopen', side_effect=error) as network:
+                    report = importer.run()
+                self.assertEqual(network.call_count, 1)
+                self.assertTrue(report['blocked'])
+                self.assertEqual(report['source_entries_obtained'], 0)
+                self.assertFalse(report['all_linked_pages_processed'])
+                state = json.loads(importer.state_path.read_text())
+                self.assertEqual(state['tasks'], [])
+                self.assertEqual(state['access_block']['url'], url)
+                self.assertEqual(state['access_block']['http_status'], code)
+                self.assertEqual(state['access_block']['phase'], 'robots')
+                self.assertFalse(state['access_block']['automatic_retry_allowed'])
+                self.assertEqual(state['events'][-1], state['access_block'])
+                saved_block = copy.deepcopy(state['access_block'])
+                resumed = web.Importer(root, 'rivoyat', 5, 1)
+                with patch.object(web.urllib.request, 'urlopen') as network, \
+                        patch.object(resumed, 'robots') as robots:
+                    report = resumed.run()
+                network.assert_not_called()
+                robots.assert_not_called()
+                self.assertTrue(report['blocked'])
+                self.assertFalse(report['all_linked_pages_processed'])
+                self.assertEqual(resumed.state['access_block'], saved_block)
+
+    def test_existing_task_block_is_checked_before_robots(self):
+        self.importer.state['tasks'] = [{'url': 'https://rivoyat.com/fixture',
+                                        'kind': 'home', 'status': 'blocked'}]
+        with patch.object(self.importer, 'robots') as robots, \
+                patch.object(web.urllib.request, 'urlopen') as network:
+            report = self.importer.run()
+        robots.assert_not_called()
+        network.assert_not_called()
+        self.assertTrue(report['blocked'])
+        self.assertFalse(report['all_linked_pages_processed'])
+
+    def test_robots_server_error_is_not_falsely_labelled_access_block(self):
+        url = 'https://rivoyat.com/robots.txt'
+        error = web.urllib.error.HTTPError(url, 500, 'TEST server error', {}, None)
+        with patch.object(web.urllib.request, 'urlopen', side_effect=error):
+            with self.assertRaises(web.urllib.error.HTTPError):
+                self.importer.run()
+        self.assertNotIn('access_block', self.importer.state)
+
     def test_cached_http_bytes_are_verified_before_reuse(self):
         raw = b'<html>SYNTHETIC_SOURCE_BYTES</html>'
         path = self.root / 'snapshot.html.gz'

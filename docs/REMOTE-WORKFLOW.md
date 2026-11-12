@@ -66,6 +66,15 @@ The existing `.github/workflows/reader-pages.yml` runs validation, rebuilds the 
 
 Before publishing, fetch current main and preserve concurrent work. Use normal fast-forward Git pushes or a connector ref update with an expected head. If that expectation changes, inspect the new commit and integrate it before trying again. Never force away another import to resolve a transfer problem.
 
+The reader workflow also checks the remote after its single normal generated-file
+push through `scripts/push_reader_commit.py`. This handles a source commit arriving
+between the initial check and the push: the older reader exits with
+`publish=false`, while the source import's separately requested build publishes
+the newer revision. If the generated commit is already remote after a lost push
+acknowledgement, the helper recognizes that result. A failed push with unchanged
+remote state or an unreadable remote remains a failure. No force push or stale
+site deployment is used to resolve a race.
+
 Watch the workflow result and confirm the final published commit. A saved extraction test log establishes the result for that saved candidate only. It does not prove that the integrated current-main build or browser checks passed.
 
 ## Browser verification

@@ -91,6 +91,41 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertEqual(status['schedule_pause_reason'], 'inspection_required')
         self.assertEqual(status['fetched_entries'], 6)
 
+    def test_site_level_startup_block_with_no_tasks_cannot_resume_or_complete(self):
+        path = self.root / 'imports/web-uzbek-20261112/rivoyat/checkpoint.json'
+        block = {'url': 'https://rivoyat.com/robots.txt', 'http_status': 403,
+                 'phase': 'robots', 'automatic_retry_allowed': False}
+        batch.write_changed(path, {'tasks': [], 'access_block': block})
+        status = batch.source_status(self.root, 'rivoyat')
+        self.assertTrue(status['blocked'])
+        self.assertFalse(status['has_fetch_work'])
+        self.assertFalse(status['fetch_queue_done'])
+        self.assertEqual(status['access_block'], block)
+
+    def test_explicit_historical_worker_block_remains_blocked_without_retry(self):
+        for name in batch.PROGRESS:
+            self.progress(name, 'done')
+        stop = {'exit_code': 1, 'blocked': True, 'error': 'HTTP 403',
+                'url': 'https://rivoyat.com/robots.txt',
+                'diagnostic_provenance': {'run_id': 'TEST_RUN'}}
+        batch.write_changed(self.root / batch.STOP_FILE, {'rivoyat': stop})
+        original = (self.root / batch.STOP_FILE).read_bytes()
+        with mock.patch.object(batch, 'run_source') as run, \
+                mock.patch('material_registry.load_public_materials', return_value=[]), \
+                mock.patch('sys.stdout', new_callable=io.StringIO):
+            self.assertEqual(batch.main(['--root', str(self.root)]), 0)
+        run.assert_not_called()
+        status = self.read('imports/web-import-status.json')
+        rivoyat = next(s for s in status['source_status'] if s['source'] == 'rivoyat')
+        self.assertEqual(rivoyat['state'], 'blocked')
+        self.assertTrue(rivoyat['blocked'])
+        self.assertFalse(rivoyat['fetch_queue_done'])
+        self.assertFalse(rivoyat['has_fetch_work'])
+        self.assertEqual(rivoyat['worker_stop'], stop)
+        self.assertTrue(status['schedule_should_pause'])
+        self.assertFalse(status['fetch_queues_done'])
+        self.assertEqual((self.root / batch.STOP_FILE).read_bytes(), original)
+
     def test_disabled_plan_or_sources_pause_without_claiming_completion(self):
         self.plan['enabled'] = False
         status = batch.summarize(self.root, self.plan)

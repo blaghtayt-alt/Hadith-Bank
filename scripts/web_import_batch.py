@@ -62,7 +62,8 @@ def source_status(root, name):
         }
     checkpoint = read_json(root / ('imports/web-uzbek-20261112/' + name + '/checkpoint.json'), {})
     tasks = checkpoint.get('tasks', [])
-    blocked = any(task.get('status') == 'blocked' for task in tasks)
+    access_block = checkpoint.get('access_block') or progress.get('access_block')
+    blocked = bool(access_block or progress.get('blocked')) or any(task.get('status') == 'blocked' for task in tasks)
     pending = sum(task.get('status') == 'pending' for task in tasks)
     retryable = sum(task.get('status') == 'failed' and task.get('attempts', 1) < 3
                     and not task.get('error', '').startswith('HTTP 404') for task in tasks)
@@ -75,9 +76,10 @@ def source_status(root, name):
         'pending_requests': pending,
         'pending_unit': 'linked catalogue or section pages; pagination may discover more',
         'discovered_page_tasks': len(tasks),
-        'fetch_queue_done': bool(tasks) and all(task.get('status') == 'done' for task in tasks),
-        'blocked': blocked, 'errors': sum(task.get('status') == 'failed' for task in tasks),
-        'has_fetch_work': not checkpoint or (not blocked and bool(pending or retryable)),
+        'fetch_queue_done': not blocked and bool(tasks) and all(task.get('status') == 'done' for task in tasks),
+        'blocked': blocked, 'access_block': access_block,
+        'errors': sum(task.get('status') == 'failed' for task in tasks),
+        'has_fetch_work': not blocked and (not checkpoint or bool(pending or retryable)),
     }
 
 
@@ -121,6 +123,7 @@ def summarize(root, plan):
         item['enabled'] = bool(plan['sources'][item['source']]['enabled'])
         if item['source'] in stops:
             item['worker_stop'] = stops[item['source']]
+            item['blocked'] = item['blocked'] or item['worker_stop'].get('blocked') is True
             item['has_fetch_work'] = False
         if item.get('worker_stop') or item['blocked']:
             item['fetch_queue_done'] = False

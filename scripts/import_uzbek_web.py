@@ -442,7 +442,8 @@ class Importer:
         self.state['counts'] = dict(collections.Counter(t['status'] for t in self.state['tasks']))
         self.state['record_counts'] = dict(collections.Counter(row['content_kind'] for row in self.records.values()))
         pending = any(t['status'] != 'done' for t in self.state['tasks'])
-        self.state['all_linked_pages_processed'] = not pending and bool(self.state['tasks'])
+        self.state['all_linked_pages_processed'] = (not self.state.get('access_block')
+                                                    and not pending and bool(self.state['tasks']))
         # Site content may exceed declared/indexed items or quote additional
         # narrations inside commentary: never equate queue exhaustion to all.
         self.state['all_available_content_imported'] = False
@@ -696,12 +697,25 @@ class Importer:
             old.unlink()
 
     def run(self):
-        self.robots()
-        self.enqueue('/', 'home')
-        if any(task['status'] == 'blocked' for task in self.state['tasks']):
+        # Check durable access stops before even requesting robots.txt again.
+        if self.state.get('access_block') or any(task['status'] == 'blocked' for task in self.state['tasks']):
             self.state['site_stop_reason'] = 'Prior HTTP/robots block requires an explicit access review; no automatic bypass or block retry.'
             self.save()
             return self.export()
+        try:
+            self.robots()
+        except urllib.error.HTTPError as error:
+            if error.code not in (401, 403, 429):
+                raise
+            block = {'phase': 'robots', 'url': self.origin + '/robots.txt',
+                     'http_status': error.code, 'error': 'HTTP ' + str(error.code),
+                     'at': now(), 'automatic_retry_allowed': False}
+            self.state['access_block'] = block
+            self.state['events'].append(dict(block))
+            self.state['site_stop_reason'] = 'Robots startup access block requires an explicit access review; no automatic retry.'
+            self.save()
+            return self.export()
+        self.enqueue('/', 'home')
         # Retry transient failures only in a subsequent run, at most three
         # times. Authentication/rate/robots blocks are never retried here.
         for task in self.state['tasks']:
@@ -872,6 +886,9 @@ class Importer:
                   'source_entries_obtained': len(self.records),
                   'prophetic_source_entries_registered': sum(s['prophetic_source_entries_registered'] for s in summaries),
                   'classification_pending_hidden': sum(s['classification_pending_hidden'] for s in summaries),
+                  'blocked': bool(self.state.get('access_block')) or any(t['status'] == 'blocked' for t in self.state['tasks']),
+                  'access_block': self.state.get('access_block'),
+                  'site_stop_reason': self.state.get('site_stop_reason'),
                   'all_linked_pages_processed': self.state.get('all_linked_pages_processed', False),
                   'all_available_content_imported': False,
                   'scope_note': 'Advertised counts are publisher counts, not unique Prophetic hadiths. Completeness remains unverified until all linked sections and held classifications are reconciled.'}

@@ -89,6 +89,13 @@ checkpoint. Unexpected worker failures are persisted in
 require inspection before explicit removal. Saved authentication/rate/robots
 blocks are never automatically retried. Failed jobs retain recovery artifacts.
 
+An access denial during the first robots request is a site-level block too.
+The importer saves the URL, HTTP status and event before exporting its existing
+local records, then checks that stop before any subsequent robots request.
+The initial GitHub run's Rivoyat HTTP 403 is documented in its retained worker
+stop with the verified diagnostic artifact hash. That stop remains in place;
+the other two authorized sources continue independently.
+
 Each worker now saves a separate result receipt as it finishes. Status and stop
 files use atomic replacement, so an interrupted write cannot leave half a JSON
 checkpoint. A failed worker does not discard the other hosts' completed results.

@@ -78,7 +78,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          current_main="$(git ls-remote origin refs/heads/main | cut -f1)"
+          current_main="$(git ls-remote --exit-code origin refs/heads/main | cut -f1)"
           if [[ "$current_main" != "$GITHUB_SHA" ]]; then
             echo "A newer main revision exists; its own run will publish it."
             echo "publish=false" >> "$GITHUB_OUTPUT"
@@ -97,11 +97,10 @@ jobs:
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -m 'Update generated Hadith Bank reader [skip ci]'
-            # Normal push only: reject a concurrent source change.
-            git push origin HEAD:refs/heads/main
           fi
-          echo "published_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          echo "publish=true" >> "$GITHUB_OUTPUT"
+          # Resolve a concurrent source push without publishing a stale build.
+          python scripts/push_reader_commit.py --expected-start "$GITHUB_SHA" \
+            --github-output "$GITHUB_OUTPUT"
       - name: Upload the verified website
         if: steps.sync.outputs.publish == 'true'
         uses: actions/upload-pages-artifact@v4
