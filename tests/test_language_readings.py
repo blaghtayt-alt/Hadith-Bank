@@ -281,6 +281,7 @@ process.stdout.write(JSON.stringify({views:languageReadings(records[0]),language
         record['language_versions'][4]['quotation_status'] = 'multiple_source_reports'
         record['language_versions'][4]['source']['source_report_alignment_note'] = 'TEST first report only has parallel readings.'
         record['language_versions'][3].update(text=None, scope='source_context', quotation_status='content_mismatch')
+        record['language_versions'][2].update(scope='source_excerpt', quotation_status='abbreviated_source_report')
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
@@ -302,6 +303,7 @@ key:primarySearchKey(records[0]),notes:annotationSearchKey(records[0])}));'''
         self.assertIn('two separately attributed reports', next(item for item in actual['views'] if item['language'] == 'uz-Cyrl')['qualification'])
         self.assertIn('TEST first report only', next(item for item in actual['views'] if item['language'] == 'uz-Cyrl')['qualification'])
         self.assertIn('not a translation or Arabic counterpart', next(item for item in actual['views'] if item['language'] == 'ur-Latn')['qualification'])
+        self.assertIn('exact abbreviated wording', next(item for item in actual['views'] if item['language'] == 'hi')['qualification'])
 
     @unittest.skipUnless(shutil.which('node'), 'Node is required for DOM construction regression')
     def test_language_panel_dom_owns_sources_notes_and_open_controls(self):

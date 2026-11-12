@@ -1,4 +1,4 @@
-"""Synthetic source fixtures; TEST text is not an actual religious quotation."""
+"""Pinned source regressions and synthetic fixtures; TEST text is not a religious quotation."""
 import argparse
 import copy
 import gzip
@@ -13,6 +13,432 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import import_fawaz_bulk as importer
 from material_registry import load_public_materials
 from language_display import language_readings
+
+
+# Exact source quotations from the pinned provider revision. Their complete
+# source field hashes and original offsets identify these real regression cases.
+# Only fixtures explicitly prefixed TEST elsewhere are synthetic.
+ACTUAL_SUBJECT_REGRESSIONS = [{'book': 'abudawud',
+  'id': '3669',
+  'expected': 'held',
+  'quotations': {'ara': 'حَدَّثَنَا أَحْمَدُ بْنُ حَنْبَلٍ، حَدَّثَنَا إِسْمَاعِيلُ بْنُ إِبْرَاهِيمَ، حَدَّثَنَا '
+                        'أَبُو حَيَّانَ، حَدَّثَنِي الشَّعْبِيُّ، عَنِ ابْنِ عُمَرَ، عَنْ عُمَرَ، قَالَ نَزَلَ '
+                        'تَحْرِيمُ الْخَمْرِ يَوْمَ نَزَلَ وَهِيَ مِنْ خَمْسَةِ أَشْيَاءَ مِنَ الْعِنَبِ وَالتَّمْرِ '
+                        'وَالْعَسَلِ وَالْحِنْطَةِ وَالشَّعِيرِ وَالْخَمْرُ مَا خَامَرَ الْعَقْلَ وَثَلاَثٌ وَدِدْتُ '
+                        'أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم لَمْ يُفَارِقْنَا حَتَّى يَعْهَدَ إِلَيْنَا فِيهِنَّ '
+                        'عَهْدًا نَنْتَهِي إِلَيْهِ الْجَدُّ وَالْكَلاَلَةُ وَأَبْوَابٌ مِنْ أَبْوَابِ الرِّبَا '
+                        '\u200f.\u200f',
+                 'ben': '। উমার (রাঃ) সূত্রে বর্ণিত। তিনি বলেন, মদ হারাম হওয়ার বিধান যেদিন অবতীর্ণ হলো তখন তা পাঁচটি '
+                        'জিনিস থেকে তৈরী করা হতো; আঙ্গুর, খেজুর, মধু, গম ও বার্লি। মদ সেই পানীয় যা মানুষকে জ্ঞানশূন্য '
+                        'করে দেয়। তিনটি বিষয় সম্পর্কে আমি আশা করেছিলাম, তা সুস্পষ্টভাবে আমাদের নিকট বর্ণনা না করা '
+                        'পর্যন্ত যদি নবী সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম আমাদের থেকে বিদায় না নিতেন! সেগুলো হলো, দাদার '
+                        'মীরাস, কালালার ব্যাখ্যা ও সুদের কিছু বিষয়।[1] সহীহ।',
+                 'eng': '’Umar said :The prohibition of wine came down when (the Quranic verse ) came down. It was '
+                        'made from five thing namely, grapes, dates, honey, wheat ,barley. Wine is what infects '
+                        '(khamara) the mind. There are three things I wished that the prophet (ﷺ) would not leave us '
+                        'until he explained them fully to our satisfaction: (share of) grandfather, one who leaves no '
+                        'descendants or ascendants as hairs, and the details of usury',
+                 'urd': 'عمر رضی اللہ عنہ کہتے ہیں کہ شراب کی حرمت نازل ہوئی تو اس وقت شراب پانچ چیزوں: انگور، کھجور، '
+                        'شہد، گیہوں اور جو سے بنتی تھی، اور شراب وہ ہے جو عقل کو ڈھانپ لے، اور تین باتیں ایسی ہیں کہ '
+                        'میری خواہش تھی کہ رسول اللہ صلی اللہ علیہ وسلم ہم سے جدا نہ ہوں جب تک کہ آپ انہیں ہم سے اچھی '
+                        'طرح بیان نہ کر دیں: ایک دادا کا حصہ، دوسرے کلالہ کا معاملہ اور تیسرے سود کے کچھ مسائل۔'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/3668/text',
+                              'original_text_sha256': '2cdaba27f42e2339df14dc15b115410ae37e0b462de2a725b6d8ac6190dbfc48',
+                              'quotation_spans': [[0, 543]]},
+                      'ben': {'json_pointer': '/hadiths/3668/text',
+                              'original_text_sha256': '83481141d3b9919485aa8bafac4d1b76ec8914893cca7be0bef5b59a7fcd9b10',
+                              'quotation_spans': [[0, 418]]},
+                      'eng': {'json_pointer': '/hadiths/3668/text',
+                              'original_text_sha256': 'c31e4d763d297e3d4a64cec7ce3ee53ac2200f41938863b455cb2dcbb754e1ec',
+                              'quotation_spans': [[0, 422]]},
+                      'urd': {'json_pointer': '/hadiths/3668/text',
+                              'original_text_sha256': 'bce5568f4bd377bcdd29b817c44658b143efdc2ed9ba43c479c7b5a04217a826',
+                              'quotation_spans': [[0, 364]]}}},
+ {'book': 'abudawud',
+  'id': '4985',
+  'expected': 'hadith',
+  'quotations': {'ara': 'حَدَّثَنَا مُسَدَّدٌ، حَدَّثَنَا عِيسَى بْنُ يُونُسَ، حَدَّثَنَا مِسْعَرُ بْنُ كِدَامٍ، عَنْ '
+                        'عَمْرِو بْنِ مُرَّةَ، عَنْ سَالِمِ بْنِ أَبِي الْجَعْدِ، قَالَ قَالَ رَجُلٌ - قَالَ مِسْعَرٌ '
+                        'أُرَاهُ مِنْ خُزَاعَةَ - لَيْتَنِي صَلَّيْتُ فَاسْتَرَحْتُ فَكَأَنَّهُمْ عَابُوا عَلَيْهِ '
+                        'ذَلِكَ فَقَالَ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ \u200f "\u200f يَا بِلاَلُ '
+                        'أَقِمِ الصَّلاَةَ أَرِحْنَا بِهَا \u200f"\u200f \u200f.\u200f',
+                 'eng': "Narrated A man: Salim ibn AbulJa'dah said: A man said: (Mis'ar said: I think he was from the "
+                        "tribe of Khuza'ah): would that I had prayed, and got comfort. The people objected to him for "
+                        'it. Thereupon he said: I heard the Messenger of Allah (ﷺ) as saying: O Bilal, call iqamah for '
+                        'prayer: give us comfort by it'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/4984/text',
+                              'original_text_sha256': '3424414a31dc9b221b24e7f8ab9061bf32ae43c57432798caf822805752720fd',
+                              'quotation_spans': [[0, 401]]},
+                      'eng': {'json_pointer': '/hadiths/4984/text',
+                              'original_text_sha256': 'ed026ac08064178e645e6605fec95f37ea1c3d5e643bd6d0922efdd54e98ced4',
+                              'quotation_spans': [[0, 309]]}}},
+ {'book': 'bukhari',
+  'id': '3',
+  'expected': 'hadith',
+  'quotations': {'ara': 'حَدَّثَنَا يَحْيَى بْنُ بُكَيْرٍ، قَالَ حَدَّثَنَا اللَّيْثُ، عَنْ عُقَيْلٍ، عَنِ ابْنِ '
+                        'شِهَابٍ، عَنْ عُرْوَةَ بْنِ الزُّبَيْرِ، عَنْ عَائِشَةَ أُمِّ الْمُؤْمِنِينَ، أَنَّهَا '
+                        'قَالَتْ أَوَّلُ مَا بُدِئَ بِهِ رَسُولُ اللَّهِ صلى الله عليه وسلم مِنَ الْوَحْىِ الرُّؤْيَا '
+                        'الصَّالِحَةُ فِي النَّوْمِ، فَكَانَ لاَ يَرَى رُؤْيَا إِلاَّ جَاءَتْ مِثْلَ فَلَقِ الصُّبْحِ، '
+                        'ثُمَّ حُبِّبَ إِلَيْهِ الْخَلاَءُ، وَكَانَ يَخْلُو بِغَارِ حِرَاءٍ فَيَتَحَنَّثُ فِيهِ ـ '
+                        'وَهُوَ التَّعَبُّدُ ـ اللَّيَالِيَ ذَوَاتِ الْعَدَدِ قَبْلَ أَنْ يَنْزِعَ إِلَى أَهْلِهِ، '
+                        'وَيَتَزَوَّدُ لِذَلِكَ، ثُمَّ يَرْجِعُ إِلَى خَدِيجَةَ، فَيَتَزَوَّدُ لِمِثْلِهَا، حَتَّى '
+                        'جَاءَهُ الْحَقُّ وَهُوَ فِي غَارِ حِرَاءٍ، فَجَاءَهُ الْمَلَكُ فَقَالَ اقْرَأْ\u200f.\u200f '
+                        'قَالَ \u200f"\u200f مَا أَنَا بِقَارِئٍ \u200f"\u200f\u200f.\u200f قَالَ \u200f"\u200f '
+                        'فَأَخَذَنِي فَغَطَّنِي حَتَّى بَلَغَ مِنِّي الْجَهْدَ، ثُمَّ أَرْسَلَنِي فَقَالَ '
+                        'اقْرَأْ\u200f.\u200f قُلْتُ مَا أَنَا بِقَارِئٍ\u200f.\u200f فَأَخَذَنِي فَغَطَّنِي '
+                        'الثَّانِيَةَ حَتَّى بَلَغَ مِنِّي الْجَهْدَ، ثُمَّ أَرْسَلَنِي فَقَالَ اقْرَأْ\u200f.\u200f '
+                        'فَقُلْتُ مَا أَنَا بِقَارِئٍ\u200f.\u200f فَأَخَذَنِي فَغَطَّنِي الثَّالِثَةَ، ثُمَّ '
+                        'أَرْسَلَنِي فَقَالَ \u200f{\u200fاقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ * خَلَقَ الإِنْسَانَ '
+                        'مِنْ عَلَقٍ * اقْرَأْ وَرَبُّكَ الأَكْرَمُ\u200f}\u200f \u200f"\u200f\u200f.\u200f فَرَجَعَ '
+                        'بِهَا رَسُولُ اللَّهِ صلى الله عليه وسلم يَرْجُفُ فُؤَادُهُ، فَدَخَلَ عَلَى خَدِيجَةَ بِنْتِ '
+                        'خُوَيْلِدٍ رضى الله عنها فَقَالَ \u200f"\u200f زَمِّلُونِي زَمِّلُونِي '
+                        '\u200f"\u200f\u200f.\u200f فَزَمَّلُوهُ حَتَّى ذَهَبَ عَنْهُ الرَّوْعُ، فَقَالَ لِخَدِيجَةَ '
+                        'وَأَخْبَرَهَا الْخَبَرَ \u200f"\u200f لَقَدْ خَشِيتُ عَلَى نَفْسِي \u200f"\u200f\u200f.\u200f '
+                        'فَقَالَتْ خَدِيجَةُ كَلاَّ وَاللَّهِ مَا يُخْزِيكَ اللَّهُ أَبَدًا، إِنَّكَ لَتَصِلُ '
+                        'الرَّحِمَ، وَتَحْمِلُ الْكَلَّ، وَتَكْسِبُ الْمَعْدُومَ، وَتَقْرِي الضَّيْفَ، وَتُعِينُ عَلَى '
+                        'نَوَائِبِ الْحَقِّ\u200f.\u200f فَانْطَلَقَتْ بِهِ خَدِيجَةُ حَتَّى أَتَتْ بِهِ وَرَقَةَ بْنَ '
+                        'نَوْفَلِ بْنِ أَسَدِ بْنِ عَبْدِ الْعُزَّى ابْنَ عَمِّ خَدِيجَةَ ـ وَكَانَ امْرَأً تَنَصَّرَ '
+                        'فِي الْجَاهِلِيَّةِ، وَكَانَ يَكْتُبُ الْكِتَابَ الْعِبْرَانِيَّ، فَيَكْتُبُ مِنَ الإِنْجِيلِ '
+                        'بِالْعِبْرَانِيَّةِ مَا شَاءَ اللَّهُ أَنْ يَكْتُبَ، وَكَانَ شَيْخًا كَبِيرًا قَدْ عَمِيَ ـ '
+                        'فَقَالَتْ لَهُ خَدِيجَةُ يَا ابْنَ عَمِّ اسْمَعْ مِنَ ابْنِ أَخِيكَ\u200f.\u200f فَقَالَ لَهُ '
+                        'وَرَقَةُ يَا ابْنَ أَخِي مَاذَا تَرَى فَأَخْبَرَهُ رَسُولُ اللَّهِ صلى الله عليه وسلم خَبَرَ '
+                        'مَا رَأَى\u200f.\u200f فَقَالَ لَهُ وَرَقَةُ هَذَا النَّامُوسُ الَّذِي نَزَّلَ اللَّهُ عَلَى '
+                        'مُوسَى صلى الله عليه وسلم يَا لَيْتَنِي فِيهَا جَذَعًا، لَيْتَنِي أَكُونُ حَيًّا إِذْ '
+                        'يُخْرِجُكَ قَوْمُكَ\u200f.\u200f فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم \u200f"\u200f '
+                        'أَوَمُخْرِجِيَّ هُمْ \u200f"\u200f\u200f.\u200f قَالَ نَعَمْ، لَمْ يَأْتِ رَجُلٌ قَطُّ '
+                        'بِمِثْلِ مَا جِئْتَ بِهِ إِلاَّ عُودِيَ، وَإِنْ يُدْرِكْنِي يَوْمُكَ أَنْصُرْكَ نَصْرًا '
+                        'مُؤَزَّرًا\u200f.\u200f ثُمَّ لَمْ يَنْشَبْ وَرَقَةُ أَنْ تُوُفِّيَ وَفَتَرَ '
+                        'الْوَحْىُ\u200f.\u200f',
+                 'eng': "Narrated 'Aisha (the mother of the faithful believers):The commencement of the Divine "
+                        "Inspiration to Allah's Messenger (ﷺ) was in the form of good dreams which came true like "
+                        'bright daylight, and then the love of seclusion was bestowed upon him. He used to go in '
+                        'seclusion in the cave of Hira where he used to worship (Allah alone) continuously for many '
+                        'days before his desire to see his family. He used to take with him the journey food for the '
+                        'stay and then come back to (his wife) Khadija to take his food likewise again till suddenly '
+                        'the Truth descended upon him while he was in the cave of Hira. The angel came to him and '
+                        'asked him to read. The Prophet (ﷺ) replied, "I do not know how to read." The Prophet (ﷺ) '
+                        'added, "The angel caught me (forcefully) and pressed me so hard that I could not bear it any '
+                        "more. He then released me and again asked me to read and I replied, 'I do not know how to "
+                        "read.' Thereupon he caught me again and pressed me a second time till I could not bear it any "
+                        "more. He then released me and again asked me to read but again I replied, 'I do not know how "
+                        "to read (or what shall I read)?' Thereupon he caught me for the third time and pressed me, "
+                        "and then released me and said, 'Read in the name of your Lord, who has created (all that "
+                        'exists), created man from a clot. Read! And your Lord is the Most Generous." (96.1, 96.2, '
+                        "96.3) Then Allah's Messenger (ﷺ) returned with the Inspiration and with his heart beating "
+                        'severely. Then he went to Khadija bint Khuwailid and said, "Cover me! Cover me!" They covered '
+                        'him till his fear was over and after that he told her everything that had happened and said, '
+                        '"I fear that something may happen to me." Khadija replied, "Never! By Allah, Allah will never '
+                        'disgrace you. You keep good relations with your kith and kin, help the poor and the '
+                        'destitute, serve your guests generously and assist the deserving calamity-afflicted ones." '
+                        "Khadija then accompanied him to her cousin Waraqa bin Naufal bin Asad bin 'Abdul 'Uzza, who, "
+                        'during the pre-Islamic Period became a Christian and used to write the writing with Hebrew '
+                        'letters. He would write from the Gospel in Hebrew as much as Allah wished him to write. He '
+                        'was an old man and had lost his eyesight. Khadija said to Waraqa, "Listen to the story of '
+                        'your nephew, O my cousin!" Waraqa asked, "O my nephew! What have you seen?" Allah\'s '
+                        'Messenger (ﷺ) described whatever he had seen. Waraqa said, "This is the same one who keeps '
+                        'the secrets (angel Gabriel) whom Allah had sent to Moses. I wish I were young and could live '
+                        'up to the time when your people would turn you out." Allah\'s Messenger (ﷺ) asked, "Will they '
+                        'drive me out?" Waraqa replied in the affirmative and said, "Anyone (man) who came with '
+                        'something similar to what you have brought was treated with hostility; and if I should remain '
+                        'alive till the day when you will be turned out then I would support you strongly." But after '
+                        'a few days Waraqa died and the Divine Inspiration was also paused for a while'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/2/text',
+                              'original_text_sha256': 'b20de2142c81ea0ec3984cd0ad768f64ec6e6bc9798127b1ca4d841fc6120c4d',
+                              'quotation_spans': [[0, 2689]]},
+                      'eng': {'json_pointer': '/hadiths/2/text',
+                              'original_text_sha256': 'a11d1645b7838c4b6a14030f7ca0005101ddb2d61e0f567e0a1848f11d44779e',
+                              'quotation_spans': [[0, 2979]]}}},
+ {'book': 'bukhari',
+  'id': '425',
+  'expected': 'hadith',
+  'quotations': {'ara': 'حَدَّثَنَا سَعِيدُ بْنُ عُفَيْرٍ، قَالَ حَدَّثَنِي اللَّيْثُ، قَالَ حَدَّثَنِي عُقَيْلٌ، عَنِ '
+                        'ابْنِ شِهَابٍ، قَالَ أَخْبَرَنِي مَحْمُودُ بْنُ الرَّبِيعِ الأَنْصَارِيُّ، أَنَّ عِتْبَانَ '
+                        'بْنَ مَالِكٍ ـ وَهُوَ مِنْ أَصْحَابِ رَسُولِ اللَّهِ صلى الله عليه وسلم مِمَّنْ شَهِدَ '
+                        'بَدْرًا مِنَ الأَنْصَارِ ـ أَنَّهُ أَتَى رَسُولَ اللَّهِ صلى الله عليه وسلم فَقَالَ يَا '
+                        'رَسُولَ اللَّهِ، قَدْ أَنْكَرْتُ بَصَرِي، وَأَنَا أُصَلِّي لِقَوْمِي، فَإِذَا كَانَتِ '
+                        'الأَمْطَارُ سَالَ الْوَادِي الَّذِي بَيْنِي وَبَيْنَهُمْ، لَمْ أَسْتَطِعْ أَنْ آتِيَ '
+                        'مَسْجِدَهُمْ فَأُصَلِّيَ بِهِمْ، وَوَدِدْتُ يَا رَسُولَ اللَّهِ أَنَّكَ تَأْتِينِي '
+                        'فَتُصَلِّيَ فِي بَيْتِي، فَأَتَّخِذَهُ مُصَلًّى\u200f.\u200f قَالَ فَقَالَ لَهُ رَسُولُ '
+                        'اللَّهِ صلى الله عليه وسلم \u200f"\u200f سَأَفْعَلُ إِنْ شَاءَ اللَّهُ '
+                        '\u200f"\u200f\u200f.\u200f قَالَ عِتْبَانُ فَغَدَا رَسُولُ اللَّهِ صلى الله عليه وسلم وَأَبُو '
+                        'بَكْرٍ حِينَ ارْتَفَعَ النَّهَارُ، فَاسْتَأْذَنَ رَسُولُ اللَّهِ صلى الله عليه وسلم '
+                        'فَأَذِنْتُ لَهُ، فَلَمْ يَجْلِسْ حَتَّى دَخَلَ الْبَيْتَ ثُمَّ قَالَ \u200f"\u200f أَيْنَ '
+                        'تُحِبُّ أَنْ أُصَلِّيَ مِنْ بَيْتِكَ \u200f"\u200f\u200f.\u200f قَالَ فَأَشَرْتُ لَهُ إِلَى '
+                        'نَاحِيَةٍ مِنَ الْبَيْتِ، فَقَامَ رَسُولُ اللَّهِ صلى الله عليه وسلم فَكَبَّرَ، فَقُمْنَا '
+                        'فَصَفَّنَا، فَصَلَّى رَكْعَتَيْنِ ثُمَّ سَلَّمَ، قَالَ وَحَبَسْنَاهُ عَلَى خَزِيرَةٍ '
+                        'صَنَعْنَاهَا لَهُ\u200f.\u200f قَالَ فَثَابَ فِي الْبَيْتِ رِجَالٌ مِنْ أَهْلِ الدَّارِ ذَوُو '
+                        'عَدَدٍ فَاجْتَمَعُوا، فَقَالَ قَائِلٌ مِنْهُمْ أَيْنَ مَالِكُ بْنُ الدُّخَيْشِنِ أَوِ ابْنُ '
+                        'الدُّخْشُنِ فَقَالَ بَعْضُهُمْ ذَلِكَ مُنَافِقٌ لاَ يُحِبُّ اللَّهَ وَرَسُولَهُ\u200f.\u200f '
+                        'فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم \u200f"\u200f لاَ تَقُلْ ذَلِكَ، أَلاَ تَرَاهُ '
+                        'قَدْ قَالَ لاَ إِلَهَ إِلاَّ اللَّهُ\u200f.\u200f يُرِيدُ بِذَلِكَ وَجْهَ اللَّهِ '
+                        '\u200f"\u200f\u200f.\u200f قَالَ اللَّهُ وَرَسُولُهُ أَعْلَمُ\u200f.\u200f قَالَ فَإِنَّا '
+                        'نَرَى وَجْهَهُ وَنَصِيحَتَهُ إِلَى الْمُنَافِقِينَ\u200f.\u200f قَالَ رَسُولُ اللَّهِ صلى '
+                        'الله عليه وسلم \u200f"\u200f فَإِنَّ اللَّهَ قَدْ حَرَّمَ عَلَى النَّارِ مَنْ قَالَ لاَ '
+                        'إِلَهَ إِلاَّ اللَّهُ\u200f.\u200f يَبْتَغِي بِذَلِكَ وَجْهَ اللَّهِ '
+                        '\u200f"\u200f\u200f.\u200f قَالَ ابْنُ شِهَابٍ ثُمَّ سَأَلْتُ الْحُصَيْنَ بْنَ مُحَمَّدٍ '
+                        'الأَنْصَارِيَّ ـ وَهْوَ أَحَدُ بَنِي سَالِمٍ وَهُوَ مِنْ سَرَاتِهِمْ ـ عَنْ حَدِيثِ مَحْمُودِ '
+                        'بْنِ الرَّبِيعِ، فَصَدَّقَهُ بِذَلِكَ\u200f.\u200f',
+                 'eng': "Narrated `Itban bin Malik:who was one of the companions of Allah's Messenger (ﷺ) and one of "
+                        'the Ansars who took part in the battle of Badr: I came to Allah\'s Messenger (ﷺ) and said, "O '
+                        "Allah's Messenger (ﷺ) I have weak eyesight and I lead my people in prayers. When it rains the "
+                        'water flows in the valley between me and my people so I cannot go to their mosque to lead '
+                        "them in prayer. O Allah's Messenger (ﷺ)! I wish you would come to my house and pray in it so "
+                        'that I could take that place as a Musalla. Allah\'s Messenger (ﷺ) said. "Allah willing, I '
+                        'will do so." Next day after the sun rose high, Allah\'s Messenger (ﷺ) and Abu Bakr came and '
+                        "Allah's Messenger (ﷺ) asked for permission to enter. I gave him permission and he did not sit "
+                        'on entering the house but said to me, "Where do you like me to pray?" I pointed to a place in '
+                        "my house. So Allah's Messenger (ﷺ) stood there and said, 'Allahu Akbar', and we all got up "
+                        'and aligned behind him and offered a two-rak`at prayer and ended it with Taslim. We requested '
+                        'him to stay for a meal called "Khazira" which we had prepared for him. Many members of our '
+                        'family gathered in the house and one of them said, "Where is Malik bin Al-Dukhaishin or Ibn '
+                        'Al-Dukhshun?" One of them replied, "He is a hypocrite and does not love Allah and His '
+                        'Apostle." Hearing that, Allah\'s Messenger (ﷺ) said, "Do not say so. Haven\'t you seen that '
+                        'he said, \'None has the right to be worshipped but Allah\' for Allah\'s sake only?" He said, '
+                        '"Allah and His Apostle know better. We have seen him helping and advising hypocrites." '
+                        'Allah\'s Messenger (ﷺ) said, "Allah has forbidden the (Hell) fire for those who say, \'None '
+                        "has the right to be worshipped but Allah' for Allah's sake only"},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/425/text',
+                              'original_text_sha256': 'e03fea33bbb0c8adbe76025ec695ff9f8c36596a688a6cbed562ecaeb7099035',
+                              'quotation_spans': [[0, 2129]]},
+                      'eng': {'json_pointer': '/hadiths/425/text',
+                              'original_text_sha256': '8de4fcf21675da8384db4a7604fea48f75b743d826bc83e224f46630f9b886c1',
+                              'quotation_spans': [[0, 1704]]}}},
+ {'book': 'bukhari',
+  'id': '4619',
+  'expected': 'held',
+  'quotations': {'ara': 'حَدَّثَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ الْحَنْظَلِيُّ، أَخْبَرَنَا عِيسَى، وَابْنُ، إِدْرِيسَ '
+                        'عَنْ أَبِي حَيَّانَ، عَنِ الشَّعْبِيِّ، عَنِ ابْنِ عُمَرَ، قَالَ سَمِعْتُ عُمَرَ ـ رضى الله '
+                        'عنه ـ عَلَى مِنْبَرِ النَّبِيِّ صلى الله عليه وسلم يَقُولُ أَمَّا بَعْدُ أَيُّهَا النَّاسُ '
+                        'إِنَّهُ نَزَلَ تَحْرِيمُ الْخَمْرِ وَهْىَ مِنْ خَمْسَةٍ، مِنَ الْعِنَبِ وَالتَّمْرِ '
+                        'وَالْعَسَلِ وَالْحِنْطَةِ وَالشَّعِيرِ، وَالْخَمْرُ مَا خَامَرَ الْعَقْلَ\u200f.\u200f',
+                 'ben': 'ইবনু ‘উমার (রাঃ) হতে বর্ণিত। তিনি বলেছেন যে, আমি উমার (রাঃ)-কে নবী সাল্লাল্লাহু ‘আলাইহি '
+                        'ওয়াসাল্লাম-এর মিম্বরে বসে বলতে শুনেছি যে, এরপর হে লোক সকল! মদপানের নিষেধাজ্ঞা অবতীর্ণ হয়েছে '
+                        'আর তা হচ্ছে পাঁচ প্রকার, খুরমা থেকে, আঙ্গুর থেকে, মধু থেকে, গম থেকে এবং যব থেকে আর মদ হচ্ছে '
+                        'যা সুস্থ বিবেককে আচ্ছন্ন করে ফেলে। [৫৫৮১, ৫৫৮৮, ৫৫৮৯, ৭৩৩৭] (আধুনিক প্রকাশনীঃ ৪২৫৮, ইসলামিক '
+                        'ফাউন্ডেশনঃ)',
+                 'eng': 'Narrated Ibn `Umar:I heard `Umar while he was on the pulpit of the Prophet (ﷺ) saying, "Now '
+                        'then O people! The revelation about the prohibition of alcoholic drinks was revealed; and '
+                        'alcoholic drinks are extracted from five things: Grapes, dates, honey, wheat and barley. And '
+                        'the alcoholic drink is that which confuses and stupefies the mind',
+                 'urd': 'ہم سے اسحاق بن ابراہیم حنظلی نے بیان کیا، انہوں نے کہا ہم کو عیسیٰ اور ابن ادریس نے خبر دی، '
+                        'انہیں ابوحیان نے، انہیں شعبی نے اور ان سے عبداللہ بن عمر رضی اللہ عنہما نے بیان کیا کہ میں نے '
+                        'عمر رضی اللہ عنہ سے سنا، وہ نبی کریم صلی اللہ علیہ وسلم کے منبر پر کھڑے فرما رہے تھے۔ امابعد! '
+                        'اے لوگو! جب شراب کی حرمت نازل ہوئی تو وہ پانچ چیزوں سے تیار کی جاتی تھی۔ انگور، کھجور، شہد، '
+                        'گیہوں اور جَو سے اور شراب ہر وہ پینے کی چیز ہے جو عقل کو زائل کر دے۔'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/4634/text',
+                              'original_text_sha256': '4b0b473c24f9d51cfd0cba2c13a7c092b32574db1688e2379dfe475c99bc230d',
+                              'quotation_spans': [[0, 437]]},
+                      'ben': {'json_pointer': '/hadiths/4634/text',
+                              'original_text_sha256': 'a0aec81308a06898fdd41075f8ece52dbad7d2804ec0282f04e8a9c0b48d8578',
+                              'quotation_spans': [[0, 375]]},
+                      'eng': {'json_pointer': '/hadiths/4634/text',
+                              'original_text_sha256': 'f686f03afeb301c59510a9d9a34b5439967c3d2df011d394ceb625f355ea50f3',
+                              'quotation_spans': [[0, 340]]},
+                      'urd': {'json_pointer': '/hadiths/4634/text',
+                              'original_text_sha256': 'b188d59b7792d9263f260102e51fabe20ec661c804720a91b91be9592100dc21',
+                              'quotation_spans': [[0, 440]]}}},
+ {'book': 'bukhari',
+  'id': '5588',
+  'expected': 'held',
+  'quotations': {'ara': 'حَدَّثَنَا أَحْمَدُ بْنُ أَبِي رَجَاءٍ، حَدَّثَنَا يَحْيَى، عَنْ أَبِي حَيَّانَ التَّيْمِيِّ، '
+                        'عَنِ الشَّعْبِيِّ، عَنِ ابْنِ عُمَرَ ـ رضى الله عنهما ـ قَالَ خَطَبَ عُمَرُ عَلَى مِنْبَرِ '
+                        'رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ إِنَّهُ قَدْ نَزَلَ تَحْرِيمُ الْخَمْرِ، وَهْىَ '
+                        'مِنْ خَمْسَةِ أَشْيَاءَ الْعِنَبِ وَالتَّمْرِ وَالْحِنْطَةِ وَالشَّعِيرِ وَالْعَسَلِ، '
+                        'وَالْخَمْرُ مَا خَامَرَ الْعَقْلَ، وَثَلاَثٌ وَدِدْتُ أَنَّ رَسُولَ اللَّهِ صلى الله عليه '
+                        'وسلم لَمْ يُفَارِقْنَا حَتَّى يَعْهَدَ إِلَيْنَا عَهْدًا الْجَدُّ وَالْكَلاَلَةُ وَأَبْوَابٌ '
+                        'مِنْ أَبْوَابِ الرِّبَا\u200f.\u200f قَالَ قُلْتُ يَا أَبَا عَمْرٍو فَشَىْءٌ يُصْنَعُ '
+                        'بِالسِّنْدِ مِنَ الرُّزِّ\u200f.\u200f قَالَ ذَاكَ لَمْ يَكُنْ عَلَى عَهْدِ النَّبِيِّ صلى '
+                        'الله عليه وسلم أَوْ قَالَ عَلَى عَهْدِ عُمَرَ\u200f.\u200f وَقَالَ حَجَّاجُ عَنْ حَمَّادٍ '
+                        'عَنْ أَبِي حَيَّانَ مَكَانَ الْعِنَبِ الزَّبِيبَ\u200f.\u200f',
+                 'ben': 'ইবনু ‘উমার (রাঃ) হতে বর্ণিত। তিনি বলেনঃ ‘উমার (রাঃ) মিম্বরের উপর দাঁড়িয়ে খুতবা দিতে গিয়ে '
+                        'বললেন, নিশ্চয় মদ হারাম সম্পর্কীয় আয়াত অবতীর্ণ হয়েছে। আর তা প্রস্তুত হয় পাঁচটি জিনিস থেকেঃ '
+                        'আঙ্গুর, খেজুর, গম, যব ও মধু। আর খামর মদ) হল তা, যা বিবেক লোপ করে দেয়। আর তিনটি এমন বিষয় আছে '
+                        'যে, আমি চাচ্ছিলাম যেন রাসূলুল্লাহ সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম আমাদের কাছে সেগুলো '
+                        'স্পষ্টভাবে বর্ণনা না করা পর্যন্ত তিনি যেন আমাদের নিকট হতে বিচ্ছিন্ন না হয়ে যান। বিষয়গুলো হল, '
+                        'দাদার মীরাস, কালালার ব্যাখ্যা এবং সুদের প্রকারসমূহ। রাবী আবূ হাইয়্যান বলেন, আমি বললামঃ হে আবূ '
+                        'আমর! এক প্রকারের পানীয় জিনিস যা সিন্ধু অঞ্চলে চাউল দিয়ে তৈরী করা হয়, তার হুকুম কী? তিনি '
+                        'বললেনঃ সেটি নবী সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম -এর আমলে ছিল না। কিংবা তিনি বলেছেনঃ সেটি ‘উমার '
+                        '-এর আমলে ছিল না। হাম্মাদ সূত্রে আবূ হাইয়্যান থেকে হাজ্জাজ الْعِنَبِ আঙ্গুর) এর জায়গায় '
+                        'الزَّبِيب কিসমিস) বলেছেন। [৪৬১৯; মুসলিম ৫৪০/৬, হাঃ ৩৩২] আধুনিক প্রকাশনী- ৫১৭৮, ইসলামিক '
+                        'ফাউন্ডেশন',
+                 'eng': "Narrated Ibn `Umar:`Umar delivered a sermon on the pulpit of Allah's Messenger (ﷺ), saying, "
+                        '"Alcoholic drinks were prohibited by Divine Order, and these drinks used to be prepared from '
+                        'five things, i.e., grapes, dates, wheat, barley and honey. Alcoholic drink is that, that '
+                        'disturbs the mind." `Umar added, "I wish Allah\'s Apostle had not left us before he had given '
+                        'us definite verdicts concerning three matters, i.e., how much a grandfather may inherit (of '
+                        'his grandson), the inheritance of Al-Kalala (the deceased person among whose heirs there is '
+                        'no father or son), and various types of Riba(1 ) (usury)',
+                 'urd': 'ہم سے احمد بن ابی رجاء نے بیان کیا، انہوں نے کہا ہم سے یحییٰ بن سعید قطان نے بیان کیا، ان سے '
+                        'ابوحیان تمیمی نے، ان سے شعبی نے اور ان سے عبداللہ بن عمر رضی اللہ عنہما نے بیان کیا کہ عمر '
+                        'رضی اللہ عنہ نے رسول اللہ صلی اللہ علیہ وسلم کے منبر پر خطبہ دیتے ہوئے کہا جب شراب کی حرمت کا '
+                        'حکم ہوا تو وہ پانچ چیزوں سے بنتی تھی۔ انگور سے، کھجور سے، گیہوں سے، جَو اور شہد سے اور «خمر» '
+                        '( شراب ) وہ ہے جو عقل کو مخمور کر دے اور تین مسائل ایسے ہیں کہ میری تمنا تھی کہ رسول اللہ صلی '
+                        'اللہ علیہ وسلم ہم سے جدا ہونے سے پہلے ہمیں ان کا حکم بتا جاتے، دادا کا مسئلہ، کلالہ کا مسئلہ '
+                        'اور سود کے چند مسائل۔ ابوحیان نے بیان کیا کہ میں نے شعبی سے پوچھا: اے ابوعمرو! ایک ایسا شربت '
+                        'ہے جو سندھ میں چاول سے بنایا جاتا ہے۔ انہوں نے کہا کہ یہ چیز رسول اللہ صلی اللہ علیہ وسلم کے '
+                        'زمانے میں نہیں پائی جاتی تھی یا کہا کہ عمر رضی اللہ عنہ کے زمانے میں نہ تھی اور فرج ابن منہال '
+                        'نے بھی اس حدیث کو حماد بن سلمہ سے بیان کیا اور ان سے ابوحیان نے اس میں انگور کے بجائے کشمش '
+                        'ہے۔'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/5610/text',
+                              'original_text_sha256': '8dfcab2f3bae84532e0bdc757748ef2b3447e2ee79ab9508ca41e003393810e3',
+                              'quotation_spans': [[0, 833]]},
+                      'ben': {'json_pointer': '/hadiths/5610/text',
+                              'original_text_sha256': 'ea594434b6c74d6fbbc926eacc7656b1de87cac49b55761ee368e1224780c8f7',
+                              'quotation_spans': [[0, 906]]},
+                      'eng': {'json_pointer': '/hadiths/5610/text',
+                              'original_text_sha256': 'ef9cc284ff1666a04913707113263a2faa62b919f0d90729ddccb3b3940e16bc',
+                              'quotation_spans': [[0, 607]]},
+                      'urd': {'json_pointer': '/hadiths/5610/text',
+                              'original_text_sha256': '1e3e565e8fccdc2f83ccc915295ec3d39d6ab92a58c5b94c0a2f0c9ae8e47612',
+                              'quotation_spans': [[0, 932]]}}},
+ {'book': 'ibnmajah',
+  'id': '113',
+  'expected': 'hadith',
+  'quotations': {'ara': 'حَدَّثَنَا مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ نُمَيْرٍ، وَعَلِيُّ بْنُ مُحَمَّدٍ، قَالاَ '
+                        'حَدَّثَنَا وَكِيعٌ، حَدَّثَنَا إِسْمَاعِيلُ بْنُ أَبِي خَالِدٍ، عَنْ قَيْسِ بْنِ أَبِي '
+                        'حَازِمٍ، عَنْ عَائِشَةَ، قَالَتْ قَالَ رَسُولُ اللَّهِ ـ صلى الله عليه وسلم ـ فِي مَرَضِهِ '
+                        '\u200f"\u200f وَدِدْتُ أَنَّ عِنْدِي بَعْضَ أَصْحَابِي \u200f"\u200f \u200f.\u200f قُلْنَا '
+                        'يَا رَسُولَ اللَّهِ أَلاَ نَدْعُو لَكَ أَبَا بَكْرٍ فَسَكَتَ قُلْنَا أَلاَ نَدْعُو لَكَ '
+                        'عُمَرَ فَسَكَتَ قُلْنَا أَلاَ نَدْعُو لَكَ عُثْمَانَ قَالَ \u200f"\u200f نَعَمْ \u200f"\u200f '
+                        '\u200f.\u200f فَجَاءَ عُثْمَانُ فَخَلاَ بِهِ فَجَعَلَ النَّبِيُّ ـ صلى الله عليه وسلم ـ '
+                        'يُكَلِّمُهُ وَوَجْهُ عُثْمَانَ يَتَغَيَّرُ \u200f.\u200f قَالَ قَيْسٌ فَحَدَّثَنِي أَبُو '
+                        'سَهْلَةَ مَوْلَى عُثْمَانَ أَنَّ عُثْمَانَ بْنَ عَفَّانَ قَالَ يَوْمَ الدَّارِ إِنَّ رَسُولَ '
+                        'اللَّهِ ـ صلى الله عليه وسلم ـ عَهِدَ إِلَىَّ عَهْدًا وَأَنَا صَائِرٌ إِلَيْهِ \u200f.\u200f '
+                        'وَقَالَ عَلِيٌّ فِي حَدِيثِهِ وَأَنَا صَابِرٌ عَلَيْهِ \u200f.\u200f قَالَ قَيْسٌ فَكَانُوا '
+                        'يُرَوْنَهُ ذَلِكَ الْيَوْمَ \u200f.\u200f',
+                 'eng': 'It was narrated that \'Aishah said:"When he was ill, the Messenger of Allah said: \'I would '
+                        "like to have some of my Companions with me.' We said: 'O Messenger of Allah! Shall we call "
+                        "Abu Bakr for you?' But he remained silent. We said: 'Shall we call 'Umar for you?' But he "
+                        "remained silent. We said: 'Shall we call 'Uthman for you?' He said: 'Yes.' So 'Uthman came "
+                        "and he spoke to him in private. The Prophet started to speak to him and 'Uthman's expression "
+                        'changed." Qais said: "Abu Sahlah, the freed slave of \'Uthman, narrated to me that on the Day '
+                        "of the House, 'Uthman bin 'Affan said: 'The Messenger of Allah told me what would come to "
+                        'pass and now I am coming to that day.\'"In his narration of the Hadith, \'Ali (one of the '
+                        'narrators) said (that he said): "And I am going to bear it with patience." Qais said: "They '
+                        'used to think that that was the Day of the House'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/112/text',
+                              'original_text_sha256': '1f1b5f674c6e6d2c9f630b68193d5d40bb2722893c968bb5ea0097bc65967bd9',
+                              'quotation_spans': [[0, 936]]},
+                      'eng': {'json_pointer': '/hadiths/112/text',
+                              'original_text_sha256': '661a29df383287c3111a5c3816effbd6decbc91e7bace3649f8295311b5ed6aa',
+                              'quotation_spans': [[0, 866]]}}},
+ {'book': 'muslim',
+  'id': '7559',
+  'expected': 'held',
+  'quotations': {'ara': 'حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَلِيُّ بْنُ مُسْهِرٍ، عَنْ أَبِي '
+                        'حَيَّانَ، عَنِ الشَّعْبِيِّ، عَنِ ابْنِ عُمَرَ، قَالَ خَطَبَ عُمَرُ عَلَى مِنْبَرِ رَسُولِ '
+                        'اللَّهِ صلى الله عليه وسلم فَحَمِدَ اللَّهَ وَأَثْنَى عَلَيْهِ ثُمَّ قَالَ أَمَّا بَعْدُ '
+                        'أَلاَ وَإِنَّ الْخَمْرَ نَزَلَ تَحْرِيمُهَا يَوْمَ نَزَلَ وَهْىَ مِنْ خَمْسَةِ أَشْيَاءَ مِنَ '
+                        'الْحِنْطَةِ وَالشَّعِيرِ وَالتَّمْرِ وَالزَّبِيبِ وَالْعَسَلِ \u200f.\u200f وَالْخَمْرُ مَا '
+                        'خَامَرَ الْعَقْلَ وَثَلاَثَةُ أَشْيَاءَ وَدِدْتُ أَيُّهَا النَّاسُ أَنَّ رَسُولَ اللَّهِ صلى '
+                        'الله عليه وسلم كَانَ عَهِدَ إِلَيْنَا فِيهَا الْجَدُّ وَالْكَلاَلَةُ وَأَبْوَابٌ مِنْ '
+                        'أَبْوَابِ الرِّبَا \u200f.\u200f',
+                 'ben': 'আবূ বাকর ইবনু শাইবাহ (রহঃ) ..... ইবনু উমর (রাযিঃ) থেকে বর্ণিত। তিনি বলেন, একদিন উমর (রাযিঃ) '
+                        'রসূলুল্লাহ সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম এর মিম্বারে উঠে খুৎবাহ প্রদান করতঃ প্রথমে আল্লাহর '
+                        'প্রশংসা এবং গুণকীর্তন করলেন। অতঃপর বললেন- মদ হারাম হওয়ার বিধান যেদিন অবতীর্ণ হওয়ার অবতীর্ণ '
+                        'হয়েছে। তখন তা পাঁচটি জিনিস হতে বানানো হতো, গম, যব, খেজুর, আঙ্গুর এবং মধু হতে। আর যা মানুষের '
+                        'বিবেকবুদ্ধি বিলোপ করে দেয়, তা-ই মদ। আর তিনটি বিষয়, হে লোক সকল! আমার প্রত্যাশা। যদি '
+                        'রসূলুল্লাহ সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম আমাদের কাছে দাদার (পরিত্যক্ত সম্পত্তি), কালালাহ্ '
+                        '(নিঃসন্তান ব্যক্তির পরিত্যাজ্য সম্পত্তি) এবং সুদের বিভিন্ন অধ্যায় সম্পর্কে (আরো স্পষ্ট) বলে '
+                        'যেতেন। (ইসলামিক ফাউন্ডেশন ৭২৭৭, ইসলামিক সেন্টার)',
+                 'eng': "Ibn 'Umar reported that Umar delivered a sermon on the pulpit of Allah's Messenger (ﷺ) and he "
+                        'praised Allah and lauded Him and then said:Now coming to the point. Behold I when the command '
+                        'pertaining to the prohibition of wine was revealed, it was prepared from five things: from '
+                        'wheat, barley, date, grape, honey; and wine is that which clouds the intellect; and O people, '
+                        "I wish Allah's Messenger (ﷺ) could have explained to us in (more) detail the laws pertaining "
+                        'to the inheritance of the grandfather, about one who dies leaving no issue, and some of the '
+                        'problems pertaining to interest',
+                 'urd': 'علی بن مسہر نے ابو حیان سے ، انھوں نے شعبی سے اور انھوں نے حضرت ابن عمر رضی اللہ تعالیٰ عنہ '
+                        'سے روایت کی ، کہا : حضرت عمر رضی اللہ تعالیٰ عنہ نے رسول اللہ صلی اللہ علیہ وسلم کے منبر پر ( '
+                        'کھڑے ہوکر ) خطبہ دیا ، اللہ تعالیٰ کی حمدوثنا بیان کی ، پھر کہا : اس کے بعد : سنو !شراب کی '
+                        'حرمت نازل ہوئی ، جس دن وہ نازل ہوئی ( اس وقت ) وہ پانچ چیزوں سے بنتی تھی ۔ گندم ، جو ، خشک '
+                        'کھجور ، انگور اور شہد سے ، خمر وہ ہے جو عقل کو ڈھانپ لے ۔ اورلوگو!تین چیزیں ایسی ہیں جن کے '
+                        'متعلق میں شدت سے چاہتا ہوں کہ رسول اللہ صلی اللہ علیہ وسلم نے ان کے بارے میں ہمیں اور زیادہ '
+                        'قطعیت سے بتایا ہوتا : دادا اور کلالہ کی میراث اور سود کے ابواب میں سے چند ابواب ۔'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/7558/text',
+                              'original_text_sha256': 'e8796891cf9257af5a3adca1ed3be94896600cbcc18b860c828ba47bc80eede2',
+                              'quotation_spans': [[0, 647]]},
+                      'ben': {'json_pointer': '/hadiths/7558/text',
+                              'original_text_sha256': '9d34dc289a4f6a92cb8f5ba7b6e133a16b0e2a08cbc5a036625de3d3f568117c',
+                              'quotation_spans': [[0, 687]]},
+                      'eng': {'json_pointer': '/hadiths/7558/text',
+                              'original_text_sha256': 'f1a07a68139e25846acb323e29bd0a022c427cd28fb78a2619f574562e9c2857',
+                              'quotation_spans': [[0, 589]]},
+                      'urd': {'json_pointer': '/hadiths/7559/text',
+                              'original_text_sha256': '6bea2d3a291c15107632cc4bf5a57be0f0bd6b7ab0f34dc2e48a20491ef471f1',
+                              'quotation_spans': [[0, 632]]}}},
+ {'book': 'muslim',
+  'id': '7560',
+  'expected': 'held',
+  'quotations': {'ara': 'وَحَدَّثَنَا أَبُو كُرَيْبٍ، أَخْبَرَنَا ابْنُ إِدْرِيسَ، حَدَّثَنَا أَبُو حَيَّانَ، عَنِ '
+                        'الشَّعْبِيِّ، عَنِ ابْنِ، عُمَرَ قَالَ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ، عَلَى مِنْبَرِ '
+                        'رَسُولِ اللَّهِ صلى الله عليه وسلم يَقُولُ أَمَّا بَعْدُ أَيُّهَا النَّاسُ فَإِنَّهُ نَزَلَ '
+                        'تَحْرِيمُ الْخَمْرِ وَهْىَ مِنْ خَمْسَةٍ مِنَ الْعِنَبِ وَالتَّمْرِ وَالْعَسَلِ وَالْحِنْطَةِ '
+                        'وَالشَّعِيرِ وَالْخَمْرُ مَا خَامَرَ الْعَقْلَ وَثَلاَثٌ أَيُّهَا النَّاسُ وَدِدْتُ أَنَّ '
+                        'رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ عَهِدَ إِلَيْنَا فِيهِنَّ عَهْدًا نَنْتَهِي إِلَيْهِ '
+                        'الْجَدُّ وَالْكَلاَلَةُ وَأَبْوَابٌ مِنْ أَبْوَابِ الرِّبَا \u200f.\u200f',
+                 'ben': 'আবু কুরায়ব (রহঃ) ..... ইবনু উমার (রাযিঃ) থেকে বর্ণিত। তিনি বলেন, আমি ‘উমার ইবনুল খাত্তাব '
+                        '(রাযিঃ) কে রসূলুল্লাহ সাল্লাল্লাহু আলাইহি ওয়াসাল্লাম এর মিম্বারে উঠে খুৎবাহ রত অবস্থায় এ কথা '
+                        'বলতে শুনেছি যে, অতঃপর হে লোক সকল! মদ হারাম হওয়ার বিধান অবতীর্ণ হয়েছে। তা পাঁচটি জিনিস হতে '
+                        'বানানো হয়। আঙ্গুর, খেজুর, মধু, গম ও যব হতে। আর যা মানুষের হিতাহিত জ্ঞান বিলুপ্ত করে দেয় '
+                        'তা-ই মদ। আর তিনটি বিষয়, হে লোক সকল! আমার মনের কামনা, যদি রসূলুল্লাহ সাল্লাল্লাহু আলাইহি '
+                        'ওয়াসাল্লাম আমাদেরকে (নিম্নোক্ত কতিপয় বিষয়ে) আরো বিশদভাবে সুস্পষ্টভাবে বলে যেতেন তবে তো আমরা '
+                        'এ সম্পর্কে চূড়ান্ত সিদ্ধান্ত পৌছে যেতে পারতাম। আর তা হচ্ছে, দাদার (মীরাস বণ্টন), কালালাহ্ '
+                        '(নিঃসন্তান ব্যক্তির পরিত্যাজ্য সম্পত্তি) এবং সুদের কতিপয় বিষয়াদি সম্পর্কিত বিধান বলে দিতেন। '
+                        '(ইসলামিক ফাউন্ডেশন ৭২৭৮, ইসলামিক সেন্টার)',
+                 'eng': "Ibn 'Umar reported:I heard 'Umar b. Khattab delivering sermon on the pulpit ol Allah's "
+                        "messenger (ﷺ) and saying': Now, coming to the point, O people, there was revealed (the "
+                        'command pertaining to the prohibition of wine) and it was prepared (at that time) out of five '
+                        'things: grape, date, honey, wheat, barley, and wine is that which clouds the intellect, and, '
+                        "O people, I wish Allah's Messenger (ﷺ) had explained to us in greater detail three things: "
+                        'the inheritance of the grandfather, of one who dies without leaving any issue, and some of '
+                        'the problems of interest',
+                 'urd': 'ابن ادریس نے کہا : ہمیں ابو حیان نے شعبی سے حدیث بیان کی ۔ انھوں نے حضرت عبداللہ بن عمر رضی '
+                        'اللہ تعالیٰ عنہ سے روایت کی ، کہا : میں نے حضرت عمر بن خطاب رضی اللہ تعالیٰ عنہ کو رسول اللہ '
+                        'صلی اللہ علیہ وسلم کے منبر پر فرماتے ہوئے سنا : حمد وثنا کےبعد ، لوگو!شراب کی حرمت نازل ہوئی '
+                        'تو وہ پانچ چیزوں سے بنائی جاتی تھی ، انگور ، کھجور ، شہد ، گندم اور جو سے اور خمر ( شراب ) وہ '
+                        'ہے جو عقل کو ڈھانک دے ۔ لوگو!تین چیزیں ایسی ہیں جن کے متعلق میں چاہتا تھا کہ رسول اللہ صلی '
+                        'اللہ علیہ وسلم ہمیں اور زیادہ قطیعت سے واضح فرمادیتے : دادا اور کلالہ کی میراث اور سود کی '
+                        'صورتوں میں سے چند صورتیں ۔'},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/7559/text',
+                              'original_text_sha256': '00455f4f3136aa55471072e527d051e75644db3d9caf70205d326fe29cc8c0ea',
+                              'quotation_spans': [[0, 611]]},
+                      'ben': {'json_pointer': '/hadiths/7559/text',
+                              'original_text_sha256': '0c92de13777b5c3b55ef2a9327c47eae4468e9c0421aaa5bc8cf4634c8ecca9d',
+                              'quotation_spans': [[0, 775]]},
+                      'eng': {'json_pointer': '/hadiths/7559/text',
+                              'original_text_sha256': '8ac6ecfb6f455fd9d64e45ee6ec9b905ae47eea63ec3dab4f568034d4ceb307f',
+                              'quotation_spans': [[0, 567]]},
+                      'urd': {'json_pointer': '/hadiths/7560/text',
+                              'original_text_sha256': '9d7b729bcafd203c182b6aa9c4b58b9af0af0c36c20ef23fb4919d0b055d0b1a',
+                              'quotation_spans': [[0, 579]]}}},
+ {'book': 'nasai',
+  'id': '5579',
+  'expected': 'held',
+  'quotations': {'ara': 'أَخْبَرَنَا مُحَمَّدُ بْنُ الْعَلاَءِ، قَالَ أَنْبَأَنَا ابْنُ إِدْرِيسَ، عَنْ زَكَرِيَّا، '
+                        'وَأَبِي، حَيَّانَ عَنِ الشَّعْبِيِّ، عَنِ ابْنِ عُمَرَ، قَالَ سَمِعْتُ عُمَرَ بْنَ '
+                        'الْخَطَّابِ، رضى الله عنه عَلَى مِنْبَرِ رَسُولِ اللَّهِ صلى الله عليه وسلم يَقُولُ أَمَّا '
+                        'بَعْدُ فَإِنَّ الْخَمْرَ نَزَلَ تَحْرِيمُهَا وَهِيَ مِنْ خَمْسَةٍ مِنَ الْعِنَبِ '
+                        'وَالْحِنْطَةِ وَالشَّعِيرِ وَالتَّمْرِ وَالْعَسَلِ \u200f.\u200f',
+                 'ben': 'মুহাম্মাদ ইবন আলা (রহঃ) ... ইবন উমর (রাঃ) থেকে বর্ণিত। তিনি বলেন, আমি উমর (রাঃ)-কে মিম্বরে '
+                        'বলতে শুনেছি। তিনি আল্লাহর প্রশংসা করার পর বলেনঃ জেনে রাখ! যখন মদ হারাম হয় তখন খেজুর, গম, যব, '
+                        'মধু এবং আঙুর এ পাঁচটি বস্তু থেকে মদ তৈরি হতো।',
+                 'eng': 'It was narrated that Ibn \'Umar said:"I heard \'Umar bin Al-Khattab, may Allah be pleased '
+                        "with him, on the Minbar of the Messenger of Allah [SAW], say: 'The prohibition of Khamr was "
+                        'revealed when it was made from five things: From grapes, wheat, barley, dates and honey',
+                 'urd': ''},
+  'source_evidence': {'ara': {'json_pointer': '/hadiths/5585/text',
+                              'original_text_sha256': 'a31bf0ddd9a2946cc69482d3fbdc765f3662a41d1a4cb8dc3ef75e06a5beb9c3',
+                              'quotation_spans': [[0, 400]]},
+                      'ben': {'json_pointer': '/hadiths/5585/text',
+                              'original_text_sha256': '71e8c1b12d264cff4c51ae0344366cfba115ec104f363709c20106e693fc5eec',
+                              'quotation_spans': [[0, 230]]},
+                      'eng': {'json_pointer': '/hadiths/5585/text',
+                              'original_text_sha256': '6dfc6ba371bd672a9375133e7e9b4fae7ebc2b61f5c34df991d10affd6d42784',
+                              'quotation_spans': [[0, 267]]},
+                      'urd': {'json_pointer': '/hadiths/5585/text',
+                              'original_text_sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
+                              'quotation_spans': [[0, 0]]}}}]
 
 
 def row(number, text="TEST قال رسول الله TEST source quotation", book=1):
@@ -295,6 +721,50 @@ class FawazBulkTests(unittest.TestCase):
         self.assertEqual(summary['registered_occurrences'], 0)
         self.assertEqual(summary['by_book']['bukhari']['by_hold_reason']['attribution_subject_requires_review'], 2)
 
+    def test_actual_wish_contexts_allow_independent_evidence_but_six_umar_sermons_stay_held(self):
+        for fixture in ACTUAL_SUBJECT_REGRESSIONS:
+            with self.subTest(book=fixture['book'], number=fixture['id']):
+                versions = {language: {'quotation': text, 'row': row(int(fixture['id']), text),
+                                       'metadata': {'sections': {}}}
+                            for language, text in fixture['quotations'].items()}
+                before = copy.deepcopy(versions)
+                normalized, _ = importer.normalized_with_offsets(versions['ara']['quotation'])
+                self.assertIsNotNone(importer.AMBIGUOUS_ATTRIBUTION.search(normalized))
+                result = importer.classify_group(versions)
+                self.assertEqual(result['classification'], fixture['expected'])
+                self.assertEqual(versions, before)
+                if fixture['expected'] == 'hadith':
+                    self.assertEqual(result['subject_check'], 'source_local_guarded_evidence')
+                    start, end = result['span']
+                    self.assertEqual(result['text'], versions[result['source_language']]['quotation'][start:end])
+                else:
+                    self.assertEqual(result['reason'], 'attribution_subject_requires_review')
+
+    def test_ambiguous_groups_never_fall_back_to_broad_legacy_attribution(self):
+        fixture = next(item for item in ACTUAL_SUBJECT_REGRESSIONS if item['book'] == 'ibnmajah')
+        versions = {language: {'quotation': text, 'row': row(113, text), 'metadata': {'sections': {}}}
+                    for language, text in fixture['quotations'].items()}
+        with mock.patch.object(importer, 'explicit_report_evidence', return_value=None):
+            result = importer.classify_group(versions)
+        self.assertEqual(result['reason'], 'attribution_subject_requires_review')
+
+    def test_introduction_gate_and_verified_span_order_survive_ambiguity_handling(self):
+        fixture = next(item for item in ACTUAL_SUBJECT_REGRESSIONS if item['book'] == 'ibnmajah')
+        versions = {language: {'quotation': text, 'row': row(113, text, book=0),
+                               'metadata': {'sections': {'0': 'Introduction'}}}
+                    for language, text in fixture['quotations'].items()}
+        with mock.patch.object(importer, 'explicit_report_evidence') as helper:
+            self.assertEqual(importer.classify_group(versions)['reason'], 'source_introduction_requires_bounded_narration_review')
+            helper.assert_not_called()
+        text = versions['eng']['quotation']
+        decision = {'source_text_sha256': importer.sha(text.encode()), 'quotation_spans': [[0, len(text)]]}
+        # The normal caller verifies the exact source before marking a span reviewed.
+        quotation, _, _ = importer.apply_reviewed_span(text, decision)
+        versions['eng'].update(quotation=quotation, reviewed_source_span=decision)
+        with mock.patch.object(importer, 'explicit_report_evidence') as helper:
+            self.assertEqual(importer.classify_group(versions)['reason'], 'reviewed_explicit_source_attribution')
+            helper.assert_not_called()
+
     def test_explicit_tirmidhi_grading_tail_is_source_commentary(self):
         self.plan['books'] = ['tirmidhi']
         importer.save_json(self.root, importer.PLAN, self.plan)
@@ -381,6 +851,41 @@ class FawazBulkTests(unittest.TestCase):
                 self.assertTrue(view['comments'][0]['text'].startswith('TEST independent ruling'))
         from counterpart_coverage import availability_for
         self.assertEqual(availability_for(record), {'arabic': 'missing', 'english': 'missing'})
+
+    def test_reviewed_abbreviation_preserves_own_wording_and_language_owned_reference(self):
+        inputs = self.inputs()
+        own_text = 'TEST abbreviated source wording with TEST previous-chain citation'
+        for prefix in self.plan['languages']:
+            text = own_text if prefix == 'ara' else 'TEST ' + prefix + ' supplied short wording'
+            inputs['editions/' + prefix + '-bukhari.json'] = importer.encoded(source_data('bukhari', [row(2, text)]))
+        decision = {'provider_book': 'bukhari', 'provider_edition': 'ara-bukhari', 'typed_hadithnumber': '2',
+                    'source_text_sha256': importer.sha(own_text.encode()), 'quotation_spans': [[0, len(own_text)]],
+                    'quotation_kind': 'source_explicit_abbreviated_transmission',
+                    'source_reference': {'parent_source': {'provider_edition': 'ara-bukhari', 'typed_hadithnumber': '1'},
+                        'reference_evidence': [{'source': {'provider_edition': 'ara-bukhari'}, 'text': 'TEST previous-chain citation'}]}}
+        importer.save_json(self.root, 'catalog/fawaz-reviewed-spans.json', {
+            'schema': 'hadith-bank-fawaz-reviewed-spans-v1', 'repository': importer.REPOSITORY,
+            'revision': importer.REVISION, 'decisions': [decision]})
+        self.seed(inputs)
+        summary, _ = importer.run(self.args())
+        self.assertEqual(summary['registered_occurrences'], 1)
+        records = [json.loads(line) for path in (self.root / 'materials').glob('*/records.jsonl')
+                   for line in path.read_text().splitlines()]
+        self.assertEqual(len(records), 1)
+        for version in records[0]['language_versions']:
+            if version['language'] == 'ar':
+                self.assertEqual(version['text'], own_text)
+                self.assertEqual(version['scope'], 'source_excerpt')
+                self.assertEqual(version['quotation_status'], 'abbreviated_source_report')
+                self.assertEqual(version['source']['quotation_kind'], 'source_explicit_abbreviated_transmission')
+                reference = version['references'][1]
+                self.assertEqual(reference['source_citation'], 'TEST previous-chain citation')
+                self.assertEqual(reference['url'], importer.entry_url('ara-bukhari', 1))
+                self.assertFalse(reference['identity_merged'])
+                self.assertFalse(reference['parent_text_inserted'])
+            else:
+                self.assertEqual(len(version['references']), 1)
+                self.assertEqual(version['quotation_status'], 'bounded')
 
     def test_partial_book_never_published_and_saved_checksums_are_required(self):
         inputs = self.inputs()

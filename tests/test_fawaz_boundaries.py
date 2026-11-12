@@ -13,6 +13,142 @@ from fawaz_boundaries import split_source_reading
 
 
 class FawazBoundaryTests(unittest.TestCase):
+    def test_nasai_own_language_compiler_tails_do_not_borrow_offsets(self):
+        cases = [
+            ('ar', 'حَدَّثَنَا TEST "TEST رواية". وَقَالَ أَبُو عَبْدِ الرَّحْمَنِ هَذَا خَطَأٌ.', 'وَقَالَ'),
+            ('en', 'TEST narration." Abu \'Abdur-Rahaman (An-Nasai) said: TEST source note.', 'Abu'),
+            ('ur', 'TEST روایت۔ اور ابوعبدالرحمٰن ( امام نسائی رحمہ اللہ ) کہتے ہیں: TEST نوٹ۔', 'اور'),
+            ('bn', 'TEST বর্ণনা। আবূ আব্দুর রহমান (নাসাঈ) (রহঃ) বলেন, TEST টীকা।', 'আবূ'),
+        ]
+        for language, text, marker in cases:
+            with self.subTest(language=language):
+                result = self.split(text, 'nasai', language)
+                self.assertEqual(result['quotation'], text[:text.index(marker)])
+                self.assertIsNone(result['pending_reason'])
+
+    def test_nasai_source_grade_and_misspelled_headings_are_notes_without_punctuation_repair(self):
+        for grade in ['(Sahih)', '( sahih )', '(Da if)', "(Da 'if)", '(Hasan)']:
+            text = 'TEST report "source ends without closing punctuation' + grade + ' Chpater 107: TEST editorial title'
+            result = self.split(text, 'nasai', 'en')
+            self.assertEqual(result['quotation'], text[:text.index(grade)])
+            self.assertEqual(result['quotation'].count('"'), 1)
+            self.assertIn('Chpater 107:', result['notes'][0])
+        self.assertIsNone(split_source_reading('TEST reported recitation of Chapter 5: TEST quoted words.', 'nasai', 'en'))
+
+    def test_nasai_same_name_narrators_vocatives_and_christians_are_not_compiler_cues(self):
+        cases = [
+            ('ar', 'TEST. قَالَ أَبُو عَبْدِ الرَّحْمَنِ السُّلَمِيُّ TEST رواية.'),
+            ('en', "It was narrated from Abu 'Abdur-Rahman Al-Hubuli who said: TEST narration."),
+            ('en', "TEST. O Abu 'Abdur-Rahman! TEST dialogue."),
+            ('ur', 'ابوعبدالرحمٰن سلمی کہتے ہیں کہ TEST روایت۔'),
+            ('ur', 'TEST۔ ابوعبدالرحمٰن (سلمی) کہتے ہیں TEST روایت۔'),
+            ('bn', 'TEST। আবু আবদুর রহমান (সালামী) বলেন TEST বর্ণনা।'),
+            ('bn', 'TEST নাসারা TEST বর্ণনা।'),
+        ]
+        for language, text in cases:
+            with self.subTest(language=language, text=text):
+                self.assertIsNone(split_source_reading(text, 'nasai', language))
+
+    def test_nasai_initial_compiler_chain_preserves_report(self):
+        text = 'قَالَ أَبُو عَبْدِ الرَّحْمَنِ أَخْبَرَنَا TEST عَنِ النَّبِيِّ TEST رواية.'
+        result = self.split(text, 'nasai', 'ar')
+        self.assertEqual(result['quotation'], text)
+        self.assertFalse(result['notes'])
+
+    def test_nasai_arabic_inline_glosses_keep_resumed_source_text(self):
+        for gloss in ['وَاسْمُهُ سَوَادَةُ بْنُ عَاصِمٍ', 'فَلَمْ أَفْهَمْ فِتْيَةً كَمَا أَرَدْتُ']:
+            text = 'TEST chain - قَالَ أَبُو عَبْدِ الرَّحْمَنِ ' + gloss + ' - TEST resumed narration.'
+            result = self.split(text, 'nasai', 'ar')
+            self.assertEqual(len(result['spans']['quotation_spans']), 2)
+            self.assertTrue(result['spans']['disjoint_quotation'])
+            self.assertIn('TEST resumed narration.', result['quotation'])
+            self.assertNotIn(gloss, result['quotation'])
+
+    def test_nasai_unbounded_hearing_warning_is_context_not_chain_only_matn(self):
+        text = 'أَخْبَرَنَا TEST قَالَ عَلَى أَثَرِهِ قَالَ أَبُو عَبْدِ الرَّحْمَنِ وَلَمْ أُتْقِنْهُ عَنْ عُرْوَةَ TEST reported narration.'
+        result = self.split(text, 'nasai', 'ar')
+        self.assertEqual(result['quotation'], '')
+        self.assertEqual(result['notes'], [text])
+        self.assertIn('hearing_qualification', result['pending_reason'])
+
+    def test_nasai_quran_recitation_and_bengali_dhikr_keep_exact_source_words(self):
+        ar = 'TEST narrated recitation { غَيْرُ أُولِي الضَّرَرِ } قَالَ أَبُو عَبْدِ الرَّحْمَنِ TEST assessment.'
+        bn = 'TEST reported dhikr عَبْدُهُ وَرَسُولُهُ আবূ আবদুর রহমান বলেন, TEST note.'
+        for text, language, boundary in [(ar, 'ar', 'قَالَ'), (bn, 'bn', 'আবূ')]:
+            result = self.split(text, 'nasai', language)
+            self.assertEqual(result['quotation'], text[:text.index(boundary)])
+            self.assertIsNone(result['pending_reason'])
+
+    def test_nasai_english_inline_hearing_gloss_and_terminal_footnote(self):
+        text = ('TEST narration - Abu \'Abdur-Rahman (An-Nasa\'i) said: I did not understand "what You like" as I wanted to [1] - '
+                'TEST resumed narration." [1] That is, he did not hear or understand what came after it TEST explanatory note.')
+        result = self.split(text, 'nasai', 'en')
+        self.assertEqual(len(result['spans']['quotation_spans']), 2)
+        self.assertEqual(len(result['notes']), 2)
+        self.assertIn('TEST resumed narration.', result['quotation'])
+        self.assertNotIn('explanatory note', result['quotation'])
+        text2 = "TEST--Abu 'AbdurRahman said, 'I did not understand (the word) fityah as I would want'-- TEST continuation."
+        second = self.split(text2, 'nasai', 'en')
+        self.assertEqual(len(second['spans']['quotation_spans']), 2)
+        self.assertIn('TEST continuation.', second['quotation'])
+
+    def test_nasai_explicit_abbreviated_source_is_not_expanded_from_editorial_footnote(self):
+        text = ('TEST the Messenger of Allah was sitting. The Hadith. [1] '
+                '[1]With this chain, At-Tirmidhi recorded it TEST expanded quotation and source discussion.')
+        result = self.split(text, 'nasai', 'en')
+        self.assertEqual(result['quotation'], text[:text.index('[1]With')])
+        self.assertIn('The Hadith.', result['quotation'])
+        self.assertNotIn('expanded quotation', result['quotation'])
+
+    def test_nasai_4147_compiler_discussion_cannot_supply_attribution_for_mujahid_statement(self):
+        from fawaz_attribution import explicit_report_evidence
+        text = ('It was narrated that Mujahid said: "TEST allocation statement." (Da \'if) '
+                'Abu Abdur-Rahman (An-Nasi) said: TEST legal discussion. '
+                'The Messenger of Allah distributed it among them. TEST commentary.')
+        self.assertIsNotNone(explicit_report_evidence({'eng': {'quotation': text}}))
+        result = self.split(text, 'nasai', 'en')
+        self.assertIsNone(explicit_report_evidence({'eng': {'quotation': result['quotation']}}))
+        self.assertIn('The Messenger of Allah distributed it', result['notes'][0])
+
+    def test_nasai_urdu_bounded_hearing_warning_and_independent_final_opinion(self):
+        text = ('TEST ابن عمر سے روایت، (اور امام نسائی کہتے ہیں انہوں نے ان سے سنا نہیں ہے) ۱؎ '
+                'TEST رسول اللہ نے فرمایا: TEST روایت۔ عطاء کہتے ہیں: TEST opinion.')
+        result = self.split(text, 'nasai', 'ur')
+        self.assertEqual(len(result['spans']['quotation_spans']), 2)
+        self.assertIn('رسول اللہ نے فرمایا', result['quotation'])
+        self.assertNotIn('عطاء کہتے', result['quotation'])
+        self.assertIn('سنا نہیں ہے', result['notes'][0])
+
+    def test_nasai_urdu_embedded_bibliography_is_separate_with_exact_surrounding_source(self):
+        citation = ('تخریج دارالدعوہ: تفرد بہ النسائی ( تحفة الأشراف: ۱۷۹۵۴ ) ، مسند احمد ۶/ ۱۲۸، '
+                    'مسند احمد ۶/ ۱۲۹، ویأتي عند المؤلف في الحیض ۴ رقم: ۳۵۶ ( صحیح ) ')
+        text = 'TEST آپ صلی ' + citation + 'اللہ علیہ وسلم نے فرمایا: TEST روایت۔'
+        result = self.split(text, 'nasai', 'ur')
+        self.assertEqual(result['notes'], [citation])
+        self.assertEqual(len(result['spans']['quotation_spans']), 2)
+        self.assertTrue(result['spans']['disjoint_quotation'])
+
+    def test_nasai_chain_comparison_is_own_source_note_bengali_absence_is_preserved(self):
+        text = 'TEST source mentions a similar report. Ma\'mar contradicted the two of them; he reported it from Az-Zuhri, from \'Urwah, from \'Aishah'
+        result = self.split(text, 'nasai', 'en')
+        self.assertEqual(result['quotation'], text[:text.index("Ma'mar")])
+        self.assertIsNone(split_source_reading('TEST source mentions a similar report.', 'nasai', 'bn'))
+
+    def test_nasai_transmitter_continuation_is_not_deleted_by_a_generic_name_cut(self):
+        text = 'TEST reported act. (One of the narrators) Shu\'bah said: "He did that three times, then he said: \'TEST continued words'
+        self.assertIsNone(split_source_reading(text, 'nasai', 'en'))
+
+    def test_abudawud_2251_keeps_both_explicit_versions_with_own_comment_spans(self):
+        text = ('Sahl said “The version of Musaddad has “TEST first narration. '
+                'Here ends the version of Musaddad. Others said “TEST second narration. '
+                'Abu Dawud said “TEST source wording note.” Abu Dawud said “TEST assessment.”')
+        result = self.split(text, 'abudawud', 'en')
+        self.assertEqual(result['spans']['quotation_spans'], [[0, text.index('Here ends')], [text.index('Others said'), text.index('Abu Dawud said')]])
+        self.assertIn('Others said', result['quotation'])
+        self.assertTrue(result['spans']['disjoint_quotation'])
+        self.assertNotIn('source_report_count', result)
+        self.assertEqual(len(result['notes']), 2)
+
     def assert_partition(self, original, result):
         self.assertIsNotNone(result)
         spans = result['spans']

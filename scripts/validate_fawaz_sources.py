@@ -149,6 +149,22 @@ class SourceAudit:
         self.by_language = collections.defaultdict(collections.Counter)
         self.accepted, self.held, self.ledgers = {}, {}, {}
         self.sizes = []
+        self.reviewed = source.reviewed_source_spans(root)
+        self.review_files, self.relative_checks, self.relative_readings = {}, [], {}
+        self.relative_source_keys = set()
+        for decision in self.reviewed.values():
+            relation = decision.get('source_reference')
+            if not relation:
+                continue
+            book = decision['provider_book']
+            for binding in (relation['parent_source'], relation.get('independent_terminal')):
+                if binding:
+                    prefix = binding['provider_edition'].split('-', 1)[0]
+                    self.relative_source_keys.add((book, prefix, binding['typed_hadithnumber']))
+            for evidence in relation.get('reference_evidence', []):
+                binding = evidence['source']
+                prefix = binding['provider_edition'].split('-', 1)[0]
+                self.relative_source_keys.add((book, prefix, binding['typed_hadithnumber']))
         for key, descriptor in self.inputs.items():
             require(descriptor.get('source_path') == key, 'Saved input key differs from its source path: ' + key)
             raw = source.checked_snapshot(root, descriptor)
@@ -178,6 +194,196 @@ class SourceAudit:
         dataset = self.datasets[prefix + '-' + book]
         require(type(position) is int and 0 <= position < len(dataset['hadiths']), 'Source row position is out of bounds')
         return dataset['hadiths'][position]
+
+    def relative_source(self, binding, expected=None, default_edition=None):
+        """Bind review evidence to an immutable saved row, never an array join."""
+        edition = binding.get('provider_edition', binding.get('edition', default_edition))
+        require(isinstance(edition, str) and '-' in edition, 'Relative evidence lacks its own edition')
+        prefix, book = edition.split('-', 1)
+        key = (book, prefix, binding['typed_hadithnumber'])
+        require(expected is None or key == expected, 'Relative evidence belongs to another source occurrence')
+        require(binding.get('provider_book', book) == book, 'Relative evidence changed provider book')
+        path = 'editions/' + edition + '.json'
+        require(path in self.inputs and edition in self.datasets, 'Relative evidence source was not acquired')
+        descriptor = self.inputs[path]
+        position = binding['source_position']
+        original = self.row(book, prefix, position)
+        require(source.typed_identity(original['hadithnumber']) == key[2], 'Relative evidence changed typed source identity')
+        require(self.groups.get((book, key[2]), {}).get(prefix) == [position],
+                'Relative evidence has a missing or ambiguous source identity')
+        require(binding['source_path'] in (path, descriptor['path'])
+                and binding['source_raw_sha256'] == descriptor['sha256']
+                and binding['source_text_sha256'] == source.sha(original['text'].encode()),
+                'Relative evidence source hash or path mismatch')
+        pointers = [binding[name] for name in ('json_pointer', 'source_json_pointer') if name in binding]
+        urls = [binding[name] for name in ('provider_url', 'source_url') if name in binding]
+        require(pointers and all(value == '/hadiths/' + str(position) + '/text' for value in pointers),
+                'Relative evidence source pointer mismatch')
+        require(urls and all(value == descriptor['url'] for value in urls), 'Relative evidence source URL mismatch')
+        if 'reference_as_supplied' in binding:
+            require(same(binding['reference_as_supplied'], original['reference']), 'Relative evidence changed source reference')
+        return key, original
+
+    def relative_span(self, evidence, expected=None, quotation_spans=None, default_edition=None):
+        binding = evidence.get('source', evidence)
+        key, original = self.relative_source(binding, expected, default_edition)
+        spans = check_spans([evidence['span']], len(original['text']), 'Relative evidence span')
+        require(len(spans) == 1 and evidence['text'] == original['text'][spans[0][0]:spans[0][1]],
+                'Relative evidence text differs from its exact source span')
+        if quotation_spans is not None:
+            require(any(start <= spans[0][0] < spans[0][1] <= end for start, end in quotation_spans),
+                    'Relative evidence lies outside the bounded narration')
+        return key, spans[0]
+
+    def relative_review_file(self, locator):
+        require(locator.get('compression') == 'gzip' and locator.get('format') == 'jsonl',
+                'Unsupported relative review evidence format')
+        path = locator['path']
+        hashes = (locator['stored_sha256'], locator['raw_sha256'])
+        if path not in self.review_files:
+            stored = local(self.root, path).read_bytes()
+            require(source.sha(stored) == hashes[0], 'Relative review evidence stored hash mismatch')
+            raw = gzip.decompress(stored)
+            require(source.sha(raw) == hashes[1], 'Relative review evidence raw hash mismatch')
+            rows = [parse_json(line) for line in raw.decode('utf-8').splitlines()]
+            self.review_files[path] = (hashes, rows)
+            self.counts['verified_relative_review_files'] += 1
+        saved_hashes, rows = self.review_files[path]
+        require(hashes == saved_hashes, 'Relative review file descriptors disagree')
+        line = locator['line']
+        require(type(line) is int and 1 <= line <= len(rows), 'Relative review evidence line is out of bounds')
+        return rows[line - 1]
+
+    def verify_relative_reference(self, book, version, original, partition):
+        """Verify reviewed relation evidence and display; do not infer a new link."""
+        edition = version['source']['provider_edition']
+        prefix = edition.split('-', 1)[0]
+        child = (book, prefix, source.typed_identity(original['hadithnumber']))
+        decision = self.reviewed.get(child, {})
+        relation = decision.get('source_reference')
+        extra = version['references'][1:]
+        if not relation:
+            require(not extra and version.get('quotation_status') != 'abbreviated_source_report',
+                    'A relative reference has no hash-bound reviewed decision')
+            return
+        self.relative_source(decision, child)
+        require(decision.get('quotation_kind') == 'source_explicit_abbreviated_transmission'
+                and decision.get('classification') == 'source_attributed_prophetic_narration'
+                and all(decision.get(key) is False for key in ('canonical_identity_inferred',
+                           'parent_text_inserted', 'independent_authenticity_assessment')),
+                'Relative decision changed its limited source-attribution scope')
+        require(same(decision['quotation_spans'], partition['quotation_spans'])
+                and decision['quotation_sha256'] == source.sha(partition['quotation'].encode()),
+                'Relative quotation differs from its hash-bound reviewed span')
+        require(version.get('scope') == 'source_excerpt'
+                and version.get('quotation_status') == 'abbreviated_source_report'
+                and version['source'].get('quotation_kind') == decision['quotation_kind'],
+                'Relative narration lacks its visible abbreviated-source qualification')
+        require(relation.get('relation') == 'source_explicit_previous_report_variant', 'Unknown reviewed source relation')
+        parent_binding = relation['parent_source']
+        parent = (book, prefix, parent_binding['typed_hadithnumber'])
+        _, parent_row = self.relative_source(parent_binding, parent)
+        parent_spans = check_spans(parent_binding['quotation_spans'], len(parent_row['text']), 'Relative parent quotation spans')
+        require(parent != child and parent_spans and parent_binding['source_position'] + 1 == decision['source_position']
+                and same(parent_row['reference'].get('book'), original['reference'].get('book')),
+                'Relative parent is not the reviewed preceding source row in its own section')
+        self.relative_checks.append((parent, parent_spans, True))
+        own_evidence = []
+        for evidence in relation['reference_evidence']:
+            binding = evidence['source']
+            if set(binding) == {'provider_edition', 'typed_hadithnumber'}:
+                require(binding == {'provider_edition': edition, 'typed_hadithnumber': child[2]},
+                        'Compact relative citation borrowed another language or occurrence')
+                checked = {**evidence, 'source': decision}
+            else:
+                checked = evidence
+            evidence_prefix, evidence_book = binding['provider_edition'].split('-', 1)
+            key, span = self.relative_span(checked, (book, evidence_prefix, child[2]),
+                                          partition['quotation_spans'] if evidence_prefix == prefix else None)
+            require(evidence_book == book, 'Relative reference crosses provider collections')
+            self.relative_checks.append((key, [span], False))
+            if key == child:
+                own_evidence.append(evidence)
+        require(len(own_evidence) == 1, 'Relative citation must have exactly one own-language source cue')
+        parent_number = parse_json(parent[2])
+        expected = {'collection': source.BOOKS[book][1], 'number': str(parent_number),
+                    'source_citation': own_evidence[0]['text'],
+                    'url': source.entry_url(parent_binding['provider_edition'], parent_number),
+                    'scope': 'source_explicit_previous_report_variant', 'numbering_system': 'fawaz_api_hadithnumber',
+                    'canonical_mapping_status': 'not_inferred',
+                    'relation_evidence': 'Source wording, named chain and observed source order checked together',
+                    'identity_merged': False, 'parent_text_inserted': False}
+        require(same(extra, [expected]), 'Displayed relative reference changed citation, URL, identity or scope')
+        if 'review_evidence_locator' in decision:
+            proof = self.relative_review_file(decision['review_evidence_locator'])
+            self.relative_source(proof, child)
+            require(proof.get('status') == 'reviewed_relative_reference_proposal'
+                    and proof.get('antecedent_text_inserted') is False
+                    and proof.get('canonical_identity_inferred') is False
+                    and [proof['quotation_span']] == partition['quotation_spans'], 'Relative review ledger row or scope mismatch')
+            path = relation['dependency_path']
+            terminal_binding = relation['independent_terminal']
+            terminal = (book, prefix, terminal_binding['typed_hadithnumber'])
+            require(isinstance(path, list) and len(path) >= 2 and all(isinstance(v, str) for v in path)
+                    and len(path) == len(set(path)) and path[:2] == [child[2], parent[2]]
+                    and path[-1] == terminal[2] and terminal_binding['provider_edition'] == edition
+                    and proof['dependency_path'] == path and proof['independent_terminal'] == terminal[2],
+                    'Relative dependency path changed or contains a cycle')
+            for index in range(1, len(path) - 1):
+                link = self.reviewed.get((book, prefix, path[index]), {}).get('source_reference', {})
+                target = link.get('parent_source', {})
+                require(target.get('provider_edition') == edition and target.get('typed_hadithnumber') == path[index + 1],
+                        'Relative dependency path contains an unreviewed intermediate link')
+            require(not self.reviewed.get(terminal, {}).get('source_reference'), 'Relative terminal depends on another relative link')
+            self.relative_source(proof['antecedent'], parent, edition)
+            require(same(proof['antecedent']['same_declared_section'], original['reference']['book'])
+                    and proof['source_order'] == 'previous_source_row_not_numeric_adjacency', 'Relative source-order evidence changed')
+            key, span = self.relative_span(proof['reference_evidence'], child, partition['quotation_spans'])
+            require(span == own_evidence[0]['span'] and proof['reference_evidence']['text'] == own_evidence[0]['text'],
+                    'Compact relative citation disagrees with its immutable review ledger')
+            self.relative_span(proof['child_chain_evidence'], child, partition['quotation_spans'])
+            self.relative_span(proof['antecedent_chain_evidence'], parent, parent_spans)
+            key, span = self.relative_span(proof['independent_terminal_evidence'], terminal)
+            require(proof['independent_terminal_evidence'].get('independent_of_relative_reference_chain') is True
+                    and proof['independent_terminal_evidence'].get('independent_authenticity_assessment') is False,
+                    'Relative terminal proof changed its independent attribution scope')
+            self.relative_checks.append((key, [span], False))
+            if proof.get('source_local_alias_evidence'):
+                key, _ = self.relative_span(proof['source_local_alias_evidence'])
+                require(key[:2] == child[:2], 'Named-chain alias evidence belongs to another edition')
+            boundaries = proof['current_language_boundaries']
+            for language, boundary in boundaries.items():
+                _, raw_row = self.relative_source(boundary['source'], (book, language, child[2]))
+                result = verify_partition(raw_row['text'], {'quotation_spans': boundary['quotation_spans'], 'notes': boundary['note_spans']})
+                require(boundary['quotation_sha256'] == source.sha(result['quotation'].encode()), 'Relative review language-boundary hash mismatch')
+            if proof.get('additional_content_reference'):
+                evidence = proof['additional_content_reference']
+                own_prefix = evidence['edition'].split('-', 1)[0]
+                self.relative_span(evidence, (book, own_prefix, child[2]), boundaries[own_prefix]['quotation_spans'])
+            review = proof['source_review']
+            require(all(review.get(key) is False for key in ('source_identity_merged', 'parent_text_inserted',
+                                                             'independent_authenticity_assessment')),
+                    'Relative review ledger asserts identity, completion or certification')
+        else:
+            chain = relation['named_chain_evidence']
+            self.relative_span(chain['child_node'], child, partition['quotation_spans'])
+            self.relative_span(chain['parent_node'], parent, parent_spans)
+            self.relative_span(chain['parent_continuation'], parent, parent_spans)
+            if chain.get('source_explicit_name_equivalence'):
+                key, _ = self.relative_span(chain['source_explicit_name_equivalence'])
+                require(key[:2] == child[:2], 'Named-chain alias evidence belongs to another edition')
+            self.relative_span(relation['parent_prophetic_attribution'], parent, parent_spans)
+            order = relation['observed_order_evidence']
+            require(order['source_language'] == prefix and order['parent_position'] == parent_binding['source_position']
+                    and order['child_position'] == decision['source_position']
+                    and order['adjacent_in_pinned_source_array'] is True
+                    and same(order['same_supplied_section'], original['reference']['book']), 'Relative observed-order evidence changed')
+            for role, number in (('parent', parent[2]), ('child', child[2])):
+                name = 'corroborating_english_' + role + '_position'
+                if name in order:
+                    require(source.typed_identity(self.row(book, 'eng', order[name])['hadithnumber']) == number,
+                            'Relative corroborating language position identifies another occurrence')
+        self.counts['verified_relative_references'] += 1
 
     def reading(self, record, book, version):
         info = version['source']
@@ -225,6 +431,10 @@ class SourceAudit:
         reference = version['references'][0]
         require(reference.get('url') == expected_url and reference.get('canonical_mapping_status') == 'not_inferred'
                 and same(reference.get('provider_numbers'), supplied_numbers), 'Language reference/numbering ownership mismatch')
+        self.verify_relative_reference(book, version, original, partition)
+        source_key = (book, prefix, source.typed_identity(original['hadithnumber']))
+        if source_key in self.relative_source_keys and not pending:
+            self.relative_readings[source_key] = partition['quotation_spans']
         assessments = [item for item in version.get('comments', []) if isinstance(item, dict)
                        and item.get('scope') == 'provider_assessment_metadata']
         require(same([item.get('source_grade') for item in assessments], original['grades']), 'Visible assessment notes omit or change source grades')
@@ -272,6 +482,11 @@ class SourceAudit:
         primary = next((item for item in own.values() if item['language'] == record['language'] and item.get('text')), None)
         require(primary is not None and record['text']['translation'] == primary['text'], 'Primary text differs from its own language reading')
         require(record['text']['arabic'] == own.get('ara', {}).get('text'), 'Arabic compatibility text differs from its own reading')
+        require(record['references'].get('canonical_mapping_status') == 'not_inferred'
+                and same(record['references']['items'], [reference for version in record['language_versions'] for reference in version['references']]),
+                'Occurrence references differ from their own-language citations')
+        if primary and primary.get('quotation_status') == 'abbreviated_source_report':
+            require(record['extraction'].get('is_excerpt') is True, 'Abbreviated primary source report is not marked as an excerpt')
         availability = record['source'].get('language_availability')
         if availability is not None:
             catalog_names = {item['name'] for item in self.catalog[book]['collection']}
@@ -345,6 +560,11 @@ class SourceAudit:
                 except (ValueError, KeyError, TypeError, IndexError) as error:
                     raise ValueError(str(record.get('id')) + ': ' + str(error)) from error
         expected_ids = {identity(book, number) for book, number in self.groups if book in processed}
+        for key, spans, exact in self.relative_checks:
+            actual = self.relative_readings.get(key)
+            require(actual and (same(actual, spans) if exact else all(
+                any(start <= left < right <= end for start, end in actual) for left, right in spans)),
+                'Relative evidence target is absent, held, or outside its registered narration: ' + str(key))
         for book in processed:
             held_path = local(self.root, source.IMPORT + '/held/' + book + '.jsonl.gz')
             with gzip.open(held_path, 'rt', encoding='utf-8') as stream:

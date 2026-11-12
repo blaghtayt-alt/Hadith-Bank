@@ -277,10 +277,6 @@ def classify_group(versions):
     arabic = versions.get("ara", {}).get("quotation", "")
     normalized, _ = normalized_with_offsets(arabic)
     ambiguous = AMBIGUOUS_ATTRIBUTION.search(normalized)
-    if ambiguous:
-        return {"classification": "held", "reason": "attribution_subject_requires_review",
-                "evidence_language": "ar", "normalized_evidence": ambiguous.group(),
-                "scope": "A wish about the Prophet or a possessive pulpit mention does not establish that he is the reported speaker"}
     for item in versions.values():
         section = source_section_name(item)
         if isinstance(section, str) and re.fullmatch(r"\s*(?:Introduction|Muqaddimah|مقدمة|المقدمة)\s*", section, re.I):
@@ -290,6 +286,17 @@ def classify_group(versions):
     if reviewed:
         return {"classification": "hadith", "reason": "reviewed_explicit_source_attribution",
                 "evidence": reviewed, "scope": "source_attribution_not_authenticity", "independent_authenticity_assessment": False}
+    if ambiguous:
+        # A wish or possessive mention invalidates that candidate attribution,
+        # not an independently reported act/reply elsewhere in the source.
+        # The broad legacy patterns are deliberately unavailable in this branch.
+        expanded = explicit_report_evidence(versions)
+        if expanded:
+            return {"classification": "hadith", "reason": "explicit_source_report_attribution", "span_basis": "quotation",
+                    "subject_check": "source_local_guarded_evidence", **expanded}
+        return {"classification": "held", "reason": "attribution_subject_requires_review",
+                "evidence_language": "ar", "normalized_evidence": ambiguous.group(),
+                "scope": "A wish about the Prophet or a possessive pulpit mention does not establish that he is the reported speaker"}
     evidence = classify_arabic({"textArabic": arabic})
     if evidence["classification"] == "hadith":
         return {**evidence, "reason": "explicit_prophetic_attribution", "scope": "source_attribution_not_authenticity"}
@@ -449,6 +456,7 @@ def canonical_record(book, identity, versions, classification, state, requested_
             "source_report_count": item.get("source_report_count", 1),
             "source_report_boundaries": item.get("source_report_boundaries"),
             "source_report_alignment_note": item.get("source_report_alignment_note"),
+            "quotation_kind": (item.get("reviewed_source_span") or {}).get("quotation_kind"),
             "quotation_boundary_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "pending" if item.get("pending_reason") else "bounded",
             "quotation_boundary_reason": item.get("pending_reason"),
             "catalog_source_as_supplied": meta.get("source"), "catalog_author_as_supplied": meta.get("author"),
@@ -463,8 +471,8 @@ def canonical_record(book, identity, versions, classification, state, requested_
                          "text": None if item.get("pending_reason") else quotation, "source": own_source, "references": own_refs, "comments": comments,
                          "grading": copy.deepcopy(row["grades"]), "provider_numbers": copy.deepcopy(own_refs[0]["provider_numbers"]),
                          "translation_provenance": None if code == "ar" else origin,
-                         "scope": "source_context" if item.get("quotation_status") == "content_mismatch" else "external_source" if item.get("pending_reason") else "source_excerpt" if item["notes"] else "source_entry",
-                         "quotation_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "boundary_pending" if item.get("pending_reason") else "multiple_source_reports" if item.get("source_report_count", 1) > 1 else "disjoint_source_spans" if len(item["spans"].get("quotation_spans", [])) > 1 else "bounded",
+                         "scope": "source_context" if item.get("quotation_status") == "content_mismatch" else "external_source" if item.get("pending_reason") else "source_excerpt" if item["notes"] or relative_reference else "source_entry",
+                         "quotation_status": "content_mismatch" if item.get("quotation_status") == "content_mismatch" else "boundary_pending" if item.get("pending_reason") else "multiple_source_reports" if item.get("source_report_count", 1) > 1 else "disjoint_source_spans" if len(item["spans"].get("quotation_spans", [])) > 1 else "abbreviated_source_report" if relative_reference else "bounded",
                          "match_status": "provider_entry_content_mismatch" if item.get("quotation_status") == "content_mismatch" else "same_source_record"})
         references.extend(own_refs)
     first = versions[primary]
@@ -494,7 +502,8 @@ def canonical_record(book, identity, versions, classification, state, requested_
                    "release_eligible": False, "certified_release_eligible": False, "issues": []},
         "rights": {"status": "upstream_translation_rights_not_independently_assessed", "repository_license": "Unlicense",
                    "license_scope": "Repository software declaration; not a new license assertion for each upstream translation", "reuse_basis": None},
-        "extraction": {"method": "pinned_public_whole_edition_json", "ocr_used": False, "is_excerpt": bool(first["notes"]),
+        "extraction": {"method": "pinned_public_whole_edition_json", "ocr_used": False,
+                       "is_excerpt": bool(first["notes"]) or bool((first.get("reviewed_source_span") or {}).get("source_reference")),
                        "new_translation_produced": False, "exact_quote_spans_preserved": True,
                        "source_attribution": classification},
         "source_locator": {"revision": REVISION, "provider_book": book, "typed_hadithnumber": identity,

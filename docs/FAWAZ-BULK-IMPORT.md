@@ -249,3 +249,59 @@ provider occurrences, registered occurrences, held occurrences, completed books,
 pending books and a stop reason. “Complete” means the configured source files
 were acquired and processed; it does not mean every source entry is a publishable
 Prophetic narration or that every language has text.
+
+## Complete source views
+
+`source-editions/fawaz/` lists every acquired provider ID, grouped by collection
+and paginated in the original source order. Registered IDs open their existing
+reader occurrence. Other IDs open a separate original-source page with the
+complete preserved language fields, each language's own source references,
+assessments, established commentary spans, and pinned whole-edition links.
+Language controls keep their selection across the source index and its pages.
+
+These pages make retained source material readable without treating it as an
+accepted Prophetic quotation. They are outside narration search, receive
+`noindex,follow`, and do not increase the reader's occurrence or language-text
+counts. Empty fields, missing editions, independent reports, compiler discussion
+and unresolved transmissions stay distinguishable from failed downloads. The
+complete index links both reader and original-source destinations; it does not
+turn a list of unresolved IDs into a claim that all entries are non-hadith.
+
+The source-view builder verifies saved snapshot hashes and edition identities,
+the exact typed-ID union, every held language/position and source row, and the
+accepted destination IDs against the verified reader stream. It refuses phantom
+IDs, dropped language fields, reordered/mislabelled snapshots or changed source
+wording. HTML escaping is lossless and source text cannot execute as page code.
+The source-view report is included in `discovery-info.json` and the same complete
+website size gate applies to these pages.
+
+Additional source-bound batch review evidence is preserved under
+`reports/fawaz-import-review/`. The subject review accounts for all 51 original
+wish/pulpit holds, separates independently supported reports from six Umar-only
+statements, and records the exact reviewed source fields. The attribution
+candidate ledger covers the whole held cohort; a candidate becomes a reader
+occurrence only after the language boundary gates and final source validation.
+
+## Source-relative abbreviated transmissions
+
+The current batch also reviews source entries that explicitly abbreviate a prior
+report. The offline `scripts/fawaz_relative_references.py` proposes evidence; it
+never registers a record or expands its text. A reviewed decision requires the
+source's own reference wording, the named transmitting chain, observed source
+order and a bounded, independently attributed terminal report. Empty intervening
+fields, unresolved predecessors, independent narrator discussion and mixed later
+reports prevent automatic acceptance. Number adjacency alone has no effect.
+
+The 272 additional Arabic decisions preserve each exact short quotation and its
+own reference. Other languages keep their own supplied fields and references;
+they do not borrow the Arabic citation or a predecessor's wording. The reader
+labels verified abbreviated readings and provides the cited source under that
+language's References panel. Identity and source numbering remain separate.
+
+`reports/fawaz-relative-reference-review-20261112.jsonl.gz` accounts for every ID
+in the 7,514-entry checkpoint cohort, with exact source hashes, cue/chain spans,
+backward dependency paths and terminal attribution evidence. The compact catalog
+decisions identify their exact line and the compressed/uncompressed hashes of
+this ledger. This batch's proposals are frozen decisions for the pinned revision;
+future source changes require a new review. The ledger is not a certification of
+translation equivalence or narrational authenticity.

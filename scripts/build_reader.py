@@ -882,12 +882,15 @@ def discovery_navigation(records, site):
     languages = sorted({component(r['language']) for r in records})
     links = ''.join('<li><a href="' + escaped(base + 'browse/' + code + '/') + '">' +
                     escaped(language_label(code)) + '</a></li>' for code in languages)
+    source_views = ('<p><a href="' + escaped(base + 'source-editions/fawaz/') +
+                    '">Complete Fawaz source editions</a> — every acquired entry, including original source text outside the narration reader.</p>') if any(
+                        str(record.get('source_id') or '').startswith('fawaz-') for record in records) else ''
     return ('<details class="discovery-nav"><summary>Browse languages and source books</summary>'
             '<p><a href="' + escaped(base + 'browse/') + '">All books and languages</a> · '
             '<a href="' + escaped(site['repository_url'] + '/blob/main/catalog/BOOKS.md') +
             '">Book and download directory on GitHub</a></p>'
             '<ul>' + links + '</ul><p>Each narration has its own reading page and source reference. '
-            'These pages also work without JavaScript.</p></details>')
+            'These pages also work without JavaScript.</p>' + source_views + '</details>')
 
 
 def discovery_head(records, site):

@@ -38,6 +38,45 @@ _EN_BUKHARI = re.compile(
 _EN_MALIK = re.compile(r'\bMalik\s+(?:said|commented|explained|added|was\s+asked|considered)\b', re.I)
 _EN_ANAS_IBN_MALIK = re.compile(r'\bAnas\s+(?:(?:ibn|bin)\s+|b\.\s*)$', re.I)
 _EN_ABUDAWUD = re.compile(r"Abu\s*D(?:a['’]?w[uū]d|a['’]?ud)\s+(?:said|says)\s*:?", re.I)
+# These are the compiler's explicit names in the pinned Nasai editions, not
+# an arbitrary occurrence of the common narrator name Abd al-Rahman. Keep the
+# publisher's spelling variants literal; matching does not correct its text.
+_AR_NASAI = re.compile(r'قال\s+(?:ابو\s+عبد\s*الرحمن|النسائي|احمد\s+بن\s+شعيب)\b')
+_EN_NASAI_NAME = r"Abu\s*\)?\s*['‘’`]?\s*Abd[ -]?(?:ur|ar|al)[ -]*Rahm[ae]n"
+_EN_NASAI_LABEL = r"(?:(?:An|Al)[ -]?)?(?:Nasa['‘’`]?i['‘’`]?|Nasi|Nisai|Nasa\s+I)"
+_EN_NASAI = re.compile(
+    r'(?:\b' + _EN_NASAI_NAME + r'(?:\s*[()]\s*' + _EN_NASAI_LABEL + r'\s*\))?'
+    r'|\b(?:Abu\s+[\'‘’`]?Abdur-(?:Rabin|Rahaman|Rehman)|Abdu\s+Abdur-Rhamn)'
+    r'\s*\(' + _EN_NASAI_LABEL + r'\)'
+    r'|\b' + _EN_NASAI_LABEL + r')\s*(?:said|says|added|explained)\b', re.I)
+_EN_NASAI_GRADE = re.compile(r'\(\s*(?:Sahih|Hasan|Da\s*[’\']?\s*if)\s*\)', re.I)
+_EN_NASAI_HEADING = re.compile(r'\b(?:Chapter|Chatper|Chpater|Chaper)\s+\d+\s*[.:-]', re.I)
+_UR_NASAI_QUALIFIER = r'\(\s*(?:امام\s+)?(?:ال)?نسائی(?:\s+رحمہ\s+اللہ)?\s*\)'
+_UR_NASAI = re.compile(
+    r'(?:امام\s+)?(?:ابو\s*عبد\s*الرحم[ا]?ن(?:\s*(?:ال)?نسائی)?'
+    r'(?:\s*' + _UR_NASAI_QUALIFIER + r')?'
+    r'|عبد\s*الرحم[ا]?ن\s*' + _UR_NASAI_QUALIFIER + r'|(?:ال)?نسائی)\s*'
+    r'(?:کہتے(?:\s+ہیں)?|فرماتے\s+ہیں|نے\s+کہا)')
+_BN_NASAI_NAME = r'নাসা(?:ঈ|য়ী|য়ী|ই|য়ি|য়ি|রী)'
+_BN_NASAI_QUALIFIER = r'\(\s*(?:(?:ইমাম\s+)?' + _BN_NASAI_NAME + r'|রহ[ঃ:]|র[ঃ:])\s*\)'
+_BN_NASAI = re.compile(
+    r'(?:ইমাম\s+|ইমান\s+)?(?:আব[ূু]\s*আব্?দুর\s+রহমান'
+    r'(?:\s*' + _BN_NASAI_NAME + r')?(?:\s*' + _BN_NASAI_QUALIFIER + r'){0,2}'
+    r'|' + _BN_NASAI_NAME + r'(?:\s*' + _BN_NASAI_QUALIFIER + r'){0,2})\s*'
+    r'(?:বলেন|বলেছেন|বললেন|বলছেন)')
+_NASAI_LOCAL_NOTES = {
+    #807 changes from the narrated Prophet report to Abu Masud's independent
+    # observation about his contemporaries.3945 ends in a chain-comparison
+    # notice; that notice is absent from its Bengali field. These literal
+    # predicates never match the narrators' names in an ordinary isnad.
+    'ar': re.compile(r'قال\s+ابو\s+مسعود\s+فانتم\s+اليوم\s+اشد\s+اختلافا'
+                     r'|خالفهما\s+معمر\s+رواه\s+عن\s+الزهري\s+عن\s+عروة\s+عن\s+عائشة'),
+    'en': re.compile(r"Abu Mas'ud said: Today, there is much disharmony among you\."
+                     r"|Ma'mar contradicted the two of them; he reported it from Az-Zuhri, from 'Urwah, from 'Aishah"),
+    'ur': re.compile(r'ابومسعود\s+رضی\s+اللہ\s+عنہ\s+کہتے\s+ہیں:\s*اسی\s+بنا\s+پر\s+تم\s+میں\s+آج\s+اختلافات\s+زیادہ\s+ہیں'
+                     r'|معمر\s+نے\s+اس\s+کے\s+برعکس\s+عن\s+الزہری،\s*عن\s+عروۃ،\s*عن\s+عائشہ\s+کہہ\s+کر\s+روایت'),
+    'bn': re.compile(r'আবূ\s+মাসউদ\s+বলেনঃ\s*আজকাল\s+তোমাদের\s+মধ্যে\s+প্রচণ্ড\s+মত\s+বিরোধ'),
+}
 _EN_NARRATIVE_OPENING = re.compile(r'^\s*(?:Yahya|Ziyad|Malik)\s+related\s+to\s+me\b', re.I)
 _EN_LEGAL_CONTEXT = re.compile(
     r'what\s+he\s+preferred|generally\s+agreed|was\s+asked\s+whether|'
@@ -275,6 +314,19 @@ def _english(text, book):
 
 def _abudawud(text, language):
     if language == 'en':
+        # Source2251 explicitly marks the end of Musaddad's version, then
+        # supplies another narrated wording. Preserve both exact source
+        # variants and their label, without completing punctuation or making
+        # a second provider occurrence. The compiler's two final comments
+        # and the intermediate version-end notice remain separate notes.
+        ended = re.search(r'Here ends the version of Musaddad\.\s*', text)
+        others = re.search(r'Others said\b', text)
+        compiler = _EN_ABUDAWUD.search(text)
+        if (ended and others and compiler and 'The version of Musaddad has' in text[:ended.start()]
+                and ended.end() == others.start() and others.end() < compiler.start()):
+            return _partition(text, [[0, ended.start()], [others.start(), compiler.start()]],
+                              'source_labelled_variant_comment_partition_v1',
+                              'abudawud_2251_musaddad_and_explicit_other_version')
         marker = _EN_ABUDAWUD.search(text)
         if marker is None:
             return None
@@ -304,6 +356,198 @@ def _abudawud(text, language):
         if not safe:
             return _pending(text, 'scholarly_opinion_boundary_needs_source_review', 'abudawud_ibn_shihab_opinion')
         return _tail(text, boundary, 'abudawud_explicit_ibn_shihab_personal_opinion')
+    return None
+
+
+def _nasai_note_partition(text, notes, rule):
+    """Complement the explicitly identified notes, keeping every other byte."""
+    merged = []
+    for start, end in sorted(notes):
+        if merged and start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+    return _remove_glosses(text, merged, rule)
+
+
+def _nasai_clause(text, boundary, language):
+    # An opening parenthesis or a source-local conjunction belongs to the
+    # following editorial notice. Do not leave a dangling editorial label in
+    # the narration. Unlike the generic helper, this also handles marked waw.
+    before = text[:boundary]
+    if language in ('ar', 'ur'):
+        normalized, offsets = _normalized(before)
+        suffix = re.search(r'(?:\bو|\bاور)\s*$', normalized) if language == 'ar' else re.search(r'\bاور\s*$', normalized)
+        if suffix:
+            boundary = offsets[suffix.start()]
+            before = text[:boundary]
+    wrapper = re.search(r'\(\s*$', before)
+    if wrapper:
+        boundary = wrapper.start()
+        before = text[:boundary]
+    if language == 'en':
+        wrapper = re.search(r'\(One of the narrators\)\s*\(?\s*$', before, re.I)
+        if wrapper:
+            boundary = wrapper.start()
+            before = text[:boundary]
+    visible = before.rstrip(' \t\r\n' + _DIRECTION)
+    return bool(visible and visible[-1] in '.!?؟۔।"”\'’)}]»'), boundary
+
+
+def _nasai_arabic(text):
+    normalized, offsets = _normalized(text)
+    markers = list(_AR_NASAI.finditer(normalized))
+    markers = [m for m in markers if not re.match(r'\s+(?:السلمي|الحبلي|الادرمي)\b', normalized[m.end():])]
+    if not markers:
+        return None
+    if (len(markers) == 1 and markers[0].start() < 220
+            and not _AR_PROPHET.search(normalized[:markers[0].start()])
+            and re.match(r'\s+و?(?:حدثنا|حدثني|اخبرنا|اخبرني|انبانا)\b', normalized[markers[0].end():])):
+        return _whole(text, 'nasai_initial_compiler_transmission_preserved')
+    #343 is a dash-delimited name explanation;3206 explicitly identifies a
+    # hearing qualification. In each source the narration resumes afterwards.
+    gloss = re.compile(r'(?P<dash>[ـ\-–—])[' + _SPACING + r']*قال\s+ابو\s+عبد\s*الرحمن\s+'
+        r'(?:واسمه\s+سوادة\s+بن\s+عاصم|فلم\s+افهم\s+فتية\s+كما\s+اردت)'
+        r'[' + _SPACING + r']*(?P=dash)')
+    glosses = list(gloss.finditer(normalized))
+    notes = [_original_span(offsets, m.start(), m.end(), len(text)) for m in glosses]
+    remaining = [m for m in markers if not any(g.start() <= m.start() < g.end() for g in glosses)]
+    if not remaining:
+        return _nasai_note_partition(text, notes, 'nasai_arabic_explicit_delimited_compiler_gloss')
+    first = remaining[0]
+    after = normalized[first.end():]
+    #444 puts an unbounded hearing qualification inside the chain. A prefix
+    # cut would retain only the isnad and discard the actual following matn.
+    if re.match(r'\s+ولم\s+اتقنه\b', after):
+        return _pending(text, 'unbounded_compiler_hearing_qualification_inside_isnad',
+                        'nasai_arabic_unbounded_chain_qualification')
+    boundary = offsets[first.start()]
+    #134's exact relay introduces only the compiler's narrator-name gloss.
+    relay = re.search(r'قال\s+الشيخ\s+ابن\s+السني\s*$', normalized[:first.start()])
+    if relay and re.match(r'\s+الحكم\s+هو\s+ابن\s+سفيان\s+الثقفي\b', after):
+        boundary, safe = offsets[relay.start()], True
+    else:
+        safe, boundary = _nasai_clause(text, boundary, 'ar')
+    if not text[:boundary].strip():
+        return _pending(text, 'compiler_material_precedes_established_narration', 'nasai_arabic_named_compiler')
+    if not safe:
+        return _pending(text, 'compiler_boundary_not_separate_from_source_narration', 'nasai_arabic_named_compiler')
+    # These literal named comments occur after complete source clauses. A
+    # malformed source quote is retained verbatim, never repaired or supplied.
+    notes.append([boundary, len(text)])
+    return _nasai_note_partition(text, notes, 'nasai_arabic_own_named_compiler_notes')
+
+
+def _nasai_english(text):
+    #3137 and3206 have explicit dash-bounded compiler hearing explanations,
+    # followed by the same narration resuming. Remove only those exact notes.
+    gloss = re.compile(
+        r'-\s*' + _EN_NASAI_NAME + r'\s*\(' + _EN_NASAI_LABEL + r'\)\s*said:\s*'
+        r'I did not understand "what You like" as I wanted to \[1\]\s*-'
+        r'|--\s*' + _EN_NASAI_NAME + r"\s*said,\s*'I did not understand \(the word\) fityah as I would want'--", re.I)
+    glosses = list(gloss.finditer(text))
+    notes = [[m.start(), m.end()] for m in glosses]
+    named = [m for m in _EN_NASAI.finditer(text)
+             if not any(g.start() <= m.start() < g.end() for g in glosses)]
+    grades = list(_EN_NASAI_GRADE.finditer(text))
+    candidates = [(m.start(), 'grade') for m in grades]
+    if named:
+        safe, boundary = _nasai_clause(text, named[0].start(), 'en')
+        if not safe and not any(m.start() < named[0].start() for m in grades):
+            return _pending(text, 'compiler_boundary_not_separate_from_source_narration', 'nasai_english_named_compiler')
+        candidates.append((boundary, 'named_compiler'))
+    # The pinned publisher appends these misspelled numbered chapter labels
+    # after an explicit source grade. "chapter" in a reported recitation is
+    # not an editorial boundary and is never removed by this rule.
+    for marker in _EN_NASAI_HEADING.finditer(text):
+        if any(m.end() <= marker.start() for m in grades):
+            candidates.append((marker.start(), 'appended_numbered_heading'))
+    if glosses:
+        footnote = re.search(r'\[1\]\s*That is, he did not hear or understand what came after it\b', text)
+        if footnote and footnote.start() > glosses[-1].end():
+            candidates.append((footnote.start(), 'explicit_gloss_footnote'))
+    #629 explains the current transmitter;667 expressly explains a missing
+    # abbreviated wording and cites other collections. Do not copy that later
+    # commentator's expansion into the abbreviated source narration.
+    footnote = re.search(r"\[1\]\s*(?:Bishir bin Mu'adh who heard it from Ibrahim|With this chain, At-Tirmidhi recorded it)", text)
+    if footnote:
+        candidates.append((footnote.start(), 'explicit_source_reference_footnote'))
+    #1098 explicitly changes speaker to a transmitter's explanatory gesture.
+    # This is deliberately not a general "Sufyan/Shubah said" splitter:2553
+    # uses the latter to continue the Prophet's acts and spoken narration.
+    explanation = re.search(r'Sufyan said: "Ibn Tawus said to us: \'He put his hand on his forehead and moved it down to his nose', text)
+    if explanation and _nasai_clause(text, explanation.start(), 'en')[0]:
+        candidates.append((explanation.start(), 'explicit_transmitter_explanation'))
+    wording = re.search(r'This is how he \(the narrator\) said it\.\s*(?=\(\s*Da\s*[\'’]?\s*if\s*\))', text, re.I)
+    if wording and _nasai_clause(text, wording.start(), 'en')[0]:
+        candidates.append((wording.start(), 'explicit_wording_notice'))
+    if not candidates:
+        return _nasai_note_partition(text, notes, 'nasai_english_explicit_delimited_compiler_gloss') if notes else None
+    boundary, kind = min(candidates)
+    if not text[:boundary].strip():
+        return _pending(text, 'source_editorial_material_precedes_established_narration', 'nasai_english_' + kind)
+    notes.append([boundary, len(text)])
+    return _nasai_note_partition(text, notes, 'nasai_english_own_compiler_grade_and_heading_notes')
+
+
+def _nasai_other_language(text, language):
+    if language == 'ur':
+        #209 embeds this complete publisher bibliography inside the supplied
+        # honorific. Retain both exact narration pieces and the entire citation;
+        # the disjoint-span qualifier describes the source defect visibly.
+        citation = ('تخریج دارالدعوہ: تفرد بہ النسائی ( تحفة الأشراف: ۱۷۹۵۴ ) ، مسند احمد ۶/ ۱۲۸، '
+                    'مسند احمد ۶/ ۱۲۹، ویأتي عند المؤلف في الحیض ۴ رقم: ۳۵۶ ( صحیح ) ')
+        if text.count(citation) == 1:
+            start = text.index(citation)
+            return _nasai_note_partition(text, [[start, start + len(citation)]],
+                                         'nasai_urdu_literal_embedded_source_bibliography')
+    normalized, offsets = _normalized(text) if language == 'ur' else (text, list(range(len(text))))
+    pattern = _UR_NASAI if language == 'ur' else _BN_NASAI
+    markers = list(pattern.finditer(normalized))
+    if not markers:
+        return None
+    if language == 'ur':
+        #3733 brackets the compiler's hearing warning and explicitly resumes
+        # Ibn Umar's report. Its separate final Ata opinion is also a note.
+        gloss = re.search(r'\(اور\s+امام\s+نسائی\s+کہتے\s+ہیں\s+انہوں\s+نے\s+ان\s+سے\s+سنا\s+نہیں\s+ہے\)\s*(?:۱؎\s*)?', normalized)
+        if gloss and all(gloss.start() <= m.start() < gloss.end() for m in markers):
+            notes = [_original_span(offsets, gloss.start(), gloss.end(), len(text))]
+            opinion = re.search(r'عطاء\s+کہتے\s+ہیں:', normalized[gloss.end():])
+            if opinion:
+                notes.append([offsets[gloss.end() + opinion.start()], len(text)])
+            return _nasai_note_partition(text, notes, 'nasai_urdu_explicit_hearing_gloss_and_separate_opinion')
+    first = markers[0]
+    boundary = offsets[first.start()]
+    safe, boundary = _nasai_clause(text, boundary, language)
+    #2728 has a comma before the explicit three-narrator identity explanation.
+    if language == 'ur' and re.match(r'\s+کہ\s+اسماعیل\s+بن\s+مسلم\s+نام\s+کے\s+تین\s+لوگ', normalized[first.end():]):
+        safe = True
+    #1170/1281 end their reported Arabic dhikr without added punctuation; the
+    # following Bengali compiler statement is still explicitly independent.
+    if language == 'bn':
+        prior, _ = _normalized(text[:boundary])
+        if re.search(r'(?:عبده\s+ورسوله|به\s+من\s+النار)\s*$', prior):
+            safe = True
+    if not text[:boundary].strip():
+        return _pending(text, 'compiler_material_precedes_established_narration', 'nasai_' + language + '_named_compiler')
+    if not safe:
+        return _pending(text, 'compiler_boundary_not_separate_from_source_narration', 'nasai_' + language + '_named_compiler')
+    return _nasai_note_partition(text, [[boundary, len(text)]], 'nasai_' + language + '_own_named_compiler_notes')
+
+
+def _nasai(text, language):
+    if language in _NASAI_LOCAL_NOTES:
+        normalized, offsets = _normalized(text) if language == 'ar' else (text, list(range(len(text))))
+        local = _NASAI_LOCAL_NOTES[language].search(normalized)
+        if local and text[:offsets[local.start()]].strip():
+            return _nasai_note_partition(text, [[offsets[local.start()], len(text)]],
+                                         'nasai_' + language + '_explicit_independent_statement_or_chain_comparison')
+    if language == 'ar':
+        return _nasai_arabic(text)
+    if language == 'en':
+        return _nasai_english(text)
+    if language in ('ur', 'bn'):
+        return _nasai_other_language(text, language)
     return None
 
 
@@ -459,6 +703,8 @@ def split_source_reading(text, book, language):
         return None
     if book == 'nawawi':
         return _nawawi(text, language)
+    if book == 'nasai':
+        return _nasai(text, language)
     if book == 'malik' and language in ('ur', 'bn'):
         return _malik_other_language(text, language)
     if language == 'bn' and book in _BN_NAMES:

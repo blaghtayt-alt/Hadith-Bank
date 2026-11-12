@@ -67,6 +67,9 @@ def quotation_qualification(version):
                 'under Comments while the narration boundary is reviewed.')
     if version.get('quotation_status') == 'disjoint_source_spans':
         return ('This reading preserves separate source spans. Intervening compiler text is retained under Comments.')
+    if version.get('quotation_status') == 'abbreviated_source_report':
+        return ('This edition abbreviates the report and explicitly refers to another source entry. '
+                'The exact abbreviated wording is preserved here; open References for the cited report.')
     if version.get('quotation_status') == 'multiple_source_reports':
         value = ('This source entry preserves two separately attributed reports in their original order. '
                  'They remain one provider entry, with their distinct narrator introductions and source references.')

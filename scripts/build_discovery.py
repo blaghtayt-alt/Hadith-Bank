@@ -572,7 +572,7 @@ def build(root, output, site=None, records=None, catalog=None):
         records, catalog, _ = load_records(root)
     settings = site_metadata(catalog, site)
     output.mkdir(parents=True, exist_ok=True)
-    for name in ('browse', 'hadith', 'sitemaps'):
+    for name in ('browse', 'hadith', 'sitemaps', 'source-editions'):
         if (output / name).exists():
             raise ValueError('Discovery output must be a fresh staged site: ' + name)
     seen_ids, seen_paths = set(), set()
@@ -592,6 +592,8 @@ def build(root, output, site=None, records=None, catalog=None):
         if not uses_shared_web_reader(record):
             render_record(writer, record, downloads, sources)
             static_record_count += 1
+    from build_fawaz_source_views import render as render_fawaz_source_views
+    source_views = render_fawaz_source_views(writer, seen_ids)
     writer.page('404.html', 'Page not found | Hadith Bank', 'Find a language, book or source text in Hadith Bank.',
                 '<h1>Page not found</h1><p>This address is not part of the published bank. '
                 '<a href="' + esc(canonical_url('browse/index.html', settings)) + '">Browse languages and books</a> '
@@ -604,6 +606,7 @@ def build(root, output, site=None, records=None, catalog=None):
               'generated_files': writer.files + 1, 'generated_bytes': writer.bytes,
               'site_bytes': site_bytes, 'source_records_sha256': catalog['search']['records_sha256'],
               'source_texts_unchanged': True, 'independent_qc_performed': False,
+              'complete_source_views': source_views,
               **index_info, **sitemap_info}
     # Include the report itself in byte/file totals. The integer-length fixed
     # point converges after its decimal digit lengths stop changing.

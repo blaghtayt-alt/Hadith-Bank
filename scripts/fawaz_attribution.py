@@ -25,7 +25,7 @@ import re
 import unicodedata
 
 
-RULE_VERSION = "fawaz-explicit-report-v1"
+RULE_VERSION = "fawaz-explicit-report-v2"
 LANGUAGE_CODES = {"ara": "ar", "eng": "en", "urd": "ur", "ben": "bn"}
 
 # Strip only detection noise, retaining an offset for every surviving character.
@@ -54,7 +54,7 @@ def _normalized(text, language):
 # Terminal word boundaries prevent النبي from matching النبيذ (Nabidh).
 AR_NAME = r"(?:رسول\s+الله|النبي|نبي\s+الله)\b(?!\s+(?:موسي|عيسي|ابراهيم|نوح|ادم|يوسف|هود|صالح|لوط|داود|سليمان|يحيي|زكريا)\b)"
 AR_START = r"(?<!\w)(?:ف|و)?"
-AR_HONOR = (r"(?:\s*[,،()\[\]\-–—]*\s*(?:ﷺ|صلي\s+الله\s+عليه\s+(?:(?:وعلي\s+)?اله\s+)?وسلم|"
+AR_HONOR = (r"(?:\s*[,،()\[\]\-–—]*\s*(?:ﷺ|صلي\s+الله\s+عليه\s+(?:(?:وعلي\s+)?اله\s+)?و\s*سلم|"
             r"عليه\s+(?:الصلاة\s+والسلام|السلام)))?")
 AR_JOIN = AR_HONOR + r"\s*[,،()\[\]\-–—]*\s*"
 
@@ -65,11 +65,20 @@ AR_SPEECH = re.compile(
 AR_ACTION = re.compile(
     AR_START + r"(?:مر|اتي|اتانا|اتاني|اتاه|جاء|جاءنا|جاءني|قدم|بال|شرب|اكل|لبس|مسح|قبل|نام|اضطجع|ركب|سافر|"
     r"صام|افطر|ذبح|ضحي|اعطي|اخذ|ناول|بعث|ارسل|جمع|رمي|طاف|سعي|اشتري|باع|تزوج|طلق|صلي|قام|خرج|دخل|دعا|"
-    r"استسقي|استيقظ|رفع|صبح|خطبني)\s+(?:(?:بنا|بهم|بي|لي|لنا|علي|علينا|فينا|معنا|عندنا)\s+)?" + AR_NAME)
+    r"استسقي|استيقظ|رفع|صبح|خطبني|تخلف|وضع|يضع)\s+"
+    r"(?:(?:بنا|بهم|بي|لي|لنا|علي|علينا|فينا|معنا|عندنا|عنا)\s+)?" + AR_NAME)
 AR_ENCOUNTER = re.compile(
-    AR_START + r"(?:(?:بايعت|بايعنا|اتيت|اتينا|جئت|جئنا|صحبت|صحبنا|خدمت|خدمنا|سقيت|سقينا|طيبت|التَمست|التمست)\s+|"
+    AR_START + r"(?:(?:بايعت|بايعنا|اتيت|اتينا|جئت|جئنا|صحبت|صحبنا|خدمت|خدمنا|سقيت|سقينا|طيبت|التَمست|التمست|اتبعت|اتبعنا)\s+|"
     r"(?:صليت|صلينا|صلي|نصلي|صلوا|صمنا|صمت|خرجنا|خرجت|غزوت|غزونا|حججت|حججنا|اعتمرت|اعتمرنا|"
-    r"كنت|كنا|جلست|جلسنا|دخلت|دخلنا|سجدت|سجدنا)\s+(?:مع|عند|الي|علي|خلف|قدام)\s+)" + AR_NAME)
+    r"كنت|كنا|جلست|جلسنا|دخلت|دخلنا|سجدت|سجدنا|اقبلت|اقبلنا)\s+(?:مع|عند|الي|علي|خلف|قدام)\s+|"
+    r"(?:كنت|كنا)\s+(?:امشي|نمشي|اسير|نسير|اصلي|نصلي)\s+مع\s+|"
+    r"(?:بت|بتنا)\s+(?:(?:ليلة|ليله)\s+)?(?:عند|مع)\s+)" + AR_NAME)
+AR_LEARNED_REPORT = re.compile(
+    AR_START + r"(?:حفظت|حفظنا|تعلمت|تعلمنا)\s+من\s+" + AR_NAME + AR_JOIN +
+    r"(?:[\"«“]\s*[^\s\"»”]+|(?:دع|قل|اتق|احفظ)\b)")
+AR_DEMONSTRATED_PRACTICE = re.compile(
+    r"(?<!\w)(?:(?:هذا|هكذا)\s+(?:كان\s+)?|(?:اريكم|اريناكم)\s+كيف\s+كان\s+)"
+    r"(?:وضوء|طهور|صلاة|صيام)\s+" + AR_NAME)
 AR_AFTER = re.compile(
     r"(?<!\w)(?:بينا|بينما|شهدت|شهدنا|لا\s+اعلم|ما\s+علمت|لم\s+تر|لم\s+ار|لم\s+نر|"
     r"سمعت\s+(?:من|صوت)|سمعنا\s+(?:من|صوت))\s+" + AR_NAME + AR_JOIN +
@@ -84,27 +93,31 @@ AR_DHIKR = re.compile(
     r"(?<!\w)(?:(?:ان|كانت?|اكثر)\s+)?(?:تلبية|تلبيه|دعاء|ذكر|استغفار)\s+" + AR_NAME + AR_JOIN +
     r"(?:كانت?|هو|هي)\s*[,،:]*\s*[\"«“]\s*[^\s\"»”]+")
 AR_DIALOGUE_START = re.compile(
-    AR_START + r"(?:قلت|قلنا|قالت|قالوا|قيل|قال)\s+(?:له\s+)?يا\s+" + AR_NAME)
+    AR_START + r"(?:قلت|قلنا|قالت|قالوا|قيل|قال)\b\s*[:،,]*\s*(?:له\s+)?[\"«“]?\s*يا\s+" + AR_NAME)
 AR_NEXT_SPEAKER = re.compile(r"(?<!\w)(?:ف?قال|ف?قالت|ف?قالوا)\b")
-AR_REPLY = re.compile(r"ف?قال\s*(?:(?:لي|لنا|له|لها|لهم)\s+)?(?:[\"«“]\s*[^\s\"»”]+|(?:نعم|لا|بلي|بل)\b)")
+AR_REPLY = re.compile(r"ف?قال\s*[:،,]*\s*(?:(?:لي|لنا|له|لها|لهم)\s+)?"
+                      r"(?:[\"«“]\s*[^\s\"»”]+|(?:نعم|لا|بلي|بل|قل)\b)")
 AR_DESCRIPTION_QUESTION = re.compile(
     r"(?<!\w)(?:سالت|سالتها|سئل|سئلت|سالنا|اخبريني|اخبرني)\b[^.؛\n]{0,130}?"
     r"(?:عن\s+|كيف\s+كانت?\s+)(?:صلاة|قراءة|صوم|صيام|دعاء|شعر|شيب|خضاب|خلق|صفة)\s+" + AR_NAME)
 AR_DESCRIPTION_REPLY = re.compile(
     r"ف?قالت?\s*[,،:]*\s*(?:[\"«“]\s*)?(?:كانت?|كل|لم|ما|لا|نعم|هو|هي|انه|انها|ثلاث|اربع)\b")
 AR_TARGETED_TRANSMISSION = re.compile(
-    r"(?<!\w)(?:(?:يرفع|رفع|اسند|يسند|ينمي|نمي)\s+(?:الحديث|هذا\s+الحديث)\s+(?:الي\s+)?|"
+    r"(?<!\w)(?:(?:يرفع|رفع|اسند|يسند|ينمي|نمي)\s+(?:الحديث|هذا\s+الحديث|ذلك)\s+(?:الي\s+)?|"
     r"(?:يرفعه|رفعه|ينميه|نماه)\s+الي\s+|يبلغ\s+به\s+)" + AR_NAME)
 AR_TECHNICAL_MARFU = re.compile(
     r"(?<!\w)(?:الحديث|حديث(?:\s+(?:ايوب|الاعمش|سفيان))?|نحو\s+حديث\s+(?:ايوب|الاعمش|سفيان))\s+مرفوعا\b")
 AR_VARIANT = re.compile(r"(?<!\w)(?:بمثله|بنحوه|بمعناه|مثله|نحوه|نحو\s+حديث|بمعني\s+حديث)\b")
+AR_EXPLICIT_ABRIDGEMENT = re.compile(r"(?<!\w)(?:بنحو|بمعني)\s+حديث\s+\S+")
 
 EN_NAME = (r"\b(?:the\s+(?:Holy\s+)?Prophet(?:\s+of\s+Alla+h)?|(?:the\s+)?(?:Messenger|Apostle)\s+of\s+Alla+h|"
            r"Alla+h['’]s\s+(?:Messenger|Apostle|Prophet))\b"
            r"(?!['’]s\b)"
            r"(?!\s+(?:Moses|Musa|Jesus|Isa|Abraham|Ibrahim|Noah|Adam|David|Solomon)\b)")
-EN_SALUTATION = (r"(?:ﷺ|s\.?\s*a\.?\s*w\.?|saws|pbuh|peace\s+be\s+upon\s+him|"
+EN_SALUTATION = (r"(?:ﷺ|s\.?\s*a\.?\s*w\.?|saws|swas|pbuh|"
+                 r"peace\s+(?:and\s+blessings\s+(?:of\s+Alla+h\s+)?)?be\s+upon\s+him|"
                  r"may\s+(?:the\s+)?peace\s+(?:and\s+blessings\s+)?be\s+upon\s+him|"
+                 r"sal\s+Alla+hu\s+alayhi\s+wa\s+sallam|"
                  r"may\s+Alla+h\s+bless\s+him\s+and\s+grant\s+him\s+peace)")
 EN_HONOR = (r"(?:\s*[,;]?\s*(?:\(\s*" + EN_SALUTATION + r"\s*\)|\[\s*" +
             EN_SALUTATION + r"\s*\]|" + EN_SALUTATION + r"))*")
@@ -125,15 +138,65 @@ EN_PREDICATE = re.compile(
     r"(?:had|has)\s+(?:just\s+|already\s+)?(?:" + EN_PAST + r"|forbidden)|"
     r"(?:used\s+to|would|did\s+not)\s+(?:" + EN_BASE + r")|"
     r"(?:was|as)\s+(?:" + EN_PARTICIPLE + r"))\b", re.I)
+
+# These are finite, source-observed action families, not an unrestricted English
+# word/verb wildcard.  Adverbs and auxiliaries should not hide an otherwise
+# explicit subject.  Nominal/relative-clause objects are rejected separately.
+EN_ACTION_ADVERB = (r"(?:(?:then|also|once|always|usually|generally|often|sometimes|"
+                    r"only|never|just|still|again|personally|himself|constantly)\s+){0,2}")
+EN_ADDITIONAL_PAST = (r"remained|addressed|used(?!\s+to\b)|called|purified|heard|kept|distributed|divided|concluded|"
+                      r"conquered|borrowed|lent|bought|sold|stayed|wrote|looked|finished|mentioned|prohibited|"
+                      r"separated|disliked|carried|poured|wore|cleaned|removed|paid|informed|granted|"
+                      r"proceeded|drew|made|cut|fell|got\s+(?:up|down|off|on)|set\s+(?:out|off|free)")
+EN_ADDITIONAL_BASE = (r"put|use|tell|take|pay|leave|pass|keep|deliver|remain|address|purify|do|"
+                      r"carry|pour|wear|clean|remove|grant|look|finish|mention|prohibit|distribute|divide|get\s+up")
+EN_ADDITIONAL_PARTICIPLE = (r"walking|going|leading|delivering|wearing|performing|using|pouring|"
+                            r"washing|wiping|resting|riding|travelling|traveling|fighting|hiding")
+EN_REPORTED_ACTION = re.compile(
+    EN_NAME + EN_JOIN + EN_ACTION_ADVERB + r"(?:"
+    r"(?:" + EN_PAST + r"|" + EN_ADDITIONAL_PAST + r")|"
+    r"(?:had|has)\s+" + EN_ACTION_ADVERB + r"(?:" + EN_PAST + r"|" + EN_ADDITIONAL_PAST + r"|seen|forbidden)|"
+    r"(?:used\s+to|would|did\s+not|would\s+not)\s+" + EN_ACTION_ADVERB +
+    r"(?:" + EN_BASE + r"|" + EN_ADDITIONAL_BASE + r")|"
+    r"(?:was|had\s+been)\s+" + EN_ACTION_ADVERB +
+    r"(?:" + EN_PARTICIPLE + r"|" + EN_ADDITIONAL_PARTICIPLE + r"|cupped|shrouded|ordered|commanded|informed|given|covered)"
+    r")\b", re.I)
 EN_ENCOUNTER = re.compile(
     r"\b(?:I|we)\s+(?:had\s+)?(?:(?:heard|saw|accompanied|met|visited|served)\s+|"
     r"(?:prayed|prostrated|fasted|travelled|traveled|went|fought)\s+(?:(?:one|a|that)\s+(?:night|day)\s+|together\s+)?"
     r"(?:with|behind|along\s+with)\s+)" + EN_NAME, re.I)
+EN_REPORTED_ENCOUNTER = re.compile(
+    r"\b(?:(?:I|we|he|she)\s+(?:had\s+)?(?:saw|heard|accompanied|met|visited|served|followed)\s+|"
+    r"(?:I|we)\s+(?:(?:came|went|entered)\s+(?:to|upon)|"
+    r"(?:was|were)\s+(?:walking|going|travelling|traveling|praying|sitting|standing|riding)\s+(?:with|behind)|"
+    r"spent\s+(?:a|one|the)\s+night\s+with)\s+)" + EN_NAME, re.I)
+EN_SHARED_PRACTICE = re.compile(
+    r"\b(?:I|we)\s+and\s+" + EN_NAME + EN_JOIN +
+    r"were\s+(?:going|walking|travelling|traveling|praying|sitting|standing|riding)\s+together\b", re.I)
+EN_LEARNED_REPORT = re.compile(
+    r"\b(?:I|we)\s+(?:have\s+|had\s+)?(?:memorised|memorized|learnt|learned|heard)\s+from\s+" + EN_NAME, re.I)
+EN_OWNED_PRACTICE = re.compile(
+    EN_NAME + EN_JOIN + r"had\s+(?:(?:a|an|the|one|two|three)\s+)?"
+    r"(?:cloth|mat|garment|cloak|shirt|sandals|ring|sword|helmet|shield|bed|mattress|cushion|pillow|cup|"
+    r"drinking\s+vessel|tooth[ -]stick|supplications)\b", re.I)
+EN_PROPERTY_DESCRIPTION = re.compile(
+    r"\b(?:the\s+)?(?:hair|beard|complexion|height|face|eyes|teeth|clothing|garment|cloak|shirt|sandals|"
+    r"ring|sword|helmet|shield|bed(?:\s+mattress)?|mattress|cushion|pillow|cup|drinking\s+vessel|"
+    r"pommel\s+of\s+the\s+sword|inscription\s+on\s+the\s+ring)\s+of\s+" + EN_NAME + EN_JOIN +
+    r"(?:was|were|had)\s+(?!not\s+known\b|unknown\b)[\w'‘“]+", re.I)
 EN_PREFERENCE = re.compile(
     r"\b(?:the\s+)?(?:drink|food|prayer|fast|day|garment|colour|color)\s+(?:which\s+was\s+)?"
     r"(?:most\s+)?(?:beloved|dearest|pleasing)\s+to\s+" + EN_NAME + EN_JOIN + r"(?:was|were)\s+\w+", re.I)
 EN_QUESTION = re.compile(
-    r"\b(?:(?:a|an|the)\s+(?:man|woman|person|Bedouin)|I|we)\s+asked\s+" + EN_NAME + EN_HONOR, re.I)
+    r"\b(?:(?:a|an|the)\s+(?:man|woman|person|Bedouin)|I|we)\s+(?:asked|said\s+to)\s+" + EN_NAME + EN_HONOR, re.I)
+EN_PERMISSION_REQUEST = re.compile(
+    r"\b(?:I|we|he|she)\s+(?:had\s+)?(?:(?:sought|requested|asked\s+for)\s+permission\s+from\s+" +
+    EN_NAME + EN_HONOR + r"|asked\s+" + EN_NAME + EN_HONOR + r"\s+for\s+permission\b)", re.I)
+EN_PERMISSION_RESPONSE = re.compile(r"\bHe\s+(?:gave|granted)\s+(?:me|us|her|him|them)\s+permission\b", re.I)
+EN_DIRECT_MESSAGE = re.compile(
+    r"\b(?:mentioned|reported|described)\s+(?:it|this|that|the\s+matter)\s+to\s+" + EN_NAME + EN_HONOR, re.I)
+EN_MESSAGE_RESPONSE = re.compile(
+    r"\s*[.,;:'’”]*\s*(?:(?:and|so)\s+)?He\s+(?:said|replied|answered|signalled|signaled)\b", re.I)
 EN_NEXT_SPEECH = re.compile(r"\b(?:said|replied|answered)\b", re.I)
 EN_ATTRIBUTION_QUESTION = re.compile(
     r"\bDid\s+[^?!\n]{1,85}?\s+(?:ascribe|attribute|trace)\s+(?:it|this|(?:the|this)\s+(?:hadith|tradition|report))"
@@ -142,11 +205,16 @@ EN_ATTRIBUTION_YES = re.compile(
     r"\s*[\"'’”.,]*\s*(?:He|She|I)\s+(?:said|replied|answered)\s*[,;:]?\s*[\"'‘“]?\s*Yes\b", re.I)
 EN_TRANSMISSION = re.compile(
     r"\b(?:(?:reported|narrated|transmitted|related)\s+(?:it\s+)?(?:directly\s+)?(?:from|on\s+the\s+authority\s+of)|"
-    r"attributed\s+(?:it|the\s+(?:hadith|tradition|report)|this\s+(?:hadith|tradition|report))\s+to|"
+    r"attributed\s+(?:it|that|the\s+(?:hadith|tradition|report)|this\s+(?:hadith|tradition|report))\s+to|"
     r"traced\s+(?:it|the\s+(?:hadith|tradition)|this\s+(?:hadith|tradition))\s+(?:back\s+)?to)\s+" + EN_NAME, re.I)
 EN_MARFU = re.compile(r"\b(?:this\s+)?hadith\s+(?:has\s+been\s+|was\s+)?(?:narrated|reported|transmitted)\s+as\s+marfu['’]?\b", re.I)
 EN_VARIANT = re.compile(r"\b(?:a\s+similar\s+report|the\s+same|similarly|a\s+(?:slight\s+)?variation|mentioned\s+above|as\s+previous)\b", re.I)
-EN_ABRIDGED = re.compile(r"\bthe\s+rest\s+of\s+(?:the\s+|this\s+)?(?:hadith|tradition)\b", re.I)
+EN_ABRIDGED = re.compile(
+    r"\b(?:the\s+rest\s+of\s+(?:the\s+|this\s+)?(?:hadith|tradition)|"
+    r"(?:mentioned|narrated|transmitted)\s+(?:something\s+similar|a\s+similar\s+report|"
+    r"the\s+(?:hadith|tradition)\s+above))\b", re.I)
+EN_GENERAL_TRANSMISSION_CLAIM = re.compile(
+    r"\bdid\s+not\s+mention\s+(?:it|this|that)\s+in\s+one\s+or\s+two\s+(?:traditions|reports|hadiths)\b", re.I)
 
 UR_NAME = r"(?<!\w)(?:رسول\s+اللہ|نبی\s+(?:کریم|اکرم))"
 UR_HONOR = r"\s*(?:صلی\s+اللہ\s+علیہ\s+(?:وآلہ\s+)?و?\s*سلم|ﷺ)?\s*"
@@ -185,6 +253,20 @@ def _unsafe_context(text, start, end, language):
             return True
         if re.search(r"\b(?:grave|pulpit|lifetime|wife|wives|daughter|son|companion)\s+of\s*$", before, re.I):
             return True
+        if re.match(EN_NAME, matched, re.I):
+            # A nominal owner/object is not the following verb's grammatical
+            # subject: 'the herald of the Prophet made an announcement' and
+            # 'a man who met the Prophet, wore a ring' are concrete source traps.
+            # Explicit encounter/attribution/description rules start before
+            # these phrases and can establish their own, differently scoped
+            # evidence instead.
+            if re.search(r"\b(?:of|to|with|from|by|about|for|near|behind|before|after|beside|"
+                         r"towards|toward|alongside|met|saw|heard|visited|served|accompanied|followed)\s*$",
+                         before, re.I):
+                return True
+            if (re.search(r"\b(?:what|how|why)\s*$", before, re.I) and
+                    re.search(r"\bwould\b", matched, re.I)):
+                return True
     elif language == "urd":
         if re.search(r"(?:کاش|اگر|کیا|معلوم\s+نہیں)\s*(?:کہ\s+)?$", before):
             return True
@@ -217,13 +299,21 @@ RULES = {
     "ara": (("arabic_explicit_speech_or_command", AR_SPEECH),
             ("arabic_reported_action", AR_ACTION),
             ("arabic_direct_encounter_or_practice", AR_ENCOUNTER),
+            ("arabic_explicit_learned_report", AR_LEARNED_REPORT),
+            ("arabic_demonstrated_prophetic_practice", AR_DEMONSTRATED_PRACTICE),
             ("arabic_explicit_named_predicate", AR_AFTER),
             ("arabic_reported_response", AR_RESPONSE),
             ("arabic_attributed_dhikr_formula", AR_DHIKR),
             ("arabic_explicit_transmission_target", AR_TARGETED_TRANSMISSION),
             ("arabic_technical_marfu_report", AR_TECHNICAL_MARFU)),
     "eng": (("english_explicit_named_predicate", EN_PREDICATE),
+            ("english_reported_subject_action", EN_REPORTED_ACTION),
             ("english_direct_encounter_or_practice", EN_ENCOUNTER),
+            ("english_reported_encounter", EN_REPORTED_ENCOUNTER),
+            ("english_explicit_shared_practice", EN_SHARED_PRACTICE),
+            ("english_explicit_learned_report", EN_LEARNED_REPORT),
+            ("english_owned_practice_object", EN_OWNED_PRACTICE),
+            ("english_reported_property_description", EN_PROPERTY_DESCRIPTION),
             ("english_attributed_preference", EN_PREFERENCE),
             ("english_explicit_transmission_target", EN_TRANSMISSION),
             ("english_technical_marfu_report", EN_MARFU)),
@@ -250,10 +340,28 @@ def explicit_report_evidence(versions):
         normalized, offsets = _normalized(original, source_language)
         for rule, pattern in rules:
             for match in pattern.finditer(normalized):
+                if (rule == "english_reported_subject_action" and
+                        EN_GENERAL_TRANSMISSION_CLAIM.search(normalized[match.start():match.end()+100])):
+                    # Abu Dawud4612 is a later writer's general assertion that
+                    # reports exist, not a supplied Prophetic quotation/action.
+                    continue
+                if rule == "english_explicit_learned_report":
+                    before = normalized[max(0, match.start()-70):match.start()]
+                    # 'I retain anything I heard from him' is a general claim
+                    # about transmission, without a specified Prophetic matn.
+                    # Other independently explicit acts/responses in the same
+                    # bounded source may still qualify through their own rule.
+                    if re.search(r"\b(?:anything|everything)\s+(?:(?:that|which)\s+)?$", before, re.I):
+                        continue
                 scope = "explicit_prophetic_report"
+                if rule in ("arabic_demonstrated_prophetic_practice", "english_owned_practice_object",
+                            "english_reported_property_description"):
+                    scope = "explicit_prophetic_practice_or_description"
                 if source_language == "eng" and EN_ABRIDGED.search(normalized):
                     scope = "source_explicit_abbreviated_report"
-                if "transmission" in rule or "marfu" in rule:
+                if source_language == "ara" and AR_EXPLICIT_ABRIDGEMENT.search(normalized):
+                    scope = "source_explicit_abbreviated_report"
+                if "transmission" in rule or "marfu" in rule or "learned_report" in rule:
                     variant = AR_VARIANT if source_language == "ara" else EN_VARIANT
                     if variant.search(normalized) or (rule == "english_technical_marfu_report" and
                             re.fullmatch(r"\s*by\s+another\s+chain\s+of\s+transmitters[.\s]*", normalized[match.end():], re.I)):
@@ -291,6 +399,28 @@ def explicit_report_evidence(versions):
                     if evidence:
                         return evidence
         if source_language == "eng":
+            for message in EN_DIRECT_MESSAGE.finditer(normalized):
+                response = EN_MESSAGE_RESPONSE.match(normalized, message.end())
+                if response:
+                    evidence = _evidence(original, normalized, offsets, source_language,
+                                         message.start(), response.end(), "english_direct_message_and_response")
+                    if evidence:
+                        return evidence
+            for request in EN_PERMISSION_REQUEST.finditer(normalized):
+                following = normalized[request.end():request.end() + 350]
+                response = EN_PERMISSION_RESPONSE.search(following)
+                if not response:
+                    continue
+                # Do not skip an intervening named/other speaker's answer or
+                # request to attach a later 'he' to the Prophet.
+                if re.search(r"\b(?:said|told|answered|replied|asked|sought|granted|gave|refused)\b",
+                             following[:response.start()], re.I):
+                    continue
+                evidence = _evidence(original, normalized, offsets, source_language,
+                                     request.start(), request.end() + response.end(),
+                                     "english_permission_request_and_grant")
+                if evidence:
+                    return evidence
             for question in EN_QUESTION.finditer(normalized):
                 following = normalized[question.end():question.end() + 550]
                 first_speech = EN_NEXT_SPEECH.search(following)
