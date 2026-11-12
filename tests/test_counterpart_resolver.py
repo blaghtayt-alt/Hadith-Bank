@@ -148,6 +148,53 @@ class CounterpartResolverTests(unittest.TestCase):
         self.assertEqual(result['english']['text'], ENGLISH)
         self.assertEqual(result['quotation_evidence']['field'], 'text_arabic')
 
+    def test_number_suffix_requires_arabic_alignment_and_preserves_both_references(self):
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            references={'items': [{'book_key': 'muslim', 'number': '12345a', 'scope': 'main_quote'}]})
+        before = copy.deepcopy(record)
+        value = CounterpartResolver(self.root, []).for_record(record)
+        self.assertEqual(value['english']['text'], ENGLISH)
+        self.assertEqual(value['english']['references'][0]['number'], '12345')
+        proof = value['quotation_evidence']
+        self.assertEqual(proof['shared_explicit_references'], [])
+        self.assertEqual(proof['suffix_compatible_references'],
+                         [{'source': ['muslim', '12345a'], 'target': ['muslim', '12345']}])
+        self.assertEqual(record, before)
+
+    def test_suffix_number_and_matching_translation_without_arabic_do_not_join(self):
+        donor = self.record()
+        record = self.record(book_key='muslim', provider_entry_id=None, text_arabic=None,
+            references={'items': [{'book_key': 'muslim', 'number': '12345a', 'scope': 'main_quote'}]})
+        value = CounterpartResolver(self.root, [donor]).for_record(record)
+        self.assertIsNone(value['english'])
+
+    def test_two_different_number_suffixes_remain_conflicting(self):
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            references={'items': [{'book_key': 'muslim', 'number': '12345a', 'scope': 'main_quote'}]})
+        resolver = CounterpartResolver(self.root, [])
+        resolver.entries['101']['references'][0]['number'] = '12345b'
+        self.assertIsNone(resolver.for_record(record)['english'])
+
+    def test_suffix_corroboration_does_not_enable_reverse_containment(self):
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            text_arabic='بداية مختلفة ' + ARABIC + ' نهاية مختلفة',
+            references={'items': [{'book_key': 'muslim', 'number': '12345a', 'scope': 'main_quote'}]})
+        resolver = CounterpartResolver(self.root, [])
+        self.assertIsNone(resolver._quotation_evidence(record, '101'))
+        self.assertIsNone(resolver.for_record(record)['english'])
+
+    def test_suffix_corroboration_keeps_duplicate_arabic_targets_ambiguous(self):
+        with closing(sqlite3.connect(self.english)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, 'TEST other route', ARABIC, 7))
+        with closing(sqlite3.connect(self.arabic)) as db, db:
+            db.execute('INSERT INTO hadeeths VALUES (?,?,?,?)', (102, ARABIC, 7, 'صحيح مسلم (1/ 2) (12345).'))
+        self.manifest()
+        record = self.record(book_key='muslim', provider_entry_id=None,
+            references={'items': [{'book_key': 'muslim', 'number': '12345a', 'scope': 'main_quote'}]})
+        value = CounterpartResolver(self.root, []).for_record(record)
+        self.assertIsNone(value['english'])
+        self.assertEqual(value['match_method'], 'ambiguous_source_quotation')
+
     def test_persian_keyboard_letters_match_arabic_without_changing_either_source(self):
         source = ARABIC.replace('ك', 'ک').replace('ي', 'ی')
         self.assertNotEqual(normalize_quote(source), normalize_quote(ARABIC))

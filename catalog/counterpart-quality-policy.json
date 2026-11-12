@@ -33,11 +33,359 @@
         },
         "provider_arabic_revision": 2,
         "existing_affected_occurrences_at_review": 6,
-        "affected_source_languages_at_review": ["ja", "fil", "vi", "zh-CN", "uz", "hi"]
+        "affected_source_languages_at_review": [
+          "ja",
+          "fil",
+          "vi",
+          "zh-CN",
+          "uz",
+          "hi"
+        ]
       },
       "original_source_bytes_modified": false,
       "translation_origin_reclassified": false,
       "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-5461-english-content-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "5461",
+      "language": "english",
+      "text_sha256": "db51848409be9797309bda626664d44d467a8b60af83ed00c85ef75b922a91a1",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_subject_ambiguity_changes_actor",
+      "message": "English counterpart withheld: this preserved version omits the subject change after Allah accepts the killer's repentance, grammatically assigning becoming Muslim and martyrdom to the wrong actor. The Arabic assigns these actions to the killer. Original source text is preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "5064719fc02c5c4d045d1d49a3dc62c43c15f322aaf9962aabc6d73a78b3944c",
+        "arabic_quote": "ثم يتوبُ اللهُ على القاتلِ فيُسْلِمُ فَيُسْتَشْهَدُ",
+        "english_quote": "Then Allah forgives the killer, and becomes a Muslim and dies as a martyr.",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/5461",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 1,
+        "source_snapshot": "Pinned English export v1.25.0",
+        "reviewers": [
+          "/root/review_fa",
+          "/root"
+        ],
+        "existing_affected_occurrences_at_review": 3,
+        "affected_source_languages_at_review": [
+          "fil",
+          "hi",
+          "zh-CN"
+        ],
+        "affected_occurrence_ids_at_review": [
+          "hadeethenc:entry:5461:translation:tl:revision:0d0769079d46997d",
+          "hadeethenc:entry:5461:translation:hi:revision:a5a7bc4285f276b8",
+          "hadeethenc:entry:5461:translation:zh:revision:f92a7224bc3a72af"
+        ],
+        "review_basis": "Direct comparison of the exact stored Arabic and English versions; assistant alignment/content review, not a new translation or scholarly authenticity review.",
+        "official_page_check": {
+          "retrieved_date": "2026-11-12",
+          "retrieval_reference": "turn0view1",
+          "retrieved_page_contains_same_discrepant_wording": true,
+          "live_uncached_http_timestamp_not_claimed": true
+        }
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-5937-english-content-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "5937",
+      "language": "english",
+      "text_sha256": "377d81f2cde3028df14cf75637de38ab195edaf9e9c791e845fdb741cc989f06",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_returning_distress_replaced_with_change_of_heart",
+      "message": "English counterpart withheld: this preserved version replaces distress on returning from travel with a change of heart. The Arabic separately lists distress on returning and deterioration after good conditions. The source Arabic explanation confirms the returning-home meaning. Original source text is preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "0fbcc6de3a7206a6cebf0741190a66e5486211e25584c2ee515c63fc628eb44a",
+        "arabic_quote": "وكآبة الـمُنْقَلَب، والحَوْر بعد الكَوْن",
+        "english_quote": "from having a change of heart, adverse conditions replacing good ones",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/5937",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 1,
+        "source_snapshot": "Pinned English export v1.25.0",
+        "reviewers": [
+          "/root/review_fa",
+          "/root"
+        ],
+        "existing_affected_occurrences_at_review": 3,
+        "affected_source_languages_at_review": [
+          "fil",
+          "hi",
+          "zh-CN"
+        ],
+        "affected_occurrence_ids_at_review": [
+          "hadeethenc:entry:5937:translation:tl:revision:77a35d81bae411da",
+          "hadeethenc:entry:5937:translation:hi:revision:a3b777379de1f66a",
+          "hadeethenc:entry:5937:translation:zh:revision:b5e38be47bee5325"
+        ],
+        "review_basis": "Direct comparison of the exact stored Arabic and English versions; assistant alignment/content review, not a new translation or scholarly authenticity review.",
+        "arabic_explanation_database": {
+          "path": "sources/hadeethenc/snapshots/2026-11-11/raw/ar.sqlite",
+          "sha256": "0eaec8283524c4d2bf9fb8cf1d0c0a77c753d472ac962cb51413a2c3cd8da70a",
+          "bytes": 21651456
+        },
+        "arabic_explanation_locator": {
+          "table": "hadeeths",
+          "id": 5937,
+          "field": "explanation"
+        }
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-5986-english-content-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "5986",
+      "language": "english",
+      "text_sha256": "389b859298f8dd8f49f2654da05b01c925b6f1a5ff1cbd30ec70f21518e4bd1f",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_adds_unstated_belief_condition",
+      "message": "English counterpart withheld: this preserved version adds a belief condition to visiting and asking a soothsayer. That condition is absent from its pinned Arabic quotation. Original source text is preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "50d2aaaf3997d1dad6385c52a4ad30b98437d7af7c793ff3e5c58152adba7c57",
+        "arabic_quote": "مَنْ أَتَى عَرَّافًا فَسَأَلَهُ عَنْ شَيْءٍ",
+        "english_quote": "and asks him about something and believes him",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/5986",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 2,
+        "source_snapshot": "Pinned English export v1.25.0",
+        "reviewers": [
+          "/root/review_ja_vi",
+          "/root"
+        ],
+        "existing_affected_occurrences_at_review": 6,
+        "affected_source_languages_at_review": [
+          "fil",
+          "hi",
+          "ja",
+          "uz",
+          "vi",
+          "zh-CN"
+        ],
+        "affected_occurrence_ids_at_review": [
+          "hadeethenc:entry:5986:translation:tl:revision:f2fcaec9dc5c4911",
+          "hadeethenc:entry:5986:translation:hi:revision:76d3e9ea1fa36b3f",
+          "hadeethenc:entry:5986:translation:ja:revision:0a0b80df363cf8f5",
+          "hadeethenc:entry:5986:translation:uz:revision:d849700b3f633bb5",
+          "hadeethenc:entry:5986:translation:vi:revision:4d1224046491f528",
+          "hadeethenc:entry:5986:translation:zh:revision:3eb620023adcc141"
+        ],
+        "review_basis": "Direct comparison of the exact stored Arabic and English versions; assistant alignment/content review, not a new translation or scholarly authenticity review.",
+        "official_page_check": {
+          "retrieved_date": "2026-11-12",
+          "retrieval_reference": "turn1view0",
+          "retrieved_page_contains_same_discrepant_wording": true,
+          "live_uncached_http_timestamp_not_claimed": true
+        }
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-6380-english-content-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "6380",
+      "language": "english",
+      "text_sha256": "24026e7186801f12a241093135c19ed06458a4beeada263727779a2673ba8a4a",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_animals_and_milk_quantities_mismatch",
+      "message": "English counterpart withheld: this preserved version changes the Arabic comparison with donkeys to monkeys and reverses the camel/cow milk-quantity associations. Original source text is preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "db5aa175a74beeeb1ecd4d186eea44f8483c47b39c8aec876f840fec2386f3db",
+        "arabic_quote": "تهارج الحمر",
+        "english_quote": "commit adultery like monkeys",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/6380",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 1,
+        "source_snapshot": "Pinned English export v1.25.0",
+        "reviewers": [
+          "/root/review_zh",
+          "/root"
+        ],
+        "existing_affected_occurrences_at_review": 3,
+        "affected_source_languages_at_review": [
+          "fil",
+          "hi",
+          "zh-CN"
+        ],
+        "affected_occurrence_ids_at_review": [
+          "hadeethenc:entry:6380:translation:tl:revision:4c643bccf1a23150",
+          "hadeethenc:entry:6380:translation:hi:revision:784b255f06a5d5c8",
+          "hadeethenc:entry:6380:translation:zh:revision:1f2d0e2175d76f8b"
+        ],
+        "review_basis": "Direct comparison of the exact stored Arabic and English versions; assistant alignment/content review, not a new translation or scholarly authenticity review.",
+        "additional_comparison": "The pinned Arabic associates camel milk with a large party and cow milk with a tribe; the pinned English associates cow milk with a party and camel milk with a tribe."
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-65045-english-content-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "65045",
+      "language": "english",
+      "text_sha256": "047e1ed8b229c5c27b498c94f9fa8c956434b0510f87444337529eba556b56df",
+      "action": "withhold_derived_counterpart_text",
+      "reason_code": "source_translation_removes_among_qualification",
+      "message": "English counterpart withheld: this preserved version makes the man the single most knowledgeable in Madinah, while the pinned Arabic describes him as among the most knowledgeable. The source qualification is not preserved. Original source text is preserved; this English version is not offered as a counterpart or an external-link fallback.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "401170372602e51e4ca51c8584b508223fd64e55f0525f20f84bafb4846be78f",
+        "arabic_quote": "إِنْ كُنْتُ لَأُرَاكَ مِنْ أَفْقَهِ رَجُلٍ بِالْمَدِينَةِ",
+        "english_quote": "I thought you were the most knowledgeable man in Madīnah.",
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/65045",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 2,
+        "source_snapshot": "Pinned English export v1.25.0",
+        "reviewers": [
+          "/root/review_zh",
+          "/root"
+        ],
+        "existing_affected_occurrences_at_review": 6,
+        "affected_source_languages_at_review": [
+          "fil",
+          "hi",
+          "ja",
+          "uz",
+          "vi",
+          "zh-CN"
+        ],
+        "affected_occurrence_ids_at_review": [
+          "hadeethenc:entry:65045:translation:hi:revision:cf04b946abf117b0",
+          "hadeethenc:entry:65045:translation:ja:revision:0134d3c465954cfd",
+          "hadeethenc:entry:65045:translation:tl:revision:e94ab709291e9a8a",
+          "hadeethenc:entry:65045:translation:uz:revision:7aefc7effac338f2",
+          "hadeethenc:entry:65045:translation:vi:revision:c89814b5d64fe12e",
+          "hadeethenc:entry:65045:translation:zh:revision:530f24788ad6e388"
+        ],
+        "review_basis": "Direct comparison of the exact stored Arabic and English versions; assistant alignment/content review, not a new translation or scholarly authenticity review."
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "external_counterpart_fallback": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-4952-english-partial-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "4952",
+      "language": "english",
+      "text_sha256": "314d5ea569c676bccca96759bcf7947b5e52a6da77334a1d0f761785500750f1",
+      "action": "qualify_partial_counterpart_text",
+      "message": "English is a partial counterpart: English translates only the opening greeting exchange through the instruction to say \"peace be upon you.\" It does not translate this source's subsequent questions about the Messenger, prayers during hardship, prohibition of insults, good deeds, garment length, or response to abuse. The full pinned Arabic includes those later clauses.",
+      "reason_code": "source_english_covers_opening_greeting_only",
+      "citation_note": "English translates only the opening greeting exchange through the instruction to say \"peace be upon you.\" It does not translate this source's subsequent questions about the Messenger, prayers during hardship, prohibition of insults, good deeds, garment length, or response to abuse. The full pinned Arabic includes those later clauses.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "f3ce19eba665f4221ab2418b91e80eb61e1af46e7d5df73cec9418e63954fad9",
+        "arabic_quote": "لا تَسُبَنَّ أحداً",
+        "english_quote": "Say instead 'peace be upon you.'",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 1,
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/4952",
+        "existing_affected_occurrences_at_review": 4,
+        "review_basis": "Complete pinned Arabic/English comparison; both source text versions remain unchanged."
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
+      "different_english_hash_requires_its_own_decision": true
+    },
+    {
+      "id": "hadeethenc-64646-english-partial-2026-11-12",
+      "provider": "hadeethenc",
+      "source_record_id": "64646",
+      "language": "english",
+      "text_sha256": "d282599140bf6dd55e4ea79480e20eefe80d1fc469593538d7ac790ae56dc59c",
+      "action": "qualify_partial_counterpart_text",
+      "message": "English is a partial counterpart: English covers the hyena-as-game question and the Prophetic attribution. It omits the separate question and answer about permission to eat it, which are present in the pinned Arabic. This English version is a partial counterpart.",
+      "reason_code": "source_english_omits_separate_eating_permission_question",
+      "citation_note": "English covers the hyena-as-game question and the Prophetic attribution. It omits the separate question and answer about permission to eat it, which are present in the pinned Arabic. This English version is a partial counterpart.",
+      "reviewed_date": "2026-11-12",
+      "reviewer": "OpenAI GPT-6 Astra Pro /root and designated alignment reviewers (assistant content review)",
+      "human_review": false,
+      "independent_authenticity_certification": false,
+      "evidence": {
+        "arabic_text_sha256": "2acfe1edf596f455c2ef7acd85ab81673c07c6266cbded6ad5cac8787502d254",
+        "arabic_quote": "آكُلُها؟",
+        "english_quote": "Are hyenas a type of game (animal)?",
+        "preserved_english_database": {
+          "path": "sources/counterparts/hadeethenc/2026-11-11/raw/en.sqlite",
+          "sha256": "20e794ba8a0549dee3e08f3ab96dcd80b467e681ab165839faee3b30dfd9cabb",
+          "bytes": 8003584,
+          "rows": 2328
+        },
+        "provider_arabic_revision": 1,
+        "official_source_url": "https://hadeethenc.com/en/browse/hadith/64646",
+        "existing_affected_occurrences_at_review": 2,
+        "review_basis": "Complete pinned Arabic/English comparison; both source text versions remain unchanged."
+      },
+      "original_source_bytes_modified": false,
+      "translation_origin_reclassified": false,
       "different_english_hash_requires_its_own_decision": true
     }
   ]

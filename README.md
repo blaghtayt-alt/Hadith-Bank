@@ -26,6 +26,8 @@ The interactive reader searches narration text and supplied references, with lan
 
 Use **Arabic & English availability** to select stored bilingual text, English source-page links, or occurrences still awaiting one or both languages. The [book-by-book availability report](reports/counterpart-availability.md) counts Arabic text, English text, external links and missing languages independently. Arabic already present in a book remains available even when its English counterpart is unresolved.
 
+The [latest Arabic/English continuation audit](reports/counterpart-continuation-2026-11-12.md) records the newly checked source matches, exact-version English content holds and remaining coverage. Counterparts use preserved published texts; the build does not create translations.
+
 Every registered book enters the same language-linking workflow. The build refreshes a [source-bound candidate review queue](reports/counterpart-review/manifest.json) for missing counterparts. See [Arabic/English integration and future Chinese Abū Dāwūd additions](docs/LANGUAGE-COUNTERPARTS.md) for preparing and compiling new reviewed mappings. Future installments and editions retain separate source files, numbering and occurrence identities.
 
 Every indexed source occurrence also has a separate HTML reading page. These pages contain the text before JavaScript runs and link through language, book and edition indexes. They provide stable destinations for sharing a particular narration and for search-engine discovery. The [sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) is rebuilt with the corpus. See [search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) for the design and indexing setup.

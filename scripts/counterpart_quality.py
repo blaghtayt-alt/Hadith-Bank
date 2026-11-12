@@ -15,6 +15,7 @@ from counterpart_review import local
 POLICY_PATH = 'catalog/counterpart-quality-policy.json'
 SCHEMA = 'hadith-bank-counterpart-quality-policy-v1'
 ACTION = 'withhold_derived_counterpart_text'
+PARTIAL_ACTION = 'qualify_partial_counterpart_text'
 
 
 def load_quality_policy(root):
@@ -37,13 +38,16 @@ def load_quality_policy(root):
             raise ValueError('Duplicate counterpart quality decision')
         identities.add(decision['id'])
         if (decision.get('provider') != 'hadeethenc' or decision.get('language') != 'english' or
-                decision.get('action') != ACTION or
+                decision.get('action') not in (ACTION, PARTIAL_ACTION) or
                 not re.fullmatch(r'[1-9][0-9]*', decision['source_record_id']) or
                 not isinstance(decision.get('text_sha256'), str) or
                 not re.fullmatch(r'[0-9a-f]{64}', decision['text_sha256'])):
             raise ValueError('Quality decision needs an exact supported provider, language, ID and text hash')
         if not isinstance(decision.get('evidence'), dict) or not decision['evidence']:
             raise ValueError('Counterpart quality decision requires preserved source evidence')
+        if decision['action'] == PARTIAL_ACTION and (
+                not isinstance(decision.get('citation_note'), str) or not decision['citation_note'].strip()):
+            raise ValueError('Partial counterpart qualification requires a specific citation note')
     return {**policy, 'policy_path': POLICY_PATH, 'policy_sha256': hashlib.sha256(raw).hexdigest()}
 
 
@@ -77,6 +81,23 @@ def apply_quality_policy(result, policy):
     if not matching:
         return result
     value = copy.deepcopy(result)
+    holds = [decision for decision in matching if decision['action'] == ACTION]
+    if not holds:
+        item = value['english']
+        item.setdefault('source_scope', item.get('scope'))
+        item.update(scope='source_excerpt', coverage='partial')
+        notes = [item.get('citation_note') or '']
+        for decision in matching:
+            note = decision['citation_note'].strip()
+            if not any(note in previous for previous in notes):
+                notes.append(note)
+        item['citation_note'] = ' '.join(note for note in notes if note)
+        item['quality_qualification_ids'] = sorted(set(item.get('quality_qualification_ids') or []) |
+                                                   {decision['id'] for decision in matching})
+        item['quality_policy_path'] = policy['policy_path']
+        item['quality_policy_sha256'] = policy['policy_sha256']
+        return value
+    matching = holds
     history = copy.deepcopy(english)
     history.pop('text', None)
     history.update(status='withheld', actual_text_sha256=actual_hash,

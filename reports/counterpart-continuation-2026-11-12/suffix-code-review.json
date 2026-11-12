@@ -1,0 +1,359 @@
+{
+  "reviewer": "/root/review_fa",
+  "scope": "Independent code review of root suffix corroboration diff and six targeted software tests; no religious authenticity or source transcription certification",
+  "files": {
+    "scripts/resolve_counterparts.py": "c68cd133c029c21e56f65ba036259a843e295ffd5eed6f286abe43e310cf814f",
+    "tests/test_counterpart_resolver.py": "af4329d6f22b5e9f729cc0bdd3b38d88fbc9dfee63dedd1e9e368a92047b4a40"
+  },
+  "tests": [
+    "test_number_suffix_requires_arabic_alignment_and_preserves_both_references",
+    "test_suffix_number_and_matching_translation_without_arabic_do_not_join",
+    "test_two_different_number_suffixes_remain_conflicting",
+    "test_suffix_corroboration_does_not_enable_reverse_containment",
+    "test_suffix_corroboration_keeps_duplicate_arabic_targets_ambiguous",
+    "test_number_alone_never_links"
+  ],
+  "tests_run": 6,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "real_case_audit_status": "passed",
+  "findings": [
+    {
+      "severity": "none",
+      "finding": "No blocking issue found in the scoped diff, targeted tests or fourteen source-bound suffix cases."
+    },
+    {
+      "severity": "limitation",
+      "finding": "This does not assert that a bare number and suffixed route are canonically equivalent. Suffix compatibility only permits already-substantive Arabic alignment; exact source and target references remain separately preserved."
+    },
+    {
+      "severity": "limitation",
+      "finding": "The underlying normalization and 32-character minimum predate this diff. This review confirms the suffix path does not weaken them, not universal hadith identity correctness for future sources."
+    },
+    {
+      "severity": "limitation",
+      "finding": "Independently inspected code and actual source/target hashes/selection for all fourteen audited rows. Root semantic English review is recorded in the source audit; this supplementary review does not claim independent full religious-source or translation certification."
+    }
+  ],
+  "real_case_audit_sha256": "36c0a50ae2add8f8b6b681a77cb8f936cc6ed9eb85df390e25574347eb74a559",
+  "actual_source_occurrences_hash_and_route_checked": 14,
+  "unique_target_ids_checked": [
+    "4318",
+    "4801",
+    "4810",
+    "6258",
+    "65099",
+    "66382"
+  ],
+  "real_case_checks": [
+    {
+      "record_id": "legacy.fa.2757bf1a2935f9550dc93463",
+      "provider_id": "6258",
+      "relation": "source_excerpt",
+      "normalized_source_length": 51,
+      "source_arabic_sha256": "60eaf0cf69eea763a451f390181f6265ae11db5703a85dfb6894e776ff65665b",
+      "target_arabic_sha256": "446ad984f0b117661021bbae9c2a7371185e0030ad3132c6fd7a23d0327b1e6b",
+      "target_english_sha256": "514b48a372cf6d5029eb7c01a1fd2668565997705b190d200311bf3f1563bfee",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "797a"
+          ],
+          "target": [
+            "muslim",
+            "797"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "legacy.fa.81b6f844ea48f7aed77f3f78",
+      "provider_id": "4801",
+      "relation": "source_excerpt",
+      "normalized_source_length": 118,
+      "source_arabic_sha256": "6926d0be715ef3b13bfd465827d37f7b2265571a09990892d132c6bf7fc2e29d",
+      "target_arabic_sha256": "94acfc5816063a3bd3bfbfeb8b7a71bb5e3bedd42e382fc3b0d2d0b989505202",
+      "target_english_sha256": "28ca0b0c1da71a1b9a0d436f761ee5eab00f2e5761009c86decca17043456151",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2699a"
+          ],
+          "target": [
+            "muslim",
+            "2699"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "legacy.hi.06ba1a652374286189075d51",
+      "provider_id": "6258",
+      "relation": "source_excerpt",
+      "normalized_source_length": 51,
+      "source_arabic_sha256": "60eaf0cf69eea763a451f390181f6265ae11db5703a85dfb6894e776ff65665b",
+      "target_arabic_sha256": "446ad984f0b117661021bbae9c2a7371185e0030ad3132c6fd7a23d0327b1e6b",
+      "target_english_sha256": "514b48a372cf6d5029eb7c01a1fd2668565997705b190d200311bf3f1563bfee",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "797a"
+          ],
+          "target": [
+            "muslim",
+            "797"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "legacy.hi.b90285d319150991c35b42a6",
+      "provider_id": "4801",
+      "relation": "source_excerpt",
+      "normalized_source_length": 118,
+      "source_arabic_sha256": "6926d0be715ef3b13bfd465827d37f7b2265571a09990892d132c6bf7fc2e29d",
+      "target_arabic_sha256": "94acfc5816063a3bd3bfbfeb8b7a71bb5e3bedd42e382fc3b0d2d0b989505202",
+      "target_english_sha256": "28ca0b0c1da71a1b9a0d436f761ee5eab00f2e5761009c86decca17043456151",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2699a"
+          ],
+          "target": [
+            "muslim",
+            "2699"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "legacy.zh-CN.9c3372b561daf29da6b81981",
+      "provider_id": "6258",
+      "relation": "source_excerpt",
+      "normalized_source_length": 51,
+      "source_arabic_sha256": "60eaf0cf69eea763a451f390181f6265ae11db5703a85dfb6894e776ff65665b",
+      "target_arabic_sha256": "446ad984f0b117661021bbae9c2a7371185e0030ad3132c6fd7a23d0327b1e6b",
+      "target_english_sha256": "514b48a372cf6d5029eb7c01a1fd2668565997705b190d200311bf3f1563bfee",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "797a"
+          ],
+          "target": [
+            "muslim",
+            "797"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-fil-fatiha-h18",
+      "provider_id": "4810",
+      "relation": "source_excerpt",
+      "normalized_source_length": 38,
+      "source_arabic_sha256": "02819d216f7f9005c5ca6de01a5c59265ec9801bb36a8c32676f8a5045bcef5a",
+      "target_arabic_sha256": "ea69be2a424c1c8208ff38d4b38bb4978b6b61b2173528a6dba147e645e1643a",
+      "target_english_sha256": "9fdf758ea8026b34682d7a6bf9632339161e3624e715c4549bac348e3d734139",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2577a"
+          ],
+          "target": [
+            "muslim",
+            "2577"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-hi-fatiha-h18",
+      "provider_id": "4810",
+      "relation": "source_excerpt",
+      "normalized_source_length": 38,
+      "source_arabic_sha256": "02819d216f7f9005c5ca6de01a5c59265ec9801bb36a8c32676f8a5045bcef5a",
+      "target_arabic_sha256": "ea69be2a424c1c8208ff38d4b38bb4978b6b61b2173528a6dba147e645e1643a",
+      "target_english_sha256": "9fdf758ea8026b34682d7a6bf9632339161e3624e715c4549bac348e3d734139",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2577a"
+          ],
+          "target": [
+            "muslim",
+            "2577"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-ja-fatiha-h23",
+      "provider_id": "66382",
+      "relation": "source_excerpt",
+      "normalized_source_length": 33,
+      "source_arabic_sha256": "e720be997a3cfc05e9af667cffc873609382977a11dee9864147648d350d6ce6",
+      "target_arabic_sha256": "26f0f2cd37a05b9a35a902fceaca3e5d3edd9b745564d097b998373e4ca4025f",
+      "target_english_sha256": "dcc284184968784e4bb2926bff30d96025c65e60397fbfb4f40e2853da231344",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "144a"
+          ],
+          "target": [
+            "muslim",
+            "144"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-ja-fatiha-h7",
+      "provider_id": "4318",
+      "relation": "source_excerpt",
+      "normalized_source_length": 68,
+      "source_arabic_sha256": "59ef9c18f10316dae537f6b172a63f435ce9f07ca9b3a66944c7bd6e143a9c25",
+      "target_arabic_sha256": "cc42b3dd19097fae66dd6f39f68f40b969a0e2859495db492227a6d0c009f5fa",
+      "target_english_sha256": "57de9662ce2ad15fdd5e38311e783094b59fed55a86fbf95917c97d9ecb56629",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2759a"
+          ],
+          "target": [
+            "muslim",
+            "2759"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-uz-fatiha-h18",
+      "provider_id": "4810",
+      "relation": "source_excerpt",
+      "normalized_source_length": 38,
+      "source_arabic_sha256": "02819d216f7f9005c5ca6de01a5c59265ec9801bb36a8c32676f8a5045bcef5a",
+      "target_arabic_sha256": "ea69be2a424c1c8208ff38d4b38bb4978b6b61b2173528a6dba147e645e1643a",
+      "target_english_sha256": "9fdf758ea8026b34682d7a6bf9632339161e3624e715c4549bac348e3d734139",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2577a"
+          ],
+          "target": [
+            "muslim",
+            "2577"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-uz-fatiha-h2",
+      "provider_id": "65099",
+      "relation": "source_excerpt",
+      "normalized_source_length": 38,
+      "source_arabic_sha256": "d2cc26abf2983402edb6c819d0dd7848393498613e8f3f712d30edb738660623",
+      "target_arabic_sha256": "05b9fb7d1c5c1d4ea4a4b693d9a290c4e88cea99b437941ba94c0f340d4f367d",
+      "target_english_sha256": "ef0bd359ec8b3b195fad3579b3c6091c2de31d633a8e6b37623f9013fb1612c3",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "395a"
+          ],
+          "target": [
+            "muslim",
+            "395"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-uz-fatiha-h23",
+      "provider_id": "66382",
+      "relation": "source_excerpt",
+      "normalized_source_length": 33,
+      "source_arabic_sha256": "e720be997a3cfc05e9af667cffc873609382977a11dee9864147648d350d6ce6",
+      "target_arabic_sha256": "26f0f2cd37a05b9a35a902fceaca3e5d3edd9b745564d097b998373e4ca4025f",
+      "target_english_sha256": "dcc284184968784e4bb2926bff30d96025c65e60397fbfb4f40e2853da231344",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "144a"
+          ],
+          "target": [
+            "muslim",
+            "144"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-uz-fatiha-h7",
+      "provider_id": "4318",
+      "relation": "source_excerpt",
+      "normalized_source_length": 68,
+      "source_arabic_sha256": "59ef9c18f10316dae537f6b172a63f435ce9f07ca9b3a66944c7bd6e143a9c25",
+      "target_arabic_sha256": "cc42b3dd19097fae66dd6f39f68f40b969a0e2859495db492227a6d0c009f5fa",
+      "target_english_sha256": "57de9662ce2ad15fdd5e38311e783094b59fed55a86fbf95917c97d9ecb56629",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "2759a"
+          ],
+          "target": [
+            "muslim",
+            "2759"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    },
+    {
+      "record_id": "iman-quran-vi-fatiha-h2",
+      "provider_id": "65099",
+      "relation": "source_excerpt",
+      "normalized_source_length": 38,
+      "source_arabic_sha256": "d2cc26abf2983402edb6c819d0dd7848393498613e8f3f712d30edb738660623",
+      "target_arabic_sha256": "05b9fb7d1c5c1d4ea4a4b693d9a290c4e88cea99b437941ba94c0f340d4f367d",
+      "target_english_sha256": "ef0bd359ec8b3b195fad3579b3c6091c2de31d633a8e6b37623f9013fb1612c3",
+      "suffix_pairs": [
+        {
+          "source": [
+            "muslim",
+            "395a"
+          ],
+          "target": [
+            "muslim",
+            "395"
+          ]
+        }
+      ],
+      "source_and_target_hashes_checked": true
+    }
+  ]
+}

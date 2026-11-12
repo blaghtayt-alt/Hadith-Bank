@@ -125,6 +125,24 @@ def reference_key(reference):
     return ALIASES.get(book, book), number
 
 
+def suffix_compatible_references(source, target):
+    """Record a bare-number/suffixed-number pair without rewriting either.
+
+    This is only corroboration for an independently aligned Arabic quotation.
+    Two distinct suffixes are never treated as equivalent, and callers must not
+    use a common number family to select a narration or a longer source entry.
+    """
+    pairs = []
+    for left in sorted(source):
+        for right in sorted(target):
+            if left[0] != right[0] or left[1] == right[1]:
+                continue
+            if ((re.fullmatch(r'[0-9]+[a-z]', left[1]) and left[1][:-1] == right[1])
+                    or (re.fullmatch(r'[0-9]+[a-z]', right[1]) and right[1][:-1] == left[1])):
+                pairs.append({'source': list(left), 'target': list(right)})
+    return pairs
+
+
 def narration_reference_scope(reference):
     """Require narration identity metadata at both wrapper and child levels."""
     if not isinstance(reference, dict):
@@ -340,10 +358,12 @@ class CounterpartResolver:
         entry = self.entries[identifier]
         refs = {reference_key(ref) for ref in source_references(record)} - {None}
         target = {reference_key(ref) for ref in entry['references']} - {None}
-        if refs and target and not refs.intersection(target):
+        shared = refs.intersection(target)
+        suffix_pairs = suffix_compatible_references(refs, target) if not shared else []
+        if refs and target and not shared and not suffix_pairs:
             return None
         relation = arabic_quote_relation(record.get('text_arabic'), entry['arabic'],
-                                        allow_target_excerpt=bool(refs.intersection(target)))
+                                        allow_target_excerpt=bool(shared))
         if relation:
             return {'field': 'text_arabic', 'relation': relation,
                     'source_record_id': record.get('id'),
@@ -351,7 +371,14 @@ class CounterpartResolver:
                     'target_text_sha256': hashlib.sha256(entry['arabic'].encode('utf-8')).hexdigest(),
                     'source_file_sha256': (record.get('source') or {}).get('sha256'),
                     'normalization': 'NFKC, punctuation/diacritics/spacing/tatweel/format controls removed; Persian kaf and yeh compared as Arabic kaf and yeh; source bytes unchanged',
-                    'shared_explicit_references': [list(value) for value in sorted(refs.intersection(target))]}
+                    'shared_explicit_references': [list(value) for value in sorted(shared)],
+                    **({'suffix_compatible_references': suffix_pairs,
+                        'reference_qualification': 'Source and publisher retain their own numbers. A bare number and one suffixed form corroborate the Arabic quotation only; no numbered route equivalence is asserted.'}
+                       if suffix_pairs else {})}
+        # A translated phrase alone does not establish that a numbered suffix
+        # denotes this Arabic route. Keep it for explicit content review.
+        if suffix_pairs:
+            return None
         for item in self.translations.get((identifier, record.get('language')), []):
             relation = quote_relation(record.get('text_translation'), item['translation'])
             if relation:

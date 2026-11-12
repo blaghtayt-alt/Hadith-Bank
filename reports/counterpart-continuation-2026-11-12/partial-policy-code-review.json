@@ -1,0 +1,95 @@
+{
+  "schema": "hadith-bank-partial-counterpart-policy-code-review-v1",
+  "reviewed_at": "2026-11-12T05:00:13.374590+00:00",
+  "base_commit": "9f1433a6e534d7195f6a6524847cff1f7cf2de52",
+  "reviewer": "automated assistant /root/review_ja_vi",
+  "human_review": false,
+  "independent_pro_or_scholarly_certification": false,
+  "status": "no_blocking_findings",
+  "findings": [],
+  "scope": "Read-only review of exact-source partial English qualification change and three added regression tests. No shared file or policy data edits.",
+  "reviewed_files": [
+    {
+      "path": "scripts/counterpart_quality.py",
+      "sha256": "83712c654cab5a71cd510477965805d67cccce8f9a250c6563090f75adefc1ee"
+    },
+    {
+      "path": "tests/test_counterpart_quality.py",
+      "sha256": "454b030530278ffac41ac8ffc66e1dc8b620649e89a4d3b2fd0a774ae10d0d62"
+    },
+    {
+      "path": "scripts/counterpart_identity.py",
+      "sha256": "4b246ae670852e985c487e94354582d6f4269ac9b6df72a2a828f68879f69df2"
+    },
+    {
+      "path": "scripts/counterpart_display.py",
+      "sha256": "7c716af880e070621a87162eff47431d29c01fa1b179bdbbf38c3daa6e0ba7c0"
+    },
+    {
+      "path": "scripts/build_reader.py",
+      "sha256": "af6267a2a837974b778d5e571cfa4d31e89de4134b5238060ea7eaa528f47cf6"
+    },
+    {
+      "path": "scripts/build_discovery.py",
+      "sha256": "3d70cfdbf3e0be01252780a05f99aa8bdad08ccfde49b56a8a6e9dc06cc63259"
+    }
+  ],
+  "checks": [
+    {
+      "requirement": "idempotence",
+      "result": "pass",
+      "evidence": "Repeated application equality is asserted by the partial-source test. Existing source_scope survives setdefault; note substring check prevents duplication; qualification IDs are a sorted set."
+    },
+    {
+      "requirement": "exact_source_preservation",
+      "result": "pass",
+      "evidence": "A deepcopy is changed only in derived qualification metadata. Exact English text, text_sha256, translation_origin and current_translation_policy, Arabic and the input result are not rewritten. The test checks input immutability and exact text/hash/origin."
+    },
+    {
+      "requirement": "own_provider_id_and_actual_hash_binding",
+      "result": "pass",
+      "evidence": "_own_provider_identity requires the counterpart own HadeethEnc URL and agreeing source_record_id, rejects contradictory provider/source_provider, and the shared matching gate hashes actual UTF-8 English bytes. Parent identity is not inherited. Existing tests cover changed bytes, wrong URL/ID/provider and declared-hash spoofing; the new partial test covers changed actual bytes."
+    },
+    {
+      "requirement": "visible_scope_and_specific_note",
+      "result": "pass",
+      "evidence": "Partial action sets scope=source_excerpt and coverage=partial, preserves old source_scope and existing citation_note, requires a nonblank new citation_note, and adds exact decision IDs and policy hash. counterpart_qualification exposes the source-excerpt label and citation_note; both reader and discovery rendering call it. New tests verify the note, searchable text and text availability."
+    },
+    {
+      "requirement": "withholding_precedence",
+      "result": "pass",
+      "evidence": "If any exact matching withholding exists, only matching holds enter the established withholding branch; partial metadata cannot retain the text. The new precedence test verifies English=None and only the withholding decision ID. Already withheld English=None returns unchanged and cannot be restored by partial qualification."
+    }
+  ],
+  "validation": {
+    "command": "python -B -m unittest discover -s tests -p test_counterpart_quality.py -v",
+    "tests_run": 11,
+    "passed": 11,
+    "exit_code": 0,
+    "job_status": ".work/recovery-ja-vi/partial-policy-tests/status.json",
+    "log": ".work/recovery-ja-vi/partial-policy-tests/output.log",
+    "browser_validation_performed": false
+  },
+  "source_examples_rechecked": [
+    {
+      "provider": "hadeethenc",
+      "source_record_id": "4952",
+      "source_snapshot": "Pinned English export v1.25.0; Arabic revision 1",
+      "english_text_sha256": "314d5ea569c676bccca96759bcf7947b5e52a6da77334a1d0f761785500750f1",
+      "arabic_text_sha256": "f3ce19eba665f4221ab2418b91e80eb61e1af46e7d5df73cec9418e63954fad9",
+      "finding": "English stops after the greeting correction. Arabic continues with the Messenger identity question, hardship/drought/lost mount responses and further instructions. A note must identify the greeting exchange as the English coverage; no claim of full Arabic coverage is supported."
+    },
+    {
+      "provider": "hadeethenc",
+      "source_record_id": "64646",
+      "source_snapshot": "Pinned English export v1.25.0; Arabic revision 1",
+      "english_text_sha256": "d282599140bf6dd55e4ea79480e20eefe80d1fc469593538d7ac790ae56dc59c",
+      "arabic_text_sha256": "2acfe1edf596f455c2ef7acd85ab81673c07c6266cbded6ad5cac8787502d254",
+      "finding": "English contains the game-animal question and Prophetic attribution question, but omits the separate Arabic eating question and affirmative answer. Global partial coverage is appropriate for this exact English version."
+    }
+  ],
+  "limits": [
+    "Policy data decisions for4952 and64646 had not been appended in the inspected code diff; this review covers the action and pinned-source rationale, not future policy bytes.",
+    "The assertions do not constitute a source transcription or authenticity certification."
+  ]
+}

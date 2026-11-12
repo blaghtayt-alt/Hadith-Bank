@@ -11,8 +11,8 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from counterpart_quality import ACTION, POLICY_PATH, SCHEMA, apply_quality_policy, load_quality_policy
-from counterpart_display import counterpart_search_values, counterpart_source_data
+from counterpart_quality import ACTION, PARTIAL_ACTION, POLICY_PATH, SCHEMA, apply_quality_policy, load_quality_policy
+from counterpart_display import counterpart_search_values, counterpart_source_data, counterpart_qualification
 from counterpart_coverage import availability_for
 from resolve_counterparts import CounterpartResolver, MANIFEST
 from reviewed_counterparts import ReviewedCounterpartResolver, MANIFEST as REVIEWED_MANIFEST, SCHEMA as REVIEWED_SCHEMA
@@ -151,6 +151,47 @@ class CounterpartQualityTests(unittest.TestCase):
         self.policy['decisions'][0]['text_sha256'] = 'TEST invalid hash'
         self.write_policy()
         with self.assertRaisesRegex(ValueError, 'exact supported'):
+            load_quality_policy(self.root)
+
+    def test_partial_source_stays_searchable_with_exact_text_origin_and_visible_scope(self):
+        decision = self.policy['decisions'][0]
+        decision.update(action=PARTIAL_ACTION, citation_note='TEST English covers the opening question only.',
+                        message='TEST English is a bounded excerpt.')
+        self.write_policy(); policy = load_quality_policy(self.root)
+        self.value['english']['citation_note'] = 'TEST existing source qualification.'
+        before = copy.deepcopy(self.value)
+        result = apply_quality_policy(self.value, policy)
+        self.assertEqual(self.value, before)
+        self.assertEqual(result['english']['text'], TEST_ENGLISH)
+        self.assertEqual(result['english']['text_sha256'], sha(TEST_ENGLISH))
+        self.assertEqual(result['english']['translation_origin'], 'human')
+        self.assertEqual(result['english']['source_scope'], 'full_narration')
+        self.assertEqual(result['english']['scope'], 'source_excerpt')
+        self.assertEqual(result['english']['coverage'], 'partial')
+        self.assertIn('TEST existing source qualification.', result['english']['citation_note'])
+        record = {**self.record(), 'counterparts': result}
+        self.assertEqual(availability_for(record)['english'], 'text')
+        self.assertIn(TEST_ENGLISH, list(counterpart_search_values(record)))
+        self.assertIn('opening question only', counterpart_qualification(result['english'], record))
+        self.assertEqual(apply_quality_policy(result, policy), result)
+        corrected = copy.deepcopy(self.value); corrected['english']['text'] += ' TEST new version'
+        self.assertEqual(apply_quality_policy(corrected, policy), corrected)
+
+    def test_partial_qualification_cannot_override_an_exact_source_hold(self):
+        decision = copy.deepcopy(self.policy['decisions'][0])
+        decision.update(id='test-partial-decision', action=PARTIAL_ACTION,
+                        citation_note='TEST English covers the opening question only.')
+        self.policy['decisions'].append(decision)
+        self.write_policy()
+        result = apply_quality_policy(self.value, load_quality_policy(self.root))
+        self.assertIsNone(result['english'])
+        self.assertEqual(result['withheld_languages']['english']['quality_decision_ids'],
+                         ['test-exact-quality-decision'])
+
+    def test_partial_qualification_without_a_specific_note_is_rejected(self):
+        self.policy['decisions'][0]['action'] = PARTIAL_ACTION
+        self.write_policy()
+        with self.assertRaisesRegex(ValueError, 'specific citation note'):
             load_quality_policy(self.root)
 
     def test_final_hook_covers_primary_resolver_and_keeps_original_sqlite_bytes(self):
