@@ -452,6 +452,16 @@ class CounterpartResolver:
     def for_record(self, record):
         if not self.enabled:
             return None
+        policy = record.get('counterpart_policy') or {}
+        if policy.get('mode') == 'disabled':
+            # The material's explicit decision wins over both reviewed links and
+            # automatic matching. Keep original source text and review intact.
+            return self._finalize_result({
+                'schema': SCHEMA, 'status': 'unresolved',
+                'match_method': 'material_counterparts_disabled',
+                'match_note': policy['reason'], 'provider_identity': None,
+                'quotation_evidence': None, 'arabic': None, 'english': None,
+            })
         reviewed = self.reviewed.for_record(record)
         if reviewed is not None:
             # A stale or ambiguous reviewed assignment must not silently fall

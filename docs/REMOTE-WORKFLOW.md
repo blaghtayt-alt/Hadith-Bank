@@ -56,6 +56,12 @@ Remote terminal calls may return after a short bounded wait while the command co
 
 ## Publish once, rebuild where the repository lives
 
+### Keep the requested delivery independent of optional archives
+
+Resolve the exact requested files before adding a transport dependency. If the owner requests standalone JSON, JSONL, CSV, reports and an original PDF, publish those exact originals without requiring a duplicate evaluation ZIP, generated page images or a split-archive reconstruction step. Record which originals are actually present in a repository delivery manifest. Keep historical receipts unchanged and explain when they describe a larger review package.
+
+When a previous attempt has already uploaded Git blobs, reuse their content-addressed SHAs in a Git tree. Validate that GitHub accepts every referenced object and verify the resulting branch against local file hashes. Do not retransmit an original solely because it is not yet attached to a published branch. Upload only new or changed integration files, passing their bodies inside orchestration code without printing them.
+
 The existing `.github/workflows/reader-pages.yml` runs validation, rebuilds the reader/catalog/search outputs, and deploys from current main. Transfer canonical material, preserved source evidence and changed code; avoid transporting all generated mirrors as another copy of the same import.
 
 Before publishing, fetch current main and preserve concurrent work. Use normal fast-forward Git pushes or a connector ref update with an expected head. If that expectation changes, inspect the new commit and integrate it before trying again. Never force away another import to resolve a transfer problem.

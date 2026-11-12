@@ -1,0 +1,68 @@
+{
+  "evaluation_id": "ZH-HISN-FINAL-2026-11-10",
+  "overall_evaluation": "PARTIAL",
+  "submitted_record_source_fidelity": "PASS",
+  "corrected_record_source_fidelity": "PASS",
+  "submitted_whole_document_all_marks": "PARTIAL",
+  "corrected_whole_document_all_marks": "PARTIAL",
+  "canonical_enrichment": "PARTIAL",
+  "bank_readiness": "FAIL",
+  "bank_upload_allowed": false,
+  "repository_handoff_allowed": false,
+  "passed_bank_bytes": [],
+  "reason": "Required Arabic edition/bytes, every canonical occurrence and variant, full chains and scoped original grading are not fully verified. New evidence does not authorize bank ingestion.",
+  "exact_blockers": [
+    {
+      "issue_id": "BANK-001",
+      "requirement": "Arabic source text",
+      "status": "UNRESOLVED",
+      "detail": "Modern official Hisn passages were substantively compared for all records, but every Arabic letter/vowel has not been certified against the selected bank edition. Compilation quotations are not automatically complete original-collection reports."
+    },
+    {
+      "issue_id": "BANK-002",
+      "requirement": "Canonical occurrence and numbering",
+      "status": "UNRESOLVED",
+      "detail": "Content-based candidates and some exact consulted collection occurrences exist; complete resolution of every cited collection, numbering system, composite occurrence and variant is not complete. Printed numbers are preserved separately."
+    },
+    {
+      "issue_id": "BANK-003",
+      "requirement": "Full isnad and narrator",
+      "status": "UNRESOLVED",
+      "detail": "The full Arabic transmission/report is preserved for specifically inspected witnesses only. Remaining chains, variant paths, relational narrator names and mawquf/editorial attributions must be resolved per occurrence."
+    },
+    {
+      "issue_id": "BANK-004",
+      "requirement": "Grading originals and scope",
+      "status": "UNRESOLVED",
+      "detail": "Compiler assessments, named scholar claims and website/publisher labels are distinct. Conflicting or phrase-excluding grades are not flattened. No blanket record grade is approved."
+    },
+    {
+      "issue_id": "BANK-005",
+      "requirement": "Translation edition and source differences",
+      "status": "UNRESOLVED",
+      "detail": "The exact Arabic edition underlying the Chinese translation has not been identified. Printed-author contradiction, unresolved publisher role, unknown Gregorian publication date and substantive translation/reference differences remain explicit."
+    },
+    {
+      "issue_id": "BANK-006",
+      "requirement": "Independent final byte review",
+      "status": "REQUIRED",
+      "detail": "New metadata and enrichment bytes must undergo a separate independent source-level Arabic, variant, identifier, chain and grading review after unresolved requirements are resolved and before upload. Structural validation alone cannot authorize upload."
+    },
+    {
+      "issue_id": "PAGE-LOGO-001",
+      "requirement": "All printed source marks",
+      "status": "UNRESOLVED",
+      "pdf_pages": [
+        1,
+        52
+      ],
+      "detail": "Base logo letters حصين are read; exact textual/ornamental status and sequence of gold vowel-like marks are not established. This does not affect the 279 Chinese record texts."
+    }
+  ],
+  "further_independent_final_check": {
+    "required": true,
+    "status": "NOT_COMPLETED_FOR_BANK_SCOPE",
+    "scope": "Independently compare the exact new Arabic/enrichment bytes to selected originals; resolve each source/variant/reference/chain/grade exception and verify final release hashes before upload.",
+    "structural_review_is_sufficient": false
+  }
+}

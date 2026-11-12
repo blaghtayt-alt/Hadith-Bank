@@ -8,6 +8,7 @@ import sqlite3
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from resolve_counterparts import (CounterpartResolver, MANIFEST, source_references,
@@ -62,6 +63,57 @@ class CounterpartResolverTests(unittest.TestCase):
         self.assertEqual(result['english']['citation'], '[Sahih Muslim no. 12345]')
         self.assertEqual(result['status'], 'exact')
         self.assertEqual(record['translation_provenance']['current_policy']['classification'], 'unknown')
+
+    def test_material_opt_out_blocks_provider_link_without_affecting_other_records(self):
+        enabled = self.record()
+        disabled = self.record(id='TEST-disabled', counterpart_policy={
+            'mode': 'disabled', 'reason': 'TEST alignment is not approved'})
+        before = copy.deepcopy(disabled)
+        resolver = CounterpartResolver(self.root, [enabled, disabled])
+        result = resolver.for_record(disabled)
+        self.assertEqual(result['status'], 'unresolved')
+        self.assertEqual(result['match_method'], 'material_counterparts_disabled')
+        self.assertEqual(result['match_note'], disabled['counterpart_policy']['reason'])
+        self.assertIsNone(result['arabic'])
+        self.assertIsNone(result['english'])
+        self.assertIsNone(result['quotation_evidence'])
+        self.assertEqual(disabled, before)
+        self.assertEqual(disabled['text_arabic'], ARABIC)
+        unaffected = resolver.for_record(enabled)
+        self.assertEqual(unaffected['status'], 'exact')
+        self.assertEqual(unaffected['arabic']['text'], ARABIC)
+        self.assertEqual(unaffected['english']['text'], ENGLISH)
+
+    def test_material_opt_out_blocks_unique_chinese_translation_match(self):
+        translated = 'TEST仅用于软件测试的足够长中文文本不会作为宗教资料发布'
+        provider = self.record(language='zh-CN', text_translation=translated)
+        source = self.record(id='TEST-Chinese-source', language='zh-CN',
+                             book_key='hisn-al-muslim', provider_entry_id=None,
+                             text_arabic=None, text_translation=translated)
+        resolver = CounterpartResolver(self.root, [provider])
+        baseline = resolver.for_record(source)
+        self.assertEqual(baseline['match_method'], 'unique_source_quotation')
+        self.assertEqual(baseline['english']['text'], ENGLISH)
+        source['counterpart_policy'] = {'mode': 'disabled', 'reason': 'TEST pending source'}
+        before = copy.deepcopy(source)
+        blocked = resolver.for_record(source)
+        self.assertEqual(blocked['match_method'], 'material_counterparts_disabled')
+        self.assertIsNone(blocked['arabic'])
+        self.assertIsNone(blocked['english'])
+        self.assertEqual(source, before)
+
+    def test_material_opt_out_precedes_reviewed_and_automatic_resolution(self):
+        record = self.record(counterpart_policy={
+            'mode': 'disabled', 'reason': 'TEST material decision takes precedence'})
+        resolver = CounterpartResolver(self.root, [record])
+        with patch.object(resolver.reviewed, 'for_record',
+                          side_effect=AssertionError('Reviewed matching must not run')), \
+                patch.object(resolver, '_select',
+                             side_effect=AssertionError('Automatic matching must not run')):
+            result = resolver.for_record(record)
+        self.assertEqual(result['match_method'], 'material_counterparts_disabled')
+        self.assertIsNone(result['arabic'])
+        self.assertIsNone(result['english'])
 
     def test_same_provider_changed_arabic_is_qualified(self):
         record = self.record(text_arabic='نص تجريبي مختلف في النسخة القديمة')

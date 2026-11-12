@@ -31,6 +31,15 @@
         "url": {"type": ["string", "null"]}
       }
     },
+    "counterpart_policy": {
+      "type": "object", "required": ["mode", "reason"],
+      "properties": {
+        "mode": {"const": "disabled"},
+        "reason": {"type": "string", "pattern": "\\S"}
+      },
+      "additionalProperties": false,
+      "$comment": "Optional records-v1 opt-out from both automatic and reviewed Arabic/English links. Original source text and review facts remain unchanged; absence preserves normal resolution."
+    },
     "publication": {
       "type": "object", "required": ["authorized", "decision", "decision_date_japan"],
       "properties": {
@@ -40,6 +49,10 @@
       }
     }
   },
+  "allOf": [
+    {"if": {"required": ["counterpart_policy"]},
+     "then": {"properties": {"adapter": {"const": "records-v1"}}}}
+  ],
   "oneOf": [
     {"properties": {"adapter": {"const": "records-v1"}}, "required": ["language", "book", "edition", "source_id", "records", "source"]},
     {"properties": {"adapter": {"const": "pdf-intake-package-v1"}}, "required": ["package_root"]}

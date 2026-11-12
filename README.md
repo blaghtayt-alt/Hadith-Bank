@@ -43,6 +43,7 @@ The following are examples of preserved source editions. The automatically gener
 | Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud and 200 Golden Hadith | Supplied Vietnamese booklets | [Vietnamese books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/) |
 | 艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd | Partial Chinese edition | [Chinese Sunan Abi Dawud](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/abu-dawud/) |
 | 穆宛塔圣训集 — Muwatta of Imam Malik | Chinese edition of the al-Shaybani recension | [Chinese Muwatta](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/malik/) |
+| 穆斯林的堡垒 — Hisn al-Muslim | Chinese source quotations; source transcription passed, canonical details remain under review | [Chinese Hisn al-Muslim](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/) |
 | فیض الباری — مختصر صحیح البخاری — Faiz al-Bari | Six supplied Persian volumes | [Persian Bukhari sources](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/) |
 | مختصر صحیح مسلم — Mukhtasar Sahih Muslim | Two supplied Persian volumes, al-Mundhiri / Tarshabi edition | [Persian Muslim sources](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/muslim/) |
 | ترجمه فارسی ریاض الصالحین — Riyadh al-Salihin | Persian translation credited to Abd Allah Khamush Heravi | [Persian Riyadh al-Salihin](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/riyadh-al-salihin/) |
@@ -60,6 +61,7 @@ Examples:
 
 - 穆宛塔圣训集 — Muwatta: [original Chinese Word document (.docx)](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx).
 - 艾布达吾德圣训 — Sunan Abī Dāwūd: [original Chinese Word document (.doc)](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc).
+- 穆斯林的堡垒 — Hisn al-Muslim: [original Chinese PDF](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf), with [preserved final data and evaluation](docs/CHINESE-HISN.md).
 - Persian books: original `.docx` files linked from the [book catalog](catalog/BOOKS.md) and preserved in their [material folders](materials/).
 - Japanese and Vietnamese PDF sources: preserved in the [Japanese package](attachments/attachments-ja-muslim-c859ce57c211ea1b/) and [Vietnamese package](attachments/attachments-vi-920394517894aea9/).
 

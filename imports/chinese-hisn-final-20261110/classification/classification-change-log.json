@@ -1,0 +1,1218 @@
+{
+  "schema": "chinese-hisn-genre-scope-correction-v1",
+  "input_source_json_sha256": "0c000f5f5cfac6ba52bd8339b205bcdd775f952ace81bc261930960fda8f38d5",
+  "scope": "Owner clarified Prophetic dhikr, practice reports and actions qualify as hadith. Original delivered JSON/PDF and earlier classification evidence are unchanged.",
+  "previous_ledger_sha256": "9ea1176d37ab49ee50f79a27f10be6f61adadf47d6ead97113f6ea6c803e64da",
+  "updated_ledger_sha256": "ddf3d53429a49d975c41ee47b6b41ef4ef8196c01f21a397c36f8ebf762cb0d4",
+  "previous_exclusions_sha256": "bfad15d7fa7f07edd781b6afbb3a081acbfbcfccd265624d7807e809617f90a6",
+  "updated_exclusions_sha256": "438d7bfb102aee04760e433dd126ad403cc93ae9abaa08f9e43a945b9c00281b",
+  "old_counts": {
+    "hadith": 238,
+    "non_hadith": 36,
+    "unknown": 5
+  },
+  "new_counts": {
+    "hadith": 251,
+    "non_hadith": 23,
+    "unknown": 5
+  },
+  "source_records": 279,
+  "records_reclassified": 13,
+  "existing_records_with_restored_practice_spans": 1,
+  "new_visual_pdf_pages_reviewed": 0,
+  "canonical_or_arabic_approvals_added": 0,
+  "changes": [
+    {
+      "record_id": "ZH-HISN-012",
+      "before": {
+        "record_id": "ZH-HISN-012",
+        "classification": "non_hadith",
+        "subtype": "compiler_instruction_with_formula",
+        "reason": "The printed entry is an ablution instruction with a short Bismillah formula; the preserved comparison explicitly warns against silently attributing the instruction to a Prophetic report.",
+        "source_text_sha256": "11ab6e41e2d58950618fcd86fce71950fd64bc8afdf0a9fa628fc046c9dfa137",
+        "body_text_sha256": "14726113893d92e00cb66792be553b985014198213d5c384226622e33f91ad63",
+        "source_record_index": 20,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            14
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/20/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "14726113893d92e00cb66792be553b985014198213d5c384226622e33f91ad63"
+          },
+          {
+            "pointer": "/records/20/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/20/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Chinese ablution instruction and quoted Bismillah match Arabic chapter context plus invocation; instruction not silently assigned to a Prophet report."
+          },
+          {
+            "pointer": "/records/20/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citations",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The Chinese source records the basmala practice at the start of ablution; the preserved comparison binds that exact formula and context to the Arabic compilation quotation and its cited report sources. Include as the source compiler's dhikr/practice summary, not as a newly established exact primary-report matn. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          14
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-024",
+      "before": {
+        "record_id": "ZH-HISN-024",
+        "classification": "non_hadith",
+        "subtype": "compiler_practice_instruction",
+        "reason": "The entire substantive component is an instruction to bless the Prophet after the adhan; no separate quoted prayer/report body is printed.",
+        "source_text_sha256": "007433e8cda7dcec0c79ec183a464525a7148a1f5fb7f2381e89c6dedde4a6b6",
+        "body_text_sha256": "0ba87345b1e4cf9496bc0940c4d42c4bc02434956379e488e383b28cd0289354",
+        "source_record_index": 32,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            13
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/32/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "0ba87345b1e4cf9496bc0940c4d42c4bc02434956379e488e383b28cd0289354"
+          },
+          {
+            "pointer": "/records/32/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/32/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Send salutation after answering caller: Chinese instruction matches Arabic instruction, not a separate quoted prayer body."
+          },
+          {
+            "pointer": "/records/32/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/32/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citations",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The Chinese record summarizes sending blessings on the Prophet after replying to the adhan. The preserved Arabic compilation instruction and the attached Muslim citation support its source-attributed report/practice genre. Absence of a complete quoted prayer does not make the reported practice non-hadith. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-070",
+      "before": {
+        "record_id": "ZH-HISN-070",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "3dcee59e7c3e630d15d89473d359a7f38acfc0a4677465f00a52edde8987373c",
+        "body_text_sha256": "ae1e1abf22c5b579c392653a0a8d995b60bfcb5e252ee50e35c772285406e4ae",
+        "source_record_index": 78,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            49
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/78/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "ae1e1abf22c5b579c392653a0a8d995b60bfcb5e252ee50e35c772285406e4ae"
+          },
+          {
+            "pointer": "/records/78/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/78/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Chinese names al-Ikhlas, al-Falaq and al-Nas; the Arabic prints those three surahs and an after-every-prayer instruction. This is an instruction-only correspondence, not a Chinese translation of their complete Arabic verses."
+          },
+          {
+            "pointer": "/records/78/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/78/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/78/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The record summarizes the prescribed post-prayer recitation of three named surahs, rather than quoting Quran verses. Preserve the Chinese basmala addition and its unresolved comparison qualification; include the practice as a source-attributed hadith summary, without substituting the full Quran text. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          42
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-071",
+      "before": {
+        "record_id": "ZH-HISN-071",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "dd9954da094aa4ac0e8d5b463f620227e4a515ca1eb4847bc56df044a95adac8",
+        "body_text_sha256": "64fc4f29cf5f983d7df2c2103c71541b0b57a9208cd43db761817bedd9fa72d5",
+        "source_record_index": 79,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            27
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/79/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "64fc4f29cf5f983d7df2c2103c71541b0b57a9208cd43db761817bedd9fa72d5"
+          },
+          {
+            "pointer": "/records/79/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/79/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Chinese explicitly names Ayat al-Kursi and 2:255; Arabic prints that verse and the post-prayer instruction. Instruction-only correspondence."
+          },
+          {
+            "pointer": "/records/79/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/79/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/79/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The record names recitation of Ayat al-Kursi in the post-prayer chapter. The preserved compilation footnote supplies the reported post-prayer merit. Include the exact abbreviated source instruction as a practice summary; do not fill in Quran verses or a full primary report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          16
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-075",
+      "before": {
+        "record_id": "ZH-HISN-075",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "cda5b4107796a0f96ab0d066c94973e3e99a42e5ba1d5ecd32934bb25a1b1365",
+        "body_text_sha256": "fb405de7bd80c3a2bfb381cb9a451ecfe95084090f90963352aca979ab6d04a1",
+        "source_record_index": 83,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            19
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/83/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "fb405de7bd80c3a2bfb381cb9a451ecfe95084090f90963352aca979ab6d04a1"
+          },
+          {
+            "pointer": "/records/83/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/83/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Seeking refuge and Ayat al-Kursi identify the morning/evening instruction; Chinese does not print the complete Quran verse."
+          },
+          {
+            "pointer": "/records/83/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/83/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/83/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The morning/evening source entry names seeking refuge and Ayat al-Kursi; its preserved compilation footnote records the corresponding protection report. Include the short practice summary under the clarified dhikr/report scope, without inventing omitted Quran or narration text. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          16
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-076",
+      "before": {
+        "record_id": "ZH-HISN-076",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "3de2ec367b52da9172598f0b35d351aa8081376d6b0fc724d222029fe7157849",
+        "body_text_sha256": "5a4455a55ccf2f5951a26f6fa36c2f40dc0fe0910a14bb27f758c1f8b29ec1e8",
+        "source_record_index": 84,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            37
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/84/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "5a4455a55ccf2f5951a26f6fa36c2f40dc0fe0910a14bb27f758c1f8b29ec1e8"
+          },
+          {
+            "pointer": "/records/84/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/84/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Chinese names al-Ikhlas and the two protective surahs and says three times morning/evening. The Arabic bodies and linked merit/instruction note correspond to those names and frequency."
+          },
+          {
+            "pointer": "/records/84/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/84/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/84/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The source names the three protective surahs and morning/evening frequency, with printed collection citations and a preserved matching report note. These are reported practice details, not a Quran quotation. Retain the Chinese basmala addition and unresolved source-equivalence qualification. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          32
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-099",
+      "before": {
+        "record_id": "ZH-HISN-099",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "da6813b218386913188ac6be94c1ef5c1ec497e65ce0aa1ae2e42aabfd240070",
+        "body_text_sha256": "5fcc181ab33097d0bf6accb4bfb187e995c2bc545b441a28f01911bbf1d73538",
+        "source_record_index": 107,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            59
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/107/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "5fcc181ab33097d0bf6accb4bfb187e995c2bc545b441a28f01911bbf1d73538"
+          },
+          {
+            "pointer": "/records/107/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/107/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Gather hands, blow, recite the three named surahs, wipe head/face/front of body and repeat three times identify this bedtime practice. Chinese is an instruction, not a full Quran translation."
+          },
+          {
+            "pointer": "/records/107/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/107/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/107/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The source describes the bedtime sequence of gathering hands, blowing, reciting three surahs, wiping the body and repeating three times. The preserved compilation evidence and its Bukhari/Muslim citations identify the reported practice. Its instruction form does not justify exclusion as non-hadith; retain the exact Chinese summary. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          56
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-100",
+      "before": {
+        "record_id": "ZH-HISN-100",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "c0a904d76c98f595fa9e43a62a1648e89675d7e20ad99fdf9ff3969154d5d5b8",
+        "body_text_sha256": "4636322b72dd1acd98625a777c2d1e1a68533b1aada23f066c4765a8954ba56f",
+        "source_record_index": 108,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            26
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/108/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "4636322b72dd1acd98625a777c2d1e1a68533b1aada23f066c4765a8954ba56f"
+          },
+          {
+            "pointer": "/records/108/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/108/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Bedtime Ayat al-Kursi plus divine protection corresponds to verse and linked merit note; instruction-only Chinese."
+          },
+          {
+            "pointer": "/records/108/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/108/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/108/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The source contains both recitation of Ayat al-Kursi and a stated protection merit. The preserved compilation footnote records the matching protection report. Include as a shortened source-attributed hadith/practice summary, retaining the unresolved omission/generalization qualification. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          23
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-101",
+      "before": {
+        "record_id": "ZH-HISN-101",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "f3fed2202add7d0fc6613e92cdfc7438d431baff7e30001725443f30499507a7",
+        "body_text_sha256": "62a479c5a0bb29e474a84a6bf52867b4d667547cd48e5a45c0e21ced8247748b",
+        "source_record_index": 109,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            16
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/109/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "62a479c5a0bb29e474a84a6bf52867b4d667547cd48e5a45c0e21ced8247748b"
+          },
+          {
+            "pointer": "/records/109/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/109/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Chinese last two verses of al-Baqara corresponds to the printed 2:285–286. Instruction-only Chinese."
+          },
+          {
+            "pointer": "/records/109/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/109/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/109/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The entry summarizes recitation of the final two verses of al-Baqara in the bedtime chapter, with printed collection attribution and a preserved matching merit report. It is a source report/practice summary rather than a printed Quran passage; no missing verse or report text is supplied. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          13
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-110",
+      "before": {
+        "record_id": "ZH-HISN-110",
+        "classification": "non_hadith",
+        "subtype": "quran_recitation_instruction",
+        "reason": "The source record is an instruction to recite Quran, rather than a separately printed hadith quotation. Preserve it outside the Hadith HTML, including any merit/practice wording and source citations.",
+        "source_text_sha256": "9f0fc7559bafa8ac72a1d6ce817984b061b42f383cb51db217eb12df4974c1d6",
+        "body_text_sha256": "0615d77968c5dfd9cad2e2dd377379dfc69247fcdb2a5a52e4916eb40c213ddf",
+        "source_record_index": 118,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            30
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/118/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "0615d77968c5dfd9cad2e2dd377379dfc69247fcdb2a5a52e4916eb40c213ddf"
+          },
+          {
+            "pointer": "/records/118/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/118/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Reciting al-Sajda and al-Mulk identifies the two named surahs; Chinese numeric description needs separate chapter-versus-verse treatment."
+          },
+          {
+            "pointer": "/records/118/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/118/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/118/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The Chinese source summarizes reciting al-Sajda and al-Mulk, with collection citations and preserved Arabic report wording. Include this reported recitation practice; preserve the source's chapter-versus-verse wording defect and do not claim exact translation equivalence. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          24
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-114",
+      "before": {
+        "record_id": "ZH-HISN-114",
+        "classification": "hadith",
+        "subtype": "hadith_excerpt_from_mixed_record",
+        "reason": "The printed narration/prayer quotation, its source context/citations, and the preserved substantive content comparison support classification as a source-attributed hadith excerpt for this reader. This is a genre/boundary decision, not approval of a canonical occurrence, Arabic counterpart, chain, grade, or translation equivalence. Only the first directly attributed Prophetic quotation is selected; later numbered compiler directions remain in separate preserved material.",
+        "source_text_sha256": "e5d3c9de49186cc5ed4ffa00eb90215b665a2311227d8175b71854bf65c8c6d8",
+        "body_text_sha256": "cb048bd3a38574ec2151b1ca2bcfa85e8d38432ebd6ac8437c91e9416f7c515d",
+        "source_record_index": 122,
+        "included_component_ids": [
+          "ZH-HISN-114-C01"
+        ],
+        "included_body_spans": [
+          [
+            0,
+            34
+          ]
+        ],
+        "excluded_body_spans": [
+          [
+            34,
+            94
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/122/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "cb048bd3a38574ec2151b1ca2bcfa85e8d38432ebd6ac8437c91e9416f7c515d"
+          },
+          {
+            "pointer": "/records/122/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/122/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Four separate actions match: left-side blowing three times; seeking refuge; not telling anyone; changing sleeping side. The second action is shortened in Chinese."
+          },
+          {
+            "pointer": "/records/122/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/122/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/122/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [
+          {
+            "start": 0,
+            "end": 34,
+            "text_verbatim": "穆圣（愿主福安之）说：“你们一个人作了恶梦时，\n应向左吐三口唾沫。”",
+            "sha256": "10707f0f9266b91117be1ee826f59f691f0a40f915998ccb39edcaf1f2ff4e08"
+          }
+        ],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The source introduces the bad-dream report with explicit Prophetic attribution and then prints four numbered actions. Preserve the first quotation and all three following reported actions as distinct exact spans, including the threefold instruction. The preserved comparison identifies all four actions and retains the second action's translation qualification. Do not exclude practice details merely because they are expressed as directions. This remains one printed source occurrence, with distinct selected spans; no primary reports or chains are merged, and no new canonical/Arabic/authenticity approval is asserted.",
+      "after_included_body_spans": [
+        [
+          0,
+          34
+        ],
+        [
+          39,
+          61
+        ],
+        [
+          66,
+          73
+        ],
+        [
+          78,
+          91
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-115",
+      "before": {
+        "record_id": "ZH-HISN-115",
+        "classification": "non_hadith",
+        "subtype": "compiler_practice_instruction",
+        "reason": "The printed text is a standalone compiler instruction to stand and pray after a bad dream, without a quoted report body; the underlying report is not substituted for it.",
+        "source_text_sha256": "43df75e5da6affc33bcf219a3dc458e76f4159d3c0872453a5f1d5c7753eff53",
+        "body_text_sha256": "5341f1986dc313ce1dd7db7c7e37736cbfd5998b39999e1c787849b038d5132f",
+        "source_record_index": 123,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            12
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/123/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "5341f1986dc313ce1dd7db7c7e37736cbfd5998b39999e1c787849b038d5132f"
+          },
+          {
+            "pointer": "/records/123/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/123/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Standing to pray if desired matches the fifth bad-dream action; separate printed Chinese occurrence is retained."
+          },
+          {
+            "pointer": "/records/123/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/123/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The instruction to stand and pray is the fifth bad-dream action in the source sequence. Preserved comparison links that action to the compilation's cited Muslim report. Retain the source occurrence separately and include as a practice summary without replacing it with a full report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-133",
+      "before": {
+        "record_id": "ZH-HISN-133",
+        "classification": "non_hadith",
+        "subtype": "compiler_practice_instructions",
+        "reason": "Two compiler instructions prescribe seeking refuge and ceasing intrusive thoughts; they do not print a complete narrated report or quoted invocation body.",
+        "source_text_sha256": "6419cd39999df5dd3a8a94726403df4133cc6f7f6574a4a2f9292b10100828d6",
+        "body_text_sha256": "4735d45a88c7505ccf075b647b43e889c2cb55d67354c256ef119258a2c3ee45",
+        "source_record_index": 141,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            22
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/141/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "4735d45a88c7505ccf075b647b43e889c2cb55d67354c256ef119258a2c3ee45"
+          },
+          {
+            "pointer": "/records/141/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/141/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Seeking refuge in Allah and ceasing the intrusive thought identify two instruction portions from the same faith-doubt context; Chinese second wording is an interpretive shortening."
+          },
+          {
+            "pointer": "/records/141/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/141/enrichment/canonical_comparison/record_specific_issues",
+            "summary": "Preserved record-specific translation, attribution, and variant qualifications remain unresolved and unchanged."
+          },
+          {
+            "pointer": "/records/141/enrichment/canonical_comparison/raw_comparison_evidence/compiler_citation_assertions",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The source records two actions in the faith-doubt context: seeking refuge and resisting the intrusive suggestion. Preserved comparison identifies the corresponding cited report clauses. Include the exact source summaries; preserve the broader wording of the second Chinese clause and do not invent a recitation formula. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          6
+        ],
+        [
+          9,
+          19
+        ]
+      ]
+    },
+    {
+      "record_id": "ZH-HISN-141",
+      "before": {
+        "record_id": "ZH-HISN-141",
+        "classification": "non_hadith",
+        "subtype": "compiler_practice_instruction",
+        "reason": "Existing record-specific comparison identifies a compiler instruction to seek refuge, not a full quoted report. Its Quran reference discrepancy remains in the source.",
+        "source_text_sha256": "d4dfebd448d7e3267f390b396ef6730cd5824a76c02c23f196fcb306cb00cee2",
+        "body_text_sha256": "16706c0ccdb063f572f951d9ae02a9d969f8510a0a6e832007c985493688fd91",
+        "source_record_index": 149,
+        "included_component_ids": [],
+        "included_body_spans": [],
+        "excluded_body_spans": [
+          [
+            0,
+            37
+          ]
+        ],
+        "evidence": [
+          {
+            "pointer": "/records/149/body_text_verbatim",
+            "summary": "Exact Chinese source body inspected for record genre, attribution, and quotation/instruction boundaries.",
+            "evidence_sha256": "16706c0ccdb063f572f951d9ae02a9d969f8510a0a6e832007c985493688fd91"
+          },
+          {
+            "pointer": "/records/149/components",
+            "summary": "All existing component spans were checked against exact body Unicode offsets; source classifications were treated as evidence rather than infallible labels."
+          },
+          {
+            "pointer": "/records/149/enrichment/canonical_comparison/comparison_observation",
+            "summary": "Arabic is compiler instruction to seek refuge, not a full quoted report. Chinese expands harm/interference/temptation. Chinese Quran reference 信士章98—99 conflicts with Arabic compiler note المؤمنون97—98. Do not normalize source."
+          },
+          {
+            "pointer": "/records/149/references",
+            "summary": "Printed collection markers retained as the Chinese source’s claims; none is accepted as a verified canonical number."
+          },
+          {
+            "pointer": "/records/149/enrichment/canonical_comparison/raw_comparison_evidence/occurrence_type",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          },
+          {
+            "pointer": "/records/149/enrichment/canonical_comparison/raw_comparison_evidence/arabic_footnote_evidence",
+            "summary": "Existing evidence used only for genre/attribution context; candidate text, numbers, chains, and grades are not promoted to accepted counterparts."
+          }
+        ],
+        "selected_segments": [],
+        "new_canonical_or_arabic_approval": false,
+        "original_publication_assessment_preserved": "FAIL_BANK_READINESS"
+      },
+      "after_reason": "The Chinese entry summarizes seeking refuge from satanic harm/interference/temptation, with printed source references and a preserved matching compilation instruction. Include the report-derived practice summary; keep its printed Quran-reference discrepancy in source metadata and do not substitute a prayer or a full report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval.",
+      "after_included_body_spans": [
+        [
+          0,
+          32
+        ]
+      ]
+    }
+  ],
+  "reviewed_withheld_records": [
+    {
+      "record_id": "ZH-HISN-004",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "quran_quotation",
+      "new_subtype": "quran_quotation",
+      "changed": false,
+      "decision_reason": "The substantive printed quotation is Quran (with any attached instruction), not hadith text. Preserve original wording and source qualifications outside the Hadith HTML."
+    },
+    {
+      "record_id": "ZH-HISN-007",
+      "old_classification": "unknown",
+      "new_classification": "unknown",
+      "old_subtype": "unresolved_speaker_or_genre",
+      "new_subtype": "unresolved_speaker_or_genre",
+      "changed": false,
+      "decision_reason": "This short new-clothing blessing has no explicit Prophet attribution in the Chinese record. The preserved supporting material contains only a compilation quotation and citation, without the full cited report establishing who said it. Keep attribution unknown rather than infer a speaker."
+    },
+    {
+      "record_id": "ZH-HISN-012",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "compiler_instruction_with_formula",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The Chinese source records the basmala practice at the start of ablution; the preserved comparison binds that exact formula and context to the Arabic compilation quotation and its cited report sources. Include as the source compiler's dhikr/practice summary, not as a newly established exact primary-report matn. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-024",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "compiler_practice_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The Chinese record summarizes sending blessings on the Prophet after replying to the adhan. The preserved Arabic compilation instruction and the attached Muslim citation support its source-attributed report/practice genre. Absence of a complete quoted prayer does not make the reported practice non-hadith. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-042",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-043",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-045",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-070",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The record summarizes the prescribed post-prayer recitation of three named surahs, rather than quoting Quran verses. Preserve the Chinese basmala addition and its unresolved comparison qualification; include the practice as a source-attributed hadith summary, without substituting the full Quran text. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-071",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The record names recitation of Ayat al-Kursi in the post-prayer chapter. The preserved compilation footnote supplies the reported post-prayer merit. Include the exact abbreviated source instruction as a practice summary; do not fill in Quran verses or a full primary report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-075",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The morning/evening source entry names seeking refuge and Ayat al-Kursi; its preserved compilation footnote records the corresponding protection report. Include the short practice summary under the clarified dhikr/report scope, without inventing omitted Quran or narration text. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-076",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The source names the three protective surahs and morning/evening frequency, with printed collection citations and a preserved matching report note. These are reported practice details, not a Quran quotation. Retain the Chinese basmala addition and unresolved source-equivalence qualification. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-093",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-095",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-098",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "compiler_formula_supported_by_different_report",
+      "new_subtype": "compiler_formula_supported_by_different_report",
+      "changed": false,
+      "decision_reason": "The preserved supporting report concerns the merit of sending blessings ten times; the displayed blessing formula is not established as the wording of that report. Keep the formula and its practice information outside the hadith quotation view."
+    },
+    {
+      "record_id": "ZH-HISN-099",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The source describes the bedtime sequence of gathering hands, blowing, reciting three surahs, wiping the body and repeating three times. The preserved compilation evidence and its Bukhari/Muslim citations identify the reported practice. Its instruction form does not justify exclusion as non-hadith; retain the exact Chinese summary. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-100",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The source contains both recitation of Ayat al-Kursi and a stated protection merit. The preserved compilation footnote records the matching protection report. Include as a shortened source-attributed hadith/practice summary, retaining the unresolved omission/generalization qualification. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-101",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The entry summarizes recitation of the final two verses of al-Baqara in the bedtime chapter, with printed collection attribution and a preserved matching merit report. It is a source report/practice summary rather than a printed Quran passage; no missing verse or report text is supplied. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-109",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-110",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "quran_recitation_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The Chinese source summarizes reciting al-Sajda and al-Mulk, with collection citations and preserved Arabic report wording. Include this reported recitation practice; preserve the source's chapter-versus-verse wording defect and do not claim exact translation equivalence. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-114",
+      "old_classification": "hadith",
+      "new_classification": "hadith",
+      "old_subtype": "hadith_excerpt_from_mixed_record",
+      "new_subtype": "source_attributed_hadith_report_with_practice_details",
+      "changed": true,
+      "decision_reason": "The source introduces the bad-dream report with explicit Prophetic attribution and then prints four numbered actions. Preserve the first quotation and all three following reported actions as distinct exact spans, including the threefold instruction. The preserved comparison identifies all four actions and retains the second action's translation qualification. Do not exclude practice details merely because they are expressed as directions. This remains one printed source occurrence, with distinct selected spans; no primary reports or chains are merged, and no new canonical/Arabic/authenticity approval is asserted."
+    },
+    {
+      "record_id": "ZH-HISN-115",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "compiler_practice_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The instruction to stand and pray is the fifth bad-dream action in the source sequence. Preserved comparison links that action to the compilation's cited Muslim report. Retain the source occurrence separately and include as a practice summary without replacing it with a full report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-117",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-118",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_saying",
+      "new_subtype": "companion_saying",
+      "changed": false,
+      "decision_reason": "Preserved Arabic compiler note 155 expressly attributes the qunut to Umar as mawquf; the Chinese prayer must not be presented as Prophetic speech."
+    },
+    {
+      "record_id": "ZH-HISN-129",
+      "old_classification": "unknown",
+      "new_classification": "unknown",
+      "old_subtype": "unresolved_speaker_or_genre",
+      "new_subtype": "unresolved_speaker_or_genre",
+      "changed": false,
+      "decision_reason": "The Chinese prayer has no explicit speaker. Preserved evidence specifically distinguishes al-Adab al-Mufrad from Sahih al-Bukhari, but does not include a full underlying attribution establishing Prophetic speech. Its type remains unknown pending source-specific attribution review."
+    },
+    {
+      "record_id": "ZH-HISN-130",
+      "old_classification": "unknown",
+      "new_classification": "unknown",
+      "old_subtype": "unresolved_speaker_or_genre",
+      "new_subtype": "unresolved_speaker_or_genre",
+      "changed": false,
+      "decision_reason": "The Chinese prayer has no explicit speaker. Preserved evidence specifically cites al-Adab al-Mufrad and does not supply a full underlying attribution establishing Prophetic speech. Its type remains unknown pending source-specific attribution review."
+    },
+    {
+      "record_id": "ZH-HISN-133",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "compiler_practice_instructions",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The source records two actions in the faith-doubt context: seeking refuge and resisting the intrusive suggestion. Preserved comparison identifies the corresponding cited report clauses. Include the exact source summaries; preserve the broader wording of the second Chinese clause and do not invent a recitation formula. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-135",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "quran_quotation",
+      "new_subtype": "quran_quotation",
+      "changed": false,
+      "decision_reason": "The substantive printed quotation is Quran (with any attached instruction), not hadith text. Preserve original wording and source qualifications outside the Hadith HTML."
+    },
+    {
+      "record_id": "ZH-HISN-137",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "cross_reference_without_printed_body",
+      "new_subtype": "cross_reference_without_printed_body",
+      "changed": false,
+      "decision_reason": "Only a cross-reference is printed. Keep the occurrence and target relation, but do not manufacture a hadith body by copying the target into this occurrence."
+    },
+    {
+      "record_id": "ZH-HISN-141",
+      "old_classification": "non_hadith",
+      "new_classification": "hadith",
+      "old_subtype": "compiler_practice_instruction",
+      "new_subtype": "source_attributed_hadith_practice_summary",
+      "changed": true,
+      "decision_reason": "The Chinese entry summarizes seeking refuge from satanic harm/interference/temptation, with printed source references and a preserved matching compilation instruction. Include the report-derived practice summary; keep its printed Quran-reference discrepancy in source metadata and do not substitute a prayer or a full report. Genre/scope correction only: no canonical identity, original Arabic, chain, grade, authenticity or exact translation-equivalence approval."
+    },
+    {
+      "record_id": "ZH-HISN-142",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "compiler_practice_instruction",
+      "new_subtype": "compiler_practice_instruction",
+      "changed": false,
+      "decision_reason": "Existing comparison identifies a compiler instruction prescribing the adhan; no complete hadith body is printed."
+    },
+    {
+      "record_id": "ZH-HISN-143",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "compiler_practice_instruction",
+      "new_subtype": "compiler_practice_instruction",
+      "changed": false,
+      "decision_reason": "Existing comparison identifies a brief compiler prescription to remember God and recite Quran; the distinct longer report cited in external notes is not the Chinese body."
+    },
+    {
+      "record_id": "ZH-HISN-145",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "later_scholar_blessing_and_reply",
+      "new_subtype": "later_scholar_blessing_and_reply",
+      "changed": false,
+      "decision_reason": "The preserved source comparison attributes the birth blessing to al-Hasan al-Basri and its response to al-Nawawi; neither is established here as a Prophetic quotation."
+    },
+    {
+      "record_id": "ZH-HISN-160",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_practice_and_compiler_recommendation",
+      "new_subtype": "companion_practice_and_compiler_recommendation",
+      "changed": false,
+      "decision_reason": "The first prayer is attributed in preserved comparison to Abu Hurayra practice; the longer optional prayer is a later compiler recommendation. Both are separate from Prophetic hadith text."
+    },
+    {
+      "record_id": "ZH-HISN-161",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "successor_practice",
+      "new_subtype": "successor_practice",
+      "changed": false,
+      "decision_reason": "The preserved Arabic note identifies al-Hasan practice and a suspended chapter report, not Prophetic words."
+    },
+    {
+      "record_id": "ZH-HISN-164",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "compiler_prayer_formulation",
+      "new_subtype": "compiler_prayer_formulation",
+      "changed": false,
+      "decision_reason": "The short prayer is a compiler formulation supported by the distinct printed footnote report ZH-HISN-FOOTNOTE-P030-01; publish that report separately without promoting this formulation to its matn."
+    },
+    {
+      "record_id": "ZH-HISN-168",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "non_prophetic_practice_with_unresolved_transmitter",
+      "new_subtype": "non_prophetic_practice_with_unresolved_transmitter",
+      "changed": false,
+      "decision_reason": "The preserved comparison identifies a non-Prophetic thunder prayer and an unresolved Abdullah/Amir transmission detail. Non-Prophetic status is retained without resolving or expanding the chain."
+    },
+    {
+      "record_id": "ZH-HISN-177",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_prayer",
+      "new_subtype": "companion_prayer",
+      "changed": false,
+      "decision_reason": "The preserved inspected collection evidence distinguishes Abdullah ibn Amr’s own prayer from the preceding Prophetic fasting statement; only the Companion prayer is the present Chinese quotation."
+    },
+    {
+      "record_id": "ZH-HISN-201",
+      "old_classification": "unknown",
+      "new_classification": "unknown",
+      "old_subtype": "unresolved_speaker_or_genre",
+      "new_subtype": "unresolved_speaker_or_genre",
+      "changed": false,
+      "decision_reason": "This brief blessing does not identify its speaker. The preserved comparison supplies a collection citation but no inspected full underlying occurrence identifying the speaker; do not turn a possible Companion statement into a Prophetic quotation."
+    },
+    {
+      "record_id": "ZH-HISN-204",
+      "old_classification": "unknown",
+      "new_classification": "unknown",
+      "old_subtype": "unresolved_speaker_or_genre",
+      "new_subtype": "unresolved_speaker_or_genre",
+      "changed": false,
+      "decision_reason": "The preserved comparison explicitly says the short blessing is widespread and cannot identify a unique canonical occurrence. No source-supported Prophetic speaker is established for this occurrence; keep classification unknown."
+    },
+    {
+      "record_id": "ZH-HISN-214",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_report",
+      "new_subtype": "companion_report",
+      "changed": false,
+      "decision_reason": "The Chinese text expressly reports Jabir saying what “we” did on ascent/descent and does not name the Prophet. It is kept in the non-hadith reports folder under the owner’s narrower reader scope; no marfu hukmi judgment is made."
+    },
+    {
+      "record_id": "ZH-HISN-225",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_saying",
+      "new_subtype": "companion_saying",
+      "changed": false,
+      "decision_reason": "Preserved comparison attributes this as Ammar’s suspended mawquf statement, not a Prophetic chain."
+    },
+    {
+      "record_id": "ZH-HISN-232",
+      "old_classification": "non_hadith",
+      "new_classification": "non_hadith",
+      "old_subtype": "companion_practice",
+      "new_subtype": "companion_practice",
+      "changed": false,
+      "decision_reason": "The preserved independently inspected al-Adab al-Mufrad witness identifies an unspecified Companion’s practice through Adi ibn Arta; it is not a direct Prophetic saying."
+    }
+  ]
+}

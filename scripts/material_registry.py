@@ -124,6 +124,19 @@ def display_policy_for(manifest, authorization, relative):
     return copy.deepcopy(policy)
 
 
+def counterpart_policy_for(manifest, relative):
+    """Keep an explicit material opt-out distinct from publication and review."""
+    if 'counterpart_policy' not in manifest:
+        return None
+    policy = manifest['counterpart_policy']
+    require(manifest.get('adapter') == 'records-v1',
+            'Counterpart opt-out requires the records-v1 adapter: ' + relative)
+    require(isinstance(policy, dict) and set(policy) == {'mode', 'reason'} and
+            policy.get('mode') == 'disabled' and isinstance(policy.get('reason'), str) and
+            bool(policy['reason'].strip()), 'Invalid material counterpart policy: ' + relative)
+    return copy.deepcopy(policy)
+
+
 
 
 def normalized_projection(row, material, position):
@@ -219,6 +232,8 @@ def normalized_projection(row, material, position):
     with_publication(result, material['publication'])
     if material.get('display_policy') is not None:
         result['display_policy'] = copy.deepcopy(material['display_policy'])
+    if material.get('counterpart_policy') is not None:
+        result['counterpart_policy'] = copy.deepcopy(material['counterpart_policy'])
     for key in ('source_structure_tags', 'source_locator', 'source_defects'):
         if key in row:
             result[key] = copy.deepcopy(row[key])
@@ -279,6 +294,7 @@ def load_public_materials(root, validate_attachment_roots=True):
         adapter = manifest.get('adapter')
         require(adapter in ('records-v1', 'pdf-intake-package-v1'), 'Unsupported material adapter: ' + str(adapter))
         display_policy = display_policy_for(manifest, authorization, relative)
+        counterpart_policy = counterpart_policy_for(manifest, relative)
         result['manifests'].append({'path': relative, 'sha256': digest_file(path), 'id': identifier, 'adapter': adapter,
                                     'publication': authorization})
         collection_rows = []
@@ -346,6 +362,8 @@ def load_public_materials(root, validate_attachment_roots=True):
                              'available_locally': True, 'public_text_published': True})
             if display_policy is not None:
                 material['display_policy'] = copy.deepcopy(display_policy)
+            if counterpart_policy is not None:
+                material['counterpart_policy'] = copy.deepcopy(counterpart_policy)
             projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
             for record in projected:
                 apply_policy(record, provenance_policy, registered_material=True)

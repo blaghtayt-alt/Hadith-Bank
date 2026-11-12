@@ -1,0 +1,66 @@
+{
+  "schema": "hadith-bank-material-v1",
+  "id": "zh-cn-hisn-muslim-1a09ee75",
+  "adapter": "records-v1",
+  "language": "zh-CN",
+  "book": "hisn-al-muslim",
+  "edition": "pdf-1a09ee75-final-20261110",
+  "source_id": "zh-cn-hisn-muslim-1a09ee75",
+  "records": {
+    "path": "materials/zh-cn-hisn-muslim-1a09ee75/records.jsonl",
+    "sha256": "42f80eca6f29026e40296687db53aa8daae38d99944b5c27a5a2b453faff9859",
+    "count": 251
+  },
+  "source": {
+    "path": "materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf",
+    "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+    "name": "穆斯林的堡垒 — Hisn al-Muslim",
+    "format": "pdf",
+    "url": "https://risala.prh.gov.sa/storage/contents/52/zh_hisn_new.pdf",
+    "title_zh": "穆斯林的堡垒",
+    "title_en": "Hisn al-Muslim",
+    "original_filename": "zh-hisn.pdf",
+    "pdf_pages": 52,
+    "metadata_path": "imports/chinese-hisn-final-20261110/zh_hisn_final_metadata.json"
+  },
+  "publication": {
+    "authorized": true,
+    "decision": "owner_requested_public_pending_review",
+    "decision_date_japan": "2026-11-12",
+    "owner_instruction": "upload them into our bank and integrate into html , upload source pdf in bank material sources also",
+    "scope": "Exact final delivery and original PDF; 251 classified Chinese hadith quotations and reports in HTML, including 13 labelled compiler practice summaries; 23 non-hadith and 5 unknown records outside Hadith HTML.",
+    "independent_qc_asserted": false,
+    "rights_clearance_asserted": false,
+    "historical_bank_readiness": "FAIL",
+    "historical_overall_status": "PARTIAL",
+    "source_fidelity": "PASS",
+    "certified_release_eligible": false
+  },
+  "counterpart_policy": {
+    "mode": "disabled",
+    "reason": "Final evaluation has no bank-approved Arabic or English occurrence. Preserve enrichment as evidence only; require a separate explicit source-bound approval before enabling counterpart resolution."
+  },
+  "source_partitions": {
+    "original_records": 279,
+    "reader_hadith_records": 251,
+    "non_hadith": {
+      "count": 23,
+      "path": "non-hadith/zh-cn-hisn-muslim-1a09ee75/records.jsonl",
+      "visible_in_hadith_html": false
+    },
+    "unknown": {
+      "count": 5,
+      "path": "unclassified/zh-cn-hisn-muslim-1a09ee75/records.jsonl",
+      "visible_in_hadith_html": false
+    },
+    "classification_path": "imports/chinese-hisn-final-20261110/classification/decisions.json",
+    "classification_sha256": "ddf3d53429a49d975c41ee47b6b41ef4ef8196c01f21a397c36f8ebf762cb0d4",
+    "classification_change_log": "imports/chinese-hisn-final-20261110/classification/classification-change-log.json"
+  },
+  "preserved_delivery": {
+    "path": "imports/chinese-hisn-final-20261110/",
+    "source_json_sha256": "0c000f5f5cfac6ba52bd8339b205bcdd775f952ace81bc261930960fda8f38d5",
+    "original_bytes_unchanged": true,
+    "candidate_enrichment_accepted": false
+  }
+}

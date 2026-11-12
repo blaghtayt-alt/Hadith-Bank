@@ -95,6 +95,50 @@ class MaterialRegistryTests(unittest.TestCase):
         self.assertEqual(first_html, second_html)
         self.assertEqual(len({row['id'] for row in second_records}), 1)
 
+    def test_material_counterpart_opt_out_preserves_source_and_review(self):
+        source_bytes = (self.folder / 'records.json').read_bytes()
+        policy = {'mode': 'disabled', 'reason': 'TEST source-specific alignment remains pending'}
+        manifest = self.manifest()
+        manifest['counterpart_policy'] = policy
+        self.save_manifest(manifest)
+        self.register(replace=True)
+        registry = material_registry.load_public_materials(self.root)
+        material = registry['materials'][0]
+        record = registry['groups'][0][0]
+        self.assertEqual(material['counterpart_policy'], policy)
+        self.assertEqual(record['counterpart_policy'], policy)
+        self.assertEqual(record['review'], {
+            **self.record['review'], 'certified_release_eligible': False})
+        self.assertIsNone(record['text_arabic'])
+        self.assertEqual((self.folder / 'records.json').read_bytes(), source_bytes)
+        expected = validate_bank_views.expected_record(self.record, material, 0, False, {})
+        validate_bank_views.compare_projection(record, expected, self.root, True)
+        altered = copy.deepcopy(record)
+        del altered['counterpart_policy']
+        with self.assertRaisesRegex(ValueError, 'Public projection fields differ'):
+            validate_bank_views.compare_projection(altered, expected, self.root, True)
+        record['counterpart_policy']['reason'] = 'TEST changed projected copy'
+        self.assertEqual(material['counterpart_policy'], policy)
+        self.assertEqual(self.manifest()['counterpart_policy'], policy)
+
+    def test_invalid_material_counterpart_policies_are_rejected(self):
+        for policy in (None, {}, [], 'disabled',
+                       {'mode': 'enabled', 'reason': 'TEST'},
+                       {'mode': 'disabled', 'reason': ' '},
+                       {'mode': 'disabled', 'reason': 7},
+                       {'mode': 'disabled', 'reason': 'TEST', 'allow_arabic': True}):
+            with self.subTest(policy=policy):
+                manifest = self.manifest()
+                manifest['counterpart_policy'] = policy
+                self.save_manifest(manifest)
+                with self.assertRaisesRegex(ValueError, 'Invalid material counterpart policy'):
+                    material_registry.load_public_materials(self.root)
+        manifest = self.manifest()
+        manifest.update(adapter='pdf-intake-package-v1',
+                        counterpart_policy={'mode': 'disabled', 'reason': 'TEST'})
+        with self.assertRaisesRegex(ValueError, 'requires the records-v1 adapter'):
+            material_registry.counterpart_policy_for(manifest, 'TEST/manifest.json')
+
     def test_owner_docx_import_preserves_text_without_qc_display_labels(self):
         source = self.folder / 'source.docx'
         source.write_bytes(b'TEST source fixture')

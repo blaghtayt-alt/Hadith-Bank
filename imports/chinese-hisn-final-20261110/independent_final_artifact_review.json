@@ -1,0 +1,1049 @@
+{
+  "review_id": "ZH-HISN-INDEPENDENT-FINAL-STRUCTURE-2026-11-10",
+  "reviewer": "/root/visual_18_34",
+  "scope": "Independent exact-byte structural/evidence-accounting review requested by parent after core build",
+  "status": "PASS_STRUCTURAL_EVIDENCE_ACCOUNTING_ONLY",
+  "bank_approval": false,
+  "output_directory": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation",
+  "checks": [
+    {
+      "check": "record counts and unique identities",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "source record order preserved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "JSON and JSONL exact typed object equivalence",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "separate metadata equals embedded source_metadata",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "counts consistently serialized",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "all source fields unchanged except four active objects and explicit null optionals",
+      "status": "PASS",
+      "detail": {
+        "unexpected": [],
+        "optional_null_additions": {
+          "supplementary_invocation": 277,
+          "parent_record_id": 278,
+          "subitems": 277,
+          "reference_context": 278
+        },
+        "active_object_changes": {
+          "enrichment": 279,
+          "canonical_verification": 279,
+          "publication_assessment": 279,
+          "review": 279
+        }
+      }
+    },
+    {
+      "check": "CSV header/schema and BOM",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "CSV row count",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "every CSV cell equals JSON including nested values/newlines/null/numeric types",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "CSV null decoding unambiguous",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "CSV declared type/nullability table equals actual data",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "submitted JSONL typed records equal submitted corrected JSON",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "submitted CSV typed equivalence allowing originally absent optionals as null",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "all five submitted files and prior ZIP preserved byte-for-byte",
+      "status": "PASS",
+      "detail": [
+        {
+          "file": "zh_hisn_qc_pages.jsonl",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "file": "zh-hisn.pdf",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "file": "zh_hisn_qc_corrected.json",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "file": "zh_hisn_qc_records.jsonl",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "file": "zh_hisn_qc_corrected.csv",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "file": "zh_hisn_independent_qc_complete.zip",
+          "equal": true,
+          "matches_manifest": true
+        }
+      ]
+    },
+    {
+      "check": "three user-supplied SHA256 values exact",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "all52 ordered page identities",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "page source text/lines/mapping unchanged; only image provenance and active review replaced",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "standalone primary source files equal frozen sources and manifest",
+      "status": "PASS",
+      "detail": [
+        {
+          "package_path": "evidence/canonical_audits/root_primary_witnesses.jsonl",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "package_path": "evidence/canonical_audits/middle_primary_witnesses.json",
+          "equal": true,
+          "matches_manifest": true
+        },
+        {
+          "package_path": "evidence/canonical_audits/end_primary_witnesses.json",
+          "equal": true,
+          "matches_manifest": true
+        }
+      ]
+    },
+    {
+      "check": "packaged audit files match frozen inputs byte-for-byte",
+      "status": "PASS",
+      "detail": [
+        {
+          "group": "visual_01_17",
+          "file": "page_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_01_17",
+          "file": "record_portion_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_18_34",
+          "file": "page_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_18_34",
+          "file": "record_portion_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_35_52",
+          "file": "page_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_35_52",
+          "file": "record_portion_audit.jsonl",
+          "equal": true
+        },
+        {
+          "group": "root_canonical",
+          "file": "canonical_intro_001_066.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_01_17",
+          "file": "canonical_067_133.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_18_34",
+          "file": "canonical_134_200.jsonl",
+          "equal": true
+        },
+        {
+          "group": "visual_35_52",
+          "file": "canonical_201_267.jsonl",
+          "equal": true
+        }
+      ]
+    },
+    {
+      "check": "page coverage exact52 identities",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "page coverage source/image/frozen-audit accounting",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "unresolved logo pages remain PARTIAL",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "record coverage exact279 unique identities",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "all record/portion/component spans and coverage agree with submitted source and frozen audits",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "record coverage independently recounted totals",
+      "status": "PASS",
+      "detail": {
+        "portions": 290,
+        "span_codepoints": 17561,
+        "nonspace": 17465,
+        "Han": 13155
+      }
+    },
+    {
+      "check": "canonical coverage exact279 identities",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "all canonical rows preserve frozen evidence and leave accepted fields null",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "primary witnesses have exact hashes, source-retained report/chain text, associations and closed approvals",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "requested primary evidence counts independently recounted",
+      "status": "PASS",
+      "detail": {
+        "associations": 46,
+        "records_with_any": 35,
+        "full_report_rows_including_rejected": 45,
+        "full_report_records": 34,
+        "full_report_rows_excluding_explicit_rejected_number_match": 44,
+        "explicit_rejected_number_match_rows": 1
+      }
+    },
+    {
+      "check": "summary witness counts agree with defined accounting",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "source occurrence numbering",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "complete record before/after logs replay exact output",
+      "status": "PASS",
+      "detail": {
+        "rows": 11991,
+        "mismatch_records": []
+      }
+    },
+    {
+      "check": "page before/after logs replay exact output",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "metadata before/after log replays exact separate metadata",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "no true bank/authenticity approval anywhere in active outputs/evidence",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "release gate blocks upload and repository handoff",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "all279 individual publication gates remain blocked",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "metadata unknown edition/publisher/Gregorian publication date remain null",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "coverage summary quantitative page aggregates",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "report explicitly limits claims and rejects bank approval",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "check": "page_coverage.csv typed equivalence",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "record_coverage.csv typed equivalence",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "check": "reviewed bytes stayed stable during independent checks",
+      "status": "PASS",
+      "detail": []
+    }
+  ],
+  "blocking_findings": [],
+  "observations": [
+    {
+      "severity": "INFORMATIONAL_SCOPE",
+      "detail": "W-022 (Bukhari4449) has a generic corresponding_or_variant_candidate wrapper, but preserved raw evidence explicitly rejects exact Chinese151 prayer identity. Accepted identity is false/null; do not describe44 full non-number-rejected associations as44 accepted matches."
+    },
+    {
+      "severity": "INFORMATIONAL_SCOPE",
+      "detail": "W-013 retains an entire edition-page excerpt, including the complete Ahmad15360 report plus surrounding edition notes/commentary; it is evidence context, not a bank-approved isolated matn. Arabic content has not been re-adjudicated in this structural review."
+    }
+  ],
+  "review_method_correction": {
+    "initial_issue": "The first check run omitted the standalone visual_35_52/canonical_primary_evidence.json file from its frozen reference-object set, causing18 witness membership checks (W-029 throughW-046) to report not found.",
+    "resolution": "Added that existing standalone frozen file to the reference set and verified all18 raw witness objects match exactly. Also checked newly packaged standalone source copies against their frozen originals and manifest.",
+    "artifact_change_required": false,
+    "core_output_bytes_changed": false,
+    "classification": "review-method reference inventory correction; not a data defect or source adjudication"
+  },
+  "independently_recounted_primary_evidence": {
+    "associations": 46,
+    "records_with_any": 35,
+    "full_report_rows_including_rejected": 45,
+    "full_report_records": 34,
+    "full_report_rows_excluding_explicit_rejected_number_match": 44,
+    "explicit_rejected_number_match_rows": 1
+  },
+  "reviewed_files": [
+    {
+      "path": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_corrected.json",
+      "sha256": "cb7e90173aa9d587bfd46451e9d2589abcf99dc9b2af58657064695c9c55142b",
+      "bytes": 2861898,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/zh_hisn_final_corrected.json",
+      "sha256": "0c000f5f5cfac6ba52bd8339b205bcdd775f952ace81bc261930960fda8f38d5",
+      "bytes": 5720986,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/zh_hisn_final_corrected.jsonl",
+      "sha256": "ad369931a3107bb3bc87feb2613bdba0564b0ead4e16eb837e4050ce6a013146",
+      "bytes": 4262733,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/zh_hisn_final_metadata.json",
+      "sha256": "abb5319b34cb81deb0c9f68649c6389e0ae7b22036d687c1a867cfb903e34131",
+      "bytes": 13978,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/RELEASE_GATE.json",
+      "sha256": "1e59d6417bcced51c6ee66bb4c0ae24d13fadadb4db05a8e639b0dfb6515f87f",
+      "bytes": 3650,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/page_coverage.jsonl",
+      "sha256": "5cdca9010861e88fea99c307687f72764bc4ddd6365dc93ecdb1d4d6357ba728",
+      "bytes": 56443,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/record_coverage.jsonl",
+      "sha256": "433533fefacc688a17da2cd540d70c4ee6ff1d35396556fa37940548c0ebc09e",
+      "bytes": 382084,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/canonical_coverage.jsonl",
+      "sha256": "c71e3d9a4634b9249956c322721d19c6c68f34b6ac9c21447bdd9ccb7763452e",
+      "bytes": 1519567,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/coverage_summary.json",
+      "sha256": "c7d1b5a456c89266832e96ada6676d96a21b1fa036482b2cfb8d0c557c7505bf",
+      "bytes": 1701,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/primary_collection_witnesses.jsonl",
+      "sha256": "ce4945a9c3c3521ffc32475096bdbc1fa3ae6b78c3c407e6e2c392a1a5becd64",
+      "bytes": 265851,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/CSV_SCHEMA.json",
+      "sha256": "88b1523ad0a4928ee266eab586ef271f82d7b7b785d408fae6cf2cd5793fb3c7",
+      "bytes": 4166,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/FINAL_EVALUATION_REPORT.txt",
+      "sha256": "0239d30e3051b9a396bfe1547e4bfcb77d55cf9c85c93a309e21abac81788ead",
+      "bytes": 6964,
+      "scope": "read in full for numerical/scope claims and overclaims"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/zh_hisn_final_corrected.csv",
+      "sha256": "0f5b0a15d1504ef26c2bc2eae242f5de7bc0e76eda7b4819bee65e3fc1658da4",
+      "bytes": 4193860,
+      "scope": "full CSV parsed; every cell decoded and compared with JSON type/value"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_records.jsonl",
+      "sha256": "dbe9213594479dfa50d6f9aa8c7b7303fbf9e84d226eb8084f663b5954c1c2aa",
+      "bytes": 2026208,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_corrected.csv",
+      "sha256": "44448edef492a8bea7501e96329d42ede77e90ecdcee3937284f3dfe73df265e",
+      "bytes": 1891577,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/INPUT_HASHES.json",
+      "sha256": "d8e6681dfd398795e58369965219f0f3f5d077b5f77b1660f9961ab054b11480",
+      "bytes": 1841,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/submitted/zh_hisn_qc_pages.jsonl",
+      "sha256": "79db557eb2a0b3fd38eedc4f6f04a4a0fda41541f63b1e4994199664752eb3f0",
+      "bytes": 748869,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_pages.jsonl",
+      "sha256": "79db557eb2a0b3fd38eedc4f6f04a4a0fda41541f63b1e4994199664752eb3f0",
+      "bytes": 748869,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/submitted/zh-hisn.pdf",
+      "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+      "bytes": 1620891,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/upload/zh-hisn.pdf",
+      "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+      "bytes": 1620891,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/submitted/zh_hisn_qc_corrected.json",
+      "sha256": "cb7e90173aa9d587bfd46451e9d2589abcf99dc9b2af58657064695c9c55142b",
+      "bytes": 2861898,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/submitted/zh_hisn_qc_records.jsonl",
+      "sha256": "dbe9213594479dfa50d6f9aa8c7b7303fbf9e84d226eb8084f663b5954c1c2aa",
+      "bytes": 2026208,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/submitted/zh_hisn_qc_corrected.csv",
+      "sha256": "44448edef492a8bea7501e96329d42ede77e90ecdcee3937284f3dfe73df265e",
+      "bytes": 1891577,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/inputs/prior_package/zh_hisn_independent_qc_complete.zip",
+      "sha256": "db32d1783ea517f4a6d572cfe75c95077647f2221c3a7358b2e3523703e6f11f",
+      "bytes": 15672197,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/prior_package/zh_hisn_independent_qc_complete.zip",
+      "sha256": "db32d1783ea517f4a6d572cfe75c95077647f2221c3a7358b2e3523703e6f11f",
+      "bytes": 15672197,
+      "scope": "input byte integrity only, not new source comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/zh_hisn_final_pages.jsonl",
+      "sha256": "d850cdd0014c08e51c39b6b63c4d695740abf438a22a023987dd7a7cb6c6106a",
+      "bytes": 767462,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_01_17/page_audit.jsonl",
+      "sha256": "c30b6ebf17a7feb20f3f1cdb87567c32c02fb597a00a00c925c37b5fa0847eff",
+      "bytes": 34772,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_01_17/page_audit.jsonl",
+      "sha256": "c30b6ebf17a7feb20f3f1cdb87567c32c02fb597a00a00c925c37b5fa0847eff",
+      "bytes": 34772,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_01_17/record_portion_audit.jsonl",
+      "sha256": "81bb21b4a641acefcee5604158e338d192afa4bce25bae11980e8de49f54c0d3",
+      "bytes": 163873,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_01_17/record_portion_audit.jsonl",
+      "sha256": "81bb21b4a641acefcee5604158e338d192afa4bce25bae11980e8de49f54c0d3",
+      "bytes": 163873,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_18_34/page_audit.jsonl",
+      "sha256": "81636e3a982722c050b369e223e801fc3b965c9fc861eb3c24c6b4bcc49bde92",
+      "bytes": 94323,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_18_34/page_audit.jsonl",
+      "sha256": "81636e3a982722c050b369e223e801fc3b965c9fc861eb3c24c6b4bcc49bde92",
+      "bytes": 94323,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_18_34/record_portion_audit.jsonl",
+      "sha256": "ba9ccbc731038b8b875d5ae19104e7d1addb0e3049ec7955d6cc4d65eedcf933",
+      "bytes": 240480,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_18_34/record_portion_audit.jsonl",
+      "sha256": "ba9ccbc731038b8b875d5ae19104e7d1addb0e3049ec7955d6cc4d65eedcf933",
+      "bytes": 240480,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_35_52/page_audit.jsonl",
+      "sha256": "036590a973f38364a752a2247a32eca1c28a63e605a3c3488ec452e07e01d261",
+      "bytes": 35337,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_35_52/page_audit.jsonl",
+      "sha256": "036590a973f38364a752a2247a32eca1c28a63e605a3c3488ec452e07e01d261",
+      "bytes": 35337,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_35_52/record_portion_audit.jsonl",
+      "sha256": "e87f209ee76937d4fe53380011e359bc6c4d18b715f290027cb742baa1505859",
+      "bytes": 110870,
+      "scope": "frozen audit reference; serialized assertions only"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/reviewer_audits/visual_35_52/record_portion_audit.jsonl",
+      "sha256": "e87f209ee76937d4fe53380011e359bc6c4d18b715f290027cb742baa1505859",
+      "bytes": 110870,
+      "scope": "packaged audit compared byte-for-byte with frozen reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/root_canonical/canonical_intro_001_066.jsonl",
+      "sha256": "e73cc7c6de524bd3adf8dbc8bd6634d291a59c4ef370c688f7d65c0be247e20c",
+      "bytes": 209975,
+      "scope": "frozen canonical audit reference; not a new Arabic source review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/canonical_intro_001_066.jsonl",
+      "sha256": "e73cc7c6de524bd3adf8dbc8bd6634d291a59c4ef370c688f7d65c0be247e20c",
+      "bytes": 209975,
+      "scope": "packaged canonical audit byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_01_17/canonical_067_133.jsonl",
+      "sha256": "73c92745dbcc00846d7cf9c65c1459dac86e0d1f1c8b0b147828e5e7e9359a3a",
+      "bytes": 379823,
+      "scope": "frozen canonical audit reference; not a new Arabic source review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/canonical_067_133.jsonl",
+      "sha256": "73c92745dbcc00846d7cf9c65c1459dac86e0d1f1c8b0b147828e5e7e9359a3a",
+      "bytes": 379823,
+      "scope": "packaged canonical audit byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_18_34/canonical_134_200.jsonl",
+      "sha256": "4cde3180ec3d63e0a978a41f5e7c02099d0aaef2274ba00814e9513f3953458f",
+      "bytes": 305107,
+      "scope": "frozen canonical audit reference; not a new Arabic source review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/canonical_134_200.jsonl",
+      "sha256": "4cde3180ec3d63e0a978a41f5e7c02099d0aaef2274ba00814e9513f3953458f",
+      "bytes": 305107,
+      "scope": "packaged canonical audit byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_35_52/canonical_201_267.jsonl",
+      "sha256": "96bf6b9aa602705e87cddb7f42c27513e4188e80b0746e6cbda3088fab6fb6d7",
+      "bytes": 336888,
+      "scope": "frozen canonical audit reference; not a new Arabic source review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/canonical_201_267.jsonl",
+      "sha256": "96bf6b9aa602705e87cddb7f42c27513e4188e80b0746e6cbda3088fab6fb6d7",
+      "bytes": 336888,
+      "scope": "packaged canonical audit byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/root_canonical/primary_witnesses.jsonl",
+      "sha256": "d5dee92974338b67c8c26cfdf4493c17175e9361cc4a73581ce2a51b7adcf30a",
+      "bytes": 37677,
+      "scope": "standalone frozen primary witness evidence byte reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_35_52/canonical_primary_evidence.json",
+      "sha256": "47643d122c9db05cf7682b7d7a713d72038368c04a62c8c36f1c3fa4162de768",
+      "bytes": 78864,
+      "scope": "standalone frozen primary witness evidence byte reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/primary_sourcefile_manifest.json",
+      "sha256": "c360f34d043c6fe70169b6a86770478b730ff990a495bbdd71386a252d2b8a9f",
+      "bytes": 809,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/root_primary_witnesses.jsonl",
+      "sha256": "d5dee92974338b67c8c26cfdf4493c17175e9361cc4a73581ce2a51b7adcf30a",
+      "bytes": 37677,
+      "scope": "standalone packaged primary witness evidence exact-byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/evaluation/agent_results/visual_18_34/primary_witnesses_151_164_177.json",
+      "sha256": "966d07287a3d7dd09abea69b8561ea17ec6c6fef5a29066d68ebcc394a8f9907",
+      "bytes": 22590,
+      "scope": "standalone frozen primary witness evidence byte reference"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/middle_primary_witnesses.json",
+      "sha256": "966d07287a3d7dd09abea69b8561ea17ec6c6fef5a29066d68ebcc394a8f9907",
+      "bytes": 22590,
+      "scope": "standalone packaged primary witness evidence exact-byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/canonical_audits/end_primary_witnesses.json",
+      "sha256": "47643d122c9db05cf7682b7d7a713d72038368c04a62c8c36f1c3fa4162de768",
+      "bytes": 78864,
+      "scope": "standalone packaged primary witness evidence exact-byte comparison"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-01.png",
+      "sha256": "91e572b94aa8f35f4b12e2a5f57d3b3e79780f65ad07676380206f05cfe7f1e0",
+      "bytes": 793829,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-02.png",
+      "sha256": "7e1e1e7a82c367d4b39b22f113d5a554f24c00e5ab3fb6815a88cb7efce5a2f4",
+      "bytes": 63660,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-03.png",
+      "sha256": "0a7edcc26aac8df3308f229d0333ab9e8e105a0bd4724348a1c2217a806245c9",
+      "bytes": 92744,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-04.png",
+      "sha256": "c516f651d918c0d967c61d6b04624f0b1c1c40a59a1c1b0aa08f7325d1308010",
+      "bytes": 49896,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-05.png",
+      "sha256": "a3de1f0b09537f66b8091fad273cd344a78a61fe5fa7b8a499586146a632d777",
+      "bytes": 420406,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-06.png",
+      "sha256": "e244b109805b75127e9f88572d79fa549443550b574c78247a9d01339bf63f8f",
+      "bytes": 408549,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-07.png",
+      "sha256": "abee5d2287cb2f52091505b83659677aa6e9b59827298d37f907191cb0941f5e",
+      "bytes": 234680,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-08.png",
+      "sha256": "565690286c376d26a522f103e8b2bb62e0f6608b47a952a02afe34247cfca66a",
+      "bytes": 304324,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-09.png",
+      "sha256": "6fdfa3a485736d2965c4671fa6778184b1cb59e3707769cd2a2e34ed0be46df6",
+      "bytes": 375228,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-10.png",
+      "sha256": "bbf0d12301a4811ec5e3e672f6ffd1c639f7c8091567a8bf16bd2517b4972816",
+      "bytes": 380767,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-11.png",
+      "sha256": "c0844289df8401cb0cd48ad43e22345cc27d1411a4f35790c3c6cf9620be09ac",
+      "bytes": 408494,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-12.png",
+      "sha256": "78bd024f30be4ccaea6e67974b2c27c8ec618e2d9dc785839537ed7f9a4f2ad5",
+      "bytes": 294093,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-13.png",
+      "sha256": "2c42821f141245937bc00d08de67c9e051bf5580ffdcc469a1707fc57f2b3e45",
+      "bytes": 337765,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-14.png",
+      "sha256": "e68ce2b07eea1387603ccf97188eb00fe8e6731c67e97024dd1c38642a3c8001",
+      "bytes": 416499,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-15.png",
+      "sha256": "1a149ff7a6cb0bc87acad5ebc908f56a45d3e9712c7fb1761f4e3d15db46ed3b",
+      "bytes": 339921,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-16.png",
+      "sha256": "7181fa10e172b4e7d122be2e72cfb6dc8b488b56995a9924ea133fe221eaf833",
+      "bytes": 309088,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-17.png",
+      "sha256": "7b189a1da1ccb72fd7d259afa1a6be68115b75fa7363cced66ba0817e9c8234c",
+      "bytes": 398806,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-18.png",
+      "sha256": "42cae97037327710acb22946ce84d2e8e01ec20913586270b299ab0038507e40",
+      "bytes": 367691,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-19.png",
+      "sha256": "3929e730608e1ce911956422982c696f4633a18534bacf6787c739e4165e5b6b",
+      "bytes": 385694,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-20.png",
+      "sha256": "ee23b2cd0c21552ebd8d74d40b4e4016e3bc910daa96aa16ba9da763dd437ec4",
+      "bytes": 362574,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-21.png",
+      "sha256": "b2dc44c07c5950517a45caa5225201775c3892efc81060f15bd340fb55942690",
+      "bytes": 385912,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-22.png",
+      "sha256": "29b9a39c12ae1068871c05a5fde6b8367abb15c59e44dc127997ad9b94382db0",
+      "bytes": 359881,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-23.png",
+      "sha256": "335f8d45d009862c33227bcbdc9b9a65d81b53da44bb88b0624f00cba382f87e",
+      "bytes": 345151,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-24.png",
+      "sha256": "94442fca4988fd9439b1ac527ced9d5c3b28b4d0d355485adc26180800ae2197",
+      "bytes": 334303,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-25.png",
+      "sha256": "c8f839cf9291999495c55f1062fcf4ac6e4643f57d648c3e0b2404c84da9b69f",
+      "bytes": 336588,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-26.png",
+      "sha256": "ec47cbba2cf0936c084ae712c55b3c3af5d786e46065680f96543fe0d5986cec",
+      "bytes": 342612,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-27.png",
+      "sha256": "7c1541472a920f2eafabb5e8b8a1df025dbcca3060a37f55021045a812164aff",
+      "bytes": 315153,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-28.png",
+      "sha256": "8e68fb8fe301ff45553eca683df94e7a455309a0d09e9f09a5b6b3ffb9e40b5b",
+      "bytes": 331965,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-29.png",
+      "sha256": "ddc09000748eafca56b7d3ebe0c2559fdf83df5a20dd6dd92578a07ce2193954",
+      "bytes": 386035,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-30.png",
+      "sha256": "6c63b1eaded3673712842e2bf69074e0a088151564799a5eb2d6bdb4a6c4d9b6",
+      "bytes": 376129,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-31.png",
+      "sha256": "8c12a0b993cbc7164c0c76d4a11456b2296a24fa483cbfa47e0afb55d41d93d7",
+      "bytes": 287982,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-32.png",
+      "sha256": "45d79ea5a4f34eb42df69cf82eec0aa72bc30e48083d0267e173e9d1f9db982a",
+      "bytes": 306886,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-33.png",
+      "sha256": "1e0ffc3ad1c36e3050ba7823dda6ef295115100738d5fb7929293b19375695e3",
+      "bytes": 309902,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-34.png",
+      "sha256": "86138999c56363d84a1126769f85629eb8db389015b2d851ad6942c356c03e38",
+      "bytes": 308726,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-35.png",
+      "sha256": "e316c3c56001c801ad2d7ea7ce71cd457aa3d85f101c79b7b2c934be6b8f1b81",
+      "bytes": 296340,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-36.png",
+      "sha256": "25941156b2138b3fc8af535676e138d5472f31e92ca14dd17ad4e5598e2cb146",
+      "bytes": 356296,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-37.png",
+      "sha256": "f078ab3976251d2cab8d12b6ca7816c393eb76053c2e5dbadff3a9abf453ac3d",
+      "bytes": 308239,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-38.png",
+      "sha256": "428eb5412695a59161d5e26e419d55c0a13f0070dc4beaf984f3836e4a409320",
+      "bytes": 351336,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-39.png",
+      "sha256": "d9e496d82b5bd3f6db8f4588fc58699ce18cbe36412124f026e308e6ec0703ca",
+      "bytes": 309248,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-40.png",
+      "sha256": "c1094e5653b14544e1c77791db7a99db7a437fde11fa1f278b0288b3d11f162b",
+      "bytes": 364357,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-41.png",
+      "sha256": "f82854f4596df5e5057fa868335180eea7a1155248af993a9dcf8f7bb1130acc",
+      "bytes": 316528,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-42.png",
+      "sha256": "060e18ac9bd0d5fae8d80dab91c620a36b49a4c818336bf465990d6e88f15a94",
+      "bytes": 333262,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-43.png",
+      "sha256": "531b2c9c8e491091dd956249bcbc38feb7f81b13b3ecc81b4e3c39e4cc60caeb",
+      "bytes": 336884,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-44.png",
+      "sha256": "7a445cfa4f0986cf5944e67b9d48b18046924de1a5be8c5a8e71088ff70d555c",
+      "bytes": 377955,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-45.png",
+      "sha256": "ae4aa598f5ee0e799827397a8ea4155bfbdd0aa5a9b3476dab6382db7933bf0b",
+      "bytes": 201448,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-46.png",
+      "sha256": "9e6bfd3917936bfd3d4806df9e459d5d6e03c1262972282695b689c962c2183c",
+      "bytes": 166108,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-47.png",
+      "sha256": "01b79d062d644980b1a225a04e2fd441a9ffd266e1706e17d537eea267ba8b0d",
+      "bytes": 205542,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-48.png",
+      "sha256": "f1dc3c4146444003984dc7b41ab9353f979f4bbebf4dfa1bd348fc6ca73c61c8",
+      "bytes": 224003,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-49.png",
+      "sha256": "3915c4f470eeb1d223e2036a3474a219adc23fbd4188b39990e7f9d7a53482fc",
+      "bytes": 238253,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-50.png",
+      "sha256": "19d61f151d98225ee1e1026bef72b58af1c45382b19b5abbbd06c8ffe286983a",
+      "bytes": 234006,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-51.png",
+      "sha256": "ac651744dae9e1a3c9bb43e084344da7ef58e91619916ef941e5bfd4fc712ed6",
+      "bytes": 194745,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/evidence/source_pages/page-52.png",
+      "sha256": "7b95d0c6cec0fcdef4e3a146ac9c87bbad8964f463480facfde6f732e7efce7e",
+      "bytes": 208391,
+      "scope": "image-byte hash and frozen render identity only; no new viewing in this structural review"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/logs/record_before_after_changes.jsonl",
+      "sha256": "bd1f93f7e44466620101434f539a4285e952a3a11e6a36251e4ee0136cc7845a",
+      "bytes": 4726674,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/logs/page_before_after_changes.jsonl",
+      "sha256": "0a9883dde3a2796d9864fac0d61625ff3ce06203318690b8dafffd52ac4d895e",
+      "bytes": 106919,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/logs/metadata_before_after_changes.json",
+      "sha256": "242023a3919a8a49ca4ac83ff119ad048595d27de3a552abfbea99f4f61024c6",
+      "bytes": 12733,
+      "scope": "parsed and structurally compared"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/page_coverage.csv",
+      "sha256": "ec739e9f15f08c75183f0a76ababaa42098dddea49ed0f74823858107564b5fa",
+      "bytes": 30382,
+      "scope": "coverage CSV parsed and every cell compared with JSONL"
+    },
+    {
+      "path": "/workspace/scratch/7be71a3570db/output/zh_hisn_final_evaluation/coverage/record_coverage.csv",
+      "sha256": "efe954a0e870bc0bb3779ac79334f6026b5e6ca314fcd103e7a5eb604331488a",
+      "bytes": 260357,
+      "scope": "coverage CSV parsed and every cell compared with JSONL"
+    }
+  ],
+  "limitations": [
+    "This is an independent structural and evidence-accounting review of exact listed bytes, not a new independent279-record Arabic/source-fidelity review.",
+    "Existing visual and semantic audit assertions were checked for lossless integration; fresh page images were hash-checked here, not re-viewed.",
+    "Typed equivalence and exact witness retention do not establish correctness of every Arabic letter/vowel, report identity, narrative chain, variant or scholar grade.",
+    "Counts of primary evidence are record-witness associations, not unique authenticated hadiths or accepted canonical identities.45 full-report rows include1 explicitly rejected number-match;44 is that exclusion count. Bukhari4449 remains a contextual comparison witness with exact Chinese151 prayer identity expressly rejected in raw evidence.",
+    "Whole-document source-mark coverage remains partial for logos onpages1 and52.",
+    "The separate independent bank-level source review remains required after blockers are resolved; no upload or repository authorization is conferred.",
+    "Final archive/manifest files added after this review are outside its hash scope unless separately checked."
+  ]
+}

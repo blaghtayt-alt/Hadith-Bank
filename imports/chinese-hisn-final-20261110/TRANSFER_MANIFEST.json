@@ -1,0 +1,102 @@
+{
+  "schema": "hadith-bank-standalone-delivery-v1",
+  "material": "zh-cn-hisn-muslim-1a09ee75",
+  "publication_date_japan": "2026-11-12",
+  "requested_originals_count": 8,
+  "additional_evidence_files_count": 3,
+  "original_bytes_unchanged": true,
+  "files": [
+    {
+      "path": "imports/chinese-hisn-final-20261110/FINAL_EVALUATION_REPORT_JA.txt",
+      "size": 11052,
+      "sha256": "4d8396ea9d0a9237d78f66e841ac62e2abff628ef0234974acb7cf4de73c483f",
+      "blob_sha": "cd9d0c08312fa2377ab2fa3b60b0c065e56d94f3",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/RELEASE_GATE.json",
+      "size": 3650,
+      "sha256": "1e59d6417bcced51c6ee66bb4c0ae24d13fadadb4db05a8e639b0dfb6515f87f",
+      "blob_sha": "1496529407234c3bff4a2541b26b05137592f85f",
+      "role": "supplied_evaluation_evidence"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/SHA256SUMS.txt",
+      "size": 20788,
+      "sha256": "3113530d38cc06a0e4dac98fa4b4a8095d36dceae88b1a4c2f4b5a19f267efc0",
+      "blob_sha": "13ca88dc5f34a936e563db3105e99cf4a8463624",
+      "role": "supplied_evaluation_evidence"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/independent_final_artifact_review.json",
+      "size": 47483,
+      "sha256": "e5897c091f04f468ec5751ddc831b8f85c46e78d5858bb9349759d71aa504793",
+      "blob_sha": "b80648d71aa4bfd54a2055418b8e0bbcc67a45a4",
+      "role": "supplied_evaluation_evidence"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.csv",
+      "size": 4193860,
+      "sha256": "0f5b0a15d1504ef26c2bc2eae242f5de7bc0e76eda7b4819bee65e3fc1658da4",
+      "blob_sha": "321ce9278dad4e3693cbd4e035006635f66273c3",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.json",
+      "size": 5720986,
+      "sha256": "0c000f5f5cfac6ba52bd8339b205bcdd775f952ace81bc261930960fda8f38d5",
+      "blob_sha": "4dfa6ccaf72057c77dff3be0d70d514bf9c1868d",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.jsonl",
+      "size": 4262733,
+      "sha256": "ad369931a3107bb3bc87feb2613bdba0564b0ead4e16eb837e4050ce6a013146",
+      "blob_sha": "4150270bd9118bd6488fbe44ae2f812f148339f6",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_metadata.json",
+      "size": 13978,
+      "sha256": "abb5319b34cb81deb0c9f68649c6389e0ae7b22036d687c1a867cfb903e34131",
+      "blob_sha": "3fb9e75fedf400bfa8eb6411a8be521403d2dd6a",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_pages.jsonl",
+      "size": 767462,
+      "sha256": "d850cdd0014c08e51c39b6b63c4d695740abf438a22a023987dd7a7cb6c6106a",
+      "blob_sha": "4d45488ecab861be7decaa57afc902c3c7fc2a6c",
+      "role": "requested_original"
+    },
+    {
+      "path": "materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf",
+      "size": 1620891,
+      "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+      "blob_sha": "c0d4e4ea30712cf44aa72659cfe54fd57a955ffb",
+      "role": "requested_original"
+    },
+    {
+      "path": "imports/chinese-hisn-final-20261110/zh_hisn_final_delivery_receipt.json",
+      "size": 12120,
+      "sha256": "6da626b28d3477ed2fc839397d7e1a7ce9b83e6def7206d9ee8b6b928846b911",
+      "blob_sha": "6469eee6689201f724f2c0ec1a61f2feb25d232b",
+      "role": "requested_original"
+    }
+  ],
+  "full_evaluation_archive": {
+    "filename": "zh_hisn_final_evaluation.zip",
+    "size": 37707618,
+    "sha256": "0e40d4ef3a597a0905df0c1a867e2415043e2e48d4251124f1f927b802cc0645",
+    "mirrored_in_repository": false,
+    "required_for_reader": false,
+    "reason": "The owner requested the seven standalone delivery files and source PDF. Reuse the uploaded originals without making an additional archive transfer a publication dependency."
+  },
+  "historical_review": {
+    "chinese_source_transcription": "PASS",
+    "overall": "PARTIAL",
+    "bank_readiness": "FAIL",
+    "certified_release_eligible": false
+  },
+  "verification_scope": "Exact original bytes and Git object identities; no new source-text, Arabic, canonical or authenticity certification."
+}

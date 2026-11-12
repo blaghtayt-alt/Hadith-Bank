@@ -1,0 +1,401 @@
+{
+  "evaluation_id": "ZH-HISN-FINAL-2026-11-10",
+  "overall_status": "PARTIAL",
+  "record_source_fidelity": "PASS",
+  "bank_readiness": "FAIL",
+  "bank_upload_allowed": false,
+  "archive": {
+    "file_name": "zh_hisn_final_evaluation.zip",
+    "bytes": 37707618,
+    "sha256": "0e40d4ef3a597a0905df0c1a867e2415043e2e48d4251124f1f927b802cc0645",
+    "member_count": 188,
+    "crc_test": "PASS"
+  },
+  "core_outputs": [
+    {
+      "file_name": "zh_hisn_final_corrected.json",
+      "bytes": 5720986,
+      "sha256": "0c000f5f5cfac6ba52bd8339b205bcdd775f952ace81bc261930960fda8f38d5"
+    },
+    {
+      "file_name": "zh_hisn_final_corrected.jsonl",
+      "bytes": 4262733,
+      "sha256": "ad369931a3107bb3bc87feb2613bdba0564b0ead4e16eb837e4050ce6a013146"
+    },
+    {
+      "file_name": "zh_hisn_final_corrected.csv",
+      "bytes": 4193860,
+      "sha256": "0f5b0a15d1504ef26c2bc2eae242f5de7bc0e76eda7b4819bee65e3fc1658da4"
+    },
+    {
+      "file_name": "zh_hisn_final_pages.jsonl",
+      "bytes": 767462,
+      "sha256": "d850cdd0014c08e51c39b6b63c4d695740abf438a22a023987dd7a7cb6c6106a"
+    },
+    {
+      "file_name": "zh_hisn_final_metadata.json",
+      "bytes": 13978,
+      "sha256": "abb5319b34cb81deb0c9f68649c6389e0ae7b22036d687c1a867cfb903e34131"
+    },
+    {
+      "file_name": "independent_final_artifact_review.json",
+      "bytes": 47483,
+      "sha256": "e5897c091f04f468ec5751ddc831b8f85c46e78d5858bb9349759d71aa504793"
+    },
+    {
+      "file_name": "ARTIFACT_HASHES.json",
+      "bytes": 33831,
+      "sha256": "c7e280ab1038fa5a2f995e4b0fcde76b2ecafc84e59b07805836d7ab9e765b4f"
+    },
+    {
+      "file_name": "SHA256SUMS.txt",
+      "bytes": 20788,
+      "sha256": "3113530d38cc06a0e4dac98fa4b4a8095d36dceae88b1a4c2f4b5a19f267efc0"
+    },
+    {
+      "file_name": "FINAL_EVALUATION_REPORT_JA.txt",
+      "bytes": 11052,
+      "sha256": "4d8396ea9d0a9237d78f66e841ac62e2abff628ef0234974acb7cf4de73c483f"
+    }
+  ],
+  "input_hashes": [
+    {
+      "name": "zh_hisn_qc_pages.jsonl",
+      "bytes": 748869,
+      "sha256": "79db557eb2a0b3fd38eedc4f6f04a4a0fda41541f63b1e4994199664752eb3f0",
+      "package_path": "inputs/submitted/zh_hisn_qc_pages.jsonl",
+      "path_at_review": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_pages.jsonl"
+    },
+    {
+      "name": "zh-hisn.pdf",
+      "bytes": 1620891,
+      "sha256": "1a09ee75c544d3ced4ac287bd9c996aec9e508f7c98c0965b5e3744131c2cfd4",
+      "package_path": "inputs/submitted/zh-hisn.pdf",
+      "path_at_review": "/workspace/scratch/7be71a3570db/upload/zh-hisn.pdf"
+    },
+    {
+      "name": "zh_hisn_qc_corrected.json",
+      "bytes": 2861898,
+      "sha256": "cb7e90173aa9d587bfd46451e9d2589abcf99dc9b2af58657064695c9c55142b",
+      "package_path": "inputs/submitted/zh_hisn_qc_corrected.json",
+      "path_at_review": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_corrected.json"
+    },
+    {
+      "name": "zh_hisn_qc_records.jsonl",
+      "bytes": 2026208,
+      "sha256": "dbe9213594479dfa50d6f9aa8c7b7303fbf9e84d226eb8084f663b5954c1c2aa",
+      "package_path": "inputs/submitted/zh_hisn_qc_records.jsonl",
+      "path_at_review": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_records.jsonl"
+    },
+    {
+      "name": "zh_hisn_qc_corrected.csv",
+      "bytes": 1891577,
+      "sha256": "44448edef492a8bea7501e96329d42ede77e90ecdcee3937284f3dfe73df265e",
+      "package_path": "inputs/submitted/zh_hisn_qc_corrected.csv",
+      "path_at_review": "/workspace/scratch/7be71a3570db/upload/zh_hisn_qc_corrected.csv"
+    },
+    {
+      "name": "zh_hisn_independent_qc_complete.zip",
+      "bytes": 15672197,
+      "sha256": "db32d1783ea517f4a6d572cfe75c95077647f2221c3a7358b2e3523703e6f11f",
+      "package_path": "inputs/prior_package/zh_hisn_independent_qc_complete.zip",
+      "path_at_review": "/workspace/scratch/7be71a3570db/prior_package/zh_hisn_independent_qc_complete.zip"
+    }
+  ],
+  "post_manifest_validation": {
+    "status": "PASS",
+    "scope": "Programmatic byte integrity, data equivalence and evidence-accounting only. Does not reproduce manual visual/content comparison or establish bank readiness.",
+    "bank_readiness": "FAIL",
+    "bank_upload_allowed": false,
+    "checks": [
+      {
+        "check": "input_hash:zh_hisn_qc_pages.jsonl",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "input_hash:zh-hisn.pdf",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "requested_hash:zh-hisn.pdf",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "input_hash:zh_hisn_qc_corrected.json",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "requested_hash:zh_hisn_qc_corrected.json",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "input_hash:zh_hisn_qc_records.jsonl",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "input_hash:zh_hisn_qc_corrected.csv",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "input_hash:zh_hisn_independent_qc_complete.zip",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "requested_hash:zh_hisn_independent_qc_complete.zip",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "ordered279_records",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "unique_record_ids",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "numbered1_to267",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "jsonl_equals_json",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "submitted_jsonl_equals_json",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "metadata_sidecar_equals_embedded",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "csv_header",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "csv_lossless_typed_equivalence",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "csv_utf8_bom",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "all_original_source_fields_unchanged",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "source_span_reconstruction_and_hashes",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "component_exact_slices",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "52_pages_in_order",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "source_page_text_unchanged",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "52_page_coverage_rows",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "279_record_and_canonical_rows",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "fresh_image_hashes_match_reviewed_images",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "page_text_hashes_bind_review_scope",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "exact_complete_record_span_coverage",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "290_portions_728_spans",
+        "pass": true,
+        "detail": {
+          "portions": 290,
+          "spans": 728
+        }
+      },
+      {
+        "check": "page_logo_limits_preserved",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "nonwhitespace_record_comparison_count",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "dot_count_separate",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "canonical_evidence_roundtrip_and_hashes",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "all46_primary_associations_equal_frozen_witnesses",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "primary_coverage_counts",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "unapproved_accepted_fields_remain_null",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "source_arabic_not_fabricated",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "bank_release_gate_closed",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "every_record_blocked",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "new_source_correction_count_zero",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "all_prior9_rechecks_present",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "independently_authored_input_and_raw_audit_validator",
+        "pass": true,
+        "detail": {
+          "status": "PASS_PROGRAMMATIC_INTEGRITY_ONLY",
+          "counts": {
+            "typed_csv_rows": 279,
+            "typed_csv_cells_checked": 13950,
+            "csv_absent_json_fields_projected_to_null": 1110,
+            "new_page_audit_rows": 52,
+            "new_record_page_audit_rows": 290,
+            "expected_source_span_occurrences": 728,
+            "audited_source_span_occurrences": 728,
+            "records_with_exact_audit_span_union": 279,
+            "page_view_claims_reported_true": 52,
+            "page_text_comparison_claims_reported_true": 52,
+            "visual_comparisons_programmatically_established": 0,
+            "records": 279,
+            "numbered_records": 267,
+            "unnumbered_records": 12,
+            "components": 644,
+            "source_spans": 728,
+            "expected_record_page_portions": 290,
+            "page_transcriptions": 52,
+            "page_text_codepoints": 31057,
+            "page_text_nonwhitespace_codepoints": 28944,
+            "source_record_text_codepoints": 18007,
+            "source_span_text_codepoints": 17561
+          },
+          "errors": [],
+          "scope_limits": [
+            "Hashes establish byte identity, not correctness or manual inspection.",
+            "Fresh-render bytes are checked against this evaluation render manifest; PDF-to-image derivation is not reproved by hashing.",
+            "Exact audit union proves the recorded line/range/hash accounting is complete, not that every character was actually compared.",
+            "Reported unresolved calligraphic marks and reviewer outcomes remain separate; a programmatic PASS cannot override them.",
+            "CSV equality uses the submitted JSON types and a rectangular projection in which absent object keys become null cells.",
+            "No canonical Arabic, narrator chain, grade, translation equivalence or bank-ready conclusion is inferred."
+          ]
+        }
+      },
+      {
+        "check": "independent_review_scope_and_result",
+        "pass": true,
+        "detail": null
+      },
+      {
+        "check": "independently_reviewed_output_and_input_hashes_still_match",
+        "pass": true,
+        "detail": {
+          "files_verified": 97,
+          "changed": []
+        }
+      },
+      {
+        "check": "all_manifested_output_bytes",
+        "pass": true,
+        "detail": []
+      },
+      {
+        "check": "manifest_has_every_file",
+        "pass": true,
+        "detail": {
+          "unlisted": [],
+          "missing": []
+        }
+      }
+    ],
+    "errors": [],
+    "counts": {
+      "checks": 46,
+      "records": 279,
+      "pages": 52,
+      "record_page_portions": 290,
+      "source_spans": 728
+    }
+  },
+  "independent_final_check": {
+    "scope": "Structural/evidence-accounting only; exact listed core hashes remain unchanged",
+    "sha256": "e5897c091f04f468ec5751ddc831b8f85c46e78d5858bb9349759d71aa504793",
+    "bank_source_review_complete": false
+  },
+  "remaining_release_condition": "Resolve every required Arabic, occurrence, chain, grade, translation/edition exception and independently verify exact final source/enrichment bytes before any bank upload."
+}
