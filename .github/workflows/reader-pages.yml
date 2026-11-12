@@ -119,11 +119,13 @@ jobs:
             reports/counterpart-review \
             reports/reading-views-validation.json \
             reports/portable-validation.json reports/site-build.json
-          git add -A -- 'materials/fawaz-*' \
-            imports/web-fawaz-20261112/classification \
-            imports/web-fawaz-20261112/held \
-            imports/web-fawaz-20261112/progress.json \
-            imports/web-fawaz-20261112/source-integrity-validation.json
+          if [[ -f catalog/fawaz-review-inputs.json ]]; then
+            git add -A -- 'materials/fawaz-*' \
+              imports/web-fawaz-20261112/classification \
+              imports/web-fawaz-20261112/held \
+              imports/web-fawaz-20261112/progress.json \
+              imports/web-fawaz-20261112/source-integrity-validation.json
+          fi
           if [[ -d hadith-bank-reader-data ]]; then
             git add -A -- hadith-bank-reader-data
           fi
