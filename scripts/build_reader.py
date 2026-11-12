@@ -20,7 +20,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import sys
-from urllib.parse import quote, urlsplit
+from urllib.parse import quote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
 from review_display_policy import DEFAULT_DISPLAY_POLICY, review_badges, text_direction
@@ -355,13 +355,13 @@ def record_type_info(record):
 
 def markdown_record(record, index, bank_root=None, page_directory=None, downloads=None, site=None):
     from current_provenance import classification
-    from build_discovery import record_path
+    from build_discovery import occurrence_link
     source = record['source']
     provenance = record['translation_provenance']
     translator = record['translator']
     lines = ['## Narration ' + str(index), '']
     live = site_metadata({}, site)['live_url'].rstrip('/') + '/'
-    lines += ['[Open this narration online](' + live + record_path(record) + ')', '']
+    lines += ['[Open this narration online](' + urljoin(live, occurrence_link(record, 'index.html')) + ')', '']
     if record.get('title'):
         lines += ['<p dir="' + text_direction(record.get('language')) + '"><strong>' + escaped(record['title']) + '</strong></p>', '']
     kind = record_type_info(record)

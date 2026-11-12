@@ -414,7 +414,11 @@ def verify_navigation(root, anticipated_report=None):
     for path in pages:
         local(root, path.relative_to(root).as_posix())
         text = re.sub(r'```.*?```', '', path.read_text(encoding='utf-8'), flags=re.S)
-        links = re.findall(r'(?<!!)\[[^\]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', text)
+        # Source prose and metadata are literal HTML, so citation punctuation
+        # inside these blocks is not Markdown navigation. Real HTML anchors
+        # are still collected from the original text and checked below.
+        markdown = re.sub(r'<(p|pre)\b[^>]*>.*?</\1\s*>', '', text, flags=re.S | re.I)
+        links = re.findall(r'(?<!!)\[[^\]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)', markdown)
         links.extend(re.findall(r'<a\s[^>]*href="([^"]+)"', text))
         for href in links:
             parsed = urlsplit(html.unescape(href))

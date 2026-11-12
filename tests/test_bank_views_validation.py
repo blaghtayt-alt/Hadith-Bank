@@ -15,6 +15,47 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import validate_bank_views as validator
+from build_reader import prose
+
+
+class NavigationValidationTests(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name).resolve()
+        (self.root / 'browse').mkdir()
+        (self.root / 'catalog').mkdir()
+        (self.root / 'README.md').write_text('[Browse](browse/source.md)\n', encoding='utf-8')
+        self.page = self.root / 'browse/source.md'
+
+    def test_literal_source_paragraphs_and_metadata_are_not_navigation(self):
+        citation = '[৫১১৫, ৫৫২৩, ৬৯৬১; মুসলিম ১৬/২, হাঃ ১৪০৭](আধুনিক প্রকাশনীঃ ৩৮৯৫, ইসলামিক ফাউন্ডেশনঃ)'
+        self.page.write_text(prose(citation, 'ltr') + '\n\n'
+            '<pre>[source metadata](missing-source-text.md)</pre>\n\n'
+            '<details>\n<summary>Navigation</summary>\n\n[Home](../README.md)\n\n</details>\n\n'
+            '<p><a href="../README.md">Actual HTML navigation</a></p>\n', encoding='utf-8')
+        report = validator.verify_navigation(self.root)
+        self.assertEqual(report['markdown_files_checked'], 2)
+        self.assertEqual(report['local_targets_checked'], 3)
+
+    def test_actual_missing_links_still_fail_inside_and_outside_literal_blocks(self):
+        examples = ['[Broken](missing.md)',
+            '<details>\n<summary>Navigation</summary>\n\n[Broken](missing.md)\n\n</details>',
+            '<p><a href="missing.md">Broken HTML link</a></p>',
+            '<pre><a href="missing.md">Broken HTML link</a></pre>']
+        for markup in examples:
+            with self.subTest(markup=markup):
+                self.page.write_text(markup, encoding='utf-8')
+                with self.assertRaisesRegex(validator.ValidationError, 'Missing navigation target'):
+                    validator.verify_navigation(self.root)
+
+    def test_actual_escaping_links_still_fail(self):
+        for markup in ('[Escape](../../outside.md)',
+                       '<p><a href="../../outside.md">Escape</a></p>'):
+            with self.subTest(markup=markup):
+                self.page.write_text(markup, encoding='utf-8')
+                with self.assertRaisesRegex(validator.ValidationError, 'Navigation escapes bank'):
+                    validator.verify_navigation(self.root)
 
 
 class PortableViewValidationTests(unittest.TestCase):

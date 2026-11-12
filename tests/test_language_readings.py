@@ -63,6 +63,18 @@ def multilingual_translator_fixture():
 
 
 class LanguageReadingTests(unittest.TestCase):
+    def test_markdown_online_links_use_existing_shared_or_static_destinations(self):
+        record = multilingual_fixture()
+        record.update(id='TEST:1&other=2', source_id='fawaz-TEST')
+        before = copy.deepcopy(record)
+        site = {'live_url': 'https://example.invalid/bank/'}
+        page = reader.markdown_record(record, 1, site=site)
+        self.assertIn('[Open this narration online](https://example.invalid/bank/?occurrence=TEST%3A1%26other%3D2)', page)
+        self.assertEqual(record, before)
+        static_page = reader.markdown_record(fixture(), 1, site=site)
+        self.assertIn('[Open this narration online](https://example.invalid/bank/hadith/ja/fixture-book/snapshot-a/', static_page)
+        self.assertNotIn('?occurrence=', static_page)
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for shared-reader link parity')
     def test_bulk_and_hadisuz_links_use_exact_shared_reader_occurrences(self):
         records = []
