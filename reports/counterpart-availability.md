@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**73,026 source occurrences**: Arabic text 59,938; English text 35,045; English source links 2,677.
+**78,070 source occurrences**: Arabic text 64,902; English text 39,995; English source links 2,740.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -10,13 +10,14 @@ Text and external-only links are counted separately. An English source link requ
 
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
-| ar | 24,822 | 24,822 | 24,816 | 0 | 0 | 6 |
-| en | 6 | 0 | 6 | 0 | 6 | 0 |
+| ar | 29,786 | 29,786 | 29,723 | 57 | 0 | 6 |
+| bn | 2 | 0 | 0 | 0 | 2 | 2 |
+| en | 49 | 0 | 49 | 0 | 4 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
 | hi | 3,238 | 3,206 | 3,058 | 0 | 32 | 180 |
 | ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
-| ur | 39 | 0 | 0 | 0 | 39 | 39 |
+| ur | 74 | 0 | 0 | 6 | 72 | 68 |
 | uz | 9,332 | 8,766 | 452 | 0 | 566 | 8,880 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
@@ -89,29 +90,42 @@ Text and external-only links are counted separately. An English source link requ
 | fa-targhib-bazmandegan-v1 | fa | 2,416 | 2,395 | 19 | 7 | 21 | 2,390 |
 | fa-targhib-bazmandegan-v2 | fa | 2,834 | 2,828 | 33 | 3 | 6 | 2,798 |
 | fa-targhib-bazmandegan-v3 | fa | 2,054 | 2,034 | 13 | 3 | 20 | 2,038 |
-| fawaz-abudawud-df57907be352-ar | ar | 2,001 | 2,001 | 2,001 | 0 | 0 | 0 |
-| fawaz-abudawud-df57907be352-ar-part-002 | ar | 1,624 | 1,624 | 1,624 | 0 | 0 | 0 |
-| fawaz-abudawud-df57907be352-en | en | 3 | 0 | 3 | 0 | 3 | 0 |
-| fawaz-abudawud-df57907be352-ur | ur | 4 | 0 | 0 | 0 | 4 | 4 |
-| fawaz-bukhari-df57907be352-ar | ar | 2,469 | 2,469 | 2,469 | 0 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ar-part-002 | ar | 2,388 | 2,388 | 2,388 | 0 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ar-part-003 | ar | 653 | 653 | 653 | 0 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar | ar | 1,497 | 1,497 | 1,491 | 6 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-002 | ar | 1,508 | 1,508 | 1,504 | 4 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-003 | ar | 1,307 | 1,307 | 1,301 | 6 | 0 | 0 |
+| fawaz-abudawud-df57907be352-en | en | 2 | 0 | 2 | 0 | 2 | 0 |
+| fawaz-abudawud-df57907be352-ur | ur | 6 | 0 | 0 | 4 | 6 | 2 |
+| fawaz-bukhari-df57907be352-ar | ar | 1,869 | 1,869 | 1,869 | 0 | 0 | 0 |
+| fawaz-bukhari-df57907be352-ar-part-002 | ar | 1,743 | 1,743 | 1,743 | 0 | 0 | 0 |
+| fawaz-bukhari-df57907be352-ar-part-003 | ar | 1,786 | 1,786 | 1,785 | 1 | 0 | 0 |
+| fawaz-bukhari-df57907be352-ar-part-004 | ar | 1,042 | 1,042 | 1,040 | 2 | 0 | 0 |
+| fawaz-bukhari-df57907be352-en | en | 6 | 0 | 6 | 0 | 0 | 0 |
 | fawaz-bukhari-df57907be352-ur | ur | 2 | 0 | 0 | 0 | 2 | 2 |
-| fawaz-ibnmajah-df57907be352-ar | ar | 2,112 | 2,112 | 2,112 | 0 | 0 | 0 |
-| fawaz-ibnmajah-df57907be352-ar-part-002 | ar | 1,352 | 1,352 | 1,352 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ar | ar | 1,589 | 1,589 | 1,589 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ar-part-002 | ar | 1,585 | 1,585 | 1,585 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ar-part-003 | ar | 768 | 768 | 768 | 0 | 0 | 0 |
 | fawaz-ibnmajah-df57907be352-en | en | 2 | 0 | 2 | 0 | 2 | 0 |
-| fawaz-malik-df57907be352-ar | ar | 699 | 699 | 693 | 0 | 0 | 6 |
-| fawaz-malik-df57907be352-ur | ur | 1 | 0 | 0 | 0 | 1 | 1 |
-| fawaz-muslim-df57907be352-ar | ar | 2,496 | 2,496 | 2,496 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-ar-part-002 | ar | 2,310 | 2,310 | 2,310 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-ur | ur | 3 | 0 | 0 | 0 | 3 | 3 |
-| fawaz-nasai-df57907be352-ar | ar | 2,191 | 2,191 | 2,191 | 0 | 0 | 0 |
-| fawaz-nasai-df57907be352-ar-part-002 | ar | 1,831 | 1,831 | 1,831 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ur | ur | 1 | 0 | 0 | 0 | 1 | 1 |
+| fawaz-malik-df57907be352-ar | ar | 773 | 773 | 729 | 38 | 0 | 6 |
+| fawaz-malik-df57907be352-en | en | 4 | 0 | 4 | 0 | 0 | 0 |
+| fawaz-malik-df57907be352-ur | ur | 4 | 0 | 0 | 2 | 2 | 2 |
+| fawaz-muslim-df57907be352-ar | ar | 1,867 | 1,867 | 1,867 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-002 | ar | 1,837 | 1,837 | 1,837 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-003 | ar | 1,864 | 1,864 | 1,864 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-004 | ar | 367 | 367 | 367 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-bn | bn | 2 | 0 | 0 | 0 | 2 | 2 |
+| fawaz-muslim-df57907be352-ur | ur | 29 | 0 | 0 | 0 | 29 | 29 |
+| fawaz-nasai-df57907be352-ar | ar | 1,641 | 1,641 | 1,641 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-002 | ar | 1,626 | 1,626 | 1,626 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-003 | ar | 1,588 | 1,588 | 1,588 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-en | en | 1 | 0 | 1 | 0 | 0 | 0 |
 | fawaz-nasai-df57907be352-ur | ur | 3 | 0 | 0 | 0 | 3 | 3 |
-| fawaz-tirmidhi-df57907be352-ar | ar | 1,935 | 1,935 | 1,935 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-ar-part-002 | ar | 761 | 761 | 761 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-en | en | 1 | 0 | 1 | 0 | 1 | 0 |
-| fawaz-tirmidhi-df57907be352-ur | ur | 26 | 0 | 0 | 0 | 26 | 26 |
+| fawaz-nawawi-df57907be352-ar | ar | 42 | 42 | 42 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ar | ar | 1,401 | 1,401 | 1,401 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ar-part-002 | ar | 1,397 | 1,397 | 1,397 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ar-part-003 | ar | 689 | 689 | 689 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-en | en | 34 | 0 | 34 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ur | ur | 29 | 0 | 0 | 0 | 29 | 29 |
 | fil-hisn-muslim-3e409dd7 | fil | 298 | 259 | 0 | 0 | 39 | 298 |
 | hadeethenc-hi-sqlite-3b74b6c4da6dc883 | hi | 2,314 | 2,314 | 2,308 | 0 | 0 | 6 |
 | hadeethenc-ja-sqlite-a81da9af28f854f6 | ja | 281 | 281 | 278 | 0 | 0 | 3 |

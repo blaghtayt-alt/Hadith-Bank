@@ -4,5 +4,6 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [fawaz-api-df57907be352](fawaz-api-df57907be352/README.md) — 1935 source occurrences
-- [fawaz-api-df57907be352-part-002](fawaz-api-df57907be352-part-002/README.md) — 761 source occurrences
+- [fawaz-api-df57907be352](fawaz-api-df57907be352/README.md) — 1401 source occurrences
+- [fawaz-api-df57907be352-part-002](fawaz-api-df57907be352-part-002/README.md) — 1397 source occurrences
+- [fawaz-api-df57907be352-part-003](fawaz-api-df57907be352-part-003/README.md) — 689 source occurrences

@@ -3,7 +3,7 @@
   "language": "ur",
   "name": "Urdu",
   "scope": "public_source_snapshots",
-  "record_count": 39,
+  "record_count": 74,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -11,17 +11,17 @@
       "language": "ur",
       "book_key": "abu-dawud",
       "edition": "fawaz-api-df57907be352",
-      "count": 4,
+      "count": 6,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-abudawud-df57907be352-ur/source-index.json",
-      "source_sha256": "e5025fbdfebdf87ebf84207959cef79586191c497c452434df240a1dd49392f3",
+      "source_sha256": "31ff175a35b23c47c87a949947c5b6408f06f8b435e2736320f302f1078ccb6e",
       "canonical_records_path": "materials/fawaz-abudawud-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "a25e6336f6449d5bf97860865026e2e0465038c0b54aeff3e9f1349d03d9b114",
+      "canonical_records_sha256": "338f72e33d335cfbc27f6a93f1637d9f5f0c7f13f5c9834fed4822b6d49d2905",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Sunan Abu Dawud",
         "path": "materials/fawaz-abudawud-df57907be352-ur/source-index.json",
-        "sha256": "e5025fbdfebdf87ebf84207959cef79586191c497c452434df240a1dd49392f3",
+        "sha256": "31ff175a35b23c47c87a949947c5b6408f06f8b435e2736320f302f1078ccb6e",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -94,6 +94,13 @@
           "path": "imports/web-fawaz-20261112/raw/44b23f53065a4e4e8128f76aebaf129292410ad323897a8eeb4c5f82fceaa8bd.json.gz",
           "sha256": "5071f61722c8645727c023491e8b7c62badc1d5e5c4e1d43b9b248451d352d56",
           "size_bytes": 924187
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "4050510ed8277d376130af107f4b32d7a4a5dfd4010867f41651f2cf55a83d4d",
+          "path": "imports/web-fawaz-20261112/raw/4050510ed8277d376130af107f4b32d7a4a5dfd4010867f41651f2cf55a83d4d.json.gz",
+          "sha256": "141e8cdd6930eb7c05ba68aed08b32fb63ae3ae511f9aa80b9d7336d049ff97b",
+          "size_bytes": 1005898
         }
       ],
       "language_version_default_policy": {
@@ -136,14 +143,14 @@
       "count": 2,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-bukhari-df57907be352-ur/source-index.json",
-      "source_sha256": "48f01da9b711a090a8f7df8be110f00c121411dae3b5dccebc8ec3cfae01d6e2",
+      "source_sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
       "canonical_records_path": "materials/fawaz-bukhari-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "e455e83f8936b1e32291fae804910fbb65705aa7394c77f43972bdd8020e29b7",
+      "canonical_records_sha256": "e86ba6013617f27a4ff803a8b639a9a750402723e30870466a2868b3ebdc22df",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Sahih al Bukhari",
         "path": "materials/fawaz-bukhari-df57907be352-ur/source-index.json",
-        "sha256": "48f01da9b711a090a8f7df8be110f00c121411dae3b5dccebc8ec3cfae01d6e2",
+        "sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -216,6 +223,13 @@
           "path": "imports/web-fawaz-20261112/raw/9b7a2741bc92714c7042e035749aaed1635168e9be72f8861020dc8c59ce873e.json.gz",
           "sha256": "90871526e0a3300751d8dcbac4913678aaf9aee5069397a95469d43bafdba4a3",
           "size_bytes": 1775482
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "8f5e574422e2c2eecaa42bcd80ce90d9a1f29c82c2143bc789965dc364d91156",
+          "path": "imports/web-fawaz-20261112/raw/8f5e574422e2c2eecaa42bcd80ce90d9a1f29c82c2143bc789965dc364d91156.json.gz",
+          "sha256": "d4abce54f9c921b1a5a4c9470c865d75dc079820c51519c859b8521a43805562",
+          "size_bytes": 2251207
         }
       ],
       "language_version_default_policy": {
@@ -251,21 +265,150 @@
       }
     },
     {
+      "dataset_id": "fawaz-ibnmajah-df57907be352-ur",
+      "language": "ur",
+      "book_key": "ibn-majah",
+      "edition": "fawaz-api-df57907be352",
+      "count": 1,
+      "release_status": "source_imported",
+      "source_file": "materials/fawaz-ibnmajah-df57907be352-ur/source-index.json",
+      "source_sha256": "5aecee52e8b9e0169a531376dbaacb360874e9ba299f76e2ad26f4af2ca5aec5",
+      "canonical_records_path": "materials/fawaz-ibnmajah-df57907be352-ur/records.jsonl",
+      "canonical_records_sha256": "f9de751224e3feb5727d7d0f4a4a1b4109fd3bf71139bfac87ad3d790e854df7",
+      "source_descriptor": {
+        "format": "pinned_json_source_index",
+        "name": "Fawaz Ahmed Hadith API — Sunan Ibn Majah",
+        "path": "materials/fawaz-ibnmajah-df57907be352-ur/source-index.json",
+        "sha256": "5aecee52e8b9e0169a531376dbaacb360874e9ba299f76e2ad26f4af2ca5aec5",
+        "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/fawaz-ibnmajah-df57907be352-ur/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_source_import",
+        "authorized": true,
+        "decision": "owner_requested_public_source_import",
+        "decision_date_japan": "2026-11-12",
+        "manifest_path": "materials/fawaz-ibnmajah-df57907be352-ur/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "compression": "gzip",
+          "original_response_sha256": "ef6eaefd10c348c500624091846d7bd7968056bea9bb15875a427d2cc2b2b3bf",
+          "path": "imports/web-fawaz-20261112/raw/ef6eaefd10c348c500624091846d7bd7968056bea9bb15875a427d2cc2b2b3bf.json.gz",
+          "sha256": "167632f5533c7de76c48e0fe7ca7f6c5e0b78e622322b7eee7426132934ccd01",
+          "size_bytes": 1625
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "5ffde2406be81c56c12312cb15e4ffce11ed39512c2f598b554b7f2fd68b59a2",
+          "path": "imports/web-fawaz-20261112/raw/5ffde2406be81c56c12312cb15e4ffce11ed39512c2f598b554b7f2fd68b59a2.txt.gz",
+          "sha256": "031955f752e5ada949429fbb1b1bb1b9cd32432b805c179526c19f0d35c70568",
+          "size_bytes": 1446
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
+          "path": "imports/web-fawaz-20261112/raw/6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e.txt.gz",
+          "sha256": "24f4347cd20ec6bfb8c0f8165dede6183c80508bad10b3beef47e6a441ac4866",
+          "size_bytes": 710
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "00d51c7d58ec4d90106fc792ca0f1e400eaaad6a51527a4a69dd1d062a4f8283",
+          "path": "imports/web-fawaz-20261112/raw/00d51c7d58ec4d90106fc792ca0f1e400eaaad6a51527a4a69dd1d062a4f8283.txt.gz",
+          "sha256": "87ce01b6ec32c4c3421fae37974f0aa246725a332c006a07052ec2966668e9bb",
+          "size_bytes": 655
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "d0fade2ed7773100b1775034254050ccb4337a57cec1a5628f12072f9f02e92e",
+          "path": "imports/web-fawaz-20261112/raw/d0fade2ed7773100b1775034254050ccb4337a57cec1a5628f12072f9f02e92e.txt.gz",
+          "sha256": "99272b5787c39a2f239d4cd7eb8238d553f891675cdac8fbde76f9c60064ce07",
+          "size_bytes": 1704
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "b406e6be81588ab0ec1ddbed32f5fd95bbcdda242c460d88331e82eb5c2bc0aa",
+          "path": "imports/web-fawaz-20261112/raw/b406e6be81588ab0ec1ddbed32f5fd95bbcdda242c460d88331e82eb5c2bc0aa.json.gz",
+          "sha256": "d250e9350a63727e3d5385aef572ac22511b678d21f25a35a96f4b58fa3ff9af",
+          "size_bytes": 689286
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "5e9479efd403e935ddcf746a709b2727d535a41fe1f496deadc8a43f1d103cd7",
+          "path": "imports/web-fawaz-20261112/raw/5e9479efd403e935ddcf746a709b2727d535a41fe1f496deadc8a43f1d103cd7.json.gz",
+          "sha256": "809e016fae64801530272b69b900da73554f39686a57fb73d43a34b4987840d8",
+          "size_bytes": 503449
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "4dfa5332cb7cc1fafab2852c981798ed6a26718aeb6f23d267b810e640e6b7b5",
+          "path": "imports/web-fawaz-20261112/raw/4dfa5332cb7cc1fafab2852c981798ed6a26718aeb6f23d267b810e640e6b7b5.json.gz",
+          "sha256": "74751e9002ae5b0bc0985f73ed7f0f0acd91986585f364f3b443a1a03df072f3",
+          "size_bytes": 590059
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "8263d8d1c65aa5710d0f45198a07e3c62d6e1fe1ca54e4ac54d3685e5b6bc8c9",
+          "path": "imports/web-fawaz-20261112/raw/8263d8d1c65aa5710d0f45198a07e3c62d6e1fe1ca54e4ac54d3685e5b6bc8c9.json.gz",
+          "sha256": "b7e47426ba16e650f6695030a94b7c49b28717031f7daa5e216161fe3e176701",
+          "size_bytes": 637542
+        }
+      ],
+      "language_version_default_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      },
+      "source_name": "Fawaz Ahmed Hadith API — Sunan Ibn Majah",
+      "translation_provenance": {
+        "ai_translation": "unknown",
+        "basis": "Pinned publisher catalog attribution; extraction is not translation",
+        "origin": "unknown",
+        "source_declaration": null,
+        "translator": null,
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "fawaz-malik-df57907be352-ur",
       "language": "ur",
       "book_key": "malik",
       "edition": "fawaz-api-df57907be352",
-      "count": 1,
+      "count": 4,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-malik-df57907be352-ur/source-index.json",
-      "source_sha256": "7d7bb333d61480a29fbd3ecae2f734882ecb33dc3c52047810062cf1259cd30d",
+      "source_sha256": "c805ee5a81188f82d331133d3270bb458868c8c6a2e0471e5430e8913c2861ca",
       "canonical_records_path": "materials/fawaz-malik-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "4a3fee99eb4315a55030e4828d564bd852ba387bc90d94164f3a988be3b3ad42",
+      "canonical_records_sha256": "0d89f545717e4ba50174231887a9c4f76f9125e7ea5fee82653e11508659152e",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Muwatta Malik",
         "path": "materials/fawaz-malik-df57907be352-ur/source-index.json",
-        "sha256": "7d7bb333d61480a29fbd3ecae2f734882ecb33dc3c52047810062cf1259cd30d",
+        "sha256": "c805ee5a81188f82d331133d3270bb458868c8c6a2e0471e5430e8913c2861ca",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -338,6 +481,13 @@
           "path": "imports/web-fawaz-20261112/raw/eab4ebc8eedc5e27a5d41835706d314bb48531fbd77549f64503c9f6ebc18bc2.json.gz",
           "sha256": "139d0b14bca7997086ea0489c707493f85c1b2765c4f5f50bdb486cbe310664b",
           "size_bytes": 250246
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "c79d3a18a0a34fa3afc11104f7c4933cd45e27b73c2814e8e02e222e6a3741a2",
+          "path": "imports/web-fawaz-20261112/raw/c79d3a18a0a34fa3afc11104f7c4933cd45e27b73c2814e8e02e222e6a3741a2.json.gz",
+          "sha256": "7feadde46f326c724000503abe336dfe764cdbf5842127b19e5584fd1e8489b2",
+          "size_bytes": 416037
         }
       ],
       "language_version_default_policy": {
@@ -377,17 +527,17 @@
       "language": "ur",
       "book_key": "muslim",
       "edition": "fawaz-api-df57907be352",
-      "count": 3,
+      "count": 29,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-muslim-df57907be352-ur/source-index.json",
-      "source_sha256": "10e23f88d5750f5717b6ebd3e98eb1ffad832f13e3409354b7ccc0dc62e5aba5",
+      "source_sha256": "789bd951f8460fc3ea337fbf77746913ef0778613dc1864d7635394f60712982",
       "canonical_records_path": "materials/fawaz-muslim-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "8f3e39b2a3bdd0f2a202617302504ff7b46adaacce755fe2a0042fdbe6a20a4c",
+      "canonical_records_sha256": "2daa486bb3a5d0a8c7400efa2520a8c6e7dfecfe0ad1f4bacfe0b6e19589464f",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Sahih Muslim",
         "path": "materials/fawaz-muslim-df57907be352-ur/source-index.json",
-        "sha256": "10e23f88d5750f5717b6ebd3e98eb1ffad832f13e3409354b7ccc0dc62e5aba5",
+        "sha256": "789bd951f8460fc3ea337fbf77746913ef0778613dc1864d7635394f60712982",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -460,6 +610,13 @@
           "path": "imports/web-fawaz-20261112/raw/5fb1f4c4a97a3ee282768ed48d7d97bc9dbc4223ac218307449849c1f7a09049.json.gz",
           "sha256": "56ff66acbd617a8b3fa7ddb749b55aad7874f686951b234860ede3cf499a91f0",
           "size_bytes": 1311854
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "876591fcf5954af41b14a67b28f732df74713010fef3c9e0117661ed677273dd",
+          "path": "imports/web-fawaz-20261112/raw/876591fcf5954af41b14a67b28f732df74713010fef3c9e0117661ed677273dd.json.gz",
+          "sha256": "a44031002679f8921027aacf410c51c82442c4f3380ffbe58d21d3b58160832e",
+          "size_bytes": 1379237
         }
       ],
       "language_version_default_policy": {
@@ -502,14 +659,14 @@
       "count": 3,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-nasai-df57907be352-ur/source-index.json",
-      "source_sha256": "e9bbbe9f0f50b2ca6242db978306a6543e90a8261d12dfdb3247516a4110b406",
+      "source_sha256": "f1acfb794c64177ecbb97814c63682b6ebb8c2e007356ba25420faeef8f802ca",
       "canonical_records_path": "materials/fawaz-nasai-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "993532155883ba5bf60faa1a76056996b60184c2aa1053e8bbb049c02c4787a3",
+      "canonical_records_sha256": "e4f3c32263d2581cac5c07eb4c020eb4036ab3ff7983aa862cbe795b584a6a07",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Sunan an Nasai",
         "path": "materials/fawaz-nasai-df57907be352-ur/source-index.json",
-        "sha256": "e9bbbe9f0f50b2ca6242db978306a6543e90a8261d12dfdb3247516a4110b406",
+        "sha256": "f1acfb794c64177ecbb97814c63682b6ebb8c2e007356ba25420faeef8f802ca",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -582,6 +739,13 @@
           "path": "imports/web-fawaz-20261112/raw/20259f08c643c56a8274416f21591ff880c685f4fa3e5712275750cca15bc5ae.json.gz",
           "sha256": "c2e9c79d46ae2f4d97c63f9b6bc3b8dfc44226db2eea80d3ecb4bdeeaf76d5c5",
           "size_bytes": 576421
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "11a4ad2a41ec2d259f7fd9b5959496bf5cf8424cdf0944bea197927b68d59d72",
+          "path": "imports/web-fawaz-20261112/raw/11a4ad2a41ec2d259f7fd9b5959496bf5cf8424cdf0944bea197927b68d59d72.json.gz",
+          "sha256": "4d90fef750b241435807d8014e48d0c66c348b51c771fb045fdc140e28931021",
+          "size_bytes": 862374
         }
       ],
       "language_version_default_policy": {
@@ -621,17 +785,17 @@
       "language": "ur",
       "book_key": "tirmidhi",
       "edition": "fawaz-api-df57907be352",
-      "count": 26,
+      "count": 29,
       "release_status": "source_imported",
       "source_file": "materials/fawaz-tirmidhi-df57907be352-ur/source-index.json",
-      "source_sha256": "03e815f520ddc40c83635ea7b5c9664cd8cd7f1f0456dc2f41939b79a807a43a",
+      "source_sha256": "4526cf722bfdf616dc8979da4cebba37807985cfda8f0f58a0a9aff88e0b1de0",
       "canonical_records_path": "materials/fawaz-tirmidhi-df57907be352-ur/records.jsonl",
-      "canonical_records_sha256": "60f246dbb8712a2154c8f3a6e1e83cfab9b5f14439b9d9f44f5d306acabf6d5d",
+      "canonical_records_sha256": "036d7388e124514b322a3617d0bcc92c16b74fbf0caee392cd6b1d88182fb0f3",
       "source_descriptor": {
         "format": "pinned_json_source_index",
         "name": "Fawaz Ahmed Hadith API — Jami At Tirmidhi",
         "path": "materials/fawaz-tirmidhi-df57907be352-ur/source-index.json",
-        "sha256": "03e815f520ddc40c83635ea7b5c9664cd8cd7f1f0456dc2f41939b79a807a43a",
+        "sha256": "4526cf722bfdf616dc8979da4cebba37807985cfda8f0f58a0a9aff88e0b1de0",
         "url": "https://github.com/fawazahmed0/hadith-api/tree/df57907be35291c91ad6a6691180e22ca9920784"
       },
       "adapter": "records-v1",
@@ -704,6 +868,13 @@
           "path": "imports/web-fawaz-20261112/raw/e9e8b32660a8a9c4e25c6c344149e8c9429e1aa90e2d5414029b9727ffb53006.json.gz",
           "sha256": "184ca73ceeee5b5c14e4544f09841b6ed3be8a897cb82562431ad88620d3384b",
           "size_bytes": 902650
+        },
+        {
+          "compression": "gzip",
+          "original_response_sha256": "17080a67cff1fe216e8ba8eda3a628952f745027d7d682cf3101ddd56459e72c",
+          "path": "imports/web-fawaz-20261112/raw/17080a67cff1fe216e8ba8eda3a628952f745027d7d682cf3101ddd56459e72c.json.gz",
+          "sha256": "cc5f944ba174437255515127192fbbe1a08a429b7ca4c2fee242dc13d6f679c3",
+          "size_bytes": 1098124
         }
       ],
       "language_version_default_policy": {
