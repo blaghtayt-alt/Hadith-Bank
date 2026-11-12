@@ -539,7 +539,16 @@ $("total-count").textContent=nf.format(records.length);
 $("language-count").textContent=nf.format(languages.size);
 $("book-count").textContent=nf.format(books.size);
 $("collection-summary").textContent=nf.format(languages.size)+" languages · "+nf.format(books.size)+" collections · "+nf.format(sources.size)+" source editions";
-if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total)){const coverage=snapshot.counterparts;$("counterpart-summary").hidden=false;$("counterpart-summary").textContent="Arabic text available for "+nf.format(coverage.arabic_available || 0)+" source occurrences · English text for "+nf.format(coverage.english_available || 0)+(coverage.english_external_links?" · English source links for "+nf.format(coverage.english_external_links):"")+". Open either language on a narration to see its source and reference.";}
+if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total)){
+  const coverage=snapshot.counterparts,totals=coverage.availability && coverage.availability.totals;
+  // Source-supplied readings remain available when external matching is disabled.
+  // Older snapshots can still supply only the legacy resolver counters.
+  const arabicText=totals?totals.arabic_text:coverage.arabic_available;
+  const englishText=totals?totals.english_text:coverage.english_available;
+  const englishLinks=totals?totals.english_link:coverage.english_external_links;
+  $("counterpart-summary").hidden=false;
+  $("counterpart-summary").textContent="Arabic text available for "+nf.format(arabicText || 0)+" source occurrences · English text for "+nf.format(englishText || 0)+(englishLinks?" · English source links for "+nf.format(englishLinks):"")+". Open either language on a narration to see its source and reference.";
+}
 const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Hadith-Bank",live_url:"https://blaghtayt-alt.github.io/Hadith-Bank/",source_ref:"main"};
 const availabilityReport=snapshot.counterparts && snapshot.counterparts.availability;
 if(availabilityReport && availabilityReport.totals){

@@ -34,6 +34,71 @@ def samples():
 
 
 class CounterpartCoverageTests(unittest.TestCase):
+    def render_reader_summary(self, coverage):
+        template = (Path(__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        start = 'if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total))'
+        summary_code = start + template.split(start, 1)[1].split('const site=', 1)[0]
+        program = '''
+const snapshot={counterparts:JSON.parse(require('fs').readFileSync(0,'utf8'))};
+const nf=new Intl.NumberFormat('en'),node={hidden:true,textContent:''},$=()=>node;
+''' + summary_code + '\nprocess.stdout.write(JSON.stringify(node));'
+        result = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps(coverage),
+                                text=True, capture_output=True, check=True)
+        return json.loads(result.stdout)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node required for reader summary behavior')
+    def test_reader_summary_counts_source_arabic_with_external_matching_disabled(self):
+        records = [
+            {'id': 'TEST-printed-arabic', 'source_id': 'TEST-source', 'language': 'fil',
+             'text_translation': 'TEST source translation', 'text_arabic': 'TEST printed Arabic',
+             'counterpart_policy': {'mode': 'disabled', 'reason': 'TEST source-bound review'},
+             'counterparts': {'status': 'unresolved', 'match_method': 'material_counterparts_disabled',
+                              'arabic': None, 'english': None}},
+            {'id': 'TEST-supplied-version', 'source_id': 'TEST-source', 'language': 'fil',
+             'language_versions': [{'language': 'ar', 'text': 'TEST supplied Arabic reading'}],
+             'counterpart_policy': {'mode': 'disabled', 'reason': 'TEST source-bound review'},
+             'counterparts': {'status': 'unresolved', 'arabic': None, 'english': None}},
+            {'id': 'TEST-candidate-only', 'source_id': 'TEST-source', 'language': 'fil',
+             'counterpart_policy': {'mode': 'disabled', 'reason': 'TEST source-bound review'},
+             'counterparts': {'status': 'unresolved', 'arabic': None, 'english': None},
+             'counterpart_candidates': [{'language': 'ar', 'text': 'TEST unapproved Arabic'},
+                                        {'language': 'en', 'text': 'TEST unapproved English'}]},
+        ]
+        before = copy.deepcopy(records)
+        totals = build_report(records)['totals']
+        actual = self.render_reader_summary({
+            'total': 3, 'arabic_available': 0, 'english_available': 0,
+            'availability': {'totals': totals},
+        })
+        self.assertFalse(actual['hidden'])
+        self.assertEqual(actual['textContent'],
+            'Arabic text available for 2 source occurrences · English text for 0. '
+            'Open either language on a narration to see its source and reference.')
+        self.assertEqual(records, before)
+        self.assertEqual(totals['missing_arabic'], 1)
+        self.assertEqual(totals['missing_english'], 3)
+        # Zero authoritative counts must not fall back to stale positive counters.
+        zero = self.render_reader_summary({
+            'total': 1, 'arabic_available': 8, 'english_available': 9,
+            'english_external_links': 10,
+            'availability': {'totals': build_report(records[2:])['totals']},
+        })
+        self.assertEqual(zero['textContent'],
+            'Arabic text available for 0 source occurrences · English text for 0. '
+            'Open either language on a narration to see its source and reference.')
+
+    @unittest.skipUnless(shutil.which('node'), 'Node required for reader summary behavior')
+    def test_reader_summary_retains_legacy_counts_without_availability_report(self):
+        actual = self.render_reader_summary({
+            'total': 4, 'arabic_available': 4, 'english_available': 1,
+            'english_external_links': 3,
+        })
+        self.assertFalse(actual['hidden'])
+        self.assertEqual(actual['textContent'],
+            'Arabic text available for 4 source occurrences · English text for 1 '
+            '· English source links for 3. '
+            'Open either language on a narration to see its source and reference.')
+
     def test_unresolved_and_stale_links_do_not_hide_original_arabic(self):
         records = samples()
         for index in (0, 5):
