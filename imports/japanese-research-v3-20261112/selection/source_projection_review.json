@@ -1,0 +1,194 @@
+{
+  "schema": "japanese-research-v3-reader-selection-review-v1",
+  "scope": "Mechanical validation of all proposed source fields and component offsets/hashes, plus bounded inspection of high-risk Japanese/Arabic/Quran boundaries. Not a full fresh human/source reread and not independent final Pro QC.",
+  "source_package_expected_and_parent_verified_sha256": "331d2973511301c6cd50d3e2a8612e135defda529e855b8b03894490005c01fa",
+  "whole_records": 1147,
+  "whole_display_field_counts": {
+    "japanese_translation": 705,
+    "raw_text": 442
+  },
+  "whole_Japanese_fields_not_contiguous_in_raw_text": [
+    "ja_hisn_2007:entry:019",
+    "ja_hisn_2007:entry:031",
+    "ja_hisn_2007:entry:114",
+    "ja_hisn_2007:entry:151",
+    "ja_hisn_2007:entry:179",
+    "ja_hisn_2007:entry:188",
+    "ja_hisn_2007:entry:207",
+    "ja_hisn_2007:entry:218",
+    "ja_hisn_2007:entry:236",
+    "ja_hisn_2007:entry:243",
+    "ja_hisn_2007:entry:247",
+    "ja_hisn_2007:entry:262",
+    "ja_hisn_2007:intro_report:02",
+    "ja_islam_message:p0017:o00668:quote",
+    "ja_islam_message:p0024:o00500:quote",
+    "ja_islam_message:p0028:o00118:quote",
+    "ja_islam_message:p0032:o00383:quote",
+    "ja_islam_message:p0038:o00058:quote",
+    "ja_islam_message:p0054:o00801:quote",
+    "ja_islam_message:p0132:o00762:quote",
+    "ja_islam_message:p0141:o00440:quote",
+    "ja_islam_message:p0159:o00079:quote",
+    "ja_islam_message:p0161:o00393:quote",
+    "ja_islam_message:p0164:o00407:quote",
+    "ja_islam_message:p0166:o00053:quote",
+    "ja_islam_message:p0195:o00492:quote",
+    "ja_islam_message:p0203:o00459:quote"
+  ],
+  "whole_raw_text_sha256_mismatches": [],
+  "whole_raw_fallbacks_contain_Arabic_script": false,
+  "approved_component_count": 122,
+  "component_span_literal_and_hash_mismatches": [],
+  "component_overlaps_within_parent": [],
+  "component_parents_already_in_whole_record_route": [],
+  "component_parent_count": 79,
+  "reader_source_occurrence_count_if_all_projections_accepted": 1226,
+  "book_counts": {
+    "ja_hisn_2007": {
+      "whole": 245,
+      "mixed_parent_excerpts": 16,
+      "total": 261
+    },
+    "ja_islam_message": {
+      "whole": 303,
+      "mixed_parent_excerpts": 3,
+      "total": 306
+    },
+    "ja_otsuka_20230901": {
+      "whole": 8,
+      "mixed_parent_excerpts": 1,
+      "total": 9
+    },
+    "ja_tokyo_basic_2012": {
+      "whole": 591,
+      "mixed_parent_excerpts": 59,
+      "total": 650
+    }
+  },
+  "unprojectable_approved_component_parent_ids": [],
+  "mixed_parent_ids_without_approved_components_remain_hidden": [
+    "ja_hisn_2007:entry:141",
+    "ja_hisn_2007:entry:142",
+    "ja_hisn_2007:entry:143",
+    "ja_hisn_2007:entry:239",
+    "ja_hisn_2007:translator_note:012",
+    "ja_hisn_2007:translator_note:013",
+    "ja_hisn_2007:translator_note:019",
+    "ja_hisn_2007:translator_note:024",
+    "ja_hisn_2007:translator_note:042",
+    "ja_hisn_2007:translator_note:049",
+    "ja_hisn_2007:translator_note:054",
+    "ja_hisn_2007:translator_note:056",
+    "ja_hisn_2007:translator_note:060",
+    "ja_hisn_2007:translator_note:062",
+    "ja_hisn_2007:translator_note:063",
+    "ja_hisn_2007:translator_note:067",
+    "ja_islam_message:p0180:o00633:quote",
+    "ja_otsuka_20230901-qc2add005",
+    "ja_tokyo_basic_2012-v2app003",
+    "ja_tokyo_basic_2012-v2app017",
+    "ja_tokyo_basic_2012-v2c024",
+    "ja_tokyo_basic_2012:audit_v2:p071:o001",
+    "ja_tokyo_basic_2012:audit_v2:p071:o002",
+    "ja_tokyo_basic_2012:audit_v2:p071:o003",
+    "ja_tokyo_basic_2012:audit_v2:p126:o004",
+    "ja_tokyo_basic_2012:audit_v2:p220:o001",
+    "ja_tokyo_basic_2012:audit_v2:p229:o001"
+  ],
+  "critical_boundaries": [
+    {
+      "record_id": "ja_hisn_2007:entry:099",
+      "rule": "Use only approved practice spans667:707 and1072:1128. Parent japanese_translation is Quran112-114 and must not be substituted."
+    },
+    {
+      "record_id": "ja_hisn_2007:translator_note:051",
+      "rule": "Use only three approved greeting fragments21:33,67:77,96:106. Parent japanese_translation is Quran4:86 and must not be substituted."
+    },
+    {
+      "record_id": "ja_hisn_2007:entry:074",
+      "rule": "Display exact Japanese narrator/report subspan selected in mixed_parent_display_selections.json; do not display broken raw Arabic as Japanese."
+    },
+    {
+      "record_id": "ja_hisn_2007:entry:162",
+      "rule": "Display only the first approved Japanese condolence quotation; parent japanese_translation also contains a separate later condolence formula."
+    }
+  ],
+  "classification_qualifications": [
+    "All whole proposals carry prophetic_hadith classification, but many are reported meaning, author biography, a composite quotation, an excerpt or kana rendition; do not label them all exact canonical translations.",
+    "Hisn050/206/207/236 are coherent Prophetic recitation/report units with embedded Quran separately identified in research metadata; do not count embedded verses as extra hadiths.",
+    "Messagep0154:o00152:quote is a composite Ghazali paraphrase describing Prophetic conduct; no single canonical chain or number applies to the whole.",
+    "Hisn frontmatter:basmala is an author opening with attested Prophetic wording origin; contextual ritual use is not verified by the related letter witness.",
+    "Known source-semantic conflicts, absent canonical numbering and Arabic/translation holds remain; this review grants no authenticity or fidelity PASS."
+  ],
+  "notes": [
+    "The 122 component annotations are preserved separately within79 reader source occurrences, not counted as122 additional independent source occurrences.",
+    "Display-only two-newline separators are documented; they do not rewrite the immutable parent, component text or component identity.",
+    "All original fields, nonselected spans and exact package bytes remain in the preserved research package; this ledger is separate derived integration metadata."
+  ],
+  "text_role_recommendations_file": "whole_record_text_roles.json",
+  "suggested_qualification_counts": {
+    "reported_meaning_or_author_narrative": 108,
+    "kana_transliteration": 310,
+    "formula_wording_attested_context_requires_separate_evidence": 7
+  },
+  "whole_record_Japanese_segment_roles": {
+    "printed_instruction_or_quote_frame": 4,
+    "Japanese_invocation_translation": 4,
+    "separate_printed_invocation_group": 4,
+    "adhan_prompt_transliteration_and_inline_Japanese_gloss": 1,
+    "Japanese_response_formula_translation": 1,
+    "unattributed_ritual_instruction_as_printed": 2,
+    "printed_parenthetical_additional_formula": 1,
+    "source_claim_about_acceptance_of_supplication": 1,
+    "opening_praise_formula": 1,
+    "refuge_formula": 1,
+    "Japanese_formula_translation": 8,
+    "printed_recitation_count_instruction": 5,
+    "printed_behavioral_instruction_1": 1,
+    "stored_fragment_separator": 4,
+    "printed_behavioral_instruction_with_embedded_invocation_2": 1,
+    "printed_behavioral_instruction_3": 1,
+    "printed_behavioral_instruction_4": 1,
+    "Japanese_base_formula": 1,
+    "printed_third_repetition_instruction": 1,
+    "Japanese_appended_formula": 1,
+    "printed_instruction_and_quote_frame": 1,
+    "printed_report_narrative_instruction_or_virtue_claim": 39,
+    "nested_Japanese_formula_translation": 14,
+    "reported_reward_claim": 2,
+    "nested_Japanese_deathbed_formula": 1,
+    "Japanese_formula_translation_as_printed": 7,
+    "printed_placeholder_instruction": 4,
+    "initial_basmala_translation": 1,
+    "late_basmala_translation_Arabic_not_printed": 1,
+    "food_prayer_translation": 1,
+    "milk_prayer_translation": 1,
+    "sneezer_praise_formula": 1,
+    "listener_mercy_formula": 1,
+    "listener_mercy_formula_repeated_in_condition": 1,
+    "sneezer_reply_formula": 1,
+    "Japanese_prayer_or_praise_translation_as_printed": 4,
+    "Japanese_Quran_quotation_as_printed": 2,
+    "printed_Quran_reference": 2,
+    "Japanese_return_journey_formula": 1,
+    "Japanese_formula_for_pleasing_news": 1,
+    "Japanese_formula_for_displeasing_news": 1,
+    "printed_instruction_before_nested_formula": 1,
+    "printed_ritual_narrative": 3,
+    "nested_Japanese_recitation_unit": 2,
+    "first_pain_prayer_translation": 1,
+    "second_pain_prayer_translation": 1,
+    "reported_question": 1,
+    "reported_answer": 1,
+    "reported_Bedouin_dialogue_and_Prophetic_response": 3
+  },
+  "whole_record_explicit_Quran_component_record_ids": [
+    "ja_hisn_2007:entry:050",
+    "ja_hisn_2007:entry:206",
+    "ja_hisn_2007:entry:207",
+    "ja_hisn_2007:entry:236"
+  ],
+  "definite_new_whole_record_exclusions_found_in_bounded_review": [],
+  "full_fresh_human_reread_of_all_1147_source_texts_performed": false
+}

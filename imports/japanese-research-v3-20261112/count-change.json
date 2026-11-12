@@ -1,0 +1,64 @@
+{
+  "schema": "hadith-bank-import-count-change-v1",
+  "counting_unit": "Preserved source occurrences; not deduplicated canonical hadith texts or chains",
+  "task_start": {
+    "base_commit": "48bd88278849dd6ad4bb57cb9cfd0ad91d6a6c76",
+    "record_count": 37201,
+    "japanese_record_count": 2237,
+    "dataset_count": 177,
+    "counting_unit": "Registered source occurrences; not deduplicated canonical hadiths",
+    "source_catalog_sha256": "1a4f8944304c9476650963fcd5857607c39d14e36d47bdf16bc2bf11f6b95eab"
+  },
+  "integration_before": {
+    "commit": "abc92527fbb85c657d7229bb8ccd46466516dd59",
+    "catalog_sha256": "805b77bcc923158de2aa9fc35fff444820a5afc1320bc410eb0bcbc9fd331f13",
+    "record_count": 44195,
+    "japanese_record_count": 2237,
+    "dataset_count": 195
+  },
+  "concurrent_unrelated_additions_since_task_start": {
+    "records": 6994,
+    "datasets": 18,
+    "attributed_to_this_import": false
+  },
+  "this_import": {
+    "records": 1226,
+    "datasets": 4,
+    "whole_source_records": 1147,
+    "mixed_parent_source_occurrences": 79,
+    "component_annotations_not_extra_occurrences": 122,
+    "related_external_witnesses_not_extra_occurrences": 45,
+    "by_material": {
+      "ja-hisn-2007-research-v3": 261,
+      "ja-islam-message-research-v3": 306,
+      "ja-otsuka-20230901-research-v3": 9,
+      "ja-tokyo-basic-2012-research-v3": 650
+    }
+  },
+  "after_verified_generated_projection": {
+    "record_count": 45421,
+    "japanese_record_count": 3463,
+    "dataset_count": 199,
+    "by_primary_language": {
+      "fa": 14382,
+      "fil": 2056,
+      "hi": 2632,
+      "ja": 3463,
+      "uz": 7498,
+      "vi": 4555,
+      "zh-CN": 10835
+    },
+    "catalog_sha256": "04016b84135680e95abd5999429487ded550abd47ccd20e38bb0b12f4fd2f320",
+    "search_sha256": "52729056e4bfe9182264a24ff03a970c82ff17f3f40222e1af5b24287c18c819",
+    "standalone_reader_sha256": "1d456310258e149da69c153bc8fbdb4d5a92f470759875856c88fe875d7d63ef"
+  },
+  "validation": {
+    "software_tests": "PASS",
+    "tests_run": 497,
+    "japanese_specific_tests": 15,
+    "full_registered_bank_build": "Enforced by reader-pages.yml before deployment; see generated reports/site-build.json and workflow result",
+    "generated_projection_checks": "See validation/reader-projection-verification.json",
+    "independent_final_pro_qc_performed": false,
+    "certified_release_eligible": false
+  }
+}

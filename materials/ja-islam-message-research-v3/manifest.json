@@ -1,0 +1,54 @@
+{
+  "schema": "hadith-bank-material-v1",
+  "id": "ja-islam-message-research-v3",
+  "adapter": "records-v1",
+  "language": "ja",
+  "book": "islam-message",
+  "edition": "pdf-cf59932bec72",
+  "source_id": "ja-islam-message-research-v3",
+  "records": {
+    "path": "materials/ja-islam-message-research-v3/records.jsonl",
+    "sha256": "1dae63493a8f7f42b5aa488173920b031d703eecdd9b9a9188fb1afa4e42324f",
+    "count": 306
+  },
+  "source": {
+    "path": "materials/ja-islam-message-research-v3/source.pdf",
+    "sha256": "cf59932bec72bb04c768dfcc9cad4e58603ef6d776e50dc5648621cd1a3905f8",
+    "name": "イスラームのメッセージ",
+    "format": "pdf",
+    "url": "https://d1.islamhouse.com/data/ja/ih_books/single/ja_islam_message_sheha.pdf",
+    "title_ja": "イスラームのメッセージ",
+    "title_en": "The Message of Islam",
+    "metadata_path": "imports/japanese-research-v3-20261112/Japanese_bibliography.json",
+    "original_source_id": "ja_islam_message"
+  },
+  "publication": {
+    "authorized": true,
+    "decision": "owner_requested_public_pending_review",
+    "decision_date_japan": "2026-11-12",
+    "owner_instruction": "continue integration into html , tell me after finish previous count and new count of hadtihs",
+    "scope": "Enumerated Japanese source-supported Prophetic occurrences and exact components; non-hadith and unknown rows excluded.",
+    "publication_decisions_path": "imports/japanese-research-v3-20261112/publication-decisions.json",
+    "publication_decisions_sha256": "c9314b30daa2b5cde5f6ad46ca7a32daf27a1da3c018d63a7ed176aeb75b606b",
+    "historical_source_package_status": "PARTIAL_HOLD",
+    "independent_qc_asserted": false,
+    "certified_release_eligible": false
+  },
+  "counterpart_policy": {
+    "mode": "disabled",
+    "reason": "Original Arabic/source transcriptions and external Arabic/English witnesses remain in preserved research. No source-bound language alignment approval is granted by this pending-review publication."
+  },
+  "preserved_delivery": {
+    "path": "imports/japanese-research-v3-20261112/preserved-delivery/archive-parts.json",
+    "original_zip_sha256": "331d2973511301c6cd50d3e2a8612e135defda529e855b8b03894490005c01fa",
+    "original_bytes_unchanged": true,
+    "format": "ordered_exact_binary_archive_parts"
+  },
+  "source_partitions": {
+    "reader_occurrences": 306,
+    "whole_source_occurrences": 303,
+    "mixed_parent_excerpts": 3,
+    "classification_path": "imports/japanese-research-v3-20261112/publication-decisions.json",
+    "hidden_records_remain_outside_registry": true
+  }
+}

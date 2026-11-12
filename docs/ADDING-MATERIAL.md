@@ -141,6 +141,6 @@ Extracting a PDF, checking every character against its pages, repairing Arabic a
 
 [Website and deployment details](WEBSITE.md) · [Material manifest schema](../schemas/material-manifest.schema.json) · [Material record schema](../schemas/material-record.schema.json) · [Review and rights policy](REVIEW-AND-RIGHTS.md)
 
-## Pending source transfers
+## Source-specific integration records
 
-- [Japanese research-v3 integration request](../imports/japanese-research-v3-20261112/README.md): source-package transfer is blocked; no package or reader records have been added. The request preserves the exact recovery hash and the existing release/display holds.
+- [Japanese research-v3 integration](JAPANESE-RESEARCH-V3.md): four exact Japanese source PDFs and a separately authorized pending-review subset. Original research holds, source records and the earlier blocked-transfer request remain preserved.
