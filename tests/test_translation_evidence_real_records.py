@@ -3,6 +3,7 @@ import copy
 import json
 from pathlib import Path
 import sys
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +11,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from audit_translation_evidence import apply_projected_decisions
 from current_provenance import apply_policy, load_policy
 from material_registry import project_for_material, publication
+from export_translation_evidence_report import export
 
 LEDGER = 'catalog/translation-evidence-decisions-20261113.json'
 FILES = [
@@ -82,6 +84,12 @@ class RealRecordProjectionTest(unittest.TestCase):
         for material, group, rows in zip(materials, groups, source_rows):
             for i, (record, row) in enumerate(zip(group, rows)):
                 self.assertEqual(project_for_material(row, material, i), record)
+
+    def test_csv_matches_ledger_and_is_reproducible(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / 'decisions.csv'
+            self.assertEqual(export(ROOT, output), 191)
+            self.assertEqual(output.read_bytes(), (ROOT / 'reports/translation-origin-audit-20261113/decisions.csv').read_bytes())
 
     def test_stale_translation_rejects_before_any_projection_change(self):
         self.groups[-1][0]['text_translation'] = 'changed text'
