@@ -1,0 +1,162 @@
+{
+  "schema": "hadith-bank-pending-import-request-v1",
+  "schema_role": "Documentation-only handoff. This file is not a supported material registration, successful transfer receipt, or importer input.",
+  "request_id": "japanese-research-v3-20261112",
+  "request_date_utc": "2026-11-12",
+  "status": "BLOCKED_ARTIFACT_TRANSFER",
+  "artifact_not_uploaded": true,
+  "owner_request": {
+    "action": "Upload the preserved Japanese research-v3 checkpoint to Hadith Bank and integrate with the changing HTML framework.",
+    "authorization": "The owner's 2026-11-12 upload/integration instruction supersedes the earlier prohibition on repository writes for this package.",
+    "preserved_conditions": "Preserve original bytes, IDs, occurrences, editions, separate enrichment, classification boundaries, all source/research holds, and the separate exact-final-byte independent Pro evaluation requirement."
+  },
+  "source_package": {
+    "filename": "Japanese_Hadith_Sayings_Reports_Research_v3_20261112_PARTIAL_HOLD.zip",
+    "artifact_version": "2026-11-12.research-v3.all1009-origin-research.PARTIAL-HOLD",
+    "expected_sha256": "331d2973511301c6cd50d3e2a8612e135defda529e855b8b03894490005c01fa",
+    "expected_bytes": 89158437,
+    "expectation_basis": "SHA-256 reread from the saved sidecar; byte count confirmed in saved-file metadata. Exact ZIP bytes were not retrieved or rehashed in this integration attempt.",
+    "library_file_id": "libfile_fde3_f-7eb5872317808191b5caac0c69078982_c3a5ae5e9e0c8191af5d21c39948b9f7",
+    "file_id": "file_00000000acc881f7868ef4a9f7b37f69",
+    "version_id": "0",
+    "library_url": "https://chatgpt.com/library?file_id=libfile_fde3_f-7eb5872317808191b5caac0c69078982_c3a5ae5e9e0c8191af5d21c39948b9f7&account_id=personal",
+    "sidecar_library_file_id": "libfile_fde3_f-260495806b4c8191afb067ff202af30f_c3a5ae5e9e0c8191af5d21c39948b9f7",
+    "repository_path": null,
+    "repository_blob_sha": null,
+    "actual_sha256": null,
+    "actual_bytes": null,
+    "actual_byte_verification_performed": false
+  },
+  "checkpoint_reported_inventory": {
+    "basis": "Completed research-v3 checkpoint, not recounted or revalidated during this blocked transfer attempt.",
+    "original_baseline_records": 1687,
+    "preserved_added_records": 202,
+    "total_source_records": 1889,
+    "whole_record_hadith_proposals": 1147,
+    "non_hadith_source_records": 186,
+    "quran_context_source_records": 429,
+    "mixed_parent_records": 106,
+    "unresolved_origin_records": 21,
+    "exact_prophetic_components": 122,
+    "mixed_parents_with_prophetic_components": 79,
+    "related_prophetic_witness_links": 45,
+    "counting_note": "The five whole-record routing groups sum to 1889. Components are exact spans within existing parents, not additional source occurrences. Related witness links are not additional extracted hadith records.",
+    "original_quran_entries_preserved_separately": 414,
+    "original_pdf_pages": {
+      "Hisn": 190,
+      "Message": 209,
+      "Otsuka": 2,
+      "Basic": 285
+    },
+    "audit_note": "The 686-page omission audit and 140 commentary-record review are historical research-v2 coverage preserved in v3. This import attempt performed no new page or record audit."
+  },
+  "integration": {
+    "repository": "blaghtayt-alt/Hadith-Bank",
+    "framework_inspected_commit": "9c2018215500dad58173da574988df98f414c2d8",
+    "linked_framework_conversation": {
+      "direct_read_succeeded": false,
+      "reason": "The requested ChatGPT conversation could not be fetched (DisabledError).",
+      "fallback": "Inspected live repository source, material schemas, build pipeline, reader template, and the existing Chinese Hisn integration. Uncommitted work in the other conversation is not verified."
+    },
+    "material_manifest_created": false,
+    "source_files_uploaded": 0,
+    "source_records_uploaded": 0,
+    "html_records_added": 0,
+    "search_records_added": 0,
+    "source_text_modified": false,
+    "new_ocr_performed": false,
+    "new_source_research_performed": false,
+    "new_independent_pro_qc_performed": false
+  },
+  "framework_contract": {
+    "registration_path": "materials/<slug>/manifest.json",
+    "existing_adapter": "records-v1",
+    "automatic_build": "scripts/refresh_bank.py",
+    "workflow": ".github/workflows/reader-pages.yml",
+    "hidden_flag_enforced_by_existing_adapter": false,
+    "registered_rows_published_without_per_record_selection": true,
+    "empty_material_registration_supported": false,
+    "consequence": "Do not register the all-HOLD source records with records-v1. Preserve the intake outside the material registry until release conditions are met or a separately validated hold-aware intake path exists.",
+    "counterparts": "Existing counterpart_policy.mode=disabled blocks candidate Arabic/English matching but does not hide Japanese primary text.",
+    "source_document_constraint": "The validator rejects unregistered PDF/DOCX/XLS/XLSX files anywhere in the repository. A future source transfer must use an explicitly compatible, validated source-storage path.",
+    "archive_constraint": "The current .gitignore ignores general ZIP files. Exact archive preservation requires a scoped tracking exception or an equivalent explicit Git transfer, with actual hash verification."
+  },
+  "release_gates": {
+    "status": "HOLD",
+    "show_in_html_hadith": false,
+    "bank_inclusion_allowed": false,
+    "release_eligible": false,
+    "certified_release_eligible": false,
+    "fresh_independent_pro_final_evaluation": "NOT_PERFORMED",
+    "new_separate_independent_pro_final_evaluation_required": true,
+    "non_hadith_must_remain_outside_hadith_html": true,
+    "unknown_classifications_must_remain_hidden": true,
+    "candidate_language_counterparts_must_not_be_promoted": true,
+    "decision_note": "These fields preserve the source checkpoint's gates. This request file is not consumed by the current reader and cannot itself enforce visibility."
+  },
+  "routing_plan": [
+    {
+      "source": "proposed_bank/hadith",
+      "repository_destination": null,
+      "status": "HOLD",
+      "note": "Preserve whole-record proposals and exact components. Classification as a Prophetic prayer, dhikr, practice or report is not an exclusion reason."
+    },
+    {
+      "source": "proposed_bank/non_hadith",
+      "proposed_repository_folder": "non-hadith/japanese-research-v3-20261112",
+      "status": "NOT_TRANSFERRED",
+      "show_in_html_hadith": false
+    },
+    {
+      "source": "source_context/quran",
+      "proposed_repository_folder": "imports/japanese-research-v3-20261112/source_context/quran",
+      "status": "NOT_TRANSFERRED",
+      "show_in_html_hadith": false
+    },
+    {
+      "source": "hold/mixed_source_parents",
+      "proposed_repository_folder": "unclassified/japanese-research-v3-20261112/mixed_source_parents",
+      "status": "NOT_TRANSFERRED",
+      "show_in_html_hadith": false
+    },
+    {
+      "source": "hold/unresolved_origin",
+      "proposed_repository_folder": "unclassified/japanese-research-v3-20261112/unresolved_origin",
+      "status": "NOT_TRANSFERRED",
+      "show_in_html_hadith": false
+    }
+  ],
+  "blockers": [
+    {
+      "scope": "Source-package transfer",
+      "status": "BLOCKED",
+      "reason": "No usable execution environment was available. The saved ZIP could not be extracted, rehashed, or transferred as exact bytes."
+    },
+    {
+      "scope": "Direct all-HOLD material registration",
+      "status": "UNSUPPORTED",
+      "reason": "The inspected records-v1 pipeline projects every registered row and drops the source show_in_html_hadith flag."
+    },
+    {
+      "scope": "Independent final evaluation",
+      "status": "NOT_PERFORMED",
+      "reason": "No new separate independent Pro evaluation of exact final import bytes has occurred."
+    },
+    {
+      "scope": "Other conversation's uncommitted framework changes",
+      "status": "UNVERIFIED",
+      "reason": "The linked conversation itself was not retrievable; only repository state was inspected."
+    }
+  ],
+  "continuation_requirements": [
+    "Recover the exact saved package above; verify both its size and SHA-256 before extraction. Do not regenerate or reconstruct source records from this receipt.",
+    "Verify the package's input/output manifests and record hashes, preserving every original file, ID, occurrence, chain, edition, uncertainty and historical review.",
+    "Refresh the destination branch and inspect the then-current framework before making additive changes; preserve concurrent imports and use an expected-head update.",
+    "Keep source text separate from researched references/classification and preserve every per-record Japanese page/bibliography reference.",
+    "Store non-hadith and unknown/held source material outside the registered Hadith HTML/search corpus. Preserve Quran context separately.",
+    "Use only exact approved Prophetic source spans for future hadith projections; do not turn related witness links into additional source occurrences.",
+    "Do not expose source proposals through records-v1 merely because this upload was requested. Apply the retained gates, and test all HTML/search/static/export paths for held-record exclusion.",
+    "Record the actual transferred files, exact hashes, imported counts, software validation and deployment results in a separate completed-transfer receipt.",
+    "Obtain the required new separate independent Pro evaluation over the exact final candidate bytes before asserting certified bank inclusion."
+  ]
+}
