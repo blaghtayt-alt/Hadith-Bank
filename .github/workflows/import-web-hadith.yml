@@ -9,12 +9,17 @@ on:
     paths:
       - '.github/workflows/import-web-hadith.yml'
       - 'catalog/web-import-plan.json'
+      - 'catalog/deenhindi-review-reuse-plan.json'
+      - 'catalog/fawaz-review-inputs.json'
       - 'scripts/import_deenhindi.py'
+      - 'scripts/deenhindi_review_reuse.py'
       - 'scripts/import_uzbek_web.py'
       - 'scripts/import_hadisuz.py'
       - 'scripts/web_import_batch.py'
       - 'scripts/web_source_reviews.py'
+      - 'scripts/web_commentary_quotes.py'
       - 'imports/web-deenhindi-20261112/reviews/**'
+      - 'imports/web-deenhindi-20261112/retry-authorizations.json'
       - 'imports/web-uzbek-20261112/islom/reviews/**'
       - 'imports/web-hadisuz-20261112/reviews/**'
 

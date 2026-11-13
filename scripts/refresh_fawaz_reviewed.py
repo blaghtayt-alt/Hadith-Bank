@@ -26,6 +26,7 @@ import import_fawaz_bulk as source
 import validate_fawaz_sources as validator
 from build_reader import parse_json
 from fawaz_report_types import REPORT_METADATA_FIELDS
+from fawaz_held_dispositions import audit_export_dispositions
 from fawaz_review_inputs import load_review_catalog, MANIFEST_PATH, BASELINE_PATH
 from fawaz_source_checkpoint import SCHEMA, compare_snapshot, require_preserved, write_snapshot
 
@@ -452,6 +453,7 @@ def run(args):
                 result['comparison'] = compare_snapshot(audit, snapshot, snapshot_sha)
                 require_preserved(result['comparison'])
                 result['reviewed_projection'] = verify_projection(audit, supplement, baseline)
+                result['held_dispositions'] = audit_export_dispositions(audit)
             except (ValueError, OSError, KeyError, TypeError) as error:
                 result['source_integrity_status'] = result.get('status')
                 result['status'] = 'failed_preservation_or_projection'

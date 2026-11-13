@@ -1,0 +1,194 @@
+{
+  "schema": "hadith-bank-exact-review-reuse-preflight-v1",
+  "source_baseline_commit": "7b22548d43bccce94cce0e04d734e47458460fac",
+  "held_input_occurrences": 3824,
+  "registered_by_exact_field_review_reuse": 1616,
+  "remaining_without_reuse": 2208,
+  "approved_fields_by_language": {
+    "en": 1469,
+    "ar": 212,
+    "ur": 303
+  },
+  "by_book": {
+    "abudawud": 296,
+    "bukhari": 8,
+    "ibnmajah": 161,
+    "malik": 944,
+    "muslim": 127,
+    "nasai": 15,
+    "tirmidhi": 65
+  },
+  "conflicting_fields": 0,
+  "context_dependent_fields_not_reused": 94,
+  "prospective_ledger": {
+    "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+    "sha256": "fd185e79adf55056063e99acbcc7a1abf645e35b822c5cf95345ebbc001485df",
+    "size_bytes": 664970,
+    "compression": "gzip",
+    "uncompressed_sha256": "439466915a81c0c49db4da7efa0753669b9a0f0f580db7d3db63c441bf3aba64",
+    "method": "identical_complete_same_language_prior_boundary_review_v1",
+    "role": "exact_same_language_prior_boundary_review_decisions"
+  },
+  "input_receipts": [
+    {
+      "path": "catalog/deenhindi-review-reuse-plan.json",
+      "sha256": "1c493f84733ce4c239cba6aeb416a9683998fc916084e93b7f3a4760a9b6bef4",
+      "size_bytes": 574,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "catalog/fawaz-review-inputs.json",
+      "sha256": "32360b8831dc8a5f981b1510ac10961b515606f9b186ed36ee760ef4a42a7be1",
+      "size_bytes": 7396,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "catalog/fawaz-reviewed-spans.json",
+      "sha256": "8466afaad2523b8e3b29506ff5ff551a3c9f9b4c26cc1bbfca0c9a1dafbbc14c",
+      "size_bytes": 1190914,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-held-resolution-20261113/additional-reviews.json.gz",
+      "sha256": "c328bef9e20d6c3ae5fd0e940e97c1fae91c27165b3bbb388801e05b6a13483c",
+      "size_bytes": 3600,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-001.json.gz",
+      "sha256": "6c1b7b3adc5c5d6ef64ecb7ca7baf3928a454a7d02b92fc2f4f5b751ce5634dc",
+      "size_bytes": 59378,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-002.json.gz",
+      "sha256": "906150733eb48c3f979501e626418db2a8f2c7d90fe2d4b8d5d48b15740aa5bf",
+      "size_bytes": 61771,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-003.json.gz",
+      "sha256": "d03e2922cb2c7091dac0b717b23e72932789d26813386c66e7ae653b59606c97",
+      "size_bytes": 57733,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/abudawud-nasai-part-004.json.gz",
+      "sha256": "678c0e4904a8ee2ea3a9070f66729ddb2cb86181dc090da23748cfadcb67f456",
+      "size_bytes": 48273,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/bukhari.json.gz",
+      "sha256": "967e8a7ad2af2e5041abf22b162d416b603c07dde4536aebe95d81fd65bbc715",
+      "size_bytes": 1919,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-001.json.gz",
+      "sha256": "7bca87389b8c875a7b5aa753a7024de8c3ab3b91640b58713e82f8e4ad971195",
+      "size_bytes": 44792,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-002.json.gz",
+      "sha256": "2165241462e0295ee2ee5b3e6b9414184bfcaeed4a12596898644c15d02b3d52",
+      "size_bytes": 42421,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-003.json.gz",
+      "sha256": "01e0b6eaf6bb58b23337d755b9122471f2dd1e7a6d1a09584c71217990ae6a27",
+      "size_bytes": 41913,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-head-part-004.json.gz",
+      "sha256": "939652f43355a5da0ff665b877a4ca957aa730ab729f7c2bbb640e98a1636f11",
+      "size_bytes": 44264,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-001.json.gz",
+      "sha256": "1031da123cd3c6f86d2cc317c55e3ce9a26e4a1637858cf6c7d7b4c9b801fd42",
+      "size_bytes": 38100,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/malik-tail-part-002.json.gz",
+      "sha256": "6d4059e4265cea41b68801ebb9756cd176426bfe1f649aad64109e6c5849636d",
+      "size_bytes": 32317,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-001.json.gz",
+      "sha256": "ee57adf3d0358ab1debb2f3187c7816c902931b45134faa4d34d8b6fd198bafa",
+      "size_bytes": 35809,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-002.json.gz",
+      "sha256": "696ffe359423530910114da10d24d05336fd0e2287ad1a0aa99a7ce1dab78e48",
+      "size_bytes": 33494,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-003.json.gz",
+      "sha256": "eb5a15b237a180161bb2b3128ae92080397000685e8045233d82a1990008a359",
+      "size_bytes": 63029,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-004.json.gz",
+      "sha256": "0540c0c4e988e4187a8104c5b941d051f6757d8f9c363b3d443a4aaf3a28e98e",
+      "size_bytes": 64648,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-005.json.gz",
+      "sha256": "1b19bdac02ca4f731cb198aba74ae49114cd7a2daa63bbab08d890795f4f1492",
+      "size_bytes": 33612,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/fresh-reviews/muslim-part-006.json.gz",
+      "sha256": "98f90ec9fce4a8e8ceb95f2c1fbee44d1d0ef6aa1efbdaa01366a8da5ba9be64",
+      "size_bytes": 36877,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/recovery/phase01-source-reviews.tar.gz",
+      "sha256": "82693051a2400882d3730234e10a6105bbd944405a5285cc5a8827f70be41eb2",
+      "size_bytes": 392914,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "reports/fawaz-import-review/continuation-20261113/recovery/recovered-catalog.json.gz",
+      "sha256": "f6bd06c8aecbb216505a4fda8f704f04fd082a2334f69432cae062fea42d2047",
+      "size_bytes": 416490,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "scripts/deenhindi_review_reuse.py",
+      "sha256": "60f812c3ccc567c4f9f8e782e016fa34f11548854df9baec2fc408864dbfcb79",
+      "size_bytes": 13337,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "scripts/fawaz_report_types.py",
+      "sha256": "a815929ed726d31fb7c7c17373f0d1033c97febcc2b54f753615906476954b68",
+      "size_bytes": 6436,
+      "role": "exact_same_language_prior_boundary_review_input"
+    },
+    {
+      "path": "scripts/fawaz_review_inputs.py",
+      "sha256": "df6984c1875bf5da03f33ac7ef6779264513946846d9cbe8c48f43cb799b5db9",
+      "size_bytes": 17240,
+      "role": "exact_same_language_prior_boundary_review_input"
+    }
+  ],
+  "full_source_partition_checks": 7861,
+  "new_manual_reading_claimed": false,
+  "independent_pro_qc": "not_performed",
+  "snapshot_scope": "Exact source records from hash-verified GitHub staged ledgers; full saved HTML/parsed checksum verification remains mandatory in the GitHub importer export."
+}

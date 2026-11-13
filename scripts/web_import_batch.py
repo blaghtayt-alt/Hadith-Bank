@@ -87,6 +87,17 @@ def source_status(root, name):
     if name == 'deenhindi':
         books = progress.get('by_collection', {})
         unfinished_inventory = len(books) < 7 or any(not item.get('inventory') for item in books.values())
+        reviewed_retries = 0
+        blocked = bool(progress.get('blocked'))
+        from import_deenhindi import RETRY_MANIFEST, reviewed_error_candidates
+        if (root / RETRY_MANIFEST).exists():
+            # A new reviewed-error authorization can arrive after the last
+            # export. Consult its exact source-bound receipt, not a stale zero
+            # in progress.json. This does not clear any source/worker stop.
+            state = read_json(root / 'imports/web-deenhindi-20261112/state.json', {})
+            inventories = read_json(root / 'imports/web-deenhindi-20261112/inventory.json', {})
+            reviewed_retries = len(reviewed_error_candidates(root, state, inventories))
+            blocked = blocked or bool(state.get('blocked'))
         return {
             'source': name, 'source_progress': PROGRESS[name],
             'last_source_update': progress.get('updated_at'),
@@ -98,10 +109,13 @@ def source_status(root, name):
             'pending_unit': 'source entry pages',
             'observed_inventory_count': progress.get('inventory_count'),
             'fetch_queue_done': progress.get('done', False),
-            'blocked': bool(progress.get('blocked')),
+            'blocked': blocked,
             'errors': progress.get('errors_count', 0),
-            'has_fetch_work': not progress or (not progress.get('blocked') and
-                not progress.get('done') and (progress.get('pending_fetch_count', 0) > 0 or unfinished_inventory)),
+            'reviewed_error_retry_pending_count': reviewed_retries,
+            'resolved_historical_error_identities_count': progress.get('resolved_historical_error_identities_count', 0),
+            'has_fetch_work': not blocked and (not progress or (
+                not progress.get('done') and (progress.get('pending_fetch_count', 0) > 0
+                                             or reviewed_retries > 0 or unfinished_inventory))),
         }
     checkpoint = read_json(root / ('imports/web-uzbek-20261112/' + name + '/checkpoint.json'), {})
     page_tasks = checkpoint.get('tasks', [])
@@ -160,10 +174,30 @@ def has_review_export_work(root, name):
     if name not in REVIEW_FOLDERS:
         return False
     reviews = SourceReviews(root, name)
+    progress = read_json(root / PROGRESS[name], {})
+    if name == 'deenhindi':
+        from deenhindi_review_reuse import input_receipts
+        reuse_inputs = input_receipts(root)
+        prior_reuse = progress.get('exact_field_review_reuse', {})
+        if reuse_inputs != prior_reuse.get('input_receipts', []):
+            return True
+        if reuse_inputs:
+            from deenhindi_review_reuse import LEDGER_PATH, sha
+            receipt = prior_reuse.get('ledger') or {}
+            ledger = root / LEDGER_PATH
+            if (progress.get('source_review_engine_sha256') != reviews.engine_sha256
+                    or receipt.get('path') != LEDGER_PATH or not ledger.is_file()
+                    or sha(ledger.read_bytes()) != receipt.get('sha256')):
+                return True
+        # Derived reuse evidence is independently fingerprinted above. It is
+        # not a manual review input and must not cause perpetual refreshes.
+        recorded = [item for item in progress.get('source_review_inputs', [])
+                    if not item.get('role', '').startswith('exact_same_language_prior_boundary_review_')]
+    else:
+        recorded = progress.get('source_review_inputs', [])
     if not reviews.decisions:
         return False
-    progress = read_json(root / PROGRESS[name], {})
-    return (progress.get('source_review_inputs', []) != reviews.supporting_files()
+    return (recorded != reviews.supporting_files()
             or progress.get('source_review_engine_sha256') != reviews.engine_sha256)
 
 

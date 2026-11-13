@@ -1,0 +1,44 @@
+{
+  "archived_responses_checked": 1000,
+  "audit_method": "All 1000 exact archived HTTP responses were decompressed, checked against their saved storage and original-response SHA-256 values, and individually classified using the source verification-page signature. No source page was requested.",
+  "classifications": {
+    "http_200_verification_page": 1000
+  },
+  "completed_at": "2026-11-13T09:14:15.848269+00:00",
+  "decisions_sha256": "ac85f04be6ac2002e00659cf5898079539c5f8c9c92fadfeb00a281ca2c9e18a",
+  "duration_seconds": 0.97,
+  "error_imported_overlap": [],
+  "errors_by_collection": {
+    "abudawud": 143,
+    "bukhari": 143,
+    "ibnmajah": 143,
+    "malik": 142,
+    "muslim": 143,
+    "nasai": 143,
+    "tirmidhi": 143
+  },
+  "evidence_retrieval": {
+    "alternate_source_routes_clients_or_proxies": false,
+    "archived_responses_already_downloaded_from_pinned_git": 428,
+    "direct_workspace_transfer_stop": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>",
+    "remaining_archives_recovered_with_authorized_github_connector": 568,
+    "reused_previously_verified_local_archives": 4,
+    "source_website_requests": 0
+  },
+  "historical_errors": 1000,
+  "historical_source_retries": 0,
+  "ledger": {
+    "bytes": 166937,
+    "path": "imports/web-deenhindi-20261112/retry-audits/20261113-historical-errors.jsonl.gz",
+    "records": 1000,
+    "sha256": "851a5e13333e1085b9d29eb26506199720fab9097f1cc4476735c8225a2aac26",
+    "uncompressed_bytes": 1036888,
+    "uncompressed_sha256": "ac85f04be6ac2002e00659cf5898079539c5f8c9c92fadfeb00a281ca2c9e18a"
+  },
+  "schema": "deenhindi-historical-error-evidence-audit-v1",
+  "source_commit": "7b22548d43bccce94cce0e04d734e47458460fac",
+  "source_state_git_sha1": "2f80c21f5b1cb8a61fdcf4e3340a341be900ea3e",
+  "source_state_sha256": "1d0d6a0706ab5b835166aebc2253e08cf67a471a79756440b4359ffcea973722",
+  "source_website_requests": 0,
+  "state_blocked": null
+}

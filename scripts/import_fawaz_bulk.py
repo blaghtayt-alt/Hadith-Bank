@@ -30,6 +30,8 @@ from import_deenhindi import classify as classify_arabic
 from fawaz_attribution import explicit_report_evidence
 from fawaz_boundaries import split_source_reading
 from fawaz_review_inputs import load_review_catalog
+from fawaz_held_dispositions import (COUNT_FIELDS, disposition_counts, load_held_dispositions,
+                                      review_resolution_for_group)
 from fawaz_report_types import REPORT_METADATA_FIELDS, validate_report_groups, validate_report_metadata
 
 
@@ -552,7 +554,7 @@ def canonical_record(book, identity, versions, classification, state, requested_
         "related_versions": []}
 
 
-def book_records(book, editions, catalog, state, requested_languages=None, reviewed_spans=None):
+def book_records(book, editions, catalog, state, requested_languages=None, reviewed_spans=None, reviewed_dispositions=None):
     requested_languages = requested_languages or list(editions)
     groups = collections.OrderedDict()
     for prefix in LANGUAGES:
@@ -618,6 +620,9 @@ def book_records(book, editions, catalog, state, requested_languages=None, revie
                        "available_text_languages": [LANGUAGES[p][0] for p, v in versions.items() if v["quotation"].strip()],
                        "source_note_languages": [LANGUAGES[p][0] for p, v in versions.items() if v["notes"]],
                        "pending_language_boundaries": {LANGUAGES[p][0]: v["pending_reason"] for p, v in versions.items() if v.get("pending_reason")}}
+        resolution = review_resolution_for_group(reviewed_dispositions, book, identity, rows, classification)
+        if resolution is not None:
+            item_ledger["review_resolution"] = resolution
         ledger.append(item_ledger)
         if classification["classification"] == "hadith":
             accepted.append(canonical_record(book, identity, versions, classification, state, requested_languages))
@@ -632,6 +637,9 @@ def book_records(book, editions, catalog, state, requested_languages=None, revie
               "by_hold_reason": dict(collections.Counter(item["classification"]["reason"] for item in held)),
               "source_rows_by_language": {LANGUAGES[p][0]: len(data["hadiths"]) for p, data in editions.items()},
               "nonempty_source_texts_by_language": {LANGUAGES[p][0]: sum(bool(row["text"].strip()) for row in data["hadiths"]) for p, data in editions.items()}}
+    require(all(number in groups for (own_book, number) in (reviewed_dispositions or {}) if own_book == book),
+            "A reviewed source disposition is absent from the original edition union")
+    counts.update(disposition_counts(ledger))
     return accepted, held, ledger, counts
 
 
@@ -658,7 +666,8 @@ def canonical_shards(rows, limit=MAX_CANONICAL_BYTES):
 def export_book(root, book, state, catalog, prefixes, requested_languages):
     editions = {prefix: parse_edition(checked_snapshot(root, state["inputs"]["editions/" + prefix + "-" + book + ".json"]),
                 edition_metadata(catalog, book, prefix), catalog[book]["name"]) for prefix in prefixes}
-    accepted, held, ledger, counts = book_records(book, editions, catalog, state, requested_languages, reviewed_source_spans(root))
+    accepted, held, ledger, counts = book_records(book, editions, catalog, state, requested_languages, reviewed_source_spans(root),
+        load_held_dispositions(root, repository=REPOSITORY, revision=REVISION))
     atomic(root, IMPORT + "/held/" + book + ".jsonl.gz", gzip.compress(b"".join(encoded(row) for row in held), mtime=0))
     atomic(root, IMPORT + "/classification/" + book + ".jsonl.gz", gzip.compress(b"".join(encoded(row) for row in ledger), mtime=0))
     snapshot_keys = list(DOCUMENTS) + ["editions/" + p + "-" + book + ".json" for p in prefixes]
@@ -734,6 +743,8 @@ def export_saved(root, plan, state):
                              for prefix in book_languages(plan, book) if "editions/" + prefix + "-" + book + ".json" not in inputs],
         "registered_occurrences": sum(value["registered_occurrences"] for value in by_book.values()),
         "held_occurrences": sum(value["held_occurrences"] for value in by_book.values()),
+        **{field: sum(value[field] for value in by_book.values()) for field in COUNT_FIELDS},
+        "held_disposition_scope": "Source-only occurrence accounting; resolved exclusions and gaps are separate from pending semantic review and from already-registered sibling-language queues",
         "provider_occurrences": sum(value["provider_occurrences"] for value in by_book.values()),
         "completed_books": completed, "pending_books": pending, "complete": not pending,
         "stop": state.get("stop"), "by_book": by_book,

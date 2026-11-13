@@ -1139,22 +1139,26 @@ class Importer:
     def export(self):
         reviews = SourceReviews(self.root, self.site) if self.site == 'islom' else None
         baselines = {identity: copy.deepcopy(row) for identity, row in self.records.items()
-                     if reviews and identity in reviews.decisions}
+                     if reviews and (identity in reviews.decisions or identity in reviews.commentary.parents)}
         self.prepare_detail_metadata_queue()
         self.enrich_cached_details()
         self.prepare_detail_metadata_queue()
         self.enrich_local_metadata()
-        reviewed_rows, decisions = {}, {}
+        reviewed_rows, decisions, commentary_children = {}, {}, []
         for identity, row in self.records.items():
             reviewed_rows[identity], decisions[identity] = (reviews.apply(row, baseline=baselines.get(identity))
                 if reviews else (row, None))
+            if reviews:
+                commentary_children.extend(reviews.commentary_children(row, baseline=baselines.get(identity)))
         if reviews:
             reviews.finish()
         summaries = []
         for key, collection in self.state['collections'].items():
             all_rows = [r for r in reviewed_rows.values() if r['book_key'] == key]
-            accepted = [r for r in all_rows if decisions[r['id']] == 'register' or
+            accepted_primary = [r for r in all_rows if decisions[r['id']] == 'register' or
                         (decisions[r['id']] is None and r['content_kind'] == 'prophetic_report')]
+            children = [r for r in commentary_children if r['book_key'] == key]
+            accepted = accepted_primary + children
             excluded = [r for r in all_rows if decisions[r['id']] == 'exclude']
             held = [r for r in all_rows if decisions[r['id']] == 'hold' or
                     (decisions[r['id']] is None and r['content_kind'] != 'prophetic_report')]
@@ -1164,6 +1168,9 @@ class Importer:
             summary = {'collection': key, 'title': collection['title'], 'advertised_count': collection['advertised_count'],
                        'source_entries_obtained': len(all_rows), 'prophetic_source_entries_registered': len(accepted),
                        'registered_source_occurrences': len(accepted), 'non_narration_source_entries': len(excluded),
+                       'primary_source_entries_registered': len(accepted_primary),
+                       'commentary_quote_children_registered': len(children),
+                       'commentary_quote_passages_registered': sum(len(r['source_locator']['source_spans']) for r in children),
                        'registration_count_scope': 'Legacy prophetic count includes explicitly reviewed numbered reports and sayings under their actual report type.',
                        'classification_pending_hidden': len(held), 'page_tasks': dict(collections.Counter(t['status'] for t in tasks)),
                        'detail_metadata_tasks': dict(collections.Counter(t['status'] for t in detail_tasks)),
@@ -1234,6 +1241,9 @@ class Importer:
                   'source_entries_obtained': len(self.records),
                   'prophetic_source_entries_registered': sum(s['prophetic_source_entries_registered'] for s in summaries),
                   'registered_source_occurrences': sum(s['registered_source_occurrences'] for s in summaries),
+                  'primary_source_entries_registered': sum(s['primary_source_entries_registered'] for s in summaries),
+                  'commentary_quote_children_registered': sum(s['commentary_quote_children_registered'] for s in summaries),
+                  'commentary_quote_passages_registered': sum(s['commentary_quote_passages_registered'] for s in summaries),
                   'non_narration_source_entries': sum(s['non_narration_source_entries'] for s in summaries),
                   'source_review_inputs': reviews.supporting_files() if reviews else [],
                   'source_review_engine_sha256': reviews.engine_sha256 if reviews else None,

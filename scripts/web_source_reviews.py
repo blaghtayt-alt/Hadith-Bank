@@ -12,6 +12,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import web_commentary_quotes
 
 
 SCHEMA = 'hadith-bank-web-source-review-v1'
@@ -55,9 +56,10 @@ class SourceReviews:
     def __init__(self, root, site):
         require(site in FOLDERS, 'unsupported site')
         self.root, self.site = Path(root).resolve(), site
-        self.engine_sha256 = sha(Path(__file__).read_bytes())
+        self.engine_sha256 = sha(Path(__file__).read_bytes() + Path(web_commentary_quotes.__file__).read_bytes())
         self.folder = self.root / FOLDERS[site] / 'reviews'
         self.decisions, self.seen, self.files = {}, set(), []
+        self.commentary = web_commentary_quotes.CommentaryQuotes(self.root, site)
         baseline_files = {}
         paths = [*self.folder.glob('source-review*.json'), *self.folder.glob('source-review*.json.gz')]
         for path in sorted(paths):
@@ -95,6 +97,7 @@ class SourceReviews:
                 require(action in ('register', 'hold', 'exclude'), 'explicit record decision required for ' + identity)
                 self.decisions[identity] = (decision, {'path': relative, 'sha256': sha(stored),
                     **({'compression': 'gzip', 'uncompressed_sha256': sha(data)} if path.suffix == '.gz' else {})}, action)
+        require(not (set(self.decisions) & set(self.commentary.specs)), 'commentary child collides with primary source identity')
         # Companion ledgers are evidence dependencies as well as the decisions.
         for path in sorted(self.folder.rglob('*')) if self.folder.exists() else []:
             if path.is_file():
@@ -112,6 +115,10 @@ class SourceReviews:
     def finish(self):
         require(self.seen == set(self.decisions), 'review IDs absent from source: ' +
                 ', '.join(sorted(set(self.decisions) - self.seen)[:10]))
+        self.commentary.finish()
+
+    def commentary_children(self, row, baseline=None):
+        return self.commentary.children(row, baseline)
 
     def additional_context_comments(self, decision, baseline, receipt):
         """Recover reviewed Hadis.uz list context from its exact saved HTML.
@@ -327,6 +334,10 @@ class SourceReviews:
             version['source']['manual_review'] = {**receipt, 'decision': selection,
                 'field_reviewed': bool(field and field.get('reviewed', field.get('chars_reviewed') == len(text))),
                 'reason': reason, 'independent_pro_qc': 'not_performed'}
+            if field and field.get('review_method'):
+                version['source']['manual_review'].update(
+                    method=field['review_method'], review_scope=field.get('review_scope'),
+                    prior_review_evidence=copy.deepcopy(field.get('prior_review_evidence', [])))
             if not spans:
                 version.update(text=None, scope='external_source', quotation_status='attribution_pending')
                 version['source']['quotation_boundary_status'] = 'pending'
@@ -418,6 +429,11 @@ class SourceReviews:
             if script_note:
                 version['source']['report_classification_note'] += ' ' + script_note
             version.setdefault('comments', []).extend(copy.deepcopy(additional_comments.get(original['id'], [])))
+            external = decision.get('external_evidence', [])
+            if external:
+                version['source']['external_corroboration'] = copy.deepcopy(external)
+                version['comments'].extend(web_commentary_quotes.external_evidence_comments(
+                    self.root, external, version['language']))
             out['language_versions'].append(version)
         require(action != 'register' or selected_count > 0, 'registration requires an approved field')
         require(action == 'register' or selected_count == 0, 'held/excluded occurrence cannot admit quotation fields')

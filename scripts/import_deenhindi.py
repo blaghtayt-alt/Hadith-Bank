@@ -30,10 +30,12 @@ import urllib.request
 import urllib.robotparser
 
 from web_source_reviews import SourceReviews
+from deenhindi_review_reuse import ExactReviewReuse
 
 
 BASE = "https://deenhindi.com"
 IMPORT = "imports/web-deenhindi-20261112"
+RETRY_MANIFEST = IMPORT + "/retry-authorizations.json"
 EDITION = "deenhindi-web-20261112"
 MAX_CANONICAL_BYTES = 40 * 1024 * 1024
 USER_AGENT = "HadithBankSourceImporter/1.0"
@@ -366,6 +368,128 @@ def checked_bytes(root, evidence):
     return raw
 
 
+def historical_error_class(root, key, error):
+    """Classify an archived failure without contacting the source website."""
+    snapshot = error.get("snapshot") or {}
+    status = snapshot.get("status", error.get("http_status"))
+    if status in (401, 403, 429):
+        return "access_or_rate_limit_stop"
+    if snapshot.get("path"):
+        raw = checked_bytes(root, snapshot)
+        if is_soft_verification_page(raw):
+            return "http_200_verification_page"
+        slug, number = key.split(":", 1)
+        try:
+            parse_record(raw, slug, number)
+        except (ValueError, UnicodeError):
+            return "saved_page_parse_failure"
+        return "offline_recovery_available"
+    message = error.get("error", "")
+    match = re.search(r"\bHTTP(?: Error)?\s+(\d{3})\b", message)
+    if status is None and match:
+        status = int(match.group(1))
+    if status in (401, 403, 429):
+        return "access_or_rate_limit_stop"
+    if status in (500, 502, 503, 504) or re.search(
+            r"\btimed? out\b|\btemporary failure\b|\bconnection reset\b", message, re.IGNORECASE):
+        return "transient_fetch_error"
+    return "unclassified_historical_error"
+
+
+def reviewed_error_candidates(root, state, inventories):
+    """Validate exact one-request authorizations; never clear an access stop.
+
+    Receipt identity binds to the original error bytes, so editing or growing
+    the manifest cannot replay an already consumed historical request. A
+    prepared request with an uncertain outcome remains consumed after a crash.
+    """
+    path = root / RETRY_MANIFEST
+    if not path.exists():
+        return {}
+    encoded = path.read_bytes()
+    manifest = json.loads(encoded)
+    if (not isinstance(manifest, dict)
+            or manifest.get("schema") != "deenhindi-reviewed-error-retry-v1"
+            or manifest.get("site") != "deenhindi.com"
+            or manifest.get("scope") != "one_ordinary_request_per_listed_error"
+            or manifest.get("automatic_challenge_retries") is not False
+            or not isinstance(manifest.get("authorization_basis"), str)
+            or not manifest["authorization_basis"].strip()
+            or not isinstance(manifest.get("entries"), list)):
+        raise ValueError("Invalid reviewed Deen Hindi retry manifest")
+    candidates, seen = {}, set()
+    attempts = state.get("reviewed_error_attempts", {})
+    for decision in manifest["entries"]:
+        if not isinstance(decision, dict):
+            raise ValueError("Reviewed retry entries must be objects")
+        key = decision.get("key")
+        if not isinstance(key, str) or key.count(":") != 1 or key in seen:
+            raise ValueError("Invalid or duplicate reviewed error identity")
+        seen.add(key)
+        slug, number = key.split(":", 1)
+        if slug not in BOOKS or number not in inventories.get(slug, {}).get("identifiers", []):
+            raise ValueError("Reviewed retry is absent from the observed source inventory: " + key)
+        url = BASE + "/hadith/" + slug + "/" + urllib.parse.quote(number, safe="")
+        if (decision.get("url") != url or decision.get("archived_response_reviewed") is not True
+                or type(decision.get("max_requests")) is not int or decision["max_requests"] != 1
+                or not isinstance(decision.get("reason"), str) or not decision["reason"].strip()
+                or not re.fullmatch(r"[0-9a-f]{64}", decision.get("error_entry_sha256", ""))
+                or not re.fullmatch(r"[0-9a-f]{64}", decision.get("snapshot_sha256", ""))):
+            raise ValueError("Reviewed retry lacks exact source/error evidence: " + key)
+        attempt_id = key + ":" + decision["error_entry_sha256"]
+        receipt = attempts.get(attempt_id)
+        if receipt:
+            if (receipt.get("key") != key
+                    or digest(json_bytes(receipt.get("prior_error"))) != decision["error_entry_sha256"]
+                    or (receipt["prior_error"].get("snapshot") or {}).get("sha256") != decision["snapshot_sha256"]):
+                raise ValueError("Reviewed retry receipt no longer binds to its historical evidence: " + key)
+            if receipt.get("authorization_consumed") is not False:
+                continue
+            if receipt.get("status") != "not_requested_deadline":
+                raise ValueError("Only a proven pre-request deadline may leave retry authorization unconsumed")
+        error = state.get("errors", {}).get(key)
+        if error is None or key in state.get("imported", {}):
+            raise ValueError("Reviewed retry does not identify an unresolved source error: " + key)
+        snapshot = error.get("snapshot") or {}
+        if (digest(json_bytes(error)) != decision["error_entry_sha256"]
+                or error.get("url") != url or snapshot.get("url") != url
+                or snapshot.get("sha256") != decision["snapshot_sha256"]):
+            raise ValueError("Reviewed retry source/error hash mismatch: " + key)
+        classification = historical_error_class(root, key, error)
+        if (classification not in ("http_200_verification_page", "saved_page_parse_failure")
+                or classification != decision.get("archive_classification")):
+            raise ValueError("Reviewed retry archive classification is unsupported or changed: " + key)
+        candidates[key] = {"attempt_id": attempt_id, "decision": decision,
+            "manifest": {"path": RETRY_MANIFEST, "sha256": digest(encoded)},
+            "authorization_basis": manifest["authorization_basis"], "prior_error": error}
+    return candidates
+
+
+def retain_error_history(state, key):
+    previous = state.get("errors", {}).get(key)
+    if previous is None:
+        return
+    history = state.setdefault("error_history", {}).setdefault(key, [])
+    if not any(digest(json_bytes(item)) == digest(json_bytes(previous)) for item in history):
+        history.append(json.loads(json_bytes(previous)))
+
+
+def retry_progress(state, reviewed_candidates):
+    errors = state.get("errors", {})
+    history = state.get("error_history", {})
+    attempts = state.get("reviewed_error_attempts", {})
+    return {
+        "historical_error_identities_count": len(set(errors) | set(history)),
+        "resolved_historical_error_identities_count": sum(
+            key in state.get("imported", {}) and key not in errors for key in history),
+        "unresolved_historical_error_identities_count": len(errors),
+        "reviewed_error_retry_pending_count": len(reviewed_candidates),
+        "reviewed_error_attempts_count": len(attempts),
+        "reviewed_error_attempt_outcomes": dict(collections.Counter(
+            item.get("status", "unknown") for item in attempts.values())),
+    }
+
+
 def reference_objects(slug, number, literal, url):
     return [{"collection": BOOKS[slug][1], "number": number,
              "source_citation": literal, "url": url,
@@ -537,6 +661,8 @@ def retire_stale_shards(root, slug, active):
 def rebuild(root, state, inventories):
     overrides = load_json(root / IMPORT / "classification-overrides.json", {})
     reviews = SourceReviews(root, 'deenhindi')
+    retry_summary = retry_progress(state, reviewed_error_candidates(root, state, inventories))
+    reuse = ExactReviewReuse(root)
 
     def prepare_saved(entry):
         saved = json.loads(checked_bytes(root, entry["parsed"]))
@@ -557,14 +683,35 @@ def rebuild(root, state, inventories):
     # Validate the entire review set before replacing any staged/material file.
     # A late unknown ID or source mismatch must not leave earlier books partly
     # republished by a worker that subsequently records a failed stop.
-    reviewed, saved_reviews = {}, {}
+    reviewed, saved_reviews, reused = {}, {}, {}
+    for entry in state['imported'].values():
+        identity = 'deenhindi-' + entry['collection'] + ':' + entry['number']
+        if reuse.enabled:
+            saved = prepare_saved(entry)
+            saved_reviews[identity] = saved
+            # Explicit local review decisions always take precedence. Reuse
+            # cannot alter an already accepted ordinary-intake occurrence.
+            if identity not in reviews.decisions and saved['classification']['classification'] == 'unknown':
+                decision = reuse.review(saved)
+                if decision is not None:
+                    reused[identity] = decision
+    reuse_receipt = reuse.prepare()
+    if reuse_receipt:
+        reviews.files.extend([*reuse.inputs, reuse_receipt])
+        for identity, decision in reused.items():
+            reviews.decisions[identity] = (decision, reuse_receipt, 'register')
     for entry in state['imported'].values():
         identity = 'deenhindi-' + entry['collection'] + ':' + entry['number']
         if identity in reviews.decisions:
-            saved = prepare_saved(entry)
+            saved = saved_reviews.get(identity)
+            if saved is None:
+                saved = prepare_saved(entry)
             saved_reviews[identity] = saved
             reviewed[identity] = reviews.apply(canonical_record(saved), saved=saved)
     reviews.finish()
+    # Do not replace evidence referenced by existing material manifests until
+    # every source/manual/reused decision has passed preflight validation.
+    reuse.commit()
     counts, registered = {}, 0
     for slug, (book, title) in BOOKS.items():
         entries = [entry for entry in state["imported"].values() if entry["collection"] == slug]
@@ -611,11 +758,19 @@ def rebuild(root, state, inventories):
                "non_narration_source_entries": sum(value['non_narration_source_entries'] for value in counts.values()),
                "source_review_inputs": reviews.supporting_files(),
                "source_review_engine_sha256": reviews.engine_sha256,
+               "exact_field_review_reuse": {"enabled": reuse.enabled,
+                    "registered_occurrences": len(reused),
+                    "selected_language_fields": sum(len(d['field_reviews']) for d in reused.values()),
+                    "conflicting_fields_held": len(reuse.conflicts),
+                    "source_context_dependent_fields_not_reused": len(reuse.context_dependent),
+                    "ledger": reuse_receipt,
+                    "input_receipts": reuse.inputs},
                "remaining_count": remaining, "done": len(inventories) == len(BOOKS) and remaining == 0,
                "pending_fetch_count": pending,
                "requires_attention": bool(state.get("blocked")) or (remaining > 0 and pending == 0),
                "blocked": bool(state.get("blocked")), "block_reason": state.get("blocked"),
                "errors_count": len(state.get("errors", {})), "by_collection": counts,
+               **retry_summary,
                "certified_release_eligible": False, "updated_at": now()}
     write_json(root / IMPORT / "progress.json", summary)
     return summary
@@ -632,6 +787,7 @@ def run(args):
     inventories = load_json(inventory_path, {})
     if args.max_records == 0 or state.get("blocked"):
         return rebuild(root, state, inventories)
+    reviewed_retries = reviewed_error_candidates(root, state, inventories)
     fetcher = Fetcher(root, args.delay_seconds, args.timeout_seconds, started + args.max_seconds)
     attempted = 0
     budget_exhausted = False
@@ -656,9 +812,20 @@ def run(args):
         write_json(state_path, state)
         pending = {}
         for slug in BOOKS:
-            pending[slug] = collections.deque(n for n in inventories[slug]["identifiers"]
-                if slug + ":" + n not in state["imported"] and
-                (args.retry_errors or slug + ":" + n not in state["errors"]))
+            approved, ordinary = [], []
+            for number in inventories[slug]["identifiers"]:
+                key = slug + ":" + number
+                if key in state["imported"]:
+                    continue
+                if key in reviewed_retries:
+                    approved.append(number)
+                elif key not in state["errors"]:
+                    ordinary.append(number)
+                elif args.retry_errors and historical_error_class(root, key, state["errors"][key]) == "transient_fetch_error":
+                    ordinary.append(number)
+            # Explicit historical reviews use the same per-host request budget
+            # and round-robin collection order as ordinary new source pages.
+            pending[slug] = collections.deque([*approved, *ordinary])
         while attempted < args.max_records and any(pending.values()):
             for slug in BOOKS:
                 if time.monotonic() - started >= args.max_seconds:
@@ -671,6 +838,24 @@ def run(args):
                 url = BASE + "/hadith/" + slug + "/" + urllib.parse.quote(number, safe="")
                 attempted += 1
                 snapshot = None
+                retry_receipt = None
+                retain_error_history(state, key)
+                if key in reviewed_retries:
+                    review = reviewed_retries[key]
+                    old_receipt = state.get("reviewed_error_attempts", {}).get(review["attempt_id"])
+                    retry_receipt = {"key": key, "url": url, "prepared_at": now(),
+                        "authorization_consumed": True, "status": "request_prepared",
+                        "manifest": review["manifest"], "decision": review["decision"],
+                        "authorization_basis": review["authorization_basis"],
+                        "prior_error": json.loads(json_bytes(review["prior_error"]))}
+                    if old_receipt:
+                        retry_receipt["previous_preparations"] = [*old_receipt.get("previous_preparations", []),
+                            {k: v for k, v in old_receipt.items() if k != "previous_preparations"}]
+                    state.setdefault("reviewed_error_attempts", {})[review["attempt_id"]] = retry_receipt
+                if key in state["errors"]:
+                    # Consume before a request can leave this process. An
+                    # interrupted run cannot silently replay the authorization.
+                    write_json(state_path, state)
                 try:
                     data, snapshot = fetcher.get(url)
                     value, citation = parse_record(data, slug, number)
@@ -685,10 +870,27 @@ def run(args):
                         "parsed": {"path": parsed_path.as_posix(), "sha256": digest(encoded),
                                    "compression": "gzip", "stored_sha256": digest(compressed)}}
                     state["errors"].pop(key, None)
-                except Halt:
+                    if retry_receipt is not None:
+                        retry_receipt.update(status="succeeded", finished_at=now(),
+                            response_snapshot=snapshot, parsed=state["imported"][key]["parsed"])
+                except Halt as error:
+                    if retry_receipt is not None:
+                        retry_receipt.update(status="blocked", finished_at=now(), error=str(error),
+                                             response_snapshot=error.snapshot)
+                    raise
+                except BudgetExpired:
+                    if retry_receipt is not None:
+                        # Fetcher raises this exception only before urlopen;
+                        # there is positive evidence that no request was sent.
+                        retry_receipt.update(status="not_requested_deadline", finished_at=now(),
+                                             authorization_consumed=False)
                     raise
                 except (OSError, ValueError, urllib.error.URLError) as error:
-                    state["errors"][key] = {"url": url, "error": str(error), "at": now(), "snapshot": snapshot}
+                    state["errors"][key] = {"url": url, "error": str(error), "at": now(), "snapshot": snapshot,
+                        "error_type": type(error).__name__,
+                        "http_status": error.code if isinstance(error, urllib.error.HTTPError) else None}
+                    if retry_receipt is not None:
+                        retry_receipt.update(status="failed", finished_at=now(), error=state["errors"][key])
                 write_json(state_path, state)
             # Source checkpoints are durable after every record. Regenerate
             # canonical shards once at batch completion, avoiding a whole-bank
@@ -716,7 +918,7 @@ def main():
     parser.add_argument("--delay-seconds", type=float, default=1.25, help="Minimum pause after each response, including failures")
     parser.add_argument("--timeout-seconds", type=float, default=30)
     parser.add_argument("--max-seconds", type=float, default=600, help="Gracefully checkpoint when this elapsed-time budget is reached; one in-flight request may finish")
-    parser.add_argument("--retry-errors", action="store_true", help="Retry prior nonblocking fetch/parser errors; never overrides a persisted access or verification stop")
+    parser.add_argument("--retry-errors", action="store_true", help="Retry only classified transient transport/HTTP failures; historical verification or parser responses require the exact reviewed-error manifest. Never overrides a persisted access stop")
     args = parser.parse_args()
     if args.max_records < 0 or args.delay_seconds < 0.5 or args.timeout_seconds <= 0 or args.max_seconds <= 0:
         parser.error("Nonnegative record budget, delay >= 0.5 seconds and positive time budgets required")

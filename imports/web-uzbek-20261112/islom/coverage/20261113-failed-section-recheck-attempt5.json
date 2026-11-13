@@ -1,0 +1,107 @@
+{
+  "automatic_retry_reset": false,
+  "error": "HTTPError: HTTP Error 500: Internal Server Error",
+  "final_url": "https://hadis.islom.uz/kitob/32/17",
+  "finished_at": "2026-11-13T08:58:41+00:00",
+  "new_source_entries": 0,
+  "prior_checkpoint_sha256": "14d2b7746e8cf2db82000e18fcc79775f755e67efcb0d59932411c9f92f23411",
+  "prior_events": [
+    {
+      "at": "2026-11-12T08:04:47+00:00",
+      "error": "HTTP 500",
+      "url": "https://hadis.islom.uz/kitob/32/17"
+    },
+    {
+      "bytes": 8090,
+      "compression": "gzip",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "path": "imports/web-uzbek-20261112/islom/responses/3eec35bceac00ebd-9124417e3cb88640.body.gz",
+      "response_complete": true,
+      "retrieved_at": "2026-11-12T09:07:49+00:00",
+      "sha256": "9124417e3cb8864018af5d7997ba0e3e3390aeaa2a7967c6086eed048d6771c0",
+      "status": 500,
+      "stored_sha256": "6f76d1065e3e23b6abe7e4344b954f0ce5d30d5be87277ee187b91105bac5be2",
+      "url": "https://hadis.islom.uz/kitob/32/17"
+    },
+    {
+      "bytes": 8090,
+      "compression": "gzip",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "path": "imports/web-uzbek-20261112/islom/responses/3eec35bceac00ebd-280496cdd474035e.body.gz",
+      "response_complete": true,
+      "retrieved_at": "2026-11-12T09:42:27+00:00",
+      "sha256": "280496cdd474035ed7111eda56dbf2b97a1e2e75a30586f53684b7d1d35b30f6",
+      "status": 500,
+      "stored_sha256": "b2c8efb3a9dfafd8144b0eebf931d9fc477e368d0aac0276e081c928bb54395f",
+      "url": "https://hadis.islom.uz/kitob/32/17"
+    },
+    {
+      "bytes": 6976,
+      "compression": "gzip",
+      "error": "HTTPError: HTTP Error 500: Internal Server Error",
+      "path": "imports/web-uzbek-20261112/islom/responses/3eec35bceac00ebd-31a87ede895260e5.body.gz",
+      "response_complete": true,
+      "retrieved_at": "2026-11-13T06:41:59+00:00",
+      "sha256": "31a87ede895260e57821cfc26f0c89bd54fb13d43513c30c5b42af439cdf2ce8",
+      "status": 500,
+      "stored_sha256": "c5d80e53df89f2d11bf3e5b4687817ac3c384df9afde86ab99822525e838a369",
+      "url": "https://hadis.islom.uz/kitob/32/17"
+    },
+    {
+      "at": "2026-11-13T06:41:59+00:00",
+      "attempts_after": 4,
+      "kind": "explicit_bounded_recovery_check",
+      "prior_attempts": 3,
+      "receipt": "imports/web-uzbek-20261112/islom/coverage/20261113-failed-section-recheck.json",
+      "result": "source_still_unavailable",
+      "url": "https://hadis.islom.uz/kitob/32/17"
+    }
+  ],
+  "prior_task": {
+    "attempts": 4,
+    "collection": "book-32",
+    "error": "HTTP 500",
+    "kind": "section",
+    "status": "failed",
+    "url": "https://hadis.islom.uz/kitob/32/17"
+  },
+  "proposed_task_after": {
+    "attempts": 5,
+    "collection": "book-32",
+    "error": "HTTP 500",
+    "kind": "section",
+    "status": "failed",
+    "url": "https://hadis.islom.uz/kitob/32/17"
+  },
+  "requests_attempted": 1,
+  "response": {
+    "bytes": 6976,
+    "compression": "gzip",
+    "path": "imports/web-uzbek-20261112/islom/responses/3eec35bceac00ebd-31a87ede895260e5.body.gz",
+    "response_complete": true,
+    "retrieved_at": "2026-11-13T08:58:41+00:00",
+    "sha256": "31a87ede895260e57821cfc26f0c89bd54fb13d43513c30c5b42af439cdf2ce8",
+    "status": 500,
+    "stored_sha256": "c5d80e53df89f2d11bf3e5b4687817ac3c384df9afde86ab99822525e838a369",
+    "url": "https://hadis.islom.uz/kitob/32/17"
+  },
+  "response_headers": {
+    "Content-Type": "text/html; charset=UTF-8",
+    "Date": "Fri, 13 Nov 2026 08:58:41 GMT",
+    "Server": "envoy"
+  },
+  "result": "source_still_unavailable",
+  "retrieved_at": "2026-11-13T08:58:41+00:00",
+  "robots_evidence": {
+    "api_access_used": false,
+    "checked_user_agent": "HadithBankImporter/0.1 (+public-source-import; no-model-training)",
+    "path": "imports/web-uzbek-20261112/discovery/islom-robots.txt",
+    "sha256": "026fbe27e534dcbab60a89fd2707e1a8bf5a4cce6702cd1e670d0297f38f2a62"
+  },
+  "schema": "hadith-bank-source-recovery-check-v1",
+  "scope": "Single later owner-authorized ordinary public check of exact saved failed URL; original source history retained.",
+  "site": "islom",
+  "started_at": "2026-11-13T08:58:34+00:00",
+  "status": 500,
+  "url": "https://hadis.islom.uz/kitob/32/17"
+}

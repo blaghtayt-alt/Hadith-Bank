@@ -10,6 +10,8 @@ import json
 import math
 from urllib.parse import quote
 
+from fawaz_held_dispositions import source_view_resolution_text
+
 from import_fawaz_bulk import (BOOKS, IMPORT, LANGUAGES, REVISION, checked_snapshot,
                               edition_metadata, entry_url, parse_edition, parse_json,
                               read_json, typed_identity)
@@ -117,9 +119,13 @@ def render(writer, reader_occurrence_ids=None):
             current = source_path(book, identity)
             body = [link(current, directory + 'index.html', title + ' · all source entries', True),
                     '<h1>' + esc(title) + ' · provider entry ' + esc(identity) + '</h1>',
-                    '<p><strong>Original source entry</strong></p><p>This entry is preserved outside the narration reader. '
-                    'It may contain a compiler discussion, an independent report, an abbreviated reference, '
-                    'or text whose attribution or boundaries still need review. Its original wording is available below.</p>']
+                    '<p><strong>Original source entry</strong></p>']
+            resolution_text = source_view_resolution_text(item)
+            if resolution_text:
+                body.append('<p>' + esc(resolution_text) + '</p>')
+            else:
+                body.append('<p>This entry is preserved outside the narration reader. '
+                            'Its attribution or boundaries still need review. Its original wording is available below.</p>')
             if item['classification']['reason'] == 'no_nonempty_narration_text':
                 body.append('<p>The saved language fields contain no established narration text. Empty fields are kept explicitly.</p>')
             body.append(filter_html(prefixes))
@@ -185,7 +191,7 @@ def render(writer, reader_occurrence_ids=None):
                 href = relative_link(current, source_path(book, identity)) if is_held else relative_link(current, 'index.html') + '?occurrence=' + quote(occurrence, safe='')
                 available = [LANGUAGES[p][0] for p in prefixes if item.get('language_availability', {}).get(LANGUAGES[p][0]) not in ('provider_entry_absent', 'edition_pending', 'edition_not_published_in_pinned_catalog')]
                 body.append('<li data-source-languages="' + ','.join(available) + '"><a data-keep-language href="' + esc(href) + '">Provider entry ' + esc(identity) +
-                            '</a> · ' + ('Original source entry' if is_held else 'Reader narration') + '</li>')
+                            '</a> · ' + (('Reviewed source entry' if source_view_resolution_text(item) else 'Source entry awaiting review') if is_held else 'Reader narration') + '</li>')
             body.extend(['</ul>', navigation, FILTER_SCRIPT])
             writer.page(current, title + ' · complete source index | Hadith Bank',
                         'Every acquired provider entry has a reader or original-source destination.', ''.join(body), indexable=False)
@@ -199,6 +205,11 @@ def render(writer, reader_occurrence_ids=None):
             'other entries open as original source text with each language\'s own references.</p><p><strong>' + str(total_ids) +
             ' source entries</strong> · ' + str(total_ids - total_held) + ' reader narrations · ' + str(total_held) +
             ' original-source entries.</p>']
+    if 'resolved_excluded_occurrences' in progress:
+        body.append('<p>' + str(progress['resolved_excluded_occurrences']) +
+                    ' original-source entries have completed semantic review; ' +
+                    str(progress['unresolved_held_occurrences']) + ' await semantic disposition. '
+                    'Source gaps remain explicit.</p>')
     all_prefixes = [p for p in LANGUAGES if any(p in row[4] for row in index_rows)]
     body.extend([filter_html(all_prefixes), '<ul class="cards">'])
     for book, title, count, held_count, prefixes in index_rows:
