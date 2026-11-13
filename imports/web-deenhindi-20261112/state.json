@@ -1,4 +1,26 @@
 {
+  "error_history": {
+    "bukhari:686": [
+      {
+        "at": "2026-11-12T19:37:46.032974+00:00",
+        "error": "No public page data found; extraction stopped without guessing",
+        "snapshot": {
+          "bytes": 12130,
+          "compression": "gzip",
+          "content_type": "text/html",
+          "final_url": "https://deenhindi.com/hadith/bukhari/686",
+          "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+          "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+          "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+          "status": 200,
+          "stored_bytes": 5097,
+          "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+          "url": "https://deenhindi.com/hadith/bukhari/686"
+        },
+        "url": "https://deenhindi.com/hadith/bukhari/686"
+      }
+    ]
+  },
   "errors": {
     "abudawud:681": {
       "at": "2026-11-12T19:37:51.264483+00:00",
@@ -2573,24 +2595,6 @@
         "url": "https://deenhindi.com/hadith/abudawud/823"
       },
       "url": "https://deenhindi.com/hadith/abudawud/823"
-    },
-    "bukhari:686": {
-      "at": "2026-11-12T19:37:46.032974+00:00",
-      "error": "No public page data found; extraction stopped without guessing",
-      "snapshot": {
-        "bytes": 12130,
-        "compression": "gzip",
-        "content_type": "text/html",
-        "final_url": "https://deenhindi.com/hadith/bukhari/686",
-        "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
-        "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
-        "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
-        "status": 200,
-        "stored_bytes": 5097,
-        "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
-        "url": "https://deenhindi.com/hadith/bukhari/686"
-      },
-      "url": "https://deenhindi.com/hadith/bukhari/686"
     },
     "bukhari:687": {
       "at": "2026-11-12T19:37:55.230314+00:00",
@@ -54510,6 +54514,16 @@
         "path": "imports/web-deenhindi-20261112/parsed/bukhari/eab65f92bf590c9146e0f672efdb10b7911f3b74589fb3ace9966c0c58fca035.json.gz",
         "sha256": "eab65f92bf590c9146e0f672efdb10b7911f3b74589fb3ace9966c0c58fca035",
         "stored_sha256": "3268888a3d8658a776cdca4b929fecd378f9187e299de4f80b92e2d020f1d890"
+      }
+    },
+    "bukhari:686": {
+      "collection": "bukhari",
+      "number": "686",
+      "parsed": {
+        "compression": "gzip",
+        "path": "imports/web-deenhindi-20261112/parsed/bukhari/526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7.json.gz",
+        "sha256": "526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7",
+        "stored_sha256": "95bcb6effeb070e2d6a9040290d6e53c71a85d33bd20f8f43abd055d550c235f"
       }
     },
     "bukhari:69": {
@@ -150833,6 +150847,107 @@
       }
     }
   },
+  "reviewed_error_attempts": {
+    "bukhari:686:f3b26edda6ff81cacb34747ccda318e0499dd00ea2061edd7c5eecaef72c46f6": {
+      "authorization_basis": "The owner requested fixing the remaining Deen Hindi acquisition failures on 13 November 2026. This first pilot authorizes one ordinary recheck of the exact archived error identified below, using the existing public URL, client, pacing, and persistent access-stop guards. A renewed verification or access stop must halt the source; it is not automatically retried.",
+      "authorization_consumed": true,
+      "decision": {
+        "archive_classification": "http_200_verification_page",
+        "archived_response_reviewed": true,
+        "error_entry_sha256": "f3b26edda6ff81cacb34747ccda318e0499dd00ea2061edd7c5eecaef72c46f6",
+        "key": "bukhari:686",
+        "max_requests": 1,
+        "reason": "The checksum-verified archived HTTP 200 response is a verification page with no source hadith object. This explicit one-request pilot checks the same ordinary page after later normal acquisition resumed; it does not assert that the old failure is resolved.",
+        "review_evidence": {
+          "independent_content_qc_performed": false,
+          "method": "offline archived-byte checksum verification and observed verification-page signature classification",
+          "original_error": {
+            "at": "2026-11-12T19:37:46.032974+00:00",
+            "error": "No public page data found; extraction stopped without guessing",
+            "snapshot": {
+              "bytes": 12130,
+              "compression": "gzip",
+              "content_type": "text/html",
+              "final_url": "https://deenhindi.com/hadith/bukhari/686",
+              "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+              "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+              "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+              "status": 200,
+              "stored_bytes": 5097,
+              "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+              "url": "https://deenhindi.com/hadith/bukhari/686"
+            },
+            "url": "https://deenhindi.com/hadith/bukhari/686"
+          },
+          "retries_issued_during_evidence_review": 0,
+          "source_requests_during_evidence_review": 0,
+          "source_snapshot": {
+            "bytes": 12130,
+            "compression": "gzip",
+            "content_type": "text/html",
+            "final_url": "https://deenhindi.com/hadith/bukhari/686",
+            "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+            "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+            "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+            "status": 200,
+            "stored_bytes": 5097,
+            "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+            "url": "https://deenhindi.com/hadith/bukhari/686"
+          },
+          "source_state_git_blob_sha1": "2f80c21f5b1cb8a61fdcf4e3340a341be900ea3e"
+        },
+        "snapshot_sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+        "url": "https://deenhindi.com/hadith/bukhari/686"
+      },
+      "finished_at": "2026-11-13T10:49:47.056923+00:00",
+      "key": "bukhari:686",
+      "manifest": {
+        "path": "imports/web-deenhindi-20261112/retry-authorizations.json",
+        "sha256": "08d241011220e176442ea96b2708c7e068d699d6728fe0b28b0c3b1e01706c9e"
+      },
+      "parsed": {
+        "compression": "gzip",
+        "path": "imports/web-deenhindi-20261112/parsed/bukhari/526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7.json.gz",
+        "sha256": "526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7",
+        "stored_sha256": "95bcb6effeb070e2d6a9040290d6e53c71a85d33bd20f8f43abd055d550c235f"
+      },
+      "prepared_at": "2026-11-13T10:49:43.388490+00:00",
+      "prior_error": {
+        "at": "2026-11-12T19:37:46.032974+00:00",
+        "error": "No public page data found; extraction stopped without guessing",
+        "snapshot": {
+          "bytes": 12130,
+          "compression": "gzip",
+          "content_type": "text/html",
+          "final_url": "https://deenhindi.com/hadith/bukhari/686",
+          "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+          "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+          "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+          "status": 200,
+          "stored_bytes": 5097,
+          "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+          "url": "https://deenhindi.com/hadith/bukhari/686"
+        },
+        "url": "https://deenhindi.com/hadith/bukhari/686"
+      },
+      "response_snapshot": {
+        "bytes": 90086,
+        "compression": "gzip",
+        "content_type": "text/html; charset=utf-8",
+        "final_url": "https://deenhindi.com/hadith/bukhari/686",
+        "path": "imports/web-deenhindi-20261112/raw/fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e.html.gz",
+        "retrieved_at": "2026-11-13T10:49:47.048012+00:00",
+        "sha256": "fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e",
+        "status": 200,
+        "stored_bytes": 16431,
+        "stored_sha256": "e5b8a66d5bfb9d0d6ab13986adea7936e4267f56fcfb33658ec56934c3f53452",
+        "url": "https://deenhindi.com/hadith/bukhari/686"
+      },
+      "status": "succeeded",
+      "stop_batch_after_reviewed_retry": true,
+      "url": "https://deenhindi.com/hadith/bukhari/686"
+    }
+  },
   "schema": "deenhindi-import-state-v1",
   "site_evidence": {
     "about": {
@@ -150854,7 +150969,7 @@
       "content_type": "text/plain;charset=UTF-8",
       "final_url": "https://deenhindi.com/robots.txt",
       "path": "imports/web-deenhindi-20261112/raw/d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25.txt",
-      "retrieved_at": "2026-11-13T08:47:14.789708+00:00",
+      "retrieved_at": "2026-11-13T10:49:43.308955+00:00",
       "sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25",
       "status": 200,
       "stored_bytes": 246,
