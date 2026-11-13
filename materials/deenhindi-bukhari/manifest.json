@@ -4,11 +4,11 @@
   "edition": "deenhindi-web-20261112",
   "id": "deenhindi-bukhari",
   "import_coverage": {
-    "classification_pending": 28,
-    "fetched": 2157,
+    "classification_pending": 52,
+    "fetched": 2236,
     "inventory": 7589,
     "non_narration_source_entries": 1,
-    "registered_hadith": 2128
+    "registered_hadith": 2183
   },
   "language": "hi",
   "publication": {
@@ -21,7 +21,7 @@
   "records": {
     "count": 1863,
     "path": "materials/deenhindi-bukhari/records.jsonl",
-    "sha256": "e6c40d75ab8be5876232a2d996effce559d4103fd5310ec85bd67e6d73003a72"
+    "sha256": "409341f5f23e8585341ac90d471ddcda40480e7bfacae46908abf11a6438f842"
   },
   "rights": {
     "reuse_basis": null,
@@ -32,7 +32,7 @@
     "format": "html_snapshot_index",
     "name": "Deen Hindi — Sahih Al-Bukhari",
     "path": "materials/deenhindi-bukhari/source-index.json",
-    "sha256": "051d64ff3d4402023697f800b46e584dfff1bc8acceaf9099d6bea4ab874f44b",
+    "sha256": "99d15f41450705897e3294f30a3244c292734e0e4a696d00a434af860af61680",
     "url": "https://deenhindi.com/hadith/bukhari"
   },
   "source_id": "deenhindi-bukhari",
@@ -157,6 +157,13 @@
       "sha256": "873b1a42dcd5bef797f619e34a621ce57d02d3a0dfdef41000ff2f877d8de6c1",
       "size_bytes": 3088,
       "uncompressed_sha256": "0193683ed696d33195d1511a779cc1b5e547fee7f7bf6f5f6dace0300d95a402"
+    },
+    {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/bukhari/019f14d58710d1172b41a9ae6f9eb21109d030f996a08fde02fbc995d6fa9047.json.gz",
+      "sha256": "89cb6d1989b144bf7bf99011fa701b9343107477ed012336375c79bead8786e9",
+      "size_bytes": 2518,
+      "uncompressed_sha256": "019f14d58710d1172b41a9ae6f9eb21109d030f996a08fde02fbc995d6fa9047"
     },
     {
       "compression": "gzip",
@@ -1109,13 +1116,6 @@
       "sha256": "30d11fb31e99b2533ca2f8885d1d0f620ad86aa664f5bf8b769286a6d8aee30a",
       "size_bytes": 2623,
       "uncompressed_sha256": "13776d67e7c9df0505197c9b97069f4200615a77e0f6796a1e9311c021a8dfc9"
-    },
-    {
-      "compression": "gzip",
-      "path": "imports/web-deenhindi-20261112/parsed/bukhari/138c08ef8454c3bcfe9fe23aa003d4962ab431d2269e6ed43010af08048ad273.json.gz",
-      "sha256": "b361c0fe046e80def56971b8a4db5c2865074d6947a24e882b47950bdc36be49",
-      "size_bytes": 2193,
-      "uncompressed_sha256": "138c08ef8454c3bcfe9fe23aa003d4962ab431d2269e6ed43010af08048ad273"
     },
     {
       "compression": "gzip",
@@ -3048,13 +3048,6 @@
       "sha256": "facfcb5af04b7b168d4d4be89afbeaa83e80167c77360a26be7759185ec35350",
       "size_bytes": 2395,
       "uncompressed_sha256": "3a0bf50f4da91f70bb092c554825b05ac5dead9ed37c6a119c5d522f884ad0d4"
-    },
-    {
-      "compression": "gzip",
-      "path": "imports/web-deenhindi-20261112/parsed/bukhari/3a0bfd1152b922767637fbfc28bcb648a1b1c1eac693c70ab8cf0cb43b93a6b6.json.gz",
-      "sha256": "37f419a48cc64c47c26f3c585c217a7f6563fbd11a1650abd4a93b6ec21c1213",
-      "size_bytes": 2104,
-      "uncompressed_sha256": "3a0bfd1152b922767637fbfc28bcb648a1b1c1eac693c70ab8cf0cb43b93a6b6"
     },
     {
       "compression": "gzip",
@@ -11213,6 +11206,13 @@
     },
     {
       "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/bukhari/dac4769403ef95055ee932fe567a875a35cf787030673b229d2a98799ec08ae9.json.gz",
+      "sha256": "6e25bbcb09d86dc21974d04b86655ad299f58e0465ffca4bd6100a87ac667ccc",
+      "size_bytes": 2280,
+      "uncompressed_sha256": "dac4769403ef95055ee932fe567a875a35cf787030673b229d2a98799ec08ae9"
+    },
+    {
+      "compression": "gzip",
       "path": "imports/web-deenhindi-20261112/parsed/bukhari/daed5cedb527298547d0f8b8257d9b9a540c1ba7f76244d0277496ea29945f80.json.gz",
       "sha256": "eca451f1950fb9831e1d2f9c3916aae4d13c5e23ce9ce12908192f2ac076c594",
       "size_bytes": 1984,
@@ -18713,6 +18713,14 @@
     },
     {
       "compression": "gzip",
+      "original_response_sha256": "60734ba65dd1971cc4594fa8395141eaa1c6c46b5bb07944fa651db4fab9b7e9",
+      "path": "imports/web-deenhindi-20261112/raw/60734ba65dd1971cc4594fa8395141eaa1c6c46b5bb07944fa651db4fab9b7e9.html.gz",
+      "sha256": "e25f2450bbeb0ff950c0dfd8175dd6690b6bade44f42c571d9e7bf6dcddada86",
+      "size_bytes": 15929,
+      "uncompressed_sha256": "60734ba65dd1971cc4594fa8395141eaa1c6c46b5bb07944fa651db4fab9b7e9"
+    },
+    {
+      "compression": "gzip",
       "original_response_sha256": "6093d818d0deeea45fa2793aaf2846d77576cc56fd46810ee36ad72b84a67b96",
       "path": "imports/web-deenhindi-20261112/raw/6093d818d0deeea45fa2793aaf2846d77576cc56fd46810ee36ad72b84a67b96.html.gz",
       "sha256": "654630b4c6ea11ada4df5be3b6ad5cf06a2b5eed84aad221e531763af7681307",
@@ -20454,6 +20462,14 @@
       "sha256": "ce6ba7a6ce179fb10a8af17a7d1986a5a97863c4164055608e48f64d76bb117b",
       "size_bytes": 15828,
       "uncompressed_sha256": "81a8e46449bfde1ce51815d9c45e673bac95e2f22d58201e86b4ff0baf8b5a4a"
+    },
+    {
+      "compression": "gzip",
+      "original_response_sha256": "81c8ae1ed0f1ca89133d2b3117941dba88aaf9a66c67841a2bec735307371d16",
+      "path": "imports/web-deenhindi-20261112/raw/81c8ae1ed0f1ca89133d2b3117941dba88aaf9a66c67841a2bec735307371d16.html.gz",
+      "sha256": "02b6679bdc1a859de6136c29ba10a34203cca5af002b8ea259ec1b69fa02919d",
+      "size_bytes": 16313,
+      "uncompressed_sha256": "81c8ae1ed0f1ca89133d2b3117941dba88aaf9a66c67841a2bec735307371d16"
     },
     {
       "compression": "gzip",
@@ -22881,14 +22897,6 @@
     },
     {
       "compression": "gzip",
-      "original_response_sha256": "ac93c2131c89ff28b4fe6cbe80a33477b0dc9e53672e3876c3062a26811443cb",
-      "path": "imports/web-deenhindi-20261112/raw/ac93c2131c89ff28b4fe6cbe80a33477b0dc9e53672e3876c3062a26811443cb.html.gz",
-      "sha256": "7577ad1895ba43441f824bd7e990ff033b71b9adb7cfde873dfa2c7c572f2e53",
-      "size_bytes": 15919,
-      "uncompressed_sha256": "ac93c2131c89ff28b4fe6cbe80a33477b0dc9e53672e3876c3062a26811443cb"
-    },
-    {
-      "compression": "gzip",
       "original_response_sha256": "aca7f89146f4779ad2c6c3342a1d965f48d346c8cc4797663d0705a1abee1e10",
       "path": "imports/web-deenhindi-20261112/raw/aca7f89146f4779ad2c6c3342a1d965f48d346c8cc4797663d0705a1abee1e10.html.gz",
       "sha256": "387e510b75f4e1a40c5adbe409fdcdc1b5e3f304eecd56abedfddc657e7a14d7",
@@ -24566,14 +24574,6 @@
       "sha256": "a56cbc5ff605a7c5d582a6371ff33dddedfd8c8dc9e5d9bb770230719546491c",
       "size_bytes": 17010,
       "uncompressed_sha256": "c87b9c1ecfe852fb31f1107e66191adc1388a5a4b1a48d3825fc138228344b66"
-    },
-    {
-      "compression": "gzip",
-      "original_response_sha256": "c8a1270b52bed82808315534b98c8f8f60af06021882807f1f9bab89eb150465",
-      "path": "imports/web-deenhindi-20261112/raw/c8a1270b52bed82808315534b98c8f8f60af06021882807f1f9bab89eb150465.html.gz",
-      "sha256": "5ffe311479cf564975b5869b1d572857ce68128fde8f42ef37097ce26ea76964",
-      "size_bytes": 15739,
-      "uncompressed_sha256": "c8a1270b52bed82808315534b98c8f8f60af06021882807f1f9bab89eb150465"
     },
     {
       "compression": "gzip",
@@ -29498,9 +29498,9 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "17e4c422d4121d17394fd3002463d50ace07e29080859037ef61942407f61d50",
-      "size_bytes": 759565,
-      "uncompressed_sha256": "00ba959f8775e137252fbaa2879333d73dc56dd30068e5c7c91af405a7433260"
+      "sha256": "1bf2a94bf4791c6baaaa46c139d2f8176789a7609d35a9068b3835b30dbc25e8",
+      "size_bytes": 774752,
+      "uncompressed_sha256": "5c82db60bc12dd481c9bae30c728d3f5814207746cde152ed6375f8070e4252c"
     }
   ]
 }
