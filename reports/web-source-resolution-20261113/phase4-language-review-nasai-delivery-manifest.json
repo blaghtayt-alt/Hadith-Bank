@@ -1,0 +1,61 @@
+{
+  "batch": "20261113-nasai-hi-ur-extension-v1",
+  "expected_active_after_sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa",
+  "expected_active_before_sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
+  "expected_delta": {
+    "admitted_hindi_fields": 30,
+    "admitted_urdu_fields": 30,
+    "fully_read_hindi_fields": 30,
+    "fully_read_urdu_fields": 30,
+    "held_occurrences": 0,
+    "registered_occurrences": 0,
+    "source_occurrences": 0
+  },
+  "files": [
+    {
+      "bytes": 198556,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/before-active-ledger.json.gz",
+      "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937"
+    },
+    {
+      "bytes": 19394,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/field-reading-notes.json.gz",
+      "sha256": "25022c4b6f7346899b8ebb7294cee04c53c87fb5efdbbbeb3c8a7f022aa7722b"
+    },
+    {
+      "bytes": 33697,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selected-source-records.jsonl.gz",
+      "sha256": "dc66a4bb142cf5bd87857d261d271c1927d35509e3eccf135784055c73635bfb"
+    },
+    {
+      "bytes": 1784,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selection.json",
+      "sha256": "94a265c574cbf4d68d2fff36cb88b71ee012cc80f2d37581a5d529e08c0ca37c"
+    },
+    {
+      "bytes": 66816,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/source-verification.json",
+      "sha256": "66457341a9714cc3dc7946a87c097bd2e9f64b1c633a96404d1e0cde7b5e7818"
+    },
+    {
+      "bytes": 216232,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+      "sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa"
+    },
+    {
+      "bytes": 6427,
+      "path": "reports/web-source-resolution-20261113/20261113-nasai-hi-ur-extension-v1-validation.json",
+      "sha256": "39b0a5daa66349ae65a5394a3171e5de74b4d1f596ddc485841fabb7b028d5ff"
+    }
+  ],
+  "replaces_active_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+  "result": "passed",
+  "schema": "hadith-bank-language-extension-delivery-v1",
+  "source_commit": "817b1d071f59bb5a10c8921858811279c6faf776",
+  "unchanged_dependencies": [
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/nasai-resolution-audit/original-held-source-records.jsonl.gz",
+      "sha256": "fd035160f10ce080111ed7a33fd7a60b49cb7b6f0a1a40a913190c0e495b8fac"
+    }
+  ]
+}

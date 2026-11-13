@@ -1,6 +1,67 @@
 # Website-source queue resolution — 13 November 2026
 
-## Current status — recovered sources and saved retry pilot, 13 November 2026
+## Current status — saved acquisition and Hindi/Urdu field review
+
+The recovered-source decisions, verified retry activation and reader repair
+were published at `817b1d071f59bb5a10c8921858811279c6faf776`. Bounded ordinary-run
+review evidence and an explicit audit of unread priority-language fields were
+published at `af6d6b2973e7a56e9fb3c6ce6321fc3edd020cac`.
+
+The next acquisition worker actually saved **477 additional pages** at
+`659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9`. All 13,284 previous imported
+descriptors, all 999 old errors, their history and the consumed pilot receipt
+were preserved exactly. The committed totals are **13,761 fetched, 13,544
+registered, 123 source-only and 94 held**. All 94 held IDs are newly fetched;
+none of the preceding 118 remain held. The fixed 13,284-entry cohort is now
+actually **13,161 registered and 123 source-only**, with no unresolved holds.
+
+**22,629 pages remain unfetched:** 21,630 ordinary pending pages and 999
+historical errors. The saved manifest makes those 999 historical identities
+eligible for one ordinary retry each. The consumed Bukhari 686 pilot remains
+resolved and cannot replay. The source is not blocked; the successor worker
+has started. Acquisition and new-entry review are still unfinished.
+
+The field-level audit found an important additional limit in the earlier
+**3,942 resolved-entry cohort**: its original completed dispositions left
+**3,463 Hindi fields and 3,455 Urdu fields unread as complete source context**.
+An entry-level disposition is not a complete review of every translation.
+The unchanged historical counts and exact field queue are in
+[`original3942-field-coverage.json`](../reports/web-source-resolution-20261113/original3942-field-coverage.json).
+
+This new language checkpoint independently reads and admits **60 Hindi and
+60 Urdu fields across 60 already registered entries**: 30 Bukhari entries and
+30 Nasai entries. Both packages preserve the exact previous active ledgers,
+all earlier field decisions and every original source object. Complete raw and
+parsed evidence was reopened for all 60 entries. Full 477-entry and 519-entry
+adapter validation passed, and both new sets received a second complete
+own-field reading with exact span checks. The two explanatory boundary findings
+in the Bukhari review were corrected into retained source context.
+
+For the fixed 3,942-entry cohort, these extensions bring Hindi to **414 admitted,
+125 read-context and 3,403 unread-context fields**, and Urdu to **426 admitted,
+121 read-context and 3,395 unread-context fields**. The current supplemental
+queue is
+[`current-original3942-priority-field-queue.jsonl.gz`](../reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz).
+These are field-review changes, with **zero added or removed source occurrences**.
+They do not claim completion of the remaining language queue, the newer
+recovered cohort's unread siblings, or the 94 newly fetched holds.
+
+The repaired reader has passed its software tests, Fawaz review export,
+website review export and counterpart synchronization. Shared rebuild, browser
+verification and actual deployment are still being observed; publication of
+source decisions is not itself a deployment result. The actual Fawaz export
+again confirms **36,226 registered, 238 resolved source-only and zero unresolved
+parent dispositions**, accounting for all 244 requested cases. The eleven
+Hadis.islom.uz parent cases remain resolved with **8,622 registered occurrences
+and zero held**; its unavailable `/kitob/32/17` source route remains HTTP500.
+
+The following checkpoints are retained as dated history. Source spelling
+defects, incomplete wording, real absences, differing attributions and source
+grades are preserved. No independent Pro QC, new authenticity grading or
+translation-equivalence certification is claimed.
+
+
+## Historical recovered-source and pilot checkpoint — 13 November 2026
 
 Phase 2 was published at `92bf9cdf87f5919b91eadfce8f338e283e6d12bb`.
 The actual recovery worker then saved **508 previously downloaded entries** at
