@@ -693,11 +693,30 @@ def authorize_context_documents(root, authorized_files):
     return authorized
 
 
+def is_verified_generated_context_copy(root, path, authorized_files):
+    """Allow only exact registered context copies in a marked generated site."""
+    for parent in path.parents:
+        if parent == root:
+            break
+        marker = parent / '.hadith-bank-generated-site'
+        if marker.is_file() and not marker.is_symlink():
+            relative = path.relative_to(parent).as_posix()
+            digest = authorized_files.get(relative)
+            if not relative.startswith('source-context/') or digest is None:
+                return False
+            try:
+                return file_hash(local(root, path.relative_to(root).as_posix())) == digest
+            except (OSError, ValidationError):
+                return False
+    return False
+
+
 def unregistered_source_documents(root, authorized_files):
     return sorted(p.relative_to(root).as_posix() for p in root.rglob('*')
                   if '.git' not in p.parts and p.is_file()
                   and p.suffix.lower() in ('.pdf', '.xlsx', '.xls', '.docx')
-                  and p.relative_to(root).as_posix() not in authorized_files)
+                  and p.relative_to(root).as_posix() not in authorized_files
+                  and not is_verified_generated_context_copy(root, p, authorized_files))
 
 
 def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None, report_path=None):
