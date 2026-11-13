@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "817b1d071f59bb5a10c8921858811279c6faf776",
+  "baseline_workflow": {
+    "git_blob_sha1": "6bfbca863a7aee2949ff0ab5c26c390b23ef2e07",
+    "sha256": "360a10e52ed52a668538e053d1b7b3f73ebc0bb5a76cd350e9d26726b9b03c42"
+  },
+  "binding": "Exact saved local HEAD/tree, Git blobs, full state/progress/inventory/staged/code receipts, selected source stored and raw hashes, current parser object/reference agreement",
+  "diagnostic_failures_nonblocking": true,
+  "hard_limits": {
+    "maximum_source_decompression_per_object_bytes": 33554432,
+    "selected_records": 250,
+    "whole_output_directory_bytes": 33554432
+  },
+  "independent_review_path": "reports/web-source-resolution-20261113/held-exporter-independent-review.json",
+  "remaining_count": "Complete committed staged held queue count minus exported deterministic prefix",
+  "remaining_gate": "Actual bounded artifact creation/upload by a successful ordinary acquisition workflow after this package is published.",
+  "schema": "hadith-bank-ordinary-held-evidence-export-validation-v1",
+  "status": "focused_validation_passed",
+  "syntax_and_workflow_preservation": {
+    "all_preexisting_workflow_steps_gates_permissions_concurrency_and_cadence_unchanged": true,
+    "bash_blocks_syntax_checked": 10,
+    "embedded_python_blocks_syntax_checked": 6,
+    "module_sha256": "c78f4e4c32bcc628c6088d96f3125c5b447bb397a679341838c81405403e7aa6",
+    "new_diagnostics_nonblocking": true,
+    "new_export_step_after_continuation_and_pause": true,
+    "tests_sha256": "c9b876e85a517b1b5da14a03f85e84e4eb0735f52509c8548403fce14c08fa1b",
+    "workflow_sha256": "595ce5e8cf1033fab7ebe0138d8d9981c8eb992fd312a6f8ade3171c828c3609",
+    "yaml_parse": "passed"
+  },
+  "tests": {
+    "command": "python -m unittest discover -s tests -p 'test_export_deenhindi_held_evidence.py' -v",
+    "failed": 0,
+    "network": "No source or GitHub requests",
+    "passed": 7,
+    "source_data": "Synthetic TEST source pages only"
+  },
+  "unchanged_recovery_verifier": {
+    "git_blob_sha1": "3a18afe052142fb9d4a345d8516bb34359b14257",
+    "sha256": "f29e2b0a3fc5542e3d8d529fa3cf220db37f6451312ddd71efef7d262fc6baf2"
+  },
+  "writes": "Only ignored run-attempt diagnostic output and logged-task files; no source/state/review/publication changes"
+}

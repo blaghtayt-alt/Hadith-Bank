@@ -15,6 +15,7 @@ on:
       - 'scripts/import_deenhindi.py'
       - 'scripts/deenhindi_review_reuse.py'
       - 'scripts/recover_deenhindi_artifact.py'
+      - 'scripts/export_deenhindi_held_evidence.py'
       - 'scripts/import_uzbek_web.py'
       - 'scripts/import_hadisuz.py'
       - 'scripts/web_import_batch.py'
@@ -291,6 +292,28 @@ jobs:
               print(reason)
               subprocess.run(['gh', 'workflow', 'disable', 'import-web-hadith.yml'], check=True)
           PY
+      - name: Export bounded held evidence from the saved checkpoint
+        id: held_evidence
+        if: ${{ !cancelled() && steps.save.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 5
+        # Diagnostics are after dispatch/continuation and cannot gate either.
+        # HEAD is the actual saved local commit, even if main advanced again.
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/deenhindi-held-evidence-export-run --cwd . --timeout 240 --
+          python scripts/export_deenhindi_held_evidence.py --root .
+          --expected-head "$(git rev-parse HEAD)"
+      - name: Retain bounded ordinary held-source evidence
+        if: ${{ !cancelled() && steps.held_evidence.outcome == 'success' }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: deenhindi-held-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          include-hidden-files: true
+          if-no-files-found: error
+          path: .work/deenhindi-held-evidence/${{ github.run_id }}-${{ github.run_attempt }}/
       - name: Retain diagnostic logs for every outcome
         if: always()
         uses: actions/upload-artifact@v4
@@ -305,6 +328,7 @@ jobs:
             .work/deenhindi-artifact-recovery-rebuild/
             .work/deenhindi-artifact-recovery-validation/
             .work/deenhindi-artifact-recovery-report/
+            .work/deenhindi-held-evidence-export-run/
             .work/deenhindi-artifact-recovery/github-artifact-metadata.json
             .work/deenhindi-artifact-recovery/offline-rebuild.json
             .work/web-import-batch/

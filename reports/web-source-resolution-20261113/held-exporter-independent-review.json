@@ -1,0 +1,76 @@
+{
+  "auditor_GitHub_writes": 0,
+  "auditor_source_HTTP_requests": 0,
+  "auditor_source_or_workflow_edits": 0,
+  "checks": {
+    "all_imported_identity_keys_checked_before_counting": true,
+    "atomic_replacement_preserves_previous_bundle_on_validation_failure": true,
+    "binds_actual_local_saved_HEAD_and_tree": true,
+    "bounded_gzip_decompression": true,
+    "deterministic_inventory_order_prefix": true,
+    "diagnostic_failure_cannot_become_new_continuation_prerequisite": true,
+    "does_not_substitute_trigger_GITHUB_SHA_or_newer_origin_main": true,
+    "export_after_existing_dispatch_continuation_and_pause": true,
+    "export_and_upload_continue_on_error": true,
+    "export_requires_successful_save_and_noncancellation": true,
+    "maximum_complete_bundle_bytes": 33554432,
+    "maximum_selected_records": 250,
+    "no_source_network_or_state_review_publication_mutation_in_exporter": true,
+    "output_limited_to_owned_run_attempt_diagnostic_directory": true,
+    "raw_HTML_reparse_must_match_exact_saved_object_and_reference": true,
+    "reads_committed_blobs_and_verifies_git_object_hash": true,
+    "row_metadata_receipts_and_manifest_included_in_byte_bound": true,
+    "selected_raw_and_parsed_stored_and_decompressed_hashes_checked": true,
+    "selected_remaining_and_next_counts_explicit": true,
+    "selected_staged_rows_must_match_immutable_source_identity_and_intake_classification": true,
+    "source_and_existing_output_marker_paths_local_bounded_and_symlink_safe": true,
+    "upload_requires_current_export_success": true,
+    "whole_staged_queue_count_matches_saved_progress": true,
+    "worktree_input_bytes_must_equal_committed_bytes": true
+  },
+  "concrete_remaining_findings": [],
+  "focused_validation_evidence": {
+    "coverage": [
+      "Exact committed prefix, bytes and remaining counts",
+      "Whole-bundle byte cap and stable repeated output",
+      "Empty held queue",
+      "Missing sources without replacing old output",
+      "Committed source checksum and parser disagreement",
+      "Dirty state/progress and expected-head mismatch",
+      "Actual workflow shell through production logger with a newer origin/main and different GITHUB_SHA"
+    ],
+    "implementer_reported_passing_tests": 7,
+    "test_code_independently_inspected": true,
+    "tests_rerun_by_this_auditor": 0
+  },
+  "input_files": [
+    {
+      "path": "scripts/export_deenhindi_held_evidence.py",
+      "sha256": "c78f4e4c32bcc628c6088d96f3125c5b447bb397a679341838c81405403e7aa6",
+      "size_bytes": 16212
+    },
+    {
+      "path": ".github/workflows/import-web-hadith.yml",
+      "sha256": "595ce5e8cf1033fab7ebe0138d8d9981c8eb992fd312a6f8ade3171c828c3609",
+      "size_bytes": 18283
+    },
+    {
+      "path": "scripts/recover_deenhindi_artifact.py",
+      "sha256": "f29e2b0a3fc5542e3d8d529fa3cf220db37f6451312ddd71efef7d262fc6baf2",
+      "size_bytes": 33517
+    },
+    {
+      "path": "tests/test_export_deenhindi_held_evidence.py",
+      "sha256": "c9b876e85a517b1b5da14a03f85e84e4eb0735f52509c8548403fce14c08fa1b",
+      "size_bytes": 13066
+    }
+  ],
+  "practical_limits": [
+    "The artifact is explicitly bound to the worker’s saved local commit, which may be older than current remote main. It does not claim latest-main or deployment state.",
+    "The output is a bounded diagnostic prefix; omitted held entries remain in the committed queue. A first record too large for the cap fails diagnostics without altering the source checkpoint.",
+    "The additional diagnostic step can occupy the serialized job for its bounded timeout after continuation has already been requested. It adds no source acquisition dependency."
+  ],
+  "result": "passed",
+  "review_method": "Independent full module/workflow-delta review and inspection of directly used path, source-verification and bounded-decompression helpers. Both final hardening changes reviewed; reversing those changes reproduced the earlier fully reviewed module hash. Focused regression code inspected, no broad test rerun.",
+  "schema": "deenhindi-held-exporter-independent-review-v1"
+}

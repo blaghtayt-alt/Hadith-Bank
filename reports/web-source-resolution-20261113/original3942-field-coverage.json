@@ -1,0 +1,240 @@
+{
+  "baseline_lock": "All six original phase2 active ledgers are checked against phase2-inputs.json hashes. This report precedes and excludes any later Hindi/Urdu field extension; such an extension must be reported as a separate delta.",
+  "by_language": {
+    "ar": {
+      "admitted_exact_prior_review_reuse": 212,
+      "admitted_manual": 12,
+      "admitted_total": 224,
+      "empty_or_absent": 207,
+      "fully_read_source_context": 94,
+      "nonempty": 3735,
+      "source_slots": 3942,
+      "unread_or_unmatched_source_context": 3417
+    },
+    "en": {
+      "admitted_exact_prior_review_reuse": 1506,
+      "admitted_manual": 1938,
+      "admitted_total": 3444,
+      "empty_or_absent": 210,
+      "fully_read_source_context": 102,
+      "nonempty": 3732,
+      "source_slots": 3942,
+      "unread_or_unmatched_source_context": 186
+    },
+    "hi": {
+      "admitted_exact_prior_review_reuse": 0,
+      "admitted_manual": 354,
+      "admitted_total": 354,
+      "empty_or_absent": 0,
+      "fully_read_source_context": 125,
+      "nonempty": 3942,
+      "source_slots": 3942,
+      "unread_or_unmatched_source_context": 3463
+    },
+    "ur": {
+      "admitted_exact_prior_review_reuse": 303,
+      "admitted_manual": 63,
+      "admitted_total": 366,
+      "empty_or_absent": 0,
+      "fully_read_source_context": 121,
+      "nonempty": 3942,
+      "source_slots": 3942,
+      "unread_or_unmatched_source_context": 3455
+    },
+    "ur-Latn": {
+      "admitted_exact_prior_review_reuse": 0,
+      "admitted_manual": 58,
+      "admitted_total": 58,
+      "empty_or_absent": 0,
+      "fully_read_source_context": 122,
+      "nonempty": 3942,
+      "source_slots": 3942,
+      "unread_or_unmatched_source_context": 3762
+    }
+  },
+  "checks": {
+    "all3942_source_object_hashes_verified": true,
+    "all_reused_complete_field_hashes_and_selected_span_hashes_verified": true,
+    "duplicate_or_uncovered_original_ids": 0,
+    "manual_exact_full_field_partitions": 11247,
+    "manual_native_source_reviews_apply_finish": "PASS",
+    "reuse_bindings_match_actual_b65_and46f2_saved_reuse_decisions": true,
+    "six_manual_ledger_and_baseline_hashes_verified": true,
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b"
+  },
+  "cohort_definition": "The original 3942 held occurrences at eb6061e, comprising original_3824 plus the earlier internal new_118. The internal new_118 is already included in3942 and is disjoint from the later recovered117 + pilot686.",
+  "coverage_revision": "pre_supplemental_language_review_phase2_baseline",
+  "exact_prior_review_reuse_occurrences": 1653,
+  "field_definitions": {
+    "admitted_exact_prior_review_reuse": "Complete same-language source text exactly matches a prior reviewed field. Hash-bound prior boundary decisions are reused; this is not a new manual reading of the Deen field.",
+    "admitted_manual": "This phase2 ledger records a complete manual reading and selects one or more exact source spans.",
+    "empty_or_absent": "Original empty string, null or missing language field; no source text is invented.",
+    "fully_read_source_context": "A complete manual reading is documented, with no quotation span selected for that field.",
+    "nonempty": "The source field is neither null/missing nor the empty string; copied source wording is not normalized.",
+    "source_slots": "One of five source-language keys per original source occurrence.",
+    "unread_or_unmatched_source_context": "No admitted span and no complete manual-reading claim in this phase2 coverage. The field remains complete source context. A reused parent does not confer review coverage on unmatched siblings."
+  },
+  "independent_pro_qc": "not_performed",
+  "input_receipts": [
+    {
+      "path": "phase2-integration/repo/reports/web-source-resolution-20261113/phase2-inputs.json",
+      "sha256": "ecdb1286e269aed89a67aa991834a50c7a965b3d0832172d2c9d675cdbc002fb",
+      "size_bytes": 48892
+    },
+    {
+      "path": "phase2-integration/repo/reports/web-source-resolution-20261113/phase2-reuse-complement-validation.json",
+      "sha256": "16a6b1211eac1a7e6082e3efeb240504cb554b851426a9b4d6abd460aaf9ddd9",
+      "size_bytes": 16506
+    },
+    {
+      "path": "phase2-integration/repo/reports/web-source-resolution-20261113/phase2-reuse-output-bindings.jsonl.gz",
+      "sha256": "cfdc579e616938fac9d090300eb40d64c90fcb5bf54d7a3f8d7288c3cc08f987",
+      "size_bytes": 487031
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/abudawud.jsonl",
+      "sha256": "426f0c7c3ac0e199ef4b1be97f2fcd420c4dc36520b6d23bf7c1b09acff0c6f7",
+      "size_bytes": 3134180
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/bukhari.jsonl",
+      "sha256": "7302d2ee3de48d84382b9cfedceed9b4e999998b380018ac7ebeca5bdad3744f",
+      "size_bytes": 1898623
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/ibnmajah.jsonl",
+      "sha256": "0042d219e52e7c56c21e2100e6b90dba14b722b9adb8f2884540f2c9115518b7",
+      "size_bytes": 1957918
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/malik.jsonl",
+      "sha256": "e0022649d5c9c412f1f814135b40691805b7df6fb6142e9cd4ef5d0998dcc0a2",
+      "size_bytes": 5508545
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/muslim.jsonl",
+      "sha256": "6af0ccaaff5c0dbdb1d445e8b929a9d50f6e7d9caa909b46553d66916d90e490",
+      "size_bytes": 3026806
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/nasai.jsonl",
+      "sha256": "8ba3b9c0315b0e2778cb26c399f0335fdbd2674d15cb46ef47cbd56e6e946c5c",
+      "size_bytes": 2945191
+    },
+    {
+      "path": "hindi-resolve/input/imports/web-deenhindi-20261112/staged/tirmidhi.jsonl",
+      "sha256": "a2b144c55081d653d7eb248fd2e34b64719d55635e16969694d978362e446c77",
+      "size_bytes": 2459342
+    },
+    {
+      "path": "hindi-resolve/new-held-after-baseline-eb6061e.jsonl",
+      "sha256": "4fa0246b2ad531343a6b44809976ce899d753c3b208d734ec8b9bc7bbcf6a293",
+      "size_bytes": 627768
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-20261113-abudawud-tirmidhi-manual.json.gz",
+      "sha256": "6167b575a7f944a149f2db965ee937a4f9f74d856e39194b13ac7fcad6bc6abf",
+      "size_bytes": 184225
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/baselines/20261113-abudawud-tirmidhi-636.jsonl.gz",
+      "sha256": "4afcb71aa692313ca711d55132a31d9b378d7cf0b242eb4d1b8682b795cc9aee",
+      "size_bytes": 812927
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-agent46-eb6061e.json.gz",
+      "sha256": "7ebc72f47e07830aac17a4161d5af6387a7dc2f0d01a85bfca99c568284e6c27",
+      "size_bytes": 19219
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/baselines/20261113-new-held-agent46-eb6061e.jsonl.gz",
+      "sha256": "438a9c06c07d7736fedf5dcc529d26eacd9c3dc24ae5d1bb43d213e0773ddf16",
+      "size_bytes": 59315
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "sha256": "cc569049f1bf77ae0dcbe2b4a792f53dc396c88f0bbbf31bb5f05c698a980a9b",
+      "size_bytes": 281899
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "sha256": "5c9598c1c61cee509155013dde44221de2e17f11bd29d0f475092f2a6e86fb36",
+      "size_bytes": 638110
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+      "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
+      "size_bytes": 198556
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/nasai-resolution-audit/original-held-source-records.jsonl.gz",
+      "sha256": "fd035160f10ce080111ed7a33fd7a60b49cb7b6f0a1a40a913190c0e495b8fac",
+      "size_bytes": 573368
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-root35.json.gz",
+      "sha256": "8a2b9305794201c8753e34ac48e21fc5c26acf75551f18e4aa4c71ca2d3bb0b5",
+      "size_bytes": 16397
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/new-held-root35-audit/original-held-source-records.jsonl.gz",
+      "sha256": "d3a73827d6ec423c0db316009fe773df267562c58653f36d87ef4ec0396908b2",
+      "size_bytes": 43990
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/source-review-muslim-malik-20261113.json.gz",
+      "sha256": "f2f47e0126eb479a6c3ab2fe4cd2d8353df7f04dfbe5b2820f0bdbeadc88eb70",
+      "size_bytes": 251700
+    },
+    {
+      "path": "phase2-integration/repo/imports/web-deenhindi-20261112/reviews/muslim-malik-20261113/source-baseline.jsonl.gz",
+      "sha256": "6a70073ba31b7e65e2602e045ec40a73f073820f8dd6bc25248faf7735b6b9b3",
+      "size_bytes": 664370
+    },
+    {
+      "path": "phase3-independent-audit/input/b65b894-exact-field-decisions.json.gz",
+      "sha256": "6fe80ccb5ace2ae38a18cad6fe807fe52a6dba643d9a0c2fb6832601991c51be",
+      "size_bytes": 693590
+    }
+  ],
+  "later_cohort_intersection": [],
+  "later_recovered117_plus_pilot686_included": false,
+  "manual_decision_occurrences": 2289,
+  "new_decisions": 0,
+  "new_linguistic_reading_claimed": false,
+  "per_id_binding_receipt": {
+    "path": "reports/web-source-resolution-20261113/original3942-field-coverage-bindings.jsonl.gz",
+    "sha256": "cffb32ebb09ff7bc36ada5126ad3e0c9b8640e241e6c8828e6df12f742d8d47f",
+    "size_bytes": 1344990
+  },
+  "raw_html_or_parsed_gzip_reopened_for_this_coverage_audit": 0,
+  "schema": "hadith-bank-original3942-field-coverage-v1",
+  "scope_note": "A structural coverage recount from hash-bound saved source objects, decision ledgers and exact-reuse bindings; no fresh semantic reading, source acquisition, or live-reader claim.",
+  "source_checkpoint": "eb6061e1d4115d141d3f2d723ec83fc57f34b1b2",
+  "source_http_requests": 0,
+  "source_occurrences": 3942,
+  "source_origin_counts": {
+    "new_118": 118,
+    "original_3824": 3824
+  },
+  "status": "PASS",
+  "totals": {
+    "admitted_exact_prior_review_reuse": 2021,
+    "admitted_manual": 2425,
+    "admitted_total": 4446,
+    "empty_or_absent": 417,
+    "fully_read_source_context": 564,
+    "nonempty": 19293,
+    "source_slots": 19710,
+    "unread_or_unmatched_source_context": 14283
+  },
+  "unread_hindi_urdu_queue": {
+    "hindi_fields": 3463,
+    "note": "Exact per-ID immutable source hashes and existing active-ledger/reuse-binding paths. This is an additional field-review queue; parent dispositions and existing selected languages remain intact.",
+    "path": "reports/web-source-resolution-20261113/original3942-unread-hindi-urdu-field-queue.jsonl.gz",
+    "sha256": "6beaae8e9c8700d2de41ed8863ff59fc9f7e8372a794f0c7ee244bc9e1958c43",
+    "size_bytes": 803026,
+    "source_occurrences": 3758,
+    "urdu_fields": 3455
+  }
+}
