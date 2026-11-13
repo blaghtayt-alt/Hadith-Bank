@@ -16,8 +16,9 @@ on:
 permissions:
   contents: read
 
-# Keep this provider's checkpoints serialized. Other providers write disjoint
-# source paths; the save step rebases and revalidates concurrent main updates.
+# Keep this provider's checkpoints serialized. Changed website review
+# derivatives are saved with it; normal rebase preserves concurrent source
+# updates, and any substantive source/material conflict stops the save.
 concurrency:
   group: hadith-bank-fawaz-bulk-imports
   cancel-in-progress: false
@@ -71,6 +72,15 @@ jobs:
           --job-dir .work/fawaz-source-integrity --cwd . --timeout 900 --
           python scripts/validate_fawaz_sources.py --root .
           --output imports/web-fawaz-20261112/source-integrity-validation.json
+      - name: Apply changed saved website reviews before shared validation
+        id: website_reviews
+        # Source review ledgers may advance independently of this provider.
+        # Rebuild their exact saved derivatives offline before checking the
+        # shared registry; the save step includes those validated derivatives.
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/fawaz-website-reviews --cwd . --timeout 900 --
+          python scripts/web_import_batch.py --root . --reviews-only
       - name: Validate the complete material registry
         id: validate
         run: |
@@ -91,7 +101,11 @@ jobs:
           from pathlib import Path
           import subprocess
           paths = [str(path) for pattern in (
-              'imports/web-fawaz-20261112', 'materials/fawaz-*')
+              'imports/web-fawaz-20261112', 'materials/fawaz-*',
+              'imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
+              'imports/web-hadisuz-20261112', 'imports/web-import-status.json',
+              'imports/web-import-worker-stops.json', 'materials/deenhindi-*',
+              'materials/islom-*', 'materials/hadisuz-*')
               for path in Path('.').glob(pattern)]
           if paths:
               subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
@@ -108,9 +122,32 @@ jobs:
           for attempt in 1 2 3; do
             git fetch origin main
             before_push="$(git rev-parse refs/remotes/origin/main)"
+            rebase_status=0
             git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-              rebase origin/main
+              rebase origin/main || rebase_status=$?
+            if [[ "$rebase_status" != 0 ]]; then
+              # Only the global derived summary can be regenerated here.
+              # Source, review, queue, material and code conflicts still stop.
+              python - <<'PY'
+          import subprocess
+          conflicts = subprocess.run(
+              ['git', 'diff', '--name-only', '--diff-filter=U'],
+              capture_output=True, text=True, check=True).stdout.splitlines()
+          if conflicts != ['imports/web-import-status.json']:
+              raise SystemExit('Rebase needs review; conflicts are not limited to the derived import summary.')
+          subprocess.run(['git', 'restore', '--source=origin/main', '--staged', '--worktree',
+                          '--', 'imports/web-import-status.json'], check=True)
+          PY
+              GIT_EDITOR=true git -c user.name='github-actions[bot]' \
+                -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                rebase --continue
+            fi
+            # A review can change during the Fawaz export. Apply the integrated
+            # current review inputs again before validating or saving main.
+            python scripts/run_logged_task.py run \
+              --job-dir ".work/fawaz-website-reviews-rebase-$attempt" --cwd . --timeout 900 -- \
+              python scripts/web_import_batch.py --root . --reviews-only
             python - <<'PY'
           from pathlib import Path
           import sys
@@ -119,7 +156,29 @@ jobs:
           load_public_materials(Path('.').resolve())
           print('Revalidated the integrated material registry before push.')
           PY
+            python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = [str(path) for pattern in ('imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
+              'imports/web-hadisuz-20261112', 'imports/web-import-status.json',
+              'imports/web-import-worker-stops.json', 'materials/deenhindi-*',
+              'materials/islom-*', 'materials/hadisuz-*' )
+              for path in Path('.').glob(pattern)]
+          if paths:
+              subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
+          PY
             git diff --exit-code -- imports materials
+            if ! git diff --cached --quiet; then
+              if [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]]; then
+                git -c user.name='github-actions[bot]' \
+                  -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                  commit -m 'Refresh integrated reviewed source materials'
+              else
+                git -c user.name='github-actions[bot]' \
+                  -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+                  commit --amend --no-edit
+              fi
+            fi
             saved_commit="$(git rev-parse HEAD)"
             push_status=0
             git push origin HEAD:refs/heads/main || push_status=$?
@@ -167,6 +226,7 @@ jobs:
           FETCH_OUTCOME: ${{ steps.fetch.outcome }}
           EXPORT_OUTCOME: ${{ steps.export.outcome }}
           SOURCE_INTEGRITY_OUTCOME: ${{ steps.source_integrity.outcome }}
+          WEBSITE_REVIEWS_OUTCOME: ${{ steps.website_reviews.outcome }}
           VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
           SAVE_OUTCOME: ${{ steps.save.outcome }}
           DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
@@ -180,7 +240,7 @@ jobs:
           context = {key: os.environ.get(key) for key in (
               'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_SHA',
               'REGRESSION_OUTCOME', 'FETCH_OUTCOME', 'EXPORT_OUTCOME',
-              'SOURCE_INTEGRITY_OUTCOME', 'VALIDATE_OUTCOME',
+              'SOURCE_INTEGRITY_OUTCOME', 'WEBSITE_REVIEWS_OUTCOME', 'VALIDATE_OUTCOME',
               'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
           head = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
           context['checked_out_commit'] = head.stdout.strip() if head.returncode == 0 else None
@@ -210,6 +270,7 @@ jobs:
               '; fetch: ' + str(context['FETCH_OUTCOME']) +
               '; export: ' + str(context['EXPORT_OUTCOME']) +
               '; source integrity: ' + str(context['SOURCE_INTEGRITY_OUTCOME']) +
+              '; website review refresh: ' + str(context['WEBSITE_REVIEWS_OUTCOME']) +
               '; registry validation: ' + str(context['VALIDATE_OUTCOME']) +
               '; source save: ' + str(context['SAVE_OUTCOME']) +
               '; reader request: ' + str(context['DISPATCH_OUTCOME']) + '.', '',
@@ -229,6 +290,8 @@ jobs:
             .work/fawaz-bulk-fetch/
             .work/fawaz-bulk-export/
             .work/fawaz-source-integrity/
+            .work/fawaz-website-reviews*/
+            .work/web-import-batch/rebase-review/
             .work/fawaz-bulk-run/
             imports/web-fawaz-20261112/progress.json
             imports/web-fawaz-20261112/source-integrity-validation.json

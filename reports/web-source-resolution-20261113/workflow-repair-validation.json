@@ -1,0 +1,29 @@
+{
+  "schema": "islom-review-manifest-repair-validation-v1",
+  "status": "passed",
+  "source_commit": "eb6061e1d4115d141d3f2d723ec83fc57f34b1b2",
+  "reproduced_error": "Material checksum mismatch: imports/web-uzbek-20261112/islom/reviews/source-review-20261113-held.json.gz",
+  "repair_command": "python scripts/web_import_batch.py --root . --reviews-only",
+  "before": {
+    "registered": 8614,
+    "held": 11
+  },
+  "after": {
+    "registered_source_occurrences": 8622,
+    "primary_source_entries_registered": 8620,
+    "commentary_quote_children_registered": 2,
+    "non_narration_source_entries": 5,
+    "classification_pending_hidden": 0,
+    "source_entries_obtained": 8625,
+    "requests_this_run": 0
+  },
+  "material_manifests_validated": 11,
+  "raw_html_snapshots_preserved": 341,
+  "compressed_collection_ledgers_preserved": 11,
+  "checkpoint_task_history_preserved": true,
+  "current_review_bytes_preserved": true,
+  "network_connections_allowed": false,
+  "second_refresh_material_bytes_unchanged": true,
+  "runtime_note": "Local Python 3.12 gzip OS header normalized in isolated test runtime to the exact Python 3.13 Git bytes. Every restored collection blob matches the fetched Git object SHA; all original source payload bytes are unchanged.",
+  "large_derivative_upload_required": false
+}

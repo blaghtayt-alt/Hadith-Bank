@@ -44,6 +44,10 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
+      - name: Apply changed saved website reviews before shared validation
+        # Apply source-bound decisions offline before any consumer reads the
+        # shared material registry. This does not fetch or resume source URLs.
+        run: python scripts/web_import_batch.py --root . --reviews-only
       - name: Save bounded Fawaz validation evidence
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
@@ -105,6 +109,10 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
+      - name: Apply changed saved website reviews before shared validation
+        # Apply source-bound decisions offline before any consumer reads the
+        # shared material registry. This does not fetch or resume source URLs.
+        run: python scripts/web_import_batch.py --root . --reviews-only
       - name: Save bounded Fawaz validation evidence
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
@@ -166,6 +174,17 @@ jobs:
               imports/web-fawaz-20261112/progress.json \
               imports/web-fawaz-20261112/source-integrity-validation.json
           fi
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = [str(path) for pattern in ('imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
+              'imports/web-hadisuz-20261112', 'imports/web-import-status.json',
+              'imports/web-import-worker-stops.json', 'materials/deenhindi-*',
+              'materials/islom-*', 'materials/hadisuz-*' )
+              for path in Path('.').glob(pattern)]
+          if paths:
+              subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
+          PY
           if [[ -d hadith-bank-reader-data ]]; then
             git add -A -- hadith-bank-reader-data
           fi
