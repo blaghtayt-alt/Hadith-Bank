@@ -117,6 +117,23 @@ class LazyReaderValidationTests(unittest.TestCase):
         self.assertEqual(metrics['directory_bytes'], 0)
         self.assertEqual(self.read(manifest['details'])[0], [])
 
+    def test_snapshot_cannot_hide_a_source_without_authorized_grouping_evidence(self):
+        manifest = self.manifest()
+        snapshot = self.write_html(manifest)
+        projected = [(record['id'], validator.object_hash(record)) for record in self.records]
+        snapshot['reader_groups'] = {
+            'schema': 'hadith-bank-reader-groups-v1',
+            'source_occurrence_count': 2,
+            'grouped_reading_count': 1,
+            'groups': [{'id': 'TEST:1', 'anchor_id': 'TEST:1',
+                        'member_ids': ['TEST:1', 'TEST:2']}],
+        }
+        prefix = self.path.read_text().split('<script id="hadith-snapshot">', 1)[0]
+        self.path.write_text(prefix + '<script id="hadith-snapshot">' +
+                             json.dumps(snapshot) + '</script>')
+        with self.assertRaisesRegex(validator.ValidationError, 'grouping snapshot'):
+            validator.verify_reader(self.root, 'reader.html', projected, snapshot)
+
     def test_v1_details_still_reassemble_records_crossing_utf8_chunks(self):
         manifest = self.manifest()
         broken_utf8_parts = 0

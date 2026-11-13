@@ -1,0 +1,552 @@
+{
+  "reviewer": "/root/qc_pages_18_25",
+  "qc_run": "qc_v1",
+  "source_pdf": "ja_ketab_elfadael.pdf",
+  "source_sha256": "09a7f220e7bcf5152520913de57031bb840c80367566cfa71a61ded20bd6acde",
+  "reviewed_extraction_sha256": "d8c583cf6826370d0b540cd264359cb44287162e07758298bf40b06719ac86df",
+  "assigned_pages": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25
+  ],
+  "pages": [
+    {
+      "pdf_page": 18,
+      "printed_page_visible": 16,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p018_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "39464643f56dda31256b0e1f1aa11a171f436eabaa519093fad3c1483ac4d55e"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p018_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "6e6526ced6471b924d650ae315355913feb72674fa9e605db79d91208ee4a233"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 32,
+      "footnote_numbers_compared": [
+        42,
+        43,
+        44
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [],
+      "notes": [
+        "Printed page 16, both headings, all body lines, reference markers 42–44 and complete footnotes visually match.",
+        "Opening report continues from page 17. The page-17 source_units ending and page-18 beginning form a complete sentence; page 17 full visual coverage belongs to the other reviewer.",
+        "Source heading uses 品徳; preserved."
+      ]
+    },
+    {
+      "pdf_page": 19,
+      "printed_page_visible": 17,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p019_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "510822fc2648a8afcfc395a84cbf70b719da3aaa4e984ba97f9980b081f982e3"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p019_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "762b060a7b22ac43679a22c270d55ad180ed3a5356d4a530c3e30998b7a418a7"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 31,
+      "footnote_numbers_compared": [
+        45,
+        46
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-S01",
+          "pdf_page": 19,
+          "printed_page": 17,
+          "category": "extraction_structure",
+          "status": "confirmed",
+          "severity": "medium",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u009"
+          ],
+          "before": {
+            "kind": "body_line",
+            "text": "ムスリムと良い関係を築き、彼らの用事を手伝い、その苦悩を和らげ、"
+          },
+          "proposed": {
+            "kind": "subsection_heading",
+            "text": "ムスリムと良い関係を築き、彼らの用事を手伝い、その苦悩を和らげ、"
+          },
+          "evidence": "At 300 dpi the two consecutive bold lines at the middle of PDF page 19 form one heading. The first line is tagged body_line, while the second (u010) is tagged subsection_heading. See p019_top.png.",
+          "recommended_action": "Correct only the kind of u009; optionally group u009 and u010 as the same heading. Do not change the text."
+        },
+        {
+          "finding_id": "QC-18-25-B01",
+          "pdf_page": 19,
+          "printed_page": 17,
+          "category": "original_source_wording",
+          "status": "observed_variant_not_confirmed_error",
+          "severity": "low",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u014"
+          ],
+          "before": "同胞の必用事",
+          "proposed": null,
+          "evidence": "The original visibly uses 必用事 here and 必要事 in the immediately following line. This is faithfully extracted. See p019_top.png.",
+          "recommended_action": "Preserve the source. An editorial edition may standardize only after language review."
+        }
+      ],
+      "notes": [
+        "Printed page 17 and all visible text/notes match.",
+        "One heading spans two bold lines; the first is structurally misclassified.",
+        "The report ending the page continues onto page 20; footnotes 45–46 remain separated from it."
+      ]
+    },
+    {
+      "pdf_page": 20,
+      "printed_page_visible": 18,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p020_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "88f858a832b1aa6b5aec1f60988f8e95508211941af6d356e5c7f6f73911a49c"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p020_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "987f46fa8f6324cbf57af40012e07cb8c0cceb68f00da1592deff6163fbfbea4"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 24,
+      "footnote_numbers_compared": [
+        47,
+        48,
+        49
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-B02",
+          "pdf_page": 20,
+          "printed_page": 18,
+          "category": "original_source_semantics",
+          "status": "candidate_pending_external_comparison",
+          "severity": "medium",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u003",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u004",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u005",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u006"
+          ],
+          "before": "自分たちが所有する剰余物において、他人に対するいかなる権利も有していない",
+          "proposed": null,
+          "evidence": "This is the original Japanese wording of the end of the report referenced to Muslim 1728; visually confirmed in p020_top.png. The phrase about rights against others warrants comparison with the Arabic rights-in-surplus clause. No extraction error was found.",
+          "recommended_action": "Root should compare the cited original report before declaring a translation error. Preserve the Japanese wording in the diplomatic transcript."
+        }
+      ],
+      "notes": [
+        "Printed page 18; continuation of report 47 closes before 聖クルアーンの徳.",
+        "All visible text, source punctuation and footnotes 47–49 match.",
+        "The ornamental section divider is nonlinguistic."
+      ]
+    },
+    {
+      "pdf_page": 21,
+      "printed_page_visible": 19,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p021_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "d45eacbfecccea695282bccb1e8e927bee056612edff2703da47c9dff3e5b004"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p021_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "446035579ba0c59c16f43d59aa49d3c42c66d79d175a5c31cc3371f38625d459"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 26,
+      "footnote_numbers_compared": [
+        50,
+        51
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-B03",
+          "pdf_page": 21,
+          "printed_page": 19,
+          "category": "original_source_semantics",
+          "status": "candidate_pending_external_comparison",
+          "severity": "medium",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u007",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u008",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u009"
+          ],
+          "before": "彼らの間には静寂が訪れ、慈悲に包まれ、またアッラーが天使たちのもとで彼らを褒め称えられないことはない",
+          "proposed": null,
+          "evidence": "The printed excerpt linked to Muslim 2699 visibly moves directly from mercy to divine mention; it does not contain a separate clause saying angels surround the gathering. See p021_top.png. The excerpt starts with an explicit 中略 marker, so any external omission assessment must consider editorial abridgment.",
+          "recommended_action": "Root should check the exact Arabic variant and distinguish abridgment from mistranslation. Do not insert external text into the source transcript."
+        }
+      ],
+      "notes": [
+        "Printed page 19; all three headings and body lines match.",
+        "The explicit source elision punctuation is ‐中略‐・・・ and is retained.",
+        "The final report continues onto page 22, with no missing text at the break."
+      ]
+    },
+    {
+      "pdf_page": 22,
+      "printed_page_visible": 20,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p022_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "df8c50d0fa4bb751a1602e3c0182d40e033a3788e0ebae5b1489fe881f46fa6f"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p022_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "26ed9bda1f682c39b0b97f6f1f9b5aed3c6fb56018cb455cd62324fb296b9712"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 29,
+      "footnote_numbers_compared": [
+        52,
+        53,
+        54
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-S02",
+          "pdf_page": 22,
+          "printed_page": 20,
+          "category": "extraction_structure",
+          "status": "confirmed",
+          "severity": "medium",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u020"
+          ],
+          "before": {
+            "kind": "body_line",
+            "text": "アッラーの使徒（彼にアッラーからの祝福と平安あれ）の遺言："
+          },
+          "proposed": {
+            "kind": "subsection_heading",
+            "text": "アッラーの使徒（彼にアッラーからの祝福と平安あれ）の遺言："
+          },
+          "evidence": "The line アッラーの使徒（彼にアッラーからの祝福と平安あれ）の遺言： is visibly bold and separated above a new report at the lower half of PDF page 22. It is a subsection heading despite not ending in 徳. See p022_bottom.png.",
+          "recommended_action": "Correct only the kind of u020; preserve wording."
+        }
+      ],
+      "notes": [
+        "Printed page 20; report 52 continuation matches.",
+        "All body wording and footnotes 52–54 match.",
+        "The 遺言 heading needs structural reclassification.",
+        "The final report continues onto page 23."
+      ]
+    },
+    {
+      "pdf_page": 23,
+      "printed_page_visible": 21,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p023_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "4963f346db6bd3240789b60c14c7d3643088425accfa91d701ea0e178214c02e"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p023_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "01adbe171e0f997575a69653c40375e7fc464dc28d1622d48261183e2d6fb222"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 30,
+      "footnote_numbers_compared": [
+        55,
+        56,
+        57
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-B04",
+          "pdf_page": 23,
+          "printed_page": 21,
+          "category": "original_source_speaker_attribution",
+          "status": "candidate_with_internal_evidence_pending_external_check",
+          "severity": "high",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u004",
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u005"
+          ],
+          "before": "すると（タルハは）言いました",
+          "proposed": {
+            "editorial_candidate": "すると（アブドッラー・ブン・アビー・アウファーは）言いました",
+            "do_not_apply_to_source_transcript": true
+          },
+          "evidence": "PDF page 22 introduces Talha as the questioner and Ibn Abi Awfa as the respondent. PDF page 23 visibly attributes the answer to Talha. This internally inconsistent attribution is in the book, not created by extraction. Compare p022_bottom.png and p023_top.png. Footnote 55 cites Bukhari 5022 / Muslim 1634.",
+          "recommended_action": "Verify the answerer against the cited report. Preserve the source in raw/diplomatic text, recording any substantiated correction separately."
+        }
+      ],
+      "notes": [
+        "Printed page 21; the Talha attribution is exactly what the original prints.",
+        "All report text, numeral forms and footnotes 55–57 match.",
+        "The final Ibn Amr report continues onto page 24."
+      ]
+    },
+    {
+      "pdf_page": 24,
+      "printed_page_visible": 22,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p024_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "d922e38fb6978c032a88970f715d51d3600ddbfda1e990c13b144fe355eea093"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p024_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "02dc521fa4299978ce9aaa264188e94b2db8ed130d4f15d474b741425c457814"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 17,
+      "footnote_numbers_compared": [
+        58
+      ],
+      "visible_text_transcription_differences": [],
+      "findings": [
+        {
+          "finding_id": "QC-18-25-B05",
+          "pdf_page": 24,
+          "printed_page": 22,
+          "category": "original_source_punctuation",
+          "status": "confirmed_printed_omission",
+          "severity": "low",
+          "unit_ids": [
+            "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u015"
+          ],
+          "before": "（1300）文章は",
+          "proposed": {
+            "editorial_candidate": "（1300）。文章は",
+            "do_not_apply_to_source_transcript": true
+          },
+          "evidence": "The original footnote 58 visibly has no full stop between （1300） and 文章は. See p024_bottom.png. The delivered text matches it.",
+          "recommended_action": "Preserve the original punctuation in the transcription. Record an optional editorial punctuation proposal separately."
+        }
+      ],
+      "notes": [
+        "Printed page 22; the final report and all nested closing quotation marks match.",
+        "The addendum, diamond bullet and full URL are preserved.",
+        "Footnote 58 reference numbers 2914 / 2379 / 1464 / 1300 are visibly confirmed; their bibliographic authenticity is not assessed here.",
+        "The missing punctuation after （1300） belongs to the original."
+      ]
+    },
+    {
+      "pdf_page": 25,
+      "printed_page_visible": null,
+      "image_inspected": true,
+      "actual_views": [
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p025_top.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            0,
+            396.84,
+            315
+          ],
+          "actually_viewed": true,
+          "sha256": "13e61bbf552e139c100db91623b26b825754535df76d392afbdcaf0f13770e2f"
+        },
+        {
+          "path": "qc_v1/crops/qc_pages_18_25/p025_bottom.png",
+          "render_dpi": 300,
+          "pdf_clip_points": [
+            0,
+            285,
+            396.84,
+            595.32
+          ],
+          "actually_viewed": true,
+          "sha256": "7609b482cd4d8af890eaa35f222e52b87d276670056ad40aa5f007b7ec1b1492"
+        }
+      ],
+      "coverage": "Every visible source line in both 300-dpi half-page crops was read and compared with the delivered source_units and verified_visible_text, including Japanese characters, punctuation, superscript reference markers, footnote numbers and source-reference digits. This is a complete line-by-line visual pass at character-legible resolution, not an independently certified double-key character transcription.",
+      "source_units_compared": 9,
+      "footnote_numbers_compared": [],
+      "visible_text_transcription_differences": [],
+      "findings": [],
+      "notes": [
+        "No running header or printed 23 is visible. The delivered visible transcript correctly excludes them; the raw_embedded_text and invisible_text_layer_content preserve them.",
+        "Back-cover prose, publisher line and visible isolated final dot match.",
+        "The source dash in イバーダ―トの徳 is preserved from the embedded source; no normalization is proposed.",
+        "Lower background contains decorative calligraphic pattern fragments, not a separately readable continuous passage; no speculative text is added."
+      ]
+    }
+  ],
+  "cross_page_continuations": [
+    {
+      "from_pdf_page": 17,
+      "to_pdf_page": 18,
+      "footnote": 42,
+      "status": "matches source-unit sentence continuity; page 18 visually checked, page 17 full visual review delegated elsewhere"
+    },
+    {
+      "from_pdf_page": 19,
+      "to_pdf_page": 20,
+      "footnote": 47,
+      "status": "both sides visually checked, complete"
+    },
+    {
+      "from_pdf_page": 21,
+      "to_pdf_page": 22,
+      "footnote": 52,
+      "status": "both sides visually checked, complete"
+    },
+    {
+      "from_pdf_page": 22,
+      "to_pdf_page": 23,
+      "footnote": 55,
+      "status": "both sides visually checked, complete; original speaker-attribution candidate retained separately"
+    },
+    {
+      "from_pdf_page": 23,
+      "to_pdf_page": 24,
+      "footnote": 58,
+      "status": "both sides visually checked, complete"
+    }
+  ],
+  "summary": {
+    "full_pages_actually_viewed": 8,
+    "high_resolution_crops_actually_viewed": 16,
+    "visible_text_transcription_errors_found": 0,
+    "confirmed_structure_defects": 2,
+    "original_source_editorial_observations_or_candidates": 5,
+    "external_citation_checks_performed_by_this_reviewer": 0,
+    "unresolved_visible_glyph_readings": 0,
+    "independent_character_certification": false,
+    "original_outputs_modified": false
+  }
+}

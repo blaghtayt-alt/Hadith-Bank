@@ -1,0 +1,200 @@
+{
+  "schema": "hadith-bank-reader-completed-cancellation-receipt-v1",
+  "run_id": 43437261471,
+  "job_id": 131927288012,
+  "head_sha": "5749ec389f1925f4d5e05a34d64c39acbc1f90f4",
+  "run_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43437261471",
+  "conclusion": "cancelled",
+  "jobs": [
+    {
+      "id": 131927288012,
+      "name": "Refresh bank and build website",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "run_id": 43437261471,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Check out requested main revision",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Set up Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run software tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install reader browser test runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Export saved Fawaz reviews and preserve published quotations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Apply changed saved website reviews before shared validation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Save bounded Fawaz validation evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Synchronize official counterpart sources for newly registered IDs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Rebuild and validate all registered material",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 10
+        },
+        {
+          "name": "Verify bounded reader in Chromium",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11
+        },
+        {
+          "name": "Save reader runtime evidence",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12
+        },
+        {
+          "name": "Keep generated bank files synchronized",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13
+        },
+        {
+          "name": "Upload the verified website",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14
+        },
+        {
+          "name": "Post Set up Python",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 27
+        },
+        {
+          "name": "Post Check out requested main revision",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        }
+      ]
+    },
+    {
+      "id": 131927289955,
+      "name": "Validate proposed material and reader",
+      "status": "completed",
+      "conclusion": "skipped",
+      "run_id": 43437261471,
+      "logs_url": null,
+      "steps": null
+    },
+    {
+      "id": 131943351351,
+      "name": "Publish verified website",
+      "status": "completed",
+      "conclusion": "skipped",
+      "run_id": 43437261471,
+      "logs_url": null,
+      "steps": null
+    }
+  ],
+  "software": {
+    "python_tests": 957,
+    "python_seconds": 66.152,
+    "node_tests": 43,
+    "node_pass": 43,
+    "node_fail": 0
+  },
+  "timing": {
+    "first_log": "2026-11-13T13:54:39.7423298Z Current runner version: '2.338.2'",
+    "full_refresh_start": "2026-11-13T14:06:27.1622269Z ##[group]Run python scripts/refresh_bank.py --root . --site-output _site",
+    "cancellation": "2026-11-13T14:24:51.5056701Z ##[error]The operation was canceled.",
+    "before_refresh_seconds": 707.42,
+    "full_refresh_elapsed_before_cancellation_seconds": 1104.343,
+    "total_seconds": 1811.763
+  },
+  "completed_fawaz_export": {
+    "provider_occurrences": 36464,
+    "registered_occurrences": 36226,
+    "raw_export_held_occurrences": 238,
+    "verified_projected_readings": 13304,
+    "status": "passed"
+  },
+  "completed_global_saved_web_export": {
+    "schema": "hadith-bank-web-import-status-v1",
+    "enabled": true,
+    "fetched_entries": 24447,
+    "registered_occurrences": 24206,
+    "held_entries": 94,
+    "non_narration_source_entries": 149,
+    "requires_attention": true,
+    "fetch_queues_done": false,
+    "has_fetch_work": true,
+    "schedule_should_pause": false,
+    "schedule_pause_reason": null,
+    "complete_content_import_certified": false,
+    "note": "Counts describe preserved source entries, not unique canonical hadiths. Queue completion still requires reconciliation of held entries, source omissions and embedded quotations."
+  },
+  "interpretation": "The saved website export summary is the global aggregate returned by the job, not a per-source state audit or a canonical-identity count. Fawaz’s raw export held counter is reproduced with its original meaning; separate disposition audits distinguish resolved source-only material from unresolved review.",
+  "full_registry_validation_completed": false,
+  "chromium_validation_completed": false,
+  "website_uploaded": false,
+  "deployed": false,
+  "cancellation_inference": "The generic cancellation was logged1811.763 seconds after the first runner log, consistent with the30-minute build-job cap active in this run. The log does not explicitly state the cancellation cause.",
+  "later_published_workflow": {
+    "commit": "6b20d4578c85ec2a8fb00bb7a7796f487cde755f",
+    "git_blob_sha1": "83c1aa5e30efb70125d8e8a718dadcecf4d90083",
+    "build_timeout_minutes": 45,
+    "applies_to": "subsequent jobs only; this completed5749 job retained30"
+  },
+  "successor": {
+    "run_id": 43442682945,
+    "head_sha": "6b20d4578c85ec2a8fb00bb7a7796f487cde755f",
+    "run_started_at": "2026-11-13T14:26:11Z",
+    "last_observed_at": "2026-11-13T14:31:45Z",
+    "status": "in_progress",
+    "step": "Export saved Fawaz reviews and preserve published quotations",
+    "completion_not_claimed": true
+  },
+  "source_http_requests": 0,
+  "github_writes": 0
+}

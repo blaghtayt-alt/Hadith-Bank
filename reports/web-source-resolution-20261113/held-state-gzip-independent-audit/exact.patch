@@ -1,0 +1,173 @@
+--- a/scripts/export_deenhindi_held_evidence.py
++++ b/scripts/export_deenhindi_held_evidence.py
+@@ -11,4 +11,5 @@
+ import bisect
+ import copy
++import gzip
+ import hashlib
+ import io
+@@ -28,4 +29,5 @@
+ MAX_BYTES = 32 * 1024**2
+ OUTPUT_BASE = '.work/deenhindi-held-evidence'
++STATE_ARTIFACT = 'saved-state.json.gz'
+ SCHEMA = 'deenhindi-committed-held-evidence-v1'
+ CODE = ('scripts/import_deenhindi.py', 'scripts/recover_deenhindi_artifact.py',
+@@ -131,10 +133,11 @@
+ 
+ 
+-def bundle_files(checkpoint, selected, entries, objects, source_receipts, ordered_keys, maximum_bytes):
++def bundle_files(checkpoint, selected, entries, objects, source_receipts, ordered_keys, maximum_bytes, state_payload):
+     count = len(selected)
+     summary = {**checkpoint, 'selected_held_entries': count,
+         'remaining_held_queue_count': len(ordered_keys) - count,
+         'selected_keys': list(selected), 'next_held_key': ordered_keys[count] if count < len(ordered_keys) else None}
+-    files = {'held-source-records.jsonl': importer.rows_bytes(list(selected.values())),
++    files = {STATE_ARTIFACT: state_payload,
++        'held-source-records.jsonl': importer.rows_bytes(list(selected.values())),
+         'held-state-entries.json': importer.json_bytes({key: entries[key] for key in selected}),
+         'checkpoint.json': importer.json_bytes(summary),
+@@ -173,5 +176,7 @@
+         for path, module in zip(CODE, code_modules):
+             require(snapshot.read(path) == Path(module.__file__).read_bytes(), 'executed verifier differs from saved code')
+-        state = recovery.json_value(snapshot.read(importer.IMPORT + '/state.json'))
++        state_path = importer.IMPORT + '/state.json'
++        state_bytes = snapshot.read(state_path)
++        state = recovery.json_value(state_bytes)
+         inventory = recovery.json_value(snapshot.read(importer.IMPORT + '/inventory.json'))
+         progress = recovery.json_value(snapshot.read(importer.IMPORT + '/progress.json'))
+@@ -221,7 +226,20 @@
+                     'per-book source/held progress differs: ' + slug)
+         ordered_keys = sorted(queued, key=lambda key: (key.split(':', 1)[0], order[key.split(':', 1)[0]][key.split(':', 1)[1]], key))
++        # Preserve the complete committed bytes, including errors, consumed
++        # attempts and unknown controls. A fixed header makes this deterministic;
++        # no parsed JSON reserialization or source-state mutation is involved.
++        compressed = io.BytesIO()
++        with gzip.GzipFile(filename='', mode='wb', fileobj=compressed, mtime=0, compresslevel=9) as stream:
++            stream.write(state_bytes)
++        state_payload = compressed.getvalue()
++        state_receipt = {'path': STATE_ARTIFACT, 'source_path': state_path, 'compression': 'gzip',
++            'bytes': len(state_bytes), 'sha256': recovery.sha(state_bytes),
++            'git_blob_sha1': snapshot.receipts[state_path]['git_blob_sha1'],
++            'stored_bytes': len(state_payload), 'stored_sha256': recovery.sha(state_payload),
++            'maximum_uncompressed_bytes': recovery.MAX_STATE_BYTES}
+         checkpoint = {'schema': SCHEMA, 'saved_head': snapshot.head, 'saved_tree': snapshot.tree,
+             'checkpoint_scope': 'Exact saved local HEAD; not a claim about the latest remote main or deployment.',
+             'run_id': run, 'run_attempt': attempt, 'input_receipts': copy.deepcopy(snapshot.receipts),
++            'saved_state': state_receipt,
+             'held_entries_total': len(queued), 'held_by_collection': per_book,
+             'held_queue_order': 'collection key then observed inventory position',
+@@ -231,4 +249,8 @@
+             'source_or_publication_mutations': False, 'independent_pro_qc': 'not_performed'}
+         selected, objects = {}, {}
++        initial_files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts,
++                                     ordered_keys, max_bytes, state_payload)
++        require(sum(map(len, initial_files.values())) <= max_bytes,
++                'committed state and checkpoint receipts exceed the byte bound')
+         for _, _, key in priorities:
+             saved, verified_files = recovery.checked_entry(key, entries[key],
+@@ -248,13 +270,13 @@
+             new_objects = {**objects, **verified_files}
+             # Bound retained source memory before constructing metadata/rows.
+-            if sum(map(len, new_objects.values())) > max_bytes:
++            if len(state_payload) + sum(map(len, new_objects.values())) > max_bytes:
+                 require(selected, 'first held source exceeds the byte bound')
+                 break
+-            files = bundle_files(checkpoint, provisional, entries, new_objects, snapshot.receipts, ordered_keys, max_bytes)
++            files = bundle_files(checkpoint, provisional, entries, new_objects, snapshot.receipts, ordered_keys, max_bytes, state_payload)
+             if sum(map(len, files.values())) > max_bytes:
+                 require(selected, 'first held source and receipts exceed the byte bound')
+                 break
+             selected, objects = provisional, new_objects
+-        files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts, ordered_keys, max_bytes)
++        files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts, ordered_keys, max_bytes, state_payload)
+         total_bytes = sum(map(len, files.values()))
+         require(total_bytes <= max_bytes and (selected or not queued), 'bounded evidence bundle cannot represent the first held record')
+--- a/tests/test_export_deenhindi_held_evidence.py
++++ b/tests/test_export_deenhindi_held_evidence.py
+@@ -2,7 +2,9 @@
+ import copy
+ import gzip
++import hashlib
+ import json
+ import os
+ from pathlib import Path
++import random
+ import shutil
+ import subprocess
+@@ -133,5 +135,5 @@
+                 self.export(**options)
+         before = self.bundle(result)
+-        with self.assertRaisesRegex(ValueError, 'first held source'):
++        with self.assertRaisesRegex(ValueError, 'exceed.*byte bound'):
+             self.export(max_bytes=1)
+         self.assertEqual(self.bundle(result), before)
+@@ -145,4 +147,69 @@
+         self.assertFalse(any(name.startswith('sources/') for name in files))
+         self.assertEqual(files['held-source-records.jsonl'], b'')
++        state = (self.root / importer.IMPORT / 'state.json').read_bytes()
++        self.assertEqual(gzip.decompress(files[exporter.STATE_ARTIFACT]), state)
++
++    def test_complete_saved_state_is_exact_deterministic_and_hash_bound(self):
++        self.state['error_history'] = {'TEST': [{'message': 'retained original error',
++                                               'response_sha256': 'a' * 64}]}
++        self.write_checkpoint()
++        path = self.root / importer.IMPORT / 'state.json'
++        # Valid, deliberately noncanonical JSON spacing proves byte preservation,
++        # not a reconstruction from selected entries or a parsed state object.
++        source = b' \n' + path.read_bytes() + b'\t\n'
++        path.write_bytes(source)
++        self.head = self.commit()
++        result = self.export(max_records=1)
++        files = self.bundle(result)
++        checkpoint = json.loads(files['checkpoint.json'])
++        descriptor = checkpoint['saved_state']
++        stored = files[descriptor['path']]
++        self.assertEqual(descriptor['source_path'], importer.IMPORT + '/state.json')
++        self.assertEqual(descriptor['compression'], 'gzip')
++        self.assertEqual(descriptor['bytes'], len(source))
++        self.assertEqual(descriptor['sha256'], recovery.sha(source))
++        self.assertEqual(descriptor['stored_bytes'], len(stored))
++        self.assertEqual(descriptor['stored_sha256'], recovery.sha(stored))
++        self.assertEqual(descriptor['maximum_uncompressed_bytes'], recovery.MAX_STATE_BYTES)
++        self.assertEqual(descriptor['git_blob_sha1'], self.git('rev-parse', self.head + ':' + descriptor['source_path']))
++        self.assertEqual(descriptor['git_blob_sha1'], hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest())
++        self.assertEqual(checkpoint['input_receipts'][descriptor['source_path']]['sha256'], descriptor['sha256'])
++        self.assertEqual(gzip.decompress(stored), source)
++        self.assertEqual(recovery.uncompress(stored, descriptor['bytes']), source)
++        with self.assertRaisesRegex(ValueError, 'gzip source exceeds object limit'):
++            recovery.uncompress(stored, descriptor['bytes'] - 1)
++        recovered = json.loads(gzip.decompress(stored))
++        self.assertEqual(recovered, self.state)
++        self.assertEqual(len(recovered['imported']), 4)
++        self.assertEqual(result['selected_held_entries'], 1)
++        self.assertEqual(recovered['blocked'], self.state['blocked'])
++        self.assertEqual(recovered['errors'], self.state['errors'])
++        self.assertEqual(recovered['error_history'], self.state['error_history'])
++        self.assertEqual(recovered['reviewed_error_attempts'], self.state['reviewed_error_attempts'])
++        self.assertEqual(recovered['future_control'], self.state['future_control'])
++        self.assertEqual(stored[4:8], b'\0' * 4)
++        self.assertEqual(stored[3], 0)  # No filename or other variable gzip headers.
++        self.assertEqual(stored[9], 255)  # Stable platform-independent gzip header.
++        manifest = json.loads(files['evidence-manifest.json'])
++        self.assertEqual(manifest['artifact_files'][descriptor['path']],
++                         {'bytes': len(stored), 'sha256': recovery.sha(stored)})
++        self.assertEqual(self.bundle(self.export(max_records=1)), files)
++        self.assertEqual(path.read_bytes(), source)
++        self.network.assert_not_called()
++
++    def test_whole_state_and_receipts_use_existing_cap_without_replacing_bundle(self):
++        prior = self.export(max_records=1)
++        before = self.bundle(prior)
++        budget = prior['total_output_bytes'] + 100
++        self.state['future_control'] = random.Random(117).randbytes(65536).hex()
++        self.write_checkpoint()
++        self.head = self.commit()
++        state_before = (self.root / importer.IMPORT / 'state.json').read_bytes()
++        with self.assertRaisesRegex(ValueError, 'committed state and checkpoint receipts exceed the byte bound'):
++            self.export(max_bytes=budget)
++        self.assertEqual(self.bundle(prior), before)
++        self.assertEqual((self.root / importer.IMPORT / 'state.json').read_bytes(), state_before)
++        self.assertEqual(self.git('rev-parse', 'HEAD'), self.head)
++        self.network.assert_not_called()
+ 
+     def test_missing_committed_source_fails_without_replacing_a_prior_bundle(self):

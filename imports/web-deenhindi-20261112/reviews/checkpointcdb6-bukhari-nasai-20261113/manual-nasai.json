@@ -1,0 +1,781 @@
+{
+  "read_method": "Every explicitly reviewed field was read completely before its individual semantic decision and exact source boundary were authored.",
+  "records": [
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "reason": "Read the full Hindi field. The actual question and Ibn Abbas’s attributed answer about a menstruating woman and dog remain Companion-level content. Yahya ibn Said’s final comment that Shubah narrated it marfu is attribution apparatus, not additional report wording and not a basis for promoting the supplied answer to direct Prophetic speech.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_statement",
+              "speaker": "Qatadah reporting his question to Jabir ibn Zayd and Jabir’s transmission of Ibn Abbas’s statement",
+              "to": "याहया बिन सईद कहते हैं"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "reason": "Read the complete Urdu field independently. Retain the finite question/answer at its actual attribution. The final marfu-transmission assessment is retained as source context rather than used to invent a missing Prophetic speaker.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_statement",
+              "speaker": "Qatadah reporting his question to Jabir ibn Zayd and Jabir’s transmission of Ibn Abbas’s statement",
+              "to": "یحییٰ بن سعید کہتے ہیں"
+            }
+          ]
+        }
+      },
+      "key": "nasai:751"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "ar": {
+          "action": "whole",
+          "reason": "Read the full own Arabic chain and body. Retain thumma dhakara kalimatan manaha as the explicit transmission qualification and all the finite dismounting/grazing/no-response actions. No outside place wording is substituted.",
+          "report_type": "prophetic_historical_report_with_explicit_transmission_paraphrase",
+          "speaker": "Ibn Abbas reporting the donkey arrival and row crossing, with the transmitted meaning qualifier"
+        },
+        "en": {
+          "action": "whole",
+          "reason": "Read the full own English field through its unclosed final quotation. Retain Then he said something to that effect as the source’s qualification, not an invented verbatim claim; preserve missing terminal punctuation and spacing exactly.",
+          "report_type": "prophetic_historical_report_with_explicit_transmission_paraphrase",
+          "speaker": "Ibn Abbas reporting the donkey arrival and row crossing, with the transmitted meaning qualifier"
+        },
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi field. Its parenthesis explicitly qualifies the following narrated words as their reported meaning; keep that qualification with the finite account rather than silently converting paraphrase to verbatim wording. Preserve Arafat, the female donkey, partial row crossing and no recorded response.",
+          "report_type": "prophetic_historical_report_with_explicit_transmission_paraphrase",
+          "speaker": "Ibn Abbas reporting riding with al-Fadl and passing part of the row, with the source’s paraphrase qualification retained"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the entire Urdu field. Keep the transmitter’s parenthetic paraphrase qualification, which governs the following body rather than defining a word. The only detached apparatus is the numbered footnote glyph. Preserve the supplied Arafah wording and nonbreaking space.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report_with_explicit_transmission_paraphrase",
+              "speaker": "Ibn Abbas reporting riding with al-Fadl and passing part of the row, with the source’s paraphrase qualification retained",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:752"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the whole Hindi field. Keep both finite episodes, the unnamed Hashimi boy, the two Abd al-Muttalib girls and both no-breaking-prayer statements. No personal identity or legal conclusion is added.",
+          "report_type": "prophetic_report",
+          "speaker": "Ibn Abbas reporting passing the praying Prophet and the two girls who approached his knees"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Both actual episodes and their stated outcomes remain. Remove only the explicit footnote marker from the admitted text, preserving it as context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting passing the praying Prophet and the two girls who approached his knees",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:754"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi field. Preserve Aishah’s stated reluctance to cross before him and her actual sliding movement; it is her reported thought/action, not an added generalized ruling.",
+          "report_type": "prophetic_report",
+          "speaker": "Aishah describing her position before the praying Prophet and her own movement"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Keep her intention, reluctance and subsequent movement; the terminal numbered footnote marker alone is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah describing her position before the praying Prophet and her own movement",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:755"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "ar": {
+          "action": "whole",
+          "reason": "Read the entire own Arabic chain and body, including ma tutiqun, hatta tamallu, the continuity/minimum qualification and the final prayer-place/persistence account. All are actual supplied report text; nothing is filled from translations.",
+          "report_type": "prophetic_report",
+          "speaker": "Aishah reporting the mat prayer and the Prophet’s instruction and subsequent practice"
+        },
+        "en": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(of giving reward)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(in death)"
+            }
+          ],
+          "reason": "Read the entire own English field. Preserve the instruction’s as-much-as-you-can restriction, until relation, continuity qualification and imperfect ending. The parenthetic reward and death explanations are retained in context; their nonparenthetic equivalents in independently reviewed Hindi/Urdu are not erased or normalized.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah reporting the mat prayer and the Prophet’s instruction and subsequent practice",
+              "to": null
+            }
+          ]
+        },
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(अमल से)"
+            }
+          ],
+          "reason": "Read the entire Hindi field. Retain the parenthetic only-as-much quantity restriction with the actual as-you-are-able instruction; it limits the injunction rather than defining a term. Keep the mat, followers, reward wording, continuity advice and until-death account exactly. The smaller parenthetic identification of what people tire from is explicit explanatory context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah describing the mat prayer, the Prophet’s instruction and his subsequent practice",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( عمل سے )"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Retain the restrictive quantity framing and the full actual narrative/quotation, including the source’s reward wording and persistence. Separate only the parenthetic from-work explanatory identification; no theology is rewritten from another language.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah describing the mat prayer, the Prophet’s instruction and his subsequent practice",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:762"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "ar": {
+          "action": "whole",
+          "reason": "Read the full own Arabic chain and dialogue. It supplies the finite wazurruhu instruction with wa-law bi-shawkah; no separate nam/yes is added from the Hindi/Urdu parentheses.",
+          "report_type": "prophetic_report",
+          "speaker": "Salamah ibn al-Akwa asking about his shirt and reporting the Prophet’s fastening instruction"
+        },
+        "en": {
+          "action": "whole",
+          "reason": "Read the complete own English field. Keep the question and Fasten it to yourself even with a thorn as written, including its missing closing quotation punctuation and original spacing.",
+          "report_type": "prophetic_report",
+          "speaker": "Salamah ibn al-Akwa asking about his shirt and reporting the Prophet’s fastening instruction"
+        },
+        "hi": {
+          "action": "excerpts",
+          "reason": "Read the complete own Hindi question and answer. Retain the finite affirmative reply following he-said together with the fastening instruction; its parenthetic typography does not make it a lexical definition. The separately read Arabic/English lack that reply and are preserved independently, with no cross-language erasure or filling.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Salamah ibn al-Akwa asking about his shirt and reporting the Prophet’s fastening instruction",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "reason": "Read the complete own Urdu dialogue. Keep the finite affirmative reply with the thorn-fastening answer exactly as supplied after he-said. Its absence in Arabic/English does not remove it from this source language; those fields remain unchanged.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Salamah ibn al-Akwa asking about his shirt and reporting the Prophet’s fastening instruction",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:765"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(जो मर्दों के पीछे पढ़ रही थीं)"
+            }
+          ],
+          "reason": "Read the entire Hindi field. The source’s children comparison, garment arrangement and until-men-sit-upright limit remain. The issuer of the instruction is unstated. The parenthetic identification of the women as praying behind the men is explanatory context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_prayer_setting_and_instruction_with_unstated_instructor",
+              "speaker": "Sahl ibn Sad describing the garment arrangement and a passive instruction to the women",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( جو مردوں کے پیچھے پڑھ رہی تھیں )"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Preserve the actual comparison, setting and temporal restriction without inventing the instructor. Separate only the explicit parenthetic explanation of the women’s position.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_prayer_setting_and_instruction_with_unstated_instructor",
+              "speaker": "Sahl ibn Sad describing the garment arrangement and a passive instruction to the women",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:766"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi field. Retain the appearance-qualified as-if-disliking-it observation and the exact subsequent statement. The source’s spelling of the gift word is not normalized; no general ruling is added.",
+          "report_type": "prophetic_report",
+          "speaker": "Uqbah ibn Amir describing the silk garment, prayer and the Prophet’s subsequent statement"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field. The gift, wearing, prayer, forceful removal, qualified observation and actual quoted statement are all finite report content with no detached apparatus.",
+          "report_type": "prophetic_report",
+          "speaker": "Uqbah ibn Amir describing the silk garment, prayer and the Prophet’s subsequent statement"
+        }
+      },
+      "key": "nasai:770"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 2,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(ख़ून)"
+            }
+          ],
+          "reason": "Read the entire Hindi field, including both conditional contacts and both no-going-beyond descriptions. The two identical parenthetic blood identifications are explicit explanations and are each retained as context at their own exact position. Keep the menstrual setting and all actual conditional/repeated actions, including the source typo lete.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah describing the shared garment, local washing and repeated prayer/rest sequence",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 2,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( خون )"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Preserve each conditional event and the restriction to the affected place. Both occurrences of the blood-identification gloss are separately bounded source context; the rest of the account remains unchanged.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Aishah describing the shared garment, local washing and repeated prayer/rest sequence",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:773"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi field. Retain the parenthetic sometimes-he-said qualification between cousin and companion: it is an actual transmitted wording variation, not a lexical label, and removing it would erase uncertainty. The two-person travel condition and elder-leadership instruction remain intact.",
+          "report_type": "prophetic_report_with_transmitter_wording_variation",
+          "speaker": "Malik ibn al-Huwayrith reporting his visit with a relative/companion and the Prophet’s travel instruction"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the full Urdu field. Preserve the variant cousin/companion phrasing and its supplied split parenthesis, without harmonizing the description. Separate only the terminal footnote marker.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report_with_transmitter_wording_variation",
+              "speaker": "Malik ibn al-Huwayrith reporting his visit with a relative/companion and the Prophet’s travel instruction",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:781"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi field. Keep its own last-prayer claim, behind-Abu-Bakr placement and garment arrangement exactly. Do not reconcile chronology or leadership with neighboring sources.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Anas describing the Prophet’s final prayer with the people behind Abu Bakr"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field independently. The shoulder/underarm garment details and the source’s final-prayer attribution are actual report wording, with no additional illness or posture imported.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Anas describing the Prophet’s final prayer with the people behind Abu Bakr"
+        }
+      },
+      "key": "nasai:785"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire short Hindi field. It contains a finite leadership event and the Prophet’s stated position in the row, so it is actual body rather than a chain-only pointer. No seated/standing or illness detail is added.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Aishah reporting Abu Bakr’s prayer leadership while the Prophet was in the row"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the entire Urdu field. Preserve the short independent event exactly, including Abu Bakr’s leadership and the Prophet being in the row; no continuation is borrowed.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Aishah reporting Abu Bakr’s prayer leadership while the Prophet was in the row"
+        }
+      },
+      "key": "nasai:786"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the whole Hindi field. The iqamah, private conversation with an unnamed man and delay until the people began sleeping are actual supplied events. No ablution conclusion or person identity is inferred.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas describing the Prophet’s private conversation after the iqamah and the people beginning to sleep"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Preserve the until relation and all finite actions; only the numbered footnote glyph becomes context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas describing the Prophet’s private conversation after the iqamah and the people beginning to sleep",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:791"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete long Hindi field. Preserve the Banu Amr ibn Awf dispute, zuhr/asr timing, conditional instruction to Bilal, Abu Bakr’s usual attention, clapping, hand signal, thanksgiving, backward movement and complete Abu Quhafah answer. The final men/women instruction remains its actual quoted wording; no parallel version supplies changes.",
+          "report_type": "prophetic_report",
+          "speaker": "Sahl ibn Sad reporting the reconciliation visit, Abu Bakr’s leadership and the Prophet’s subsequent instructions"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete long Urdu field independently. All dialogue and ordered actions, including Abu Bakr’s usual nonturning behavior and the conditional prayer instruction, remain. The one internal footnote marker after the Prophet moves through the people is exact source apparatus, not narrative wording.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Sahl ibn Sad reporting the reconciliation visit, Abu Bakr’s leadership and the Prophet’s subsequent instructions",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:793"
+    },
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "Read the full Arabic chain through Suwayd ibn Nasr, Abd Allah, al-Jurayri and Abu Nadrah, ending nahwahu. It supplies no finite report body."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "Read the entire English field: another chain from Abu Nadrah, with Abu Saeed as a parenthetic chain identification, and similar narration. Neither the name nor the pointer supplies a body."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "Read the entire Hindi field: this chain also transmits a similar hadith from Abu Nadrah. It is only a chain/similarity pointer, with the supplied haidith spelling left unchanged."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "Read the entire Urdu field: the same chain also narrates a similar hadith from Abu Nadrah. No event, act or saying body is present."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "Read the complete Roman Urdu field: Is sanad se bhi Abu Nadra se isi jaisi hadith marwi hai. It is only the similarity-pointer sentence, not report content."
+        }
+      },
+      "key": "nasai:796",
+      "reason": "All five complete fields were read. Every field provides only another transmission chain and a similarity pointer, with no finite report body. Keep the entire occurrence as resolved source-only evidence; no content is imported from795 or another source."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(आप की तकबीर)"
+            }
+          ],
+          "reason": "Read the full Hindi field. Preserve the actual zuhr, behind-position and repeated Allahu akbar statements. The parenthetic identification of what Abu Bakr made audible is explanatory context, while the surrounding transmission action stays.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Jabir describing the Prophet’s zuhr leadership and Abu Bakr’s audible repetition",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( آپ کی تکبیر )"
+            }
+          ],
+          "reason": "Read the entire Urdu field independently. Keep the actual leadership and repetition sequence; separate only the parenthetic pronoun/object identification.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Jabir describing the Prophet’s zuhr leadership and Abu Bakr’s audible repetition",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:798"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi field. Preserve the named aunt Umm Haram, unnamed orphan and supplied household group. The parenthetic statement that this was not a prayer time is a finite narrator’s timing qualification, not a word definition or words newly attributed to the Prophet; keep it within the narrated account.",
+          "report_type": "prophetic_historical_report_with_narrative_time_qualification",
+          "speaker": "Anas describing the household visit, the Prophet’s invitation to pray and the subsequent prayer"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the full Urdu field independently. The quoted invitation and narrator’s parenthetic outside-prayer-time statement remain under their distinct roles inside the same historical report. Do not fill a particular prayer or identify the orphan.",
+          "report_type": "prophetic_historical_report_with_narrative_time_qualification",
+          "speaker": "Anas describing the household visit, the Prophet’s invitation to pray and the subsequent prayer"
+        }
+      },
+      "key": "nasai:802"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field. Preserve the repeated beside-the-Prophet wording and the explicit Aishah identity exactly, without harmonizing them with another household-prayer occurrence.",
+          "report_type": "prophetic_report",
+          "speaker": "Ibn Abbas describing his place beside the Prophet and Aishah’s prayer behind them"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field. Both the repeated spatial statement and Aishah’s named placement are actual source content; no identity or missing detail is borrowed.",
+          "report_type": "prophetic_report",
+          "speaker": "Ibn Abbas describing his place beside the Prophet and Aishah’s prayer behind them"
+        }
+      },
+      "key": "nasai:804"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field. The finite placement of Anas on the right and the household woman behind is complete body. The woman stays unnamed; she is not identified from802 or any parallel.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas reporting prayer with an unnamed woman of his household and the Prophet"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the full Urdu field independently. Preserve the right/behind placements and the supplied household relationship without filling a personal name.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas reporting prayer with an unnamed woman of his household and the Prophet"
+        }
+      },
+      "key": "nasai:805"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(अहद)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(हुक्म)"
+            }
+          ],
+          "reason": "Read the complete Hindi field. Keep Qays’s anger and loss of attention, the post-prayer turning sequence, the actual covenant claim and the later threefold statement/dialogue. The parenthetic salutation-completion phrase supplies narrative timing and remains with the event. Separate only the lexical ahd and defective hukm glosses; preserve the actual Abu Yaqub address without reconciling it to Ubayy through outside identity knowledge. The covenant is Ubayy’s reported assertion, not an invented direct Prophetic quote.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_historical_dialogue_with_source_address_variation",
+              "speaker": "Qays ibn Ibad reporting the man identified as Ubayy ibn Kab; the final Abu Yaqub address remains unreconciled",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( عہد )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( حکام )"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. The prayer-row encounter, stated covenant, qiblah turn, repeated declaration and question/answer are actual Companion historical content. Keep the salutation-completion timing qualifier and the source’s Abu Yaqub address. The ahd/hukkam synonym parentheses are lexical context, not separate report words.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_historical_dialogue_with_source_address_variation",
+              "speaker": "Qays ibn Ibad reporting the man identified as Ubayy ibn Kab; the final Abu Yaqub address remains unreconciled",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:808"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(तकबीर-ए-तहरीमा)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "(तहरीमा)"
+            }
+          ],
+          "reason": "Read the entire Hindi field. Preserve the crucial before-takbir timing, stay-in-place instruction, continuous standing wait and return with dripping hair, followed by takbir and prayer. Separate only the two explicit technical identifications of the takbir; no alternate account’s timing is substituted.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Hurayrah describing the lined-up congregation, the Prophet’s departure before takbir and his washed return",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( تکبیر تحریمہ )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or identifying explanation; retain the exact supplied words as source context and keep surrounding narration in its original component.",
+              "text": "( تحریمہ )"
+            }
+          ],
+          "reason": "Read the full Urdu field independently. Keep the doubled ke wording and all temporal relations exactly. The two parenthetic tahrimah explanations remain source context; the finite sequence is not harmonized with another report.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Hurayrah describing the lined-up congregation, the Prophet’s departure before takbir and his washed return",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:809"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi field. The solid-wall comparison and seeing-behind explanation are actual supplied quoted words, with the before-takbir timing retained. There is no detached locator or footnote to remove.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas reporting the Prophet’s instruction to align the rows before the opening takbir"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote marker; retain the exact glyph as context without inventing an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Retain the actual wall simile and the entire stated reason; separate only the one internal footnote glyph, preserving its adjacent nonbreaking spaces.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas reporting the Prophet’s instruction to align the rows before the opening takbir",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:814"
+    }
+  ],
+  "schema": "hadith-bank-manual-complete-field-reading-specification-v1",
+  "source_checkpoint": "cdb66dbcf9ee781fe232219724d05033a0fcab13"
+}

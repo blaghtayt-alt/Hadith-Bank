@@ -1,0 +1,54 @@
+{
+  "base_commit": "5749ec389f1925f4d5e05a34d64c39acbc1f90f4",
+  "base_git_blob_sha1": "dfbabf9ef2839e75d9840e74e626da329e0beae5",
+  "base_sha256": "cd0fbffc2d01b4e7637d37b26bfd5a7659fd107defbaff332cc4a791aa6efa70",
+  "build_timeout_minutes_after": 45,
+  "build_timeout_minutes_before": 30,
+  "candidate_git_blob_sha1": "83c1aa5e30efb70125d8e8a718dadcecf4d90083",
+  "candidate_sha256": "1720079c5a1ad0a6a83f870ae6c7eeb572c0a35225953a3a94d25b714eee4951",
+  "deployment_timeout_minutes": 15,
+  "exact_changes": [
+    {
+      "after": "    timeout-minutes: 45",
+      "before": "    timeout-minutes: 30",
+      "line": 86
+    }
+  ],
+  "github_writes": 0,
+  "limits": "The generic cancellation is consistent with the old job time limit, but does not prove the cancellation cause or a45minute completion guarantee. This narrow review checked the supplied observed log timestamps and their arithmetic; it did not retrieve new logs, rerun builds, or perform broad tests.",
+  "observed_timing_arithmetic": [
+    {
+      "arithmetic_matches": true,
+      "before_refresh_seconds": 486.678,
+      "refresh_to_next_step_or_cancellation_seconds": 788.689,
+      "run_id": 43426990809,
+      "total_to_cleanup_or_cancellation_seconds": 1313.477
+    },
+    {
+      "arithmetic_matches": true,
+      "before_refresh_seconds": 514.005,
+      "refresh_to_next_step_or_cancellation_seconds": 824.558,
+      "run_id": 43430022703,
+      "total_to_cleanup_or_cancellation_seconds": 1378.678
+    },
+    {
+      "arithmetic_matches": true,
+      "before_refresh_seconds": 707.131,
+      "refresh_to_next_step_or_cancellation_seconds": 1104.633,
+      "run_id": 43433338096,
+      "total_to_cleanup_or_cancellation_seconds": 1811.764
+    }
+  ],
+  "observed_timings_sha256": "6c4537ce74f3c8b0e39c85f340494b3187d4f7e9e7dfd6cb3e50e7a662c39d07",
+  "open_findings": [],
+  "other_workflow_bytes_unchanged": true,
+  "permissions_concurrency_steps_gates_and_publication_checks_unchanged": true,
+  "pr_validation_timeout_minutes": 30,
+  "rationale": "A main build that was generically canceled about30minutes12seconds after its first log had not finished its refresh. A45minute build-only bound provides15additional minutes while leaving PR and deployment limits and every existing guard unchanged. This is a proportional bounded operational adjustment.",
+  "read_only_candidate_review": true,
+  "result": "PASS",
+  "schema": "independent-reader-build-timeout-review-v1",
+  "source_acquisition_workflow_or_pacing_changes": 0,
+  "source_http_requests": 0,
+  "yaml_all_other_keys_equal": true
+}

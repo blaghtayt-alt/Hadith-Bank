@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import bisect
 import copy
+import gzip
 import hashlib
 import io
 import json
@@ -27,6 +28,7 @@ import recover_deenhindi_artifact as recovery
 MAX_RECORDS = 250
 MAX_BYTES = 32 * 1024**2
 OUTPUT_BASE = '.work/deenhindi-held-evidence'
+STATE_ARTIFACT = 'saved-state.json.gz'
 SCHEMA = 'deenhindi-committed-held-evidence-v1'
 CODE = ('scripts/import_deenhindi.py', 'scripts/recover_deenhindi_artifact.py',
         'scripts/export_deenhindi_held_evidence.py')
@@ -130,12 +132,13 @@ def replace_bundle(root, relative, files):
             shutil.rmtree(previous)
 
 
-def bundle_files(checkpoint, selected, entries, objects, source_receipts, ordered_keys, maximum_bytes):
+def bundle_files(checkpoint, selected, entries, objects, source_receipts, ordered_keys, maximum_bytes, state_payload):
     count = len(selected)
     summary = {**checkpoint, 'selected_held_entries': count,
         'remaining_held_queue_count': len(ordered_keys) - count,
         'selected_keys': list(selected), 'next_held_key': ordered_keys[count] if count < len(ordered_keys) else None}
-    files = {'held-source-records.jsonl': importer.rows_bytes(list(selected.values())),
+    files = {STATE_ARTIFACT: state_payload,
+        'held-source-records.jsonl': importer.rows_bytes(list(selected.values())),
         'held-state-entries.json': importer.json_bytes({key: entries[key] for key in selected}),
         'checkpoint.json': importer.json_bytes(summary),
         **{'sources/' + name: data for name, data in sorted(objects.items())}}
@@ -172,7 +175,9 @@ def export(root, expected_head, max_records=MAX_RECORDS, max_bytes=MAX_BYTES):
         code_modules = (importer, recovery, sys.modules[__name__])
         for path, module in zip(CODE, code_modules):
             require(snapshot.read(path) == Path(module.__file__).read_bytes(), 'executed verifier differs from saved code')
-        state = recovery.json_value(snapshot.read(importer.IMPORT + '/state.json'))
+        state_path = importer.IMPORT + '/state.json'
+        state_bytes = snapshot.read(state_path)
+        state = recovery.json_value(state_bytes)
         inventory = recovery.json_value(snapshot.read(importer.IMPORT + '/inventory.json'))
         progress = recovery.json_value(snapshot.read(importer.IMPORT + '/progress.json'))
         require(state.get('schema') == 'deenhindi-import-state-v1' and isinstance(state.get('imported'), dict),
@@ -220,9 +225,22 @@ def export(root, expected_head, max_records=MAX_RECORDS, max_bytes=MAX_BYTES):
                     and counts.get('fetched') == sum(item.get('collection') == slug for item in entries.values()),
                     'per-book source/held progress differs: ' + slug)
         ordered_keys = sorted(queued, key=lambda key: (key.split(':', 1)[0], order[key.split(':', 1)[0]][key.split(':', 1)[1]], key))
+        # Preserve the complete committed bytes, including errors, consumed
+        # attempts and unknown controls. A fixed header makes this deterministic;
+        # no parsed JSON reserialization or source-state mutation is involved.
+        compressed = io.BytesIO()
+        with gzip.GzipFile(filename='', mode='wb', fileobj=compressed, mtime=0, compresslevel=9) as stream:
+            stream.write(state_bytes)
+        state_payload = compressed.getvalue()
+        state_receipt = {'path': STATE_ARTIFACT, 'source_path': state_path, 'compression': 'gzip',
+            'bytes': len(state_bytes), 'sha256': recovery.sha(state_bytes),
+            'git_blob_sha1': snapshot.receipts[state_path]['git_blob_sha1'],
+            'stored_bytes': len(state_payload), 'stored_sha256': recovery.sha(state_payload),
+            'maximum_uncompressed_bytes': recovery.MAX_STATE_BYTES}
         checkpoint = {'schema': SCHEMA, 'saved_head': snapshot.head, 'saved_tree': snapshot.tree,
             'checkpoint_scope': 'Exact saved local HEAD; not a claim about the latest remote main or deployment.',
             'run_id': run, 'run_attempt': attempt, 'input_receipts': copy.deepcopy(snapshot.receipts),
+            'saved_state': state_receipt,
             'held_entries_total': len(queued), 'held_by_collection': per_book,
             'held_queue_order': 'collection key then observed inventory position',
             'held_queue_keys_sha256': recovery.sha(importer.json_bytes(ordered_keys)), 'maximum_records': max_records,
@@ -230,6 +248,10 @@ def export(root, expected_head, max_records=MAX_RECORDS, max_bytes=MAX_BYTES):
             'source_controls_unchanged': True, 'new_source_http_requests': 0, 'new_review_decisions': 0,
             'source_or_publication_mutations': False, 'independent_pro_qc': 'not_performed'}
         selected, objects = {}, {}
+        initial_files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts,
+                                     ordered_keys, max_bytes, state_payload)
+        require(sum(map(len, initial_files.values())) <= max_bytes,
+                'committed state and checkpoint receipts exceed the byte bound')
         for _, _, key in priorities:
             saved, verified_files = recovery.checked_entry(key, entries[key],
                 lambda name: snapshot.read(name, recovery.MAX_OBJECT_BYTES), inventory)
@@ -247,15 +269,15 @@ def export(root, expected_head, max_records=MAX_RECORDS, max_bytes=MAX_BYTES):
             provisional = {**selected, key: row}
             new_objects = {**objects, **verified_files}
             # Bound retained source memory before constructing metadata/rows.
-            if sum(map(len, new_objects.values())) > max_bytes:
+            if len(state_payload) + sum(map(len, new_objects.values())) > max_bytes:
                 require(selected, 'first held source exceeds the byte bound')
                 break
-            files = bundle_files(checkpoint, provisional, entries, new_objects, snapshot.receipts, ordered_keys, max_bytes)
+            files = bundle_files(checkpoint, provisional, entries, new_objects, snapshot.receipts, ordered_keys, max_bytes, state_payload)
             if sum(map(len, files.values())) > max_bytes:
                 require(selected, 'first held source and receipts exceed the byte bound')
                 break
             selected, objects = provisional, new_objects
-        files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts, ordered_keys, max_bytes)
+        files = bundle_files(checkpoint, selected, entries, objects, snapshot.receipts, ordered_keys, max_bytes, state_payload)
         total_bytes = sum(map(len, files.values()))
         require(total_bytes <= max_bytes and (selected or not queued), 'bounded evidence bundle cannot represent the first held record')
         snapshot.assert_unchanged()

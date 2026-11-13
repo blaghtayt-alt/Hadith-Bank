@@ -1,6 +1,517 @@
 # Website-source queue resolution — 13 November 2026
 
-## Current review checkpoint — 93 newly recovered held occurrences
+## Current review checkpoint — 117 held occurrences and 90 original-cohort fields
+
+This checkpoint resolves all **117 Deen Hindi occurrences held at
+`0639af7fd15786284b4c413fced77e38eec8825a`**: **112 register and five remain as
+resolved source-only records**. Each of the four primary packages has a separate
+complete source-first linguistic audit. The combined audit reopens all 234 raw
+and parsed source files, reparses all 117 pages, and verifies all 585 lossless
+field partitions. It checks that the IDs are absent from the preceding 15,215
+imported occurrences and from all 3,101 IDs in the 25 preceding manual ledgers.
+
+The five source-only occurrences are `bukhari:2239.2`, `muslim:2264`,
+`muslim:2299`, `nasai:2259` and `nasai:2295`. Every supplied nonempty language
+field of each was read before that disposition. Missing report bodies are not
+reconstructed from nearby numbers or translated siblings.
+
+| New review package | Occurrences | Register | Source-only | Complete fields actually read | Admitted fields | Read context | Unread sibling context |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Bukhari | 43 | 42 | 1 | 89 | 84 | 5 | 126 |
+| Muslim | 25 | 23 | 2 | 59 | 45 | 14 | 66 |
+| Nasai and Ibn Majah | 28 | 26 | 2 | 65 | 55 | 10 | 75 |
+| Abu Dawud and Tirmidhi | 21 | 21 | 0 | 42 | 42 | 0 | 63 |
+| **Total** | **117** | **112** | **5** | **255** | **226** | **29** | **330** |
+
+These 255 complete readings cover **127,519 characters / 266,493 UTF-8 bytes**.
+The 330 unread siblings remain intact as source context. The integration check
+does not create any additional linguistic approval. Exact source quotations,
+unknown speakers, incomplete clauses, source defects and qualifications remain
+visible. For example, Muslim2293 admits only its actual Arabic finite fragment;
+Nasai2275 retains its English “sick” versus the other fields’ nursing-women
+wording as an explicit discrepancy. Three Hindi-labelled Latin transliterations
+receive script metadata corrections without changing their text or language IDs.
+
+The primary revisions and initial readings remain archived. Independent review
+restored meaningful actor relations, circumstances and finite invitation
+predicates, separated supplied event voices, and moved only individually
+identified source explanations or continuation pointers into context. No
+blanket parenthesis deletion or translation harmonization was applied.
+
+Evidence:
+[all117 integration](../reports/web-source-resolution-20261113/checkpoint0639-independent-integration/validation-report.json),
+[per-occurrence preservation proof](../reports/web-source-resolution-20261113/checkpoint0639-independent-integration/per-occurrence-source-and-partition-proof.json.gz),
+and the four primary and independent package manifests in this checkpoint.
+
+### Original held cohort: 90 additional language fields
+
+Two separately reviewed extensions add **50 Abu Dawud Urdu fields** and
+**40 Bukhari fields: ten Hindi and 30 Urdu**. They concern 80 already registered
+occurrences; every existing parent disposition is preserved. The complete new
+readings cover **47,897 characters / 89,574 UTF-8 bytes**. The initial source
+notes, independent findings, narrow amendments and prior active ledgers remain
+available as evidence.
+
+The combined priority queue changes from **6,501 fields across 3,484 occurrences**
+to **6,411 fields across 3,404 occurrences**, consisting of **3,310 Hindi and
+3,101 Urdu fields**. Only the 90 actually read fields are removed. Every remaining
+JSON line and its order are byte-identical to the preceding queue.
+
+The independently verified standalone Abu Dawud queue is archived under its
+extension evidence directory. The canonical queue contains the combined delta;
+it must not be replaced by either individual candidate. A metadata-only Bukhari
+correction updates ten copied final-decision hashes and five copied action
+labels in its queue-delta evidence. The approved active decisions and queue
+membership are unchanged.
+
+Evidence:
+[combined90 delta](../reports/web-source-resolution-20261113/phase15-original90-combined-queue-delta.json),
+[combined queue](../reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz),
+and the independent queue and metadata-correction receipts.
+
+### Composition with the existing review ledgers
+
+All six active ledgers in this delivery were applied together to the complete
+**636 + 477 + 117 = 1,230** source occurrences. The result is **1,201 registered
+and 29 source-only** records, with no duplicate IDs or parent metadata changes.
+All **6,150 source field slots** are accounted for: **6,088 nonempty lossless
+partitions and 62 exact empty source states**. The independent composition audit
+checks 276,219 metadata leaf equalities and confirms that all input files and
+original source objects are unchanged.
+
+Its cumulative coverage includes earlier work: 2,001 fully read fields, of which
+1,861 are admitted and 140 retained as read context, plus 4,087 unread fields.
+Those cumulative totals are not new reading claims. This checkpoint adds the
+255 new-cohort readings and the 90 original-cohort readings described above.
+
+Evidence:
+[combined1230 native audit](../reports/web-source-resolution-20261113/phase15-combined1230-native-audit/validation-report.json).
+
+### Acquisition advanced while these reviews were completed
+
+The ordinary source workflow saved another checkpoint at
+[`5589a3ffc3b43c3324ae26f2b6c4d33152834456`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/5589a3ffc3b43c3324ae26f2b6c4d33152834456).
+Run `43443662972` completed successfully. Its exact progress and bounded source
+artifact show **497 additional fetched occurrences: 397 registered and 100 newly
+held**, with no new source-only occurrences. All 217 current held rows are
+accounted for: the unchanged preceding117 plus these100 new IDs.
+
+| Saved Deen Hindi checkpoint | Fetched | Registered in that saved export | Source-only | Held | Unfetched |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `0639af7` | 15,672 | 15,409 | 146 | 117 | 20,718 |
+| `5589a3f` | 16,169 | 15,806 | 146 | 217 | 20,221 |
+
+Applying this checkpoint’s verified117 decisions to the unchanged matching
+rows in5589 would give **15,918 registered / 151 source-only / 100 held** at
+16,169 fetched. These are explicitly derived counts until a subsequent saved
+export actually consumes the review files. The additional100 are a separate
+review cohort; their source verification alone is not a semantic approval.
+
+The5589 bounded audit verifies all **434 raw/parsed files and 217 reparses**, the
+complete old117/new100 partition and all seven staged-file Git bindings. Its
+progress reports zero errors, no retry candidates, all1,000 historical error
+identities resolved and `blocked=false`. The full0639 state-history audit already
+verifies those1,000 recoveries and preservation of their receipts. A complete
+after-state history comparison for5589 is still pending because the12,765,240-byte
+state file could not be transferred in this session; no such comparison is
+claimed by the bounded receipt.
+
+Evidence:
+[full0639 acquisition audit package](../reports/web-source-resolution-20261113/checkpoint0639-full-acquisition-audit-delivery-manifest.json),
+[bounded5589 receipt](../reports/web-source-resolution-20261113/acquisition-run43443662972-bounded-checkpoint-receipt.json),
+and its hash-bound source-file and complete-path-tree proofs.
+
+### Reliable full-state evidence in future diagnostic artifacts
+
+The held-evidence exporter now adds the exact committed state bytes as
+`saved-state.json.gz`. It records original and compressed byte lengths and
+SHA-256 hashes, the original Git blob and the existing decompression ceiling.
+This avoids depending on a large raw-file download for later history audits.
+The JSON is not reconstructed from selected held rows.
+
+The existing250-record,32MiB total artifact and64MiB state-input/decompression
+bounds remain. The compressed state and all fixed receipts count against the
+same total cap before any held row is selected. Failure leaves an existing
+diagnostic bundle intact. Source requests, budgets, pacing, authorization,
+workflow logic, saved-HEAD checks and review decisions are unchanged.
+
+All nine focused exporter tests pass, including two new tests for exact full
+state preservation with a one-row selection and for cap failure preserving the
+previous bundle. Root independently reviewed the exact code and test changes,
+verified their hashes and checked that the original critical guards are
+unchanged. This is a future artifact repair; it does not recover5589’s missing
+local state file or claim a workflow has already used the change.
+
+Evidence:
+[export validation](../reports/web-source-resolution-20261113/held-state-gzip-export-validation.json),
+[independent code review](../reports/web-source-resolution-20261113/held-state-gzip-independent-audit/independent-review.json),
+and its preserved exact patch and focused test log.
+
+### Build success and actual publication remain separate
+
+The reader for6b20 (`43442682945`) completed the full99,248-record build and all
+ten Chromium checks. The later reader for0639 (`43447190953`) also completed
+successfully: **957 Python tests,43 Node tests, the full99,588-record/250-dataset
+build and all ten Chromium checks** passed. Its observed log span was30m26.386s,
+within the previously published45-minute build allowance.
+
+Both runs encountered a newer source commit at their publication guard and
+correctly skipped upload/deployment. The0639 run requested a successor for5589.
+Neither successful build is proof that this delivery or5589 is live. No new
+live deployment is asserted here. The original30-minute reader cancellation
+receipt, the successful superseded builds and the prior6b20 Git publication and
+independent read-back receipts are retained.
+
+Evidence:
+[6b20 successful superseded reader](../reports/web-source-resolution-20261113/reader-phase13-success-superseded-receipt.json),
+[0639 successful superseded reader](../reports/web-source-resolution-20261113/reader-checkpoint0639-success-superseded-receipt.json),
+and [prior review publication](../reports/web-source-resolution-20261113/phase13-publication-receipt.json).
+
+### Original requested groups
+
+The original **3,942 held Deen Hindi parents** remain resolved as **3,821 registered
+and121 source-only**. That parent resolution does not mean every language sibling
+has been read; the remaining Hindi/Urdu queue is reported above. The **11 original
+Hadis.islom.uz parents** remain resolved as six registered and five source-only,
+with two separately bounded embedded reports preserved. The **244 Fawaz held
+entries** remain resolved as six recovered and238 source-only; their895 supplied
+fields were reviewed, and the observed export has36,226 registered and no
+unresolved held entries. The separate Hadisuz323 review was published in6b20.
+
+Acquisition of the remaining20,221 Deen Hindi occurrences and review of new
+holds continue. No complete acquisition, all-language completion, independent
+Pro certification or new live deployment is claimed. The historical checkpoints
+below remain as dated evidence and must not be read as the latest counts.
+
+## Historical phase13 status — 93 new holds, 114 Urdu fields and Hadisuz323
+
+The preceding review was published at
+[`5749ec389f1925f4d5e05a34d64c39acbc1f90f4`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/5749ec389f1925f4d5e05a34d64c39acbc1f90f4).
+Its 113 payload files and 19 changed Git trees were verified before the leased
+branch update. An independent read-back then reopened six complete active
+files, including all four delivered Deen ledgers, the priority queue and this
+status document. It checked 1,263,099 bytes, seven complete Git path trees and
+all 591 unique active source IDs. The publication, tree-verification and
+independent read-back receipts are included in this checkpoint.
+
+### Actual saved acquisition and recovery of all historical errors
+
+The successful source run
+[`43430909086`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430909086)
+saved [`c2ab74d74821e244d8a83620f0e8e68dda694b16`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/c2ab74d74821e244d8a83620f0e8e68dda694b16).
+Its progress, updated at **13:42:22 UTC on 13 November 2026**, records
+**15,215 fetched, 14,870 registered, 138 resolved source-only and 207 held
+occurrences**, with **21,175 ordinary pending pages and zero acquisition
+errors**. This snapshot predates both the previous 114-entry review and the
+93-entry review delivered here.
+
+The [complete saved-state audit](../reports/web-source-resolution-20261113/acquisition-run43430909086-saved-state-audit.json)
+now verifies the full 12,329,253-byte state file and its Git blob, rather than
+relying on progress counters. All **1,000 original error identities are
+resolved** and have consumed retry receipts. The final 23 historical retries
+and 455 ordinary pages account for this save's 478 acquired occurrences. All
+14,737 earlier imported descriptors, the preceding 977 retry receipts, their
+history prefixes and the original error objects remain unchanged. The retry
+authorizations, pilot evidence, acquisition limits and access stops remain
+intact. The saved worker state is neither blocked nor marked as requiring
+attention; it is still incomplete because 21,175 pages remain unfetched.
+
+All 207 held identities in this save were bound to their exact raw and parsed
+files and reparsed successfully. The preceding 114 holds remained unchanged
+because their review was published after this acquisition save. The other
+**93 held identities are new** and form the fixed source cohort reviewed below.
+An active successor worker is not counted as another saved acquisition.
+
+### New 93-entry source review
+
+Four source-bound packages resolve the complete new cohort: **90 register and
+three are resolved source-only**. The three source-only occurrences are
+**Bukhari2214.2, Muslim2181 and Muslim2229**. Their own complete supplied fields
+contain transmission or similarity references without a recoverable report
+body. They are preserved with completed dispositions; missing words and
+identities are not reconstructed from other numbers or editions.
+
+The cohort comprises 24 Bukhari, 18 Muslim, 21 Ibn Majah, 11 Abu Dawud,
+ten Nasai and nine Tirmidhi occurrences. The primary readers and independent
+reviewers each completed **201 entire language-field readings**, covering
+**81,514 characters and 171,492 UTF-8 bytes**. The final decisions admit
+183 fields, retain 18 fully read fields as source context and preserve
+264 unread sibling fields as complete context. The integration reopens all
+186 raw and parsed files, reparses all 93 pages and verifies **465 lossless
+field partitions** with the unchanged native review engine. The new IDs are
+disjoint from the 3,008 preceding manual review IDs.
+
+The review preserves each field's actual attribution and limitations.
+Bukhari2167 has a report in Arabic and English, while its Hindi, Urdu and
+Roman Urdu fields contain repeated chains only; those three remain reviewed
+context. Nasai2161 retains its concluding identification of Abu Musa as a
+separate ordered statement in the same report family, without inventing who
+speaks that final identification. Abu Dawud2188 keeps its finite abbreviated
+report and the separately attributed Urdu scholarly question, while leaving
+the omitted case and unanswered identity unknown. Tirmidhi2179 distinguishes
+the Prophetic reports, Hudhayfa's own illustrative gesture and his later
+trading recollection, retaining three report families within one provider
+occurrence.
+
+Independent review also corrected four Bukhari fields: the closing Nafi
+transmitter inventory in 2203 belongs to context, and the service-for-payment
+qualification in 2212 belongs to Aisha's explanation. Both versions and exact
+amendment evidence are preserved. The source-printed Messenger identification
+in Tirmidhi2203 and the father qualification in 2161 remain in their reports.
+Abu Dawud823's Hindi-labelled field is Latin transliteration; its script is
+recorded as `Latn` with a visible note and all 470 source characters preserved.
+No language, translation, grade or missing canonical identity is invented.
+
+For the **fixed 15,215-source c2ab snapshot**, applying the preceding 109/5
+dispositions and this new 90/3 review derives **15,069 registered,
+146 resolved source-only and zero held occurrences**. These are validated
+review-derived totals for that snapshot, **not a later saved export or live
+website count**. New acquisition may introduce new holds independently.
+
+### Original 3,942-entry cohort and additional Urdu coverage
+
+The original **3,942 held occurrences remain resolved at parent level**:
+**3,821 register and 121 are resolved source-only**. This checkpoint completes
+another **114 entire Urdu fields** from original Ibn Majah occurrences,
+covering **29,305 characters and 51,820 UTF-8 bytes**. All 114 contain
+source-bound report material after their own boundary review. The independent
+review reopens 228 source files, reparses all 114 pages and checks the complete
+477-row active ledger, its 2,385 lossless partitions and unchanged metadata.
+
+Every previous parent disposition and all 2,271 other field decisions remain
+unchanged, including the earlier 83-field extension, the selected occurrences'
+already reviewed Hindi and all 19 earlier script corrections. Ibn Majah835's
+honorific-only subject remains unnamed. In 1250, Ibn Abbas's witness appraisal
+is distinguished from his indirect report of a timed Prophetic prohibition.
+Source-printed uncertainty, recitations and operative qualifications remain.
+
+The exact original-cohort Hindi/Urdu priority queue consequently falls from
+**6,615 to 6,501 unread fields**, across **3,484 occurrences**: **3,320 Hindi
+and 3,181 Urdu**. Every remaining row and its order are preserved. A completed
+parent disposition is not a claim that every sibling language has been read.
+The [current priority queue](../reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz)
+continues to record that remaining work explicitly.
+
+### Remaining Hadisuz323 classification
+
+The separately selected **hadis.uz** provider's remaining held occurrence323
+is resolved after two complete source-first Uzbek Cyrillic readings. This is
+a separate provider from the user's 11 **hadis.islom.uz** cases, already
+resolved below. Its 173-character main paragraph is a saying transmitted by
+the printed Amr ibn al-Harith ibn Mustaliq with an anonymous ultimate speaker
+("it used to be said"). It is registered as a transmitted anonymous saying,
+without an invented Prophetic attribution, Companion status, canonical number
+or authenticity grade. The separate 214-character explanatory question and
+answer remain dependent source commentary.
+
+The native audit applies all 37 original held decisions, verifies all
+169 field partitions and preserves the other 36 parent and 168 field
+decisions. The active ledger changes from 35 registered, one source-only and
+one held to **36 registered, one source-only and zero held**. A single-entry
+real-exporter fixture also passes. Applying this to the fixed 607-source
+provider snapshot projects **606 registered, one source-only and zero held**;
+the full 607-entry export and public deployment are separate verification
+steps, not claimed by this source review.
+
+### Other requested cohorts and reader status
+
+All **11 hadis.islom.uz cases** and **244 Fawaz cases** remain resolved with
+their published source-bound evidence. The Islom review admitted six original
+parents and two explicitly bounded embedded reports while preserving five
+source-only parents. The Fawaz review recovered six entries and resolved the
+other 238 as source-only; its actual saved exporter result is **36,226
+registered and 238 source-only, with zero unresolved occurrences**. The full
+provider identities and all original text remain preserved. Rivoyat remains
+outside the selected source scope.
+
+Reader execution is tracked separately from these source and review results.
+The cdb reader run43433338096 passed 957 Python tests, 43 Node tests and the
+Fawaz, saved-review and counterpart stages, but its full rebuild was cancelled
+at **13:54:32 UTC**. Browser validation, artifact upload and deployment were
+skipped. Its generic cancellation log does not establish the cause. The
+exact5749 successor, run43437261471, was still rebuilding at the last recorded
+observation, **14:14:54 UTC**; its browser and deployment stages were pending.
+The [reader observation receipt](../reports/web-source-resolution-20261113/reader-cdb-cancelled-and-phase10-running.json)
+preserves the exact observations and the bounded workflow timing concern.
+
+This checkpoint increases only the main-branch reader build's time allowance
+from **30 to 45 minutes** for subsequent runs. The two earlier complete builds
+took about 22 and 23 minutes, while the cancelled run spent almost 12 minutes
+before its full refresh and another 18 minutes in that refresh. The additional
+15 minutes supplies bounded headroom; the cancellation cause remains an
+inference, and a successful later run is still required. Independent byte and
+YAML comparisons confirm that every other workflow value and command is
+unchanged, including PR and deployment caps, permissions, concurrency, source
+budgets, complete validation and publication guards. The already-running5749
+job retains its original cap. See the [exact patch and timing evidence](../reports/web-source-resolution-20261113/reader-build-timeout-validation.json)
+and [independent comparison](../reports/web-source-resolution-20261113/reader-build-timeout-independent-review.json).
+No new live deployment is asserted here. No independent Pro certification has
+been performed or implied by these source-preserving publications.
+
+## Historical phase10 status — 114 new holds and 83 additional language fields
+
+The preceding 93-entry review was published at
+`863222d50ec9f701a06359400650dfad6911b216`. All 60 publication files and 13
+changed Git trees were verified. An independent GitHub read-back verified the
+complete stored bytes of the three active ledgers and the status document.
+Their publication and read-back receipts are included with this checkpoint.
+
+### Audited acquisition snapshot supporting this review
+
+The next acquisition run,
+[`43424153693`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43424153693),
+completed successfully and saved
+`cdb66dbcf9ee781fe232219724d05033a0fcab13`, whose parent is the preceding review
+publication. Its saved progress, updated at **13:02:34 UTC on 13 November 2026**,
+records **14,737 fetched, 14,485 registered, 138 resolved source-only and 114
+held occurrences**. It recovered another **488 historical acquisition errors**.
+Of the original 1,000 error identities, **977 now have successful reviewed retry
+receipts and 23 remain**. The **21,653 unfetched pages** comprise those 23
+historical errors and **21,630 ordinary pending pages**. The worker is neither
+blocked nor marked as requiring attention, and acquisition is still incomplete.
+
+The full saved-state audit verified every one of the previous **14,249 source
+descriptors**, all previous consumed retry receipts, the preserved history
+prefixes and original error objects, and every new successful retry receipt.
+The existing retry authorization manifest and the pilot receipt remain intact.
+All **187 previous holds** are absent from the saved held set: the earlier
+94-entry and 93-entry review inputs were both applied. Every current held ID is
+new to the previous imported set. This is an actual saved-state result, rather
+than a projection from staged reviews.
+
+### Successor saved while this publication was prepared
+
+A later source run, [`43430909086`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430909086),
+completed successfully and saved `c2ab74d74821e244d8a83620f0e8e68dda694b16` as
+a direct child of `cdb66d`. Its pinned progress file, updated at **13:42:22 UTC**,
+records **15,215 fetched, 14,870 registered, 138 resolved source-only and 207
+held**, with **21,175 pending pages and zero acquisition errors**. The saved
+progress reports all **1,000 historical error identities resolved**. Its full
+source-identity and retry-history audit is a separate follow-up; the present
+[progress observation](../reports/web-source-resolution-20261113/acquisition-c2ab-progress-observation.json)
+binds the exact saved progress bytes, Git blob, commit parent and successful
+job. These counters predate the 114-entry review delivered here. The publication
+is based on this newer commit and preserves all of its acquired source changes.
+
+### Resolution of the new 114-entry cohort
+
+The three new source-bound ledgers resolve all **114 new held occurrences**:
+**109 register and five remain resolved source-only**. The five source-only
+IDs are **Muslim 769, 782, 796 and 808, and Nasai 796**. Their complete five
+language fields contain lexical substitutions or transmission/similarity
+pointers without the underlying report body. They remain preserved as source
+evidence, with explicit completed dispositions. No missing report was imported
+from a neighboring number or another edition.
+
+The cohort comprises 28 Bukhari, 25 Muslim, 22 Nasai, three Abu Dawud,
+22 Tirmidhi, ten Ibn Majah and four Malik occurrences. The review records
+**255 complete language-field readings**, totaling **112,942 characters and
+235,189 UTF-8 bytes**. It admits **229 fields**, retains **26 fully read fields
+as source context**, and preserves **315 unread sibling fields as complete
+context**. All **570 nonempty field partitions** are lossless. The 228 raw and
+parsed files were independently reopened, and all 114 saved source pages were
+reparsed to the exact source objects and verbatim references. Every claimed
+read field also received a complete independent second reading.
+
+Actual narration fragments embedded in surrounding discussion are retained
+under their own source attribution. Examples include Tirmidhi 755's separately
+attributed Ibn Abbas saying, the five-day prohibition quoted through Ahmad and
+Ishaq in Tirmidhi 767, and al-Shafii's stated observation of prayer practice in
+Mecca within Tirmidhi 806's Urdu discussion. Compiler grading, legal preferences,
+bare parallel references and lexical apparatus remain outside the narration
+payload. The actual finite Falah question and answer in Tirmidhi 806 are kept
+as a separately attributed dialogue; their unidentified speakers are not given
+invented names.
+
+The review also preserves source limits and disagreements. Muslim 784 supplies
+only a very short affirmative transmitted clause in four fields; its actor and
+ultimate speaker remain unidentified, and its English word comparison remains
+context. Ibn Majah 777's Arabic and English attribute the statement to Abdullah,
+while Hindi, Urdu and Roman Urdu print a Messenger-said attribution followed by
+an unmarked first-person voice. Each independently read field retains its own
+wording and attribution, with the difference explained. Abu Dawud 804's
+Hindi-labelled field contains Latin transliteration: its script metadata is
+corrected to `Latn`, with a visible source note and all 606 characters intact.
+No language identity or translation is rewritten.
+
+For the **fixed 14,737-source snapshot at cdb66d**, applying this 114-entry
+review derives **14,594 registered, 143 resolved source-only and zero held**.
+These are validated review-derived totals for that fixed cohort. A later
+acquisition save and any new holds must be measured independently; an active
+worker is not counted as saved acquisition.
+
+### Additional reading within the original held cohort
+
+The original **3,942-entry held cohort remains resolved at occurrence level**:
+3,821 register and 121 are resolved source-only. This checkpoint additionally
+completes **83 previously unread fields across 50 original Ibn Majah
+occurrences: 33 Hindi and 50 Urdu**. All 83 contain admissible source-bound
+report content after individual boundary review. The complete readings cover
+**60,060 characters and 128,277 UTF-8 bytes**. The 17 Hindi fields already
+reviewed for the Urdu-only selections remain exactly unchanged.
+
+The existing 477-row ledger keeps every parent disposition, 427 untouched rows,
+2,302 other field decisions and all 19 earlier script corrections unchanged.
+The native engine verified all 2,385 field partitions, and the independent
+comparison verified the entire before/after ledger. Among the final boundary
+decisions, Sufyan's uncertainty over which formula receives the count of 34 in
+Ibn Majah 927 stays visible as his own qualification, and the witness's
+both-or-one qualification in 1667 stays distinct from Prophetic speech.
+Actual prayer formulas, supplied translations and the necessary prayer-name
+and proposal qualifications remain in their reports.
+
+The exact priority queue therefore falls from **6,698 to 6,615 fields**, across
+**3,598 occurrences**: **3,320 Hindi and 3,295 Urdu** fields still need their own
+complete reading. The remaining queue rows retain their exact values and order.
+Registration of an occurrence does not certify or promote its unread sibling
+languages. Further staged language work is not counted in these figures.
+
+The four delivered active ledgers were also applied together in a separate
+native validation: **591 source records and 2,955 lossless language-field
+partitions**, with the previous 477-row baseline supplied as its unchanged
+existing dependency. Source grades, provider references, translation-origin
+status, source wording and unknown identities remain preserved. No independent
+Pro certification or new authenticity grade is asserted.
+
+### Other requested sources and the reader
+
+The **eleven requested Hadis.islom.uz parent cases** and **all 244 requested
+Fawaz cases** remain resolved as recorded in the earlier checkpoints. The
+completed Fawaz export still records **36,226 registered occurrences and 238
+resolved source-only candidates, with zero unresolved review cases**. The
+244-case resolution comprises six recovered registrations and 238 completed
+source-only decisions. These figures do not imply completion of Deen Hindi
+acquisition or unrelated unread language siblings.
+
+Reader run
+[`43426990809`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43426990809)
+at `695fe9e` completed **957 Python tests, 43 Node tests**, the source exports,
+counterpart synchronization, a complete **98,205-record** registry/reader
+refresh and real Chromium checks. The next exact review build,
+[`43430022703`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430022703)
+at `863222d`, likewise passed the **957/43 tests**, completed the
+**98,289-record** refresh and passed the Chromium checks. Its actual saved
+review export changed by **+84 registered, -93 held and +9 source-only**,
+matching the preceding 93-entry decisions.
+
+Both builds were superseded by newer main commits, so their upload and
+deployment steps were skipped. The `cdb66d` successor run
+[`43433338096`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43433338096)
+actually started at **13:24:13 UTC** and is a separate in-progress observation.
+**No new deployment is claimed by this checkpoint.** Validation, publication of
+review files, saved acquisition and live-site deployment are recorded
+separately, under the existing freshness and concurrency guards.
+
+Evidence: [saved cdb66d acquisition audit](../reports/web-source-resolution-20261113/acquisition-run43424153693-saved-state-audit.json),
+[114-entry source/native integration audit](../reports/web-source-resolution-20261113/checkpointcdb6-independent-integration-audit.json),
+[combined 591-record native validation](../reports/web-source-resolution-20261113/phase10-combined591-native-validation.json),
+[root's final 39-entry independent audit](../reports/web-source-resolution-20261113/checkpointcdb6-root39-independent-final-audit.json),
+[phase 8 publication receipt](../reports/web-source-resolution-20261113/publication-phase8-receipt.json),
+[phase 8 independent GitHub read-back](../reports/web-source-resolution-20261113/phase8-independent-readback-receipt.json),
+[phase 6 reader receipt](../reports/web-source-resolution-20261113/reader-phase6-validation-receipt.json),
+and [phase 8 reader receipt](../reports/web-source-resolution-20261113/reader-phase8-validation-receipt.json).
+
+## Historical phase8 status — 93 newly recovered holds
 
 The preceding 94-entry resolution and 100-field Hindi/Urdu extension were
 published at `695fe9ea6fd16c657de469257b17c4961c5d5cc1`. All 82 publication

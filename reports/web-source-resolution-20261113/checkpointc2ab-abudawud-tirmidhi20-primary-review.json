@@ -1,0 +1,156 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-abudawud-tirmidhi20-20261113.json.gz",
+  "active_ledger_sha256": "0abfafac0c086155db3f38564a75f0f9c93f72e54dec7021c875f29967747186",
+  "actual_reading": {
+    "characters_read": 25926,
+    "complete_fields_read": 40,
+    "explicit_literal_context_cuts": 19,
+    "selected_honorific_parentheses": 70,
+    "selected_narrative_parentheses": 22,
+    "utf8_bytes_read": 54943
+  },
+  "by_book": {
+    "abudawud": {
+      "admitted_language_fields": 22,
+      "characters_read": 13874,
+      "complete_fields_read": 22,
+      "exact_complete_field_partitions": 55,
+      "nonempty_source_fields": 55,
+      "quotation_spans": 35,
+      "register": 11,
+      "source_language_slots": 55,
+      "source_occurrences": 11,
+      "unread_nonempty_context_fields": 33,
+      "utf8_bytes_read": 29007
+    },
+    "tirmidhi": {
+      "admitted_language_fields": 18,
+      "characters_read": 12052,
+      "complete_fields_read": 18,
+      "exact_complete_field_partitions": 45,
+      "nonempty_source_fields": 45,
+      "quotation_spans": 35,
+      "register": 9,
+      "source_language_slots": 45,
+      "source_occurrences": 9,
+      "unread_nonempty_context_fields": 27,
+      "utf8_bytes_read": 25936
+    }
+  },
+  "by_language": {
+    "ar": {
+      "exact_complete_field_partitions": 20,
+      "nonempty_source_fields": 20,
+      "source_language_slots": 20,
+      "unread_nonempty_context_fields": 20
+    },
+    "en": {
+      "exact_complete_field_partitions": 20,
+      "nonempty_source_fields": 20,
+      "source_language_slots": 20,
+      "unread_nonempty_context_fields": 20
+    },
+    "hi": {
+      "admitted_language_fields": 20,
+      "characters_read": 13040,
+      "complete_fields_read": 20,
+      "exact_complete_field_partitions": 20,
+      "nonempty_source_fields": 20,
+      "quotation_spans": 31,
+      "source_language_slots": 20,
+      "utf8_bytes_read": 32244
+    },
+    "ur": {
+      "admitted_language_fields": 20,
+      "characters_read": 12886,
+      "complete_fields_read": 20,
+      "exact_complete_field_partitions": 20,
+      "nonempty_source_fields": 20,
+      "quotation_spans": 39,
+      "source_language_slots": 20,
+      "utf8_bytes_read": 22699
+    },
+    "ur-Latn": {
+      "exact_complete_field_partitions": 20,
+      "nonempty_source_fields": 20,
+      "source_language_slots": 20,
+      "unread_nonempty_context_fields": 20
+    }
+  },
+  "certified_release_eligible": false,
+  "cohort": "20 new93 occurrences:11 Abu Dawud and9 Tirmidhi; distinct from the previous114 held cohort.",
+  "engine_changes": false,
+  "formal_independent_pro_qc": "not_performed",
+  "github_writes": 0,
+  "limits": "Primary complete-field review and native saved-source validation. Root independent source-first reading and semantic comparison have been reported, but its final hash-bound source/native audit remains a separate deliverable. Full repository export, current-main reader/browser checks and deployment remain separate gates.",
+  "native_and_saved_source_validation": {
+    "admitted_language_fields": 40,
+    "characters_read": 25926,
+    "complete_fields_read": 40,
+    "exact_complete_field_partitions": 100,
+    "individually_reviewed_source_script_corrections": 1,
+    "metadata_value_equalities": 2040,
+    "nonempty_source_fields": 100,
+    "parsed_source_bytes": 143627,
+    "parsed_source_files_reopened": 20,
+    "quotation_spans": 70,
+    "raw_response_bytes": 1849854,
+    "raw_responses_reopened_and_reparsed": 20,
+    "register": 20,
+    "source_language_slots": 100,
+    "source_metadata_preservation_checks": 20,
+    "source_occurrences": 20,
+    "unread_nonempty_context_fields": 60,
+    "utf8_bytes_read": 54943
+  },
+  "parent_decisions": {
+    "register": 20,
+    "source_only": 0,
+    "unresolved": 0
+  },
+  "result": "PASS",
+  "schema": "hadith-bank-source-bound-primary-review-v1",
+  "scope_exceptions": [
+    {
+      "decision": "Hindi identity retained, individually verified Latin-script transliteration correction with visible source note.",
+      "id": "deenhindi-abudawud:823"
+    },
+    {
+      "decision": "Damaged Hindi ending preserved; no Urdu continuation imported.",
+      "id": "deenhindi-abudawud:2166"
+    },
+    {
+      "decision": "Finite Ibn Abbas ruling fragment and Urdu-only named Ibn Mubarak-to-Mamar question have separate actual attributions. No omitted predecessor, answer or transmitter identity is filled. Bare biography/grading tail remains source context.",
+      "id": "deenhindi-abudawud:2188"
+    },
+    {
+      "decision": "Finite oath addition admitted with ultimate speaker unspecified; not promoted to a Prophetic saying.",
+      "id": "deenhindi-abudawud:2191"
+    },
+    {
+      "decision": "Case/dialogue and Salama return appraisal are two ordered components of one source episode family; sixty-sa and source uncertainty unchanged.",
+      "id": "deenhindi-abudawud:2213"
+    },
+    {
+      "decision": "Woman’s account and unnamed narrator’s sixty-sa measure share one case family. Actual recitation/translation and finite basket request retained; compiler deduction/identity notes remain context.",
+      "id": "deenhindi-abudawud:2214"
+    },
+    {
+      "decision": "Four source-attributed ordered components across three specified families: trust descent; withdrawal with Hudhayfa’s explicitly printed gesture/prediction; his personal trading memory. This is one provider occurrence, not an external canonical report assignment.",
+      "id": "deenhindi-tirmidhi:2179"
+    },
+    {
+      "decision": "Hasan Basri’s own named explanatory saying under expanded source scope. Different own Hindi/Urdu object lists remain exact; no ultimate speaker for the internally quoted hadith wording is supplied.",
+      "id": "deenhindi-tirmidhi:2198"
+    },
+    {
+      "decision": "Own-source Messenger identification retained with Ahban’s relay; no external canonical identity inferred.",
+      "id": "deenhindi-tirmidhi:2203"
+    }
+  ],
+  "source_baseline_path": "imports/web-deenhindi-20261112/reviews/checkpointc2ab-abudawud-tirmidhi20-20261113/source-baseline.jsonl.gz",
+  "source_baseline_sha256": "3ed11308fab35d95c6725d07a764fb154beb021eac122e925294a5f6bfae329d",
+  "source_checkpoint": "c2ab74d74821e244d8a83620f0e8e68dda694b16",
+  "source_http_requests": 0,
+  "source_worker_run_id": 43430909086
+}

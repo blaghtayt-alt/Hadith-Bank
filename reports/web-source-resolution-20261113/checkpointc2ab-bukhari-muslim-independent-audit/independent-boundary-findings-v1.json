@@ -1,0 +1,91 @@
+{
+  "changes": [
+    {
+      "action": "move_to_context",
+      "end": 433,
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:2203",
+      "reason": "This final transmitter inventory sentence is not the actual Nafi legal ruling; the ruling and all three actual objects remain selected.",
+      "sha256": "7ec9d578738ba731a668f40a32aeeca83ae8ca8e0696cf1e607862ecb2ff88f3",
+      "source_field": "translationHindi",
+      "start": 393,
+      "text": "नाफ़ी ने इन तीनों चीज़ों का नाम लिया था।",
+      "whole_source_sha256": "d25271a87a284793d8692c9568495533448d909b202433a4057f6a15c7eb02ef"
+    },
+    {
+      "action": "move_to_context",
+      "end": 405,
+      "language": "ur",
+      "occurrence_id": "deenhindi-bukhari:2203",
+      "reason": "This final transmitter inventory sentence is not the actual Nafi legal ruling; the ruling and all three actual objects remain selected.",
+      "sha256": "0b7a6d471ba07d24cbeae556d6b70802672f57fedce6bbf96b6d8b56a1cacc76",
+      "source_field": "translationUrdu",
+      "start": 367,
+      "text": "نافع نے ان تینوں چیزوں کا نام لیا تھا۔",
+      "whole_source_sha256": "8f1850101f163453b772fbedc3f88fd9262e65c7208c21de778ae31400726a9b"
+    },
+    {
+      "action": "restore_to_selected",
+      "end": 677,
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:2212",
+      "reason": "This phrase specifies the service-for-compensation basis within Aisha’s guardian explanation; retain the actual qualification of the permission.",
+      "sha256": "a2d79510693e687d3481a6c2c042a1669529b9ea95fb546ee6f0ddbe299cb9f6",
+      "source_field": "translationHindi",
+      "start": 660,
+      "text": "(इस ख़िदमत के एवज़)",
+      "whole_source_sha256": "712f12f9908498cd1bc5decfd8d202c89d2747125aad91e1ff1767e0dbbf5970"
+    },
+    {
+      "action": "restore_to_selected",
+      "end": 644,
+      "language": "ur",
+      "occurrence_id": "deenhindi-bukhari:2212",
+      "reason": "This phrase specifies the service-for-compensation basis within Aisha’s guardian explanation; retain the actual qualification of the permission.",
+      "sha256": "e9566a50ffcd10e66295f3cb14ed9547fe6308cf674065473d19431fda32742b",
+      "source_field": "translationUrdu",
+      "start": 626,
+      "text": "( اس خدمت کے عوض )",
+      "whole_source_sha256": "51118305f5c7966dbcae60a21d248c00d61864219f240dd57ec9cb18abb95d48"
+    }
+  ],
+  "complete_reading_scope_changes": 0,
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "independent_source_first_receipt_sha256": "3433cec6f3c68b4075cbb08a08a6a4314e8cac78a6a109f3dc73bb2db321bb40",
+  "initial_independent_note_refinements": [
+    {
+      "field": "deenhindi-bukhari:2167:en",
+      "refinement": "The initial note allowed the their parenthesis as lexical context. On exact boundary comparison, retaining it is also warranted because the English source supplies a particular destination. It must not be dropped merely to match the broader Arabic transfer wording."
+    },
+    {
+      "fields": [
+        "deenhindi-muslim:2168:hi",
+        "deenhindi-muslim:2168:ur"
+      ],
+      "refinement": "The initial note allowed the leaf parenthesis as explanatory context. Its retained form identifies the actual plant part used, which can materially distinguish the supplied washing material; unlike a repeated hair noun during braiding, it is not necessarily redundant. Accept retention without asserting a different source wording."
+    },
+    {
+      "fields": [
+        "deenhindi-bukhari:2205:hi",
+        "deenhindi-bukhari:2205:ur"
+      ],
+      "refinement": "The initial note allowed the yani list as contextual explanation. The final source clause explicitly attributes prohibition of all the listed transactions, so the qualified supplied-transaction-scope report can retain that list as its actual scope. This does not claim that each defining word is independently quoted verbatim Prophetic speech."
+    },
+    {
+      "fields": [
+        "deenhindi-muslim:2222:hi",
+        "deenhindi-muslim:2222:ur"
+      ],
+      "refinement": "The initial note favored retaining funeral-of. In the complete dialogue the funeral object is already explicit and the demonstrative is metonymic; the parenthesis identifies that already stated object and may remain lexical context. The cause-of predicate remains selected because it supplies the actual causal relation in the answer."
+    }
+  ],
+  "original_primary_active_sha256": "f93d0df1230c6ee82f4c8cb58c5b108bcef79066b99d39f433a762d3374c709b",
+  "original_primary_manifest_sha256": "c20cdfd8eb74ae728d44053ded6b302eb1b86d0ac8dc10c39317699c10a45123",
+  "other_requested_changes": 0,
+  "parent_disposition_changes": 0,
+  "result": "PRIMARY_AUTHOR_ACCEPTED_FOUR_EXACT_FIELD_CHANGES",
+  "schema": "independent-exact-boundary-findings-v1",
+  "source_commit": "c2ab74d74821e244d8a83620f0e8e68dda694b16",
+  "source_http_requests": 0
+}

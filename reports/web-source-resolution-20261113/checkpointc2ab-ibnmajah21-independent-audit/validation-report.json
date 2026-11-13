@@ -1,0 +1,64 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointc2ab-ibnmajah21-manual-v1.json.gz",
+  "active_ledger_sha256": "4fdc18bcf9bbbb63e84402edc975aa1e779fcdb181d33da8b36b713145990c98",
+  "actual_complete_readings": {
+    "by_language": {
+      "hi": 21,
+      "ur": 21
+    },
+    "characters": 12243,
+    "fields": 42,
+    "utf8_bytes": 26640
+  },
+  "all_frozen_candidate_files_unchanged": true,
+  "baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpointc2ab-ibnmajah21-manual-v1/source-ledger-21.jsonl.gz",
+  "baseline_sha256": "39d24f2ebc8eda9cc3f9886c5d17dcbaf0f7200249b2fc9fae5a21671df88881",
+  "candidate_manifest_sha256": "40374ecb168f7228c4c288bfa294457500a26aee199b6663b7daf0ebbe504c9b",
+  "cohort": "ibnmajah21",
+  "frozen_candidate_files_checked": 10,
+  "github_mutations": 0,
+  "human_review": "not_performed",
+  "independent_pro_qc": "not_performed",
+  "limitations": "Independent semantic/source-preservation audit of this exact candidate only; no live deployment, complete-provider export, or Pro certification claimed.",
+  "native_validation": {
+    "admitted_fields": 42,
+    "all_unread_fields_excluded_from_quotation_and_preserved_complete": true,
+    "apply_finish": "PASS",
+    "engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "lossless_field_partitions": 105,
+    "parent_records": 21,
+    "parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "register": 21,
+    "source_metadata_leaf_equalities": 4746,
+    "source_only": 0,
+    "unread_sibling_context_fields": 63
+  },
+  "new_canonical_identity_or_authenticity_claim": false,
+  "required_amendments": [],
+  "schema": "hadith-bank-independent-own-field-semantic-native-audit-v1",
+  "semantic_boundary_audit": {
+    "actual_recitations_preserved_in_reported_role": true,
+    "all_selected_positions_independently_approved": true,
+    "body_and_scope_qualifiers_preserved": true,
+    "boundary_method": "Every expected literal glossary or footnote occurrence was independently enumerated from complete own-field reading. The candidate removes exactly those positions.",
+    "exact_context_gap_count": 24,
+    "exact_source_speaker_types_and_components_inspected": true,
+    "lexical_gloss_and_footnote_apparatus_separate": true,
+    "neighbor_or_fuzzy_identity_used": false,
+    "no_new_translation": true,
+    "source_defects_not_repaired": true
+  },
+  "source_checkpoint": "c2ab74d74821e244d8a83620f0e8e68dda694b16",
+  "source_first_notes_sha256": "09893b5df6529b57a87ff6920ce8dafe3224cf1c21056a70a5ba273990500bef",
+  "source_first_reading_coverage_sha256": "d18bcee3040df258ae35326e8da220c9e8dee6029be8502505ef38125c830f29",
+  "source_site_requests": 0,
+  "source_verification": {
+    "all_selected_rows_in_verified_new93": true,
+    "all_source_objects_and_verbatim_references_equal": true,
+    "complete_reparses": 21,
+    "raw_and_parsed_files_reopened": 42,
+    "raw_stored_decompressed_and_git_blob_hashes_verified": true,
+    "shared_source_evidence_manifest_sha256": "551a596f84e3036a4eac4586a1f69d731cdbb7a97df7d2fc7405a0425453d83e"
+  },
+  "status": "PASS"
+}

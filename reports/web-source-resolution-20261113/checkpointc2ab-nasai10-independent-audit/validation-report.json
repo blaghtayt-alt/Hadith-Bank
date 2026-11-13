@@ -1,0 +1,67 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-nasai10-20261113.json.gz",
+  "active_ledger_sha256": "dff78a9f6d56e93570a6a06dad9f20b1f4a97fa0030c79dd45a26112ec49370c",
+  "actual_complete_readings": {
+    "by_language": {
+      "ar": 1,
+      "en": 1,
+      "hi": 10,
+      "ur": 10,
+      "ur-Latn": 1
+    },
+    "characters": 7900,
+    "fields": 23,
+    "utf8_bytes": 15685
+  },
+  "all_frozen_candidate_files_unchanged": true,
+  "baseline_path": "imports/web-deenhindi-20261112/reviews/checkpointc2ab-nasai10-20261113/source-baseline.jsonl.gz",
+  "baseline_sha256": "3de8163941b9f75d24ebd5f0a6494c5d688eacb363d8985ede6f303b857fa643",
+  "candidate_manifest_sha256": "c2eeafc894a9d900a6aae4b8a85148e7b6ef6209ce25562acb9b2cd4626de7b5",
+  "cohort": "nasai10",
+  "frozen_candidate_files_checked": 11,
+  "github_mutations": 0,
+  "human_review": "not_performed",
+  "independent_pro_qc": "not_performed",
+  "limitations": "Independent semantic/source-preservation audit of this exact candidate only; no live deployment, complete-provider export, or Pro certification claimed.",
+  "native_validation": {
+    "admitted_fields": 23,
+    "all_unread_fields_excluded_from_quotation_and_preserved_complete": true,
+    "apply_finish": "PASS",
+    "engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "lossless_field_partitions": 50,
+    "parent_records": 10,
+    "parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "register": 10,
+    "source_metadata_leaf_equalities": 2260,
+    "source_only": 0,
+    "unread_sibling_context_fields": 27
+  },
+  "new_canonical_identity_or_authenticity_claim": false,
+  "required_amendments": [],
+  "schema": "hadith-bank-independent-own-field-semantic-native-audit-v1",
+  "semantic_boundary_audit": {
+    "actual_recitations_preserved_in_reported_role": true,
+    "all_selected_positions_independently_approved": true,
+    "body_and_scope_qualifiers_preserved": true,
+    "boundary_method": "The final two footnote glyphs plus their adjacent separator and punctuation remain context; no report word is removed. Two lexical gloss gaps also retain their adjoining separator.",
+    "exact_context_gap_count": 3,
+    "exact_source_speaker_types_and_components_inspected": true,
+    "lexical_gloss_and_footnote_apparatus_separate": true,
+    "neighbor_or_fuzzy_identity_used": false,
+    "no_new_translation": true,
+    "source_defects_not_repaired": true
+  },
+  "source_checkpoint": "c2ab74d74821e244d8a83620f0e8e68dda694b16",
+  "source_first_notes_sha256": "ebc80f3cffd4533a39b8e524582a23fff7584f492c60472a6ad9c426ec93ff29",
+  "source_first_reading_coverage_sha256": "c2f83937d68881900d1215221b4132e707b6975613c95ae12e94c1f390b8636c",
+  "source_site_requests": 0,
+  "source_verification": {
+    "all_selected_rows_in_verified_new93": true,
+    "all_source_objects_and_verbatim_references_equal": true,
+    "complete_reparses": 10,
+    "raw_and_parsed_files_reopened": 20,
+    "raw_stored_decompressed_and_git_blob_hashes_verified": true,
+    "shared_source_evidence_manifest_sha256": "551a596f84e3036a4eac4586a1f69d731cdbb7a97df7d2fc7405a0425453d83e"
+  },
+  "status": "PASS"
+}

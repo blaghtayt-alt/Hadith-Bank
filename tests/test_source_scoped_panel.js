@@ -13,7 +13,7 @@ const element=(tag,cls,text)=>new N(tag,text);const detail=(label,body)=>{let d=
 const helper=template.slice(template.indexOf('const hasSourcePassages ='),template.indexOf('function appendLanguageReadings('));
 const hasSourcePassages=new Function(helper+';return hasSourcePassages')();
 assert(!hasSourcePassages({}));assert(!hasSourcePassages({source_scoped_content:{segments:[],footnotes:[]}}));assert(hasSourcePassages({source_scoped_content:{segments:[seg],footnotes:[]}}));assert(hasSourcePassages({source_scoped_content:{segments:[],footnotes:[{}]}}));
-const source=template.slice(template.indexOf('function appendSourceScopedContent('),template.indexOf('function card(record,index)'));
+const source=template.slice(template.indexOf('function appendSourceScopedContent('),template.indexOf('function card(record,index,'));
 const render=new Function('element','detail',source+';return appendSourceScopedContent')(element,detail);let root=new N('article');render(root,record);
 const flatten=n=>[n,...n.children.flatMap(flatten)];let nodes=flatten(root);
 assert(nodes.some(n=>n.tag==='pre'&&n.textContent===seg.text_verbatim));assert(nodes.some(n=>n.tag==='pre'&&n.textContent===note.text_verbatim));

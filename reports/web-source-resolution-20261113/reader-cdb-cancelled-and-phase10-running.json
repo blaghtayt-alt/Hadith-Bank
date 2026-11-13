@@ -1,0 +1,319 @@
+{
+  "schema": "hadith-bank-reader-observation-receipt-v1",
+  "observed_at": "2026-11-13T14:14:54Z",
+  "completed_reader": {
+    "run_id": 43433338096,
+    "job_id": 131912091455,
+    "head_sha": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+    "run_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43433338096",
+    "conclusion": "cancelled",
+    "first_runner_log_at": "2026-11-13T13:24:20.5182656Z",
+    "full_refresh_started_at": "2026-11-13T13:36:07.6490689Z",
+    "cancellation_log_at": "2026-11-13T13:54:32.2817828Z",
+    "cancellation_message": "The operation was canceled.",
+    "software": {
+      "python_tests": 957,
+      "python_seconds": 65.192,
+      "node_tests": 43,
+      "node_pass": 43,
+      "node_fail": 0
+    },
+    "completed_fawaz_export": {
+      "phase": "complete",
+      "status": "passed",
+      "provider_occurrences": 36464,
+      "registered_occurrences": 36226,
+      "held_occurrences": 238,
+      "newly_registered_occurrences": 6315
+    },
+    "completed_saved_web_review_summary": {
+      "schema": "hadith-bank-web-import-status-v1",
+      "enabled": true,
+      "fetched_entries": 23969,
+      "registered_occurrences": 23712,
+      "held_entries": 115,
+      "non_narration_source_entries": 144,
+      "requires_attention": true,
+      "fetch_queues_done": false,
+      "has_fetch_work": true,
+      "schedule_should_pause": false,
+      "schedule_pause_reason": null,
+      "complete_content_import_certified": false,
+      "note": "Counts describe preserved source entries, not unique canonical hadiths. Queue completion still requires reconciliation of held entries, source omissions and embedded quotations."
+    },
+    "jobs": [
+      {
+        "id": 131912091455,
+        "name": "Refresh bank and build website",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "run_id": 43433338096,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Check out requested main revision",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Set up Python",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run software tests",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install reader browser test runtime",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Export saved Fawaz reviews and preserve published quotations",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Apply changed saved website reviews before shared validation",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Save bounded Fawaz validation evidence",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Synchronize official counterpart sources for newly registered IDs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Rebuild and validate all registered material",
+            "status": "completed",
+            "conclusion": "cancelled",
+            "number": 10
+          },
+          {
+            "name": "Verify bounded reader in Chromium",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 11
+          },
+          {
+            "name": "Save reader runtime evidence",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 12
+          },
+          {
+            "name": "Keep generated bank files synchronized",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 13
+          },
+          {
+            "name": "Upload the verified website",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 14
+          },
+          {
+            "name": "Post Set up Python",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 27
+          },
+          {
+            "name": "Post Check out requested main revision",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 28
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 29
+          }
+        ]
+      },
+      {
+        "id": 131912093101,
+        "name": "Validate proposed material and reader",
+        "status": "completed",
+        "conclusion": "skipped",
+        "run_id": 43433338096,
+        "logs_url": null,
+        "steps": null
+      },
+      {
+        "id": 131927285738,
+        "name": "Publish verified website",
+        "status": "completed",
+        "conclusion": "skipped",
+        "run_id": 43433338096,
+        "logs_url": null,
+        "steps": null
+      }
+    ],
+    "validated_full_registry": false,
+    "chromium_verified": false,
+    "website_uploaded": false,
+    "deployed": false
+  },
+  "successor_observation": {
+    "run_id": 43437261471,
+    "head_sha": "5749ec389f1925f4d5e05a34d64c39acbc1f90f4",
+    "job_id": 131927288012,
+    "run_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43437261471",
+    "status": "in_progress",
+    "jobs": [
+      {
+        "id": 131927288012,
+        "name": "Refresh bank and build website",
+        "status": "in_progress",
+        "conclusion": null,
+        "run_id": 43437261471,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Check out requested main revision",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Set up Python",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run software tests",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install reader browser test runtime",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Export saved Fawaz reviews and preserve published quotations",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Apply changed saved website reviews before shared validation",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Save bounded Fawaz validation evidence",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Synchronize official counterpart sources for newly registered IDs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Rebuild and validate all registered material",
+            "status": "in_progress",
+            "conclusion": null,
+            "number": 10
+          },
+          {
+            "name": "Verify bounded reader in Chromium",
+            "status": "pending",
+            "conclusion": null,
+            "number": 11
+          },
+          {
+            "name": "Save reader runtime evidence",
+            "status": "pending",
+            "conclusion": null,
+            "number": 12
+          },
+          {
+            "name": "Keep generated bank files synchronized",
+            "status": "pending",
+            "conclusion": null,
+            "number": 13
+          },
+          {
+            "name": "Upload the verified website",
+            "status": "pending",
+            "conclusion": null,
+            "number": 14
+          },
+          {
+            "name": "Post Set up Python",
+            "status": "pending",
+            "conclusion": null,
+            "number": 27
+          },
+          {
+            "name": "Post Check out requested main revision",
+            "status": "pending",
+            "conclusion": null,
+            "number": 28
+          }
+        ]
+      },
+      {
+        "id": 131927289955,
+        "name": "Validate proposed material and reader",
+        "status": "completed",
+        "conclusion": "skipped",
+        "run_id": 43437261471,
+        "logs_url": null,
+        "steps": null
+      }
+    ],
+    "full_registry_refresh": "in_progress",
+    "chromium_verified": false,
+    "website_uploaded": false,
+    "deployed": false
+  },
+  "exact_workflow_observation": {
+    "path": ".github/workflows/reader-pages.yml",
+    "commit": "5749ec389f1925f4d5e05a34d64c39acbc1f90f4",
+    "git_blob_sha1": "dfbabf9ef2839e75d9840e74e626da329e0beae5",
+    "build_timeout_minutes": 30,
+    "concurrency_group": "hadith-bank-reader-${{ github.event.pull_request.number || github.ref }}",
+    "cancel_in_progress": "${{ github.event_name == 'pull_request' }}",
+    "inference": "The prior runner logged generic cancellation about30 minutes12 seconds after its first log, consistent with the configured30-minute cap. The log does not explicitly name the cancellation cause, so timeout is not asserted as proven."
+  },
+  "scope": "Historical observed export and test progress, not a current-main full-validation or deployment receipt. Source acquisition checkpoints and their preserved error history are separate evidence. No job dispatch, GitHub mutation, source HTTP, concurrency or publication-guard change was made."
+}
