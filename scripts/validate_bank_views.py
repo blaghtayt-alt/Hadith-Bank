@@ -677,6 +677,29 @@ def verify_git_baseline(root, baseline, evidence, registered_files=None):
             'network_used': False, 'paths': checked}
 
 
+def authorize_context_documents(root, authorized_files):
+    """Add only source documents proven by the source-context manifest."""
+    from source_context_pages import load_context_pages
+
+    authorized = dict(authorized_files)
+    for page in load_context_pages(root):
+        for item in page['files']:
+            relative, digest = item['path'], item['sha256']
+            if PurePosixPath(relative).suffix.lower() not in ('.pdf', '.xlsx', '.xls', '.docx'):
+                continue
+            require(relative not in authorized or authorized[relative] == digest,
+                    'Source context document conflicts with registered source: ' + relative)
+            authorized[relative] = digest
+    return authorized
+
+
+def unregistered_source_documents(root, authorized_files):
+    return sorted(p.relative_to(root).as_posix() for p in root.rglob('*')
+                  if '.git' not in p.parts and p.is_file()
+                  and p.suffix.lower() in ('.pdf', '.xlsx', '.xls', '.docx')
+                  and p.relative_to(root).as_posix() not in authorized_files)
+
+
 def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None, report_path=None):
     root = Path(root).resolve()
     catalog = read_json(root, 'catalog/materials.json')
@@ -702,9 +725,8 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
         require(len(materials) == len(allowed) and {m['dataset_id'] for m in materials} == set(allowed), 'Public dataset scope differs from authorized snapshots and material manifests')
         for material in materials:
             require(all(material.get(k) == v for k, v in allowed[material['dataset_id']].items()), 'Public snapshot metadata/hash mismatch: ' + material['dataset_id'])
-        forbidden = [p.relative_to(root).as_posix() for p in root.rglob('*')
-                     if '.git' not in p.parts and p.is_file() and p.suffix.lower() in ('.pdf', '.xlsx', '.xls', '.docx')
-                     and p.relative_to(root).as_posix() not in registered['authorized_files']]
+        registered['authorized_files'] = authorize_context_documents(root, registered['authorized_files'])
+        forbidden = unregistered_source_documents(root, registered['authorized_files'])
         require(not forbidden, 'Unregistered source documents present in public tree: ' + ', '.join(forbidden[:5]))
     evidence, expected, datasets, canonical_paths, expected_counts = {}, {}, set(), set(), Counter()
     for material in materials:
