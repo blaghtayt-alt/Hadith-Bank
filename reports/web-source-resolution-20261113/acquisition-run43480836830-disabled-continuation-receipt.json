@@ -1,0 +1,32 @@
+{
+  "bounded_source_batch": "success",
+  "continuation_step": "failure",
+  "disable_actor_time_or_reason": "Not established by this log; no inference is made.",
+  "exact_error_lines": [
+    "2026-11-13T18:58:02.3247426Z could not create workflow dispatch event: HTTP 422: Cannot trigger a 'workflow_dispatch' on a disabled workflow (https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/workflows/415715399/dispatches)",
+    "2026-11-13T18:58:02.3732213Z ##[error]Process completed with exit code 1."
+  ],
+  "failure_kind": "GitHub workflow_dispatch rejected because the target workflow was disabled",
+  "full_job_log": {
+    "bytes": 381997,
+    "git_blob_sha1": "6cda6ddb2c492aada4385133f156676f92d69690",
+    "sha256": "7b3f198cb614f83fb4595efffc818775c8857f92bfd880aaa5337c40b77b0b63"
+  },
+  "github_writes": 0,
+  "job_id": 132076686305,
+  "local_full_log_path": "/workspace/scratch/44aeee8a6071/phase22-successor-acquisition-monitor/source-job.log",
+  "manual_dispatches_by_auditor": 0,
+  "no_successor_source_run_inferred": true,
+  "ordinary_held_export": "success",
+  "original_repository_source_guards_and_plan_unchanged": true,
+  "reader_request": "success",
+  "run_conclusion": "failure",
+  "run_id": 43480836830,
+  "saved_commit_verified": "64f4ed50ed6026855237a5d547a86dd03e73f804",
+  "schema": "hadith-bank-post-save-continuation-failure-receipt-v1",
+  "service_disable_state_preserved": true,
+  "source_http_requests": 0,
+  "target_workflow_id": 415715399,
+  "validated_save": "success",
+  "workflow_enabled_by_auditor": false
+}

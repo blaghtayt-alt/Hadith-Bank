@@ -1,0 +1,63 @@
+{
+  "by_collection": {
+    "abudawud": 17,
+    "tirmidhi": 6
+  },
+  "characters": 24000,
+  "count": 23,
+  "fields": 46,
+  "independent_review_cycle": {
+    "checkpoint": "queue",
+    "deployment": "root",
+    "queue": "deployment",
+    "root": "checkpoint"
+  },
+  "keys": [
+    "abudawud:2624",
+    "abudawud:2629",
+    "abudawud:2630",
+    "abudawud:2635",
+    "abudawud:2638",
+    "abudawud:2643",
+    "abudawud:2645",
+    "abudawud:2649",
+    "abudawud:2654",
+    "abudawud:2658",
+    "abudawud:2668",
+    "abudawud:2674",
+    "abudawud:2678",
+    "abudawud:2688",
+    "abudawud:2690",
+    "abudawud:2696",
+    "abudawud:2698",
+    "tirmidhi:2622",
+    "tirmidhi:2665",
+    "tirmidhi:2680",
+    "tirmidhi:2683",
+    "tirmidhi:2690",
+    "tirmidhi:2694"
+  ],
+  "nonempty_fields": 46,
+  "partition": "deployment-abudawud17-tirmidhi6",
+  "reading_input": {
+    "bytes": 93021,
+    "git_blob_sha1": "cc6e1dd8a1e673f8d68a11ff1909fb6d46a021bd",
+    "sha256": "1c6567cef512392b28923d0ab271219e07e89d01b723daa87605deacb346f93f"
+  },
+  "schema": "hadith-bank-source-reading-partition-v1",
+  "selection": "All Bukhari14 plus the first eight numerically ordered IbnMajah for checkpoint; all Muslim14 plus the remaining four IbnMajah for queue; all Nasai22 for root; all AbuDawud17 and Tirmidhi6 for deployment. The independently proved new85 set has no overlap among these partitions.",
+  "semantic_status": "Originals only; no complete readings or admission decisions have been claimed by preparation",
+  "source_commit": "17cd396eb858a29162505d545aad556ac73ce9ce",
+  "source_files_directory": "/workspace/scratch/44aeee8a6071/phase21-successor-acquisition-monitor/held-evidence/sources",
+  "source_rows": {
+    "bytes": 147333,
+    "git_blob_sha1": "59f9a9c077bf93a1283fea8af064f7bc739ede06",
+    "sha256": "e9d55267c7f2ea3f0f2c008a440276e33736b5c0a036cbd0e937b067a4e9bfaf"
+  },
+  "source_verification": {
+    "bytes": 39194,
+    "git_blob_sha1": "12c31a29872b0c8ac45dd1f798e5e4c5419975c4",
+    "sha256": "2819c90af1ceb26352b4db38269a2b27d2eac909e97c122acdb8a645791493f6"
+  },
+  "utf8_bytes": 51211
+}

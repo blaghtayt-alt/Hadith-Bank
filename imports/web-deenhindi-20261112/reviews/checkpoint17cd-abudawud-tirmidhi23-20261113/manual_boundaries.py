@@ -1,0 +1,1225 @@
+"""Six exact independent source-scope refinements; original notes remain immutable."""
+records = [{'key': 'abudawud:2624',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Ibn Abbas supplies an actual revelation-occasion assertion about the '
+                              'source-named Abdullah and his expedition commission. The verse wording and '
+                              'its complete parenthetical translation are integral quoted content. Retain '
+                              "the printed participant-name/lineage qualification as this source's identity "
+                              'wording without repairing it from outside knowledge; only the explicit '
+                              "surah/verse locator is apparatus. This is the Companion's reported occasion "
+                              'assertion, not an independently authenticated historical finding.',
+                    'report_type': 'companion_revelation_occasion_report',
+                    'speaker': 'Ibn Abbas reports the source-named Abdullah expedition and its claimed '
+                               'revelation occasion. The verse and source translation are quoted within that '
+                               'Companion assertion; participant-name defects remain exact.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_revelation_occasion_report',
+                               'speaker': 'Ibn Abbas reports the source-named Abdullah expedition and its '
+                                          'claimed revelation occasion. The verse and source translation are '
+                                          'quoted within that Companion assertion; participant-name defects '
+                                          'remain exact.',
+                               'source_report_family_id': 'abudawud:2624:hi:source-numbered-report'}],
+                    'omit_source_context': [{'text': '(सौराह आन-निसा: ५९)',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'}]},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The entire Urdu independently supplies the quoted verse, rendering, '
+                              'source-named Abdullah identity and the claim that the verse concerned his '
+                              'expedition commission. Its parenthetical Abdullah-bin-Hudhafa identification '
+                              'distinguishes the participant and should remain source-rendered attribution, '
+                              "while the exact Nasaa59 locator remains context. Preserve the source's "
+                              'adjacent Qays-bin-Adi wording without normalizing the name chain or importing '
+                              "Hindi's phrasing.",
+                    'report_type': 'companion_revelation_occasion_report',
+                    'speaker': 'Ibn Abbas reports the source-named Abdullah expedition and its claimed '
+                               'revelation occasion. The verse and source translation are quoted within that '
+                               'Companion assertion; participant-name defects remain exact.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_revelation_occasion_report',
+                               'speaker': 'Ibn Abbas reports the source-named Abdullah expedition and its '
+                                          'claimed revelation occasion. The verse and source translation are '
+                                          'quoted within that Companion assertion; participant-name defects '
+                                          'remain exact.',
+                               'source_report_family_id': 'abudawud:2624:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '( سورۃ النساء: ۵۹ )',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'}]}}},
+ {'key': 'abudawud:2629',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Muadh ibn Anas supplies his expedition participation, blocked camp/routes, '
+                              'the dispatched announcer and the stated no-jihad consequence. The final Hindi '
+                              "repeats damaged camp/blocking language and lacks part of Urdu's clearer "
+                              'object wording; preserve that defective finite source clause without '
+                              'completion. No detached compiler comment occurs in this own field.',
+                    'report_type': 'companion_report_of_prophetic_dispatched_instruction',
+                    'speaker': 'Muadh ibn Anas reports campaign participation, constricted camps/routes and '
+                               'the dispatched announcement. The defective Hindi final object/predicate is '
+                               'preserved without borrowing Urdu.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_dispatched_instruction',
+                               'speaker': 'Muadh ibn Anas reports campaign participation, constricted '
+                                          'camps/routes and the dispatched announcement. The defective Hindi '
+                                          'final object/predicate is preserved without borrowing Urdu.',
+                               'source_report_family_id': 'abudawud:2629:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "Read the complete camp-constriction report and the Prophet's dispatched "
+                              'announcement in Urdu. Preserve both alternatives, narrowing camp space or '
+                              'blocking a road, and the supplied consequence. The embedded numbered footnote '
+                              "is apparatus only. Do not use this clearer Urdu to fill Hindi's broken "
+                              'ending.',
+                    'report_type': 'companion_report_of_prophetic_dispatched_instruction',
+                    'speaker': 'Muadh ibn Anas reports the camp/road obstruction and the Messenger’s '
+                               'dispatched announcement, including both alternatives and its exact '
+                               'consequence.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_dispatched_instruction',
+                               'speaker': 'Muadh ibn Anas reports the camp/road obstruction and the '
+                                          'Messenger’s dispatched announcement, including both alternatives '
+                                          'and its exact consequence.',
+                               'source_report_family_id': 'abudawud:2629:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '۱؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'}]}}},
+ {'key': 'abudawud:2630',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'The source supplies one finite observation: Muadh says they undertook a '
+                              "campaign with Allah's Prophet. The following narrator's same-meaning pointer "
+                              'supplies no additional report body and remains source context. Admit the '
+                              "actual short participation clause under Muadh's printed attribution without "
+                              "importing the preceding occurrence's camp incident.",
+                    'report_type': 'abbreviated_companion_campaign_observation',
+                    'speaker': 'Muadh’s actually supplied campaign-participation observation with Allah’s '
+                               'Prophet. The subsequent same-meaning pointer supplies no additional body.',
+                    'spans': [{'from': None,
+                               'to': 'फिर रवि ने',
+                               'component_id': 'reported-account',
+                               'report_type': 'abbreviated_companion_campaign_observation',
+                               'speaker': 'Muadh’s actually supplied campaign-participation observation with '
+                                          'Allah’s Prophet. The subsequent same-meaning pointer supplies no '
+                                          'additional body.',
+                               'source_report_family_id': 'abudawud:2630:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'This own Urdu similarly gives a finite campaign-participation statement, then '
+                              'a bare same-meaning narration pointer. The first statement can stand as the '
+                              "source's expressly abbreviated observation; the pointer cannot justify "
+                              'filling another account. Retain the full original pointer as context and do '
+                              "not infer the campaign's name or details.",
+                    'report_type': 'abbreviated_companion_campaign_observation',
+                    'speaker': 'Muadh’s actually supplied campaign-participation observation with Allah’s '
+                               'Prophet. The subsequent same-meaning pointer supplies no additional body.',
+                    'spans': [{'from': None,
+                               'to': 'پھر راوی نے',
+                               'component_id': 'reported-account',
+                               'report_type': 'abbreviated_companion_campaign_observation',
+                               'speaker': 'Muadh’s actually supplied campaign-participation observation with '
+                                          'Allah’s Prophet. The subsequent same-meaning pointer supplies no '
+                                          'additional body.',
+                               'source_report_family_id': 'abudawud:2630:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2635',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'The complete Isam Muzani report contains a commission to an expedition and '
+                              'the actual conditional instruction not to kill anyone upon seeing a mosque or '
+                              "hearing an adhan. Both alternatives, the nobody scope and the source's "
+                              'reporter spelling remain exact. No extra explanation or source-only tail '
+                              'needs admission.',
+                    'report_type': 'companion_report_of_prophetic_conditional_instruction',
+                    'speaker': 'The source-named ईसाम मुज़नी reports the expedition commission and the '
+                               'mosque-or-adhan conditions of the instruction not to kill anyone.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_conditional_instruction',
+                               'speaker': 'The source-named ईसाम मुज़नी reports the expedition commission and '
+                                          'the mosque-or-adhan conditions of the instruction not to kill '
+                                          'anyone.',
+                               'source_report_family_id': 'abudawud:2635:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "The Urdu independently supplies Isam's expedition commission and both "
+                              'mosque/adhan conditions of the no-killing instruction. Preserve the coherent '
+                              'short attribution and all finite wording, with no outside completion or '
+                              'authenticity upgrade.',
+                    'report_type': 'companion_report_of_prophetic_conditional_instruction',
+                    'speaker': 'The source-named عصام مزنی reports the expedition commission and both '
+                               'mosque/adhan conditions of the no-killing instruction.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_conditional_instruction',
+                               'speaker': 'The source-named عصام مزنی reports the expedition commission and '
+                                          'both mosque/adhan conditions of the no-killing instruction.',
+                               'source_report_family_id': 'abudawud:2635:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2638',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Salama reports Abu Bakr's commissioned leadership, the night attack, the "
+                              'actual repeated slogan and his own seven-households killing statement. '
+                              "Preserve this as Salama's account, not a claim that all his acts are direct "
+                              'Prophetic commands. The code synonym explains the word for slogan and remains '
+                              'lexical context; the actual slogan and number remain exact, including the '
+                              "source's household wording.",
+                    'report_type': 'companion_expedition_account_with_prophetic_commission',
+                    'speaker': 'Salama narrates Abu Bakr’s commissioned leadership, the night attack, actual '
+                               'slogan and his own seven-households statement. The latter acts are his '
+                               'reported account, not relabelled direct Prophetic commands.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_prophetic_commission',
+                               'speaker': 'Salama narrates Abu Bakr’s commissioned leadership, the night '
+                                          'attack, actual slogan and his own seven-households statement. The '
+                                          'latter acts are his reported account, not relabelled direct '
+                                          'Prophetic commands.',
+                               'source_report_family_id': 'abudawud:2638:hi:source-numbered-report'}],
+                    'omit_source_context': [{'text': '(कोड)',
+                                             'expected_count': 1,
+                                             'reason': 'Lexical code synonym for the already supplied slogan '
+                                                       'term; the actual slogan remains.'}]},
+             'ur': {'action': 'excerpts',
+                    'reason': 'Read the entire Salama narrative independently. The repeated am-it slogan and '
+                              'the seven-households statement are actual own-field content; the parenthetic '
+                              'code definition and both numbered footnote markers are apparatus. Retain Abu '
+                              "Bakr's commissioned role and the source's own actions/numbers without "
+                              'canonical correction.',
+                    'report_type': 'companion_expedition_account_with_prophetic_commission',
+                    'speaker': 'Salama narrates Abu Bakr’s commissioned leadership, the night attack, actual '
+                               'slogan and his own seven-households statement. The latter acts are his '
+                               'reported account, not relabelled direct Prophetic commands.',
+                    'spans': [{'from': None,
+                               'to': '۲؎',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_prophetic_commission',
+                               'speaker': 'Salama narrates Abu Bakr’s commissioned leadership, the night '
+                                          'attack, actual slogan and his own seven-households statement. The '
+                                          'latter acts are his reported account, not relabelled direct '
+                                          'Prophetic commands.',
+                               'source_report_family_id': 'abudawud:2638:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '( کوڈ )',
+                                             'expected_count': 1,
+                                             'reason': 'Lexical code synonym for the already supplied slogan '
+                                                       'term; the actual slogan remains.'},
+                                            {'text': '۱؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'}]}}},
+ {'key': 'abudawud:2643',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Usama's complete account includes the commission, surrounding a man, his "
+                              "confession, the killing, Usama's fear-of-sword explanation, the Messenger's "
+                              "repeated challenge and Usama's final wish. The despite-this, repeated "
+                              'fear-of-sword alternative and rather-for-Islam parentheses materially frame '
+                              "the action and alternative intention; retain them as this source's rendering "
+                              'rather than claim their verbatim historical wording. Preserve every question '
+                              'and the final repeated-warning effect.',
+                    'report_type': 'companion_account_with_prophetic_rebuke_dialogue',
+                    'speaker': 'Usama reports the man’s confession, killing, his own fear-of-sword '
+                               'explanation, the Messenger’s repeated challenge and his final wish. The '
+                               'intention alternatives and despite-this parenthesis remain this source’s '
+                               'narrative rendering.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_account_with_prophetic_rebuke_dialogue',
+                               'speaker': 'Usama reports the man’s confession, killing, his own '
+                                          'fear-of-sword explanation, the Messenger’s repeated challenge and '
+                                          'his final wish. The intention alternatives and despite-this '
+                                          'parenthesis remain this source’s narrative rendering.',
+                               'source_report_family_id': 'abudawud:2643:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "The entire Urdu independently supplies Usama's own scene and dialogue. The "
+                              'parenthetical despite-this connector and both intention-alternative scopes '
+                              'belong with the actual narrative/question, while the two numbered footnote '
+                              "glyphs are source apparatus. Do not turn Usama's explanation into the "
+                              "Messenger's assertion or erase the source-rendered alternative intention "
+                              'wording.',
+                    'report_type': 'companion_account_with_prophetic_rebuke_dialogue',
+                    'speaker': 'Usama reports the man’s confession, killing, his own fear-of-sword '
+                               'explanation, the Messenger’s repeated challenge and his final wish. The '
+                               'intention alternatives and despite-this parenthesis remain this source’s '
+                               'narrative rendering.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_account_with_prophetic_rebuke_dialogue',
+                               'speaker': 'Usama reports the man’s confession, killing, his own '
+                                          'fear-of-sword explanation, the Messenger’s repeated challenge and '
+                                          'his final wish. The intention alternatives and despite-this '
+                                          'parenthesis remain this source’s narrative rendering.',
+                               'source_report_family_id': 'abudawud:2643:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '۱؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'},
+                                            {'text': '۲؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'}]}}},
+ {'key': 'abudawud:2645',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Jarir reports the Khatham expedition, attempted protection by prostration, '
+                              'hasty killing, half compensation and the actual question/answer about both '
+                              'fires. The source-printed Islam/kufr parenthesis supplies material referents '
+                              'for that reply and remains qualified source-rendered scope, without an '
+                              'independent claim of verbatim historical wording. The exact half amount, '
+                              'condition and all source defects remain unchanged. V2 explicit '
+                              'reconsideration: the immutable initial source-first notes and complete v1 '
+                              'selections are retained in before evidence. The independent complete-field '
+                              'comparison and its source-role adjudication support this bounded refinement; '
+                              'no new reading, parent registration or canonical identity is claimed.',
+                    'report_type': 'companion_report_of_incident_and_prophetic_response',
+                    'speaker': 'Jarir reports the Khatham incident, the half-compensation response and the '
+                               'actual question/answer about the two fires. The source-printed Islam/kufr '
+                               'referents remain qualified scope of this reported reply; no independent '
+                               'claim of verbatim Prophetic wording is made.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_incident_and_prophetic_response',
+                               'speaker': 'Jarir reports the Khatham incident, the half-compensation '
+                                          'response and the actual question/answer about the two fires. The '
+                                          'source-printed Islam/kufr referents remain qualified scope of '
+                                          'this reported reply; no independent claim of verbatim Prophetic '
+                                          'wording is made.',
+                               'source_report_family_id': 'abudawud:2645:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The complete Urdu supplies the incident, half-diya response and fire '
+                              'question/answer. The Islam/kufr parenthesis materially identifies both fire '
+                              'referents and remains qualified source-rendered reply scope. The body '
+                              'footnotes and appended Abu Dawud transmitter-list/omitted-Jarir criticism '
+                              'stay context; no additional narrated event or verbatim historical parenthesis '
+                              'claim is made. V2 explicit reconsideration: the immutable initial '
+                              'source-first notes and complete v1 selections are retained in before '
+                              'evidence. The independent complete-field comparison and its source-role '
+                              'adjudication support this bounded refinement; no new reading, parent '
+                              'registration or canonical identity is claimed.',
+                    'report_type': 'companion_report_of_incident_and_prophetic_response',
+                    'speaker': 'Jarir reports the Khatham incident, the half-compensation response and the '
+                               'actual question/answer about the two fires. The source-printed Islam/kufr '
+                               'referents remain qualified scope of this reported reply; no independent '
+                               'claim of verbatim Prophetic wording is made.',
+                    'spans': [{'from': None,
+                               'to': '۲؎',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_incident_and_prophetic_response',
+                               'speaker': 'Jarir reports the Khatham incident, the half-compensation '
+                                          'response and the actual question/answer about the two fires. The '
+                                          'source-printed Islam/kufr referents remain qualified scope of '
+                                          'this reported reply; no independent claim of verbatim Prophetic '
+                                          'wording is made.',
+                               'source_report_family_id': 'abudawud:2645:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '۱؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'}]}}},
+ {'key': 'abudawud:2649',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Khabbab's full visit/complaint account includes the cloak setting, the two "
+                              "help/prayer questions, sitting and reddened face, the earlier sufferers' "
+                              'endurance, oath, promised safe journey and impatience rebuke. The '
+                              'parenthetical complaint domain and hearing-this transition materially specify '
+                              'the complaint and response sequence and remain source-rendered framing. '
+                              'Preserve the defective Hindi tendon token and the exact places, sheep/wolf '
+                              'exception and religious claims as attributed speech.',
+                    'report_type': 'companion_encounter_with_reported_prophetic_reply',
+                    'speaker': 'Khabbab recounts the complaint, response and attributed endurance/journey '
+                               'prediction. The complaint domain, hearing transition, sheep/wolf exception '
+                               'and all source defects remain exact.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_encounter_with_reported_prophetic_reply',
+                               'speaker': 'Khabbab recounts the complaint, response and attributed '
+                                          'endurance/journey prediction. The complaint domain, hearing '
+                                          'transition, sheep/wolf exception and all source defects remain '
+                                          'exact.',
+                               'source_report_family_id': 'abudawud:2649:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'Read the whole Urdu independently, including the complaint about the '
+                              "unbelievers' dominance and the upon-hearing-this transition. These supply "
+                              'actual domain/sequence, not detached lexical definitions. Preserve both '
+                              'earlier-suffering descriptions, the oath, Sanaa/Hadramawt journey and the '
+                              "wolf-for-sheep exception under the source's reported speech without adding "
+                              'outside history.',
+                    'report_type': 'companion_encounter_with_reported_prophetic_reply',
+                    'speaker': 'Khabbab recounts the complaint, response and attributed endurance/journey '
+                               'prediction. The complaint domain, hearing transition, sheep/wolf exception '
+                               'and all source defects remain exact.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_encounter_with_reported_prophetic_reply',
+                               'speaker': 'Khabbab recounts the complaint, response and attributed '
+                                          'endurance/journey prediction. The complaint domain, hearing '
+                                          'transition, sheep/wolf exception and all source defects remain '
+                                          'exact.',
+                               'source_report_family_id': 'abudawud:2649:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2654',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Salama ibn al-Akwa supplies a full expedition account: the red-camel visitor, '
+                              'meal, observation of weakness, departure, pursuit, relative camel positions, '
+                              'killing, return and final allocation dialogue. The parenthesis that people '
+                              'learned he was a spy is an actual narrative-cause/participant assessment '
+                              'within this source and remains qualified source rendering. Preserve every '
+                              'reported movement and attribution as historical narration, not independent '
+                              'factual or normative endorsement, and do not normalize damaged Hindi words.',
+                    'report_type': 'companion_expedition_account_with_allocation_dialogue',
+                    'speaker': 'Salama ibn al-Akwa reports the visitor, pursuit, killing, return and '
+                               'allocation dialogue. The spy-discovery qualification is preserved as the '
+                               'source’s causal framing; every action and nested voice remains attributed.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_allocation_dialogue',
+                               'speaker': 'Salama ibn al-Akwa reports the visitor, pursuit, killing, return '
+                                          'and allocation dialogue. The spy-discovery qualification is '
+                                          'preserved as the source’s causal framing; every action and nested '
+                                          'voice remains attributed.',
+                               'source_report_family_id': 'abudawud:2654:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "The whole Urdu independently describes the visitor and pursuit, Salama's "
+                              "killing/return and the people's answer identifying him before the Messenger's "
+                              'allocation. The spy-discovery parenthesis materially supplies the stated '
+                              'causal transition and remains. Only the final numbered footnote is apparatus; '
+                              'all source positions, horse/camel distinctions as printed, speaker changes '
+                              'and the final allocation scope remain exact.',
+                    'report_type': 'companion_expedition_account_with_allocation_dialogue',
+                    'speaker': 'Salama ibn al-Akwa reports the visitor, pursuit, killing, return and '
+                               'allocation dialogue. The spy-discovery qualification is preserved as the '
+                               'source’s causal framing; every action and nested voice remains attributed.',
+                    'spans': [{'from': None,
+                               'to': '۱؎',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_allocation_dialogue',
+                               'speaker': 'Salama ibn al-Akwa reports the visitor, pursuit, killing, return '
+                                          'and allocation dialogue. The spy-discovery qualification is '
+                                          'preserved as the source’s causal framing; every action and nested '
+                                          'voice remains attributed.',
+                               'source_report_family_id': 'abudawud:2654:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2658',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "The source-named बारे supplies the Hunayn encounter, a plural group's "
+                              "scattering and the Messenger's dismounting/walking. The source's "
+                              'defeat-and-flight parenthesis adds finite historical circumstances and '
+                              'remains within this source-rendered observation. The plural group stays '
+                              'unidentified, the defective Hindi wording is not repaired, and no separate '
+                              'incident is invented. V2 explicit reconsideration: the immutable initial '
+                              'source-first notes and complete v1 selections are retained in before '
+                              'evidence. The independent complete-field comparison and its source-role '
+                              'adjudication support this bounded refinement; no new reading, parent '
+                              'registration or canonical identity is claimed.',
+                    'report_type': 'companion_report_of_prophetic_dismounting',
+                    'speaker': 'The source-named बारे reports the Hunayn encounter, a group’s scattering and '
+                               'the Messenger’s dismounting/walking. The plural pronoun and defective source '
+                               'name are not externally resolved.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_dismounting',
+                               'speaker': 'The source-named बारे reports the Hunayn encounter, a group’s '
+                                          'scattering and the Messenger’s dismounting/walking. The plural '
+                                          'pronoun and defective source name are not externally resolved.',
+                               'source_report_family_id': 'abudawud:2658:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The full Urdu supplies the encounter, scattering and dismounting observation. '
+                              'Its defeat-and-flight clause adds actual finite circumstances and remains as '
+                              'qualified source-rendered action/sequence scope. Preserve the original plural '
+                              'pronoun without deciding which group it names from another version, and '
+                              'retain all surrounding wording exactly. V2 explicit reconsideration: the '
+                              'immutable initial source-first notes and complete v1 selections are retained '
+                              'in before evidence. The independent complete-field comparison and its '
+                              'source-role adjudication support this bounded refinement; no new reading, '
+                              'parent registration or canonical identity is claimed.',
+                    'report_type': 'companion_report_of_prophetic_dismounting',
+                    'speaker': 'The source-named براء reports the Hunayn encounter, scattering and the '
+                               'Messenger’s dismounting/walking; the source’s pronoun scope remains '
+                               'unchanged.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_dismounting',
+                               'speaker': 'The source-named براء reports the Hunayn encounter, scattering '
+                                          'and the Messenger’s dismounting/walking; the source’s pronoun '
+                                          'scope remains unchanged.',
+                               'source_report_family_id': 'abudawud:2658:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2668',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'The complete source report says an unnamed woman was found killed in an '
+                              "unnamed expedition during the Messenger's lifetime, followed by his rebuke "
+                              'concerning killing women and children. Preserve the actual scope, unknown '
+                              'occasion and printed Abdullah-bin-Umr wording. Do not identify the woman, '
+                              'battle or a different narrator from external memory.',
+                    'report_type': 'companion_report_of_prophetic_rebuke',
+                    'speaker': 'The source-named अब्दुल्लाह बिन उम्र reports an unnamed slain woman in an '
+                               'unspecified campaign and the Messenger’s rebuke concerning women and '
+                               'children; no missing identity is filled.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_rebuke',
+                               'speaker': 'The source-named अब्दुल्लाह बिन उम्र reports an unnamed slain '
+                                          'woman in an unspecified campaign and the Messenger’s rebuke '
+                                          'concerning women and children; no missing identity is filled.',
+                               'source_report_family_id': 'abudawud:2668:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The own Urdu independently supplies the discovered slain woman and the '
+                              "Messenger's rebuke against killing women and children. It is a complete "
+                              'finite report with no extra compiler passage. Preserve the exact campaign '
+                              'indefiniteness and both protected groups without adding absent circumstances.',
+                    'report_type': 'companion_report_of_prophetic_rebuke',
+                    'speaker': 'Abdullah ibn Umar reports the unnamed slain woman and the Messenger’s rebuke '
+                               'concerning killing women and children, with the campaign left unspecified.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_rebuke',
+                               'speaker': 'Abdullah ibn Umar reports the unnamed slain woman and the '
+                                          'Messenger’s rebuke concerning killing women and children, with '
+                                          'the campaign left unspecified.',
+                               'source_report_family_id': 'abudawud:2668:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2674',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Abu Hurayrah reports an actual commission and the explicitly introduced '
+                              'conditional fragment if you find so-and-so and so-and-so. Preserve that '
+                              'abbreviated supplied condition while marking its absent consequent; the '
+                              'following same-meaning pointer is context and cannot authorize importing an '
+                              'order from another occurrence. Targets and unstated result remain unknown.',
+                    'report_type': 'expressly_abbreviated_prophetic_condition_in_companion_report',
+                    'speaker': 'Abu Hurayrah reports the Messenger’s commission and actual '
+                               'if-you-find-so-and-so condition. The consequent and target identities are '
+                               'not printed and remain unknown; no same-meaning pointer is used to complete '
+                               'them.',
+                    'spans': [{'from': None,
+                               'to': 'फिर रावी ने',
+                               'component_id': 'reported-account',
+                               'report_type': 'expressly_abbreviated_prophetic_condition_in_companion_report',
+                               'speaker': 'Abu Hurayrah reports the Messenger’s commission and actual '
+                                          'if-you-find-so-and-so condition. The consequent and target '
+                                          'identities are not printed and remain unknown; no same-meaning '
+                                          'pointer is used to complete them.',
+                               'source_report_family_id': 'abudawud:2674:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "Read the entire short Urdu independently. The Messenger's dispatch and "
+                              'printed if-you-find condition are actual supplied framing/abbreviated speech, '
+                              'even though no consequence follows. Keep these exact fragments under their '
+                              'printed attribution and preserve the final same-meaning pointer as context, '
+                              'without identifying the unnamed persons or filling the missing order.',
+                    'report_type': 'expressly_abbreviated_prophetic_condition_in_companion_report',
+                    'speaker': 'Abu Hurayrah reports the Messenger’s commission and actual '
+                               'if-you-find-so-and-so condition. The consequent and target identities are '
+                               'not printed and remain unknown; no same-meaning pointer is used to complete '
+                               'them.',
+                    'spans': [{'from': None,
+                               'to': 'پھر راوی نے',
+                               'component_id': 'reported-account',
+                               'report_type': 'expressly_abbreviated_prophetic_condition_in_companion_report',
+                               'speaker': 'Abu Hurayrah reports the Messenger’s commission and actual '
+                                          'if-you-find-so-and-so condition. The consequent and target '
+                                          'identities are not printed and remain unknown; no same-meaning '
+                                          'pointer is used to complete them.',
+                               'source_report_family_id': 'abudawud:2674:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2678',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Jundab ibn Muqis gives his expedition participation, the source-named '
+                              "commander/target/place, the encounter with Harith, Harith's conversion-intent "
+                              "claim and the soldiers' two conditional replies before binding him. Retain "
+                              "the whole finite account with nested speakers made explicit; the soldiers' "
+                              'detention reasoning is not relabelled as direct Prophetic speech. Preserve '
+                              'every printed name and the one-day/one-night period without historical '
+                              'correction.',
+                    'report_type': 'companion_expedition_account_with_captive_dialogue',
+                    'speaker': 'Jundab’s source account contains the expedition commission and Harith/troop '
+                               'dialogue, including both conditional replies and the one-day/one-night '
+                               'period. The soldiers’ words are not attributed to the Prophet.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_captive_dialogue',
+                               'speaker': 'Jundab’s source account contains the expedition commission and '
+                                          'Harith/troop dialogue, including both conditional replies and the '
+                                          'one-day/one-night period. The soldiers’ words are not attributed '
+                                          'to the Prophet.',
+                               'source_report_family_id': 'abudawud:2678:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The complete Urdu independently supplies the expedition commission and the '
+                              'actual Harith/troop dialogue. Preserve both Muslim/not-Muslim alternatives, '
+                              "the time limit and the final binding act under Jundab's account. The "
+                              "Prophet's opening commission does not make the later soldiers' words his "
+                              'utterance.',
+                    'report_type': 'companion_expedition_account_with_captive_dialogue',
+                    'speaker': 'Jundab’s source account contains the expedition commission and Harith/troop '
+                               'dialogue, including both conditional replies and the one-day/one-night '
+                               'period. The soldiers’ words are not attributed to the Prophet.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_expedition_account_with_captive_dialogue',
+                               'speaker': 'Jundab’s source account contains the expedition commission and '
+                                          'Harith/troop dialogue, including both conditional replies and the '
+                                          'one-day/one-night period. The soldiers’ words are not attributed '
+                                          'to the Prophet.',
+                               'source_report_family_id': 'abudawud:2678:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2688',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Anas reports eighty men descending at Fajr, their intended attack, capture '
+                              'without resistance, release and a revelation-occasion assertion with actual '
+                              'verse wording and translation. Preserve the finite event, number and '
+                              'recitation text; the parenthetic numeral merely duplicates the already '
+                              'printed eighty and the explicit Fath24 label is source apparatus. Keep the '
+                              'damaged place spelling and do not replace it from Urdu.',
+                    'report_type': 'companion_incident_and_revelation_occasion_report',
+                    'speaker': 'Anas reports the eighty men’s intended attack, capture/release and a claimed '
+                               'revelation occasion, including actual verse wording and rendering. Hindi’s '
+                               'source place-name defect remains untouched.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_incident_and_revelation_occasion_report',
+                               'speaker': 'Anas reports the eighty men’s intended attack, capture/release '
+                                          'and a claimed revelation occasion, including actual verse wording '
+                                          'and rendering. Hindi’s source place-name defect remains '
+                                          'untouched.',
+                               'source_report_family_id': 'abudawud:2688:hi:source-numbered-report'}],
+                    'omit_source_context': [{'text': '(८०)',
+                                             'expected_count': 1,
+                                             'reason': 'Parenthetic numeral duplicating the already printed '
+                                                       'eighty; the actual stated quantity remains outside '
+                                                       'it.'},
+                                            {'text': '(सौराह आल-फतह: २४)',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'}]},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The own Urdu contains the same independently stated eighty-men incident and '
+                              'actual revelation quotation/rendering. Preserve the narrated intention, '
+                              'capture/release and verse words; the to-the-end-of-the-verse pointer supplies '
+                              'no further text and remains context, as does the explicit Fath24 locator. Do '
+                              'not fill the unquoted remainder of the verse.',
+                    'report_type': 'companion_incident_and_revelation_occasion_report',
+                    'speaker': 'Anas reports the eighty-men incident and the actual supplied '
+                               'verse/rendering; the unquoted remainder of the verse is not completed.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_incident_and_revelation_occasion_report',
+                               'speaker': 'Anas reports the eighty-men incident and the actual supplied '
+                                          'verse/rendering; the unquoted remainder of the verse is not '
+                                          'completed.',
+                               'source_report_family_id': 'abudawud:2688:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': 'إلى آخر الآية',
+                                             'expected_count': 1,
+                                             'reason': 'Bare to-the-end-of-the-verse omission pointer, not '
+                                                       'supplied quotation wording.'},
+                                            {'text': '( سورۃ الفتح: ۲۴ )',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'}]}}},
+ {'key': 'abudawud:2690',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Ibn Abbas explicitly relays Umar's Badr/ransom and revelation account, ending "
+                              'with the stated later permissibility of spoils. Keep the actual source '
+                              'quotation/rendering and all its broken words without adding the omitted verse '
+                              'wording. The parenthetic unbeliever referent materially specifies the object '
+                              'in the source rendering and remains; the explicit Anfal locator and the '
+                              'lexical definition of the spoils word are context. Do not present the damaged '
+                              'translation as repaired canonical wording.',
+                    'report_type': 'companion_transmitted_ransom_and_revelation_report',
+                    'speaker': 'Ibn Abbas expressly relays Umar’s Badr/ransom and revelation account. The '
+                               'abbreviated quotation, damaged Hindi rendering, unbeliever-object qualifier '
+                               'and final spoils statement remain source-limited.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_transmitted_ransom_and_revelation_report',
+                               'speaker': 'Ibn Abbas expressly relays Umar’s Badr/ransom and revelation '
+                                          'account. The abbreviated quotation, damaged Hindi rendering, '
+                                          'unbeliever-object qualifier and final spoils statement remain '
+                                          'source-limited.',
+                               'source_report_family_id': 'abudawud:2690:hi:source-numbered-report'}],
+                    'omit_source_context': [{'text': '(सौराह आल-अनफाल: ६७-६८)',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'},
+                                            {'text': '(गनीमत के माल)',
+                                             'expected_count': 1,
+                                             'reason': 'Lexical definition of the preceding spoils word, not '
+                                                       'an added narrated event or object restriction.'}]},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The full Urdu independently relays Umar through Ibn Abbas, then gives the '
+                              "source's beginning/end quotation markers, its supplied verse rendering and "
+                              "the later spoils statement. Preserve the bounded citation as the source's own "
+                              'abbreviated identification, without supplying its absent intervening '
+                              'quotation. The unbeliever-object parenthesis is material source-rendered '
+                              'scope, while the explicit Anfal67-68 locator is apparatus. Keep the fuller '
+                              "Urdu separate from Hindi's damaged shorter wording.",
+                    'report_type': 'companion_transmitted_ransom_and_revelation_report',
+                    'speaker': 'Ibn Abbas relays Umar’s account with the source’s bounded beginning/end '
+                               'citation and its supplied rendering. The unbeliever-object scope remains; '
+                               'missing intervening verse wording is not invented.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_transmitted_ransom_and_revelation_report',
+                               'speaker': 'Ibn Abbas relays Umar’s account with the source’s bounded '
+                                          'beginning/end citation and its supplied rendering. The '
+                                          'unbeliever-object scope remains; missing intervening verse '
+                                          'wording is not invented.',
+                               'source_report_family_id': 'abudawud:2690:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '( سورۃ الأنفال: ۶۷-۶۸ )',
+                                             'expected_count': 1,
+                                             'reason': 'Explicit source surah/verse locator label, kept '
+                                                       'separately from the actual quoted verse and its '
+                                                       'supplied rendering.'}]}}},
+ {'key': 'abudawud:2696',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'The actual report attributes separation of a bondwoman and child to Ali, '
+                              "followed by the Messenger's prohibition and cancellation of the sale. Abu "
+                              "Dawud's subsequent non-meeting assertion and death/battle dates form "
+                              'transmitter-chronology criticism supporting that source apparatus, not a '
+                              'separate narrated scene here. Preserve the complete critical tail as context '
+                              "and keep the finite opening report's own attribution unchanged.",
+                    'report_type': 'companion_report_of_sale_and_prophetic_prohibition',
+                    'speaker': 'The source attributes separation of the bondwoman/child to Ali and the '
+                               'prohibition/sale reversal to the Messenger. The subsequent compiler '
+                               'chronology is source criticism, not another reported scene.',
+                    'spans': [{'from': None,
+                               'to': 'अबू दाऊद कहते हैं:',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_sale_and_prophetic_prohibition',
+                               'speaker': 'The source attributes separation of the bondwoman/child to Ali '
+                                          'and the prohibition/sale reversal to the Messenger. The '
+                                          'subsequent compiler chronology is source criticism, not another '
+                                          'reported scene.',
+                               'source_report_family_id': 'abudawud:2696:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'Read the complete Urdu, including all appended Maimun/Ali chronology and '
+                              'dates. Select only the finite separation/prohibition/sale-reversal account; '
+                              'retain the following explicitly introduced compiler criticism and its '
+                              "chronological explanations as context. The source's numbers and names remain "
+                              'exact, with no external chronology repair.',
+                    'report_type': 'companion_report_of_sale_and_prophetic_prohibition',
+                    'speaker': 'The source attributes separation of the bondwoman/child to Ali and the '
+                               'prohibition/sale reversal to the Messenger. The subsequent compiler '
+                               'chronology is source criticism, not another reported scene.',
+                    'spans': [{'from': None,
+                               'to': 'ابوداؤد کہتے ہیں:',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_sale_and_prophetic_prohibition',
+                               'speaker': 'The source attributes separation of the bondwoman/child to Ali '
+                                          'and the prohibition/sale reversal to the Messenger. The '
+                                          'subsequent compiler chronology is source criticism, not another '
+                                          'reported scene.',
+                               'source_report_family_id': 'abudawud:2696:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'abudawud:2698',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "The opening Ibn Umar account supplies the slave's flight, the military "
+                              'outcome, return attributed to the Messenger and exclusion from spoils '
+                              "distribution. Abu Dawud then reports another version's finite alternative "
+                              'that Khalid ibn Walid returned him. This is actual variant action/actor '
+                              'wording, not bare grading: retain it as a separate source-qualified '
+                              'transmitted-variant component in the same event family, without choosing an '
+                              'actor or inventing another incident.',
+                    'report_type': 'companion_account_with_explicit_transmitted_actor_variant',
+                    'speaker': 'The source preserves the main return account and Abu Dawud’s actual '
+                               'other-version clause naming a different returning actor. Neither is '
+                               'harmonized into the other or counted as a new incident.',
+                    'spans': [{'from': None,
+                               'to': 'अबू दाऊद कहते हैं:',
+                               'component_id': 'main-return-account',
+                               'report_type': 'companion_report_of_prophetic_return',
+                               'speaker': 'Ibn Umar’s source account attributes the slave’s return and '
+                                          'exclusion from distribution to the Messenger.',
+                               'source_report_family_id': 'abudawud:2698:hi:source-numbered-report'},
+                              {'from': 'अबू दाऊद कहते हैं:',
+                               'to': None,
+                               'component_id': 'other-version-returning-actor',
+                               'report_type': 'explicit_transmitted_actor_variant',
+                               'speaker': 'Abu Dawud reports that other transmitters attribute the finite '
+                                          'returning action to Khalid ibn Walid. This is a qualified variant '
+                                          'of the same account, not his eyewitness claim or a new scene.',
+                               'source_report_family_id': 'abudawud:2698:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The entire Urdu independently contains the main return/distribution account '
+                              'and the expressly attributed other-transmission clause naming Khalid as the '
+                              'returning actor. Preserve both as source versions of one account, with Abu '
+                              "Dawud's version-notice framing retained and qualified. Do not make Khalid's "
+                              'action direct Prophetic speech or silently reconcile the alternative '
+                              'attribution.',
+                    'report_type': 'companion_account_with_explicit_transmitted_actor_variant',
+                    'speaker': 'The source preserves the main return account and Abu Dawud’s actual '
+                               'other-version clause naming a different returning actor. Neither is '
+                               'harmonized into the other or counted as a new incident.',
+                    'spans': [{'from': None,
+                               'to': 'ابوداؤد کہتے ہیں:',
+                               'component_id': 'main-return-account',
+                               'report_type': 'companion_report_of_prophetic_return',
+                               'speaker': 'Ibn Umar’s source account attributes the slave’s return and '
+                                          'exclusion from distribution to the Messenger.',
+                               'source_report_family_id': 'abudawud:2698:ur:source-numbered-report'},
+                              {'from': 'ابوداؤد کہتے ہیں:',
+                               'to': None,
+                               'component_id': 'other-version-returning-actor',
+                               'report_type': 'explicit_transmitted_actor_variant',
+                               'speaker': 'Abu Dawud reports that other transmitters attribute the finite '
+                                          'returning action to Khalid ibn Walid. This is a qualified variant '
+                                          'of the same account, not his eyewitness claim or a new scene.',
+                               'source_report_family_id': 'abudawud:2698:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'tirmidhi:2622',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Abdullah ibn Shaqiq's actual report of the Companions' view, including its "
+                              "prayer exception, remains selected under his own voice. Tirmidhi's appended "
+                              'explicitly heard Abu Musab doctrinal/legal ruling is preserved completely as '
+                              'attributed compiler legal commentary. Its local hearing attribution does not '
+                              "alter its commentary role under the project's source-apparatus rule. Hindi's "
+                              'missing repentance-success/otherwise contrast and damaged join remain '
+                              'unchanged in context; nothing is filled from Urdu. This distinction does not '
+                              'reject a saying because of its severity, later speaker or absence of '
+                              'Prophetic attribution. V2 explicit reconsideration: the immutable initial '
+                              'source-first notes and complete v1 selections are retained in before '
+                              'evidence. The independent complete-field comparison and its source-role '
+                              'adjudication support this bounded refinement; no new reading, parent '
+                              'registration or canonical identity is claimed.',
+                    'report_type': 'successor_report_with_compiler_legal_commentary_context',
+                    'speaker': "The selected main report is Abdullah ibn Shaqiq's account of the Companions' "
+                               "view. Tirmidhi's explicitly heard Abu Musab doctrinal/legal ruling is "
+                               'preserved only in attributed source context; it is not an admitted report '
+                               'component.',
+                    'spans': [{'from': None,
+                               'to': 'इमाम तिरमिधि कहते हैं:',
+                               'component_id': 'successor-community-view-report',
+                               'report_type': 'successor_report_of_companion_view',
+                               'speaker': 'Abdullah ibn Shaqiq reports the Companions’ stated view of '
+                                          'abandoning prayer, not a direct Prophetic saying.',
+                               'source_report_family_id': 'tirmidhi:2622:hi:companion-view-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': "The complete Urdu has the main Abdullah ibn Shaqiq report of the Companions' "
+                              'view and an appended Abu Musab doctrinal/legal ruling introduced by '
+                              "Tirmidhi's hearing. Admit the main attributed report only. Preserve the "
+                              'complete appendix, including its own repentance/otherwise condition and '
+                              'lexical definition, as attributed compiler legal commentary. The commentary '
+                              'role, rather than severity or a requirement for Prophetic attribution, '
+                              'determines its context placement; the full supplied wording remains '
+                              'available. V2 explicit reconsideration: the immutable initial source-first '
+                              'notes and complete v1 selections are retained in before evidence. The '
+                              'independent complete-field comparison and its source-role adjudication '
+                              'support this bounded refinement; no new reading, parent registration or '
+                              'canonical identity is claimed.',
+                    'report_type': 'successor_report_with_compiler_legal_commentary_context',
+                    'speaker': "The selected main report is Abdullah ibn Shaqiq's account of the Companions' "
+                               "view. Tirmidhi's explicitly heard Abu Musab doctrinal/legal ruling is "
+                               'preserved only in attributed source context; it is not an admitted report '
+                               'component.',
+                    'spans': [{'from': None,
+                               'to': 'امام ترمذی کہتے ہیں:',
+                               'component_id': 'successor-community-view-report',
+                               'report_type': 'successor_report_of_companion_view',
+                               'speaker': 'Abdullah ibn Shaqiq reports the Companions’ stated view of '
+                                          'abandoning prayer, not a direct Prophetic saying.',
+                               'source_report_family_id': 'tirmidhi:2622:ur:companion-view-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'tirmidhi:2665',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Abu Said's report supplies an actual request for permission to write and the "
+                              'refused permission. The initial-Islam temporal parenthesis and hadith object '
+                              'specification materially narrow when/what was requested and remain '
+                              'source-rendered scope. The following Tirmidhi other-route transmission notice '
+                              'is compiler context, including its damaged Hindi tail. Do not turn this '
+                              'qualified occasion into an unrestricted statement about writing all '
+                              'knowledge.',
+                    'report_type': 'companion_report_of_writing_request_and_refusal',
+                    'speaker': 'Abu Said reports requesting writing permission and the refusal, with the '
+                               'source-rendered early-Islam temporal and hadith-object restrictions '
+                               'preserved. Later route discussion is context.',
+                    'spans': [{'from': None,
+                               'to': 'इमाम तिरमिधि कहते हैं:',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_writing_request_and_refusal',
+                               'speaker': 'Abu Said reports requesting writing permission and the refusal, '
+                                          'with the source-rendered early-Islam temporal and hadith-object '
+                                          'restrictions preserved. Later route discussion is context.',
+                               'source_report_family_id': 'tirmidhi:2665:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The complete Urdu independently supplies the early-Islam setting, '
+                              'writing-hadith request and refusal. Both parenthetic temporal/object '
+                              'restrictions remain with the actual account; the numbered footnote and the '
+                              "later Zayd/other-chain/Hammam notice are apparatus. Preserve the source's "
+                              'exact qualifications and separate that route discussion from the report.',
+                    'report_type': 'companion_report_of_writing_request_and_refusal',
+                    'speaker': 'Abu Said reports requesting writing permission and the refusal, with the '
+                               'source-rendered early-Islam temporal and hadith-object restrictions '
+                               'preserved. Later route discussion is context.',
+                    'spans': [{'from': None,
+                               'to': '۱؎',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_writing_request_and_refusal',
+                               'speaker': 'Abu Said reports requesting writing permission and the refusal, '
+                                          'with the source-rendered early-Islam temporal and hadith-object '
+                                          'restrictions preserved. Later route discussion is context.',
+                               'source_report_family_id': 'tirmidhi:2665:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'tirmidhi:2680',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'The actual report is expressly marked marfu through Abu Hurayrah and predicts '
+                              "extended study journeys with no greater scholar than Medina's scholar. Keep "
+                              'its own stated attribution and universal comparison without naming that '
+                              'scholar. The appended grade and majority-Malik identification are '
+                              'interpretive compiler context, not supplied Prophetic identity or a separate '
+                              'narrated event.',
+                    'report_type': 'source_explicitly_marfu_report_via_companion',
+                    'speaker': 'The source explicitly marks Abu Hurayrah’s report marfu and supplies the '
+                               'study-journey comparison. The anonymous Medina scholar is not identified '
+                               'using the compiler’s later interpretations.',
+                    'spans': [{'from': None,
+                               'to': 'इमाम तिर्मिज़ी कहते हैं:',
+                               'component_id': 'reported-account',
+                               'report_type': 'source_explicitly_marfu_report_via_companion',
+                               'speaker': 'The source explicitly marks Abu Hurayrah’s report marfu and '
+                                          'supplies the study-journey comparison. The anonymous Medina '
+                                          'scholar is not identified using the compiler’s later '
+                                          'interpretations.',
+                               'source_report_family_id': 'tirmidhi:2680:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The whole Urdu independently supplies the marfu study-journey report; its '
+                              'parenthetic anywhere qualification materially scopes the negative comparison '
+                              'and remains. The five numbered sections thereafter grade or interpret the '
+                              'anonymous Medina-scholar referent, including named hearing/question frames '
+                              'and genealogy; these are explanatory apparatus and all remain context. Do not '
+                              'fill Malik, Umari or another identity into the selected report.',
+                    'report_type': 'source_explicitly_marfu_report_via_companion',
+                    'speaker': 'The source explicitly marks Abu Hurayrah’s report marfu and supplies the '
+                               'study-journey comparison. The anonymous Medina scholar is not identified '
+                               'using the compiler’s later interpretations.',
+                    'spans': [{'from': None,
+                               'to': 'امام ترمذی کہتے ہیں:',
+                               'component_id': 'reported-account',
+                               'report_type': 'source_explicitly_marfu_report_via_companion',
+                               'speaker': 'The source explicitly marks Abu Hurayrah’s report marfu and '
+                                          'supplies the study-journey comparison. The anonymous Medina '
+                                          'scholar is not identified using the compiler’s later '
+                                          'interpretations.',
+                               'source_report_family_id': 'tirmidhi:2680:ur:source-numbered-report'}],
+                    'omit_source_context': []}}},
+ {'key': 'tirmidhi:2683',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Yazid's own Hindi has a damaged hearing/fear/request transition but supplies "
+                              'his two-period hadith concern and the explicitly introduced answer about fear '
+                              'of Allah concerning known things. Preserve the finite fragments and omitted '
+                              'links without reconstruction from Urdu. The awwal/akhir parenthesis merely '
+                              're-labels the already contrasted earlier/later pair and remains lexical '
+                              'context; the actual both-periods scope stays outside it.',
+                    'report_type': 'reported_prophetic_answer_with_source_limited_question',
+                    'speaker': 'The source-named Yazid supplies hearing/fear/request fragments and the '
+                               'explicitly introduced answer. Hindi’s missing links remain visible; no '
+                               'fuller Urdu question is inserted.',
+                    'spans': [{'from': None,
+                               'to': None,
+                               'component_id': 'reported-account',
+                               'report_type': 'reported_prophetic_answer_with_source_limited_question',
+                               'speaker': 'The source-named Yazid supplies hearing/fear/request fragments '
+                                          'and the explicitly introduced answer. Hindi’s missing links '
+                                          'remain visible; no fuller Urdu question is inserted.',
+                               'source_report_family_id': 'tirmidhi:2683:hi:source-numbered-report'}],
+                    'omit_source_context': [{'text': '(आवल-ो-आखिर)',
+                                             'expected_count': 1,
+                                             'reason': 'Appositional labels repeating the earlier/later pair '
+                                                       'already supplied in the body; the actual '
+                                                       'both-periods scope remains.'}]},
+             'ur': {'action': 'excerpts',
+                    'reason': "The entire Urdu contains Yazid's fear of forgetting earlier reports, his "
+                              "request and the Messenger's reply. The any-such-saying synonym and "
+                              'awwal/akhir apposition repeat already supplied nouns/domains and remain '
+                              'context; the meaningful request/answer is retained. The footnote and '
+                              'subsequent disconnected-chain/mursal/name commentary are compiler apparatus, '
+                              'not another report body.',
+                    'report_type': 'reported_prophetic_answer_with_source_limited_question',
+                    'speaker': 'Yazid’s complete question concerning earlier/later reports and the '
+                               'Messenger’s answer are retained independently; subsequent chain/name '
+                               'criticism remains context.',
+                    'spans': [{'from': None,
+                               'to': '۱؎',
+                               'component_id': 'reported-account',
+                               'report_type': 'reported_prophetic_answer_with_source_limited_question',
+                               'speaker': 'Yazid’s complete question concerning earlier/later reports and '
+                                          'the Messenger’s answer are retained independently; subsequent '
+                                          'chain/name criticism remains context.',
+                               'source_report_family_id': 'tirmidhi:2683:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '( کوئی ایسی بات )',
+                                             'expected_count': 1,
+                                             'reason': 'Lexical synonym of the already supplied '
+                                                       'saying/kalima noun, not additional requested '
+                                                       'content.'},
+                                            {'text': '( اول و آخر )',
+                                             'expected_count': 1,
+                                             'reason': 'Appositional labels repeating the already supplied '
+                                                       'earlier/later pair; the actual both-periods scope '
+                                                       'remains.'}]}}},
+ {'key': 'tirmidhi:2690',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': "Abu Said's full account contains Abu Musa's three requests, Umar's explicitly "
+                              "inner responses, the porter exchange, the demand for proof, Abu Musa's appeal "
+                              "with an embedded Prophetic permission instruction, the listeners' response, "
+                              "Abu Said's support/testimony and Umar's final lack-of-knowledge admission. "
+                              'Preserve all three in-the-heart qualifications, the further-waiting scope, '
+                              'hearing-this transition and final Abu-Said actor identification as '
+                              'source-rendered narrative. The parenthetic permission-seeking wording renders '
+                              'the actually quoted Arabic/transliteration and stays. Distinguish the '
+                              'reception dialogue, bounded embedded instruction and resumed testimony within '
+                              "the account; do not flatten all voices into the Prophet's speech or "
+                              'manufacture separate canonical incidents.',
+                    'report_type': 'companion_reception_account_with_embedded_prophetic_instruction',
+                    'speaker': 'Abu Said recounts Abu Musa/Umar’s reception dialogue, Abu Musa’s bounded '
+                               'Prophetic quotation and resumed testimony. Printed inner speech, additional '
+                               'waiting, hearing transition and visitor identity remain as source-rendered '
+                               'scope.',
+                    'spans': [{'from': None,
+                               'to': 'क्या रसूल अल्लाह (सल्लल्लाहु अलैहि वसल्लम) ने यह नहीं फरमाया:',
+                               'component_id': 'companion-reception-and-proof-request',
+                               'report_type': 'companion_reported_reception_dialogue',
+                               'speaker': 'Abu Said’s account reports Abu Musa’s requests, Umar’s inner '
+                                          'responses and proof demand, then Abu Musa’s appeal to the Ansar. '
+                                          'Each nested speaker remains within this reception narrative.',
+                               'source_report_family_id': 'tirmidhi:2690:hi:source-reception-and-testimony-account'},
+                              {'from': 'क्या रसूल अल्लाह (सल्लल्लाहु अलैहि वसल्लम) ने यह नहीं फरमाया:',
+                               'to': '(यह सुन कर)',
+                               'component_id': 'embedded-permission-instruction',
+                               'report_type': 'prophetic_instruction_quoted_in_companion_question',
+                               'speaker': 'Abu Musa asks whether the Messenger said the actual three-request '
+                                          'permission instruction, as recounted by Abu Said. Its quotation '
+                                          'and source rendering remain bounded; no new canonical occurrence '
+                                          'is inferred.',
+                               'source_report_family_id': 'tirmidhi:2690:hi:source-reception-and-testimony-account'},
+                              {'from': '(यह सुन कर)',
+                               'to': None,
+                               'component_id': 'resumed-response-and-testimony',
+                               'report_type': 'companion_reception_and_testimony_continuation',
+                               'speaker': 'The narrative resumes the listeners’ response, Abu Said’s '
+                                          'supportive utterance and identified visit, then Umar’s '
+                                          'acknowledgement of not knowing the report. These are '
+                                          'Companion/narrator voices, not Prophetic speech.',
+                               'source_report_family_id': 'tirmidhi:2690:hi:source-reception-and-testimony-account'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'The entire Urdu independently supplies the same multi-voice '
+                              'reception/testimony account, including three inner-speech qualifications, '
+                              'additional waiting, the actual quotation/rendering, hearing-this response and '
+                              'the parenthetic visitor identification. These meaning-bearing scopes remain '
+                              "selected as this source's rendering. The numbered footnote and all subsequent "
+                              'grading, narrator-name/kunya explanations, other-route and chapter-parallel '
+                              'notice are compiler context. Keep the exact three-request conditions, Abu '
+                              "Said's own supportive utterance and Umar's final acknowledgement under their "
+                              'actual speakers.',
+                    'report_type': 'companion_reception_account_with_embedded_prophetic_instruction',
+                    'speaker': 'Abu Said recounts Abu Musa/Umar’s reception dialogue, Abu Musa’s bounded '
+                               'Prophetic quotation and resumed testimony. Printed inner speech, additional '
+                               'waiting, hearing transition and visitor identity remain as source-rendered '
+                               'scope.',
+                    'spans': [{'from': None,
+                               'to': 'کیا رسول اللہ صلی اللہ علیہ وسلم نے یہ نہیں فرمایا:',
+                               'component_id': 'companion-reception-and-proof-request',
+                               'report_type': 'companion_reported_reception_dialogue',
+                               'speaker': 'Abu Said’s account reports Abu Musa’s requests, Umar’s inner '
+                                          'responses and proof demand, then Abu Musa’s appeal to the Ansar. '
+                                          'Each nested speaker remains within this reception narrative.',
+                               'source_report_family_id': 'tirmidhi:2690:ur:source-reception-and-testimony-account'},
+                              {'from': 'کیا رسول اللہ صلی اللہ علیہ وسلم نے یہ نہیں فرمایا:',
+                               'to': '( یہ سن کر )',
+                               'component_id': 'embedded-permission-instruction',
+                               'report_type': 'prophetic_instruction_quoted_in_companion_question',
+                               'speaker': 'Abu Musa asks whether the Messenger said the actual three-request '
+                                          'permission instruction, as recounted by Abu Said. Its quotation '
+                                          'and source rendering remain bounded; no new canonical occurrence '
+                                          'is inferred.',
+                               'source_report_family_id': 'tirmidhi:2690:ur:source-reception-and-testimony-account'},
+                              {'from': '( یہ سن کر )',
+                               'to': '۱؎',
+                               'component_id': 'resumed-response-and-testimony',
+                               'report_type': 'companion_reception_and_testimony_continuation',
+                               'speaker': 'The narrative resumes the listeners’ response, Abu Said’s '
+                                          'supportive utterance and identified visit, then Umar’s '
+                                          'acknowledgement of not knowing the report. These are '
+                                          'Companion/narrator voices, not Prophetic speech.',
+                               'source_report_family_id': 'tirmidhi:2690:ur:source-reception-and-testimony-account'}],
+                    'omit_source_context': []}}},
+ {'key': 'tirmidhi:2694',
+  'decision': 'register',
+  'reason': 'The actually read own-language fields supply finite reports, expressly abbreviated wording or '
+            'independently attributed sayings. Source defects, missing links, exact speaker limits and all '
+            'removed apparatus remain preserved; no external identity or absent text is supplied.',
+  'fields': {'hi': {'action': 'excerpts',
+                    'reason': 'Abu Umamah reports the actual two-person greeting question and the answer '
+                              "identifying the one nearer to Allah. The source's parenthetic "
+                              'he-will-initiate is a finite answer predicate completing its own '
+                              'question/answer relation; preserve it as source-rendered response scope '
+                              'without claiming that parenthesis is verbatim Prophetic wording. The appended '
+                              'Tirmidhi grade/transmitter criticism remains context, including the damaged '
+                              'Hindi link.',
+                    'report_type': 'companion_report_of_prophetic_greeting_answer',
+                    'speaker': 'Abu Umamah reports the two-person greeting question and the answer’s '
+                               'actor/predicate. The parenthetic he-will-initiate is retained as '
+                               'source-rendered answer scope, not claimed as verbatim historical wording.',
+                    'spans': [{'from': None,
+                               'to': 'इमाम तिरमिधि कहते हैं:',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_greeting_answer',
+                               'speaker': 'Abu Umamah reports the two-person greeting question and the '
+                                          'answer’s actor/predicate. The parenthetic he-will-initiate is '
+                                          'retained as source-rendered answer scope, not claimed as verbatim '
+                                          'historical wording.',
+                               'source_report_family_id': 'tirmidhi:2694:hi:source-numbered-report'}],
+                    'omit_source_context': []},
+             'ur': {'action': 'excerpts',
+                    'reason': 'Read the full Urdu question and response. Preserve the finite parenthetic '
+                              "he-will-initiate under this source's rendering of the answer, while the "
+                              'footnote and the following numbered grade/Bukhari transmitter appraisal '
+                              'remain apparatus. Do not turn that appraisal into another narrated greeting '
+                              'report or normalize its source names.',
+                    'report_type': 'companion_report_of_prophetic_greeting_answer',
+                    'speaker': 'Abu Umamah reports the two-person greeting question and the answer’s '
+                               'actor/predicate. The parenthetic he-will-initiate is retained as '
+                               'source-rendered answer scope, not claimed as verbatim historical wording.',
+                    'spans': [{'from': None,
+                               'to': 'امام ترمذی کہتے ہیں:',
+                               'component_id': 'reported-account',
+                               'report_type': 'companion_report_of_prophetic_greeting_answer',
+                               'speaker': 'Abu Umamah reports the two-person greeting question and the '
+                                          'answer’s actor/predicate. The parenthetic he-will-initiate is '
+                                          'retained as source-rendered answer scope, not claimed as verbatim '
+                                          'historical wording.',
+                               'source_report_family_id': 'tirmidhi:2694:ur:source-numbered-report'}],
+                    'omit_source_context': [{'text': '۱؎',
+                                             'expected_count': 1,
+                                             'reason': 'Exact numbered source footnote marker; the '
+                                                       'referenced note and surrounding source remain '
+                                                       'context.'}]}}}]
