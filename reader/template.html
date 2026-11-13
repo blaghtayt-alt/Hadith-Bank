@@ -27,7 +27,7 @@ __HADITH_UI_ICONS__
 <main id="top" class="shell">
   <section class="hero" aria-labelledby="page-title">
     <div class="hero-copy"><p class="hero-eyebrow"><span aria-hidden="true"></span>A collection across languages</p><h1 id="page-title">One narration.<br><em>Many ways to read.</em></h1><p class="intro">Read Arabic, English and other available translations together, with each language’s own source and reference close at hand.</p></div>
-    <div class="collection-stats"><div class="snapshot-count"><strong id="total-count">—</strong><span>preserved source occurrences</span></div><div class="secondary-stats"><div><strong id="language-count">—</strong><span>languages</span></div><div><strong id="book-count">—</strong><span>collections</span></div></div><p id="reader-context" class="reader-context">Read online. Take your library offline.</p></div>
+    <div class="collection-stats"><div class="snapshot-count"><strong id="total-count">—</strong><span>preserved source occurrences</span></div><div class="secondary-stats"><div><strong id="language-count">—</strong><span>languages</span></div><div><strong id="book-count">—</strong><span>collections</span></div></div><p id="reader-group-count" class="reader-context" hidden></p><p id="reader-context" class="reader-context">Read online. Take your library offline.</p></div>
     <div id="collection-summary" class="visually-hidden"></div>
   </section>
   <section class="search-panel" aria-label="Search narrations">
@@ -70,7 +70,7 @@ __HADITH_UI_ICONS__
     </div>
   </div>
 </main>
-<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Hadith Bank</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each card is a source occurrence. Repeated narrations, source editions and translation versions remain separate. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Hadith Bank</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each card displays a source occurrence or an explicitly reviewed group. Every source edition, occurrence ID and translation version remains preserved. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
 <noscript><div class="no-js">Open “Browse languages and source books” above to read the online pages without JavaScript. The interactive reader needs JavaScript. A standalone download includes its records; a hosted edition loads its data from this site.</div></noscript>
 <script id="hadith-records" type="application/octet-stream" data-encoding="__HADITH_ENCODING__">__HADITH_RECORDS_JSON__</script>
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
@@ -155,7 +155,7 @@ async function loadReaderShards(manifest,baseURL,onProgress=()=>{}){
     return result;
   }finally{stop();}
 }
-let records, snapshot, hostedData=false, hostedStore=null;
+let records, snapshot, hostedData=false, hostedStore=null, readerGroups=null;
 try {
   const payload=$("hadith-records");
   snapshot=JSON.parse($("hadith-snapshot").textContent);
@@ -187,6 +187,7 @@ try {
     records=JSON.parse(await new Response(stream).text());
   } else records=JSON.parse(payload.textContent);
   if(!Array.isArray(records) || records.length!==snapshot.record_count) throw new Error("The reader record count does not match the verified snapshot. Rebuild the reader from the source stream.");
+  readerGroups=createReaderGroupIndex(records,snapshot.reader_groups);
   payload.remove();$("hadith-snapshot").remove();
 } catch (error) {
   const message=error && error.message ? error.message : "The data could not be read. Rebuild this reader from the verified source stream.";
@@ -195,8 +196,8 @@ try {
   $("results").setAttribute("aria-busy","false");
   return;
 }
-const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0 };
-const occurrenceOrdinals=new Map(records.map((record,index)=>[record.id,index]));
+const state = { page:0, matches:[], matchingOccurrences:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0 };
+const occurrenceOrdinals=readerGroups.ordinals;
 function clearExactOccurrence(){
   if(!state.exactOccurrence)return;
   state.exactOccurrence=null;
@@ -619,6 +620,40 @@ const primarySearchKey = record => {const source=record.source || {},narrator=re
 const searchKeys = hostedStore?null:records.map(primarySearchKey);
 const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,...sourceContextFields.map(key=>source[key]),narrator.source_context,...versionSearchValues(record,true)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 let commentaryKeys = null;
+// Pure presentation helpers. Source records and lazy-store detail bytes are never modified.
+function createReaderGroupIndex(items,definition){
+  const ordinals=new Map(),members=new Map(),anchors=new Map(),comparisons=new Map(),ambiguous=new Set();
+  items.forEach((record,index)=>{if(!record || typeof record.id!=="string" || !record.id)throw new Error("Reader groups require occurrence IDs.");if(ordinals.has(record.id))ambiguous.add(record.id);ordinals.set(record.id,index);});
+  if(definition==null)return {ordinals,members,anchors,comparisons,readingCount:items.length};
+  if(definition.schema!=="hadith-bank-reader-groups-v1" || !Array.isArray(definition.groups) || definition.source_occurrence_count!==items.length)throw new Error("Reader groups do not match this source snapshot.");
+  let linked=0;
+  for(const group of definition.groups){
+    if(!group || group.id!==group.anchor_id || !ordinals.has(group.anchor_id) || !Array.isArray(group.member_ids) || group.member_ids.length<2 || group.member_ids[0]!==group.anchor_id || new Set(group.member_ids).size!==group.member_ids.length)throw new Error("Invalid reader source group.");
+    const anchor=ordinals.get(group.anchor_id),positions=group.member_ids.map(id=>{if(!ordinals.has(id) || ambiguous.has(id))throw new Error("A grouped source occurrence is missing or ambiguous.");return ordinals.get(id);});
+    const evidence=group.comparisons ?? [];
+    if(!Array.isArray(evidence) || evidence.some(item=>!item || !group.member_ids.slice(1).includes(item.source_occurrence_id) || item.target_occurrence_id!==group.anchor_id || !["same_narration","same_narration_core","source_excerpt","exact_source_copy"].includes(item.relation) || !item.review || typeof item.review.human_review!=="boolean"))throw new Error("Invalid reader source-comparison evidence.");
+    if(group.comparisons && (evidence.length!==positions.length-1 || new Set(evidence.map(item=>item.source_occurrence_id)).size!==evidence.length))throw new Error("Incomplete or conflicting reader source comparisons.");
+    comparisons.set(anchor,evidence);
+    for(const position of positions){if(members.has(position))throw new Error("A source occurrence belongs to conflicting reader groups.");members.set(position,positions);anchors.set(position,anchor);}
+    Object.freeze(positions);linked+=positions.length-1;
+  }
+  if(definition.grouped_reading_count!==items.length-linked)throw new Error("Reader grouping count does not match its approved links.");
+  return {ordinals,members,anchors,comparisons,readingCount:items.length-linked};
+}
+function readerGroupMembers(index,groups){return groups && groups.members.get(index) || [index];}
+function groupReaderMatches(matches,groups,preferred=null){
+  if(!groups || !groups.members.size)return [...matches];
+  const matching=new Set(matches),result=[],seen=new Set();
+  for(const index of matches){
+    const anchor=groups.anchors.get(index) ?? index;if(seen.has(anchor))continue;seen.add(anchor);
+    const members=readerGroupMembers(index,groups);
+    result.push(preferred!==null && matching.has(preferred) && members.includes(preferred)?preferred:matching.has(anchor)?anchor:index);
+  }
+  return result;
+}
+function readerGroupPageOrdinals(representatives,groups){
+  return [...new Set(representatives.flatMap(index=>[index,...readerGroupMembers(index,groups)]))];
+}
 function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; option.dir="ltr"; select.append(option); });select.value=items.has(value)?value:""; }
 function icon(name) {
   const svg=document.createElementNS("http://www.w3.org/2000/svg","svg"),use=document.createElementNS("http://www.w3.org/2000/svg","use");
@@ -635,6 +670,7 @@ if(languages.has(linkedLanguage) && (!state.exactOccurrence || records.some(reco
 $("brand-title").textContent=snapshot.title || "Hadith Bank";
 document.title=(snapshot.title || "Hadith Bank")+" · Reader";
 $("total-count").textContent=nf.format(records.length);
+if(readerGroups.readingCount<records.length){$("reader-group-count").hidden=false;$("reader-group-count").textContent=nf.format(readerGroups.readingCount)+" reading cards after approved source comparisons. All source occurrences remain preserved.";}
 $("language-count").textContent=nf.format(languages.size);
 $("book-count").textContent=nf.format(books.size);
 $("collection-summary").textContent=nf.format(languages.size)+" languages · "+nf.format(books.size)+" collections · "+nf.format(sources.size)+" source editions";
@@ -673,7 +709,7 @@ $("reader-context").textContent=hostedStore?"Checked source texts · opened as y
 if(hostedData){const offlineURL=sourceURL({url:site.offline_reader_url});$("offline-download").hidden=!offlineURL;if(offlineURL)$("offline-download").href=offlineURL;}
 const pendingOCRCount=records.filter(needsOCRReview).length;
 if(pendingOCRCount){$("review-notice").hidden=false;$("review-notice").textContent=nf.format(pendingOCRCount)+" OCR-extracted source occurrences await OCR review. Review details remain available on those records.";}
-$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,languages:[...languages.values()],source_editions:sources.size,pending_ocr_review:pendingOCRCount,review_display_policy:snapshot.review_display_policy,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:hostedData?["same-origin reader data shards"]:[],scope:"QC labels apply to evidenced OCR extraction unless an identified source has an owner display decision. Original source text, translation-origin metadata and review history remain preserved. Reading views do not perform a new independent review."},null,2);
+$("snapshot-info").textContent=JSON.stringify({source_occurrences:records.length,grouped_reading_cards:readerGroups.readingCount,languages:[...languages.values()],source_editions:sources.size,pending_ocr_review:pendingOCRCount,review_display_policy:snapshot.review_display_policy,source_commit:site.build_commit || null,source_stream_sha256:snapshot.records_sha256,input_mode:snapshot.input_mode,input_files_verified:snapshot.input_files_verified,source_text_modified:false,network_dependencies:hostedData?["same-origin reader data shards"]:[],scope:"QC labels apply to evidenced OCR extraction unless an identified source has an owner display decision. Original source text, translation-origin metadata and review history remain preserved. Reading views do not perform a new independent review."},null,2);
 const matchingLegacy = (language,origin) => legacy.filter(item=>(!language || item.language===language) && (!origin || legacyOrigin(item)===origin));
 function renderOtherMaterials(language,origin){
   const items=origin?[]:unavailable.filter(item=>!language || item.language===language),container=$("other-materials-content");
@@ -828,12 +864,19 @@ function appendLanguageReadings(card,record,index){
   if(missing.childNodes.length)card.append(missing);
   const alignmentNotes=counterpartAlignmentNotes(record);if(alignmentNotes.length){const notes=element("div");alignmentNotes.forEach(note=>notes.append(element("p","counterpart-note",note)));card.append(detail("Source and alignment notes",notes));}
 }
-function card(record,index) {
-  const card=element("article","record-card");
+function card(record,index,otherVersions=[],sourceVariant=false) {
+  const card=element(sourceVariant?"section":"article",sourceVariant?"source-version":"record-card");
+  const groupMembers=readerGroupMembers(index,readerGroups),anchor=readerGroups.anchors.get(index) ?? index;
+  card.dataset.groupId=records[anchor].id;card.dataset.occurrenceId=record.id;
   const top=element("div","card-top"), heading=element("div","card-heading"),eyebrows=element("div","card-eyebrows");
   eyebrows.append(element("span","eyebrow",languageLabel(record.language)+" source"),element("span","origin-badge",languageReadings(record).length+" readings"));heading.append(eyebrows);
   const bookLine=element("div","book-line");bookLine.append(bookTitle(record.book_key,record.language),document.createTextNode(" · "+numberLabel(record)));heading.append(bookLine);
-  const select=element("label","check record-select"), checkbox=element("input"); checkbox.type="checkbox"; checkbox.checked=state.selected.has(index); checkbox.setAttribute("aria-label","Select "+record.id); checkbox.addEventListener("change",()=>{checkbox.checked?state.selected.add(index):state.selected.delete(index);updateSelection();}); select.append(checkbox,document.createTextNode("Select")); top.append(heading,select);card.append(top);
+  top.append(heading);
+  if(!sourceVariant){const select=element("label","check record-select"),checkbox=element("input");checkbox.type="checkbox";checkbox.checked=groupMembers.every(member=>state.selected.has(member));checkbox.indeterminate=!checkbox.checked && groupMembers.some(member=>state.selected.has(member));checkbox.setAttribute("aria-label","Select "+(groupMembers.length>1?"all "+groupMembers.length+" source versions for ":"")+record.id);checkbox.addEventListener("change",()=>{groupMembers.forEach(member=>checkbox.checked?state.selected.add(member):state.selected.delete(member));checkbox.indeterminate=false;updateSelection();});select.append(checkbox,document.createTextNode(groupMembers.length>1?"Select sources":"Select"));top.append(select);}
+  card.append(top);
+  if(sourceVariant)card.append(element("p","source-url","Source occurrence: "+record.id));
+  else if(otherVersions.length)card.append(element("p","counterpart-note",groupMembers.length+" preserved source occurrences share this reading card after an approved comparison. Each source version retains its own text, attribution and references."));
+  if(!sourceVariant && otherVersions.length){const comparisons=readerGroups.comparisons.get(anchor) || [];if(comparisons.length){const evidence=element("div"),labels={same_narration:"Same narration",same_narration_core:"Core narration correspondence",source_excerpt:"Source excerpt",exact_source_copy:"Exact copied quotation"};for(const comparison of comparisons){const item=element("section","source-comparison-item"),review=comparison.review;item.append(meta("Compared source occurrence",comparison.source_occurrence_id),meta("Existing source occurrence",comparison.target_occurrence_id),meta("Relation",labels[comparison.relation]),meta("Comparison evidence",review.evidence));for(const note of review.qualifications || [])item.append(element("p","counterpart-note",note));item.append(meta("Reviewer",review.reviewer),meta("Review method",review.method),meta("Human review",review.human_review?"Yes":"No"));evidence.append(item);}card.append(detail("Source comparison",evidence,"source-comparison"));}}
   if(record.title){const title=element("h3","record-title",record.title);title.dir=textDirection(record.language);title.lang=record.language;card.append(title);}
   const kind=recordTypeInfo(record);if(kind){const info=element("div","source-headings");info.append(element("strong",null,kind.label),document.createTextNode(" · "+kind.note));card.append(info);}
   if(record.source_headings && record.source_headings.length){const headings=element("div","source-headings",record.source_headings.join(" › "));headings.dir=textDirection(record.language);headings.lang=record.language;card.append(headings);}
@@ -888,8 +931,10 @@ function card(record,index) {
     if(auditDetails.open && !auditWritten){auditWritten=true;audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));}
   });
   card.append(auditDetails);
+  if(!sourceVariant && otherVersions.length){const versions=element("div","source-version-list");otherVersions.forEach(item=>versions.append(sourceVersionCard(item.record,item.index)));card.append(detail("Other source versions ("+otherVersions.length+")",versions,"source-versions"));}
   return card;
 }
+function sourceVersionCard(record,index){return card(record,index,[],true);}
 function updateSelection(){const n=state.selected.size;$("download").disabled=!n || state.downloading;$("download").textContent=state.downloading?"Preparing selected JSON… "+nf.format(state.downloadProgress):"Download selected JSON ("+nf.format(n)+")";$("clear-selection").hidden=!n;}
 function cancelView(){state.viewGeneration++;if(state.viewController)state.viewController.abort();$("previous").disabled=true;$("next").disabled=true;}
 function beginView(){cancelView();const controller=new AbortController();state.viewController=controller;return {generation:state.viewGeneration,controller};}
@@ -907,9 +952,11 @@ async function render(request=beginView()){
   const total=state.matches.length, max=Math.max(0,Math.ceil(total/PAGE_SIZE)-1);state.page=Math.min(state.page,max);
   const start=state.page*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,total), fragment=document.createDocumentFragment();
   const pageOrdinals=state.matches.slice(start,end);
+  const detailOrdinals=readerGroupPageOrdinals(pageOrdinals,readerGroups);
   let pageRecords;
-  if(hostedStore && total){pendingView("Opening "+nf.format(pageOrdinals.length)+" source occurrences…");pageRecords=await hostedStore.getRecords(pageOrdinals,{signal:request.controller.signal,concurrency:3});if(!isCurrentView(request))return;}
-  else pageRecords=pageOrdinals.map(index=>records[index]);
+  if(hostedStore && total){pendingView("Opening "+nf.format(pageOrdinals.length)+" reading cards…");pageRecords=await hostedStore.getRecords(detailOrdinals,{signal:request.controller.signal,concurrency:3});if(!isCurrentView(request))return;}
+  else pageRecords=detailOrdinals.map(index=>records[index]);
+  const detailsByOrdinal=new Map(detailOrdinals.map((index,position)=>[index,pageRecords[position]]));
   if(!total){
     const empty=element("div","empty"),origin=$("origin-filter").value,language=$("language-filter").value,documents=matchingLegacy(language,origin);
     empty.append(icon("magnifying-glass"),element("h3",null,"No matching narrations"));
@@ -924,12 +971,13 @@ async function render(request=beginView()){
   }
   else for(let position=0;position<pageOrdinals.length;position++){
     if(!isCurrentView(request))return;
-    fragment.append(card(pageRecords[position],pageOrdinals[position]));
+    const index=pageOrdinals[position],others=readerGroupMembers(index,readerGroups).filter(member=>member!==index).map(member=>({index:member,record:detailsByOrdinal.get(member)}));
+    fragment.append(card(detailsByOrdinal.get(index),index,others));
     if(position%5===4)await new Promise(resolve=>setTimeout(resolve,0));
   }
   if(!isCurrentView(request))return;
   $("results").replaceChildren(fragment);$("results").setAttribute("aria-busy","false");updateActiveFilters();
-  $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" matching source occurrences":"0 matching source occurrences";
+  $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" matching reading cards · "+nf.format(state.matchingOccurrences.length)+" matching source occurrences":"0 matching source occurrences";
   $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"No result pages";
   $("previous").disabled=state.page===0;$("next").disabled=!total || state.page===max;updateSelection();
   }catch(error){failedView(error,request);}
@@ -951,7 +999,9 @@ async function applyFilters(){
     matches=candidates.filter(index=>{const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");return terms.every(term=>haystack.includes(term));});
   }
   if(!isCurrentView(request))return;
-  state.matches=matches;state.page=0;await render(request);
+  state.matchingOccurrences=matches;
+  const preferred=occurrenceOrdinals.get(state.exactOccurrence || exactQuery);
+  state.matches=groupReaderMatches(matches,typeof readerGroups==="undefined"?null:readerGroups,preferred ?? null);state.page=0;await render(request);
   }catch(error){failedView(error,request);}
 }
 $("query").addEventListener("input",()=>{clearTimeout(state.timer);cancelView();clearExactOccurrence();pendingView("Updating results…");updateActiveFilters();state.timer=setTimeout(applyFilters,180);});

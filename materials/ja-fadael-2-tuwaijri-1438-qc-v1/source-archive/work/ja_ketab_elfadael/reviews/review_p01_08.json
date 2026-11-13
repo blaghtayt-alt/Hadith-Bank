@@ -1,0 +1,232 @@
+{
+  "reviewer": "review_p01_08",
+  "source_pdf": "ja_ketab_elfadael.pdf",
+  "source_sha256": "09a7f220e7bcf5152520913de57031bb840c80367566cfa71a61ded20bd6acde",
+  "pages": [
+    {
+      "pdf_page": 1,
+      "printed_page": null,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "top-left publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "All Japanese title, author, translator, reviewer and editor lines match the image. Year 1438 is visible.",
+        "Poppler layout extraction contains an extra line ８8 immediately below 1438; this line is not visible in the original rendered page. Do not add it to the faithful transcript.",
+        "The extracted private-use Wingdings characters U+F097/U+F099 represent decorative flourishes, not source words. The horizontal ornamental separator is likewise decoration."
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "printed_page": null,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [
+        {
+          "before": "ضائل فال كتاب",
+          "after": "كتاب الفضائل",
+          "evidence": "Title centered near the upper quarter reads كتاب الفضائل in the original page image. PyMuPDF spatial sorting reverses and splits the word الفضائل.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        },
+        {
+          "before": "التويجري إبراهيم بن محمد",
+          "after": "محمد بن إبراهيم التويجري",
+          "evidence": "Author line in the lower-middle area reads محمد بن إبراهيم التويجري from right to left.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        },
+        {
+          "before": "ساتو سعيد : ترجمة",
+          "after": "ترجمة: سعيد ساتو",
+          "evidence": "Translator credit near the lower part of the page reads ترجمة: سعيد ساتو.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        },
+        {
+          "before": "ساتو فاطمة : مراجعة",
+          "after": "مراجعة: فاطمة ساتو",
+          "evidence": "Reviewer credit reads مراجعة: فاطمة ساتو.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        },
+        {
+          "before": "كانيكو صالح محمد : تحرير",
+          "after": "تحرير: محمد صالح كانيكو",
+          "evidence": "Editor credit at the bottom of the credits reads تحرير: محمد صالح كانيكو.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        }
+      ],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "top-left publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "All five Arabic content lines were read visually in right-to-left order and compared with both extractions.",
+        "Year 1438 is visible. Poppler extraction contains an extra line ８８ beneath the year; no such line is visible on the rendered original page.",
+        "Private-use Wingdings characters are ornamental flourishes. Retain a decoration inventory if desired, rather than treating them as linguistic content."
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "printed_page": 1,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "Table of contents has exactly three entries: よき品格の徳 → 2; 親交の徳 → 11; 聖クルアーンの徳 → 18.",
+        "Header 諸々の徳 and printed page 1 match. The private-use symbols around the page numeral are decorative, not words.",
+        "The centered ornamental separator below 目次 is graphical decoration. Dotted table-of-contents leaders are layout characters."
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "printed_page": 2,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [
+        {
+          "before": "الرحيمالرحمنهللابسم",
+          "after": "بسم الله الرحمن الرحيم",
+          "evidence": "The centered Arabic basmala at the top of the body is readable in the full page and a 5× native PDF crop. The unsorted extraction reads بسم هللا الرحمن الرحيم; هللا is an embedded letter-order defect, visually الله.",
+          "kind": "embedded_text_reading_order_or_letter_order_repair"
+        }
+      ],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "Japanese introductory text, section よき品格の徳, subsection よき人格の徳, subsection 知識の徳, both hadith paragraphs, and footnote 1 were compared with the original image and match.",
+        "The different words 品格 in the section title and 人格 in the subsection title occur in the original and must not be standardized.",
+        "The last body paragraph continues onto PDF page 5. Do not merge footnote 1 into that body paragraph.",
+        "A larger original-page crop was inspected for the basmala. The stylized Allah glyph contains a mark above it; the embedded font text does not encode an independent combining mark. The corrected logical spelling is الله, without manufacturing additional Unicode diacritics."
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "printed_page": 3,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "The continuing knowledge hadith and all three patience hadith paragraphs were visually compared line by line; wording and punctuation match.",
+        "Footnote 2: Bukhari 71 / Muslim 1037; footnote 3: Bukhari 1469 / Muslim 1053; footnote 4: Bukhari 6114 / Muslim 2609; footnote 5: Bukhari 5253. These are the numbers printed in this source.",
+        "In particular, preserve 5253 in footnote 5. Do not silently alter it based on an external hadith numbering expectation.",
+        "Spaces around Latin digits vary with Japanese justification; no lexical text correction is needed."
+      ]
+    },
+    {
+      "pdf_page": 6,
+      "printed_page": 4,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "All three sections and all body paragraphs match: 誠実さの徳; アッラーに罪の赦しを乞うこと、悔悟することの徳; 希望の徳.",
+        "Footnote 6: Muslim 2607; footnote 7: Bukhari 6309 / Muslim 2747; footnote 8: Muslim 2749. All footnote text and source attribution were inspected.",
+        "Original forms such as 放埓さ, 御許 and 失くした are legible and agree with the extracted text."
+      ]
+    },
+    {
+      "pdf_page": 7,
+      "printed_page": 5,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "All sections and all three hadith paragraphs were inspected: 慈悲の徳 and アッラーのご慈悲の偉大さの徳.",
+        "Printed numbers 100, 1 and 99 in the third hadith match the extraction.",
+        "Footnote 9: Bukhari 5997 / Muslim 2318; footnote 10: Bukhari 3194 / Muslim 2751; footnote 11: Bukhari 6000 / Muslim 2752. Footnote attribution text also matches.",
+        "The unusual Japanese expression わが慈悲はわが怒りに優れり。 is printed in the original and must remain unchanged."
+      ]
+    },
+    {
+      "pdf_page": 8,
+      "printed_page": 6,
+      "image_inspected": true,
+      "comparison_scope": "Direct visual reading of the rendered original page and line-by-line comparison against PyMuPDF extraction, including all visible text, headings, footnote numbers and references. This is complete page/line inspection, not a claim of independently certified character-by-character transcription.",
+      "corrections": [],
+      "image_only_text": [
+        {
+          "text": "IslamHouse.com",
+          "location": "bottom-center publisher logo",
+          "treatment": "Preserve separately as publisher/logo text; present in the page image but absent from the extracted body text."
+        }
+      ],
+      "uncertainties": [],
+      "notes": [
+        "Both hadith paragraphs in 優しさと穏やかさの徳 and the paragraph in 羞恥心の徳 match the original image.",
+        "The first Aisha paragraph has 彼女にアッラーのご満悦あれ, while the second has 彼にアッラーのご満悦あれ. This inconsistency is in the original; preserve it.",
+        "Printed 60 and 1 in the faith/shyness paragraph match the extracted text.",
+        "Footnote 12: Bukhari 6927 / Muslim 2593; footnote 13: Muslim 2594; footnote 14: Bukhari 9 / Muslim 35. All references and attribution wording match."
+      ]
+    }
+  ],
+  "summary": {
+    "assigned_pdf_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "pages_actually_inspected": 8,
+    "all_assigned_pages_completed": true,
+    "semantic_extraction_corrections": 6,
+    "japanese_lexical_corrections_needed": 0,
+    "image_only_logo_occurrences": 8,
+    "poppler_invisible_artifact_pages": [
+      1,
+      2
+    ],
+    "unresolved_body_readings": 0,
+    "verification_level": "All page lines visually compared with embedded extraction; Arabic reading-order corrections independently read from original images; no external source corrections and no full character-certification claim."
+  }
+}

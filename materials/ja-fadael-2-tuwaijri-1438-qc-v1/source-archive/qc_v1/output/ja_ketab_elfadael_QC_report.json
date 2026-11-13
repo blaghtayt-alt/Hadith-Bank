@@ -1,0 +1,590 @@
+{
+  "qc_run": "JA_KETAB_ELFADAEL_QC_V1",
+  "edition_id": "JA_KETAB_ELFADAEL_09a7f220e7bc_QC_CORRECTED_V1",
+  "created_at": "2026-11-13T23:39:38.468859+09:00",
+  "source_sha256": "09a7f220e7bcf5152520913de57031bb840c80367566cfa71a61ded20bd6acde",
+  "baseline_extraction_sha256": "d8c583cf6826370d0b540cd264359cb44287162e07758298bf40b06719ac86df",
+  "status": "completed_with_declared_scope",
+  "coverage": {
+    "full_original_pages_rechecked": 25,
+    "source_units_compared": 621,
+    "high_resolution_half_page_views": 50,
+    "additional_detail_or_boundary_views": 3,
+    "footnotes_and_inline_note_markers": 58,
+    "source_occurrence_boundaries_checked": 57,
+    "main_collection_reference_occurrences_checked": 93,
+    "distinct_original_main_reference_targets": 89,
+    "reference_notes_checked": 57,
+    "translator_commentary_notes": 1,
+    "wrong_main_reference_occurrences_identified": 3,
+    "affected_reference_notes": [
+      5,
+      20
+    ],
+    "secondary_edition_reference_numbers_unverified": [
+      {
+        "note": 26,
+        "reference": "Sahih Sunan al-Tirmidhi1957"
+      },
+      {
+        "note": 26,
+        "reference": "al-Silsila al-Sahiha2280"
+      },
+      {
+        "note": 58,
+        "reference": "Sahih Sunan al-Tirmidhi2379"
+      },
+      {
+        "note": 58,
+        "reference": "Sahih Sunan Abi Dawud1300"
+      }
+    ]
+  },
+  "results": {
+    "new_visible_word_extraction_errors": 0,
+    "text_correction_items_in_editorial_edition": 10,
+    "structure_classification_fixes": 2,
+    "unresolved_visible_characters": 0,
+    "source_text_retained_for_every_unit": true,
+    "all_original_ids_preserved": true,
+    "no_hadith_occurrence_deduplication": true
+  },
+  "text_changes": [
+    {
+      "change_id": "C01",
+      "title_ja": "脚注5の出典番号",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        5
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p005_u031"
+      ],
+      "before": "（5253）",
+      "after": "（5653）",
+      "reason_ja": "両眼を失った場合の忍耐の伝承はブハーリー5653に対応します。5253は離婚に関する別の伝承です。",
+      "evidence_urls": [
+        "https://sunnah.com/bukhari:5253",
+        "https://sunnah.com/bukhari:5653"
+      ],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C02",
+      "title_ja": "脚注20の出典番号と本文対応",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        10
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u029",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u030"
+      ],
+      "before": "20 サヒーフ・アル＝ブハーリー（5304）、サヒーフ・ムスリム（2983）。文章はアル＝ブハーリーのもの。",
+      "after": "20 サヒーフ・アル＝ブハーリー（52）、サヒーフ・ムスリム（1599）。本文は主にムスリムの伝承に対応する。",
+      "reason_ja": "合法・非合法・疑わしい事柄と心臓の伝承に対応する番号へ修正しました。元の5304と2983は孤児を世話する人の伝承です。本文の対応関係を考慮し、ブハーリーの文言と断定する記載も修正しました。",
+      "evidence_urls": [
+        "https://sunnah.com/bukhari:52",
+        "https://sunnah.com/muslim:1599a",
+        "https://sunnah.com/bukhari:5304",
+        "https://sunnah.com/muslim:2983"
+      ],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C03",
+      "title_ja": "アーイシャの敬称の代名詞",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        8
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p008_u010"
+      ],
+      "before": "アーイシャ（彼に",
+      "after": "アーイシャ（彼女に",
+      "reason_ja": "同じページの先行段落と、アーイシャを指す代名詞を一致させました。",
+      "evidence_urls": [],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C04",
+      "title_ja": "入れ子の引用符",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        9
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u006",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u007"
+      ],
+      "before": "「預言者（彼にアッラーからの平安と祝福あれ）は言いました：“預言者たちの言葉で、人々に伝わるこのような言葉がある：“（あなたの成す事において）羞恥心を感じないのであれば、好きな事を行うのだ。”」",
+      "after": "「預言者（彼にアッラーからの平安と祝福あれ）は言いました：“預言者たちの言葉で、人々に伝わるこのような言葉がある：『（あなたの成す事において）羞恥心を感じないのであれば、好きな事を行うのだ。』”」",
+      "reason_ja": "原本の開き引用符と閉じ引用符の不均衡を解消しました。",
+      "evidence_urls": [],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C05",
+      "title_ja": "日本語の誤記",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        10
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u011"
+      ],
+      "before": "間際らしい",
+      "after": "紛らわしい",
+      "reason_ja": "疑念の余地のある事柄を述べる文脈に合わせ、明らかな誤記を修正しました。",
+      "evidence_urls": [],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C06",
+      "title_ja": "施しの伝承の引用範囲",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        19,
+        20
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u026",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u006"
+      ],
+      "before": "ない者に与えてやるのだ。",
+      "after": "ない者に与えてやるのだ。”",
+      "reason_ja": "ここで預言者の直接発話を閉じ、次のページのアブー・サイードの説明と区別しました。",
+      "evidence_urls": [
+        "https://sunnah.com/muslim:1728"
+      ],
+      "contains_ai_generated_translation": false,
+      "applied": true,
+      "additional_operation": {
+        "before": "す。”」",
+        "after": "す。」"
+      }
+    },
+    {
+      "change_id": "C07",
+      "title_ja": "剰余物に関する権利の表現",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        20
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u006"
+      ],
+      "before": "私たちはまるで自分たちが所有する剰余物において、他人に対するいかなる権利も有していないかのように感じたものです。",
+      "after": "私たちは、自分たちの誰にも剰余物に対する権利はないと考えるほどでした。",
+      "reason_ja": "アラビア語は「私たちの誰にも剰余物に対する権利はない」という趣旨です。「他人に対する」という関係を除き、原典に沿って修訳しました。",
+      "evidence_urls": [
+        "https://sunnah.com/muslim:1728"
+      ],
+      "contains_ai_generated_translation": true,
+      "applied": true
+    },
+    {
+      "change_id": "C08",
+      "title_ja": "天使に囲まれる句の補足",
+      "category": "declared_editorial_restoration",
+      "pdf_pages": [
+        21
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u008"
+      ],
+      "before": "慈悲に包まれ、また",
+      "after": "慈悲に包まれ、天使たちに囲まれ、また",
+      "reason_ja": "ムスリム2699aの、慈悲に包まれる句とアッラーが言及される句の間にある「天使たちに囲まれる」内容を補いました。原本がこの箇所を意図的に省略したかは不明です。冒頭の中略表示は残しています。",
+      "evidence_urls": [
+        "https://sunnah.com/muslim:2699a"
+      ],
+      "contains_ai_generated_translation": true,
+      "applied": true
+    },
+    {
+      "change_id": "C09",
+      "title_ja": "問いに答える人物の名前",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        23
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u005"
+      ],
+      "before": "すると（タルハは）言いました",
+      "after": "すると（アブドッラー・ブン・アビー・アウファーは）言いました",
+      "reason_ja": "タルハは質問者であり、この回答を述べるのはアブドッラー・ブン・アビー・アウファーです。",
+      "evidence_urls": [
+        "https://sunnah.com/bukhari:5022",
+        "https://sunnah.com/muslim:1634a"
+      ],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    },
+    {
+      "change_id": "C10",
+      "title_ja": "脚注58の句点",
+      "category": "editorial_correction",
+      "pdf_pages": [
+        24
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u015"
+      ],
+      "before": "（1300）文章は",
+      "after": "（1300）。文章は",
+      "reason_ja": "出典番号と後続の説明文の間に句点を補いました。",
+      "evidence_urls": [],
+      "contains_ai_generated_translation": false,
+      "applied": true
+    }
+  ],
+  "structure_changes": [
+    {
+      "unit_id": "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u009",
+      "before": "body_line",
+      "after": "subsection_heading",
+      "text": "ムスリムと良い関係を築き、彼らの用事を手伝い、その苦悩を和らげ、",
+      "reason": "原本で太字の小見出しに当たる行です。"
+    },
+    {
+      "unit_id": "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u020",
+      "before": "body_line",
+      "after": "subsection_heading",
+      "text": "アッラーの使徒（彼にアッラーからの祝福と平安あれ）の遺言：",
+      "reason": "原本で太字の小見出しに当たる行です。"
+    }
+  ],
+  "cross_page_occurrences": [
+    {
+      "locator_note_number": 2,
+      "pdf_pages": [
+        4,
+        5
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p004_u015",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p004_u016",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p004_u017",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p004_u018",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p005_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p005_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p005_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p005_u006"
+      ]
+    },
+    {
+      "locator_note_number": 18,
+      "pdf_pages": [
+        9,
+        10
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u019",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u020",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p009_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u005"
+      ]
+    },
+    {
+      "locator_note_number": 21,
+      "pdf_pages": [
+        10,
+        11
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p010_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p011_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p011_u004"
+      ]
+    },
+    {
+      "locator_note_number": 24,
+      "pdf_pages": [
+        11,
+        12
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p011_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p011_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p012_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p012_u004"
+      ]
+    },
+    {
+      "locator_note_number": 27,
+      "pdf_pages": [
+        12,
+        13
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p012_u019",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p012_u020",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p012_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u006",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u007",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u008",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u009",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u010",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u011",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u012",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u013",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u014",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u015"
+      ]
+    },
+    {
+      "locator_note_number": 29,
+      "pdf_pages": [
+        13,
+        14
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p013_u025",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u006",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u007",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u008"
+      ]
+    },
+    {
+      "locator_note_number": 32,
+      "pdf_pages": [
+        14,
+        15
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p014_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p015_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p015_u004"
+      ]
+    },
+    {
+      "locator_note_number": 35,
+      "pdf_pages": [
+        15,
+        16
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p015_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p015_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p015_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p016_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p016_u004"
+      ]
+    },
+    {
+      "locator_note_number": 42,
+      "pdf_pages": [
+        17,
+        18
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p017_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p017_u025",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p018_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p018_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p018_u005"
+      ]
+    },
+    {
+      "locator_note_number": 47,
+      "pdf_pages": [
+        19,
+        20
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u020",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u025",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p019_u026",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p020_u006"
+      ]
+    },
+    {
+      "locator_note_number": 52,
+      "pdf_pages": [
+        21,
+        22
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u018",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u019",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u020",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p021_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u004"
+      ]
+    },
+    {
+      "locator_note_number": 55,
+      "pdf_pages": [
+        22,
+        23
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u021",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u022",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p022_u023",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u006"
+      ]
+    },
+    {
+      "locator_note_number": 58,
+      "pdf_pages": [
+        23,
+        24
+      ],
+      "unit_ids": [
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u024",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p023_u025",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u003",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u004",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u005",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u006",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u007",
+        "JA_KETAB_ELFADAEL_09a7f220e7bc_p024_u008"
+      ]
+    }
+  ],
+  "not_automatically_changed": [
+    {
+      "note": 10,
+      "issue": "The Japanese parenthetical names al-Lawh al-Mahfuz, while the checked matn says a written book. This explanatory identification was retained as source wording."
+    },
+    {
+      "note": 30,
+      "issue": "The wording いつまでも誉れ高くありたい was retained because interpretation of أثر was not conclusively adjudicated."
+    },
+    {
+      "pdf_page": 12,
+      "issue": "なおざり and literary 見える were not treated as definite errors."
+    },
+    {
+      "pdf_page": 15,
+      "issue": "Original isolated prefix1－ was retained without inventing2－."
+    },
+    {
+      "pdf_page": 19,
+      "issue": "Original 必用事 / 必要事 variation retained."
+    },
+    {
+      "pdf_page": 4,
+      "issue": "Allah ligature diacritic styling separately annotated without changing logical codepoints."
+    }
+  ],
+  "limitations": [
+    "Complete high-resolution line-by-line visual QC, not formal per-codepoint certification.",
+    "Primary-reference correspondence and targeted semantic corrections checked; not a complete critical Arabic-to-Japanese translation audit.",
+    "Four secondary edited-collection reference numbers remain unverified.",
+    "The clause restored at note50 is explicit editorial supplementation; the source author’s reason for omitting it is not established.",
+    "No live Bank importer validation or publication performed."
+  ],
+  "review_files": [
+    "qc_p01_09.json",
+    "qc_p10_17.json",
+    "qc_p18_25.json",
+    "reference_notes_01_18.json",
+    "reference_notes_20_41.json",
+    "reference_notes_42_58.json"
+  ],
+  "final_deliverable_validation": {
+    "rendered_page_count": 30,
+    "source_page_count": 25,
+    "non_arabic_pdf_units_checked": 546,
+    "non_arabic_pdf_units_missing": [],
+    "arabic_pdf_units_checked_with_poppler_and_pymupdf": 6,
+    "arabic_pdf_units_missing": [],
+    "docx_source_units_missing": [],
+    "native_footnote_count": 58,
+    "native_footnote_sequence_correct": true,
+    "native_footnote_text_errors": [],
+    "normalization": "NFKC; whitespace and directional formatting controls removed for comparison.",
+    "arabic_extraction_note": "Final Noto Sans Arabic rendering verified with both Poppler and PyMuPDF, in addition to visual review.",
+    "scope": "Text coverage and native-footnote integrity. Visual page review is recorded separately."
+  },
+  "final_visual_review": {
+    "status": "pass",
+    "rendered_pages_visually_inspected": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "open_production_defects": 0,
+    "review_files": [
+      "render_p01_p27_30.json",
+      "render_p02_10.json",
+      "render_p11_18.json",
+      "render_p19_26.json"
+    ],
+    "arabic_font": "Noto Sans Arabic",
+    "arabic_font_revision_rechecked_pages": [
+      3,
+      5
+    ],
+    "other_28_rendered_page_images_identical_to_reviewed_images": true
+  },
+  "finalized_at_utc": "2026-11-13T14:48:19.285183+00:00"
+}

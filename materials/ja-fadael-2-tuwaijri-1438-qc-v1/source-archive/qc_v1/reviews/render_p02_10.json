@@ -1,0 +1,312 @@
+{
+  "reviewer": "qc_pages_01_09",
+  "task": "Final DOCX-render visual QA, pages 2–10",
+  "overall_status": "pass",
+  "pages_inspected": 9,
+  "problem_pages": [],
+  "scope": "All nine PNGs viewed in full at native 1547×2002 dimensions; one enlarged footnote crop inspected. Checked visible glyph shaping, page-level content, clipping/overflow, footnote and marker legibility. Compared expected content with the previous independent source-page review. This is visual production QA, not a new scholarly or exhaustive codepoint audit.",
+  "pages": [
+    {
+      "final_page": 2,
+      "source_pdf_page": 1,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-2.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "86db041fa312c33063c59f0018cef3522335e3310d0c142d454d5dafb3c889c7",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "not_applicable"
+      },
+      "notes": "Japanese cover: title, year, author, translator/reviewer/editor, and IslamHouse.com are legible and intact. No glyph boxes, clipping, or overflow.",
+      "problems": []
+    },
+    {
+      "final_page": 3,
+      "source_pdf_page": 2,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-3.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "c946c01eae1eb32a6f389c2630ef413c3a855f72f285d5ddbd8286da204fc7f9",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "pass",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "not_applicable"
+      },
+      "notes": "Reopened and visually inspected the entire new PNG after the Noto Sans Arabic font change. The title, author, and all three Arabic credit lines have clean connected shaping, single glyphs, visible dots/hamzas, consistent baselines, and comfortable line spacing. No clipped ascenders/descenders, missing text, overflow, or collisions. Arabic text remains centered and intact.",
+      "problems": [],
+      "previous_render_sha256": "0ab8a852f710f07ad629ac412d5094a356ff16852b360f0ad12916e0cdfc5b95",
+      "notes_before_font_change": "Arabic cover: كتاب الفضائل, محمد بن إبراهيم التويجري, and all three credit lines render with connected, single glyphs. Hamza below the alif of إبراهيم is visible. No visibly doubled letters; any doubled PDF extraction sequence is not a visible duplication in this PNG.",
+      "current_render_review": "Noto Sans Arabic final recheck; supersedes the earlier Arabic-page render review."
+    },
+    {
+      "final_page": 4,
+      "source_pdf_page": 3,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-4.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "452e2bb33832119668208fbb6b563c2066339254041678163331728138c4dfb0",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "not_applicable"
+      },
+      "notes": "Contents page: all three entries, printed-page references 2/11/18, and the explanatory page-number note are present and legible. No clipping or overflow.",
+      "problems": []
+    },
+    {
+      "final_page": 5,
+      "source_pdf_page": 4,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-5.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "d4f07c987036fd7ecb03fcf0563905f46688fa90345d40beeb3d0454563d69c4",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "pass",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "Reopened and visually inspected the entire new PNG after the Noto Sans Arabic font change. The full basmala بسم الله الرحمن الرحيم is on one line, correctly shaped and legible; the final ن of الرحمن is present in the line. Baseline and spacing are clean, with no clipping or collision with the Japanese introduction. Japanese content, footnote 1, and footer remain fully within the page.",
+      "problems": [],
+      "previous_render_sha256": "f6f5f4694e6c1fa818b69764ac9c6340c73332ac01e46c811a7250221bfd82dd",
+      "notes_before_font_change": "Arabic basmala is readable with normal shaping. Japanese preface, both main/subsection headings, first report, and beginning of the knowledge report are intact. Footnote 1 and its marker are legible; continuation at original page boundary is preserved.",
+      "current_render_review": "Noto Sans Arabic final recheck; supersedes the earlier Arabic-page render review."
+    },
+    {
+      "final_page": 6,
+      "source_pdf_page": 5,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-6.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "31d70cf76cbcc25204de743c9e0f2c7d4f050818282da2c1cb86f0a9bdbcca88",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "Knowledge continuation and three patience reports are intact. Footnote markers and footnotes 2–5 are legible. Footnote 5 visibly shows 5653. No content reaches outside the text area or collides with footnotes/footer.",
+      "problems": []
+    },
+    {
+      "final_page": 7,
+      "source_pdf_page": 6,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-7.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        },
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/crops/final_render_02_10/page7_footnotes.png",
+          "view": "footnote crop, 1.5x enlarged",
+          "source_pixel_box": [
+            170,
+            1740,
+            1370,
+            1890
+          ]
+        }
+      ],
+      "sha256": "9fe6b040fa5cd5ea9055f25c9fe63ba787c640773414eaee2db172a5083dd2c4",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "Truthfulness, repentance, and hope headings and reports are intact. Footnotes 6–8 are legible. Additional crop confirms note 7 reads 6309, not 5309. A short final line of the report is retained above IslamHouse.com; no clipping.",
+      "problems": []
+    },
+    {
+      "final_page": 8,
+      "source_pdf_page": 7,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-8.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "7cbb34edb11e5413f41ee3ddb6bbfc539a0f25d9c902c4c17c34038f9e54352e",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "Mercy headings and all three reports are intact. Footnotes 9–11 and markers are legible. No malformed Japanese glyphs, clipping, or overflow.",
+      "problems": []
+    },
+    {
+      "final_page": 9,
+      "source_pdf_page": 8,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-9.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "194f69ef347d1d75e0eb51e72e29403a19e2050f36196f241a15a84fd7e00237",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "Gentleness and modesty headings and reports are intact. Second Aisha attribution visibly uses corrected 彼女. Footnotes 12–14 and markers are legible. No clipping or overflow.",
+      "problems": []
+    },
+    {
+      "final_page": 10,
+      "source_pdf_page": 9,
+      "status": "pass",
+      "views": [
+        {
+          "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-10.png",
+          "view": "entire PNG",
+          "pixel_dimensions": [
+            1547,
+            2002
+          ]
+        }
+      ],
+      "sha256": "bb16c563e6430efb30d2ae615162b1868dff8716636ea5704ac79ad7cc508676",
+      "checks": {
+        "japanese_glyph_quality": "pass",
+        "arabic_glyph_quality": "not_applicable",
+        "clipping_overflow": "pass",
+        "visible_content_completeness": "pass",
+        "footnote_legibility": "pass"
+      },
+      "notes": "The initial report visibly has corrected nested 『…』 inside the outer quotation. Speech/restraint and steadfastness headings and reports are intact; the last report ends at the preserved original page boundary. Footnotes 15–17 are legible; no clipping or overflow.",
+      "problems": []
+    }
+  ],
+  "files_edited": "Only this checklist and the cited inspection crop; source documents and final renders were not changed.",
+  "final_rechecks": [
+    {
+      "timestamp_utc": "2026-11-13T14:47:28.836251+00:00",
+      "reason": "Arabic font changed to Noto Sans Arabic; only final pages 3 and 5 changed. Earlier page 3/5 image hashes and visual notes are superseded by this recheck.",
+      "overall_status": "pass",
+      "pages": [
+        {
+          "final_page": 3,
+          "status": "pass",
+          "superseded_sha256": "0ab8a852f710f07ad629ac412d5094a356ff16852b360f0ad12916e0cdfc5b95",
+          "current_sha256": "c946c01eae1eb32a6f389c2630ef413c3a855f72f285d5ddbd8286da204fc7f9",
+          "view": {
+            "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-3.png",
+            "extent": "entire PNG",
+            "pixel_dimensions": [
+              1547,
+              2002
+            ]
+          },
+          "checks": {
+            "arabic_shaping": "pass",
+            "baseline_spacing": "pass",
+            "clipping_overflow": "pass",
+            "content_integrity": "pass"
+          },
+          "notes": "Reopened and visually inspected the entire new PNG after the Noto Sans Arabic font change. The title, author, and all three Arabic credit lines have clean connected shaping, single glyphs, visible dots/hamzas, consistent baselines, and comfortable line spacing. No clipped ascenders/descenders, missing text, overflow, or collisions. Arabic text remains centered and intact."
+        },
+        {
+          "final_page": 5,
+          "status": "pass",
+          "superseded_sha256": "f6f5f4694e6c1fa818b69764ac9c6340c73332ac01e46c811a7250221bfd82dd",
+          "current_sha256": "d4f07c987036fd7ecb03fcf0563905f46688fa90345d40beeb3d0454563d69c4",
+          "view": {
+            "path": "/workspace/scratch/ac7c278bd704/qc_v1/rendered_final/page-5.png",
+            "extent": "entire PNG",
+            "pixel_dimensions": [
+              1547,
+              2002
+            ]
+          },
+          "checks": {
+            "arabic_shaping": "pass",
+            "baseline_spacing": "pass",
+            "clipping_overflow": "pass",
+            "content_integrity": "pass"
+          },
+          "notes": "Reopened and visually inspected the entire new PNG after the Noto Sans Arabic font change. The full basmala بسم الله الرحمن الرحيم is on one line, correctly shaped and legible; the final ن of الرحمن is present in the line. Baseline and spacing are clean, with no clipping or collision with the Japanese introduction. Japanese content, footnote 1, and footer remain fully within the page."
+        }
+      ],
+      "other_assigned_pages_hash_verified_unchanged": [
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  ]
+}
