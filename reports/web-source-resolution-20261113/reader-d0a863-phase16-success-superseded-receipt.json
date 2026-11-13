@@ -1,0 +1,482 @@
+{
+  "browser": {
+    "actual_site": {
+      "detail_parts_total": 945,
+      "exact_occurrence_verified": "hadeethenc:entry:2758:translation:ja:revision:56eb334b0e237553",
+      "grouped_reading_count": 100596,
+      "grouping": {
+        "detail_scope": "Only the selected group, up to8 records and8MiB; other checks stream compact directory metadata.",
+        "filters": {
+          "book": {
+            "reading_cards": 57,
+            "source_occurrences": 57
+          },
+          "language": {
+            "reading_cards": 57,
+            "source_occurrences": 57
+          },
+          "origin": {
+            "reading_cards": 2,
+            "source_occurrences": 2
+          },
+          "source": {
+            "reading_cards": 57,
+            "source_occurrences": 57
+          }
+        },
+        "grouped_reading_count": 100596,
+        "groups": 57,
+        "sample_anchor": "fawaz:df57907be352:muslim:4517",
+        "sample_member": "JA_KETAB_ELFADAEL_09a7f220e7bc_occ_note_047",
+        "sample_origin": "ai",
+        "sample_relation": "same_narration_core",
+        "selected_json_sha256": "d0248296b893037d1b632bea01ebf5ff3e51f3ae219fc75f0066da1d3532f1f4",
+        "source_member_count": 2,
+        "status": "passed"
+      },
+      "initial_cards": 25,
+      "record_count": 100653,
+      "startup_detail_parts_requested": 1
+    },
+    "browser": "151.0.7922.34",
+    "checks": [
+      "ordinary_startup_selective_detail_requests",
+      "full_audit_serialized_only_when_opened",
+      "paging_preserves_original_order_and_selection",
+      "primary_and_commentary_terms_match_only_with_opt_in",
+      "selected_json_exact_objects_after_paging_and_filters",
+      "canonical_citation_and_exact_id_priority",
+      "exact_occurrence_deep_link",
+      "slow_search_superseded_without_stale_results",
+      "standalone_file_offline_startup_and_search",
+      "actual_site_startup_and_exact_deep_link",
+      "actual_group_source_book_language_origin_filters_keep_matching_representatives",
+      "actual_new_ID_group_shows_qualified_comparison_and_exact_other_source_text",
+      "actual_group_source_audits_preserve_complete_original_objects",
+      "actual_group_selection_exports_all_exact_member_records"
+    ],
+    "elapsed_seconds": 17.147,
+    "fixture": {
+      "canonical_bytes_match_reader_bytes": false,
+      "detail_bytes": 16792432,
+      "detail_parts": 259,
+      "encoding": "gzip-jsonl-lazy-v2",
+      "record_count": 60
+    },
+    "schema": "hadith-bank-reader-browser-smoke-v1",
+    "selected_json_records": 3,
+    "startup": {
+      "cards": 25,
+      "detail_parts_requested": 108,
+      "detail_parts_total": 259,
+      "text_search_parts_requested": 0
+    },
+    "status": "passed"
+  },
+  "completed_job_log": {
+    "bytes": 420628,
+    "method": "Complete exact job log retrieved through GitHub connector and stored byte-exact before parsing.",
+    "sha256": "823cde2f11bc59aa5131c9c5cc2713489d930601011407cc28537f39df64044b"
+  },
+  "completed_run_updated_at_utc": "2026-11-13T16:54:19Z",
+  "current_head_deployment_verified": false,
+  "deployment_job": {
+    "conclusion": "skipped",
+    "id": 132030023742
+  },
+  "formal_independent_pro_certification": false,
+  "github_mutations_by_auditor": 0,
+  "job_id": 132012404168,
+  "observed_at": "2026-11-13 16:59:21 UTC",
+  "official_counterpart_sync": {
+    "available": 2328,
+    "english_version": "v1.25.0",
+    "manifest": "sources/counterparts/hadeethenc/manifest.json",
+    "missing_provider_ids": [],
+    "requested": 2328,
+    "status": "complete"
+  },
+  "publication_guard": {
+    "build_request": "submitted",
+    "expected_start": "d0a863b0966c7eb1ae1d5c36202de282caf77cab",
+    "generated_commit": "58d99326c436e8f267fb4f1bd6cc7326bcd6a2da",
+    "publish": false,
+    "remote_commit": "3e574b9e7e4dd7cf8bc23232249004a18692c61c",
+    "status": "superseded"
+  },
+  "replaced_pending_readers": [
+    {
+      "conclusion": "cancelled",
+      "created_at": "2026-11-13T16:46:34Z",
+      "event": "workflow_dispatch",
+      "head_sha": "3e574b9e7e4dd7cf8bc23232249004a18692c61c",
+      "id": 43466103908,
+      "name": "Update Hadith Bank website",
+      "status": "completed",
+      "updated_at": "2026-11-13T16:54:17Z"
+    },
+    {
+      "conclusion": "cancelled",
+      "created_at": "2026-11-13T16:38:38Z",
+      "event": "push",
+      "head_sha": "f9be12177046e372df088f96b255fd09914fad5a",
+      "id": 43464772608,
+      "name": "Update Hadith Bank website",
+      "status": "completed",
+      "updated_at": "2026-11-13T16:46:36Z"
+    }
+  ],
+  "result": "Full software/export/build/browser PASS; the actual superseded-head guard skipped upload and deployment",
+  "run_id": 43462389218,
+  "run_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43462389218",
+  "saved_fawaz_export": {
+    "held_occurrences": 238,
+    "job_dir": "/home/runner/work/Hadith-Bank/Hadith-Bank/.work/fawaz-reviewed-refresh/run-fh5jby8h",
+    "newly_registered_occurrences": 6315,
+    "phase": "complete",
+    "positive_provider_ids": 6315,
+    "previous_registered": 29911,
+    "provider_occurrences": 36464,
+    "registered_occurrences": 36226,
+    "status": "passed",
+    "supplemental_decisions": 13351,
+    "verified_projected_readings": 13304
+  },
+  "saved_web_export_status": {
+    "complete_content_import_certified": false,
+    "enabled": true,
+    "fetch_queues_done": false,
+    "fetched_entries": 25896,
+    "has_fetch_work": true,
+    "held_entries": 92,
+    "non_narration_source_entries": 161,
+    "note": "Counts describe preserved source entries, not unique canonical hadiths. Queue completion still requires reconciliation of held entries, source omissions and embedded quotations.",
+    "registered_occurrences": 25645,
+    "requires_attention": true,
+    "schedule_pause_reason": null,
+    "schedule_should_pause": false,
+    "schema": "hadith-bank-web-import-status-v1"
+  },
+  "schema": "hadith-bank-completed-reader-validation-receipt-v1",
+  "site_build": {
+    "by_language": {
+      "ar": 32267,
+      "bn": 44,
+      "en": 3684,
+      "fa": 14382,
+      "fil": 2354,
+      "hi": 19001,
+      "ja": 3520,
+      "ur": 231,
+      "uz": 9780,
+      "vi": 4555,
+      "zh-CN": 10835
+    },
+    "canonical_source_bytes_unchanged": true,
+    "counterpart_review": {
+      "accepted_by_this_preparation": 0,
+      "already_linked_occurrences": 64410,
+      "arabic_missing_occurrences": 13754,
+      "available_candidate_targets": 10753,
+      "candidate_occurrences": 1445,
+      "candidate_targets": 1041,
+      "english_missing_occurrences": 36223,
+      "inspected_occurrences": 100653,
+      "manifest": "reports/counterpart-review/manifest.json",
+      "occurrences_without_candidate": 34798,
+      "queue_bytes": 10924498,
+      "queued_occurrences": 36243,
+      "schema": "hadith-bank-counterpart-review-queue-v1",
+      "status": "candidates_only",
+      "target_bytes": 573571
+    },
+    "discovery": {
+      "book_language_count": 126,
+      "complete_source_views": {
+        "included_in_narration_search": false,
+        "index_path": "source-editions/fawaz/index.html",
+        "original_source_pages": 238,
+        "original_texts_verified": true,
+        "pages": 606,
+        "provider_occurrences": 36464,
+        "reader_occurrences": 36226
+      },
+      "edition_count": 251,
+      "generated_bytes": 621408230,
+      "generated_files": 40717,
+      "independent_qc_performed": false,
+      "index_pages": 1323,
+      "indexable_pages": 40105,
+      "language_count": 11,
+      "languages": {
+        "ar": 32267,
+        "bn": 44,
+        "en": 3684,
+        "fa": 14382,
+        "fil": 2354,
+        "hi": 19001,
+        "ja": 3520,
+        "ur": 231,
+        "uz": 9780,
+        "vi": 4555,
+        "zh-CN": 10835
+      },
+      "record_pages": 38782,
+      "schema": "hadith-bank-discovery-v1",
+      "shared_reader_occurrences": 61871,
+      "site_bytes": 887819214,
+      "sitemap": "https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml",
+      "sitemap_count": 2,
+      "sitemap_url_count": 40106,
+      "source_records_sha256": "8650d77b108b79910e368a2ba6ba1222328c1c662dca1e2ad9c11e04e118cf03",
+      "source_texts_unchanged": true
+    },
+    "hosted_reader": {
+      "detail_shard_count": 945,
+      "directory_bytes": 34658558,
+      "embedded_encoding": "gzip-jsonl-lazy-v2",
+      "html_bytes": 1312718,
+      "max_detail_record_bytes": 217914,
+      "max_projection_row_bytes": {
+        "annotations": 128046,
+        "directory": 467,
+        "search": 163858
+      },
+      "reader_store_metrics": {
+        "annotations": {
+          "compressed_bytes": 23523383,
+          "max_row_bytes": 128046,
+          "record_count": 100653,
+          "shard_count": 86,
+          "uncompressed_bytes": 177148527
+        },
+        "details": {
+          "compressed_bytes": 169753337,
+          "max_row_bytes": 217914,
+          "record_count": 100653,
+          "shard_count": 945,
+          "uncompressed_bytes": 1964300162
+        },
+        "directory": {
+          "compressed_bytes": 1545984,
+          "max_row_bytes": 467,
+          "record_count": 100653,
+          "shard_count": 17,
+          "uncompressed_bytes": 34658558
+        },
+        "search": {
+          "compressed_bytes": 68561396,
+          "max_row_bytes": 163858,
+          "record_count": 100653,
+          "shard_count": 310,
+          "uncompressed_bytes": 641647231
+        }
+      },
+      "self_contained": false,
+      "shard_bytes": 263384100,
+      "shard_count": 1358
+    },
+    "independent_qc_performed": false,
+    "markdown_pages": 4185,
+    "reader_bytes": 1312718,
+    "reader_self_contained": false,
+    "reader_sha256": "5deccc7093a24337dedb5f7318425f63368f95298018d1bb0dae77c42edcb427",
+    "reader_transport": {
+      "detail_shard_count": 945,
+      "directory_bytes": 34658558,
+      "embedded_encoding": "gzip-jsonl-lazy-v2",
+      "html_bytes": 1312718,
+      "max_detail_record_bytes": 217914,
+      "max_projection_row_bytes": {
+        "annotations": 128046,
+        "directory": 467,
+        "search": 163858
+      },
+      "reader_store_metrics": {
+        "annotations": {
+          "compressed_bytes": 23523383,
+          "max_row_bytes": 128046,
+          "record_count": 100653,
+          "shard_count": 86,
+          "uncompressed_bytes": 177148527
+        },
+        "details": {
+          "compressed_bytes": 169753337,
+          "max_row_bytes": 217914,
+          "record_count": 100653,
+          "shard_count": 945,
+          "uncompressed_bytes": 1964300162
+        },
+        "directory": {
+          "compressed_bytes": 1545984,
+          "max_row_bytes": 467,
+          "record_count": 100653,
+          "shard_count": 17,
+          "uncompressed_bytes": 34658558
+        },
+        "search": {
+          "compressed_bytes": 68561396,
+          "max_row_bytes": 163858,
+          "record_count": 100653,
+          "shard_count": 310,
+          "uncompressed_bytes": 641647231
+        }
+      },
+      "self_contained": false,
+      "shard_bytes": 263384100,
+      "shard_count": 1358
+    },
+    "record_count": 100653,
+    "registry": "materials/*/manifest.json",
+    "schema": "hadith-bank-site-build-v1",
+    "search_sha256": "8650d77b108b79910e368a2ba6ba1222328c1c662dca1e2ad9c11e04e118cf03",
+    "search_shards": 1185,
+    "site_output": "/home/runner/work/Hadith-Bank/Hadith-Bank/_site",
+    "source_commit": "d0a863b0966c7eb1ae1d5c36202de282caf77cab",
+    "source_dataset_count": 251,
+    "source_ref": "d0a863b0966c7eb1ae1d5c36202de282caf77cab",
+    "status": "passed",
+    "validation_report": "reports/portable-validation.json"
+  },
+  "software_tests": {
+    "node": {
+      "fail": 0,
+      "pass": 43,
+      "tests": 43
+    },
+    "python_elapsed_seconds": 65.53,
+    "python_tests": 978,
+    "status": "PASS"
+  },
+  "source_bytes_unchanged": true,
+  "source_commit": "d0a863b0966c7eb1ae1d5c36202de282caf77cab",
+  "source_count_interpretation": "These are actual exports at d0a863: the bd4a acquisition, concurrent PR15 merge and published phase16 reviews are included. The subsequent f9be121 phase17 field extension and 3e574b source acquisition are not included. Raw aggregate saved-source counters are not unique canonical hadith counts or a guaranteed non-overlapping global partition. The Fawaz export retains its raw held_occurrences label.",
+  "source_site_requests_by_auditor": 0,
+  "step_outcomes": [
+    {
+      "conclusion": "success",
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check out requested main revision",
+      "number": 2,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Set up Python",
+      "number": 3,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run software tests",
+      "number": 4,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Install reader browser test runtime",
+      "number": 5,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Export saved Fawaz reviews and preserve published quotations",
+      "number": 6,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Apply changed saved website reviews before shared validation",
+      "number": 7,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Save bounded Fawaz validation evidence",
+      "number": 8,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Synchronize official counterpart sources for newly registered IDs",
+      "number": 9,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Rebuild and validate all registered material",
+      "number": 10,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Verify bounded reader in Chromium",
+      "number": 11,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Save reader runtime evidence",
+      "number": 12,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Keep generated bank files synchronized",
+      "number": 13,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Upload the verified website",
+      "number": 14,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Set up Python",
+      "number": 27,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Check out requested main revision",
+      "number": 28,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job",
+      "number": 29,
+      "status": "completed"
+    }
+  ],
+  "successor_reader_observed": {
+    "conclusion": null,
+    "created_at": "2026-11-13T16:54:15Z",
+    "event": "workflow_dispatch",
+    "head_sha": "3e574b9e7e4dd7cf8bc23232249004a18692c61c",
+    "id": 43467374230,
+    "name": "Update Hadith Bank website",
+    "status": "in_progress",
+    "updated_at": "2026-11-13T16:54:22Z"
+  },
+  "timing": {
+    "browser_started_utc": "2026-11-13T16:53:18.2222471Z",
+    "first_log_utc": "2026-11-13T16:24:26.3736469Z",
+    "full_refresh_started_utc": "2026-11-13T16:36:05.9803261Z",
+    "full_refresh_to_site_report_seconds": 1032.031346,
+    "interpretation": "This exact run completed in about29minutes49seconds under the published45-minute cap. The observed duration does not guarantee later build duration.",
+    "last_log_utc": "2026-11-13T16:54:15.6658389Z",
+    "publication_guard_utc": "2026-11-13T16:54:15.3068061Z",
+    "published_build_timeout_minutes": 45,
+    "site_report_utc": "2026-11-13T16:53:18.0116727Z",
+    "total_observed_log_seconds": 1789.292192
+  },
+  "upload_step": "skipped"
+}

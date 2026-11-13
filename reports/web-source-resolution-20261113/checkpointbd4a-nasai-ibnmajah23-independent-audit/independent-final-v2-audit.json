@@ -1,0 +1,283 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-nasai-ibnmajah23-20261113.json.gz",
+  "active_ledger_sha256": "644b2a872a77e37ffacbec1c6d8d6a569407f1fb27c1820b35574a20a8b812bf",
+  "all115_coverage_derivative_fields_bound_to_final_active": true,
+  "all17_admitted_field_context_gaps_match_final_inventory": true,
+  "all_complete_source_records_and_references_equal": true,
+  "all_independently_accepted_span_positions_types_voices_families_exact": true,
+  "all_owner_and_source_inputs_unchanged": true,
+  "all_stored_plain_git_blob_hashes_pass": true,
+  "baseline_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-baseline.jsonl.gz",
+  "baseline_sha256": "d2219a50d894b81742b139ae64a0e6c92728c72e541574e3fa40157e80f2703a",
+  "before_candidate_and_initial_notes_preserved": true,
+  "candidate_manifest_path": "delivery-manifest-v2.json",
+  "candidate_manifest_sha256": "e0c6d08973dc3c39ec64d586ab6118ea729cb3441ad1fcf7aa82c13425bb965c",
+  "complete_candidate_semantic_comparison_finished": true,
+  "counts": {
+    "admitted_fields": 44,
+    "characters_read": 29579,
+    "complete_fields_read": 49,
+    "exclude": 1,
+    "partitions": 115,
+    "read_context_fields": 5,
+    "register": 22,
+    "selected_spans": 63,
+    "unread_fields": 66,
+    "utf8_bytes_read": 61743
+  },
+  "exact_requested_v2_changes_verified": true,
+  "final_native_report": {
+    "bytes": 7374,
+    "git_blob_sha1": "2812bafab015b0eba9a2a0993cae89f730704d30",
+    "sha256": "e67497714dd7643d8c4957c658f4a212c6240050111633a745f4e9d3188d011b"
+  },
+  "frozen_candidate_files_checked": 34,
+  "full_v1_boundary_comparison_and_findings": {
+    "bytes": 160723,
+    "git_blob_sha1": "7136f819349913380da52172781f2349fe4678d2",
+    "sha256": "a4190628144c9eef5e1bb98987f03efa05d021bb36f0fba98a055746bdd729f7"
+  },
+  "github_writes": 0,
+  "independent_findings_sha256": "a4190628144c9eef5e1bb98987f03efa05d021bb36f0fba98a055746bdd729f7",
+  "independent_pro_qc": "not_performed",
+  "independent_saved_source_proof": {
+    "bytes": 41014,
+    "git_blob_sha1": "0421ff6e3b366685e9e567e1f4552b775a6566fc",
+    "sha256": "1489a71990ef9c3b3c607dd34d092d0810a39e3b3d0ba25efe2088023fadee84"
+  },
+  "independent_source_first_reading": {
+    "bytes": 74779,
+    "git_blob_sha1": "ef40979ce63ed03b62a0b70bc0961b01c31f1508",
+    "sha256": "90d8cb83116f17a3a0ac5d006dec3cf642a4608f1d4d2323eea1459c4cf9a7ad"
+  },
+  "initial_independent_note_refinements_are_explicit": true,
+  "limitations": "This exact candidate and preserved source packet only. No authenticity certification, legal advice, canonical identity repair or live deployment claim.",
+  "metadata_leaf_equalities": {
+    "language": 1633,
+    "parent": 1840,
+    "source": 1725
+  },
+  "metadata_leaf_equalities_total": 5198,
+  "native_apply_and_finish_pass": true,
+  "observed_script_changes": 0,
+  "open_required_amendments": [],
+  "raw_reparses": 23,
+  "schema": "hadith-bank-final-independent-reading-preservation-audit-v1",
+  "selected_footnote_markers": 0,
+  "source_checkpoint": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+  "source_files_reopened": 46,
+  "source_first_receipt_sha256": "90d8cb83116f17a3a0ac5d006dec3cf642a4608f1d4d2323eea1459c4cf9a7ad",
+  "source_parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+  "source_requests": 0,
+  "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "status": "PASS",
+  "surgical_final_amendment": {
+    "characters": 130,
+    "fields": [
+      {
+        "after_field_sha256": "708cfc656c7c648f6e71c6d74504e4550e31e155e065718718afab6e09ee3b76",
+        "before_field_sha256": "76af95db491b73928ea25ef32ac607939fc1e8197fa9a27f723aca4af4ddc349",
+        "exact_requested_cut": {
+          "action": "move_exact_selected_span_to_context",
+          "before_span": {
+            "component_id": "report-2",
+            "end": 269,
+            "reason": "Actual finite content supplied in this complete source field, classified by its own speaker and exact wording. No omitted body, neighboring identity, external numbering or sibling translation is used to fill it.",
+            "report_type": "qualified_actual_wording_variants",
+            "sha256": "fd8c6e24b9de8a8b86ee3063c6e39a5d40dacce954de8effc4c2b98a624f0989",
+            "source_report_family_id": "deenhindi-nasai:2387:report-1",
+            "speaker": "The transmitter expresses uncertainty between the two actually supplied negative formulations",
+            "start": 202
+          },
+          "characters": 67,
+          "end": 269,
+          "id": "deenhindi-nasai:2387",
+          "language": "hi",
+          "preserve": [
+            "all source bytes",
+            "initial actual negative answer",
+            "all resumed questions and answers",
+            "every fasting amount and alternative",
+            "remaining report voices and one-family identity",
+            "parent disposition and complete reading coverage"
+          ],
+          "reason": "This is an explicitly labelled unnamed-transmitter comparison of equivalent negative formulas. The complete actual negative answer appears immediately before it. It does not supply a new event, quantity/endpoint qualification or independently attributed first-person report. Keep the exact comparison visible as source context; do not let its unclosed parenthesis swallow resumed dialogue.",
+          "source_record_sha256": "f692867e312f9d7e915f87c020ba9b527c7c25594328940053795c99168d8285",
+          "span_sha256": "fd8c6e24b9de8a8b86ee3063c6e39a5d40dacce954de8effc4c2b98a624f0989",
+          "start": 202,
+          "text": "(रावी को शक है ला सियाम व ला अफतरा कहा, या लम यसुम व लम युफ़तिर कहा",
+          "text_sha256": "ef335f6c465db9c72843d05aed5693092863d1bea24462e343d3d9dff67cb77e",
+          "utf8_bytes": 165
+        },
+        "id": "deenhindi-nasai:2387",
+        "language": "hi"
+      },
+      {
+        "after_field_sha256": "8e547eb6e82878a11b2852b517738fc069221d654b1de1a4431acd22c4d7c485",
+        "before_field_sha256": "df9335ea92bff8839a0688004d176b90cd24655101d16465370387730793e870",
+        "exact_requested_cut": {
+          "action": "move_exact_selected_span_to_context",
+          "before_span": {
+            "component_id": "report-2",
+            "end": 246,
+            "reason": "Actual finite content supplied in this complete source field, classified by its own speaker and exact wording. No omitted body, neighboring identity, external numbering or sibling translation is used to fill it.",
+            "report_type": "qualified_actual_wording_variants",
+            "sha256": "ba31d30fced38261a5eea5f9433b5f2ed4661b9a4a989cdccf4e56dec8955c64",
+            "source_report_family_id": "deenhindi-nasai:2387:report-1",
+            "speaker": "The transmitter expresses uncertainty between the two actually supplied negative formulations",
+            "start": 183
+          },
+          "characters": 63,
+          "end": 246,
+          "id": "deenhindi-nasai:2387",
+          "language": "ur",
+          "preserve": [
+            "all source bytes",
+            "initial actual negative answer",
+            "all resumed questions and answers",
+            "every fasting amount and alternative",
+            "remaining report voices and one-family identity",
+            "parent disposition and complete reading coverage"
+          ],
+          "reason": "This is an explicitly labelled unnamed-transmitter comparison of equivalent negative formulas. The complete actual negative answer appears immediately before it. It does not supply a new event, quantity/endpoint qualification or independently attributed first-person report. Keep the exact comparison visible as source context; do not let its unclosed parenthesis swallow resumed dialogue.",
+          "source_record_sha256": "f692867e312f9d7e915f87c020ba9b527c7c25594328940053795c99168d8285",
+          "span_sha256": "ba31d30fced38261a5eea5f9433b5f2ed4661b9a4a989cdccf4e56dec8955c64",
+          "start": 183,
+          "text": "( راوی کو شک ہے «لاصيام ولا أفطر» کہا، یا «لم يصم ولم يفطر» کہا",
+          "text_sha256": "64cd690af0e3726fb5d5eca5b9823b79a82a2fb827349c5e1a731c1243d0af7b",
+          "utf8_bytes": 111
+        },
+        "id": "deenhindi-nasai:2387",
+        "language": "ur"
+      }
+    ],
+    "required_cuts": 2,
+    "unchanged_other_field_definitions": 113,
+    "unchanged_whole_parent_records": 22,
+    "utf8_bytes": 276
+  },
+  "v1_archives": [
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/build_delivery.py",
+      "bytes": 22269,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "4cf44d2a40395c9a7107d2c433def20fffcfddcd",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/build_delivery.py",
+      "sha256": "5419ad128e88db62aecd3978b98a0489ce6ac9d75122b44dd49665bd3deee5da"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/disposition-ledger.json.gz",
+      "bytes": 2797,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "6f949f818f0b0fcb4f81d0138347297ceb40b1bc",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/disposition-ledger.json.gz",
+      "sha256": "ad0d5e00b79bc12ab1f1b9f88067e3b5bb62b343fcbe0733367487c03fec7408"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/field-coverage.json.gz",
+      "bytes": 15199,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "bba8975f77ca488cd62d8413e9467c469ce887f1",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/field-coverage.json.gz",
+      "sha256": "3dbc10ea3776a954fbb62c33dc0cad43221c7335a5f9d42b1469015f8938f887"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/freeze_source_first.py",
+      "bytes": 17191,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "8dc7ed3b24956972e7fb98343c70bdf4c4c5bf95",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/freeze_source_first.py",
+      "sha256": "caacda36568bba58ecd8451c38f4701804b228c8297145f958308dfe32aaeba5"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "bytes": 8212,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "4fcb75093b932af1a8a4b71635b35cce15085340",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "sha256": "771f7ff16aaa387c2479da9502a9f2743cbf50dcb16445af6dbc937ae85999a0"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/manual_rules.py",
+      "bytes": 61929,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "a6ac975c5dac85a0923a3f37db2706e07244f323",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/manual_rules.py",
+      "sha256": "881d193ad36de9c01c6e512fc87cdc6a2293b6a9486816486f440b6078c40c70"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/package-file-manifest.json",
+      "bytes": 7067,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "de2d89352f58c0f60e2e3a8e776e783b735c3e4f",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/package-file-manifest.json",
+      "sha256": "ef3db366bc220457241d7b59cc5323fc74f9a768305e2e34b813a74f8a82d8bd"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/prepare_primary.py",
+      "bytes": 13939,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "f39c567941d1be14adc28b9b4ebf0b6de8575147",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/prepare_primary.py",
+      "sha256": "4ba4a8f3ebe17f4b25c9e5dd38411d2db6415600060c8a764f75093df8aa1401"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/raw-source-verification.json.gz",
+      "bytes": 8912,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "6221e6da9a6f48d782640c40068feb59d95b3743",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/raw-source-verification.json.gz",
+      "sha256": "a190c5f852605d70ce3074103208208e9d1d3bd4b3294978e9eb73ac2a897b79"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-apparatus-inventory.json.gz",
+      "bytes": 11517,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "503e5120b76595557eb560922119d5e6e3148918",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-apparatus-inventory.json.gz",
+      "sha256": "01a4122df9325886034fd0094995af9372403eebb6034c3c23800ca03483e80e"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-baseline.jsonl.gz",
+      "bytes": 38507,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "612b793e270dc75978974e78116d69d6a0ea0175",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-baseline.jsonl.gz",
+      "sha256": "d2219a50d894b81742b139ae64a0e6c92728c72e541574e3fa40157e80f2703a"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-first-complete-reading.json",
+      "bytes": 99456,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "38bb7c87ac344afd25381247ee0efc6ab545fb55",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-first-complete-reading.json",
+      "sha256": "7e94a6c162fb033a10a59d6d1d945f37bb2727ee6a2b90027788c39e4e0f623b"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-verification.json",
+      "bytes": 26771,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "03a30f51c19a53971bd47bc472d49cbfbc859cf0",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-verification.json",
+      "sha256": "5149cc51bc227f8743b3e20d47b95d05316a1d754e36300953d39ce2d226199d"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/validation-and-coverage-summary.json",
+      "bytes": 1798,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "5436ac7ae665d4e3867917cf3c8681b664272c7e",
+      "original_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/validation-and-coverage-summary.json",
+      "sha256": "e280476f4b488481d9a8d2aaa2f3d53e8e1c81aaadb900e4c24d2675a6de034f"
+    },
+    {
+      "archived_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-nasai-ibnmajah23-20261113.json.gz",
+      "bytes": 22565,
+      "exact_original_bytes_retained": true,
+      "git_blob_sha1": "5ee681cfc18eb372f86d72d58b65f911b7b4dc33",
+      "original_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-nasai-ibnmajah23-20261113.json.gz",
+      "sha256": "3b430498bcef0f5934dcd3157fc55e2a8da11aaab72fa39ae1b1d3c3e77509c8"
+    }
+  ],
+  "v1_manifest_archive_exact": true,
+  "v1_payload_archive_count": 15
+}

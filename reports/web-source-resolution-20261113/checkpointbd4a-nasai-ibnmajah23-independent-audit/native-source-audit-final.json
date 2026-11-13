@@ -1,0 +1,131 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-nasai-ibnmajah23-20261113.json.gz",
+  "active_ledger_sha256": "644b2a872a77e37ffacbec1c6d8d6a569407f1fb27c1820b35574a20a8b812bf",
+  "all_complete_source_records_and_references_equal": true,
+  "all_independently_accepted_span_positions_types_voices_families_exact": true,
+  "all_owner_and_source_inputs_unchanged": true,
+  "all_stored_plain_git_blob_hashes_pass": true,
+  "baseline_path": "imports/web-deenhindi-20261112/reviews/checkpointbd4a-nasai-ibnmajah23-20261113/source-baseline.jsonl.gz",
+  "baseline_sha256": "d2219a50d894b81742b139ae64a0e6c92728c72e541574e3fa40157e80f2703a",
+  "candidate_manifest_path": "delivery-manifest-v2.json",
+  "candidate_manifest_sha256": "e0c6d08973dc3c39ec64d586ab6118ea729cb3441ad1fcf7aa82c13425bb965c",
+  "counts": {
+    "admitted_fields": 44,
+    "characters_read": 29579,
+    "complete_fields_read": 49,
+    "exclude": 1,
+    "partitions": 115,
+    "read_context_fields": 5,
+    "register": 22,
+    "selected_spans": 63,
+    "unread_fields": 66,
+    "utf8_bytes_read": 61743
+  },
+  "frozen_candidate_files_checked": 34,
+  "github_writes": 0,
+  "independent_findings_sha256": "a4190628144c9eef5e1bb98987f03efa05d021bb36f0fba98a055746bdd729f7",
+  "independent_pro_qc": "not_performed",
+  "limitations": "This exact candidate and preserved source packet only. No authenticity certification, legal advice, canonical identity repair or live deployment claim.",
+  "metadata_leaf_equalities": {
+    "language": 1633,
+    "parent": 1840,
+    "source": 1725
+  },
+  "metadata_leaf_equalities_total": 5198,
+  "native_apply_and_finish_pass": true,
+  "observed_script_changes": 0,
+  "raw_reparses": 23,
+  "schema": "hadith-bank-independent-reading-native-audit-v1",
+  "source_checkpoint": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+  "source_files_reopened": 46,
+  "source_first_receipt_sha256": "90d8cb83116f17a3a0ac5d006dec3cf642a4608f1d4d2323eea1459c4cf9a7ad",
+  "source_parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+  "source_requests": 0,
+  "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "status": "PASS",
+  "surgical_final_amendment": {
+    "characters": 130,
+    "fields": [
+      {
+        "after_field_sha256": "708cfc656c7c648f6e71c6d74504e4550e31e155e065718718afab6e09ee3b76",
+        "before_field_sha256": "76af95db491b73928ea25ef32ac607939fc1e8197fa9a27f723aca4af4ddc349",
+        "exact_requested_cut": {
+          "action": "move_exact_selected_span_to_context",
+          "before_span": {
+            "component_id": "report-2",
+            "end": 269,
+            "reason": "Actual finite content supplied in this complete source field, classified by its own speaker and exact wording. No omitted body, neighboring identity, external numbering or sibling translation is used to fill it.",
+            "report_type": "qualified_actual_wording_variants",
+            "sha256": "fd8c6e24b9de8a8b86ee3063c6e39a5d40dacce954de8effc4c2b98a624f0989",
+            "source_report_family_id": "deenhindi-nasai:2387:report-1",
+            "speaker": "The transmitter expresses uncertainty between the two actually supplied negative formulations",
+            "start": 202
+          },
+          "characters": 67,
+          "end": 269,
+          "id": "deenhindi-nasai:2387",
+          "language": "hi",
+          "preserve": [
+            "all source bytes",
+            "initial actual negative answer",
+            "all resumed questions and answers",
+            "every fasting amount and alternative",
+            "remaining report voices and one-family identity",
+            "parent disposition and complete reading coverage"
+          ],
+          "reason": "This is an explicitly labelled unnamed-transmitter comparison of equivalent negative formulas. The complete actual negative answer appears immediately before it. It does not supply a new event, quantity/endpoint qualification or independently attributed first-person report. Keep the exact comparison visible as source context; do not let its unclosed parenthesis swallow resumed dialogue.",
+          "source_record_sha256": "f692867e312f9d7e915f87c020ba9b527c7c25594328940053795c99168d8285",
+          "span_sha256": "fd8c6e24b9de8a8b86ee3063c6e39a5d40dacce954de8effc4c2b98a624f0989",
+          "start": 202,
+          "text": "(रावी को शक है ला सियाम व ला अफतरा कहा, या लम यसुम व लम युफ़तिर कहा",
+          "text_sha256": "ef335f6c465db9c72843d05aed5693092863d1bea24462e343d3d9dff67cb77e",
+          "utf8_bytes": 165
+        },
+        "id": "deenhindi-nasai:2387",
+        "language": "hi"
+      },
+      {
+        "after_field_sha256": "8e547eb6e82878a11b2852b517738fc069221d654b1de1a4431acd22c4d7c485",
+        "before_field_sha256": "df9335ea92bff8839a0688004d176b90cd24655101d16465370387730793e870",
+        "exact_requested_cut": {
+          "action": "move_exact_selected_span_to_context",
+          "before_span": {
+            "component_id": "report-2",
+            "end": 246,
+            "reason": "Actual finite content supplied in this complete source field, classified by its own speaker and exact wording. No omitted body, neighboring identity, external numbering or sibling translation is used to fill it.",
+            "report_type": "qualified_actual_wording_variants",
+            "sha256": "ba31d30fced38261a5eea5f9433b5f2ed4661b9a4a989cdccf4e56dec8955c64",
+            "source_report_family_id": "deenhindi-nasai:2387:report-1",
+            "speaker": "The transmitter expresses uncertainty between the two actually supplied negative formulations",
+            "start": 183
+          },
+          "characters": 63,
+          "end": 246,
+          "id": "deenhindi-nasai:2387",
+          "language": "ur",
+          "preserve": [
+            "all source bytes",
+            "initial actual negative answer",
+            "all resumed questions and answers",
+            "every fasting amount and alternative",
+            "remaining report voices and one-family identity",
+            "parent disposition and complete reading coverage"
+          ],
+          "reason": "This is an explicitly labelled unnamed-transmitter comparison of equivalent negative formulas. The complete actual negative answer appears immediately before it. It does not supply a new event, quantity/endpoint qualification or independently attributed first-person report. Keep the exact comparison visible as source context; do not let its unclosed parenthesis swallow resumed dialogue.",
+          "source_record_sha256": "f692867e312f9d7e915f87c020ba9b527c7c25594328940053795c99168d8285",
+          "span_sha256": "ba31d30fced38261a5eea5f9433b5f2ed4661b9a4a989cdccf4e56dec8955c64",
+          "start": 183,
+          "text": "( راوی کو شک ہے «لاصيام ولا أفطر» کہا، یا «لم يصم ولم يفطر» کہا",
+          "text_sha256": "64cd690af0e3726fb5d5eca5b9823b79a82a2fb827349c5e1a731c1243d0af7b",
+          "utf8_bytes": 111
+        },
+        "id": "deenhindi-nasai:2387",
+        "language": "ur"
+      }
+    ],
+    "required_cuts": 2,
+    "unchanged_other_field_definitions": 113,
+    "unchanged_whole_parent_records": 22,
+    "utf8_bytes": 276
+  }
+}
