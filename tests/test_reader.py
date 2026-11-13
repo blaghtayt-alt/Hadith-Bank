@@ -18,7 +18,18 @@ from book_titles import title_metadata
 from review_display_policy import extraction_metadata, needs_ocr_review, review_badges, text_direction
 
 
-READER_SNAPSHOT_JS = 'const snapshot=' + json.dumps({'book_titles': title_metadata()}, ensure_ascii=False) + ';\n'
+# These helper snippets exercise the full-record/offline path. Hosted lazy-store
+# behavior has separate runtime and browser tests.
+READER_SNAPSHOT_JS = 'const hostedStore=null;const snapshot=' + json.dumps({'book_titles': title_metadata()}, ensure_ascii=False) + ';\n'
+
+READER_FILTER_HARNESS_JS = '''
+const occurrenceOrdinals=new Map(records.map((record,index)=>[record.id,index]));
+const beginView=()=>({controller:new AbortController()});
+const isCurrentView=request=>!request.controller.signal.aborted;
+const updateActiveFilters=()=>{};
+const failedView=error=>{throw error;};
+'''
+
 
 def fixture(index=1):
     return {
@@ -685,9 +696,12 @@ process.stdout.write(JSON.stringify(result));'''
         program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,names={},state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
-const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filter_function + '''
-const results=['','human','ai','unknown'].map(origin=>{fields['origin-filter'].value=origin;applyFilters();return state.matches.map(index=>records[index].id);});
-process.stdout.write(JSON.stringify({results,categories:records.map(originLabel),legacy:input.legacy.map(legacyOrigin),records}));'''
+const valueText = ''' + helpers + READER_FILTER_HARNESS_JS + '''\nasync function applyFilters(){''' + filter_function + '''
+(async()=>{
+const results=[];
+for(const origin of ['','human','ai','unknown']){fields['origin-filter'].value=origin;await applyFilters();results.push(state.matches.map(index=>records[index].id));}
+process.stdout.write(JSON.stringify({results,categories:records.map(originLabel),legacy:input.legacy.map(legacyOrigin),records}));
+})().catch(error=>{process.stderr.write(String(error.stack || error));process.exitCode=1;});'''
         result = subprocess.run([shutil.which('node'), '-e', program],
                                 input=json.dumps({'records': records, 'legacy': legacy}),
                                 text=True, capture_output=True, check=True)
@@ -729,9 +743,12 @@ process.stdout.write(JSON.stringify({results,categories:records.map(originLabel)
         program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
-const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filter_function + '''
-const result=input.queries.map(item=>{fields.query.value=item.query;fields['include-commentary'].checked=item.commentary;applyFilters();return state.matches.map(i=>records[i].id);});
-process.stdout.write(JSON.stringify(result));'''
+const valueText = ''' + helpers + READER_FILTER_HARNESS_JS + '''\nasync function applyFilters(){''' + filter_function + '''
+(async()=>{
+const result=[];
+for(const item of input.queries){fields.query.value=item.query;fields['include-commentary'].checked=item.commentary;await applyFilters();result.push(state.matches.map(i=>records[i].id));}
+process.stdout.write(JSON.stringify(result));
+})().catch(error=>{process.stderr.write(String(error.stack || error));process.exitCode=1;});'''
         queries = [{'query': '合成 私', 'commentary': False},
                    {'query': '甲乙', 'commentary': False},
                    {'query': 'BENEFIT-ONLY-SEARCH-TERM', 'commentary': False},

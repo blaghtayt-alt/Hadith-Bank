@@ -35,7 +35,9 @@ jobs:
         with:
           python-version: '3.13'
       - name: Run software tests
-        run: python -m unittest discover -s tests
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/test_lazy_store.js
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
       - name: Save bounded Fawaz validation evidence
@@ -76,7 +78,9 @@ jobs:
         with:
           python-version: '3.13'
       - name: Run software tests
-        run: python -m unittest discover -s tests
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/test_lazy_store.js
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
       - name: Save bounded Fawaz validation evidence

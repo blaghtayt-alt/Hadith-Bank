@@ -76,6 +76,7 @@ __HADITH_UI_ICONS__
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
 <script>
 "use strict";
+__HADITH_LAZY_STORE_JS__
 (async () => {
 const $ = id => document.getElementById(id);
 const PAGE_SIZE = 25;
@@ -154,11 +155,22 @@ async function loadReaderShards(manifest,baseURL,onProgress=()=>{}){
     return result;
   }finally{stop();}
 }
-let records, snapshot, hostedData=false;
+let records, snapshot, hostedData=false, hostedStore=null;
 try {
   const payload=$("hadith-records");
   snapshot=JSON.parse($("hadith-snapshot").textContent);
-  if(payload.dataset.encoding === "gzip-jsonl-shards"){
+  if(payload.dataset.encoding === "gzip-jsonl-lazy-v2"){
+    hostedData=true;
+    const manifest=JSON.parse(payload.textContent);
+    if(manifest.jsonl_sha256!==snapshot.data_delivery?.jsonl_sha256 || manifest.record_count!==snapshot.record_count)throw new Error("The reader directory does not match this source snapshot.");
+    $("offline-download").hidden=!(snapshot.site && snapshot.site.offline_reader_url);
+    hostedStore=HadithLazyStore.create(manifest,window.location.href,progress=>{
+      $("result-count").textContent="Opening the collection directory…";
+      const status=$("results").querySelector(".loading > span:last-child");
+      if(status)status.textContent="Checking directory part "+progress.part+" of "+progress.parts+".";
+    });
+    records=await hostedStore.loadDirectory();
+  } else if(payload.dataset.encoding === "gzip-jsonl-shards"){
     hostedData=true;
     const offlineURL=snapshot.site && snapshot.site.offline_reader_url;
     $("offline-download").hidden=!offlineURL;
@@ -183,7 +195,8 @@ try {
   $("results").setAttribute("aria-busy","false");
   return;
 }
-const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null };
+const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0 };
+const occurrenceOrdinals=new Map(records.map((record,index)=>[record.id,index]));
 function clearExactOccurrence(){
   if(!state.exactOccurrence)return;
   state.exactOccurrence=null;
@@ -212,6 +225,7 @@ const element = (tag, className, text) => { const node=document.createElement(ta
 const sourceURL = source => { for(const input of [source && source.record_url,source && source.url]) { if(typeof input !== "string" || /[\u0000-\u001f\u007f]/.test(input)) continue; try { const url=new URL(input); if((url.protocol === "https:" || url.protocol === "http:") && !url.username && !url.password) return input; } catch(_){} } return null; };
 const sourceLabel = record => record.source.name || record.source_id;
 const originCategory = record => {
+  if(record._reader)return record._reader.origin;
   const provenance=record.translation_provenance || {};
   const current=provenance.current_policy && provenance.current_policy.classification;
   if(["human","ai","unknown"].includes(current)) return current;
@@ -307,6 +321,7 @@ const counterpartSourceData = (record,language) => {
   const parsed=new URL(url);return !parsed.username && !parsed.password?data:null;
 };
 const counterpartAvailability = record => {
+  if(record._reader)return record._reader.availability;
   const ownLanguage=String(record.language||"").toLowerCase().split("-")[0],states={};
   const hasText=value=>typeof value==="string" && !!value.trim(),versions=Array.isArray(record.language_versions)?record.language_versions:[];
   for(const [language,code] of [["arabic","ar"],["english","en"]]){
@@ -333,6 +348,7 @@ const matchesCounterpartAvailability = (record,choice) => {
 const hasPublicAuthorization = record => !!(record.publication && record.publication.visibility==="public" && record.publication.authorized===true);
 const isOCR = record => !!(record.extraction && record.extraction.ocr_used===true);
 const needsOCRReview = record => {
+  if(record._reader)return record._reader.ocr_pending;
   if(!isOCR(record) || record.display_policy && record.display_policy.qc_tags===false)return false;
   const review=record.review || {};
   const state=review.ocr_qc || review.independent_pro_qc || review.status;
@@ -364,6 +380,7 @@ const hasNoncanonicalNumbering = number => Boolean(number.numbering_system) || n
 const numberLabel = record => { const out=[], number=record.number || {}; if(number.in_book != null) out.push((number.numbering_system?"Source number ":hasNoncanonicalNumbering(number)?"Number in source ":"Number in collection ") + valueText(number.in_book)); if(valueText(number.source_cited)) out.push("Cited: " + valueText(number.source_cited)); if(record.provider_entry_id != null) out.push("Source entry " + record.provider_entry_id); return out.join(" · ") || "Collection number not supplied"; };
 const pageLabel = record => { const p=record.page || {}, out=[]; if(p.pdf && p.pdf.length) out.push("PDF page " + p.pdf.join(", ")); if(p.printed && p.printed.length) out.push("Printed page " + p.printed.join(", ")); if(p.sheet) out.push("Sheet " + p.sheet); if(p.row != null) out.push("Row " + p.row); if(p.docx_paragraphs && p.docx_paragraphs.length) out.push("DOCX paragraph " + p.docx_paragraphs.join(", ")); return out.join(" · ") || "Page locator not supplied"; };
 const availableLanguageCodes = record => {
+  if(record._reader)return record._reader.languages;
   const codes=new Set(),add=code=>{if(typeof code!=="string" || !code)return;codes.add(code);if(code.includes("-"))codes.add(code.split("-")[0]);};
   add(record.language);
   if(typeof record.text_arabic==="string" && record.text_arabic.trim())add("ar");
@@ -445,7 +462,7 @@ const splitCitationQuery=query=>{
   const pieces=[];let previous=0;for(const item of accepted){pieces.push(query.slice(previous,item.start));previous=item.end;}pieces.push(query.slice(previous));
   return {pairs:[...new Set(accepted.map(item=>item.key+":"+item.number))],text:pieces.join(" ").replace(/^[\s,;،()[\]{}]+|[\s,;،()[\]{}]+$/g,"")};
 };
-const citationPairKeys=records.map(recordCitationPairs);
+const citationPairKeys=hostedStore?null:records.map(recordCitationPairs);
 
 const searchStrings = value => typeof value==="string" || typeof value==="number"?[String(value)]:Array.isArray(value)?value.flatMap(searchStrings):value && typeof value==="object"?Object.values(value).flatMap(searchStrings):[];
 const counterpartSearchValues = record => ["arabic","english"].flatMap(language=>{const data=counterpartSourceData(record,language);if(!data)return [];const refs=Array.isArray(data.references)?data.references:[];return [data.text,data.citation,...refs.flatMap(ref=>ref && typeof ref==="object"?[ref.book_key,ref.collection,ref.collection_ar,ref.number,ref.source_citation]:[])];});
@@ -599,7 +616,7 @@ function languageReadings(record){
   return views.sort((a,b)=>priority(a)-priority(b));
 }
 const primarySearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [...primarySearchFields.map(key=>record[key]),...sourceSearchFields.map(key=>source[key]),...narratorSearchFields.map(key=>narrator[key]),...counterpartSearchValues(record),...versionSearchValues(record)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
-const searchKeys = records.map(primarySearchKey);
+const searchKeys = hostedStore?null:records.map(primarySearchKey);
 const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,...sourceContextFields.map(key=>source[key]),narrator.source_context,...versionSearchValues(record,true)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 let commentaryKeys = null;
 function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; option.dir="ltr"; select.append(option); });select.value=items.has(value)?value:""; }
@@ -652,7 +669,7 @@ const guideURL=recordFileURL("docs/ADDING-MATERIAL.md",site,"https:");
 if(guideURL){$("add-material-link").href=guideURL;$("footer-add-material-link").href=guideURL;}
 $("offline-download").href=window.location.href.split("#")[0];
 const offline=window.location.protocol==="file:";
-$("reader-context").textContent=hostedData?"Checked source texts · loaded from this site":offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
+$("reader-context").textContent=hostedStore?"Checked source texts · opened as you read":hostedData?"Checked source texts · loaded from this site":offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
 if(hostedData){const offlineURL=sourceURL({url:site.offline_reader_url});$("offline-download").hidden=!offlineURL;if(offlineURL)$("offline-download").href=offlineURL;}
 const pendingOCRCount=records.filter(needsOCRReview).length;
 if(pendingOCRCount){$("review-notice").hidden=false;$("review-notice").textContent=nf.format(pendingOCRCount)+" OCR-extracted source occurrences await OCR review. Review details remain available on those records.";}
@@ -865,14 +882,34 @@ function card(record,index) {
   if(provenance.scope_note) audit.append(meta("Source-origin scope",provenance.scope_note));
   if(provenance.basis) audit.append(meta("Translation-origin basis",valueText(provenance.basis)));
   if(provenance.human_involvement != null) audit.append(meta("Human involvement",valueText(provenance.human_involvement)));
-  audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));
-  card.append(detail("Record details & provenance",audit));
+  const auditDetails=detail("Record details & provenance",audit);
+  let auditWritten=false;
+  auditDetails.addEventListener("toggle",()=>{
+    if(auditDetails.open && !auditWritten){auditWritten=true;audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));}
+  });
+  card.append(auditDetails);
   return card;
 }
-function updateSelection(){const n=state.selected.size;$("download").disabled=!n;$("download").textContent="Download selected JSON ("+nf.format(n)+")";$("clear-selection").hidden=!n;}
-function render(){
+function updateSelection(){const n=state.selected.size;$("download").disabled=!n || state.downloading;$("download").textContent=state.downloading?"Preparing selected JSON… "+nf.format(state.downloadProgress):"Download selected JSON ("+nf.format(n)+")";$("clear-selection").hidden=!n;}
+function cancelView(){state.viewGeneration++;if(state.viewController)state.viewController.abort();$("previous").disabled=true;$("next").disabled=true;}
+function beginView(){cancelView();const controller=new AbortController();state.viewController=controller;return {generation:state.viewGeneration,controller};}
+const isCurrentView=request=>request.generation===state.viewGeneration && !request.controller.signal.aborted;
+function pendingView(message){
+  const loading=element("div","loading");loading.append(element("span",null,message));$("results").replaceChildren(loading);$("results").setAttribute("aria-busy","true");$("result-count").textContent=message;$("page-meta").textContent="";$("previous").disabled=true;$("next").disabled=true;
+}
+function failedView(error,request){
+  if(!isCurrentView(request) || error && error.name==="AbortError")return;
+  const failure=element("div","error"),retry=element("button",null,"Try again");
+  failure.append(element("p",null,error && error.message?error.message:"The complete results could not be loaded."));retry.type="button";retry.addEventListener("click",()=>applyFilters());failure.append(retry);$("results").replaceChildren(failure);$("results").setAttribute("aria-busy","false");$("result-count").textContent="Results could not be completed";$("page-meta").textContent="";$("previous").disabled=true;$("next").disabled=true;
+}
+async function render(request=beginView()){
+  try{
   const total=state.matches.length, max=Math.max(0,Math.ceil(total/PAGE_SIZE)-1);state.page=Math.min(state.page,max);
   const start=state.page*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,total), fragment=document.createDocumentFragment();
+  const pageOrdinals=state.matches.slice(start,end);
+  let pageRecords;
+  if(hostedStore && total){pendingView("Opening "+nf.format(pageOrdinals.length)+" source occurrences…");pageRecords=await hostedStore.getRecords(pageOrdinals,{signal:request.controller.signal,concurrency:3});if(!isCurrentView(request))return;}
+  else pageRecords=pageOrdinals.map(index=>records[index]);
   if(!total){
     const empty=element("div","empty"),origin=$("origin-filter").value,language=$("language-filter").value,documents=matchingLegacy(language,origin);
     empty.append(icon("magnifying-glass"),element("h3",null,"No matching narrations"));
@@ -885,20 +922,39 @@ function render(){
     const reset=element("button",null,"Reset search and filters");reset.type="button";reset.addEventListener("click",()=>{$("reset").click();$("query").focus();});empty.append(reset);
     fragment.append(empty);
   }
-  else state.matches.slice(start,end).forEach(index=>fragment.append(card(records[index],index)));
+  else for(let position=0;position<pageOrdinals.length;position++){
+    if(!isCurrentView(request))return;
+    fragment.append(card(pageRecords[position],pageOrdinals[position]));
+    if(position%5===4)await new Promise(resolve=>setTimeout(resolve,0));
+  }
+  if(!isCurrentView(request))return;
   $("results").replaceChildren(fragment);$("results").setAttribute("aria-busy","false");updateActiveFilters();
   $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" matching source occurrences":"0 matching source occurrences";
   $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"No result pages";
   $("previous").disabled=state.page===0;$("next").disabled=!total || state.page===max;updateSelection();
+  }catch(error){failedView(error,request);}
 }
-function applyFilters(){
-  const query=splitCitationQuery(fold($("query").value,false)), terms=query.text?query.text.split(/\s+/):[],language=$("language-filter").value,book=$("book-filter").value,source=$("source-filter").value,origin=$("origin-filter").value,availability=$("counterpart-filter")?.value || "",include=$("include-commentary").checked;
-  if(include && !commentaryKeys)commentaryKeys=records.map(annotationSearchKey);
-  state.matches=[];
-  records.forEach((r,index)=>{if(state.exactOccurrence && r.id!==state.exactOccurrence || language && !availableLanguageCodes(r).includes(language) || book && r.book_key!==book || source && r.source_id!==source || origin && originCategory(r)!==origin || !matchesCounterpartAvailability(r,availability))return;const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");if(query.pairs.every(pair=>citationPairKeys[index].has(pair)) && terms.every(term=>haystack.includes(term)))state.matches.push(index);});
-  state.page=0;render();
+async function applyFilters(){
+  const request=beginView();
+  try{
+  const entered=$("query").value.trim(),exactQuery=occurrenceOrdinals.has(entered)?entered:null;
+  const query=exactQuery?{pairs:[],text:""}:splitCitationQuery(fold(entered,false)), terms=query.text?query.text.split(/\s+/):[],language=$("language-filter").value,book=$("book-filter").value,source=$("source-filter").value,origin=$("origin-filter").value,availability=$("counterpart-filter")?.value || "",include=$("include-commentary").checked;
+  const candidates=[];
+  records.forEach((r,index)=>{if(state.exactOccurrence && r.id!==state.exactOccurrence || exactQuery && r.id!==exactQuery || language && !availableLanguageCodes(r).includes(language) || book && r.book_key!==book || source && r.source_id!==source || origin && originCategory(r)!==origin || !matchesCounterpartAvailability(r,availability))return;if(query.pairs.every(pair=>hostedStore?r._reader.citation_pairs.includes(pair):citationPairKeys[index].has(pair)))candidates.push(index);});
+  updateActiveFilters();
+  let matches=candidates;
+  if(terms.length && hostedStore){
+    pendingView("Searching the selected sources…");
+    matches=await hostedStore.search(candidates,terms,include,{signal:request.controller.signal,onProgress:progress=>{if(isCurrentView(request))$("result-count").textContent="Searching source text… "+nf.format(progress.part || 0)+" of "+nf.format(progress.parts || 0)+" parts";}});
+  }else if(terms.length){
+    if(include && !commentaryKeys)commentaryKeys=records.map(annotationSearchKey);
+    matches=candidates.filter(index=>{const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");return terms.every(term=>haystack.includes(term));});
+  }
+  if(!isCurrentView(request))return;
+  state.matches=matches;state.page=0;await render(request);
+  }catch(error){failedView(error,request);}
 }
-$("query").addEventListener("input",()=>{clearTimeout(state.timer);clearExactOccurrence();state.timer=setTimeout(applyFilters,180);});
+$("query").addEventListener("input",()=>{clearTimeout(state.timer);cancelView();clearExactOccurrence();pendingView("Updating results…");updateActiveFilters();state.timer=setTimeout(applyFilters,180);});
 function updateActiveFilters(){
   const container=$("active-filters"),entries=[];
   if(state.exactOccurrence)entries.push({id:"occurrence",label:"Selected narration"});
@@ -928,17 +984,33 @@ window.addEventListener("afterprint",()=>{printDisclosures.splice(0).forEach(nod
 
 ["language-filter","book-filter","source-filter","origin-filter"].forEach(id=>$(id).addEventListener("change",()=>{clearTimeout(state.timer);clearExactOccurrence();syncMaterialFilters();applyFilters();}));
 $("counterpart-filter").addEventListener("change",()=>{clearTimeout(state.timer);clearExactOccurrence();applyFilters();});
-$("include-commentary").addEventListener("change",()=>{clearExactOccurrence();applyFilters();});
+$("include-commentary").addEventListener("change",()=>{clearTimeout(state.timer);clearExactOccurrence();applyFilters();});
 $("all-language-materials").addEventListener("click",()=>chooseCollection(""));
 $("show-arabic").addEventListener("change",()=>document.querySelectorAll('.language-reading[data-language="ar"]').forEach(node=>node.open=$("show-arabic").checked));
 $("show-english").addEventListener("change",()=>document.querySelectorAll('.language-reading[data-language="en"]').forEach(node=>node.open=$("show-english").checked));
 $("reset").addEventListener("click",()=>{clearTimeout(state.timer);clearExactOccurrence();$("query").value="";["language-filter","book-filter","source-filter","origin-filter","counterpart-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;syncMaterialFilters();applyFilters();});
 function go(delta){state.page+=delta;render();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});}
 $("previous").addEventListener("click",()=>go(-1));$("next").addEventListener("click",()=>go(1));
-$("clear-selection").addEventListener("click",()=>{state.selected.clear();render();});
-$("download").addEventListener("click",()=>{const chosen=[...state.selected].sort((a,b)=>a-b).map(i=>records[i]);if(!chosen.length)return;const blob=new Blob([JSON.stringify(chosen,null,2)+"\n"],{type:"application/json;charset=utf-8"}),url=URL.createObjectURL(blob),anchor=element("a");anchor.href=url;anchor.download="hadith-bank-selected-records.json";document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+$("clear-selection").addEventListener("click",()=>{if(state.downloadController)state.downloadController.abort();state.selected.clear();document.querySelectorAll(".record-select input").forEach(input=>input.checked=false);updateSelection();});
+$("download").addEventListener("click",async()=>{
+  const chosen=[...state.selected].sort((a,b)=>a-b);if(!chosen.length || state.downloading)return;
+  const controller=new AbortController(),encoder=new TextEncoder(),parts=[encoder.encode("[\n")];state.downloadController=controller;state.downloading=true;state.downloadProgress=0;updateSelection();
+  try{
+    for(let position=0;position<chosen.length;position++){
+      if(controller.signal.aborted)throw new DOMException("Download cancelled.","AbortError");
+      const record=hostedStore?await hostedStore.getRecord(chosen[position],{signal:controller.signal}):records[chosen[position]];
+      parts.push(encoder.encode((position?",\n":"")+JSON.stringify(record,null,2)));state.downloadProgress=position+1;updateSelection();
+      await new Promise(resolve=>setTimeout(resolve,0));
+    }
+    if(controller.signal.aborted)throw new DOMException("Download cancelled.","AbortError");
+    parts.push(encoder.encode("\n]\n"));const blob=new Blob(parts,{type:"application/json;charset=utf-8"}),url=URL.createObjectURL(blob),anchor=element("a");anchor.href=url;anchor.download="hadith-bank-selected-records.json";document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }catch(error){
+    if(error && error.name!=="AbortError"){const notice=element("p","error","Selected JSON was not downloaded: "+(error.message || "a complete source record could not be loaded."));$("results").prepend(notice);}
+  }finally{parts.length=0;state.downloading=false;state.downloadController=null;updateSelection();}
+});
 syncMaterialFilters();applyFilters();
 })();
 </script>
 </body>
 </html>
+

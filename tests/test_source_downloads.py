@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import unittest
+from test_reader import READER_SNAPSHOT_JS
 
 
 NODE = os.environ.get('CODEX_PRIMARY_RUNTIME_NODE') or shutil.which('node')
@@ -17,7 +18,7 @@ class SourceDownloadTests(unittest.TestCase):
         template = TEMPLATE.read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         link = template.split('function sourceDownloadLink(source) {', 1)[1].split('function citationList(', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=[],names={},document={createElement:tag=>({tag})};
 const valueText = ''' + helpers + '''
 function sourceDownloadLink(source) {''' + link + '''

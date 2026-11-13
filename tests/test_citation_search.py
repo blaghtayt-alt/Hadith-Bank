@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import unittest
+from test_reader import READER_SNAPSHOT_JS, READER_FILTER_HARNESS_JS
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import hadith_search as searcher
@@ -207,12 +208,15 @@ class CitationSearchTests(unittest.TestCase):
         template = (Path(__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         filter_function = template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,names={},state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
-const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filter_function + '''
-const results=input.queries.map(query=>{fields.query.value=query;applyFilters();return {parsed:splitCitationQuery(fold(query,false)),ids:state.matches.map(i=>records[i].id)};});
-process.stdout.write(JSON.stringify({aliases:citationAliases,keyAliases:citationKeyAliases,results,numberLabels:records.map(numberLabel)}));'''
+const valueText = ''' + helpers + READER_FILTER_HARNESS_JS + '''\nasync function applyFilters(){''' + filter_function + '''
+(async()=>{
+const results=[];
+for(const query of input.queries){fields.query.value=query;await applyFilters();results.push({parsed:splitCitationQuery(fold(query,false)),ids:state.matches.map(i=>records[i].id)});}
+process.stdout.write(JSON.stringify({aliases:citationAliases,keyAliases:citationKeyAliases,results,numberLabels:records.map(numberLabel)}));
+})().catch(error=>{process.stderr.write(String(error.stack || error));process.exitCode=1;});'''
         queries = ['Bukhari 1907', 'Sahih al-Bukhari no. ١٩٠٧', 'صحيح البخاري رقم ۱۹۰۷',
                    'reward Bukhari 1907', 'Bukhari 1 Muslim 1907', 'Bukhari 1907 Muslim 1',
                    'Bukhari 1/23', 'AbuDawud5092', "Jami' at-Tirmidhi no. 123", 'سنن أبي داود رقم ١٢٣a',

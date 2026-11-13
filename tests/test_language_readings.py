@@ -13,7 +13,7 @@ import build_reader as reader
 from build_discovery import render_language_reading, uses_shared_web_reader, occurrence_link
 from language_display import language_readings, available_languages, reading_direction
 from language_versions import available_language_codes
-from test_reader import fixture, READER_SNAPSHOT_JS
+from test_reader import fixture, READER_SNAPSHOT_JS, READER_FILTER_HARNESS_JS
 from test_counterpart_reader import counterparts
 
 
@@ -455,14 +455,14 @@ process.stdout.write(JSON.stringify({count:sections.length,arabicOpen:sections.f
         second.update(id='TEST:10', source_id='deenhindi-TEST')
         template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
-        apply = 'function applyFilters(){' + template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
+        apply = 'async function applyFilters(){' + template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
         clear = 'function clearExactOccurrence(){' + template.split('function clearExactOccurrence(){', 1)[1].split('const names =', 1)[0]
         program = READER_SNAPSHOT_JS + '''const records=JSON.parse(require('fs').readFileSync(0,'utf8')),names={};
 const state={exactOccurrence:'TEST:1',matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{},window={location:{href:'https://example.invalid/index.html?occurrence=TEST%3A1&keep=yes'}},history={replaceState(_a,_b,url){this.url=url.href;}};
-const valueText = ''' + helpers + apply + clear + '''
-(async()=>{applyFilters();const exact=state.matches.map(i=>records[i].id);state.exactOccurrence='TEST:missing';applyFilters();const missing=state.matches;
-clearExactOccurrence();applyFilters();const all=state.matches.map(i=>records[i].id);const link=await recordPageURL(records[0],{live_url:'https://example.invalid/bank/'});
+const valueText = ''' + helpers + READER_FILTER_HARNESS_JS + apply + clear + '''
+(async()=>{await applyFilters();const exact=state.matches.map(i=>records[i].id);state.exactOccurrence='TEST:missing';await applyFilters();const missing=state.matches;
+clearExactOccurrence();await applyFilters();const all=state.matches.map(i=>records[i].id);const link=await recordPageURL(records[0],{live_url:'https://example.invalid/bank/'});
 process.stdout.write(JSON.stringify({exact,missing,all,link,historyURL:history.url}));})();'''
         run = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([first, second]),
                              text=True, capture_output=True, check=True)

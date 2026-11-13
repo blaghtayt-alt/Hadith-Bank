@@ -319,34 +319,82 @@ def verify_shards(root, search, expected, public):
     return projected_hashes, dict(sorted(by_language.items())), dict(sorted(by_dataset.items())), text_codepoints, dict(sorted(current_origins.items()))
 
 
-def reader_shard_records(path, manifest):
-    """Verify bounded local transport pieces and yield complete JSONL records."""
-    require(isinstance(manifest, dict) and manifest.get('schema') == 'hadith-bank-reader-shards-v1'
-            and manifest.get('encoding') == 'gzip-jsonl-shards', 'Unsupported reader shard manifest')
-    require(isinstance(manifest.get('shards'), list), 'Reader manifest shards must be an array')
-    expected_count = count(manifest.get('record_count'), 'reader.record_count')
-    require(isinstance(manifest.get('jsonl_sha256'), str) and
-            re.fullmatch(r'[0-9a-f]{64}', manifest['jsonl_sha256']), 'Invalid reader stream SHA-256')
-    seen, pending, total = set(), b'', 0
-    aggregate = hashlib.sha256()
-    for part in manifest['shards']:
-        require(isinstance(part, dict), 'Invalid reader shard descriptor')
-        relative = part.get('path')
-        require(isinstance(relative, str) and not re.search(r'[%?#]', relative),
-                'Unsafe reader shard path')
-        require(relative not in seen, 'Duplicate reader shard path')
-        seen.add(relative)
-        target = local(path.parent, relative)
-        expected_bytes = count(part.get('bytes'), 'reader.shard.bytes')
-        expected_plain = count(part.get('uncompressed_bytes'), 'reader.shard.uncompressed_bytes')
-        require(0 < expected_bytes <= 2 * 1024 * 1024 and expected_plain <= 2 * 1024 * 1024,
-                'Reader shard exceeds its size bound')
-        require(target.stat().st_size == expected_bytes, 'Reader shard byte count mismatch')
-        raw = target.read_bytes()
-        require(hashlib.sha256(raw).hexdigest() == part.get('sha256'), 'Reader shard SHA-256 mismatch')
+MAX_READER_PART_BYTES = 2 * 1024 * 1024
+MAX_JS_INTEGER = (1 << 53) - 1
+READER_ID_FIELDS = ('id', 'language', 'book_key', 'edition', 'source_id')
+
+
+def reader_digest(value, field):
+    require(isinstance(value, str) and re.fullmatch(r'[0-9a-f]{64}', value),
+            'Invalid reader SHA-256: ' + field)
+    return value
+
+
+def reader_integer(value, field, positive=False):
+    value = count(value, field)
+    require(value <= MAX_JS_INTEGER and (not positive or value > 0),
+            'Invalid reader count: ' + field)
+    return value
+
+
+def reader_part(path, part, seen, limit):
+    """Verify one bounded gzip file before exposing its decoded bytes."""
+    require(isinstance(part, dict), 'Invalid reader shard descriptor')
+    relative = part.get('path')
+    require(isinstance(relative, str) and not re.search(r'[%?#]', relative),
+            'Unsafe reader shard path')
+    require(relative not in seen, 'Duplicate reader shard path')
+    seen.add(relative)
+    target = local(path.parent, relative)
+    expected_bytes = reader_integer(part.get('bytes'), 'reader.shard.bytes', positive=True)
+    expected_plain = reader_integer(part.get('uncompressed_bytes'), 'reader.shard.uncompressed_bytes', positive=True)
+    require(expected_bytes <= limit and expected_plain <= limit,
+            'Reader shard exceeds its size bound')
+    require(target.stat().st_size == expected_bytes, 'Reader shard byte count mismatch')
+    digest = reader_digest(part.get('sha256'), 'reader.shard.sha256')
+    raw = target.read_bytes()
+    require(hashlib.sha256(raw).hexdigest() == digest, 'Reader shard SHA-256 mismatch')
+    try:
         with gzip.GzipFile(fileobj=io.BytesIO(raw), mode='rb') as stream:
             plain = stream.read(expected_plain + 1)
-        require(len(plain) == expected_plain, 'Reader shard uncompressed byte count mismatch')
+    except (OSError, EOFError) as error:
+        raise ValidationError('Invalid reader gzip shard: ' + relative) from error
+    require(len(plain) == expected_plain, 'Reader shard uncompressed byte count mismatch')
+    return plain
+
+
+def reader_store_header(manifest, field):
+    require(isinstance(manifest, dict) and manifest.get('encoding') == 'gzip-jsonl-shards',
+            'Unsupported reader store: ' + field)
+    require(isinstance(manifest.get('shards'), list), 'Reader manifest shards must be an array')
+    expected_count = reader_integer(manifest.get('record_count'), field + '.record_count')
+    reader_digest(manifest.get('jsonl_sha256'), field + '.jsonl_sha256')
+    limit = reader_integer(manifest.get('max_shard_bytes', MAX_READER_PART_BYTES), field + '.max_shard_bytes', positive=True)
+    require(limit <= MAX_READER_PART_BYTES, 'Reader shard exceeds its size bound')
+    require(bool(manifest['shards']) == bool(expected_count), 'Reader shard stream record count mismatch')
+    return expected_count, limit
+
+
+def reader_detail_rows(path, manifest, seen=None, metrics=None):
+    """Yield exact objects, byte offsets and lengths from v1 detail chunks."""
+    require(isinstance(manifest, dict) and manifest.get('schema') == 'hadith-bank-reader-shards-v1'
+            and manifest.get('encoding') == 'gzip-jsonl-shards', 'Unsupported reader shard manifest')
+    expected_count, limit = reader_store_header(manifest, 'reader.details')
+    seen = set() if seen is None else seen
+    pending, total, offset, maximum = b'', 0, 0, 0
+    compressed_bytes = uncompressed_bytes = 0
+    part_bytes = manifest.get('plain_part_bytes')
+    if part_bytes is not None:
+        reader_integer(part_bytes, 'reader.details.plain_part_bytes', positive=True)
+        require(part_bytes <= limit, 'Reader detail part size exceeds its bound')
+    aggregate = hashlib.sha256()
+    for index, part in enumerate(manifest['shards']):
+        plain = reader_part(path, part, seen, limit)
+        if part_bytes is not None:
+            require(len(plain) == part_bytes if index < len(manifest['shards']) - 1 else len(plain) <= part_bytes,
+                    'Reader detail fixed-part byte count mismatch')
+        compressed_bytes += part['bytes']
+        uncompressed_bytes += len(plain)
         aggregate.update(plain)
         require(plain.count(b'\n') == count(part.get('count'), 'reader.shard.count'),
                 'Reader shard record count mismatch')
@@ -354,14 +402,150 @@ def reader_shard_records(path, manifest):
         pending = lines.pop()
         for line in lines:
             require(bool(line), 'Reader shard contains a blank JSONL record')
-            record = parse_json(line)
+            record = parse_json(line.decode('utf-8', errors='strict'))
             require(isinstance(record, dict), 'Reader shard contains a non-object record')
             total += 1
             require(total <= expected_count, 'Reader shard stream has excess records')
-            yield record
+            length = len(line) + 1
+            maximum = max(maximum, length)
+            yield record, offset, length
+            offset += length
     require(not pending, 'Reader shard stream lacks terminal newline')
     require(total == expected_count, 'Reader shard stream record count mismatch')
     require(aggregate.hexdigest() == manifest['jsonl_sha256'], 'Reader JSONL stream SHA-256 mismatch')
+    if metrics is not None:
+        metrics.update(record_count=total, shard_count=len(manifest['shards']),
+                       compressed_bytes=compressed_bytes, uncompressed_bytes=uncompressed_bytes,
+                       max_row_bytes=maximum)
+
+
+def reader_projection_rows(path, manifest, field, seen, metrics):
+    """Verify complete-row stores without retaining their complete text keys."""
+    expected_count, limit = reader_store_header(manifest, 'reader.' + field)
+    aggregate = hashlib.sha256()
+    total = compressed_bytes = uncompressed_bytes = maximum = 0
+    for part in manifest['shards']:
+        require(isinstance(part, dict), 'Invalid reader projection shard descriptor: ' + field)
+        first = reader_integer(part.get('first_ordinal'), field + '.first_ordinal')
+        last = reader_integer(part.get('last_ordinal'), field + '.last_ordinal')
+        rows = reader_integer(part.get('count'), field + '.count', positive=True)
+        require(first == total and last >= first and last - first + 1 == rows and last < expected_count,
+                'Reader projection ordinal range mismatch: ' + field)
+        plain = reader_part(path, part, seen, limit)
+        aggregate.update(plain)
+        compressed_bytes += part['bytes']
+        uncompressed_bytes += len(plain)
+        require(plain.endswith(b'\n'), 'Reader projection lacks terminal newline: ' + field)
+        lines = plain[:-1].split(b'\n')
+        require(len(lines) == rows, 'Reader projection shard record count mismatch: ' + field)
+        for line in lines:
+            require(bool(line), 'Reader projection contains a blank JSONL record: ' + field)
+            row = parse_json(line.decode('utf-8', errors='strict'))
+            if field != 'directory':
+                require(isinstance(row, list) and len(row) == 2 and type(row[0]) is int and
+                        row[0] == total and isinstance(row[1], str),
+                        'Invalid reader search projection row: ' + field)
+            maximum = max(maximum, len(line) + 1)
+            total += 1
+            yield row
+    require(total == expected_count, 'Reader projection record count mismatch: ' + field)
+    require(aggregate.hexdigest() == manifest['jsonl_sha256'], 'Reader projection SHA-256 mismatch: ' + field)
+    metrics.update(record_count=total, shard_count=len(manifest['shards']),
+                   compressed_bytes=compressed_bytes, uncompressed_bytes=uncompressed_bytes,
+                   max_row_bytes=maximum)
+
+
+def reader_directory_row(row, offset):
+    require(isinstance(row, dict) and set(row) == {*READER_ID_FIELDS, '_reader'},
+            'Invalid reader directory row fields')
+    require(all(isinstance(row[key], str) and bool(row[key]) for key in READER_ID_FIELDS),
+            'Invalid reader directory identifier')
+    metadata = row['_reader']
+    require(isinstance(metadata, dict) and set(metadata) == {
+        'languages', 'origin', 'availability', 'ocr_pending', 'citation_pairs', 'detail'},
+        'Invalid reader directory metadata')
+    languages = metadata['languages']
+    require(isinstance(languages, list) and bool(languages) and
+            all(isinstance(value, str) and bool(value) for value in languages) and
+            len(set(languages)) == len(languages) and row['language'] in languages,
+            'Invalid reader directory languages')
+    require(metadata['origin'] in ('human', 'ai', 'unknown'), 'Invalid reader directory origin')
+    availability = metadata['availability']
+    require(isinstance(availability, dict) and set(availability) == {'arabic', 'english'} and
+            all(value in ('text', 'external_link', 'missing') for value in availability.values()),
+            'Invalid reader directory counterpart availability')
+    require(type(metadata['ocr_pending']) is bool, 'Invalid reader directory OCR state')
+    pairs = metadata['citation_pairs']
+    require(isinstance(pairs, list) and all(isinstance(value, str) and bool(value) for value in pairs) and
+            len(set(pairs)) == len(pairs), 'Invalid reader directory citation pairs')
+    detail = metadata['detail']
+    require(isinstance(detail, list) and len(detail) == 2, 'Invalid reader directory detail span')
+    start = reader_integer(detail[0], 'reader.detail.offset')
+    length = reader_integer(detail[1], 'reader.detail.length', positive=True)
+    require(start == offset and start + length <= MAX_JS_INTEGER, 'Reader directory detail spans are not contiguous')
+    return start, length
+
+
+def reader_lazy_records(path, manifest, metrics):
+    require(isinstance(manifest, dict) and manifest.get('schema') == 'hadith-bank-reader-lazy-v2' and
+            manifest.get('encoding') == 'gzip-jsonl-lazy-v2', 'Unsupported lazy reader manifest')
+    expected_count = reader_integer(manifest.get('record_count'), 'reader.record_count')
+    digest = reader_digest(manifest.get('jsonl_sha256'), 'reader.jsonl_sha256')
+    limit = reader_integer(manifest.get('max_shard_bytes'), 'reader.max_shard_bytes', positive=True)
+    require(limit <= MAX_READER_PART_BYTES, 'Reader shard exceeds its size bound')
+    seen, stores = set(), {}
+    for field in ('directory', 'search', 'annotations', 'details'):
+        store = manifest.get(field)
+        rows, part_limit = reader_store_header(store, 'reader.' + field)
+        require('max_shard_bytes' in store and rows == expected_count and part_limit == limit,
+                'Reader store count or size bound mismatch: ' + field)
+        stores[field] = {}
+    details = manifest['details']
+    require(details.get('jsonl_sha256') == digest, 'Reader full-detail stream SHA-256 mismatch')
+    reader_integer(details.get('plain_part_bytes'), 'reader.details.plain_part_bytes', positive=True)
+    for field in ('search', 'annotations'):
+        for _ in reader_projection_rows(path, manifest[field], field, seen, stores[field]):
+            pass
+    directory = iter(reader_projection_rows(path, manifest['directory'], 'directory', seen, stores['directory']))
+    identities, offset, total = set(), 0, 0
+    for record, start, length in reader_detail_rows(path, details, seen, stores['details']):
+        row = next(directory, None)
+        require(row is not None, 'Reader directory has missing occurrences')
+        location = reader_directory_row(row, offset)
+        require(location == (start, length), 'Reader directory detail locator mismatch')
+        require(all(record.get(key) == row[key] for key in READER_ID_FIELDS), 'Reader directory/detail identity mismatch')
+        require(row['id'] not in identities, 'Duplicate reader directory occurrence ID')
+        identities.add(row['id'])
+        offset += length
+        total += 1
+        yield record
+    require(next(directory, None) is None and total == expected_count, 'Reader directory has excess occurrences')
+    require(offset == stores['details']['uncompressed_bytes'], 'Reader directory detail coverage mismatch')
+    maxima = {field: stores[field]['max_row_bytes'] for field in ('directory', 'search', 'annotations')}
+    if 'max_projection_row_bytes' in manifest:
+        require(isinstance(manifest['max_projection_row_bytes'], dict) and
+                set(manifest['max_projection_row_bytes']) == set(maxima),
+                'Invalid reader projection maximum row sizes')
+        for value in manifest['max_projection_row_bytes'].values():
+            reader_integer(value, 'reader.max_projection_row_bytes')
+        require(manifest['max_projection_row_bytes'] == maxima, 'Reader projection maximum row sizes differ')
+    if 'max_detail_record_bytes' in manifest:
+        reader_integer(manifest['max_detail_record_bytes'], 'reader.max_detail_record_bytes')
+        require(manifest['max_detail_record_bytes'] == stores['details']['max_row_bytes'], 'Reader maximum detail record size differs')
+    metrics.update(reader_store_metrics=stores, max_projection_row_bytes=maxima,
+                   max_detail_record_bytes=stores['details']['max_row_bytes'],
+                   directory_bytes=stores['directory']['uncompressed_bytes'],
+                   detail_stream_sha256=digest)
+
+
+def reader_shard_records(path, manifest, metrics=None):
+    """Verify v1 or v2 local stores and yield unchanged complete source objects."""
+    metrics = {} if metrics is None else metrics
+    if isinstance(manifest, dict) and manifest.get('schema') == 'hadith-bank-reader-lazy-v2':
+        yield from reader_lazy_records(path, manifest, metrics)
+    else:
+        for record, _, _ in reader_detail_rows(path, manifest):
+            yield record
 
 
 def verify_reader(root, relative, projected_hashes, search):
@@ -371,13 +555,15 @@ def verify_reader(root, relative, projected_hashes, search):
     require(payload is not None, 'Missing embedded reader payload')
     encoding = payload.group(0).split('>', 1)[0]
     sharded = 'data-encoding="gzip-jsonl-shards"' in encoding
+    lazy = 'data-encoding="gzip-jsonl-lazy-v2"' in encoding
     shard_count = 0
-    if sharded:
+    reader_metrics = {}
+    if sharded or lazy:
         manifest = parse_json(payload.group(1))
-        require(isinstance(manifest, dict) and isinstance(manifest.get('shards'), list),
-                'Invalid reader shard manifest')
-        shard_count = len(manifest['shards'])
-        records = reader_shard_records(path, manifest)
+        require(isinstance(manifest, dict), 'Invalid reader shard manifest')
+        require((manifest.get('schema') == 'hadith-bank-reader-lazy-v2') == lazy,
+                'Reader encoding and manifest schema differ')
+        records = reader_shard_records(path, manifest, reader_metrics)
     else:
         data = (gzip.decompress(base64.b64decode(payload.group(1).strip(), validate=True))
                 if 'data-encoding="gzip-base64"' in encoding else payload.group(1))
@@ -392,16 +578,24 @@ def verify_reader(root, relative, projected_hashes, search):
                 'Reader differs from source projection: ' + identifier)
         compared += 1
     require(compared == len(projected_hashes), 'Reader occurrence count mismatch')
+    if lazy:
+        shard_count = sum(value['shard_count'] for value in reader_metrics['reader_store_metrics'].values())
+    elif sharded:
+        shard_count = len(manifest['shards'])
     snapshot = re.search(r'<script\b[^>]*\bid="hadith-snapshot"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
     require(snapshot is not None, 'Missing reader snapshot')
     summary = parse_json(snapshot.group(1))
     require(summary.get('record_count') == compared and summary.get('records_sha256') == search['records_sha256'],
             'Reader snapshot differs from search catalog')
+    if lazy:
+        delivery = summary.get('data_delivery')
+        require(isinstance(delivery, dict) and delivery.get('jsonl_sha256') == manifest['jsonl_sha256'],
+                'Reader delivery snapshot differs from full-detail stream SHA-256')
     require(not re.search(r'<script\b[^>]*\bsrc\s*=|<link\b[^>]*\brel=["\']stylesheet', source, re.I),
             'Reader has external script/style dependency')
     return {'path': relative, 'sha256': file_hash(path), 'bytes': path.stat().st_size,
             'embedded_objects_compared': compared, 'data_shards_verified': shard_count,
-            'external_script_or_stylesheet_dependencies': False}
+            'external_script_or_stylesheet_dependencies': False, **reader_metrics}
 
 
 def verify_navigation(root, anticipated_report=None):
@@ -610,3 +804,4 @@ def main(argv=None):
 
 if __name__ == '__main__':
     raise SystemExit(main())
+
