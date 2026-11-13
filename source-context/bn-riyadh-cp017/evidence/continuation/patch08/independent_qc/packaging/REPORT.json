@@ -1,0 +1,244 @@
+{
+  "schema": "patch08-independent-packaging-code-review-1.0",
+  "status": "pass",
+  "created_utc": "2026-11-13T07:19:00.304199+00:00",
+  "version": "v2_cp017_patch08",
+  "scope": "Independent review of cumulative checkpoint packaging and portable verification code; one authorized inspect-only diagnostic correction.",
+  "reviewer_task": "patch08_package_review",
+  "reviewer_independent_of_original_packager_author": true,
+  "reviewer_applied_authorized_diagnostic_fix": true,
+  "source_text_review_performed": false,
+  "may_be_counted_as_source_text_qc": false,
+  "bank_readiness_assessed": false,
+  "real_release_freeze_performed": false,
+  "real_release_export_performed": false,
+  "external_publication_performed": false,
+  "reviewed_code": [
+    {
+      "path": "patches/patch08/package_patch08_streaming.py",
+      "bytes": 56163,
+      "sha256": "74916d992cf75f769856804a1aa56b96f26b051a9293c61c8f95b2e585d9509f"
+    },
+    {
+      "path": "patches/patch08/REBUILD_CHECKPOINT.py",
+      "bytes": 11764,
+      "sha256": "72dced454297b8cd9c3b5e028151f88010be3387d406280e811d98d6502bdac5"
+    }
+  ],
+  "initial_reviewed_packager": {
+    "path": "patches/patch08/package_patch08_streaming.py",
+    "bytes": 55900,
+    "sha256": "68857ead6b580dede1eb1077221ec715dd12818ef49e2b3617d3c876c7fa7681"
+  },
+  "parent_identity": {
+    "version": "v2_cp016_patch07",
+    "archive_bytes": 2083816792,
+    "archive_sha256": "9de6f653de73a932a46a555e30bfe3817cf2fd9bfa22b4f0ded5158f12c01d85",
+    "member_count": 18626,
+    "uncompressed_member_bytes": 6268168687
+  },
+  "findings": [
+    {
+      "id": "PKG-001",
+      "severity": "low",
+      "status": "fixed_and_focused_test_passed",
+      "original_locations": [
+        "package_patch08_streaming.py:949-958",
+        "package_patch08_streaming.py:437-440"
+      ],
+      "description": "Original --inspect bypassed lightweight freeze path checks and could report new_nested_archives: 0 after accepting a ZIP filename. It also missed the stage-only raw-source/protected-source checks at inventory time. Prepare already rejected these inputs, so the defect did not bypass the release freeze.",
+      "authorized_resolution": "Factor existing lightweight path policy into new_archive_path() and call it from both inventory_new() and the inspect branch. The final-report gate, hashing, freeze, archive-writing, preservation and helper behavior are unchanged.",
+      "current_locations": [
+        "package_patch08_streaming.py:399-418",
+        "package_patch08_streaming.py:957-963"
+      ],
+      "exact_diff": "patches/patch08/independent_qc/packaging/inspect_diagnostic_fix.diff"
+    }
+  ],
+  "open_release_blocking_code_defects": [],
+  "checks": [
+    {
+      "id": "parent_authentication",
+      "result": "pass_code_and_current_metadata_inventory",
+      "locations": [
+        "Parent:331-385"
+      ],
+      "detail": "Parent receipt, member index, archive identity, internal manifest and checksum identity are pinned and cross-checked. Actual read-only inspection checked all 18,626 materialized paths and current internal metadata. Full 6,268,168,687-byte member rehash remains part of root prepare and subsequent streaming; the reviewer did not repeat it."
+    },
+    {
+      "id": "parent_member_conservation",
+      "result": "pass_code_review",
+      "locations": [
+        "make_plan:421-447",
+        "package:770-813"
+      ],
+      "detail": "Exactly one preservation-map row is constructed for every authenticated parent member. Unchanged members keep their path; replaced stage derivatives and both old internal metadata files move under prior_checkpoint_derivatives/v2_cp016_patch07/. Collision rejection prevents loss by aliasing. Each parent member is hashed during streaming and after ZIP creation, then matched against its preservation row."
+    },
+    {
+      "id": "paths_symlinks_and_collisions",
+      "result": "pass_code_review_and_focused_policy_regression",
+      "locations": [
+        "path_ok:77-84",
+        "no_symlink_path:97-110",
+        "open_beneath:124-148",
+        "list_files:192-210",
+        "check_collisions:213-220",
+        "new_archive_path:399-408",
+        "roots_for:450-460"
+      ],
+      "detail": "Canonical relative POSIX paths are required; traversal, backslashes, control newline/carriage return, NUL and colon are rejected. Input path components and tree symlinks are rejected, and Linux file reads use O_NOFOLLOW with directory descriptors. Nonregular files, duplicate paths, file/directory collisions, overlapping roots and generated-metadata collisions fail closed. New stage replacements cannot overwrite protected sources/history or existing images."
+    },
+    {
+      "id": "complete_freeze",
+      "result": "pass_code_review",
+      "locations": [
+        "inventory_new:411-418",
+        "prepare:478-516",
+        "recheck_rows:519-526",
+        "load_freeze:529-558",
+        "package:814-831"
+      ],
+      "detail": "Every stage file and every nonhidden raw file outside __pycache__ is included, including all independent_qc files present at freeze. Required stage qualification documents, passing structural validation, source packager/helper and authenticated inputs are gated. The freeze lives outside all inputs, is created exclusively, binds the executing packager, and is supplied by exact SHA-256. New input inventory and content are rechecked at freeze, package load, after archive validation and after companion generation."
+    },
+    {
+      "id": "manifest_hash_graph",
+      "result": "pass_code_review",
+      "locations": [
+        "package:791-806",
+        "companions:715-734",
+        "package:832-846"
+      ],
+      "detail": "MANIFEST contains all payloads excluding itself and SHA256SUMS; SHA256SUMS contains all payloads plus MANIFEST. The external receipt binds both internal metadata files, all ordered parts, the complete ZIP, frozen-input digest and every companion. Its separate sha256 file supplies its own digest. Companion member validation is serialized before its own row is added, and VALIDATION is serialized before its own row is added; no circular self-hash is introduced."
+    },
+    {
+      "id": "bounded_streaming_and_member_integrity",
+      "result": "pass_code_review_with_pre_fix_author_synthetic_evidence",
+      "locations": [
+        "SplitWriter:283-328",
+        "stream_member:570-584",
+        "verify_archive:587-626",
+        "package:737-862",
+        "REBUILD_CHECKPOINT.py:verify_members:111-160"
+      ],
+      "detail": "The main ZIP writes directly into exclusive numbered parts of at most 402,653,184 bytes with ZIP64/data descriptors. There is no joined large checkpoint ZIP. Every part and logical concatenation is reread and hashed. A seekable multipart reader verifies exact ZIP membership and every uncompressed member hash/size. The helper independently checks ordered parts, aggregate ZIP, internal metadata, exact inventory and every main ZIP member without extraction."
+    },
+    {
+      "id": "companion_membership_and_integrity",
+      "result": "pass_code_review_with_pre_fix_author_synthetic_evidence",
+      "locations": [
+        "copy_verified:629-641",
+        "companion_zip:644-671",
+        "companions:674-734"
+      ],
+      "detail": "Working data includes current JSON/JSONL/CSV records, immutable raw units, annotations, semantic partitions, character mappings, exception history/current exceptions, and current qualification documents. Audit ZIP includes every frozen raw evidence/QC file, selected small stage reports, and preservation/hash/freeze metadata. Every companion ZIP member and standalone copy is reread for SHA-256 and size. Standalone and ZIP exports enforce the 384 MiB bound. The portable helper verifies companion file hashes; it does not separately repeat each companion ZIP member walk."
+    },
+    {
+      "id": "qualifications_and_no_publication",
+      "result": "pass_code_review",
+      "locations": [
+        "module_docstrings",
+        "prepare:501-512",
+        "companions:715-733",
+        "package:816-843",
+        "REBUILD_CHECKPOINT.py:239-245"
+      ],
+      "detail": "Packaging scope is explicitly distinguished from source reading, semantic adjudication, source-text QC and bank readiness. Existing stage conclusions are carried as reported validation, and QC files are fingerprinted without granting QC credit. Source reads use read-only handles; outputs use new directories and exclusive writes. Neither program uses network publication or repository mutation. The helper assembles only on explicit --output, checks new destinations and never extracts sources."
+    }
+  ],
+  "verification_evidence": {
+    "author_full_synthetic_suite": {
+      "evidence": "patches/patch08/packaging_work/SYNTHETIC_TEST_RESULTS.json",
+      "status": "pass_reported_by_author",
+      "bound_packager_sha256": "68857ead6b580dede1eb1077221ec715dd12818ef49e2b3617d3c876c7fa7681",
+      "bound_helper_sha256": "72dced454297b8cd9c3b5e028151f88010be3387d406280e811d98d6502bdac5",
+      "reviewer_reran_full_suite": false
+    },
+    "focused_post_fix_regression": {
+      "evidence": "patches/patch08/independent_qc/packaging/INSPECT_PATH_POLICY_TEST_RESULTS.json",
+      "status": "pass",
+      "baseline_defect_reproduced": true,
+      "new_behavior_checks": 6,
+      "bound_packager_sha256": "74916d992cf75f769856804a1aa56b96f26b051a9293c61c8f95b2e585d9509f",
+      "parent_authentication_mocked_in_synthetic_fixtures": true
+    },
+    "actual_read_only_inspect": {
+      "utc": "2026-11-13T07:17:12.908311+00:00",
+      "status": "pass",
+      "parent_members": 18626,
+      "stage_files": 42,
+      "raw_files": 436,
+      "independent_qc_files": 154,
+      "planned_archive_members": 19108,
+      "parent_members_planned_under_history": 25,
+      "final_report_present": false,
+      "provisional_before_final_reports_and_this_review": true,
+      "real_input_bytes_frozen_or_packaged": false
+    },
+    "broad_actual_new_input_archive_filename_scan": {
+      "status": "none_found",
+      "patterns": [
+        ".zip anywhere",
+        ".7z",
+        ".tar",
+        ".tgz",
+        ".tar.gz",
+        ".gz",
+        ".bz2",
+        ".xz",
+        ".rar",
+        ".zst",
+        ".iso"
+      ]
+    }
+  },
+  "evidence_files": [
+    {
+      "path": "patches/patch08/packaging_work/PACKAGER_HANDOFF.md",
+      "bytes": 7097,
+      "sha256": "a68e17d4bcea41f8937bd575abf2c0b18b5bf222f6b191d3a5a805f9e01f3e67"
+    },
+    {
+      "path": "patches/patch08/packaging_work/SYNTHETIC_TEST_RESULTS.json",
+      "bytes": 1704,
+      "sha256": "69afe813c8108866df2f178ca8021d3903e730fd9c894c840c9f4f171d037e7f"
+    },
+    {
+      "path": "patches/patch08/packaging_work/test_packager_contract.py",
+      "bytes": 9386,
+      "sha256": "dd2bf1c4e2044f7c4dee561f23a4c48e68348c9f65ce2af7848eb4a5f5fc6f0c"
+    },
+    {
+      "path": "patches/patch08/PARENT_AUTHENTICATION.json",
+      "bytes": 462,
+      "sha256": "6894f9975e05fa545279546b19a40304afcbaf01b22de9f15f39415aed79eacf"
+    },
+    {
+      "path": "patches/patch08/PARENT_ARCHIVE_MEMBER_INDEX.json",
+      "bytes": 4232313,
+      "sha256": "afcf7f9d7e9a11664a4202bb90797134697b1c91e8cb1d3419c787ed918ee835"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/INSPECT_PATH_POLICY_TEST_RESULTS.json",
+      "bytes": 1486,
+      "sha256": "3f015df1617a6cd02e3cacb1e0b94701c61184f826992065891cd894d65d83da"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/inspect_policy_regression.py",
+      "bytes": 5088,
+      "sha256": "62e1cd7a8997179b80d7ba9843aab0e82f2615a378f6af1f16d3f641669cf6ea"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/inspect_diagnostic_fix.diff",
+      "bytes": 2291,
+      "sha256": "c115be4d86a638715eee92e01c8594cf8cacb8347f890e8e8bcc12d13beafe84"
+    }
+  ],
+  "limitations": [
+    "This is a code review and focused synthetic regression, not validation of a final exported cp017 archive. Root must finalize all input/QC files, prepare an exact freeze, run package and retain the resulting real archive/companion verification receipts.",
+    "All input counts are provisional snapshots. This report and any later QC/report changes must be included by the final freeze; no input may change afterward.",
+    "The author full end-to-end synthetic suite is bound to the initial packager hash. The revised hash has the focused shared-path-policy regression and actual read-only inspection, not a falsely relabeled full-suite result.",
+    "Nested-archive rejection is filename-based for .zip, .7z, .tar and .tgz, not a universal content-type scanner. A broader current filename scan found no new archive candidates.",
+    "The review assumes ordinary cooperative filesystem use; it does not claim adversarial concurrent filesystem race resistance on all operating systems.",
+    "Packaging review contributes no Bengali/Arabic textual, source-classification, image-reading or corpus-wide independent QC credit."
+  ]
+}

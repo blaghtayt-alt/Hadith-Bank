@@ -1,0 +1,103 @@
+{
+  "status": "pass_with_explicit_scope_limits",
+  "candidate_revision": 3,
+  "candidate_manifest_sha256": "4b10b3b58c87b38eca65395316f1182cab972d1a00ebf2f661f2f0a656133e74",
+  "report": "/workspace/scratch/9965d2d3679f/patches/patch08/independent_qc/integrity/REPORT.json",
+  "reproducible_audit_script": "/workspace/scratch/9965d2d3679f/patches/patch08/independent_qc/integrity/audit_patch08.py",
+  "failure_categories": 0,
+  "metrics": {
+    "source_stories": 18,
+    "source_utf16_units_including_controls": 2296570,
+    "records.csv_rows": 2029,
+    "records": 2029,
+    "old_record_fields_compared": 153528,
+    "source_units": 11484,
+    "independent_QC_semantic_refinements": {
+      "superseded_rows_retained": 2,
+      "exact_replacement_rows": 13
+    },
+    "parent_semantic_rows": 26567,
+    "new_semantic_rows": 16850,
+    "cumulative_semantic_rows": 43417,
+    "active_semantic_rows": 41875,
+    "unique_semantic_IDs": 43409,
+    "inherited_duplicate_ID_groups": 8,
+    "reference_parents_replaced": 207,
+    "page_coverage.csv_rows": 2054,
+    "detailed_character_reviews": 2054,
+    "character_regions": 15106,
+    "full_character_pages": 2053,
+    "partial_character_pages": [
+      [
+        1,
+        962
+      ]
+    ],
+    "new_page_attempts": 10,
+    "legacy_detailed_rechecks": 3,
+    "partial_to_full_upgrades": 13,
+    "current_language_presence_counts": {
+      "bengali_present_pages": 2030,
+      "arabic_present_pages": 1842
+    },
+    "semantic_ambiguities_retained": 32,
+    "new_semantic_source_exceptions": 10,
+    "resolved_character_exception_rows": 13,
+    "active_source_exception_rows": 838,
+    "atomic_source_segments": 55434,
+    "atomic_classification_states": {
+      "nonlexical_source_control_or_spacing": 9982,
+      "reviewed_source_classification": 45363,
+      "reviewed_source_ambiguity": 89
+    },
+    "atomic_distinct_role_candidate_counts": {
+      "0": 9863,
+      "1": 45465,
+      "2": 105,
+      "3": 1
+    },
+    "new_source_mapping_rows": 17337,
+    "uncertainty_to_atomic_join_counts": {
+      "p08-v01-sufyan-unmarked-return-to-reported-speech": 1,
+      "p03-v01-p0112-unmatched-parenthesis-semantic-scope": 5,
+      "p08-v01-p0139-h84-inline-gloss-suppliers": 2,
+      "p08-v01-p0149-h91-hypothetical-bequest-inner-boundary": 3,
+      "p08-v01-p0164-h111-inline-gloss-suppliers": 2,
+      "p08-v01-p0241-h174-simile-warning-subject": 1,
+      "p04-v01-p0304-0305-unclosed-parenthesis-349726": 10,
+      "p05-v01-p0518-embedded-report-end": 2,
+      "p05-v01-p0554-0556-469-final-speaker-scope": 5,
+      "p05-v01-p0621-536-definition-speaker": 4,
+      "p06-v01-p0803_0804_722_final_speaker": 3,
+      "p06-v01-p0823_746_final_exception_speaker": 6,
+      "p08-v01-p0863-0865-h802-bilingual-narrator-layer": 7,
+      "p08-v01-p1014-h987-bilingual-narrator-difference": 2,
+      "p08-v01-p1016-h990-bilingual-narrator-difference": 2,
+      "p03-v02-1223-main-Divine-speech-end": 5,
+      "p03-v02-1223-Muslim-variant-Divine-speech-end": 3,
+      "p05-v02-main-cp0432880-0432932-Quran_following_clause_speaker_boundary_locally_unspecified-derived-semantic-uncertainty": 1,
+      "p05-root-v02-p0533-unclosed-explanatory-bracket": 1,
+      "p06-v02-p0625-1616-source-reporter-antecedent": 2,
+      "p06-v02-p0688-1677-cloud-gloss-attribution": 1,
+      "p06-v02-p0711-Ruyani-commentary-attribution-end": 1,
+      "p08-v02-p0802-h1798-bilingual-narrator-difference": 2,
+      "p06-root-v02-p0803-hypothetical-second-quote-scope": 3,
+      "p07-v02-p0839-0840-h1819-duration-speaker": 2,
+      "p07-v02-p0852-h1832-lexical-gloss-speaker": 1,
+      "p07-v02-p0907-h1876-following-comment-speaker": 1,
+      "p07-v02-p0913-h1876-bengali-quote-end": 3,
+      "p08-v02-p0149-note169-IbnHajar-judgment-subject": 2,
+      "p05-v02-footnote-cp1018528-1018577-source_pronominal_work_grade_report_subject_locally_unresolved-derived-semantic-uncertainty": 1,
+      "p05-v02-footnote-cp1020929-1020948-source_Albani_comment_with_unspecified_pronoun_antecedent-derived-semantic-uncertainty": 1,
+      "p06-v02-p0691-note680-unspecified-prior-claim": 4
+    },
+    "evidence_reference_checks": {
+      "paths_resolved": 949,
+      "paired_hashes_checked": 889
+    }
+  },
+  "independent_engineering_review_complete": true,
+  "manual_textual_review_claimed": false,
+  "whole_book_independent_textual_QC_claimed": false,
+  "packaging_final_delta_required": true
+}

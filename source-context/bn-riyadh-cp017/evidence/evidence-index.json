@@ -1,0 +1,154 @@
+{
+  "schema": "bn-riyadh-preserved-evidence-v1",
+  "source_archive_sha256": "b439db11fd1cc4e0bcf9000dd5507835244362d6c6798e87fe6a41356021e673",
+  "compressed_originals": {
+    "records.jsonl.gz": {
+      "raw_sha256": "20529a3d0daea37a171d8ea7cd94fe29407a37a1696a5b31dc851882dba8f8d9",
+      "raw_bytes": 86408779,
+      "gzip_sha256": "b41c8fbf16c11dd5d2257942564881edb297c655264e1035df39392469cbea84",
+      "gzip_bytes": 9792185
+    },
+    "segments.jsonl.gz": {
+      "raw_sha256": "133c53ab64a8fb362b4df9917c6b2d76f08356811a3a3661f537aaf64ca18dad",
+      "raw_bytes": 50775475,
+      "gzip_sha256": "ba5ac05c27a14d968d901fbe5a3478f8e0d8816bb4eee850811e1292d249f804",
+      "gzip_bytes": 3861832
+    },
+    "semantic-ledger.jsonl.gz": {
+      "raw_sha256": "3628eb0009ad4e728ba3db8290c554ad1ffcf5592b6a62ac00471e8dbfa4f361",
+      "raw_bytes": 60961278,
+      "gzip_sha256": "edcb5b5ff8da631eddee5a9596e8f0f2094006cbc847ceadfb4052582d0d461d",
+      "gzip_bytes": 3979303
+    },
+    "exceptions.jsonl.gz": {
+      "raw_sha256": "b85dca1bad9c1eafa951bfdc4d0f7e89073d38f84196ff5e62960b5ba5b09a05",
+      "raw_bytes": 1015947,
+      "gzip_sha256": "6409c05fb8e40de1b422dd56ce37a65fb516cb0ffbccdea8a9f43c75e5e70492",
+      "gzip_bytes": 210323
+    },
+    "exception-index.jsonl.gz": {
+      "raw_sha256": "90f634306f141bff64ea2788a33d4172c547b647c3a90115e7d0b40d27ec051a",
+      "raw_bytes": 194720,
+      "gzip_sha256": "2e47d56769f696001097f7d06286939e615d08cc329c5bac6e7f9b38be1bc3bb",
+      "gzip_bytes": 16229
+    }
+  },
+  "scope": "These files preserve saved source records, segment bytes, semantic ledger and exceptions. Historical review claims remain as recorded and do not establish full independent certification.",
+  "source_qc_component_root": "continuation/patch08/independent_qc/",
+  "source_qc_component_files_preserved": 207,
+  "targeted_review_addendum": "targeted-v8-review-addendum.md",
+  "checkpoint_manifest": "source-checkpoint-manifest.json",
+  "checkpoint_parts_receipt": "checkpoint-parts-receipt.json",
+  "checkpoint_note": "The complete original split archive remains preserved separately; this package includes the specifically registered source and review evidence, not all 19,179 archive members.",
+  "original_story_streams": [
+    {
+      "volume": 1,
+      "story": "main",
+      "file": "stories/v01_main_raw.txt.gz",
+      "raw_sha256": "6c1f8e2192158e79506fd5ea47912d9e6051cebfd44834f784122317db80356c"
+    },
+    {
+      "volume": 1,
+      "story": "footnote",
+      "file": "stories/v01_footnote_raw.txt.gz",
+      "raw_sha256": "f591abab67e76415b49219cbbba6ea18a553895087e7241fd5ad906a7c61c478"
+    },
+    {
+      "volume": 1,
+      "story": "header",
+      "file": "stories/v01_header_raw.txt.gz",
+      "raw_sha256": "20f68bb7f2e175dc551b923f4da8db35f6d816389a2cb75baf4564a9c4140721"
+    },
+    {
+      "volume": 1,
+      "story": "macro",
+      "file": "stories/v01_macro_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 1,
+      "story": "annotation",
+      "file": "stories/v01_annotation_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 1,
+      "story": "endnote",
+      "file": "stories/v01_endnote_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 1,
+      "story": "textbox",
+      "file": "stories/v01_textbox_raw.txt.gz",
+      "raw_sha256": "dd13cd8876d17bb6318d9a993406956efd12c7b09a35b9f5e0da07721f2f2375"
+    },
+    {
+      "volume": 1,
+      "story": "header_textbox",
+      "file": "stories/v01_header_textbox_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 1,
+      "story": "trailing",
+      "file": "stories/v01_trailing_raw.txt.gz",
+      "raw_sha256": "9d1e0e2d9459d06523ad13e28a4093c2316baafe7aec5b25f30eba2e113599c4"
+    },
+    {
+      "volume": 2,
+      "story": "main",
+      "file": "stories/v02_main_raw.txt.gz",
+      "raw_sha256": "4a9f35a01d1f2579cae2e71c7bd28a6bfbcb59ec33bb935d58c732ef9d02ac1f"
+    },
+    {
+      "volume": 2,
+      "story": "footnote",
+      "file": "stories/v02_footnote_raw.txt.gz",
+      "raw_sha256": "ccbf3fd54c48cc88ccf16cd5694b3622396c60f4c12003ecd0afe3d5636ae460"
+    },
+    {
+      "volume": 2,
+      "story": "header",
+      "file": "stories/v02_header_raw.txt.gz",
+      "raw_sha256": "c275878630202203b73142539068fb0d7ee6b95a8dc7442dacc3f3681ae8d21a"
+    },
+    {
+      "volume": 2,
+      "story": "macro",
+      "file": "stories/v02_macro_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 2,
+      "story": "annotation",
+      "file": "stories/v02_annotation_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 2,
+      "story": "endnote",
+      "file": "stories/v02_endnote_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 2,
+      "story": "textbox",
+      "file": "stories/v02_textbox_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 2,
+      "story": "header_textbox",
+      "file": "stories/v02_header_textbox_raw.txt.gz",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "volume": 2,
+      "story": "trailing",
+      "file": "stories/v02_trailing_raw.txt.gz",
+      "raw_sha256": "9d1e0e2d9459d06523ad13e28a4093c2316baafe7aec5b25f30eba2e113599c4"
+    }
+  ],
+  "final_targeted_gate_review": "final-targeted-gate-review.md"
+}

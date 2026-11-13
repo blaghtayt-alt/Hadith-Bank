@@ -66,6 +66,7 @@ __HADITH_UI_ICONS__
         <div id="results" aria-busy="true"><div class="loading"><span class="loading-mark" aria-hidden="true"></span><p>Opening the collection…</p><span>Preparing the texts and their sources.</span></div></div>
         <nav class="pagination" aria-label="Result pages"><button id="previous" type="button" disabled><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>Previous</button><div id="page-meta" class="page-meta"></div><button id="next" type="button" disabled>Next<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button></nav>
       </section>
+      <section id="source-context-pages" class="materials-panel" hidden aria-label="Additional source context"><h2>Additional source context</h2><p>These source pages are separate from the narration results and their count.</p><ul id="source-context-list"></ul></section>
       <section id="other-materials" class="materials-panel" hidden aria-label="Other catalogued materials"><h2>Other catalogued materials</h2><p>These document and dataset listings are separate from the narration search and record count above.</p><div id="other-materials-content"></div></section>
     </div>
   </div>
@@ -617,7 +618,7 @@ function languageReadings(record){
 }
 const primarySearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [...primarySearchFields.map(key=>record[key]),...sourceSearchFields.map(key=>source[key]),...narratorSearchFields.map(key=>narrator[key]),...counterpartSearchValues(record),...versionSearchValues(record)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 const searchKeys = hostedStore?null:records.map(primarySearchKey);
-const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,...sourceContextFields.map(key=>source[key]),narrator.source_context,...versionSearchValues(record,true)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
+const annotationSearchKey = record => {const source=record.source || {},narrator=record.narrator || {};return [record.commentary,record.benefits,record.footnotes,record.source_scoped_content,...sourceContextFields.map(key=>source[key]),narrator.source_context,...versionSearchValues(record,true)].flatMap(searchStrings).map(value=>fold(value)).join("\n");};
 let commentaryKeys = null;
 function fillFilter(id, items, allLabel, value="") { const select=$(id),all=element("option",null,allLabel);all.value="";select.replaceChildren(all); [...items.entries()].sort((a,b)=>a[1].localeCompare(b[1])).forEach(([value,label])=>{ const option=element("option",null,label); option.value=value; option.dir="ltr"; select.append(option); });select.value=items.has(value)?value:""; }
 function icon(name) {
@@ -626,6 +627,9 @@ function icon(name) {
 }
 const legacy=snapshot.legacy_materials || [], unavailable=snapshot.private_materials_not_in_this_tree || [];
 const sourceDownloads=Array.isArray(snapshot.source_downloads)?snapshot.source_downloads:[],sourceDownloadsByPath=new Map(sourceDownloads.map(item=>[item.path,item]));
+const contextPages=Array.isArray(snapshot.source_context_pages)?snapshot.source_context_pages:[];
+for(const page of contextPages){if(!page || typeof page.title!=="string" || typeof page.html!=="string" || !/^source-context\/[A-Za-z0-9._/-]+\.html$/.test(page.html) || page.html.split("/").some(part=>part==="." || part===".."))continue;const li=element("li"),link=element("a",null,page.title);link.href=page.html;li.append(link);$("source-context-list").append(li);$("source-context-pages").hidden=false;}
+
 const languages=new Map(), books=new Map(), sources=new Map();
 records.forEach(r=>{availableLanguageCodes(r).forEach(code=>languages.set(code,languageLabel(code)));books.set(r.book_key,bookLabel(r.book_key));sources.set(r.source_id,languageLabel(r.language)+" · "+bookLabel(r.book_key,r.language)+" · "+editionLabel(r));});
 legacy.forEach(item=>{if(typeof item.language==="string" && item.language)languages.set(item.language,languageLabel(item.language));});
@@ -816,17 +820,38 @@ function languageReading(reading,index,position){
   if(upstream.length){const credits=element("ul","upstream-sources");for(const item of upstream){if(!item || typeof item!=="object")continue;const href=sourceURL(item),entry=element("li"),link=element(href?"a":"span",null,item.name || "Source not named");if(href){link.href=href;link.target="_blank";link.rel="noopener noreferrer";}entry.append(link);if(typeof item.scope==="string" && item.scope)entry.append(element("span","citation-scope",item.scope.replace(/_/g," ")));credits.append(entry);}content.append(detail("Sources credited by this publisher",credits,"reading-upstream"));}
   section.append(content);return section;
 }
+const hasSourcePassages = record => {
+  const scoped=record.source_scoped_content;
+  return !!scoped && ((Array.isArray(scoped.segments) && scoped.segments.length>0) || (Array.isArray(scoped.footnotes) && scoped.footnotes.length>0));
+};
 function appendLanguageReadings(card,record,index){
   const readings=languageReadings(record),stack=element("div","language-readings"),switches=element("nav","reading-language-switches");
   switches.setAttribute("aria-label","Available languages for this narration");
   const controls=new Map();
   readings.forEach((reading,position)=>{const section=languageReading(reading,index,position);stack.append(section);if(!controls.has(reading.language))controls.set(reading.language,[]);controls.get(reading.language).push(section);});
   for(const [language,sections] of controls){const button=element("button","reading-language-button",languageLabel(language));button.type="button";button.setAttribute("aria-controls",sections.map(section=>section.id).join(" "));button.addEventListener("click",()=>{sections.forEach(section=>section.open=true);sections[0].querySelector("summary").focus({preventScroll:true});sections[0].scrollIntoView({block:"nearest"});});switches.append(button);}
-  if(readings.length){card.append(switches,stack);}else card.append(element("p","narration","Text not supplied in this projection."));
+  if(readings.length){card.append(switches,stack);}else card.append(element("p","narration",hasSourcePassages(record)?"Source passages are available below; narration boundaries are not established in this projection.":"Text not supplied in this projection."));
   const missing=element("div","reading-availability"),availability=counterpartAvailability(record);
   for(const [language,label] of [["arabic","Arabic"],["english","English"]])if(availability[language]==="missing"){const withheld=record.counterparts && record.counterparts.withheld_languages && record.counterparts.withheld_languages[language];missing.append(element("span","reading-unavailable",label+(withheld?" · source review pending":" · not yet available")));}
   if(missing.childNodes.length)card.append(missing);
   const alignmentNotes=counterpartAlignmentNotes(record);if(alignmentNotes.length){const notes=element("div");alignmentNotes.forEach(note=>notes.append(element("p","counterpart-note",note)));card.append(detail("Source and alignment notes",notes));}
+}
+function appendSourceScopedContent(card,record){
+  const source=record.source_scoped_content;if(!source)return;
+  const wrapper=element("div","source-scoped-content");
+  wrapper.append(element("p","counterpart-note","Preserved source passages and notes. Passage roles and unresolved boundaries reflect source evidence; they are not a claim of a verified narration or grade."));
+  const showSegments=(segments,parent)=>{for(const part of segments){
+    const item=element("section","source-passage"),label=element("p","counterpart-note",(part.display_label || "Source passage")+" · "+part.story+" CP"+part.cp_start+"–"+part.cp_end);
+    const body=element("pre","audit-text",part.text_verbatim);body.dir="auto";item.append(label,body);
+    const evidence=element("pre","audit-text",JSON.stringify({source_segment_id:part.source_segment_id,role_candidates:part.role_candidates,semantic_references:part.leaf_semantic_references,uncertainties:part.source_ambiguity_ids.map(id=>({id,detail:source.uncertainties[id]}))},null,2));
+    item.append(detail("Source roles and evidence",evidence));parent.append(item);
+  }};
+  showSegments(source.segments,wrapper);
+  if(source.footnotes.length){const notes=element("div");notes.append(element("p","counterpart-note","Note associations follow the inherited document mapping; the sequence is not a verified printed number."));
+    for(const note of source.footnotes){const section=element("section");section.append(element("strong",null,"Source note · DOC sequence "+String(note.source_note.sequence ?? "unknown")));showSegments(note.segments,section);section.append(detail("Original note metadata",element("pre","audit-text",JSON.stringify(note.source_note,null,2))));notes.append(section)}
+    wrapper.append(detail("Source footnotes ("+source.footnotes.length+")",notes));
+  }
+  card.append(detail("Preserved source passages",wrapper));
 }
 function card(record,index) {
   const card=element("article","record-card");
@@ -838,6 +863,7 @@ function card(record,index) {
   const kind=recordTypeInfo(record);if(kind){const info=element("div","source-headings");info.append(element("strong",null,kind.label),document.createTextNode(" · "+kind.note));card.append(info);}
   if(record.source_headings && record.source_headings.length){const headings=element("div","source-headings",record.source_headings.join(" › "));headings.dir=textDirection(record.language);headings.lang=record.language;card.append(headings);}
   appendLanguageReadings(card,record,index);
+  appendSourceScopedContent(card,record);
   const block=element("div","source-block"), source=element("div","meta-value"), url=sourceURL(record.source);
   if(url) { const link=element("a",null,sourceLabel(record));link.href=url;link.target="_blank";link.rel="noopener noreferrer";source.append(link,element("span","source-url",url)); }
   else { source.append(document.createTextNode(sourceLabel(record)),element("span","source-url","Source URL not supplied")); if(record.source.original_file) source.append(element("span","source-url",record.source.original_file)); }

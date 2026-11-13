@@ -1356,6 +1356,8 @@ def build(root, output, markdown_output=None, compress=True, site=None,
     ui_styles, ui_icons = reader_ui_assets(template_path.parent)
     if output.is_symlink() or any(parent.is_symlink() for parent in output.parents):
         raise ValueError('Reader output must not use symlinks')
+    from source_context_pages import load_context_pages
+    context_pages = load_context_pages(root)
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
                 'materials': [{key: value for key, value in material.items() if key != 'supporting_files'}
                               for material in catalog.get('materials', [])],
@@ -1364,6 +1366,7 @@ def build(root, output, markdown_output=None, compress=True, site=None,
                 'review_display_policy': review_display_metadata(root),
                 'counterparts': catalog.get('counterparts'),
                 'source_downloads': source_downloads(root, records, catalog),
+                 'source_context_pages': [{key: item[key] for key in ('id', 'title', 'html')} for item in context_pages],
                 'legacy_materials': catalog.get('legacy_materials', []),
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if max_embedded_bytes is not None:

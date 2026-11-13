@@ -6,6 +6,8 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -14,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader
 import current_provenance
 import material_registry
+import hadith_search
 import refresh_bank
 import register_material
 import validate_bank_views
@@ -85,6 +88,63 @@ class MaterialRegistryTests(unittest.TestCase):
         changed['review']['independent_pro_qc'] = 'passed'
         with self.assertRaisesRegex(ValueError, 'Public projection fields differ'):
             validate_bank_views.compare_projection(changed, expected, self.root, True)
+
+    def test_source_scoped_segments_preserve_text_notes_and_uncertainty(self):
+        atom = {'source_segment_id': 'TEST:segment', 'story': 'main', 'cp_start': 2, 'cp_end': 5,
+                'text_verbatim': 'TEST\uf079\n', 'source_volume': 1, 'source_occurrence_record_ids': ['TEST:source:one'], 'role_candidates': ['TEST role'],
+                'source_ambiguity_ids': ['TEST:unknown'],
+                'leaf_semantic_references': [{'ledger_sha256': 'a' * 64, 'ledger_1_based_row': 7}]}
+        note_atom = dict(atom, source_segment_id='TEST:note', story='footnote', cp_start=10, cp_end=19, text_verbatim='TEST note')
+        scoped = {'segments': [atom], 'footnotes': [{'source_note': {'raw_text': 'TEST note', 'sequence': 1, 'cp_start': 10, 'cp_end': 19, 'main_cp_anchor': 2, 'main_anchor_char': '\u0002'},
+                   'segments': [note_atom]}], 'uncertainties': {'TEST:unknown': {'status': 'unknown'}}}
+        original = copy.deepcopy(scoped)
+        self.record.update(text={'arabic': None, 'translation': None}, source={'volume': 1}, source_scoped_content=scoped)
+        self.write_records([self.record])
+        self.register(replace=True)
+        registry = material_registry.load_public_materials(self.root)
+        actual, html = self.render(registry)
+        self.assertEqual(actual[0]['source_scoped_content'], original)
+        self.assertIsNone(actual[0]['text_translation'])
+        self.assertIsNone(actual[0]['text_arabic'])
+        body, annotations = hadith_search._keys(actual[0])
+        self.assertNotIn('test note', body)
+        self.assertIn('test note', annotations)
+        self.assertEqual(scoped, original)
+        self.assertIn('function appendSourceScopedContent', html)
+        for corrupt in ('hash', 'unknown', 'note', 'volume', 'owner', 'range', 'story', 'anchor'):
+            bad = copy.deepcopy(self.record)
+            if corrupt == 'hash': bad['source_scoped_content']['segments'][0]['leaf_semantic_references'][0]['ledger_sha256'] = 'TEST'
+            if corrupt == 'unknown': bad['source_scoped_content']['uncertainties'] = {}
+            if corrupt == 'note': bad['source_scoped_content']['footnotes'][0]['source_note']['raw_text'] = 'DIFFERENT'
+            if corrupt == 'volume': bad['source_scoped_content']['footnotes'][0]['segments'][0]['source_volume'] = 2
+            if corrupt == 'owner': bad['source_scoped_content']['segments'][0]['source_occurrence_record_ids'] = []
+            if corrupt == 'range': bad['source_scoped_content']['footnotes'][0]['segments'][0]['cp_start'] += 1
+            if corrupt == 'story': bad['source_scoped_content']['footnotes'][0]['segments'][0]['story'] = 'main'
+            if corrupt == 'anchor': bad['source_scoped_content']['footnotes'][0]['source_note']['main_cp_anchor'] = -1
+            self.write_records([bad])
+            self.register(replace=True)
+            with self.assertRaises(ValueError, msg=corrupt): material_registry.load_public_materials(self.root)
+
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for source panel test')
+    def test_source_panel_displays_exact_text_and_searches_context_only(self):
+        script = Path(__file__).with_name('test_source_scoped_panel.js')
+        run = subprocess.run([shutil.which('node'), str(script)], text=True, capture_output=True)
+        self.assertEqual(run.returncode, 0, run.stderr)
+
+    def test_source_context_page_does_not_add_narration_records(self):
+        folder = self.root / 'source-context/test'
+        folder.mkdir(parents=True)
+        body = b'TEST source context'
+        (folder / 'reader.html').write_bytes(body)
+        manifest = {'schema': 'hadith-bank-source-context-v1', 'pages': [{'id': 'test', 'title': 'TEST context',
+            'html': 'source-context/test/reader.html', 'files': [{'path': 'source-context/test/reader.html',
+            'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest()}]}]}
+        (folder.parent / 'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+        registry = material_registry.load_public_materials(self.root)
+        embedded, document = self.render(registry)
+        self.assertEqual(len(embedded), 1)
+        self.assertIn('source-context/test/reader.html', document)
+        self.assertIn('source-context-pages', document)
 
     def test_rerun_is_idempotent_without_duplicate_occurrences(self):
         first = material_registry.load_public_materials(self.root)

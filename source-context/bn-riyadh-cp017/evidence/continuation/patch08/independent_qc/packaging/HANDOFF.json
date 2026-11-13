@@ -1,0 +1,57 @@
+{
+  "schema": "patch08-independent-packaging-review-handoff-1.0",
+  "status": "complete",
+  "created_utc": "2026-11-13T07:19:00.304199+00:00",
+  "version": "v2_cp017_patch08",
+  "review_result": "pass_after_authorized_diagnostic_fix",
+  "open_release_blocking_code_defects": [],
+  "current_packager": {
+    "path": "patches/patch08/package_patch08_streaming.py",
+    "bytes": 56163,
+    "sha256": "74916d992cf75f769856804a1aa56b96f26b051a9293c61c8f95b2e585d9509f"
+  },
+  "unchanged_helper": {
+    "path": "patches/patch08/REBUILD_CHECKPOINT.py",
+    "bytes": 11764,
+    "sha256": "72dced454297b8cd9c3b5e028151f88010be3387d406280e811d98d6502bdac5"
+  },
+  "old_packager_sha256": "68857ead6b580dede1eb1077221ec715dd12818ef49e2b3617d3c876c7fa7681",
+  "real_freeze_or_export_performed": false,
+  "external_publication_performed": false,
+  "source_text_qc_credit": false,
+  "outputs": [
+    {
+      "path": "patches/patch08/independent_qc/packaging/REPORT.json",
+      "bytes": 12978,
+      "sha256": "1bdc476e510cc3eca9d51f7e4a0fa724d1e85adb2e60dc582a0bf02b32eadaaa"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/REPORT.md",
+      "bytes": 8105,
+      "sha256": "051e7cdd95e7ef38f3d1ea1406c7e57c4fa15cdd66abee752ba80964b893377f"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/INSPECT_PATH_POLICY_TEST_RESULTS.json",
+      "bytes": 1486,
+      "sha256": "3f015df1617a6cd02e3cacb1e0b94701c61184f826992065891cd894d65d83da"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/inspect_policy_regression.py",
+      "bytes": 5088,
+      "sha256": "62e1cd7a8997179b80d7ba9843aab0e82f2615a378f6af1f16d3f641669cf6ea"
+    },
+    {
+      "path": "patches/patch08/independent_qc/packaging/inspect_diagnostic_fix.diff",
+      "bytes": 2291,
+      "sha256": "c115be4d86a638715eee92e01c8594cf8cacb8347f890e8e8bcc12d13beafe84"
+    }
+  ],
+  "next_owner": "root",
+  "next_steps": [
+    "Finalize all stage qualification/report and independent QC evidence files.",
+    "Run --prepare once all inputs are final and retain its exact SHA-256.",
+    "Run --package bound to that freeze into a new output directory; keep the actual archive, member and companion validation receipts.",
+    "Save and hand off the completed delivery."
+  ],
+  "storage_handoff": "Root owns durable save with the full checkpoint; these local review artifacts are frozen raw inputs."
+}

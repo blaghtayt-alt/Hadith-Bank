@@ -1,0 +1,116 @@
+{
+  "candidate_revision": 2,
+  "status": "actionable_findings_pending_final_candidate",
+  "issues": [
+    {
+      "issue_id": "I08-M01",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "continuation/integration/integration_summary.json:data_version",
+        "coverage.json:semantic_integration.data_version"
+      ],
+      "finding": "Current semantic summary still declares v2_cp016_patch07.",
+      "remediation": "Set current data_version to v2_cp017_patch08; retain parent summary only at a historical path."
+    },
+    {
+      "issue_id": "I08-M02",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "continuation/integration/integration_summary.json:explicit_semantic_unique_decision_IDs",
+        "coverage.json:semantic_integration.explicit_semantic_unique_decision_IDs"
+      ],
+      "finding": "Current distinct semantic-ID count is stale at 26559.",
+      "remediation": "Recompute from final cumulative ledger. Revision 2 expected 43396; final corrections add rows and alter this."
+    },
+    {
+      "issue_id": "I08-M03",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "continuation/integration/integration_summary.json:current_inherited_semantic_ID_collision_audit",
+        "coverage.json:semantic_integration.current_inherited_semantic_ID_collision_audit",
+        "resume_state.json:continuation_tooling.current_semantic_ID_collision_audit"
+      ],
+      "finding": "Current semantic identifier audit points to a patch07 ledger hash, not the current cumulative ledger.",
+      "remediation": "Use continuation/patch08/integration/semantic_identifier_audit.json."
+    },
+    {
+      "issue_id": "I08-M04",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "continuation/integration/integration_summary.json:current_semantic_correction_overlay",
+        "coverage.json:semantic_integration.current_semantic_correction_overlay",
+        "resume_state.json:continuation_tooling.current_semantic_correction_overlay"
+      ],
+      "finding": "Current semantic correction aliases point to patch07.",
+      "remediation": "Point to patch08 corrections; expose both parent-row reference refinements and new independent-QC corrections in an explicit current correction index if stored separately."
+    },
+    {
+      "issue_id": "I08-M05",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "resume_state.json:continuation_tooling.recovery_builder",
+        "resume_state.json:continuation_tooling.builder_parent_identity",
+        "resume_state.json:continuation_tooling.current_additive_semantic_overlay"
+      ],
+      "finding": "Resume instructions still identify build_patch07, cp015 parent, and patch07 semantic additions as current.",
+      "remediation": "Use shipped build_patch08 path and exact cp016 parent identity; use patch08 new_semantic_decisions ledger. Preserve former pointers under a named historical key if desired."
+    },
+    {
+      "issue_id": "I08-M06",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "coverage.json:current_language_presence_metadata",
+        "resume_state.json:continuation_tooling.current_language_presence_metadata",
+        "data/page_coverage.jsonl:current_language_presence",
+        "page_coverage.csv:current_language_presence",
+        "continuation/integration/character_reviews.jsonl:language_presence_normalization"
+      ],
+      "finding": "Patch07 language summary says 2041 detailed rows and three unrechecked legacy pages. V1p150 still says Arabic incomplete, V1p8 unknown from legacy flags, and ten tail pages lack a current normalized language view.",
+      "remediation": "Generate a current patch08 normalization ledger/summary from current character regions and actual check flags. Add a current normalization field/view rather than altering raw before/after evidence. Update current aliases and page/export metadata. Preserve inherited normalization under explicit historical names."
+    },
+    {
+      "issue_id": "I08-M07",
+      "severity": "must_fix_current_metadata",
+      "paths": [
+        "coverage.json:current_inherited_character_correction_overlay",
+        "resume_state.json:continuation_tooling.current_inherited_character_correction_overlay"
+      ],
+      "finding": "Current character correction aliases still point to patch07 and omit 14 patch08 before/after corrections.",
+      "remediation": "Expose patch08 partial_review/character_region_corrections.jsonl and character_review_corrections.jsonl, or a current index containing both inherited and patch08 overlays."
+    },
+    {
+      "issue_id": "I08-M08",
+      "severity": "clarify_historical_scope",
+      "paths": [
+        "continuation/integration/integration_summary.json:historical_unsuppressed_rows_before_current_correction_overlay",
+        "coverage.json:semantic_integration.historical_unsuppressed_rows_before_current_correction_overlay"
+      ],
+      "finding": "Value 26540 is a carried historical count whose label says before current correction overlay. It does not describe current status-index active rows.",
+      "remediation": "Name its historical checkpoint/scope explicitly; add unambiguous current pre-overlay and post-overlay counts derived from status indexes if needed."
+    },
+    {
+      "issue_id": "I08-M09",
+      "severity": "clarify_historical_scope",
+      "paths": [
+        "data/page_coverage.jsonl:wording_review_all_regions_complete",
+        "page_coverage.csv:wording_review_all_regions_complete"
+      ],
+      "finding": "Some newly completed pages retain false wording_review_all_regions_complete, e.g. V1p150 and V1p8, alongside current full-character true.",
+      "remediation": "Preserve old wording flags under explicit historical metadata and make current page completeness fields agree with the current review, scoped to the actual evidence."
+    },
+    {
+      "issue_id": "I08-M10",
+      "severity": "clarify_historical_scope",
+      "paths": [
+        "resume_state.json:continuation_tooling.current_semantic_boundary_extension_evidence",
+        "resume_state.json:continuation_tooling.current_partial_semantic_confirmations",
+        "resume_state.json:continuation_tooling.current_same_patch_boundary_redistribution_history",
+        "resume_state.json:continuation_tooling.current_partial_semantic_confirmation_status",
+        "resume_state.json:continuation_tooling.current_same_patch_semantic_local_correction_history",
+        "remaining_work.json:partial_semantic_confirmation_evidence"
+      ],
+      "finding": "Several patch07-specific optional ledgers are still labeled current or same_patch. They may be the latest inherited evidence, but are not patch08 work.",
+      "remediation": "Label them latest inherited patch07 evidence or historical; retain unchanged TOC bridge pointers as current cumulative authority where no patch08 replacement exists."
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "schema": "bn-riyadh-patch08-independent-character-QC-1",
+  "reviewer": "/root/patch08_independent_char_qc",
+  "review_started_utc": "2026-11-13T06:57:07.958987+00:00",
+  "review_completed_utc": "2026-11-13T07:03:18.358669+00:00",
+  "status": "pass_reviewed_scope_with_retained_source_limit",
+  "independent_character_QC": true,
+  "independent_of_author_self_validation": true,
+  "ready_for_component_integration": true,
+  "whole_candidate_integration_QC_performed_here": false,
+  "reviewed_inputs_manifest": {
+    "path": "patches/patch08/independent_qc/character/reviewed_inputs.json",
+    "sha256": "ad92ecd2561147bbf4aeb019f83a5c3c9bea51b7fff58f232179c7f31bfa6a28",
+    "file_count": 238,
+    "unchanged_at_completion": true
+  },
+  "original_pdf_page_counts": {
+    "1": 1023,
+    "2": 1031,
+    "total": 2054
+  },
+  "scope": {
+    "actually_read_unique_pages": 27,
+    "actual_full_page_views": 13,
+    "full_page_scope": {
+      "1": [
+        8
+      ],
+      "2": [
+        1,
+        2,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030,
+        1031
+      ]
+    },
+    "localized_target_pages": 14,
+    "localized_scope": {
+      "1": [
+        150,
+        178,
+        315,
+        399,
+        433,
+        600,
+        641,
+        671,
+        962
+      ],
+      "2": [
+        148,
+        405,
+        407,
+        699,
+        721
+      ]
+    },
+    "localized_full_page_rereads": 0,
+    "actually_viewed_images": 28,
+    "full_page_images": 13,
+    "target_images": 15,
+    "extra_target_image": "V1 p962 honorific at 60x",
+    "all_2054_pages_independently_reread": false,
+    "whole_bank_character_certification": false,
+    "full_DOC_PDF_Unicode_equivalence_certified": false,
+    "tail_regions_compared": 220,
+    "appendix_rows_including_header": 53,
+    "appendix_numbered_entries": 52,
+    "appendix_blank_critic_source_cells": 5,
+    "appendix_blank_critic_page_regions": 7
+  },
+  "methods": [
+    "Hashed immutable original PDFs/DOCs, source story exports, author component files and relevant authenticated parent ledgers before review.",
+    "Independently rendered all 28 images from original PDFs at declared scales/crop boxes and compared pixels to author evidence; all match.",
+    "Actually emitted and inspected every independent rerender with view_image; the full pages and localized crops are separately enumerated in page_observations.jsonl.",
+    "Compared literal character transcriptions, exact raw CP slices, every appendix row/cell, page continuations, empty critic cells and printed anomalies.",
+    "Recomputed selected glyph draws from original PDFs and re-extracted original font bytes/outlines; inspected actual Bengali font resource and GSUB rules.",
+    "Checked exact correction before-states against parent ledgers and derived every after transcription using only unchanged source plus exact inherited display mappings."
+  ],
+  "structural_results": {
+    "checks_passed": 2216,
+    "checks_failed": 0,
+    "structural_check_count": 2184,
+    "followup_check_count": 32,
+    "image_original_pixel_matches": 28,
+    "exact_parent_before_review_matches": 14,
+    "exact_parent_before_region_matches": 14,
+    "partial_resolutions_supported": 13,
+    "partial_source_exception_retained": 1,
+    "new_tail_semantic_source_spans_exact": 19,
+    "parent_semantic_evidence_links_exact": 156,
+    "appendix_source_cell_slots_verified": 212,
+    "source_CP_partition_completeness": [
+      {
+        "source_volume": 1,
+        "story": "main",
+        "cp_start": 6771,
+        "cp_end": 6837,
+        "expected_codepoints": 66,
+        "covered_codepoints": 66,
+        "missing_codepoints": []
+      },
+      {
+        "source_volume": 2,
+        "story": "main",
+        "cp_start": 0,
+        "cp_end": 605,
+        "expected_codepoints": 605,
+        "covered_codepoints": 605,
+        "missing_codepoints": []
+      },
+      {
+        "source_volume": 2,
+        "story": "main",
+        "cp_start": 951605,
+        "cp_end": 959535,
+        "expected_codepoints": 7930,
+        "covered_codepoints": 7930,
+        "missing_codepoints": []
+      }
+    ],
+    "manual_printed_reference_order_matches_bridge": true,
+    "reviewed_source_codepoints_mutated": 0,
+    "record_ID_changes_authored_by_this_QC": 0
+  },
+  "coverage_acceptance": {
+    "tail_new_page_attempts": 10,
+    "tail_new_full_character_pages": 10,
+    "tail_legacy_detailed_rechecks": 3,
+    "legacy_rechecks_new_credit": 0,
+    "localized_new_page_attempts": 0,
+    "localized_inherited_partial_to_full_completions": 13,
+    "localized_remaining_partial_pages": {
+      "1": [
+        962
+      ]
+    },
+    "independent_QC_additional_page_attempt_credit": 0
+  },
+  "findings": [
+    {
+      "finding_id": "CHAR-QC-001",
+      "severity": "source_limit",
+      "blocking": false,
+      "source_volume": 1,
+      "pdf_page": 962,
+      "exception_id": "p07-1-929-v01-p0962-r05-chars-unresolved",
+      "source_span": {
+        "story": "main",
+        "cp_start": 1076183,
+        "cp_end": 1076184,
+        "text_verbatim": ""
+      },
+      "observed_glyph": "AGA Arabesque F25/xref2233 glyph92, 14 contours, U+F079",
+      "conclusion": "Raw symbol/graphic identified; full internal diacritic Unicode expansion remains unestablished. Preserve null visible transcription, original codepoint and localized partial status.",
+      "required_action": "retain_existing_exception"
+    }
+  ],
+  "preserved_source_anomalies": {
+    "V2p1025": [
+      "literal & after entry794",
+      "critic794 begins only র ইবনু হাওশাব",
+      "repeated করে করে in entry801",
+      "literal < in entry894"
+    ],
+    "V2p1026": [
+      "literal < in entry896"
+    ],
+    "V2p1029": [
+      "literal < in entry1495",
+      "এতটি in entry1498"
+    ],
+    "localized_targets": "Duplicate Arabic vowel marks, duplicated Bengali ra-phala, and unusual source combining order are preserved without inferred correction."
+  },
+  "source_claim_limits": [
+    "Appendix title, weak-grade labels and named critic/narrator cells are edition claims. This review performs no independent grading, narrator identification, chain authentication or canonical numbering reconciliation.",
+    "Appendix quotation cells with ellipses are excerpts; no complete-matn certification is made.",
+    "Graphic logo fields, nonprinting DOC controls and the raw source text remain distinct from visible transcriptions.",
+    "The 13 localized completions rely on inherited whole-page reviews outside the independently inspected target crops. Broader after-transcriptions were mechanically checked against exact source/inherited mappings, not visually reread in full."
+  ],
+  "blocking_findings": [],
+  "required_edits": [],
+  "source_limited_exceptions_to_retain": [
+    "p07-1-929-v01-p0962-r05-chars-unresolved"
+  ],
+  "outputs": [
+    "REPORT.json",
+    "REPORT.md",
+    "reviewed_inputs.json",
+    "actual_visual_inventory.json",
+    "render_authentication.json",
+    "page_observations.jsonl",
+    "appendix_row_observations.jsonl",
+    "structural_checks.json",
+    "followup_checks.json",
+    "check_inputs.py",
+    "check_followup.py",
+    "write_report.py"
+  ],
+  "integration_handoff": "Apply only the reviewed exact before/after overlays and preserve the author component bytes/hashes. This pass covers the bound component evidence. A separate reviewer must verify final merged candidate bytes and any broader claims."
+}
