@@ -1,0 +1,4007 @@
+{
+  "active_ledger_sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537",
+  "authenticity_grade_added": false,
+  "complete_reading_source_receipt_sha256": "3bdec37e500dbe97509a2e678483bdd0b95856b47122aa4c1b4f5cd0635f6b59",
+  "counts": {
+    "admitted": 74,
+    "boundary_whitespace_characters_kept_as_context": 0,
+    "characters_second_read": 38720,
+    "complete_fields_second_read": 87,
+    "exclude": 3,
+    "field_metadata_equalities": 792,
+    "lossless_nonempty_partitions": 198,
+    "parent_metadata_equalities": 440,
+    "read_context": 13,
+    "register": 37,
+    "unread_context": 111,
+    "utf8_bytes_second_read": 79849
+  },
+  "empty_fields_independently_inspected": 2,
+  "engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "explicit_scope_and_recitation_checks": 13,
+  "final_delivery_manifest_sha256": "d0793e33ef5289fdfbb42a032d3dec4d79e3fd7b4658b36ff8525c598da28206",
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "manual_spec_sha256": "942959a02924b11234ba9d87b4dd4c3ae6ca8371893b80dd23d4d5fb1c3bac64",
+  "native_apply_finish": "PASS",
+  "new_translation_created": false,
+  "records": [
+    {
+      "decision": "exclude",
+      "fields": [
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 1201,
+          "source_sha256": "7913cf6700bee2977658964fbe49a1a0eb195eb0cd1078510b181e9a69049f18",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "hi",
+          "source_chars": 1144,
+          "source_sha256": "58074e25474c30840011eee91ba34272356b59c0cf73c30b4eda27c6b4d208ca",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur",
+          "source_chars": 1052,
+          "source_sha256": "8a77169ef90fce20778c203425bb35d145ff832d62c8f5ced8b221cfa9df63f6",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 1266,
+          "source_sha256": "f6b4e201b1fb7dbac8cbf2de1948eb59b4cb7db419c4a67d494b0e5901963c39",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 1195,
+          "source_sha256": "360053dbe16e9d4fe2e4010ea5cbc724143d6c30f99b6db6c90093853cd3bbf1",
+          "status": "read_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:690",
+      "reading_note": "All five complete fields contain an omitted Prophetic body, a line-drawing topic pointer, Sufyan transmission criticism and compiler-appended legal explanations of line shape. Ahmad/IbnDawud quotations belong to that apparatus. Do not reconstruct the missing report or promote compiler explanation into the numbered report body.",
+      "source_record_sha256": "fadc40438f5d5193828d3c3fff054efb1dd0a80ba9edc584b1fb32fce45f9257"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 353,
+          "source_sha256": "72879da26ab22d1f9cd58a82b85c6e5c80c8dc61f150f237ed6baafa55be5a48",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. A finite statement is attributed to Ibn Abbas about the named woman/dog passing before a worshipper. Select that supplied assertion and its attribution, preserving the duplicated opening نماز/namaz wording. Move the parenthetic Shuʿba raised-transmission notice and Abu Dawud’s competing mawquf-chain notice to context; do not adjudicate the conflicting attributions or change the printed grade. Retain the parenthetic passing-before-the-worshipper condition because it limits the actual asserted event, rather than giving a dispensable synonym.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  53
+                ],
+                [
+                  90,
+                  167
+                ]
+              ],
+              "speaker_description": "Ibn Abbas as named in this field; the source separately records both raised and Companion-level transmission claims."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              53
+            ],
+            [
+              90,
+              167
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 342,
+          "source_sha256": "90f98ce5cc2ef1447216f2265240f6a7670ea260104c65226db125d0df04269e",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The field contains an actual finite Ibn Abbas assertion, followed by Abu Dawud’s statement of a competing Companion-level transmission. Separate the parenthetic raised-attribution label and the compiler’s chain discussion. Keep the passing-before-the-worshipper condition: deleting it would broaden the assertion beyond the supplied translation. Preserve the source’s wording and attribution dispute without promoting either chain claim into a new canonical identity.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  40
+                ],
+                [
+                  74,
+                  147
+                ]
+              ],
+              "speaker_description": "Ibn Abbas as printed; competing marfu and mawquf transmission attributions remain explicit source context."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              40
+            ],
+            [
+              74,
+              147
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 301,
+          "source_sha256": "a5bf3c428090c886b588dd4233904a8681c2bd2715607b3b844c85adac70fadb",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 358,
+          "source_sha256": "36f942dd96f1f6c067e1442e9387f88329662763a57aa1e284d693ec250485d7",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 349,
+          "source_sha256": "5f1a908b7c73efb66f93983b90781e2e6af9c0e3de64a4128223c21c0e62761e",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:703",
+      "reading_note": "IbnAbbas statement is explicitly raised by Shuba, while the later AbuDawud passage records a stopped-at-IbnAbbas alternative. Retain the source disagreement as context. The parenthetic passing-before-the-worshipper condition limits the supplied assertion and must remain. Preserve damaged Hindi wording, without a new attribution or spelling correction.",
+      "source_record_sha256": "907c73a3c1af00edde9d7191fe3e3541468993a4f7cb6072c9ab489d41bb258a"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 291,
+          "source_sha256": "3183e13c5242da4957bebf0abba2e595fa8b5dc94e75fe0ed0046d04cce94063",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Hindi field. The initial same-chain/same-meaning sentence is relative transmission apparatus. The first explicitly supplied saying is the prayer-interruption clause with its supplication; select it under the source’s Prophetic salutation. Abu Dawud then supplies a second affirmative shorter wording, not a mere pointer: select that finite clause as a separate component while retaining the compiler and chain framing as context. Do not merge the two variants or fill their missing setting.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  80,
+                  168
+                ]
+              ],
+              "speaker_description": "The source’s speaker designated by the Prophetic salutation."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the whole Hindi field. The initial same-chain/same-meaning sentence is relative transmission apparatus. The first explicitly supplied saying is the prayer-interruption clause with its supplication; select it under the source’s Prophetic salutation. Abu Dawud then supplies a second affirmative shorter wording, not a mere pointer: select that finite clause as a separate component while retaining the compiler and chain framing as context. Do not merge the two variants or fill their missing setting.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  254,
+                  277
+                ]
+              ],
+              "speaker_description": "The affirmative abbreviated variant quoted by Abu Dawud through Abu Mushir from Saʿid; no additional omitted chain is supplied."
+            }
+          ],
+          "exact_spans": [
+            [
+              80,
+              168
+            ],
+            [
+              254,
+              277
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 277,
+          "source_sha256": "90a11a1d8e319716552c6b7f16f8ea18c3269270033f43a3db079fb68477fb3b",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field. Separate the same-chain introduction and the compiler’s transmission bridge from the actual words. Both the first prayer-interruption/supplication statement and the subsequently supplied shorter affirmative clause are finite quotations. Keep them as distinct components with the supplied attribution limits, without importing the omitted previous report.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  81,
+                  163
+                ]
+              ],
+              "speaker_description": "The speaker designated by the source’s Prophetic salutation."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the complete Urdu field. Separate the same-chain introduction and the compiler’s transmission bridge from the actual words. Both the first prayer-interruption/supplication statement and the subsequently supplied shorter affirmative clause are finite quotations. Keep them as distinct components with the supplied attribution limits, without importing the omitted previous report.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  242,
+                  267
+                ]
+              ],
+              "speaker_description": "The finite abbreviated variant supplied in Abu Dawud’s report through Abu Mushir from Saʿid."
+            }
+          ],
+          "exact_spans": [
+            [
+              81,
+              163
+            ],
+            [
+              242,
+              267
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 267,
+          "source_sha256": "26990d9f611c628bd0fbb98aaf5c967f8bdfdf114dc39238179dd5b6549521ea",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 311,
+          "source_sha256": "6aa80f5dba6e2049a6385b3a2c10081bf7898c10b292dea0a27e63c24055029e",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 269,
+          "source_sha256": "e3d7d5ccf8de5e1f7dd97c354b4c5683b794f4288857a14f97bbde43c5cda704",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:706",
+      "reading_note": "The first expressly quoted added utterance is finite despite the relative opening. A separate AbuMushir/Said version supplies the actual shorter utterance again; keep its report component distinct from the compiler introduction. Do not add the missing preceding incident.",
+      "source_record_sha256": "435af73722b85b9fa1d7f1073a8ea0ae45bfe007ba7f725dd4a102346b95990d"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 505,
+          "source_sha256": "5f9aa6ad8af402c99beaeafb052ab05d69255a9af24f5893857b78d3b2e7abdd",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Abu Sahba gives the setting of a question about interruption of prayer, and Ibn Abbas supplies an actual remembered scene: arrival with a boy on a donkey, releasing it before the row, and two girls entering the row while the Prophet showed no concern. This is a coherent source-attributed action report; the whole field is eligible with its original framing.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  460
+                ]
+              ],
+              "speaker_description": "Ibn Abbas recounting the prayer scene to Abu Sahba and those present."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              460
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 460,
+          "source_sha256": "20328f275f3b801cfbc1e1ad10dcda9906d0b0f64764b9e9980c75b76ff36637",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. It supplies the donkey, boy and two-girl scene during the Prophet’s prayer and his nonreaction, with Abu Sahba’s actual question framing. The complete field is narrated event text without an appended compiler explanation; retain all source wording.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  434
+                ]
+              ],
+              "speaker_description": "Ibn Abbas answering the discussion reported by Abu Sahba."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              434
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 434,
+          "source_sha256": "fe5ce4da50e7e28ffd4fca40ba7c0d71b80ca3ab26857a65674723b2d6d97f57",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 523,
+          "source_sha256": "3fae5ef314ffc63a0827d3f46f0773b10a8706f973f7cba4af58b40ebf502a16",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 505,
+          "source_sha256": "c4f483db9a2f0370bb53cad2745c7bf26370b0e50154532a4d8a8ba03a14bdd8",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:716",
+      "reading_note": "AbuSahba reports IbnAbbas describing arrival with an unnamed boy, donkey, and two girls while the Prophet prayed and did not object. Full finite event with source-named participants; no identities are supplied for the unnamed children.",
+      "source_record_sha256": "2acc5c03d6d707f4c71f78195d0b1a72734d35c35b9160507a7f38e3ffd2326f"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 477,
+          "source_sha256": "42fdd31a6f94187375e43e458afa343c7f86f9bdf6273b61d3ea3e172462df14",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Fadl recounts the Prophet arriving with Abbas, praying in the desert without a sutra while their she-donkey and bitch played in front of him, and his nonreaction. The parenthetic open-place phrase is an explanatory synonym of desert and remains context; preserve the surrounding complete action report and all original honorifics.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  209
+                ],
+                [
+                  219,
+                  386
+                ]
+              ],
+              "speaker_description": "Fadl ibn Abbas reporting the Prophet’s prayer in the open desert scene."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              209
+            ],
+            [
+              219,
+              386
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 386,
+          "source_sha256": "89e8cfd9662ad64ee987d9067caf47009d84bfd330967c51961318ca3d1cde8a",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. This is the same field’s own finite open-desert prayer scene with Abbas and the two animals. Separate only the redundant parenthetic open-place gloss; all reported details, including the absence of a sutra and the Prophet’s nonreaction, remain in the selected source text.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  181
+                ],
+                [
+                  193,
+                  357
+                ]
+              ],
+              "speaker_description": "Fadl ibn Abbas as the printed eyewitness narrator."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              181
+            ],
+            [
+              193,
+              357
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 357,
+          "source_sha256": "cbb27a2a344b00103f65c90d6edfa3c10a45d343b2ece54e032a47fa46c3307d",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 439,
+          "source_sha256": "33c993d932e42f2362aa8e8456137d8f56192e3bdf768aa5a5f992e86c8b4a20",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 283,
+          "source_sha256": "60005a9e8bc64a1708292392deeabedefd0cc4a47c97822a4410a369c27042f8",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:718",
+      "reading_note": "Fadl reports the Prophet praying in the open without a sutra while a donkey and female dog played. Open-place parentheses are lexical explanation; source narrative and actual lack of objection remain exact.",
+      "source_record_sha256": "1464810fddacf16bc1de580921f58008a157f004efc223c3bfd32fb8871484f4"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 1116,
+          "source_sha256": "276be657144772c84bf805e145feaaf809dbf2e372b49cde088695f032f4dcc2",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field. Waʾil describes the movements and raising of the hands in the Prophet’s prayer. Muhammad then quotes Hasan al-Basri’s affirmative assessment; retain that as a separate Successor statement, not Prophetic speech. The cloth-referent parenthesis is a gloss. Abu Dawud’s final notice that Hammam did not mention raising the hands on rising from prostration is source criticism/variant apparatus retained in context without altering the selected report.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  318
+                ],
+                [
+                  327,
+                  583
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr recounting the Prophet’s prayer."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the entire Hindi field. Waʾil describes the movements and raising of the hands in the Prophet’s prayer. Muhammad then quotes Hasan al-Basri’s affirmative assessment; retain that as a separate Successor statement, not Prophetic speech. The cloth-referent parenthesis is a gloss. Abu Dawud’s final notice that Hammam did not mention raising the hands on rising from prostration is source criticism/variant apparatus retained in context without altering the selected report.",
+              "report_type": "successor_statement",
+              "spans": [
+                [
+                  583,
+                  765
+                ]
+              ],
+              "speaker_description": "Hasan al-Basri responding to Muhammad; his assessment remains his own attributed statement."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              318
+            ],
+            [
+              327,
+              583
+            ],
+            [
+              583,
+              765
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 902,
+          "source_sha256": "d8dca087683d08993a605ccedd6f185401a6fee4c2da3b08341812f9567af6d3",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. Select the detailed Waʾil prayer account and Hasan al-Basri’s explicitly attributed response as distinct components. Move the takbir label, cloth-referent gloss and numeric footnote marker to context. The final Abu Dawud comparison with Hammam’s omission is compiler/variant apparatus, preserved alongside the report. No actual prayer detail is silently corrected from that comparison.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  107
+                ],
+                [
+                  117,
+                  300
+                ],
+                [
+                  311,
+                  502
+                ],
+                [
+                  504,
+                  563
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr describing the Prophet’s prayer."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the complete Urdu field independently. Select the detailed Waʾil prayer account and Hasan al-Basri’s explicitly attributed response as distinct components. Move the takbir label, cloth-referent gloss and numeric footnote marker to context. The final Abu Dawud comparison with Hammam’s omission is compiler/variant apparatus, preserved alongside the report. No actual prayer detail is silently corrected from that comparison.",
+              "report_type": "successor_statement",
+              "spans": [
+                [
+                  563,
+                  734
+                ]
+              ],
+              "speaker_description": "Hasan al-Basri giving his own response to Muhammad."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              107
+            ],
+            [
+              117,
+              300
+            ],
+            [
+              311,
+              502
+            ],
+            [
+              504,
+              563
+            ],
+            [
+              563,
+              734
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 862,
+          "source_sha256": "449651a60008942825ee8261142c25d2c1bd60d7a0675c6fc9b663e4e400c532",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 1019,
+          "source_sha256": "2f31ea321c3f8f17d166797967bc589dd1dd1edc50f54b746301f1956dbc897a",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 1099,
+          "source_sha256": "1df212d4fe0191dd239b24fd4615eb3ece769f34d4b768fde900306cb393a6e4",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:723",
+      "reading_note": "Wail prayer observations and Muhammad reporting HasanBasri response are distinct report components/speakers. The final AbuDawud omission comparison is context. The Urdu footnote reference is apparatus; do not turn Hasan speech or compiler criticism into Prophetic words.",
+      "source_record_sha256": "635a2fa6d4a249c13ed92961c5c29dd2cfc1633bb18e1a09d829e2e329f236a4"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 376,
+          "source_sha256": "62384644108c144961af92c39b056bf75cc31ec91af7b27f8e31eaf68512074e",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Hindi field. Waʾil supplies a complete observation of raising the hands to shoulder level, thumbs at ear level and the subsequent spoken takbir. Separate the parenthetic shoulder synonym after the printed regional word; preserve that regional source word, the actual takbir and every narrated action.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  215
+                ],
+                [
+                  222,
+                  365
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr reporting the Prophet’s hand positions and spoken takbir."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              215
+            ],
+            [
+              222,
+              365
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 365,
+          "source_sha256": "cb4d10e71723d9ac69f34165bc9aa5780d800bf88bffcf0fd54f06b7cd5f0d7c",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. It narrates the Prophet standing, raising his hands to shoulder level, thumbs level with the ears and saying Allahu akbar. There is no appended compiler apparatus or dispensable lexical parenthesis; the full supplied field is eligible.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  330
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr as the source’s named observer."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              330
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 330,
+          "source_sha256": "073d63e135527c8d7a10d38e287b6db3bfd0e27a4030f6c71f487e2f09f76575",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 408,
+          "source_sha256": "db0757d63bd0c5c065b73979e1344fe1c4b76507db9b61df20996b41e883cc5e",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 217,
+          "source_sha256": "d4fce6eca1d39a7ef5c81aad1d36f4c478fdfbd5af2d6dc5212872bf17dd3d79",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:724",
+      "reading_note": "Wail observed raised hands, thumb positions and takbir. The Hindi shoulder gloss is lexical context. Preserve source wording and its own sequence.",
+      "source_record_sha256": "698421dabc91fbe87ea75eb78c625d8f06216fe6038fe35478527c93501cfe4d"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 405,
+          "source_sha256": "6084203e1c92d9177d9dfe252f646e4767ebee34f98f2d652dfcec47e54774da",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The same-chain introduction and the this-also-contains bridge are apparatus. Two actual additions remain: the designated Prophetic right-hand placement and a first-person report of people wearing heavy clothes with their hands moving inside them. Keep the additions separate; the second is an anonymous observer’s report and is not attributed to the Prophet or to a narrator imported from a neighboring occurrence.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  79,
+                  174
+                ]
+              ],
+              "speaker_description": "The person identified by the source’s Prophetic salutation in the supplied action variant."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the complete Hindi field. The same-chain introduction and the this-also-contains bridge are apparatus. Two actual additions remain: the designated Prophetic right-hand placement and a first-person report of people wearing heavy clothes with their hands moving inside them. Keep the additions separate; the second is an anonymous observer’s report and is not attributed to the Prophet or to a narrator imported from a neighboring occurrence.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  193,
+                  311
+                ]
+              ],
+              "speaker_description": "Unidentified first-person observer in this supplied variant; Asim ibn Kulayb is only the named transmission narrator here."
+            }
+          ],
+          "exact_spans": [
+            [
+              79,
+              174
+            ],
+            [
+              193,
+              311
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 311,
+          "source_sha256": "55b5fbd6395bead3bab698806401371a1bb8a31445cbf915ff4a7d84c4bc83ec",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. It supplies two finite additions despite its relative-chain framing. Select the hand-placement action and, separately, the reported cold-weather observation; preserve their different subjects and attribution limits. The printed پہنچے wording is left exactly as supplied. Transmission bridges remain source context.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  77,
+                  167
+                ]
+              ],
+              "speaker_description": "The source’s person explicitly designated by the Prophetic salutation."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read all Urdu text independently. It supplies two finite additions despite its relative-chain framing. Select the hand-placement action and, separately, the reported cold-weather observation; preserve their different subjects and attribution limits. The printed پہنچے wording is left exactly as supplied. Transmission bridges remain source context.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  187,
+                  306
+                ]
+              ],
+              "speaker_description": "The unidentified first-person voice in the actual appended wording, without a borrowed ultimate narrator."
+            }
+          ],
+          "exact_spans": [
+            [
+              77,
+              167
+            ],
+            [
+              187,
+              306
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 306,
+          "source_sha256": "4eea511a17508090437baaa9f638f947ef25e342b3c9a794b3cd8044ecfde5ba",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 359,
+          "source_sha256": "abab01dc3c3d868ec3b9efc433db7a13635fa4b6483d91b4ba933d8196f7e4e7",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 440,
+          "source_sha256": "0cb844e33bc47f4734c6495f25c52f3e6d151cef112d30e16cb3ebc8217019e1",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:727",
+      "reading_note": "An explicitly abbreviated act places the right hand on the left, followed by a winter eyewitness detail. Keep the relative transmission and unnamed first-person witness qualified; do not invent the omitted preceding body or identify that witness from a neighboring occurrence.",
+      "source_record_sha256": "45594f46273e8671fea71b601fd7ebfad7384367a122386163481b1b7781642c"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 314,
+          "source_sha256": "959337c2f072c20bbec908256530ed655fe5d19936c657e319a20b9862f57406",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Waʾil reports seeing the Companions raise their hands inside their clothes during a winter visit. This is the Companions’ observed practice, not an explicit Prophetic command or endorsement. The causal parenthesis repeats the already supplied winter setting and remains explanatory context; keep the original defective रफा-यादें spelling unchanged.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  159
+                ],
+                [
+                  176,
+                  214
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr reporting the Companions’ observed prayer practice during his winter visit to the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              159
+            ],
+            [
+              176,
+              214
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 214,
+          "source_sha256": "2a766cd8a4029e39ea204db199ad747b7e6d6397c3abe0a3b0830037e47a29b2",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Urdu field independently. It gives Waʾil’s finite observation of the Companions’ hands raised inside their clothing in winter. Separate the redundant causal parenthesis, and do not transform the reported Companion practice into a separately asserted Prophetic endorsement.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  139
+                ],
+                [
+                  157,
+                  194
+                ]
+              ],
+              "speaker_description": "Waʾil ibn Hujr describing the Companions, with the Prophet mentioned as the person he visited."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              139
+            ],
+            [
+              157,
+              194
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 194,
+          "source_sha256": "601858d54b7de0c40f859fd810b2884fbad23737f41103f6fb1705fe4163cc6a",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 237,
+          "source_sha256": "5ac847e15dd8ce4ad18b2cda3c277087ae82da24d4392eb3df8c9bf4c1d31e15",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 124,
+          "source_sha256": "d5de3faa3d220e3da969317a640ce1468420444b7a8e6802d4b7aac33a445924",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:729",
+      "reading_note": "Wail reports the companions raising their hands beneath clothes during a winter visit. Preserve the Companion-practice subject; the Prophet is the person visited, not an invented direct speaker or issuer of a command.",
+      "source_record_sha256": "f838c757c9fa8a89b745d1495472ac1ccd5173f5c87b3f7deb08a57a92af2376"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 597,
+          "source_sha256": "94638aa1e4e21162bc8e7b1c036357ee141a165319cb298b56444376e6aa4e80",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Its initial transmission from Abu Humayd contains an actual finite addition about spreading the thighs and keeping the abdomen off them in prostration. The abbreviated field does not itself name the actor, so retain that qualification rather than importing the previous hadith. The entire later Abu Dawud/Ibn Mubarak passage concerns a chain, uncertain teacher identification and a reference to the report; it remains compiler/transmission context.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  167
+                ]
+              ],
+              "speaker_description": "Abu Humayd through Abbas ibn Sahl; the actor in this abbreviated prostration clause is not explicitly named within the field."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              167
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 553,
+          "source_sha256": "94a8e9e5d8b9ed95ccf097e7354c535879096fee3990e075fbd1ec8170bc3c9a",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The beginning supplies a real prostration-action clause despite its this-hadith framing. Select that finite report with an explicit unnamed-actor qualification. Abu Dawud’s remaining chain wording, Ibn Mubarak’s uncertainty and the repeated reference to an omitted report are source context, including their exact printed honorifics and names.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  143
+                ]
+              ],
+              "speaker_description": "Abu Humayd’s supplied report through Abbas ibn Sahl; the abbreviated clause’s actor remains unnamed here."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              143
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 495,
+          "source_sha256": "64a7158b35b55a6edd221ad312da3a3644432c3a27bd67cc7a945aa9f2f6759c",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 605,
+          "source_sha256": "998ef5b93b417935f4b1be3c03946a9369c8ca8d21b47538f1edab9193f7ba61",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 350,
+          "source_sha256": "0dfd51cb3f151d1d03018a2d4b7fff3a6ceb9b6cced6d21b9fa595ab012236dd",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:735",
+      "reading_note": "The first finite prostration detail is transmitted by Abbas from AbuHumayd, with its actor only relatively identified in these fields. The later IbnMubarak/Fulayh chain-memory discussion and similar-report pointer are apparatus. No missing actor name is supplied.",
+      "source_record_sha256": "5ca268d559ebe178cfac3b00f00e96a660935a5d86216d05c4ffcf6cab07c6e9"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 468,
+          "source_sha256": "c0124ffe72f20f337e2dd884a90a867fc81344e956e5954b3c16c52d83cec754",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field. Keep the earlier teaching, Saʿd’s own confirmation and the later instruction as three distinct attributed components, preserving the change in time and speaker. Separate the takbir label and redundant identification of my brother. The wording explaining the object of the final instruction is retained as part of Saʿd’s supplied report, not silently replaced with a reconstructed gesture or another edition.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  124
+                ],
+                [
+                  140,
+                  283
+                ]
+              ],
+              "speaker_description": "Ibn Masʿud recounting the Prophet teaching the earlier prayer action."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the entire Hindi field. Keep the earlier teaching, Saʿd’s own confirmation and the later instruction as three distinct attributed components, preserving the change in time and speaker. Separate the takbir label and redundant identification of my brother. The wording explaining the object of the final instruction is retained as part of Saʿd’s supplied report, not silently replaced with a reconstructed gesture or another edition.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  283,
+                  377
+                ],
+                [
+                  418,
+                  447
+                ]
+              ],
+              "speaker_description": "Saʿd ibn Abi Waqqas affirming Ibn Masʿud and describing their former practice."
+            },
+            {
+              "component_id": "report-3",
+              "reason": "Read the entire Hindi field. Keep the earlier teaching, Saʿd’s own confirmation and the later instruction as three distinct attributed components, preserving the change in time and speaker. Separate the takbir label and redundant identification of my brother. The wording explaining the object of the final instruction is retained as part of Saʿd’s supplied report, not silently replaced with a reconstructed gesture or another edition.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  447,
+                  550
+                ]
+              ],
+              "speaker_description": "Saʿd ibn Abi Waqqas reporting the later instruction to grasp the knees."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              124
+            ],
+            [
+              140,
+              283
+            ],
+            [
+              283,
+              377
+            ],
+            [
+              418,
+              447
+            ],
+            [
+              447,
+              550
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 550,
+          "source_sha256": "e9fce0efa3cf34677b34892cb8da099726bba1177a813422c532cba2f33e86bb",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. Its finite narrative first gives Ibn Masʿud’s account, then Saʿd’s confirmation and his report of a later instruction. Preserve those separate voices and the old/later distinction. Remove only the explicit takbir label and redundant Ibn Masʿud identification; retain the supplied object of the later instruction and every original source word outside those context spans.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  106
+                ],
+                [
+                  122,
+                  258
+                ]
+              ],
+              "speaker_description": "Ibn Masʿud describing the earlier taught prayer action."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the complete Urdu field independently. Its finite narrative first gives Ibn Masʿud’s account, then Saʿd’s confirmation and his report of a later instruction. Preserve those separate voices and the old/later distinction. Remove only the explicit takbir label and redundant Ibn Masʿud identification; retain the supplied object of the later instruction and every original source word outside those context spans.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  258,
+                  341
+                ],
+                [
+                  374,
+                  405
+                ]
+              ],
+              "speaker_description": "Saʿd ibn Abi Waqqas affirming the earlier practice."
+            },
+            {
+              "component_id": "report-3",
+              "reason": "Read the complete Urdu field independently. Its finite narrative first gives Ibn Masʿud’s account, then Saʿd’s confirmation and his report of a later instruction. Preserve those separate voices and the old/later distinction. Remove only the explicit takbir label and redundant Ibn Masʿud identification; retain the supplied object of the later instruction and every original source word outside those context spans.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  405,
+                  499
+                ]
+              ],
+              "speaker_description": "Saʿd reporting the later Prophetic instruction as supplied."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              106
+            ],
+            [
+              122,
+              258
+            ],
+            [
+              258,
+              341
+            ],
+            [
+              374,
+              405
+            ],
+            [
+              405,
+              499
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 499,
+          "source_sha256": "777cce5a31d482a9e039e31d81976e50f1cba4e9744a279a7ae1384cc53fe312",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 608,
+          "source_sha256": "51ea92c60b863800cfbfaffeb1f340d20f4d60236d9a27b1002ad8b8b24a6bdd",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 390,
+          "source_sha256": "2f23ef967bd196e1185efbf94c932648e9d7bfb239788f291f3e6f5ffb4cdb89",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:747",
+      "reading_note": "IbnMasud describes the earlier taught prayer act; Sad subsequently confirms it and reports the later knee-gripping instruction. Preserve both report stages and speakers. The supplied explanation of what the later command concerns must not be replaced by a guessed instruction.",
+      "source_record_sha256": "11f5ba169602534031fda2c68912c511199e9092398a2b2b7c999d1c73cb4b66"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 238,
+          "source_sha256": "3de842be0cf51f2bc254d93d7c0d3733a667bce28a5ebc69086df79bcfd3d05c",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It supplies a finite report of the Prophet raising his hands near his ears at the start of prayer and not repeating that action. Preserve its actual wording, including source spelling defects, without altering the printed variant or making an independent grading claim. No commentary span occurs in this field.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  171
+                ]
+              ],
+              "speaker_description": "Baraʾ as the source names the narrator of the Prophet’s prayer action."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              171
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 171,
+          "source_sha256": "522c74a682d546c3678870e7c4335abb03c5b956b994f17f7b02051f3f4462c0",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. Its complete statement about the initial hand-raising and subsequent nonrepetition is an attributed action report, with no appended compiler apparatus. Keep the whole supplied text and its variant without substituting another source’s account.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  162
+                ]
+              ],
+              "speaker_description": "Baraʾ reporting the Prophet’s stated prayer practice."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              162
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 162,
+          "source_sha256": "6d771f88ea6bf033413d0eefdcd89d32ddea7010edb4b77bc943ad527c19f1c2",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 193,
+          "source_sha256": "b80f69fb588a1f40bee9711607729d8e9532ec5c387657f559a93c66cbd06216",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 194,
+          "source_sha256": "0d95f275c076987dab4ad843db7aa828b5d8a19e2a6b8072fdd83fef38d954eb",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-abudawud:749",
+      "reading_note": "Bara reports raising hands near the ears at prayer opening and not repeating the act. Both languages have a complete supplied report; no authenticity decision or cross-version harmonization is made.",
+      "source_record_sha256": "aa6211504ebf05080775c1f6dda9db7dd1cdcd7edc1c22582bce1b9b305200ed"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 377,
+          "source_sha256": "414f7933379abd95a62113960c857ce9d9ac4835c07ec425e45b34107fe9a3a0",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It contains an actual narrated prayer setting and the Prophet’s supplied instruction to pray in the cooler time, with the printed explanation of severe heat. All wording belongs to the report; retain the whole field without replacing its theological source statement with commentary or a new explanation.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  250
+                ]
+              ],
+              "speaker_description": "Mughira ibn Shuʿba reporting the Prophet’s instruction after their midday prayer practice."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              250
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 250,
+          "source_sha256": "a9f0d3b28fcb8893a30147ff9770836f0f496ccac393276d593ec760e3d53930",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Urdu field independently. It supplies the midday Zuhr setting and the actual cooler-time instruction with its stated reason. No separate compiler tail, reference marker or lexical parenthesis is present; the entire field is selected under its own attribution.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  218
+                ]
+              ],
+              "speaker_description": "Mughira ibn Shuʿba as the source’s named narrator."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              218
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 218,
+          "source_sha256": "f88a87859f1788ff9841d4c4fe4ccb15c20fc2dc1715c3da56db3c79fb529a08",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 280,
+          "source_sha256": "1d871f226c775f5a5805296e2e801896c84ff695a9190ba908852834d3e55688",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 297,
+          "source_sha256": "fc8cf58d9101d0c2f299e214285f12f127e447c71b569d5dba402d8cff6adc87",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:680",
+      "reading_note": "Mughira reports noon prayer with the Prophet and the supplied instruction to delay until cooler. The explanation is part of the attributed statement; no modern advice is inferred.",
+      "source_record_sha256": "a7fb0fc1275c398f11a947d03d59952d7ec843dd927607a8399a01b350c786fd"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 554,
+          "source_sha256": "dd7bffd8aa40b84bf8dc3244436d50962d96089b308098d9ee9325e1b3edd52d",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field. The narration covers the delayed appearance for Isha, the worshippers’ waiting, and the Prophet’s consideration for weak and ill people. The parenthetic room referent is an added localization gloss; retain it separately. The actual reported sequence, waiting statement and conditional preference remain intact.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  129
+                ],
+                [
+                  139,
+                  393
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri recounting the Prophet’s Maghrib/Isha actions and speech."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              129
+            ],
+            [
+              139,
+              393
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 393,
+          "source_sha256": "8181b99e84431533aba728c897a8ea714f20ecee2f2cba7190526c831baf411f",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. It contains the full prayer-and-waiting report and the condition concerning weak and sick worshippers. Move only the explicit room-referent parenthesis to context; the finite narrative and conditional saying remain selected unchanged.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  114
+                ],
+                [
+                  125,
+                  380
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri reporting the prayer scene and the Prophet’s statement."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              114
+            ],
+            [
+              125,
+              380
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 380,
+          "source_sha256": "a8922b29f0693a246b5e54ebbcd48533349eeb906396ac93e01e62d217a831c1",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 452,
+          "source_sha256": "1b99924b4e363763b48e01a0e6f6991e9f02fd0df79d3e760c844a728b3f7009",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 435,
+          "source_sha256": "608e5e546c630cc781fb9f29e7514347931f8a29872a60a83c19e70180c2f3f1",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:693",
+      "reading_note": "AbuSaid describes delayed night prayer and the Prophet explanation about waiting, weaker people and illness. A chamber-origin parenthesis is explanatory context; preserve the complete source speech and its qualifying concern.",
+      "source_record_sha256": "bf50f06210893924ea513f25e09fb8408488ef4d1e02fe29ecea6e493ddfe75d"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 395,
+          "source_sha256": "9dd0fa6abda993b8a31318ea9801591fb17c7ef96eaebac34fb44ba8d4b5b10b",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Aisha reports not sleeping before Isha and not engaging in unnecessary conversation afterward. Retain the parenthetic without-need qualifier because it defines the conduct the supplied version denies; deleting it would broaden the assertion to all conversation. There is no separate reference glyph in this Hindi field.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  157
+                ]
+              ],
+              "speaker_description": "Aisha describing the Prophet’s conduct around Isha."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              157
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 157,
+          "source_sha256": "5285da8d55a8eba804094c258c7fc43366df0212a22cadcc4ce2887cccc4af12",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. Preserve the source’s actual negative conduct report and its without-necessity qualifier, which limits the statement. Separate only the numeric footnote glyph. Do not turn a qualified source claim into an unqualified ban on all conversation after Isha.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  137
+                ],
+                [
+                  139,
+                  140
+                ]
+              ],
+              "speaker_description": "Aisha as the source’s named narrator."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              137
+            ],
+            [
+              139,
+              140
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 140,
+          "source_sha256": "f12c895365b939992d9d31a771ee84904cc6af0fc48f50c647c825c26b60915b",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 175,
+          "source_sha256": "c33b6a6972a96f8cd375ef8fea922927fc0429f7b2911f7b7f4b01390351b393",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 120,
+          "source_sha256": "a78a9a7f6cf9394f52103110a7a760bb703832ce17653b541536cceedf3d3edd",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:702",
+      "reading_note": "Aisha reports not sleeping before isha or talking without need afterward. The no-need parentheses restrict the assertion and must remain. The Urdu trailing footnote glyph is apparatus.",
+      "source_record_sha256": "d520d8dc2488ebf396e06bfea004bb92b4a56d2047727fd5a97f605457f707f5"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 1417,
+          "source_sha256": "b71e3898030740d6a5fa64a991dd4a204cfce32cb14b19dc275cb7efb52fcfee",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field, including every repeated formula. The report names nineteen adhan and seventeen iqama phrases and actually supplies both sequences. The formula headings introduce the taught recitations within the narration; they are not outside commentary. Retain all repetitions, the source transliterations and the wording/count claims exactly, without normalizing a liturgical version from elsewhere.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  966
+                ]
+              ],
+              "speaker_description": "Abu Mahdhura reporting the adhan and iqama formulas taught by the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              966
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 966,
+          "source_sha256": "1dcf3b0ce90c781bddc6e3e67eada49f06af1fb5a517790f08a74b6cb0bb9808",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the full1978-character Urdu field independently, including both complete Arabic formula sequences and each supplied Urdu rendering. Its extra length is the actual recitation plus the source’s translation, not a compiler discussion to discard. Preserve every repetition and the source’s nineteen/seventeen claims; move only the final numeric footnote marker to context. No absent phrase is synthesized or corrected from the Hindi sibling.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  1976
+                ]
+              ],
+              "speaker_description": "Abu Mahdhura reporting the taught adhan and iqama, with the Urdu field’s own supplied meanings."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              1976
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 1978,
+          "source_sha256": "4d2830e6fd78422ff3b15d1987807ef847a79d500cd22cfccd51bcb404345549",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 1022,
+          "source_sha256": "96317dfbc6b98e9ad96accfeae07981441fa20f0f9b8b5d88fe35e1374d3fa6d",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 2354,
+          "source_sha256": "a2eed1b14e46ff36ddd59779128d32ef075839540465872ad4cd78da5a1a4271",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:709",
+      "reading_note": "AbuMahdhura reports the taught adhan/iqama counts and formulas. All exact repetitions in Hindi remain. Urdu independently contains complete Arabic formulas and full supplied Urdu translations, all read to the end and retained as actual quoted/translated recitation. Only the final footnote marker is apparatus; do not shorten Urdu to the Hindi length.",
+      "source_record_sha256": "fd59ad719c9bd65515b08d0f4e6c6545e80adb78352bd55fca479545bfbe250b"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 362,
+          "source_sha256": "7af7b0894b9ac6be43af9b0fedb1303d0463ce2d0c166ad49d37fc182eec5dfd",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Abu Juhayfa gives the camp setting and actually reports Bilal’s adhan, turning at the supplied call phrases, and finger placement. This is Bilal’s observed action, not a separate spoken instruction from the Prophet. Retain the complete timing clause around the two actually named adhan phrases as part of the supplied narrative action, rather than treating every parenthesis as a lexical gloss.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  358
+                ]
+              ],
+              "speaker_description": "Abu Juhayfa observing Bilal’s call to prayer at the Prophet’s camp."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              358
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 358,
+          "source_sha256": "71079fe340d290fb29de8fe15a80f2ab5b4f8c0622c095f29e79001150749d7d",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. Select the camp scene and Bilal’s reported calling, turning at the two supplied phrases and placing his fingers in his ears. The timing clause is an actual narrative qualification involving the named recitation, not a bibliographic locator. Separate the finger-identification parenthesis and numeric footnote glyph; do not create Prophetic speech or endorsement beyond the field.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  277
+                ],
+                [
+                  289,
+                  331
+                ],
+                [
+                  333,
+                  334
+                ]
+              ],
+              "speaker_description": "Abu Juhayfa reporting Bilal’s actions in the stated prayer-call scene."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              277
+            ],
+            [
+              289,
+              331
+            ],
+            [
+              333,
+              334
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 334,
+          "source_sha256": "fc51a0672c44fd4cab0a8f79077d2fb80364e1ff5885729fbebb7c9cbfeecc28",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 389,
+          "source_sha256": "e825a855e7a75d0882f22c5a60cbe9c3e1f7311ca5a63b8df9cc9801a6b17e34",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 229,
+          "source_sha256": "e3e00def08705e3879262e1b09c051c60bd12a042b2b400ecd037bd33246098e",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:711",
+      "reading_note": "AbuJuhayfa reports visiting the Prophet and witnessing Bilal call, turn and put fingers in his ears. The timing phrase quotes actual call words within the supplied report; do not turn these into an invented direct Prophetic instruction. Review lexical finger clarification separately from actual narrative details.",
+      "source_record_sha256": "7b95c2d794671cbda1da972dc9e99cd9a9488fe204c7d1d2ef7bf4a2d71943c8"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 281,
+          "source_sha256": "e89e896c7f9cdaeda5b2f6bb1ca7837d47a470838abeecbfc8d9f7698e2cafed",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Hindi field. It contains the actual instruction not to appoint a caller who takes payment for the adhan. The parenthetic money term merely explains remuneration and is context. Keep the narrator’s damaged printed spelling unchanged instead of silently repairing it from Urdu.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  166
+                ],
+                [
+                  172,
+                  181
+                ]
+              ],
+              "speaker_description": "The source’s Uthman ibn Abi al-As al-Thaqafi, with its original Hindi spelling, reporting the Prophet’s last instruction to him."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              166
+            ],
+            [
+              172,
+              181
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 181,
+          "source_sha256": "242a22b33b18fe1cf1ef9e85cba754163ef5619527feb0baa49e842c6f0d6f4b",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. The prohibition concerns appointing a muezzin who takes wages for the adhan; it is a finite supplied instruction with its narrator and no appended apparatus. Select the entire original field.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  162
+                ]
+              ],
+              "speaker_description": "Uthman ibn Abi al-As al-Thaqafi reporting the Prophet’s stated final instruction."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              162
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 162,
+          "source_sha256": "9d658ad5cce2d1976384c435527777b931a5c5e6fe4ea79b606ef0c70cafb009",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 206,
+          "source_sha256": "d8f11997010db741878b3b0f501e0fb9db2ebbc04394107ee2d4571caf9b3de6",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 191,
+          "source_sha256": "62ce844a2c1f79898c989fd951e92390e926e1054ee8b8793879daae00b80d2b",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:714",
+      "reading_note": "Uthman reports the final instruction concerning a muezzin taking wages. The Hindi money gloss is lexical context; preserve its damaged source spelling without harmonizing to Urdu.",
+      "source_record_sha256": "c1347e78a780ba9390956f4a0c3249983062a123320a0a3cc5b6bcfe5cd87524"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 326,
+          "source_sha256": "c81f75b9573179dd77b8f95a012e38f9a4d3c142e50eb52f384d4212afff1f9b",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It supplies the command concerning taswib in the Fajr adhan and prohibition concerning the Isha adhan. The source leaves the term itself unexplained here; retain it without inserting a definition or reconstructing words from a neighboring report. The complete field is eligible.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  187
+                ]
+              ],
+              "speaker_description": "Bilal reporting the Prophet’s contrasting instructions about the supplied taswib term."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              187
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 187,
+          "source_sha256": "a48d9ca4e145c39ee813991ed1a6e61f891fbde09046a057d4ecd2b76c30c208",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. The Fajr/Isha contrast and the literal taswib word are supplied quotation material. Move the two numeric footnote glyphs to context and do not supply absent explanatory footnote text or a new liturgical wording.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  106
+                ],
+                [
+                  108,
+                  169
+                ],
+                [
+                  171,
+                  172
+                ]
+              ],
+              "speaker_description": "Bilal as the source’s named narrator of the two instructions."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              106
+            ],
+            [
+              108,
+              169
+            ],
+            [
+              171,
+              172
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 172,
+          "source_sha256": "0c124ea481fd19befe445e412a9129a762bfe0dd2ab50ea756bbcd5c51f0627a",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 203,
+          "source_sha256": "3bf417f270a63df7dfa53464a0ecb6e9b10c53668940ff00c340d6a55d566580",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 156,
+          "source_sha256": "bf0a83cdab5746d36d76ced705feb47ebe2e2b9901806680d33c47c6be1389bf",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:715",
+      "reading_note": "Bilal reports the command to use the supplied taswib term in the dawn call and its prohibition in the night call. Do not expand that term from the next occurrence. Both Urdu footnote markers are apparatus.",
+      "source_record_sha256": "8dc7d0fb1b9008716b05eb78e5393a1d547cec7f95ae0522d1bb4a007a3ef674"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 406,
+          "source_sha256": "df87cee9de1770d2fa2108ea83f8a07ad183d6d96844552c057f2cb3ad473acf",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It supplies Bilal’s arrival, the report that the Prophet was asleep, the repeated spoken formula and its full Hindi meaning, and the statement that it remained in the Fajr adhan. Retain the parenthetic translation of the actual spoken formula. The final retention is passive in this field; do not invent an additional explicit approving speaker or instruction.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  378
+                ]
+              ],
+              "speaker_description": "The report transmitted from Bilal, describing his call while the Prophet was said to be asleep and the subsequent retention of those words."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              378
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 378,
+          "source_sha256": "f462aad17d3799c45e0d0e49e3329deea3ff0923650ee423f4af51f454ce2369",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The repeated Arabic formula and repeated Urdu meaning both belong to the supplied narrated utterance. The surrounding visit, sleeping notice and retained-Fajr-wording sequence are finite source text. Keep the full field without assigning an unstated actor to the passive adoption clause.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  337
+                ]
+              ],
+              "speaker_description": "The source’s report from Bilal, with the final adoption statement left in its supplied passive form."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              337
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 337,
+          "source_sha256": "e495d5fdc5e872c2dabd26e5a102d16742dd8eb43eb625299958062cdb8246dc",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 418,
+          "source_sha256": "a71b2d000ccc699bdc8d15330b793da4ce9935ca3982a357354bf5561d8e76c4",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 331,
+          "source_sha256": "e5b66ec1a0c02406edb95069b56d96fc508d89232ff4872fed7b9265365a8389",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:716",
+      "reading_note": "Bilal supplies the repeated prayer-is-better-than-sleep formula and the subsequent retained dawn-call practice. The complete Hindi parenthetic translation is the translation of actual spoken words and remains, as does the Urdu supplied translation.",
+      "source_record_sha256": "c54058bf7769e55f5c65ec58b86cb61d0a7e2070e80871a77fc6d85f1293c101"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 345,
+          "source_sha256": "01c8be3cdd98eb7acca8c570a2d0ce80b54c80ea9912bdf37cc1bf08479dba40",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The actual question and conditional answer about repeatedly watered gardens are spoken in Ibn Umar’s framing. Keep that body under his actual voice. The final explicit marfu-attribution sentence remains visible source context; it is not deleted or contradicted, but it does not convert the question-and-answer wording into direct Prophetic speech or establish a canonical identity.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  219
+                ]
+              ],
+              "speaker_description": "Ibn Umar answering the garden-prayer question; the source explicitly labels his report raised to the Prophet in its following attribution sentence."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              219
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 329,
+          "source_sha256": "3b74efc86a9d88a51d22b869bbc08568a5be7b35c036336287cdba9283801626",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. Select the actual garden question and Ibn Umar’s conditional response. Preserve the final raised-attribution notice in context and qualify the selected component with that source claim. Do not relabel Ibn Umar’s own narrative framing as a directly quoted Prophetic sentence.",
+              "report_type": "attributed_report",
+              "spans": [
+                [
+                  0,
+                  203
+                ]
+              ],
+              "speaker_description": "Ibn Umar giving the printed answer; the field then explicitly reports a marfu attribution to the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              203
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 295,
+          "source_sha256": "789bb52b151aa7d7d89707ddad0b0a4f0e5ffaddd7d3eb6333aadc1c4a4e44d5",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 358,
+          "source_sha256": "ecb98968c3370ba360ed2398a12277b3181820b4913ac1b6bf0c32aff4be76f0",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 199,
+          "source_sha256": "7b7fd0726b5b8b0dad6d6be84dc3044cf0e3974df5870d6229ea64adb527e089",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:744",
+      "reading_note": "IbnUmar answers about gardens irrigated repeatedly after excrement use, and the source expressly attributes his report upward to the Prophet. Preserve that source attribution and his own framing; do not claim the entire framing is a direct Prophetic quotation.",
+      "source_record_sha256": "8369d105b85957985d8e9ce21b67ab11b810947947c04504cca4bd608261ac9c"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 433,
+          "source_sha256": "340c44ee9acb21e2770b8609f438b1685d0eb9b4e148d8744d0c8ad7309f8b5d",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It gives the seven named places as the actual supplied prohibition list. The parenthetic slaughter-house synonym explains mazbah and is retained as context. Preserve the original list, count and spellings without combining it with another collection’s wording.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  148
+                ],
+                [
+                  159,
+                  236
+                ]
+              ],
+              "speaker_description": "Ibn Umar reporting the Prophet’s stated seven-place prohibition."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              148
+            ],
+            [
+              159,
+              236
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 236,
+          "source_sha256": "4a50f06eece95cc4c8a730e0367385d1bc5e2dcd05f987985740ea84fa2ecbd1",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The seven-place list is finite attributed report content. Separate only the explicit slaughter-house synonym after madhbah; preserve every listed location and the source’s statement of seven.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  126
+                ],
+                [
+                  139,
+                  210
+                ]
+              ],
+              "speaker_description": "Ibn Umar as the source’s named transmitter."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              126
+            ],
+            [
+              139,
+              210
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 210,
+          "source_sha256": "69a87cb3ab4d3f5cdd9d5dff1146f68547ca7b0cf832ce61b190c34a02e1c772",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 258,
+          "source_sha256": "301033001405ef40c470db74690afd0944db5efc572c2ac0d1f5fa8e8d9377e9",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 258,
+          "source_sha256": "d9bd9311ed2c44a8592a6f54fb6a73770c52c3d2d5105dc7c551ae78ef84a754",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-ibnmajah:746",
+      "reading_note": "IbnUmar transmits the seven-place prayer prohibition with the exact source list. Slaughterhouse explanatory parentheses are context; do not alter the seven listed sites.",
+      "source_record_sha256": "19eb8601d8c031255b95c63cd3da41afaedfc9a5df0aca86675a2d10d608615f"
+    },
+    {
+      "decision": "exclude",
+      "fields": [
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "hi",
+          "source_chars": 25,
+          "source_sha256": "8754b1ca68d502d3c321b94e0fc9f2344a1902a2deba4fbe781403d56d8b57e7",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur",
+          "source_chars": 23,
+          "source_sha256": "3f93b273cb46125730695b0ec09b32fa01cf5bb4807c09cc5de7d54a079ee745",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 29,
+          "source_sha256": "06bb021e2a573bf8b24bed8fd4984837f21580db7c9c011dc27c4f46555da7d5",
+          "status": "read_context"
+        }
+      ],
+      "id": "deenhindi-malik:684",
+      "reading_note": "Hindi, Urdu and Roman Urdu are explicit unavailable-report placeholders; Arabic and English are actually empty. All nonempty siblings were fully read. No body or translation is invented.",
+      "source_record_sha256": "9df77a80aa56b22ee6cd868fd6f96273ef6c9b82fca05d5fe092e6bd671d7121"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 336,
+          "source_sha256": "32b692813ef55051ab5ea902a62b3854796c553c8af31d58aa6db32887d37ebb",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It supplies the report of knowledge of Laylat al-Qadr being lost after two men made a disturbance, followed by the printed night list. Preserve the unusual twenty-first/twenty-third/twenty-fifth or twenty-ninth/twenty-seventh order exactly; do not normalize it or replace the source’s named narrator using another edition.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  275
+                ]
+              ],
+              "speaker_description": "Anas ibn Malik as this source names the narrator of the Prophet’s visit and saying."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              275
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 275,
+          "source_sha256": "3356b7e9329d824c2ad9de741f3b720954a89d0143788d746c870648b9068cf0",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. The coming-and-speaking report and its night sequence are complete own-field narration. Preserve the supplied order, including twenty-ninth before twenty-seventh, and the original name and statement without cross-edition corrections.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  238
+                ]
+              ],
+              "speaker_description": "Anas ibn Malik under the Urdu field’s actual printed attribution."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              238
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 238,
+          "source_sha256": "a05bd3687f3326451656e9d28786a4a52427e8a0cc63aaa97f543a98008acb1b",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 317,
+          "source_sha256": "c9a91c239f4cf6ce4a2dc0d277cb8ba4c833b34a8d0c46d138f7f371fec631e6",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 333,
+          "source_sha256": "b2a5fd471ced81594fa47713a67ca8820307c9f30abaed90a6ca5433007f6955",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-malik:701",
+      "reading_note": "The source names Anas and reports the lost knowledge of LaylatQadr, followed by the exact unusual night sequence21,23,25,29,27. Do not reorder numbers or replace its narrator from another edition.",
+      "source_record_sha256": "045d50f2b7756da13a55684375c77d5665c299d0f2efcba88473b9bbe9b93148"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 345,
+          "source_sha256": "15e778704f8d19cb12da3de2dc8bd3722510bb10c94d3cc424c7ce78c1472699",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Hindi field. The dyed-clothing prohibition and conditional instruction about footwear are both actually supplied. Separate the parenthetic sandal synonym after naʿlayn. Keep the saffron/wars wording, cutting condition and all original translation choices without adding missing chain members.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  205
+                ],
+                [
+                  212,
+                  272
+                ]
+              ],
+              "speaker_description": "Abdullah ibn Dinar transmitting the Prophet’s prohibition and conditional footwear instruction."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              205
+            ],
+            [
+              212,
+              272
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 272,
+          "source_sha256": "e8308266746d058f2aa35ff1c7128e0cab555ba4011983c03aab549efa60441e",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. It contains the prohibition on the named dyed clothing for a muhrim and the fallback footwear instruction with the ankle-cutting condition. No compiler tail or lexical parenthesis occurs; retain the whole field under its supplied attribution.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  236
+                ]
+              ],
+              "speaker_description": "Abdullah ibn Dinar as the printed transmitter of the Prophet’s statements."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              236
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 236,
+          "source_sha256": "643c2a3d0d43d9b0363161099f75e5d38838e087d09efd62a66d30b268892761",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 298,
+          "source_sha256": "7800c94d7366d7f9db1f71077cac88bba542fe96f69f563b727750606887dd79",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 351,
+          "source_sha256": "4275b0cc21120d944db9c58781532af0db4f5d62ccf8b24ac905f821ec9480b8",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-malik:713",
+      "reading_note": "The source names AbdullahibnDinar and reports clothing prohibitions plus the cut-below-ankle fallback. Do not insert a missing IbnUmar link. The Hindi sandal gloss is lexical context.",
+      "source_record_sha256": "b66f89270550c05600deba8fcba460ecf7b25b226ec43377636e6838cc754b95"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 292,
+          "source_sha256": "004e30e4b85cfbb79e6f7e6da04f298d4749c5c4789cc674c8a1da5128b6d5b7",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. Aisha supplies the two timing points, before entering ihram and on leaving it before tawaf al-ziyarah. Retain the source’s exact wording about perfuming the Prophet’s ihram; do not replace that expression with another language’s object or repair the printed name/spelling.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  196
+                ]
+              ],
+              "speaker_description": "Aisha reporting her own perfuming action in relation to the Prophet’s ihram."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              196
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 196,
+          "source_sha256": "9f60c2993b45dc492387441904b8ecdf17d362047b63b7468c7530cca966ef1b",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. It is a finite first-person report with the stated before/after-ihram and pre-tawaf timing. Keep the complete wording and its exact object as supplied; no external translation alignment or hidden correction is asserted.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  186
+                ]
+              ],
+              "speaker_description": "Aisha describing her perfuming practice in the Prophet’s ihram setting."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              186
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 186,
+          "source_sha256": "ca5f8deb5e9619a024a742ac16426e9d7a1383069fca1eea87f34cef49ac0e44",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 218,
+          "source_sha256": "0613b85603d425e63a945d03bcce217d6bb2cd9612bb1bd8e304dfd688f31ee0",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 342,
+          "source_sha256": "34511700e3ec34fd6de24d467559e284484601fd25fd447a1be00f2e2ecb7c4d",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-malik:723",
+      "reading_note": "Aisha reports perfuming before entering ihram and before the visitation circumambulation on leaving it. Preserve each language own wording about ihram, without silently translating the object differently.",
+      "source_record_sha256": "5abf1109ac0b10196fe5856b863d1fb3aa904b4c5d2a994d3237234ff0c32583"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 325,
+          "source_sha256": "7823381f85d4f2e0407b4773731fa3168fe6d157a29543bb11d8e123e9d8d451",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. This is Ibn Umar’s single corrective statement: the attribution about the open plain is explicitly called false, and he states that the talbiyah began by the Dhu al-Hulayfa mosque. Keep the rejecting words with the disputed claim so it is never presented as an affirmed Prophetic action. The correction is an actual Companion statement in the numbered source, not an editor’s detached explanation.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  0,
+                  316
+                ]
+              ],
+              "speaker_description": "Ibn Umar giving the correction heard by his son Salim."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              316
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 316,
+          "source_sha256": "3029e7651ec749d16a8a1ff9929832e887b1419c1a871a42069339f604c39988",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. Ibn Umar rejects the open-plain attribution and supplies the mosque location in one coherent corrective statement. Retain the complete correction and its explicit negation; do not extract the rejected clause as an affirmative report or manufacture a new canonical location mapping.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  0,
+                  261
+                ]
+              ],
+              "speaker_description": "Ibn Umar as heard by Salim ibn Abdullah."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              261
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 261,
+          "source_sha256": "69d07d25d5730bfde6472d45f3614f83a2f53a49885e6ae35bf692cf88a65f1c",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 342,
+          "source_sha256": "035bf70afbdbe2f2775e4454e7b473c8a6513bfb36b979c63da89b0d9c062a25",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 310,
+          "source_sha256": "6b3231b1490570b3c4afe755536d9d1e9b43540aff7cd7462ec2b74e0715c0ac",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-malik:735",
+      "reading_note": "Salim reports IbnUmar correcting a claim about the unnamed plain and describing talbiya by the DhulHulayfa mosque. Keep this as IbnUmar criticism with its attributed practice; do not supply a name for the plain.",
+      "source_record_sha256": "647b37b44d309b075189eea0f65c9a82597333da3792dbd5c4605c19f2e3af2b"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 589,
+          "source_sha256": "fa1a51950be73c53bf7069b09912469e7a6c191e8b863a339097c8ca462c47bb",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It gives the three types of ihram among the party, the source’s statement of the Prophet’s own type, and the distinct release times through the tenth. The entire sequence is narrated report text. Preserve the exact distinctions and date without reconciling them to another language or legal account.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  483
+                ]
+              ],
+              "speaker_description": "Aisha recounting the farewell-pilgrimage party and its supplied ihram distinctions."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              483
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 483,
+          "source_sha256": "df98ca60b21a87c8f8d358e2b95e4dcbd347167cfc340e9c3f9fcbba47be8562",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The whole field reports the party’s three ihram categories and when each group released ihram, including the stated tenth-date endpoint. There is no separate legal-commentary tail in this Urdu field. The longer unread English sibling remains context and does not supply extra clauses.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  445
+                ]
+              ],
+              "speaker_description": "Aisha as the Urdu field’s named narrator of the farewell pilgrimage."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              445
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 445,
+          "source_sha256": "dbe5bb8fee83a16c8623910026042f396bc640ebfa4ed9c0256f62443836c373",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 512,
+          "source_sha256": "3e444c16e20a8e2ec18b4c11b014fbf1c39f22eb5d7b100be4b0a43077b74d0f",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 1454,
+          "source_sha256": "35a81f36f9ac5845e6a2f4bf4d71e6bf5016cc15679118862a664e5116985d2c",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-malik:740",
+      "reading_note": "Aisha reports the farewell-pilgrimage group, three entry types, the source own hajj-only statement about the Prophet and the differing exit times. Preserve the source version without reconciling it to other versions.",
+      "source_record_sha256": "4aadef834bc2c58d8ee1a27bf5544cfa4472ff0f892c9fc0b2ddbac786450041"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 1010,
+          "source_sha256": "9f853fd0cbd29cee422e295ee0e6b2498121031d4fe8f2fc376825d6864feb92",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The meal invitation and fasting response culminate in Ammar’s own statement about disobeying Abul-Qasim on a doubtful day. It is an attributed Companion statement, not direct Prophetic speech. Separate the explanatory moon-sighting parenthesis and the entire later Tirmidhi grading, other-report references and legal discussion. Preserve the source’s actual statement and criticism without converting the compiler’s legal opinions into narration.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  0,
+                  290
+                ],
+                [
+                  324,
+                  383
+                ]
+              ],
+              "speaker_description": "Ammar ibn Yasir in the meal scene narrated by Silah ibn Zufar."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              290
+            ],
+            [
+              324,
+              383
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 903,
+          "source_sha256": "312ab2b7c868c0da232a7ad0dee1f1f94b8a94c5f4ccd98994f2f9ec03bd0375",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. Retain the complete narrated meal exchange and Ammar’s own assertion, with its actual speaker. The footnote plus parenthetic moon-sighting explanation is apparatus. The compiler’s numbered grading, cross-references and fasting/qada opinions, including its repeated explanatory parenthesis, remain entirely source context.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  0,
+                  265
+                ],
+                [
+                  303,
+                  355
+                ]
+              ],
+              "speaker_description": "Ammar ibn Yasir as reported by Silah ibn Zufar."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              265
+            ],
+            [
+              303,
+              355
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 869,
+          "source_sha256": "9578c33ea228e76d6be07cdaccb58f5cdc23cc1cfc05219610086bc90015ec50",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 968,
+          "source_sha256": "5da1e9c20e58841f00ab27d02da7938f77810f9c45ec8c7a441c78f2d3bf0299",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 255,
+          "source_sha256": "41f5ce40ab19c9febae02fe767d51a15c66c290fed2a075d70314cfa9a449b10",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:686",
+      "reading_note": "Sila describes a meal and Ammar saying a person fasting on the doubtful day disobeyed AbuQasim. Ammar is the actual speaker. Subsequent grading, other-report references and legal practice are compiler context; the Urdu footnote glyph is apparatus.",
+      "source_record_sha256": "38f41183d87f6b6e207c25dbff3821756713a09759cd5cc25ee1b2a820ddd50e"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 382,
+          "source_sha256": "1074cd7a4da5ab9c3699b609808499e38fb1160e971d2ce7cedc04b86ac066fc",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The ila-definition is an explanatory gloss and the final grade is compiler context. Retain the parenthetic return to his wives because it is supplied narrative action. Retain the word भी inside the month-length saying: removing also would change the source’s possible29-day month into an unqualified always29 assertion. Keep the source’s numeral and दीन spelling exactly.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  117
+                ],
+                [
+                  159,
+                  345
+                ]
+              ],
+              "speaker_description": "Anas recounting the Prophet’s month-long withdrawal and answer about the month’s length."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              117
+            ],
+            [
+              159,
+              345
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 389,
+          "source_sha256": "03fe1024428243b535c963677f1426cf73bf99376a74e4ba9f8c0aee05819da1",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. Separate the ila-definition and Tirmidhi’s grading tail. The return-to-wives parenthesis is an actual action in the narrated sequence; the parenthetic بھی limits the statement to a month also being29 days. Preserve both, along with the explicit29-day count, rather than applying a blanket parenthesis rule.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  101
+                ],
+                [
+                  145,
+                  340
+                ]
+              ],
+              "speaker_description": "Anas as the source’s narrator of the withdrawal, return and Prophet’s reply."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              101
+            ],
+            [
+              145,
+              340
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 381,
+          "source_sha256": "f3b5511bdfda6f3b0c1c2c719b76aa6374f25f0d881f47e0969ae08a43e0e994",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 433,
+          "source_sha256": "77c4801dc50844eca899fe56e4f70ee22eee8fda43e7432d51f46e4dd0476600",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 236,
+          "source_sha256": "ce3e00c88ce22788cafa9369a6bb7122b080bf69ffab1fa09f6a208e2dbc745f",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:690",
+      "reading_note": "Anas reports a one-month ila, a 29-day stay and subsequent dialogue. The ila definition is lexical context. The parenthetic return to the wives is supplied narrative action, and the also qualifier preserves the can-be-29 scope. Compiler grading is separate.",
+      "source_record_sha256": "4f988d254baa96ff2d1bff47ce59e227c7fd38b2625ee841013446ce60214abb"
+    },
+    {
+      "decision": "exclude",
+      "fields": [
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 205,
+          "source_sha256": "3d5c06da628bff47a76d62026326671cd70ff2073ad00bfc0286fc0eac33e1d4",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "hi",
+          "source_chars": 83,
+          "source_sha256": "5fc0848f2c0ffb1e2def2754407f29effdcba25d6719c8cffea74f80dbadfb80",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur",
+          "source_chars": 82,
+          "source_sha256": "5cc6bab7b2ee89467fdccc4b6cff1ab3ddd39d400a444ae8c9f74c13ce705f48",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 102,
+          "source_sha256": "91f3549433714d4953b15f69f7f6e3feec0770c2d5fadd0d716fc696670792bc",
+          "status": "read_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 75,
+          "source_sha256": "d7f4f57b92488bada85267a2adad893ec5f75f6a97078120d1564b96cef41b71",
+          "status": "read_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:701",
+      "reading_note": "All five complete fields are chain/similar-to-700 pointers and grading, without an actual report body. The English narrator name does not supply a missing matn. Preserve as source-only.",
+      "source_record_sha256": "14527f5824b0ec834bc2161c8e1de1e7a209ab6d26a31e44cbb95a3db6aaa2dd"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 762,
+          "source_sha256": "8b339b64a42883ab0be4b893e3c9697a78e920d50064e398608dacf214f42dc5",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The question about the two Companions, identification of Ibn Masʿud and Abu Musa, and Aisha’s explicit description of the Prophet’s practice form the actual narrated dialogue. Keep its own framing and speaker changes. Tirmidhi’s grade and discussion of Abu Atiyya’s name are compiler context, not another narrated saying.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  495
+                ]
+              ],
+              "speaker_description": "Abu Atiyya recounting his and Masruq’s dialogue with Aisha, who reports the Prophet’s practice."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              495
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 668,
+          "source_sha256": "f94c0a30638285717211a583b72693231983de2fc2d66ac357972833d91e518f",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. Retain the actual two-Companion question and Aisha’s practice report, including both supplied identifications. Separate the two footnote glyphs and the final compiler grade/name-identification discussion. No missing prayer detail is supplied from the footnote markers.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  181
+                ],
+                [
+                  183,
+                  265
+                ],
+                [
+                  267,
+                  468
+                ]
+              ],
+              "speaker_description": "Abu Atiyya reporting the dialogue and Aisha’s statement about the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              181
+            ],
+            [
+              183,
+              265
+            ],
+            [
+              267,
+              468
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 631,
+          "source_sha256": "3d28b218b1a3699fcb1b604932e530a2121698b995045bd0636565752e6647e7",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 732,
+          "source_sha256": "3fdcb13a051bcbd34f6f34edbedf23f3e719bcdaaf24dac2d661dd1088bcee3d",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 485,
+          "source_sha256": "f52e3bce61a171e678d01dd5af4e9ab6fb6a7aa5e02cd899aacbf0ed60bae639",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:702",
+      "reading_note": "AbuAtiyya and Masruq ask Aisha about two companions; she confirms the Prophet followed the early breaking/prayer practice. Keep the complete dialogue and own source names. Urdu footnote references and later grading/name-variant explanation are context.",
+      "source_record_sha256": "5ef408e1d19e7967877d319ad80204d6ddf0a351d95b384675bc23ad12a487ef"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 328,
+          "source_sha256": "87ea2054165b7a1b4c587ea9eb2df1a030521af4289771e32be599405e9d9502",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Hindi field. Unlike a bare similar-report pointer, it actually quotes the bounded duration fragment as much as reading fifty verses. Retain that actual abbreviated wording as a fragment, without reconstructing the missing event, interval or chain. The relative introduction and the complete grading/cross-reference/legal tail remain context.",
+              "report_type": "attributed_narration_fragment",
+              "spans": [
+                [
+                  61,
+                  91
+                ]
+              ],
+              "speaker_description": "The duration wording supplied through Hisham; the compiler names Zayd ibn Thabit’s report, while the fragment itself leaves its setting unstated."
+            }
+          ],
+          "exact_spans": [
+            [
+              61,
+              91
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 330,
+          "source_sha256": "17d72257c6b2aad43a5f4548133c13cb530fda958ff70c6f7fa4e59c444981f7",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Urdu field independently. The supplied fifty-verse reading-duration phrase is an actual quoted fragment and may be selected with its missing-setting qualification. Keep the source’s number fifty as report content. Do not turn the compiler’s later preference for delayed suhur into an invented full narration; that entire tail and the relative-chain introduction are context.",
+              "report_type": "attributed_narration_fragment",
+              "spans": [
+                [
+                  59,
+                  89
+                ]
+              ],
+              "speaker_description": "The actual duration fragment in the Hisham transmission, with Zayd ibn Thabit named only by the following compiler attribution."
+            }
+          ],
+          "exact_spans": [
+            [
+              59,
+              89
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 304,
+          "source_sha256": "23940039c0be512de5a7763990fb94540966b4776695162b28b7743625b31d12",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 370,
+          "source_sha256": "2fbd706461a80e78ab2c766b3fae6165eeab8af3c52622b3ab02c4a7a8a52a2c",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 106,
+          "source_sha256": "e6f5195d352649fd2686d83cdf66ea0dd5970a481f5b647e2d1d1448ace8fdf1",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:704",
+      "reading_note": "The source explicitly quotes the abbreviated quantity phrase for reciting fifty verses. It is actual supplied wording, not a bare pointer. Do not invent its omitted question, event or interval. Subsequent grading, other-source pointer and juristic application are context.",
+      "source_record_sha256": "9cc991b064a06ed776eeb34acc5586a084bcf739d3c24b890dc3f43bd89ff17b"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 390,
+          "source_sha256": "64988177768030dd5850b885f87cc27508a8c6fc10dbe48c4fdaca5ce603ad97",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. This version explicitly says the Prophet did not object to either fasting or nonfasting while they travelled in Ramadan. Select that actual described response, preserving the source’s spelling, and separate Tirmidhi’s final grade. Do not replace it with the different Companion-practice wording in713.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  210
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri reporting the Prophet’s actual lack of objection during Ramadan travel."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              210
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 254,
+          "source_sha256": "45c0d2991432b48f049805370a293f98bb119f65ff571182cfb8e5714b789df6",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. The own-field subject of the nonobjection is the Prophet, and both fasting choices are explicitly included. Retain that finite report; the final hasan-sahih sentence is compiler grading context.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  204
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri as the source narrator of the Prophet’s nonobjection."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              204
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 245,
+          "source_sha256": "50942b4328ae01dd75cc5577991dc207ac01ed54fe7f4a2a1596c2a791b7bc3c",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 297,
+          "source_sha256": "62b51bfc027b8753651e8b239ba83f23daf9ebdffef515479deae20c6dcdacc0",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 210,
+          "source_sha256": "c5f817fde3fc4ffd52ccb43439332c5117f6e30b1756fb68731a43b521eafe4d",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:712",
+      "reading_note": "AbuSaid explicitly reports the Prophet not objecting to either fasting or not fasting during Ramadan travel. Keep that attribution separate from the compiler grade.",
+      "source_record_sha256": "b6f43183320f484474027baf6b58352a3acb9142511e55e349da25ed55fc1dad"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 606,
+          "source_sha256": "67687b6de96b310a6edc923955d99c9164d5f700ebcfa8b16b273a828a6f9124",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It describes the Companions not reproaching each other and their judgment about fasting with strength or not fasting with weakness. The Prophet is named in the travel setting, but this field does not make him the speaker of their judgment or explicitly report his endorsement. Select the actual Companion report and retain the compiler grade separately.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  367
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri reporting the travelling Companions’ conduct and judgment."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              367
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 411,
+          "source_sha256": "b3de02fe5b9d56aa91587a656ca0716e671bd8e498fc23fffd9a4e8a9431ea46",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the whole Urdu field independently. The nonreproach and strength/weakness assessment are attributed to the travelling group. Keep that actual attribution and all supplied conditions; do not silently transfer the explicit Prophetic nonobjection of712 into this different field. The final grading sentence remains context.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  0,
+                  359
+                ]
+              ],
+              "speaker_description": "Abu Saʿid al-Khudri describing the Companions’ own practice and assessment."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              359
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 400,
+          "source_sha256": "874c3545af6e066dbcfc709a2bab36a79f968f97cff5d7646870ee81a2928bcd",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 474,
+          "source_sha256": "434317e5504d84084edbf06b7a306b9ce9ec3016d524a5594b87402751100ebe",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 395,
+          "source_sha256": "9839a9e64cd3a905427d9991acd083e9d8634bc6fc8044b825e34bc44f28e383",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:713",
+      "reading_note": "AbuSaid describes companions traveling with the Prophet, their mutual lack of criticism, and their own judgment about strength/weakness. These are the companions practice and assessment, not newly manufactured direct Prophetic speech.",
+      "source_record_sha256": "ec279ddbed74bad31def89c4643c5f6d8b7eeb43412d3f375acdf0aff6cc461f"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 538,
+          "source_sha256": "e2921de2cce39cf81de4159b122ab4535494627385cfd6246f908ac7ee9ff32c",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. The offered drink, Umm Hani’s request for forgiveness, the qada-fast question and the supplied answer are one narrated exchange. Preserve the exact conditional dialogue rather than reducing it to a universal legal claim. The final references to other narrators are compiler context.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  516
+                ]
+              ],
+              "speaker_description": "Umm Hani recounting her drink, broken fast and dialogue with the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              516
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 631,
+          "source_sha256": "50601c236a9a578262fcb52dbf70e8d458720c0b65e06c7c87ec31f2ff891f26",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read all Urdu text independently. Select the complete drink/fast exchange and its explicit qada question and answer. Keep the compiler’s other-report references separate; no missing parallel report is added.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  493
+                ]
+              ],
+              "speaker_description": "Umm Hani as the source’s first-person narrator of the exchange."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              493
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 599,
+          "source_sha256": "873b3fab6e5054ecf38e11b9a1449062eaf0dd6c10f1a0de17b4362196d0257f",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 692,
+          "source_sha256": "438425ae02908197faffb1dc07144e654772d50ec0c8f0b053460595452dc916",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 393,
+          "source_sha256": "7470806d307ba28fb31a7077d11d5ce9562a72d1bb6141d54aca797272f2d962",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:731",
+      "reading_note": "UmmHani supplies a complete drinking/voluntary-fast dialogue with the Prophet. The following compiler reference to other reports is context, without importing any of those reports.",
+      "source_record_sha256": "90a47d15f759f23e9577e37ecbec4c263899806f902d5fa7e3732c2a1356d492"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 314,
+          "source_sha256": "dc7cece4cb579f43494ae6066093d4cf114385479a2af2432972a35fdcc19ce4",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field. The visit, question, negative answer and statement of fasting are supplied narration. The parenthetic food-object explanation is a lexical clarification of something, and is retained as source context; the actual dialogue remains exact.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  147
+                ],
+                [
+                  156,
+                  225
+                ]
+              ],
+              "speaker_description": "Aisha recounting the Prophet’s question and stated fast."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              147
+            ],
+            [
+              156,
+              225
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 225,
+          "source_sha256": "1cee361a0afb80db9288d6dfee167090b00975a28d77899cd63e8406f90de016",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. It gives the actual question about having something and the response leading to the fasting statement. Separate only the parenthetic food-object gloss. Do not insert any further rule or commentary into the concise exchange.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  131
+                ],
+                [
+                  143,
+                  208
+                ]
+              ],
+              "speaker_description": "Aisha reporting the short dialogue with the Prophet."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              131
+            ],
+            [
+              143,
+              208
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 208,
+          "source_sha256": "f1fd7afc548601d77e8e887c4e6e866cdcad4f31e5fe2561570c263015b38aca",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 245,
+          "source_sha256": "def91dd9dc7e8ec6eb089106e1c5253055b7695b2e9f7e73eeda6839434924a4",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 186,
+          "source_sha256": "ea680b1a6535eb5a5f971c52beab0a7c91d06c7468399cd1a9e70669d3a7035a",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:733",
+      "reading_note": "Aisha reports the question about something to eat, her negative answer and the Prophet saying he is fasting. Do not add a later meal or any unprinted continuation.",
+      "source_record_sha256": "492eea74094581e1d70082fbb0013ecc93663a750379d65ffafc668ca46d7acb"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 1589,
+          "source_sha256": "58eba51839d736aa04bd829f10efc8e34bea9ecde6a095d43d53f1cc10ef5c47",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the full1325-character Hindi field. The food, Hafsa’s quicker question and the qada answer are the actual narration. Aisha’s father’s-daughter aside belongs to her own reported telling and remains selected. The long Tirmidhi tail concerns competing chains, Zuhri’s hearing and scholarly legal conclusions; retain it all as context, with its criticism visible and no change to the source-declared grade.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  459
+                ]
+              ],
+              "speaker_description": "Aisha narrating her and Hafsa’s broken fast and the Prophet’s answer."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              459
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 1325,
+          "source_sha256": "13229a11f62f20598377417a915b21b9b0451a0658388cac06c80b8049d3ec88",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire1271-character Urdu field independently. Preserve the complete narrated exchange and Aisha’s actual father’s-daughter aside. Separate the full compiler discussion of transmission, hearing and legal opinion, including its numeric footnote glyph. These scholarly statements do not become additional narrated matn.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  447
+                ]
+              ],
+              "speaker_description": "Aisha’s own narrative voice, including her aside about Hafsa, and the Prophet’s supplied reply."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              447
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 1271,
+          "source_sha256": "55cadf57f33ed1ce4777b820526892c5e93cd5b89741f4406d1cbc1d078e2cc4",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 1460,
+          "source_sha256": "71c82ec0f1e0a03c3a7a349d435754d9143a1ec1c476886ade6bcc43c943b526",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 392,
+          "source_sha256": "3b178d3a8b92494bf7c04459af7decbbdd2692edf4d7bf7731f7d11d9fd808ea",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:735",
+      "reading_note": "Aisha/Hafsa meal and make-up-fast dialogue is a complete numbered report. The father-daughter aside belongs to Aisha narrative. The subsequent long isnad-criticism conversation and legal opinions are compiler apparatus, not further numbered events.",
+      "source_record_sha256": "1924e37f7caabf012435c53f915b77d411eabb6dd0f62ca7bb5c2c4cb8733737"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 954,
+          "source_sha256": "867fc3a221d0e8db8b2128ea2ee3b8879a4b53472b1a6de91a85141207cc7e73",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Hindi field. It contains the missing-at-night scene and dialogue, then the statement only through descent to the lower sky. The quotation is visibly truncated and runs into damaged compiler text; keep that exact ending without inventing a closing clause or punctuation. The search-purpose parenthesis is explanatory context. Preserve the entire damaged Tirmidhi/Bukhari-criticism and hearing discussion in context. In particular, do not fill the Urdu forgiveness clause into this Hindi version.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  122
+                ],
+                [
+                  138,
+                  453
+                ]
+              ],
+              "speaker_description": "Aisha recounting the night scene and the actually supplied portion of the Prophet’s statement."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              122
+            ],
+            [
+              138,
+              453
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 741,
+          "source_sha256": "9bc755d02648e9c2743bfe839a20f6ddc055c1b4f058fc1bb2a0dfb39fb5b630",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the full822-character Urdu field independently. This field actually supplies the descent clause and the further forgiveness comparison, so both remain selected in its own version. Remove the search-purpose gloss and footnote marker; preserve the subsequent Tirmidhi/Bukhari weakening and missing-hearing discussion as source context. The source criticism and longer Urdu wording remain visible without repairing or claiming completeness for Hindi.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  109
+                ],
+                [
+                  127,
+                  385
+                ],
+                [
+                  387,
+                  508
+                ]
+              ],
+              "speaker_description": "Aisha reporting the source’s full Urdu night-scene dialogue and statement."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              109
+            ],
+            [
+              127,
+              385
+            ],
+            [
+              387,
+              508
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 822,
+          "source_sha256": "db46ea30935e379efe7635223d2f0eae685bb53142d28a701351d8a7f0ea93ca",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 981,
+          "source_sha256": "29d4ecce0bb67ea4206cc2528b8fded621ce499903f51fd9887b20e14cf1c96c",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 473,
+          "source_sha256": "93bdce333dd5641a8b2bd0476455b72fdcc18e7bd59efc8713ae69f1c31fe41a",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:739",
+      "reading_note": "Hindi stops within the quoted descent-to-the-lower-sky statement before damaged compiler text; Urdu independently supplies the further forgiveness clause. Preserve the language mismatch, source spelling, and own truncation. Do not fill Hindi from Urdu; the Urdu footnote reference and final grading/transmission discussion are context.",
+      "source_record_sha256": "f5c63cfcbccd491ca090dd333f4f12c8ae9e6904f8246fca088f54a060a30a82"
+    },
+    {
+      "decision": "register",
+      "fields": [
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ar",
+          "source_chars": 677,
+          "source_sha256": "9f7588af0d236fb9d54de9af49b4e5d53ed7741b0449b16a431db04fe68bede3",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the entire Hindi field. Separate the Prophet’s observed practice, the three Companions’ practices and Ibn Umar’s own qualified statement as distinct components. His neither-command-nor-prohibition clause must stay with his practice. The repeated location parenthesis is a referent gloss because Arafat is already explicit in the opening. Tirmidhi’s grade and chain/name discussion remain context.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  230
+                ]
+              ],
+              "speaker_description": "Ibn Umar reporting that the Prophet did not fast during the stated Arafat pilgrimage scene."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the entire Hindi field. Separate the Prophet’s observed practice, the three Companions’ practices and Ibn Umar’s own qualified statement as distinct components. His neither-command-nor-prohibition clause must stay with his practice. The repeated location parenthesis is a referent gloss because Arafat is already explicit in the opening. Tirmidhi’s grade and chain/name discussion remain context.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  230,
+                  383
+                ]
+              ],
+              "speaker_description": "Ibn Umar recounting the separate practices of Abu Bakr, Umar and Uthman."
+            },
+            {
+              "component_id": "report-3",
+              "reason": "Read the entire Hindi field. Separate the Prophet’s observed practice, the three Companions’ practices and Ibn Umar’s own qualified statement as distinct components. His neither-command-nor-prohibition clause must stay with his practice. The repeated location parenthesis is a referent gloss because Arafat is already explicit in the opening. Tirmidhi’s grade and chain/name discussion remain context.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  383,
+                  397
+                ],
+                [
+                  414,
+                  499
+                ]
+              ],
+              "speaker_description": "Ibn Umar giving his own practice and explicitly neither commanding nor prohibiting it."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              230
+            ],
+            [
+              230,
+              383
+            ],
+            [
+              383,
+              397
+            ],
+            [
+              414,
+              499
+            ]
+          ],
+          "language": "hi",
+          "source_chars": 681,
+          "source_sha256": "e9bbb29187a2d5ad3ff0c730e50ac21052752703c16a4cb9904c82942dc97aaf",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": true,
+          "components": [
+            {
+              "component_id": "report-1",
+              "reason": "Read the complete Urdu field independently. Retain the temporal and speaker distinctions across the Prophet, the three Companions and Ibn Umar’s personal position. Keep the explicit noncommand/nonprohibition qualifier. Separate the redundant place clarification and the compiler’s final grading/transmission discussion; preserve the source’s original honorifics.",
+              "report_type": "prophetic_report",
+              "spans": [
+                [
+                  0,
+                  206
+                ]
+              ],
+              "speaker_description": "Ibn Umar recounting the Prophet’s action in the stated Arafat scene."
+            },
+            {
+              "component_id": "report-2",
+              "reason": "Read the complete Urdu field independently. Retain the temporal and speaker distinctions across the Prophet, the three Companions and Ibn Umar’s personal position. Keep the explicit noncommand/nonprohibition qualifier. Separate the redundant place clarification and the compiler’s final grading/transmission discussion; preserve the source’s original honorifics.",
+              "report_type": "companion_report",
+              "spans": [
+                [
+                  206,
+                  358
+                ]
+              ],
+              "speaker_description": "Ibn Umar separately reporting Abu Bakr, Umar and Uthman."
+            },
+            {
+              "component_id": "report-3",
+              "reason": "Read the complete Urdu field independently. Retain the temporal and speaker distinctions across the Prophet, the three Companions and Ibn Umar’s personal position. Keep the explicit noncommand/nonprohibition qualifier. Separate the redundant place clarification and the compiler’s final grading/transmission discussion; preserve the source’s original honorifics.",
+              "report_type": "companion_statement",
+              "spans": [
+                [
+                  358,
+                  372
+                ],
+                [
+                  390,
+                  474
+                ]
+              ],
+              "speaker_description": "Ibn Umar stating his own nonfasting practice without commanding or prohibiting others."
+            }
+          ],
+          "exact_spans": [
+            [
+              0,
+              206
+            ],
+            [
+              206,
+              358
+            ],
+            [
+              358,
+              372
+            ],
+            [
+              390,
+              474
+            ]
+          ],
+          "language": "ur",
+          "source_chars": 643,
+          "source_sha256": "3d6be72aeb7be3d19a5950cfa31ed70155e2db987760d488aceaec1a1a567160",
+          "status": "admitted"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "ur-Latn",
+          "source_chars": 748,
+          "source_sha256": "ee4181f387454252fb86c6975966b501e771a442ecc75153d99ad271de1149f8",
+          "status": "unread_context"
+        },
+        {
+          "complete_second_reading": false,
+          "components": [],
+          "exact_spans": [],
+          "language": "en",
+          "source_chars": 351,
+          "source_sha256": "0c73eec6205f95c0d07f51c66acab7221ae0060611ec07eaa2c38b83ebe645e5",
+          "status": "unread_context"
+        }
+      ],
+      "id": "deenhindi-tirmidhi:751",
+      "reading_note": "IbnUmar reports nonfasting at Arafat with the Prophet and three named caliphs, then states his own practice without commanding or forbidding. Keep location/scope and all actual speakers distinct; the following chain/name discussion is context.",
+      "source_record_sha256": "9859c6c65bbf59906938f5a2d24df64786a80c0ccb1b9b013725c84535b94cc5"
+    }
+  ],
+  "reviewer": "/root",
+  "schema": "hadith-bank-checkpoint59ce-root40-independent-final-audit-v1",
+  "source_checkpoint": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "source_http_requests": 0,
+  "source_pairs_independently_reopened_and_reparsed": 40,
+  "status": "PASS",
+  "whole_formula_translation_and_negative_corrective_report_preserved": true
+}

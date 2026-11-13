@@ -1,0 +1,765 @@
+{
+  "records": [
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "Complete Arabic reading: haddathana Abu Nuaym, an Sufyan, an Abi Ishaq, nahwahu bihadha. This is solely a chain and similarity pointer."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "The entire English field reads Narrated Abu Is-haq: As above; no quotation body is present."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "Complete Hindi reading: Abu Nuaym, Sufyan and Abu Ishaq, then isi tarah / mazkoora bala. It supplies only chain and comparison pointer."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "Complete Urdu reading: Abu Nuaym through Sufyan and Abu Ishaq, followed by isi tarah and the preceding-hadith pointer. No report body."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "Complete Roman Urdu field repeats the same three-person chain and isi tarah (mazkoora bala hadith ki tarah), without a report body."
+        }
+      },
+      "key": "bukhari:690.2",
+      "reason": "All five complete own-language fields were read. Each contains a transmission chain or an as-above pointer, with no report body. The decimal identity remains distinct; no body is borrowed from690 or any parallel."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "reason": "Read the entire Hindi field. It contains Uthman’s answer about praying behind the appointed rebel imam, then a separately transmitted actual statement of al-Zuhri about a eunuch imam. The opening complaint and siege framing are damaged/abridged in this Hindi source; they are not completed from Urdu. Admit both actual attributed statements under separate speakers, not as Prophetic quotations.",
+          "spans": [
+            {
+              "component_id": "uthman-answer",
+              "from": null,
+              "report_type": "companion_historical_dialogue_and_instruction",
+              "speaker": "Ubaydullah ibn Adi reporting his question to Uthman and Uthman’s answer",
+              "to": "और मुहम्मद बिन यज़ीद ज़ुबैदि ने कहा"
+            },
+            {
+              "component_id": "zuhri-statement",
+              "from": "और मुहम्मद बिन यज़ीद ज़ुबैदि ने कहा",
+              "report_type": "scholarly_statement",
+              "speaker": "Muhammad ibn Yazid al-Zubaydi transmitting al-Zuhri’s stated view",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "reason": "Read the entire Urdu field. Ubaydullah describes Uthman surrounded by rebels and asks about their imam; Uthman answers to join their good acts and avoid their bad acts. The final Muhammad ibn Yazid/al-Zuhri statement is an actual separately attributed scholarly saying, preserved as a second component. Do not turn either into speech of the Prophet.",
+          "spans": [
+            {
+              "component_id": "uthman-answer",
+              "from": null,
+              "report_type": "companion_historical_dialogue_and_instruction",
+              "speaker": "Ubaydullah ibn Adi reporting his question to Uthman and Uthman’s answer",
+              "to": "اور محمد بن یزید زبیدی نے کہا"
+            },
+            {
+              "component_id": "zuhri-statement",
+              "from": "اور محمد بن یزید زبیدی نے کہا",
+              "report_type": "scholarly_statement",
+              "speaker": "Muhammad ibn Yazid al-Zubaydi transmitting al-Zuhri’s stated view",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:695"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(वित्र समेत)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(फ़जर की)"
+            }
+          ],
+          "reason": "Read the complete Hindi field: the night at Maymunah’s, standing on the left, repositioning, thirteen rakahs, sleep/snoring and the subsequent prayer without new ablution. The witr and fajr identifications are explicit glosses. Amr’s final report of hearing the same transmission from Bukayr is transmission apparatus and remains context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting the Prophet’s night prayer and his own movement from left to right",
+              "to": "अम्र ने बयान किया:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( وتر سمیت )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( فجر کی )"
+            }
+          ],
+          "reason": "Read the complete Urdu account independently, including thirteen rakahs and the snoring description. Separate the explicit witr/fajr glosses. The final Amr–Bukayr–Kurayb corroboration is retained as transmission context, without adding its chain as another report.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting the Prophet’s night prayer and his own movement from left to right",
+              "to": "عمرو نے بیان کیا"
+            }
+          ]
+        }
+      },
+      "key": "bukhari:698"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi chain and actual brief practice account. Keep the supplied wording and this occurrence distinct from711.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Jabir reporting Muadh’s practice of praying with the Prophet then leading his own people"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the whole Urdu field independently. The actual practice account is complete as supplied and contains no appended commentary.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Jabir reporting Muadh’s practice of praying with the Prophet then leading his own people"
+        }
+      },
+      "key": "bukhari:700"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(नमाज़ से लोगों को)"
+            }
+          ],
+          "reason": "Read the complete Hindi complaint about an excessively long fajr prayer, the observed anger, and the instruction considering weak, old and busy worshippers. Remove only the explicit referent gloss in parentheses, not the instruction or its stated rationale.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Masud al-Ansari reporting a complaint and the Prophet’s instruction to prayer leaders",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( نماز سے لوگوں کو )"
+            }
+          ],
+          "reason": "Read the entire Urdu field. The narrated anger and ensuing instruction belong to the report; only the parenthetic explanation of those being driven away is retained as context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Masud al-Ansari reporting a complaint and the Prophet’s instruction to prayer leaders",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:704"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi field. Anas’s comparison of light yet complete prayer and shortening for the distressed mother are actual narration; preserve the supplied toh spelling and all wording.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas ibn Malik describing the Prophet’s prayer and response to a crying child"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the full Urdu field independently: concise complete prayer and the reported reason for shortening when a child cries. No separate compiler material is present.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas ibn Malik describing the Prophet’s prayer and response to a crying child"
+        }
+      },
+      "key": "bukhari:708"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi chain through Hammad, Ayyub and Amr and the short actual practice report. Its independent source identity remains711, without merging with700.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Jabir reporting Muadh’s practice of praying with the Prophet then leading his people"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the whole Urdu chain and report; it states actual practice, not merely a pointer to700.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Jabir reporting Muadh’s practice of praying with the Prophet then leading his people"
+        }
+      },
+      "key": "bukhari:711"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi chain and words after the iqamah, including the reported statement about seeing behind. Keep the source’s own wording without explanatory additions.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas ibn Malik reporting the Prophet’s instruction to align and close the prayer rows"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu report independently. The iqamah, turning to the people, row alignment and seeing behind are all within the actual reported instruction.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas ibn Malik reporting the Prophet’s instruction to align and close the prayer rows"
+        }
+      },
+      "key": "bukhari:719"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(आप के घर में तहज्जुद की)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(नमाज़ की इत्तिला देने)"
+            }
+          ],
+          "reason": "Read the entire Hindi account of standing to the left, having his head moved from behind, sleep, the muazzin’s arrival and prayer without new ablution. Preserve the source’s Qutayb spelling in the chain; do not replace it with Urdu Kurayb. Two parenthetical setting/purpose identifications are source glosses.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting a night prayer with the Prophet",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( آپ کے گھر میں تہجد کی )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( نماز کی اطلاع دینے )"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Preserve the supplied Kurayb spelling, doubled punctuation, and each actual action; the home/tahajjud and notification-purpose parentheses are explanatory context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting a night prayer with the Prophet",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:726"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(ज़ुमैराह बिन अबी ज़ुमैराह)"
+            }
+          ],
+          "reason": "Read the whole Hindi field. The orphan’s parenthetic personal identification is a source gloss, retained as context; the unnamed orphan in the actual narrative is not silently supplied that identity.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas reporting prayer with an orphan boy behind the Prophet and Umm Sulaym behind them",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( ضمیرہ بن ابی ضمیرہ )"
+            }
+          ],
+          "reason": "Read the complete Urdu account. Separate the parenthetic name of the orphan while retaining the explicit mother/Umm Sulaym identification in the narrative itself.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas reporting prayer with an orphan boy behind the Prophet and Umm Sulaym behind them",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:727"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(आप (सल्लल्लाहु अलैहि वसल्लम) के घर में)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(तहज्जुद)"
+            }
+          ],
+          "reason": "Read the full Hindi field. Retain the source’s uncertainty between head and arm and the hand gesture to come around behind. The nested home-setting parenthesis and tahajjud identification are explanatory context, including their exact embedded honorific bytes.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting being moved to the Prophet’s right during night prayer",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( آپ صلی اللہ علیہ وسلم کے گھر میں )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( تہجد )"
+            }
+          ],
+          "reason": "Read the full Urdu field independently. Preserve head-or-arm uncertainty and the actual hand gesture; only home/tahajjud explanations are separated.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting being moved to the Prophet’s right during night prayer",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:728"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi account. The horse fall, shared seated prayer and actual instructions are followed by supplied prayer utterances; those utterances remain report content, not external Quran or reference apparatus.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas reporting the Prophet’s injury, seated prayer and instruction to follow the imam"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field, including sami Allah and rabbana laka al-hamd as the reported prayer words. No compiler conclusion is appended.",
+          "report_type": "prophetic_report",
+          "speaker": "Anas reporting the Prophet’s injury, seated prayer and instruction to follow the imam"
+        }
+      },
+      "key": "bukhari:733"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "reason": "Read the whole Hindi field. The actual report uses passive instruction and does not name its issuer. Abu Hazim’s subsequent recollection about raising attribution to the Prophet and Ismail’s active/passive transmission variant are source attribution apparatus, retained as context rather than used to invent a direct Prophetic quotation. Preserve the source’s Malik honorific.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_report_of_instruction_with_unstated_instructor",
+              "speaker": "Sahl ibn Sad reporting that people were instructed to place the right hand on the left wrist",
+              "to": "अबू हाज़िम बिन दीनार ने बयान किया"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "reason": "Read the entire Urdu field. Select Sahl’s actual passive instruction statement. Preserve Abu Hazim’s attribution recollection and Ismail’s wording correction as context; do not change the identity of the unstated instructor from that apparatus.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "companion_report_of_instruction_with_unstated_instructor",
+              "speaker": "Sahl ibn Sad reporting that people were instructed to place the right hand on the left wrist",
+              "to": "ابوحازم بن دینار نے بیان کیا"
+            }
+          ]
+        }
+      },
+      "key": "bukhari:740"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "ar": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "This is a transmitter reliability appraisal, not al-Bara’s observed prayer body; preserve the exact assertion as source context without assigning an unnamed appraiser or promoting a new grade.",
+              "text": "وَكَانَ، غَيْرَ كَذُوبٍ"
+            }
+          ],
+          "reason": "Read the entire own Arabic chain and body, including wa-kana ghayra kadhub and the waiting until seeing him prostrate. This independently supplied field is admitted in full; the Hindi/Urdu explanatory addition is not inserted into Arabic. Independent second-reading correction: the exact not-a-liar appraisal is retained as source context, while the complete observed-prayer narration and supplied narrative continuation remain selected.",
+          "report_type": "prophetic_report",
+          "spans": [
+            {
+              "component_id": "passage-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Yazid transmitting al-Bara’s description of following the Prophet in prayer",
+              "to": null
+            }
+          ],
+          "speaker": "Abdullah ibn Yazid transmitting al-Bara’s description of following the Prophet in prayer"
+        },
+        "en": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "This is a transmitter reliability appraisal, not al-Bara’s observed prayer body; preserve the exact assertion as source context without assigning an unnamed appraiser or promoting a new grade.",
+              "text": "(And Al-Bara was not a liar)"
+            }
+          ],
+          "reason": "Read the entire own English field. Its parenthetic source framing says al-Bara was not a liar; the body describes remaining standing until seeing prostration. It is not replaced or expanded from a sibling language. Independent second-reading correction: the exact not-a-liar appraisal is retained as source context, while the complete observed-prayer narration and supplied narrative continuation remain selected.",
+          "report_type": "prophetic_report",
+          "spans": [
+            {
+              "component_id": "passage-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Al-Bara describing following the Prophet in prayer",
+              "to": null
+            }
+          ],
+          "speaker": "Al-Bara describing following the Prophet in prayer"
+        },
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(सहाबा)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "This is a transmitter reliability appraisal, not al-Bara’s observed prayer body; preserve the exact assertion as source context without assigning an unnamed appraiser or promoting a new grade.",
+              "text": "और वो झूठे नहीं थे"
+            }
+          ],
+          "reason": "Read the whole Hindi field and independently read its own Arabic and English to examine the boundary. The witness-vouching phrase is supplied transmission framing. The final parenthesis describes the worshippers’ narrated subsequent prostration and remains part of this report; only the lexical identification of they as Companions is context. No body is transferred across languages. Independent second-reading correction: the exact not-a-liar appraisal is retained as source context, while the complete observed-prayer narration and supplied narrative continuation remain selected.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Yazid transmitting al-Bara’s description of following the Prophet in prayer",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( صحابہ )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "This is a transmitter reliability appraisal, not al-Bara’s observed prayer body; preserve the exact assertion as source context without assigning an unnamed appraiser or promoting a new grade.",
+              "text": "اور وہ جھوٹے نہیں تھے"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Retain the reported waiting and subsequent prostration, including its parenthetic action framing; separate only the explicit pronoun identification as Companions. The source’s al-Bara confidence statement remains transmission framing. Independent second-reading correction: the exact not-a-liar appraisal is retained as source context, while the complete observed-prayer narration and supplied narrative continuation remain selected.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Yazid transmitting al-Bara’s description of following the Prophet in prayer",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:747"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(नमाज़ में)"
+            }
+          ],
+          "reason": "Read the complete Hindi field: eclipse prayer, the people’s question about forward/backward movement, and the conditional statement about a bunch from Paradise. Keep the conditional intact; only the parenthetic prayer-setting gloss is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting the eclipse prayer and the Prophet’s answer about Paradise",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( نماز میں )"
+            }
+          ],
+          "reason": "Read the entire Urdu field independently, retaining the source’s own eclipse spelling and conditional statement about the bunch. Separate only the parenthetic location within prayer.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ibn Abbas reporting the eclipse prayer and the Prophet’s answer about Paradise",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:748"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "ar": {
+          "action": "whole",
+          "reason": "Read the entire own Arabic chain and body through wa-tuwuffiya min akhiri dhalika al-yawm. The Muslims’ near-disruption, gesture to finish prayer, lowered curtain and final-day timing are independently supplied report text. No Hindi/Urdu timing is copied into it.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Anas reporting the curtain opening during fajr and events on the Prophet’s final day"
+        },
+        "en": {
+          "action": "whole",
+          "reason": "Read the complete own English account, including its parenthetic on-the-verge-of-trial wording as narrative reaction and its last-hours-of-day ending. These are retained verbatim as this source language’s wording, not normalized to Hindi/Urdu.",
+          "report_type": "prophetic_historical_report",
+          "speaker": "Anas reporting the curtain opening during fajr and events on the Prophet’s final day"
+        },
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(नबी करीम (सल्लल्लाहु अलैहि वसल्लम) के मर्ज़-ए-वफ़ात में)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(ख़ुशी से)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(आप (सल्लल्लाहु अलैहि वसल्लम) को देख कर)"
+            }
+          ],
+          "reason": "Read the entire Hindi field and its own complete Arabic/English siblings to inspect narrative parentheses. Keep the large parenthetic account of the Companions’ intense reaction with its goya qualifier: it supplies the narrative temptation/almost-disruption, not a surah label or lexical gloss. Separate only the explicit illness setting, short joy gloss and explanatory upon-seeing-him insertion. Preserve the Hindi chasht death-time wording despite the Arabic/English last-part-of-day wording; do not reconcile it.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report",
+              "speaker": "Anas reporting the curtain opening during fajr and events on the Prophet’s final day",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( نبی کریم صلی اللہ علیہ وسلم کے مرض وفات میں )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( خوشی سے )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( آپ صلی اللہ علیہ وسلم کو دیکھ کر )"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Retain the full parenthetic reported reaction, including goya, so the quotation does not become an unqualified claim that they abandoned prayer. The three smaller setting/lexical explanations become context. Preserve chasht exactly, without harmonizing its timing to the independently read Arabic/English.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report",
+              "speaker": "Anas reporting the curtain opening during fajr and events on the Prophet’s final day",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:754"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(किरात)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(तुम्हारी इस बात पर)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(वह शख्स इस दर्जा बढ़ल हुआ की)"
+            }
+          ],
+          "reason": "Read the entire Hindi field. Its beginning and several clauses are damaged: the chain is incomplete, the initial complainant/name is omitted, and a negation in the accusation is missing. Preserve all defects and do not import Urdu’s fuller names or negative wording. The first component is Jabir ibn Samurah’s historical dialogue involving Umar and the later explicitly named Sad; the final Abd al-Malik eyewitness statement is a separately attributed historical report. The short listen/then-heard parentheses remain speech/event framing. Separate the recitation gloss, explicit referent gloss and later-condition explanatory bridge.",
+          "spans": [
+            {
+              "component_id": "umar-sad-inquiry",
+              "from": null,
+              "report_type": "companion_historical_report_with_source_text_defects",
+              "speaker": "Jabir ibn Samurah reporting the inquiry involving Umar and Sad, with damaged Hindi chain and accusation wording",
+              "to": "अब्दुल मलिक ने बयां किया कि मैंने उसे देखा"
+            },
+            {
+              "component_id": "abdulmalik-observation",
+              "from": "अब्दुल मलिक ने बयां किया कि मैंने उसे देखा",
+              "report_type": "successor_eyewitness_historical_statement",
+              "speaker": "Abd al-Malik stating what he personally saw of the unnamed man in this Hindi passage",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( قرآت )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( تمہاری اس بات پر )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( وہ شخص اس درجہ بدحال ہوا کہ )"
+            }
+          ],
+          "reason": "Read the complete Urdu field. Preserve the named Usamah ibn Qatadah/Abu Sadah accusation within Jabir’s historical account and Sad’s conditional supplication, without treating either as the Prophet’s speech. The final Abd al-Malik observation has its own component. Keep the short listen and hearing transition as source framing; separate the explicit recitation/referent/condition explanations.",
+          "spans": [
+            {
+              "component_id": "umar-sad-inquiry",
+              "from": null,
+              "report_type": "companion_historical_dialogue_and_practice_report",
+              "speaker": "Jabir ibn Samurah reporting Umar’s inquiry, Sad’s account and the named complainant’s accusation",
+              "to": "عبدالملک نے بیان کیا کہ میں نے اسے دیکھا"
+            },
+            {
+              "component_id": "abdulmalik-observation",
+              "from": "عبدالملک نے بیان کیا کہ میں نے اسے دیکھا",
+              "report_type": "successor_eyewitness_historical_statement",
+              "speaker": "Abd al-Malik stating what he personally saw of the man described in the preceding Urdu account",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "bukhari:755"
+    }
+  ],
+  "source_checkpoint": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "source_read": "Complete own-field readings with the exact independent second-reading amendments enumerated in the adjacent correction receipt."
+}

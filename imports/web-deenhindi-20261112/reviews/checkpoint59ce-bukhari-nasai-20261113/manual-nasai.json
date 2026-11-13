@@ -1,0 +1,317 @@
+{
+  "records": [
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the whole Hindi account. The actual statement belongs to Abu Hurairah and refers to disobedience of Abu al-Qasim; no direct Prophetic command or exact quotation is supplied or invented.",
+          "report_type": "companion_statement_reported_by_a_witness",
+          "speaker": "Abu al-Shatha reporting Abu Hurairah’s rebuke of a person leaving after the adhan"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the full Urdu field independently. Preserve the named observer and named rebuker, and keep this occurrence distinct from684.",
+          "report_type": "companion_statement_reported_by_a_witness",
+          "speaker": "Abu al-Shatha reporting Abu Hurairah’s rebuke of a person leaving after the adhan"
+        }
+      },
+      "key": "nasai:683"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field. The rebuker’s name is absent before the dangling anhu honorific. Preserve that gap; do not fill Abu Hurairah from Urdu or from683. Actual departure and rebuke wording are present and classified with the source attribution defect.",
+          "report_type": "witness_report_with_unnamed_quoted_speaker_and_source_text_defect",
+          "speaker": "Abul Shatha reporting a departure after the adhan and an unnamed rebuker in the damaged Hindi wording"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field, which independently names Abu Hurairah as the speaker of the rebuke. This explicit own-field attribution is retained without copying it into the damaged Hindi.",
+          "report_type": "companion_statement_reported_by_a_witness",
+          "speaker": "Abu al-Shatha reporting Abu Hurairah’s rebuke"
+        }
+      },
+      "key": "nasai:684"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(सलातुल लैल)"
+            }
+          ],
+          "reason": "Read the entire Hindi question and answer: eleven rakahs including witr, sleep/snoring, Bilal’s arrival, two rakahs and leading prayer without another ablution. Only the explicit salat al-layl synonym is source context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Kurayb reporting Ibn Abbas’s account of the Prophet’s night prayer, sleep and subsequent prayer",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( صلاۃ اللیل )"
+            }
+          ],
+          "reason": "Read the entire Urdu field independently. Separate the salat al-layl synonym. Retain the exact parenthetic again qualifier with the narrative: it limits the final no-ablution wording to repetition and must not be removed. All stated actions and the eleven-rakah count remain intact.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Kurayb reporting Ibn Abbas’s account of the Prophet’s night prayer, sleep and subsequent prayer",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:686"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(कलीसा)"
+            }
+          ],
+          "reason": "Read the full Hindi historical account: pledge, prayer, leftover ablution water, the instructions concerning their building, dilution, return, adhan, and the unnamed priest’s statement and departure. Preserve the supplied Talq spelling and historical statements exactly; the kalisa synonym is lexical context. Do not identify the unnamed priest beyond the source’s Tay affiliation.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report",
+              "speaker": "Talq ibn Ali reporting his delegation’s visit, instructions and subsequent local events",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( جانے )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( کلیسا )"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently, including the source’s defective final construction phir us ne...chala gaya. Keep all historical actions and quoted speakers as supplied. Only the parenthetic going explanation and kalisa synonym are context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report",
+              "speaker": "Talq ibn Ali reporting his delegation’s visit, instructions and subsequent local events",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:701"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field: fourteen-day stay, Banu Najjar escort, Abu Ayyub’s door, prayer locations, land-price dialogue, graves/trees/ruins and construction. The final supplication is explicitly the workers’ chant within Anas’s report; do not relabel it as a separately spoken Prophetic quotation.",
+          "report_type": "prophetic_historical_report_with_companion_chant",
+          "speaker": "Anas describing arrival in Madinah, mosque construction and the Companions’ quoted work chant"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field. Preserve all supplied construction details and grammatical defects. The people’s actual quoted chant stays within the narrated historical report under its stated collective speakers.",
+          "report_type": "prophetic_historical_report_with_companion_chant",
+          "speaker": "Anas describing arrival in Madinah, mosque construction and the Companions’ quoted work chant"
+        }
+      },
+      "key": "nasai:702"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field, including the cloth covering, breathing difficulty and the exact attributed warning about taking prophets’ graves as places of prostration. Preserve both named reporters and the source wording.",
+          "report_type": "prophetic_report",
+          "speaker": "Aisha and Ibn Abbas reporting the Prophet’s final illness and reported words"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field independently. The source contains an actual attributed report throughout, with no appended grade or separate commentary in this field.",
+          "report_type": "prophetic_report",
+          "speaker": "Aisha and Ibn Abbas reporting the Prophet’s final illness and reported words"
+        }
+      },
+      "key": "nasai:703"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(ग़ज़वा-इ-अहज़ाब)"
+            }
+          ],
+          "reason": "Read the complete Hindi field. Preserve the missing subject before alayhi wa-sallam and defective raig spelling rather than inserting the explicit Urdu subject. The Khandaq/Ahzab alternate battle-name parenthesis is explanatory context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "historical_report_with_source_attribution_gap",
+              "speaker": "Aisha reporting Sad ibn Muadh’s injury and a tent arrangement; the Hindi subject before the damaged honorific is missing",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( غزوہ احزاب )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Numbered source footnote marker, not report wording; retain the exact glyph in source context without supplying an absent note.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field. It explicitly names the Prophet as arranging the tent. Separate the alternate battle name and the numbered footnote glyph; preserve the surrounding nonbreaking spaces and every report word.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report",
+              "speaker": "Aisha reporting Sad ibn Muadh’s injury and the Prophet’s tent arrangement",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "nasai:710"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "(गिरफ़्तार कर के)"
+            }
+          ],
+          "reason": "Read the complete Hindi field. It contains an actual abbreviated report with named Thumamah and Yamamah leadership, so it is not treated as a bare chain pointer. The arrested explanation is lexical context; the final statement that this is an abridgment of a long hadith is compiler/source apparatus, excluded from the quotation.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report_in_explicitly_abridged_transmission",
+              "speaker": "Abu Hurairah reporting the riders and Thumamah ibn Uthal bound to a mosque pillar",
+              "to": "ये एक लंबी हदीस का इख़्तसार है"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit source lexical or explanatory gloss; retain these exact bytes as context while the surrounding report keeps the same component and speaker.",
+              "text": "( گرفتار کر کے )"
+            }
+          ],
+          "reason": "Read the complete Urdu field independently. Admit the actual supplied abbreviated narrative, keep the arrest gloss as context and separate the final editorial abridgment notice. No omitted continuation is invented.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_historical_report_in_explicitly_abridged_transmission",
+              "speaker": "Abu Hurairah reporting the riders and Thumamah ibn Uthal bound to a mosque pillar",
+              "to": "یہ ایک لمبی حدیث کا اختصار ہے"
+            }
+          ]
+        }
+      },
+      "key": "nasai:712"
+    },
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "Complete Arabic chain from Ishaq through al-Nadr, Shubah, Sulayman, Ibrahim, Alqamah and al-Aswad to Abdullah ends fa-dhakara nahwahu; there is no body."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "Complete English field reports Sulayman hearing Ibrahim through Alqamah and al-Aswad from Abdullah, then says he narrated something similar. No report body is supplied."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "Complete Hindi field says Alqamah and Aswad transmitted a similar hadith from Abdullah ibn Masud by this chain; no actual report follows."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "Complete Urdu field contains the same chain attribution and isi jaisi hadith pointer only."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "Complete Roman Urdu field is the chain attribution and isi jaisi hadees zikr ki hai pointer, without actual narrative."
+        }
+      },
+      "key": "nasai:720",
+      "reason": "All five complete own fields were read. They contain a named transmission chain and a similar-hadith pointer, without their own narration body. Keep the entire occurrence source-only; no body is imported from an adjacent entry."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi field. It states their own practice during the Prophet’s time, without an explicit command or approval quotation. Keep that attribution limited to what the field supplies.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Abu Said ibn Mualla describing their practice when passing the mosque en route to market"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the complete Urdu field independently; the collective market-route prayer practice remains a Companion account, not invented direct Prophetic speech.",
+          "report_type": "companion_practice_in_prophetic_lifetime",
+          "speaker": "Abu Said ibn Mualla describing their practice when passing the mosque en route to market"
+        }
+      },
+      "key": "nasai:732"
+    }
+  ],
+  "source_checkpoint": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "source_read": "Complete own-field readings with the exact independent second-reading amendments enumerated in the adjacent correction receipt."
+}

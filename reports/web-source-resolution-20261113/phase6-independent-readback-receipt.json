@@ -1,0 +1,64 @@
+{
+  "schema": "hadith-bank-independent-phase6-readback-v1",
+  "result": "PASS",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "exact_commit": "695fe9ea6fd16c657de469257b17c4961c5d5cc1",
+  "method": "Fetched all five files from the exact immutable commit through the GitHub connector, decoded all stored bytes and independently compared byte counts, SHA-256, Git blob SHA-1 and complete local candidate bytes. Gzip ledgers also decoded and parsed.",
+  "files": [
+    {
+      "path": "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+      "bytes": 24357,
+      "sha256": "961d34397b4f2d02cc9fa5aeeeb2fd11a8a108074ef95ed27e768cae0e4ff079",
+      "git_blob_sha1": "9bb919af6526bcffd46227cc1f4cecfa2f729a10",
+      "exact_local_candidate_bytes": true
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "bytes": 310797,
+      "sha256": "07d2e5dc1a8fcdeaac7a0696dd1a0517ebcab77d617e48e618eb8077bed9fb54",
+      "git_blob_sha1": "536ff7d2512ac636520192687ab43c1273d824bb",
+      "exact_local_candidate_bytes": true,
+      "records": 477,
+      "parent_dispositions": {
+        "register": 477
+      }
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+      "bytes": 37813,
+      "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58",
+      "git_blob_sha1": "c4bbb9f9d322b8a0c1d79cf5fecaaa12e1123db9",
+      "exact_local_candidate_bytes": true,
+      "records": 28,
+      "parent_dispositions": {
+        "register": 28
+      }
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+      "bytes": 26972,
+      "sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7",
+      "git_blob_sha1": "16707b3f6f3df7c756a7e61b870ba881ea82127f",
+      "exact_local_candidate_bytes": true,
+      "records": 38,
+      "parent_dispositions": {
+        "register": 36,
+        "exclude": 2
+      }
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+      "bytes": 30572,
+      "sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8",
+      "git_blob_sha1": "4ff86a28aa3859269e4181a921f349a8fbc5faea",
+      "exact_local_candidate_bytes": true,
+      "records": 28,
+      "parent_dispositions": {
+        "register": 24,
+        "exclude": 4
+      }
+    }
+  ],
+  "source_wording_or_github_mutations": false,
+  "deployment_claim": false
+}

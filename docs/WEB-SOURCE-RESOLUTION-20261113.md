@@ -1,6 +1,97 @@
 # Website-source queue resolution — 13 November 2026
 
-## Current review checkpoint — 94 new holds and 100 additional Hindi/Urdu fields
+## Current review checkpoint — 93 newly recovered held occurrences
+
+The preceding 94-entry resolution and 100-field Hindi/Urdu extension were
+published at `695fe9ea6fd16c657de469257b17c4961c5d5cc1`. All 82 publication
+files and 14 changed Git trees were verified, and a second independent GitHub
+read-back verified the complete stored bytes of all four active review ledgers
+and the status document. The 488 newly acquired source objects from the latest
+audited acquisition checkpoint were preserved in that publication.
+
+This checkpoint resolves the **93 distinct new held occurrences** acquired at
+`59ce32dff9dde80992ac431d9bb82f40fefd5897`: **84 register and nine remain
+resolved source-only**. The nine source-only IDs are Bukhari `690.2`, Nasai
+`720`, Muslim `701`, `706`, `719`, `723`, Abu Dawud `690`, Tirmidhi `701` and
+Malik `684`. Their complete nonempty fields contain omitted-body transmission
+pointers, compiler/transmission discussion or an explicit unavailable-report
+placeholder. They are retained with the source evidence and the reasons for
+their dispositions. No missing matn, translation or narrator was reconstructed.
+
+The three source-bound ledgers cover **218 completely read nonempty language
+fields**, comprising **92,563 characters and 190,972 UTF-8 bytes**. They admit
+**172 fields**, retain **46 as fully read source context**, and preserve
+**245 other nonempty sibling fields as unread context**. All 463 nonempty
+source-field partitions are lossless; Malik 684's two genuinely empty fields
+remain empty. All 186 raw/parsed source files were independently reopened and
+every one of the 93 saved HTML pages reparsed to its exact source object and
+verbatim reference. Every claimed read field also received a second complete
+reading before publication.
+
+Hindi and Urdu each contribute 83 admitted fields and ten read-context fields.
+Arabic and English each contribute three admitted fields. In Muslim 717, the
+actual Arabic and English contain a finite first-person observation beside the
+Messenger, while the Hindi, Urdu and Roman Urdu contain only version/wording
+apparatus. Those latter fields remain context. The observation's reporter is
+left unnamed, and no missing preceding event is supplied. Partial or damaged
+wording in other fields likewise remains in its own source language.
+
+The final review keeps separate report components and actual speakers. It also
+keeps necessary qualifications, supplied recitation and full source translations
+within their reports. In the independent review, Bukhari 747's transmitter
+reliability appraisal was separated from the narrated prayer account, and Nasai
+686's Urdu repeat-action qualification was retained. Earlier candidate bytes
+and the exact before/after changes remain in the evidence package. Footnote
+references and lexical/compiler explanations are preserved as source context;
+parentheses alone are not a reason to remove a passage.
+
+For the **fixed 14,249-source snapshot at 59ce**, applying the already published
+94-entry decisions and this 93-entry review derives **14,111 registered,
+138 resolved source-only and zero held occurrences**. These are validated
+review-derived totals for that exact source cohort. They do not claim that a
+later acquisition worker has already saved these totals or that newly fetched
+pages cannot introduce new held cases.
+
+The last fully audited saved acquisition itself recorded **14,249 fetched,
+13,939 registered, 123 source-only and 187 held**, before either review set had
+been applied to its saved export. Its **22,141 unfetched pages** comprise
+21,630 ordinary pending pages and 511 historical errors still eligible for the
+existing reviewed ordinary retry. All prior source descriptors, errors, retry
+history and the consumed pilot receipt were verified unchanged. The worker
+continues under its existing pacing, preservation, checkpoint and access-stop
+rules. Active requests are not counted as saved acquisitions.
+
+The fixed original **3,942-entry held cohort remains resolved at occurrence
+level**. Its separate priority-language queue is unchanged by this 93-entry
+addition: **3,353 Hindi and 3,345 Urdu fields still await their own complete
+reading**, or 6,698 fields across 3,648 occurrences. Other language context is
+not silently promoted merely because an occurrence is now registered.
+
+The eleven requested Hadis.islom.uz parent cases and all 244 requested Fawaz
+cases remain resolved as recorded in the earlier checkpoints. Source-only
+decisions are completed dispositions, not missing downloads. Source grades,
+translation-origin status, unknown identities and original provider references
+remain unchanged; no independent Pro certification or new authenticity grade
+is asserted.
+
+Reader run
+[`43423042995`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43423042995)
+at `ab76f729e7148d9c4c8b0759451f5fca0272ff3e` completed its software tests,
+source exports, counterpart synchronization, complete registry/reader rebuild
+and real Chromium checks successfully. Its website upload and deployment were
+skipped because main had advanced. The exact `695fe9e` successor build is a
+separate in-progress observation. **A successful validation is not a new
+deployment receipt**, and this document does not claim the latest review
+decisions are already live.
+
+Evidence: [93-entry source/native integration audit](../reports/web-source-resolution-20261113/checkpoint59ce-independent-integration-audit.json),
+[root's complete 40-entry reading and source audit](../reports/web-source-resolution-20261113/checkpoint59ce-root40-complete-reading-and-source-verification.json),
+[root's final 40-entry native audit](../reports/web-source-resolution-20261113/checkpoint59ce-root40-independent-final-audit.json),
+[latest saved acquisition audit](../reports/web-source-resolution-20261113/acquisition-run43418275117-saved-state-audit.json),
+[phase 6 publication receipt](../reports/web-source-resolution-20261113/publication-phase6-receipt.json),
+and [independent phase 6 GitHub read-back](../reports/web-source-resolution-20261113/phase6-independent-readback-receipt.json).
+
+## Historical phase6 status — 94 holds and 100 additional language fields
 
 The Hindi/Urdu extension for 30 Bukhari and 30 Nasai entries was published and
 verified at `ab76f729e7148d9c4c8b0759451f5fca0272ff3e`. Its 120 newly read fields
