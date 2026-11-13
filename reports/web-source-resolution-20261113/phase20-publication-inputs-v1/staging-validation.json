@@ -1,0 +1,2414 @@
+{
+  "active_ledgers_before_and_after": 41,
+  "all477_parent_dispositions_unchanged": true,
+  "all_remaining_queue_line_bytes_and_order_exact": true,
+  "base_commit": "70c1a0799bcf67a18bf28bdb9a6672fe1edbc552",
+  "base_root_tree_sha": "1a4a609c58936eda0dfae376dd4370d2988a5997",
+  "bound_input_packages": [
+    {
+      "bytes": 6052504,
+      "files": 56,
+      "name": "primary-original50",
+      "sha256": "e28a5466158fd3fb0be35f7daaa7e0182565cc5abe64ea70bb09cb279eeefdb5"
+    },
+    {
+      "bytes": 342288,
+      "files": 10,
+      "name": "independent-original50",
+      "sha256": "16d89b9e68fbada4f705070b7a5976809c824ca18818239edda55469efdd5766"
+    },
+    {
+      "bytes": 409279,
+      "files": 3,
+      "name": "phase19-independent-readback",
+      "sha256": "ae50998b382395cee4a3e10f30399e8f10c7f837b4c38128c30cd28b473211d5"
+    },
+    {
+      "bytes": 18738,
+      "files": 1,
+      "name": "reader-d369-superseded",
+      "sha256": "d6ce350e45db6ea293665412291417dc7c0616b841902257a96b71b1b6ce6c5d"
+    }
+  ],
+  "complete_ancestor_tree_proof_path": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/complete-used-base-ancestor-trees.json.gz",
+  "distinct_manual_parent_ids_before_and_after": 3490,
+  "exact_changed_fields": 50,
+  "exact_independent_final_native_report_sha256": "d1316f5ac56ac74b1c60ea09cf0c5052fa92ff5eeb59078a0987b37b84adeee8",
+  "expected_existing_overwrites": [
+    "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+    "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+    "reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz"
+  ],
+  "fresh_base_and_expected_head_lease_required_before_publication": true,
+  "frozen_input_mutations": 0,
+  "github_writes": 0,
+  "live_deployment_of_phase19_or_phase20_claimed": false,
+  "lossless_partitions_in_bound_audit": 2385,
+  "native477_before_after_passed_in_bound_primary_and_independent_audits": true,
+  "native_tests_repeated_for_this_staging": false,
+  "new_linguistic_reading_during_staging": 0,
+  "occurrences_extended": 25,
+  "parent_registration_delta": 0,
+  "path_proofs": {
+    "docs/WEB-SOURCE-RESOLUTION-20261113.md": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "docs",
+          "git_tree_sha1": "1fb7021c37dfec173d442c06b4481929e22f531f"
+        }
+      ],
+      "git_object_sha1": "4a8fcad65be7ff64cd100aef7fa142e77283d8b8",
+      "mode": "100644",
+      "status": "existing_path",
+      "type": "blob"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/build_extension.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/candidate-priority-field-queue.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-field-reading-notes.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-source-first-reading-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/field-decision-delta.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/freeze_source_first.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/full-field-reading-input-50.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/amend_v2.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/amendment-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/delivery-manifest-v1.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/build_extension.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/candidate-priority-field-queue.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-field-reading-notes.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-source-first-reading-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/field-decision-delta.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/freeze_source_first.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/full-field-reading-input-50.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-01.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-02.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-03.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-04.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-05.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/manual_readings.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/native-validation.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/prepare_inputs.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-priority-field-queue.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-review-ledger.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/priority-field-queue-delta.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/selection.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-apparatus-inventory.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-input-delivery-manifest.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-ledger-25.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-verification.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/verify_sources.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/build_extension_v2.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/independent-boundary-findings-v1.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/manual_readings_v2.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-01.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-02.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-03.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-04.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-05.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/manual_readings.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/native-validation.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/prepare_inputs.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-priority-field-queue.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-review-ledger.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/priority-field-queue-delta.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/selection.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-apparatus-inventory.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-input-delivery-manifest.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-ledger-25.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-verification.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/verify_sources.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews/field-expansions",
+          "git_tree_sha1": "4d911afa26fe9b00a2972098b280c611c182c913"
+        }
+      ],
+      "first_absent_component": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1",
+      "status": "new_path"
+    },
+    "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "imports",
+          "git_tree_sha1": "47ff49b865a85529d090bfec0e7cb7de2994df5c"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112",
+          "git_tree_sha1": "5d11d5977e86b7836200661ed079d874c29c7596"
+        },
+        {
+          "directory": "imports/web-deenhindi-20261112/reviews",
+          "git_tree_sha1": "cfbad1515f3bce85febc6ab4ee5949d902368f99"
+        }
+      ],
+      "git_object_sha1": "9a0193c49e2ef5c036f0695430175d2849337f08",
+      "mode": "100644",
+      "status": "existing_path",
+      "type": "blob"
+    },
+    "reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "git_object_sha1": "939e83af734740d0a846c4b1b68e893e7c601dad",
+      "mode": "100644",
+      "status": "existing_path",
+      "type": "blob"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/audit_final_candidate.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/author-response-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/complete-independent-source-first-readings.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/freeze_findings.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/independent-boundary-findings-v1.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/independent-final-v2-audit.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/independent-source-verification.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/independent_source_first_notes.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/package_final_audit.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit/verify_original_sources.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/original-bukhari25-next50-independent-audit",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase19-independent-readback/audit_readback.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase19-independent-readback",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase19-independent-readback/readback-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase19-independent-readback",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase19-independent-readback/response-and-tree-evidence.json.gz": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase19-independent-readback",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/assemble_publication.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/current-status-prefix.md": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/document-update-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/exact-input-manifests/independent-original50.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/exact-input-manifests/phase19-independent-readback.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/exact-input-manifests/primary-original50.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/exact-input-manifests/reader-d369-superseded.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/portable-input-package-manifests.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/previous-status-document.md": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-manifest.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-publication-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-publication-rehash-gate.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-successor-preservation-gate.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-tree-verification-receipts.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-verified-base-trees.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/receipts/phase19-verify_publication.py": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/phase20-publication-inputs-v1/staging-inputs.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/phase20-publication-inputs-v1",
+      "status": "new_path"
+    },
+    "reports/web-source-resolution-20261113/reader-d369026-success-superseded-receipt.json": {
+      "ancestor_chain": [
+        {
+          "directory": "/",
+          "git_tree_sha1": "1a4a609c58936eda0dfae376dd4370d2988a5997"
+        },
+        {
+          "directory": "reports",
+          "git_tree_sha1": "d921c4dccc5cadc4e09c612690b48f19e1ad1d22"
+        },
+        {
+          "directory": "reports/web-source-resolution-20261113",
+          "git_tree_sha1": "0b2ad6a0b191efe678402a5983cf0d73b2ec1e5e"
+        }
+      ],
+      "first_absent_component": "reports/web-source-resolution-20261113/reader-d369026-success-superseded-receipt.json",
+      "status": "new_path"
+    }
+  },
+  "prior_script_corrections_preserved": 19,
+  "queue_after": {
+    "by_language": {
+      "hi": 3260,
+      "ur": 3051
+    },
+    "fields": 6311,
+    "occurrences": 3354,
+    "sha256": "8fd3e27cbfb6ae42a32e70268fe9793ecc228012afd8335a5efc1f869b1fe349"
+  },
+  "queue_before": {
+    "by_language": {
+      "hi": 3285,
+      "ur": 3076
+    },
+    "fields": 6361,
+    "occurrences": 3379,
+    "sha256": "74ce384bca242d5c130ddd1347774ab0c7e94e51185175d62cd8158e09e1a64a"
+  },
+  "queue_delta_final_field_hashes_and_actions_verified": true,
+  "result": "PASS",
+  "schema": "hadith-bank-phase20-publication-staging-validation-v1",
+  "source_first_and_independent_full_readings_each": {
+    "characters": 27103,
+    "fields": 50,
+    "utf8_bytes": 58879
+  },
+  "source_http_requests": 0,
+  "source_occurrence_delta": 0,
+  "unchanged_other40_active_ledgers": [
+    {
+      "bytes": 208156,
+      "decision_ids": 636,
+      "git_blob_sha1": "8a9b244848c6d643297502d28acd62dd5c265ab2",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-abudawud-tirmidhi-manual.json.gz",
+      "sha256": "7a1893ac1e838c73b7f4dfa5d4a47ed805b1f5fb82571f633bc86d4804c79f8a"
+    },
+    {
+      "bytes": 355638,
+      "decision_ids": 300,
+      "git_blob_sha1": "c1d1ca8923a673cb72de7ef1bad0e3ca6e2e5ecf",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-first300.json.gz",
+      "sha256": "0f9a9bd933ae27d912ddfc987d3d3af020de212dd3daf6f818d352dac1aa369c"
+    },
+    {
+      "bytes": 46943,
+      "decision_ids": 25,
+      "git_blob_sha1": "de0877d255d4c59f003415cbb5b0e77ae7b55147",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
+      "sha256": "9fc8bf7fbee9027a1ad5cfd4c8debd4d18ba596e57dab9d70bab69cfdf0783fa"
+    },
+    {
+      "bytes": 33674,
+      "decision_ids": 20,
+      "git_blob_sha1": "1e872f388f18c855baccd6a151696d196bd9bce1",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint3e574-muslim20-manual-v1.json.gz",
+      "sha256": "30fe404ea34d2fba4f8f6e6075540a79b6a0a314705c3b40c51631bebc864e64"
+    },
+    {
+      "bytes": 40271,
+      "decision_ids": 25,
+      "git_blob_sha1": "50ae77fdbe4af094a2eb283a566774a9b0c75cda",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1.json.gz",
+      "sha256": "7d3941ff3ffe97a6ba7dd96b389219a4fb61b85f89210b3f1222da80cb01f403"
+    },
+    {
+      "bytes": 52057,
+      "decision_ids": 40,
+      "git_blob_sha1": "fd64239b9aa2bfc29bcf6058efdff97a2d24e556",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+      "sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537"
+    },
+    {
+      "bytes": 37813,
+      "decision_ids": 28,
+      "git_blob_sha1": "c4bbb9f9d322b8a0c1d79cf5fecaaa12e1123db9",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+      "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58"
+    },
+    {
+      "bytes": 50615,
+      "decision_ids": 23,
+      "git_blob_sha1": "7435834a610a2d46f841d15eaf735ca148534db8",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointbd4a-muslim23-manual-v1.json.gz",
+      "sha256": "b9b738da3f08a5a5103eb24ef028d4d51bae4be5099eccc630ad35b431fe31d1"
+    },
+    {
+      "bytes": 22485,
+      "decision_ids": 21,
+      "git_blob_sha1": "4ad7c0cdddd74d424d52a67e17e7e3a9253e7811",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointc2ab-ibnmajah21-manual-v1.json.gz",
+      "sha256": "4fdc18bcf9bbbb63e84402edc975aa1e779fcdb181d33da8b36b713145990c98"
+    },
+    {
+      "bytes": 55706,
+      "decision_ids": 39,
+      "git_blob_sha1": "12be124a474bb70120f392be006e8d247cf2fd35",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointcdb6-other39-manual-v1.json.gz",
+      "sha256": "3741c5c897ebd304c82ba95b279a294879328e70074f4a935b71b05e6144dd24"
+    },
+    {
+      "bytes": 216232,
+      "decision_ids": 519,
+      "git_blob_sha1": "fc9a217bbff92685f2d027451768c3e7ed133051",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+      "sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa"
+    },
+    {
+      "bytes": 19219,
+      "decision_ids": 46,
+      "git_blob_sha1": "11bd7e1b9231d031df01cba3678d34e96c4b298c",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-agent46-eb6061e.json.gz",
+      "sha256": "7ebc72f47e07830aac17a4161d5af6387a7dc2f0d01a85bfca99c568284e6c27"
+    },
+    {
+      "bytes": 16397,
+      "decision_ids": 35,
+      "git_blob_sha1": "aee3e88d9ee155cad9af0935691f2085ccaba32d",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-root35.json.gz",
+      "sha256": "8a2b9305794201c8753e34ac48e21fc5c26acf75551f18e4aa4c71ca2d3bb0b5"
+    },
+    {
+      "bytes": 3215,
+      "decision_ids": 1,
+      "git_blob_sha1": "f5a0f1fd53ac93a21762d6552f828f95df43b8b1",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-pilot-bukhari-686-manual-v1.json.gz",
+      "sha256": "52c1ee4eaf72cc52749779bf31f643931597275f94dfa0fe4711cef734a5c1d3"
+    },
+    {
+      "bytes": 36758,
+      "decision_ids": 36,
+      "git_blob_sha1": "eabd544a179c31e1328faa8dc491fe009bf2d157",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-recovered-bukhari-ibnmajah-manual-v1.json.gz",
+      "sha256": "f397cf9089aa0510610929bf4a0a2f55823a60d79108df8c7dbf744de4084155"
+    },
+    {
+      "bytes": 19147,
+      "decision_ids": 22,
+      "git_blob_sha1": "6f9f7748ec6bca5566445a5b6582b4d620ab407f",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-recovered-nasai-22.json.gz",
+      "sha256": "f11d5e29144b24aa25c1e1cbc7c6b0d78b9a9ce8b9f69be07683b7d386f626e4"
+    },
+    {
+      "bytes": 17003,
+      "decision_ids": 21,
+      "git_blob_sha1": "63bc0caa6c0bcc1e5d7354cb428a0121922d53c1",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-abudawud-tirmidhi21-20261113.json.gz",
+      "sha256": "b4735dc63110fd87e92205140a305fee5164f26eafe8b09bddcbca7643a13e34"
+    },
+    {
+      "bytes": 44746,
+      "decision_ids": 43,
+      "git_blob_sha1": "4b3fff8d7421017fec36d9e23cef865b0913ea06",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-bukhari43-20261113.json.gz",
+      "sha256": "9819890c10d434ca3df69a4ebfee3f70d0aaadfb2aebc56360ebd740e79d9677"
+    },
+    {
+      "bytes": 26199,
+      "decision_ids": 28,
+      "git_blob_sha1": "6ce839bce1061729f615bc162166fbe9c116c334",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-nasai-ibnmajah28-20261113.json.gz",
+      "sha256": "8d0dbd308198463389e36ad67ca94095b0402089cbef8a3b5ab0bbcd29de5eb6"
+    },
+    {
+      "bytes": 18233,
+      "decision_ids": 20,
+      "git_blob_sha1": "4aa54456115ce03b00d1403a05159bda7b79654c",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-abudawud-tirmidhi-bukhari-ibnmajah20-20261113.json.gz",
+      "sha256": "fdb476dd97b56d51a29c644835c81ba886e4dcb52680d819cb5b259db280e9d5"
+    },
+    {
+      "bytes": 27532,
+      "decision_ids": 20,
+      "git_blob_sha1": "67d83a50e72a9618891b281a7a1018102559b217",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-bukhari20-20261113.json.gz",
+      "sha256": "7ef194061361859a1d776137b420d07204267bb8874fbf89bacdcea7461e12fd"
+    },
+    {
+      "bytes": 18901,
+      "decision_ids": 20,
+      "git_blob_sha1": "b72a71c5dd441cb7ef6025afb6711cb871d32a83",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+      "sha256": "73fec4c12c1426fb5b3402638fbbcfc4c4f42b3fa96fd824f1c14cdd8e6fe14a"
+    },
+    {
+      "bytes": 18893,
+      "decision_ids": 25,
+      "git_blob_sha1": "cd3cd58df5f3904a5b23fd91274a75d565b5e866",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-abudawud-tirmidhi25-20261113.json.gz",
+      "sha256": "858a9f366279565281b13934f70393a13539ab9a319aee93351a4a1820708ace"
+    },
+    {
+      "bytes": 26814,
+      "decision_ids": 25,
+      "git_blob_sha1": "88231ecde597ab8f8814b1527ffe4723d1040c16",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-bukhari20-ibnmajah5-20261113.json.gz",
+      "sha256": "584830b3a209180125f6973d128f69c11e86669e0223a8d987c28d13e6a3e651"
+    },
+    {
+      "bytes": 20646,
+      "decision_ids": 25,
+      "git_blob_sha1": "401642cb68537a8592ad1708740b9c1b3a066e75",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-nasai-ibnmajah25-20261113.json.gz",
+      "sha256": "86892c29af53523850315c3fc59b757218220a2b678cb90841a57c95efbd1b53"
+    },
+    {
+      "bytes": 21713,
+      "decision_ids": 27,
+      "git_blob_sha1": "c3e701e8f82495b7769d03d81a537a764c9e7f60",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+      "sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a"
+    },
+    {
+      "bytes": 28209,
+      "decision_ids": 26,
+      "git_blob_sha1": "39f05fb4f172443c75177f3c61070e62ed484cf7",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+      "sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f"
+    },
+    {
+      "bytes": 26972,
+      "decision_ids": 38,
+      "git_blob_sha1": "16707b3f6f3df7c756a7e61b870ba881ea82127f",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+      "sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7"
+    },
+    {
+      "bytes": 30572,
+      "decision_ids": 28,
+      "git_blob_sha1": "4ff86a28aa3859269e4181a921f349a8fbc5faea",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+      "sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8"
+    },
+    {
+      "bytes": 20990,
+      "decision_ids": 23,
+      "git_blob_sha1": "031c3df2f5b51e91ab6b282806ea36651e5649d4",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-abudawud-tirmidhi-muslim-ibnmajah23-20261113.json.gz",
+      "sha256": "096d7c068e79f1a05a14e24689e50dbaf25c7192a6e7ff99e95818afdb3b65ac"
+    },
+    {
+      "bytes": 25678,
+      "decision_ids": 23,
+      "git_blob_sha1": "9e8526ee49aea5fea876578b06066b99554436a9",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-bukhari22-ibnmajah1-20261113.json.gz",
+      "sha256": "4bfcfdbe8e401dadcda9e9a684dc70a83d3e7f35eefdeb597791cb9b60c4b98c"
+    },
+    {
+      "bytes": 22592,
+      "decision_ids": 23,
+      "git_blob_sha1": "f41c547fa78b95125a7084eaac8c366574ee8c74",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointbd4a-nasai-ibnmajah23-20261113.json.gz",
+      "sha256": "644b2a872a77e37ffacbec1c6d8d6a569407f1fb27c1820b35574a20a8b812bf"
+    },
+    {
+      "bytes": 16155,
+      "decision_ids": 20,
+      "git_blob_sha1": "4a5d57e85c1f5f41f8ff80f2e09864e7dbdc9b03",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-abudawud-tirmidhi20-20261113.json.gz",
+      "sha256": "0abfafac0c086155db3f38564a75f0f9c93f72e54dec7021c875f29967747186"
+    },
+    {
+      "bytes": 43082,
+      "decision_ids": 42,
+      "git_blob_sha1": "4d847a356bae077679769b66f27f188c76856aa4",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-bukhari-muslim42-20261113.json.gz",
+      "sha256": "31c95fe4fdcbb6063c7281e5de6b148376c646129c1c12cc795b212275863b2f"
+    },
+    {
+      "bytes": 10081,
+      "decision_ids": 10,
+      "git_blob_sha1": "3ee2faa4eb9b23585f75369e28f02a55e09d6c8d",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-nasai10-20261113.json.gz",
+      "sha256": "dff78a9f6d56e93570a6a06dad9f20b1f4a97fa0030c79dd45a26112ec49370c"
+    },
+    {
+      "bytes": 34368,
+      "decision_ids": 50,
+      "git_blob_sha1": "702b13df961308c90878f3325372420575976edd",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointcdb6-bukhari-nasai-20261113.json.gz",
+      "sha256": "ccff718f12da0ba9c3fbcd2e944bbe22d53922d837c9d642ddc381a29c7e72d7"
+    },
+    {
+      "bytes": 31269,
+      "decision_ids": 25,
+      "git_blob_sha1": "7476451e9e3f86c58f8c0c75bb45583aca9ae33c",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointcdb6-muslim25-20261113.json.gz",
+      "sha256": "2bf9baee523d61c513b4a0e914cd60aef9af950f045663e7878e23d0665b09cd"
+    },
+    {
+      "bytes": 251700,
+      "decision_ids": 576,
+      "git_blob_sha1": "be223d5c01979b12c3a2d0d398545ee05f8db237",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-muslim-malik-20261113.json.gz",
+      "sha256": "f2f47e0126eb479a6c3ab2fe4cd2d8353df7f04dfbe5b2820f0bdbeadc88eb70"
+    },
+    {
+      "bytes": 32870,
+      "decision_ids": 30,
+      "git_blob_sha1": "ce2e85f96ab77d1027846972ece9d41ae733533d",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-recovered-muslim-20261113.json.gz",
+      "sha256": "7136152758d19b9b1814018b7eaf86c51046693350a889062d5d52229d716903"
+    },
+    {
+      "bytes": 15540,
+      "decision_ids": 29,
+      "git_blob_sha1": "5f588ef6be93bcb6c342f5a28726923a52e6b5e0",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-recovered29-abudawud-tirmidhi-b65b894-20261113.json.gz",
+      "sha256": "50b8ecce7264d2240ed6b12f969b865788ceabb5d72d42a630365d277fa362fc"
+    }
+  ],
+  "untouched_field_decisions": 2335
+}

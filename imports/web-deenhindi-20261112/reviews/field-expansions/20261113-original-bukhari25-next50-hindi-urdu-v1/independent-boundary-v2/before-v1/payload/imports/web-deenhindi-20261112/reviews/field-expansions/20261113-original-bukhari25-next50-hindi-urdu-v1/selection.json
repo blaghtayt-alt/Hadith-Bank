@@ -1,0 +1,881 @@
+{
+  "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+  "active_review_sha256": "18970b44b24868634c9e9d5f7db729c9f76c054502627c350a10f139c66e1d9c",
+  "all_unselected_field_decisions_must_remain_exact": true,
+  "baseline_queue_fields": 6361,
+  "baseline_queue_occurrences": 3379,
+  "candidate_authored": false,
+  "canonical_queue_path": "reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz",
+  "canonical_queue_sha256": "74ce384bca242d5c130ddd1347774ab0c7e94e51185175d62cd8158e09e1a64a",
+  "current_metadata_file_proofs": [
+    {
+      "bytes": 383557,
+      "git_blob_sha1": "9a0193c49e2ef5c036f0695430175d2849337f08",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "response_sha256": "e5f091f704638be035801fbf1f8966ea885ff7373156cf1c6a57c2ed51ec0c1a",
+      "sha256": "18970b44b24868634c9e9d5f7db729c9f76c054502627c350a10f139c66e1d9c",
+      "source_commit": "d369026ca42af6ff972ffab83c9180e03759da41"
+    },
+    {
+      "bytes": 728256,
+      "git_blob_sha1": "939e83af734740d0a846c4b1b68e893e7c601dad",
+      "path": "reports/web-source-resolution-20261113/current-original3942-priority-field-queue.jsonl.gz",
+      "response_sha256": "2d261c1ee106d85e4b908722e4f0896db93470f08c97b9eaa5f5085467d70deb",
+      "sha256": "74ce384bca242d5c130ddd1347774ab0c7e94e51185175d62cd8158e09e1a64a",
+      "source_commit": "d369026ca42af6ff972ffab83c9180e03759da41"
+    },
+    {
+      "bytes": 638110,
+      "git_blob_sha1": "e9255d7d8c7cd8922c9911264bc335b151ff76f8",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "response_sha256": "caebabc08e4397b934746cd3bf6d4110d55785c5d7d5d64f05921905fcff7cb2",
+      "sha256": "5c9598c1c61cee509155013dde44221de2e17f11bd29d0f475092f2a6e86fb36",
+      "source_commit": "d369026ca42af6ff972ffab83c9180e03759da41"
+    }
+  ],
+  "descriptor_authority": {
+    "full_state_sha256": "9080df3aa1461e05204a0c4cc428bdf30d89501be995729db64b7a64885391dd",
+    "source_commit": "3e574b9e7e4dd7cf8bc23232249004a18692c61c"
+  },
+  "eligible_paired_bukhari_count": 176,
+  "full_field_reading_input_sha256": "5c204cde7e73d4195281c8681455016a4ddb635e847c28564cc84ab352b26a1c",
+  "parent_dispositions_must_remain_unchanged": true,
+  "schema": "hadith-bank-frozen-original-language-extension-selection-v1",
+  "selected": [
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "bcffd35b43671e3725edb8a8e7d39e732b8f5483262e0a8aca3543e5186de82a"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "b222096192c7d69d9ec65ff2617dfe8fde4011f795aa770564f2daa856a774a1"
+        }
+      ],
+      "id": "deenhindi-bukhari:1487",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/6b5527571785dd77eea6958be31290414748bc22990b65c8a02048abdce39a37.json.gz",
+      "source_record_sha256": "69d0b298790f2fdcd2789ec22d601b9b33eadca21ec2fd8f0cc7c931f4ce604d",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/c82a268cd8edd482bfe2ae32129ab2113560d45226ec01180d8f3ddd6ba13a7b.html.gz",
+      "source_snapshot_sha256": "c82a268cd8edd482bfe2ae32129ab2113560d45226ec01180d8f3ddd6ba13a7b"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "de505e8ca597a0f2ce0e89400647f8151a83b27ce03a5376e994104e18919659"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "88c98cfde4804425cb6df1dc836141465e1b80498e4357e0bc2a334f96a5e275"
+        }
+      ],
+      "id": "deenhindi-bukhari:1489",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/a2deab8421a885efa20a088b14e0081055f6e7cbf8d51193d285685bdedb6c21.json.gz",
+      "source_record_sha256": "f20b218512dc6052e8370a1b6d7ba397b7b87ba011ff5884575c20639b0fc26e",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/4881770544e16bdca10216cce856e21e5cfad29bddb61180e6ca3a73d4b507c9.html.gz",
+      "source_snapshot_sha256": "4881770544e16bdca10216cce856e21e5cfad29bddb61180e6ca3a73d4b507c9"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "00ed79032c3500524cfc061fb30d1494bf3af8f970e923cb7036edd940954d76"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "e27d0828f0bf43c874e379cc1cf55d2ef828e93a56c211ee9bf46613e0c96f3e"
+        }
+      ],
+      "id": "deenhindi-bukhari:1493",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/f68ab2dfa675c8f571c903b25a2ec506cec94a5142263984e42a17f46aa39ff3.json.gz",
+      "source_record_sha256": "149e1276e8c4b0aac4ee04de09411a89672db7b832bd686509a19190f36e83f2",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/a1fa694968f0191f0212fa90cc94d34f9120895a9b5e076c4468fb6a1c50a30f.html.gz",
+      "source_snapshot_sha256": "a1fa694968f0191f0212fa90cc94d34f9120895a9b5e076c4468fb6a1c50a30f"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "8faa03ae792e7b90f5d5a2037b79cefe61ff26485a258043b8430d60e83324a0"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "e43fbe41e9225b15445009c30cb5bdc409b0871ef92d4dee8747fea71370f0c0"
+        }
+      ],
+      "id": "deenhindi-bukhari:1500",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/cc422b6aedd146ce3217104519284a603a86dede7ddddaa4e3a6a0d773954f29.json.gz",
+      "source_record_sha256": "db3a06c6914eeaf61a5af0c0666d8959487425b7d6160121a15c010191b74ec0",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/3a34f4051c2cef1aba014abcde7b677433b4950da19b5068f808c444fac72fc8.html.gz",
+      "source_snapshot_sha256": "3a34f4051c2cef1aba014abcde7b677433b4950da19b5068f808c444fac72fc8"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "c99b43d98e850ce876cf0915ebab3acff127b783b5d2103c8bd68948efdb4259"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "36e67bbda0f6c2cd2f95d36703eaefdb59f9dc9c528cb56aaf351e18672d9ebc"
+        }
+      ],
+      "id": "deenhindi-bukhari:1501",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/12f5e91a2dfb1cecba22579752119acd3149818f90e6343657cbe1fd92dacb23.json.gz",
+      "source_record_sha256": "33fdad6721a2f10998f5565a339e202cf2097a9b3ac4e0fee142ea07f756c682",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/52210fa665271fa0163088904a5fe708666075d3d7e8d1daf25c9d96e6a8d403.html.gz",
+      "source_snapshot_sha256": "52210fa665271fa0163088904a5fe708666075d3d7e8d1daf25c9d96e6a8d403"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "3f80bf2db461081325ba2d57b6afb8f213ce0d3ba87ef3dfca89e68bc592a8fe"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "436900e863de8040a8765b97246e3e21b7f226c38b49c49e63a8516cc4a27d69"
+        }
+      ],
+      "id": "deenhindi-bukhari:1502",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/e6ca6449b1ed7f6a2e1a1f9710db95b3554965124d1d4f0ceff45feb3ce47316.json.gz",
+      "source_record_sha256": "80cfc17fdd8c28f9170ec81831c1e3bcab80e75d87eb06c15dbd38a4b7135f66",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/0727fbc0d56330205a606a0df882471503fa7a7ae09e4aacdadc79d5131d1078.html.gz",
+      "source_snapshot_sha256": "0727fbc0d56330205a606a0df882471503fa7a7ae09e4aacdadc79d5131d1078"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "b4d05e53b36f283aede4b7ba083fc2fdf53fdb72ab3674d8c6c13a3c070c48ef"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "3e3050c143b668346855b1ad793ab01cda1bb8b8cef9f1e4aeefb154ace407ca"
+        }
+      ],
+      "id": "deenhindi-bukhari:1503",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/195449543953091f4197a15f36ffedcd6917bfd0ca62a770064b21458f056b83.json.gz",
+      "source_record_sha256": "317c0860996b8323c3b37bc369fd0354fae633a44032dd9a9efffc4455d56cda",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/01c581f5972e273310e5a0c8f10de0b088750a433d8f20feb65391a032e14085.html.gz",
+      "source_snapshot_sha256": "01c581f5972e273310e5a0c8f10de0b088750a433d8f20feb65391a032e14085"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "6dbe74cad9c1ebfddeb6f3ea3f735bc1042f0dfa951326c05c622123cabe0574"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "4e20cea5ed397e7427e9f399435f52963cd971d0ade4c86c5a7cc49320100376"
+        }
+      ],
+      "id": "deenhindi-bukhari:1505",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/1d21e868a844a77d73ecd1584c82115f87818af2f71f9b535b1b619545d18b28.json.gz",
+      "source_record_sha256": "c21c406ff00d21637b5ad553fb4c08168f04dd2c3a064120a9c628d072abd12f",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/d14315395965c37ffb4f23a45eef45542c369f1a7fc7098488ad8d319302d3c8.html.gz",
+      "source_snapshot_sha256": "d14315395965c37ffb4f23a45eef45542c369f1a7fc7098488ad8d319302d3c8"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "be5007f7ca77bc820a0ac8e53026dc6bfe78f92640f73aca0bf0014a1e84c894"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "5946e7a15c10be88fc02e11b0dd163ce54a320e1732746ec9c9ed38d0732ddc5"
+        }
+      ],
+      "id": "deenhindi-bukhari:1506",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/3255150af60c09305d93f4ffec04aa79b9528252d8b7e0f55c0af2afd385637a.json.gz",
+      "source_record_sha256": "100398aec07e0cccb8c3c2e9d8b474b1ef4dea70846ef747b916ec3bb462b540",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/e8a15d79287714bf5fcd63dd3c93c0abca925cadb37f1e3387bcaa47a1f1d249.html.gz",
+      "source_snapshot_sha256": "e8a15d79287714bf5fcd63dd3c93c0abca925cadb37f1e3387bcaa47a1f1d249"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "b67c5cadbb7fd14eadbbd5eb0ee2f237e3d81a5dc055951d75745a6952a6914b"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "3ea1c7b9799c9f2484c8bdfa917c8c3596f78750e18e26bca613aee1715e6a4d"
+        }
+      ],
+      "id": "deenhindi-bukhari:1507",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/718d7ab633617d33ccc882a551a0b53625c7e2af0c84db28b9048179f9f0266e.json.gz",
+      "source_record_sha256": "af68c72f5a775fbfe0985f80fd39c0c64aaf39998d36e5e8c26065c0e31eee6e",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/3edd518638074b31f40b17b19ce7baa29fd7aaeeea711b6894f90bbd172149e7.html.gz",
+      "source_snapshot_sha256": "3edd518638074b31f40b17b19ce7baa29fd7aaeeea711b6894f90bbd172149e7"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "9fc33cb9b665d5fdc78f64c7dd09490068b237bdb29acb06b649dffefe8558af"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "2a7676b46ef6f6c203b254004e6bf6057ed981c00b104d76510dcefcb58fa7fa"
+        }
+      ],
+      "id": "deenhindi-bukhari:1510",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/297d4c4a80907f75ec184e22e958e2d23a0f3183dc45dbafb58ee335b0aac372.json.gz",
+      "source_record_sha256": "d06639f8ecdc7e06da1aa27728e9c209bbdde9539ae6e361f899a160ca698f46",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/886d19de903b923b6a108ade5b102286911b56dfac5fa56d638e7f499c2e5df4.html.gz",
+      "source_snapshot_sha256": "886d19de903b923b6a108ade5b102286911b56dfac5fa56d638e7f499c2e5df4"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "94bc13460d0e732cec7e513297d361540d9a6be5e0b8c535b65d540b1662b13f"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "44d84f507e95a6debe423b2dbf46ca1698f433df8bb0c0f8dc88ad55b85d2846"
+        }
+      ],
+      "id": "deenhindi-bukhari:1511",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/087b626607e0d0d232bb39602e63324811f2e9b2450cb31b7729883be7c1d81a.json.gz",
+      "source_record_sha256": "e8c5ba9c576307d2361711c855e418d04dc70ed750c88f56d55f5bb2ad11fb1d",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/53ea06f0fcf99b07bc522045b55b8c3cd9c6e489e5d7126eb2a6ccf1962c7310.html.gz",
+      "source_snapshot_sha256": "53ea06f0fcf99b07bc522045b55b8c3cd9c6e489e5d7126eb2a6ccf1962c7310"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "a4d6465c2b31ad7dc184c256171c70884c5f33a6d7bc31ccf93192ccc64fd372"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "a89e50b1298df8fc7b209cd178919ce7ab9d20fd8f4168e638416612f6a1afec"
+        }
+      ],
+      "id": "deenhindi-bukhari:1512",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/7ac9dcbd4524d397ba8f3f6218e3ed2dd060166c2c6f22d675818d3fc3e96bf0.json.gz",
+      "source_record_sha256": "750e265330692895d663f0bd742f07526e49f0922a9da0971d22d6c27c3207fa",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/44a60e596d208182c47479933a8a93a0f78ed550cb8f579f25aef83fbd1b93d0.html.gz",
+      "source_snapshot_sha256": "44a60e596d208182c47479933a8a93a0f78ed550cb8f579f25aef83fbd1b93d0"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "f77b78e0a784e1cf47e4e2c33dd83cb0020d39707da5e94565e01bbed8f7c395"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "363d91dcd34f641f9e255b9dcd785f98d691877c119c6619255ac63cde838e58"
+        }
+      ],
+      "id": "deenhindi-bukhari:1513",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/2be29f12b267a363dfdbc321858fd9f3c5f38ff7dad0db93993c15c5fa203201.json.gz",
+      "source_record_sha256": "9e406cbb99a7c3d6c04e77dbfe0cccf658b98b0873af3d2fce10d743dc2e9863",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/78a489be72e389cf6e27c085cb9912f29949cb357e82e7b5e876bc69aae3afbf.html.gz",
+      "source_snapshot_sha256": "78a489be72e389cf6e27c085cb9912f29949cb357e82e7b5e876bc69aae3afbf"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "780a4e16ae9029c1fdfab396c169234095cbc5abb9d21c044c85754815c0d84d"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "44a02d30e459acec8f6623cabcb920532994fd543b438026d1e42f363dae8194"
+        }
+      ],
+      "id": "deenhindi-bukhari:1515",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/0ae4cb23abbcfe16e5ba8d461d3fa2e315512c0b1e81bd6d4a48b028d5e7adf1.json.gz",
+      "source_record_sha256": "7111b395a340da41b5e17953bc6049d8ac1cb743f33eefa439bc73d90ef4dd60",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/12cfe7bb0a55ef31d9c8f44d6e465dcfa33187f5aa1a64b7a521b5bcee0eeeaa.html.gz",
+      "source_snapshot_sha256": "12cfe7bb0a55ef31d9c8f44d6e465dcfa33187f5aa1a64b7a521b5bcee0eeeaa"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "7d17f0e07a9e3df430079eb64b16a27ba1574367eb2790d70532f6f4a91cc4fc"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "11fc1aa945a12bce8db9e85eca4cadfda5d86426e94e33c6a5457bb7f9feed9f"
+        }
+      ],
+      "id": "deenhindi-bukhari:1518",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/ceb1c345d46bf0fb7db73d215259b626e66a46e261ad5eef288497e694ad9a7d.json.gz",
+      "source_record_sha256": "f11d4526aab53357ec269b19b8047c963e223acfc55cbfd2ea0d66049d44265a",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/ba8d23f204f7f4d5efb384a16a37df63c8e0b40b49035e28dcfda49a5eec6a12.html.gz",
+      "source_snapshot_sha256": "ba8d23f204f7f4d5efb384a16a37df63c8e0b40b49035e28dcfda49a5eec6a12"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "97ce571bf78c5b58fa83e164978517852ec8a4333a5e16b57910aee1fdda31f4"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "7d4161a0be4b867e8a89152bbcb101033e65a6fa86f88398d857fb5b8ce11e62"
+        }
+      ],
+      "id": "deenhindi-bukhari:1520",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/da56acabad295d7270ca1f9b8514282d719103b000ee33dd6170b55ebe10ffe7.json.gz",
+      "source_record_sha256": "858607c170dabfd21661fbd4d5b2319b73edf531da80d349dad76c2d5a5c4d9e",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/bb2dd722fdee4c24ecffe50d091fe4dbf2fca84be5ccb917505c500f9c517b4e.html.gz",
+      "source_snapshot_sha256": "bb2dd722fdee4c24ecffe50d091fe4dbf2fca84be5ccb917505c500f9c517b4e"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "9e53201be23836c9e66bbf67dfec97896913c8d8fa0a47374452cefdd8940845"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "019d7623f44b05871a39dd6da43922c45c6af7e0a6a9e1f132276048dd984f26"
+        }
+      ],
+      "id": "deenhindi-bukhari:1522",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/c20c6d4275631b6eaa9825fdd752c2373420afc5078f02a452b23fb057c82f78.json.gz",
+      "source_record_sha256": "c2d192c6543ceb55b2fa1b5a83965fb69c5bc2509a3cd3a7587060bdd016195d",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/968cf7576c7d29ecde6528922f57cc5f05b49cff34b0e23135a3e48310386fc5.html.gz",
+      "source_snapshot_sha256": "968cf7576c7d29ecde6528922f57cc5f05b49cff34b0e23135a3e48310386fc5"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "bed459c400546d3787d88375c0c7bcabc35880116b1dc47fc7253cb126c464c8"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "d39e8b8d7cea0bb0be97823d61ac8dc7d0b0f7cad820b7b9c5fe2a34cfff1a93"
+        }
+      ],
+      "id": "deenhindi-bukhari:1523",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/acdf6b52585eb7c2ac38ef2727683eb9ad00048c3311e1d982515bcb5a882cbe.json.gz",
+      "source_record_sha256": "8693a9ef977dc078b860f7ee2d5922219e0d2ba7a08cb3cc206b879737c56092",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/ffe7890c1c474cb0c99e8217580934f5a9b0941c1c60f0002383012b17391c0c.html.gz",
+      "source_snapshot_sha256": "ffe7890c1c474cb0c99e8217580934f5a9b0941c1c60f0002383012b17391c0c"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "6b3a563bd53e9b6da78ace298a42f34a3ada21bb3f96f627e6bf43325edd6d4d"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "452d35b78985de69a4060b64fe9129ba0c78b8c7ea91a5753775196f27b18a28"
+        }
+      ],
+      "id": "deenhindi-bukhari:1526",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/b000b0104b426d316153916cabeff43750df998d936b64d52d0efbd3a96e59e3.json.gz",
+      "source_record_sha256": "67c4ae88e6195b0fa56d44b874446b2d3958ba34cccadd3afbf6c0f9bddf3cd9",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/512a515c3f3260f391f041043482a830ed481867f9a436ccf0dff6cf71f04f9c.html.gz",
+      "source_snapshot_sha256": "512a515c3f3260f391f041043482a830ed481867f9a436ccf0dff6cf71f04f9c"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "85cdfba2abb561cb67e3d85e2429ba0a8768531306df7aa66d9e95c4253c9bcd"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "f53d0403362fad77ac9afaf1e647fd000236b8a8e3fedbd6dacb21de7d3d42d0"
+        }
+      ],
+      "id": "deenhindi-bukhari:1536",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/7db0353fbaa775a69d3913ff22282ffb4397e117eca44b0c6b9a7fb7e3d81d15.json.gz",
+      "source_record_sha256": "1a2842bcf6e3ad177780d6d7d239045c058e9572096d34a490f6dd5486ed320c",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/1438eb4cbaf356f4bd5955750d73fdea44f99390dbce6e60b7482d791b31261e.html.gz",
+      "source_snapshot_sha256": "1438eb4cbaf356f4bd5955750d73fdea44f99390dbce6e60b7482d791b31261e"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "d6daa4815af63973a6eadb46a512dec2a6a2e0607db88aeac411bb0eedf1f988"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "ad24c50e0066157a546526b0a5f0c3195203ce482353ef2aa4b169cb3878beae"
+        }
+      ],
+      "id": "deenhindi-bukhari:1537",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/6b983a695305cc3ee87949451b12917e97a1965c512f35d6efb6dc073752ecbc.json.gz",
+      "source_record_sha256": "d4c08a7d41ea633bfb1ec3b34a51a4002e2bb027cdd15a3d058a0dbf808535f2",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/34db2dd3f960611a7563193eb6de7a9e908a1ee4e0e894a393961d4456bdd971.html.gz",
+      "source_snapshot_sha256": "34db2dd3f960611a7563193eb6de7a9e908a1ee4e0e894a393961d4456bdd971"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "d6daa4815af63973a6eadb46a512dec2a6a2e0607db88aeac411bb0eedf1f988"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "ad24c50e0066157a546526b0a5f0c3195203ce482353ef2aa4b169cb3878beae"
+        }
+      ],
+      "id": "deenhindi-bukhari:1538",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/805a685d4339ff3620dc9703b00177702402f1b5e61a44fa1866bfa848133d81.json.gz",
+      "source_record_sha256": "2147c1c87ba284ae290fa26fb1d57eeaf5999282076a3b3eb5a747eb04082cd9",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/0c1fc1af807664e517667a41474ac86cc9dc165ebb04a43e925d15d2dd0c42ed.html.gz",
+      "source_snapshot_sha256": "0c1fc1af807664e517667a41474ac86cc9dc165ebb04a43e925d15d2dd0c42ed"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "5c74d60105713492d1c16d35a7a56c08c2dd247f3183ef6cd50b74e28dc20b03"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "533d84c1ac319736b0fdd9b96e4f3bd0a18ce6692274ec9e8e79423f6234090d"
+        }
+      ],
+      "id": "deenhindi-bukhari:1541",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/22774d3c805f08c64e7d1cdc01a89d16b943f1493a47f9e3e9507e512a44fc33.json.gz",
+      "source_record_sha256": "e2aacdbff419e7fcb1d0e890990b52943ba1c12e27a47ac7674f6a2fc6b9cf30",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/87c10fb20a7a4977a8449a5c2fbfa50359b16b04e6b6c4061727107b76c0c44b.html.gz",
+      "source_snapshot_sha256": "87c10fb20a7a4977a8449a5c2fbfa50359b16b04e6b6c4061727107b76c0c44b"
+    },
+    {
+      "active_review_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "cohort_origin": "original_3824",
+      "decision_basis": "manual",
+      "existing_parent_decision": "register",
+      "fields": [
+        {
+          "language": "hi",
+          "source_field": "translationHindi",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "d42a5731519d8f0384e819dce1851e4ece7c5353505017e092d43c7c9efb76b0"
+        },
+        {
+          "language": "ur",
+          "source_field": "translationUrdu",
+          "status": "unread_or_unmatched_source_context",
+          "text_sha256": "1625ef0a408d0d9c7cee6520bf57c70e07f263ef688bf2253ac8cd9e59dfc805"
+        }
+      ],
+      "id": "deenhindi-bukhari:1543",
+      "queue_scope": "Supplemental language-field review only; retain the existing parent disposition and every existing independent admitted language decision.",
+      "queue_updated_after_extensions": [
+        "20261113-bukhari30-hindi-urdu-v1",
+        "20261113-nasai-hi-ur-extension-v1",
+        "20261113-ibnmajah50-hindi-urdu-v1"
+      ],
+      "reuse_binding_path": null,
+      "review_source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+      "source_parsed_path": "imports/web-deenhindi-20261112/parsed/bukhari/2ad2df7eabc07f0b28bb5b3003670c88ba8830df4fc4f62fcc9436fb2107d4b0.json.gz",
+      "source_record_sha256": "8a98d3bef58b5b332d688b5e4b592cc33a99f35b744862b843727dcb0f79baab",
+      "source_snapshot_path": "imports/web-deenhindi-20261112/raw/3aa4bb69264367b2e50435d53610eca71d726c8af27767258a76987362c33921.html.gz",
+      "source_snapshot_sha256": "3aa4bb69264367b2e50435d53610eca71d726c8af27767258a76987362c33921"
+    }
+  ],
+  "selected_characters": 27103,
+  "selected_fields": 50,
+  "selected_occurrences": 25,
+  "selected_source_baseline_sha256": "c9ba0fcc71f74b4f72714894936798b48ff7bf5cfb0d2513ddf32c7eaa65b229",
+  "selected_utf8_bytes": 58879,
+  "selection_rule": "First25 numerically ordered Bukhari IDs with both Hindi and Urdu pending in the published queue, restricted to the existing477-parent Bukhari/IbnMajah ledger.",
+  "source_baseline_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-bukhari-ibnmajah-manual-v1-source-ledger.jsonl.gz",
+  "source_baseline_sha256": "5c9598c1c61cee509155013dde44221de2e17f11bd29d0f475092f2a6e86fb36",
+  "source_publication_commit": "d369026ca42af6ff972ffab83c9180e03759da41",
+  "source_readings_claimed_at_freeze": 0
+}

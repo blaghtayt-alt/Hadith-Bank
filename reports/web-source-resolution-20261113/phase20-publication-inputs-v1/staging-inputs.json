@@ -1,0 +1,84 @@
+{
+  "base_commit": "70c1a0799bcf67a18bf28bdb9a6672fe1edbc552",
+  "base_tree": "1a4a609c58936eda0dfae376dd4370d2988a5997",
+  "expected_status_prefix_sha256": "8a33a84f338be599527ff52555d6eb05fa2acf3c542c6738fddd1cf64c61b637",
+  "packages": [
+    {
+      "bytes": 6052504,
+      "files": 56,
+      "manifest": "/workspace/scratch/44aeee8a6071/phase20-original-bukhari25-hi-ur/delivery-manifest-v2.json",
+      "name": "primary-original50",
+      "sha256": "e28a5466158fd3fb0be35f7daaa7e0182565cc5abe64ea70bb09cb279eeefdb5"
+    },
+    {
+      "bytes": 342288,
+      "files": 10,
+      "manifest": "/workspace/scratch/44aeee8a6071/phase20-original-bukhari25-hi-ur-independent-audit/delivery-manifest.json",
+      "name": "independent-original50",
+      "sha256": "16d89b9e68fbada4f705070b7a5976809c824ca18818239edda55469efdd5766"
+    },
+    {
+      "bytes": 409279,
+      "files": 3,
+      "manifest": "/workspace/scratch/44aeee8a6071/phase19-independent-readback/delivery-manifest.json",
+      "name": "phase19-independent-readback",
+      "sha256": "ae50998b382395cee4a3e10f30399e8f10c7f837b4c38128c30cd28b473211d5"
+    },
+    {
+      "bytes": 18738,
+      "files": 1,
+      "manifest": "/workspace/scratch/44aeee8a6071/reader-monitor-d369026/delivery-manifest.json",
+      "name": "reader-d369-superseded",
+      "sha256": "d6ce350e45db6ea293665412291417dc7c0616b841902257a96b71b1b6ce6c5d"
+    }
+  ],
+  "phase19_receipts": [
+    {
+      "bytes": 199223,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/manifest.json",
+      "name": "manifest.json",
+      "sha256": "b7ce63801ddaecb8febc279726297c28e6fc32a71f691ad907f42fc299412114"
+    },
+    {
+      "bytes": 1235,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/publication-receipt.json",
+      "name": "publication-receipt.json",
+      "sha256": "f76df8681b6989dff389ac7c7c15e360e53e254bfd61b93b551c064ed67c605e"
+    },
+    {
+      "bytes": 1375,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/publication-rehash-gate.json",
+      "name": "publication-rehash-gate.json",
+      "sha256": "3e9af392beae528b27e085c1141602f2b60258129b9feff2da9cb792b562daa1"
+    },
+    {
+      "bytes": 381331,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/tree-verification-receipts.json",
+      "name": "tree-verification-receipts.json",
+      "sha256": "03a407742a22a9bb211bb8722a6e5c14bdaf69356c53f27b6f40f4bdaa2a6239"
+    },
+    {
+      "bytes": 124966,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/verified-base-trees.json",
+      "name": "verified-base-trees.json",
+      "sha256": "3ad3fc2601f411600b81288534503ec63270253ab2fcb9262967101c0baf8c50"
+    },
+    {
+      "bytes": 3129,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/successor-preservation-gate.json",
+      "name": "successor-preservation-gate.json",
+      "sha256": "e25e79dc8c653c2ab755f20cfb84d2207a27d325349548942dd1807faf853f56"
+    },
+    {
+      "bytes": 5254,
+      "local_path": "/workspace/scratch/44aeee8a6071/phase19-final-publication/verify_publication.py",
+      "name": "verify_publication.py",
+      "sha256": "d82b2523e7122399e2d933e2316ed765bc1415ea42ecc6b803b63296bf02387a"
+    }
+  ],
+  "root_approval": "Root independently read the complete8293-byte prefix and approved exact SHA2568a33a84f338be599527ff52555d6eb05fa2acf3c542c6738fddd1cf64c61b637 after checking queue and superseded-reader counts.",
+  "root_status_approval_pending": false,
+  "schema": "hadith-bank-phase20-staging-inputs-v1",
+  "source_review_pin": "d369026ca42af6ff972ffab83c9180e03759da41",
+  "status_prefix_path": "status-prefix-draft.md"
+}

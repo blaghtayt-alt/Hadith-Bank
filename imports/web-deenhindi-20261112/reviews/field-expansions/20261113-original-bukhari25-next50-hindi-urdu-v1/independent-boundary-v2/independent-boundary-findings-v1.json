@@ -1,0 +1,368 @@
+{
+  "actual_complete_fields_read": 50,
+  "all50_complete_candidate_fields_and_all_selected_context_boundaries_inspected": true,
+  "changed_parent_occurrences": 4,
+  "characters_read": 27103,
+  "github_writes": 0,
+  "independent_complete_reading_receipt_sha256": "073b9eb372627f21dde24a7f2179449fdf92cd12e7c6bd7a55e544b1bd52f67a",
+  "independent_source_verification_sha256": "b7b0cf59582c7becd4e2f1a4356ecdf3d907027d364e41d5dfaf688b967767fe",
+  "initial_note_refinements": [
+    {
+      "initial_note": "The initial own notes described two actual report families.",
+      "occurrence_ids": [
+        "deenhindi-bukhari:1493"
+      ],
+      "refinement": "The candidate separates the two actual encounters into distinct ordered components inside the same supplied Aisha transmission family. This preserves the distinct events and speakers without asserting two independently transmitted occurrences, and is accepted."
+    },
+    {
+      "initial_note": "The initial own notes referred to distinct report families for the embedded practice, dialogue and Aisha recollection.",
+      "occurrence_ids": [
+        "deenhindi-bukhari:1537",
+        "deenhindi-bukhari:1538"
+      ],
+      "refinement": "The candidate uses three explicit attribution components within each single source occurrence family. The Aisha citation remains separately labelled and is not merged with Ibn Umar’s or Ibrahim’s voice; that family convention is accepted."
+    }
+  ],
+  "mask_changed_fields": 6,
+  "metadata_only_fields": 1,
+  "newly_added_selected_positions": 0,
+  "newly_removed_selected_characters": 89,
+  "newly_removed_selected_utf8_bytes": 179,
+  "no_additional_chain_cut_requested": "Every multistep prefatory route is already context. The actual Zayd visit, bin-Umayyah request, later Ata-labelled dialogue, and short1537/1538/1543 attributions remain finite body/framing.",
+  "no_new_reading_credit_from_candidate_comparison": true,
+  "other_newly_reviewed_fields_must_remain_exact": 43,
+  "parent_decisions_unchanged": true,
+  "previous2335_field_decisions_must_remain_exact": true,
+  "primary_active_sha256": "14ae19f71bac85c74fa4652ca40d46c3a5f94d3d0e2dbdff7da0bb18a212c8e2",
+  "primary_manifest_sha256": "9f3b6612ee3dd871f47b2741f55570a07567554eb569807dfaa48b2663d35e51",
+  "requested_metadata_only_refinements": [
+    {
+      "action": "qualify_only_the_visible_Hindi_interlocutor_name_in_descriptions",
+      "actual_later_question_quote": "मैंने अत से पुछा",
+      "also_align_field_speaker_reason_annotation_if_they_otherwise_silently_normalize_this_name": true,
+      "component_id": "hi-report-2",
+      "exact_source_name": "अत",
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:1536",
+      "prior_field_decision_sha256": "bab5ee62ac47a20c45d795119f5a8ee7521559c5a3d7bb29e902600a517eff57",
+      "reason": "The Hindi source prints अत in the opening route and the final actual question, while the current English metadata calls the person Ata without acknowledging that source spelling. Keep the finite later dialogue and all source positions, but make its printed Hindi name explicit in the speaker/annotation wording; do not silently complete the name from Urdu عطاء or external identity.",
+      "source_positions_changed": 0,
+      "source_record_sha256": "1a2842bcf6e3ad177780d6d7d239045c058e9572096d34a490f6dd5486ed320c",
+      "source_text_sha256": "85cdfba2abb561cb67e3d85e2429ba0a8768531306df7aa66d9e95c4253c9bcd",
+      "suggested_component_speaker": "The source’s first-person questioner, not externally identified, asks the interlocutor printed अत in this Hindi field about the three-wash instruction and receives the actual yes answer; this is not additional Prophetic speech",
+      "unchanged_report_type": "actual_later_attributed_interpretive_dialogue",
+      "unchanged_source_report_family_id": "deenhindi-bukhari:1536:report-1"
+    }
+  ],
+  "requested_source_mask_changes": [
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 14,
+      "end": 252,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "hi-report-1",
+          "end": 238,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_purchase_and_emancipation_report_with_prophetic_reply",
+          "sha256": "8ab5d0c895098948fb7844511bbac407211f3efbfdde0b5a9fb0e7b10ebf44f8",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha reports the Barira purchase/emancipation and the separately introduced meat encounter; the prefatory chain remains context",
+          "start": 189
+        },
+        {
+          "component_id": "hi-report-1",
+          "end": 538,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_purchase_and_emancipation_report_with_prophetic_reply",
+          "sha256": "2927c68635ff628de4b95cc5218ccb0a73e6058d17dd250b1c403a4a472312c7",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha reports the Barira purchase/emancipation and the separately introduced meat encounter; the prefatory chain remains context",
+          "start": 252
+        },
+        {
+          "component_id": "hi-report-2",
+          "end": 801,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_meat_encounter_with_prophetic_reply",
+          "sha256": "f7793cadfb31e611433b4bfe4af7fde16a55b40aced0e14744148fc61a3bc160",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha separately introduces the actual meat, charity and gift exchange",
+          "start": 538
+        }
+      ],
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:1493",
+      "prior_field_decision_sha256": "37dd6c7adcc248f63ea1f0b888ca7bf1f98fe9689fa37934a82ea222a5760507",
+      "reason": "The named Barira status parenthesis is an explanatory apposition. The surrounding actual purchase-for-emancipation purpose, original owners, wala condition, consultation and emancipation reply already supply the complete transaction; putting this duplicate status gloss in context removes no actor, action, condition or permission basis.",
+      "source_field": "translationHindi",
+      "source_record_sha256": "149e1276e8c4b0aac4ee04de09411a89672db7b832bd686509a19190f36e83f2",
+      "source_text_sha256": "00ed79032c3500524cfc061fb30d1494bf3af8f970e923cb7036edd940954d76",
+      "start": 238,
+      "text": "(जो बाँदी थीं)",
+      "text_sha256": "23187971476fbde93005800222aa1b0f9c5bbc23f6e7d0d46d15818f88c48d1e",
+      "utf8_bytes": 34
+    },
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 17,
+      "end": 240,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "ur-report-1",
+          "end": 223,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_purchase_and_emancipation_report_with_prophetic_reply",
+          "sha256": "9644f1c59790ba55422a867a90903976d0f1e27e2378957e7cab6593e3a09c15",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha reports the Barira purchase/emancipation and the separately introduced meat encounter; the prefatory chain remains context",
+          "start": 181
+        },
+        {
+          "component_id": "ur-report-1",
+          "end": 499,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_purchase_and_emancipation_report_with_prophetic_reply",
+          "sha256": "057e9277c1c2eebce8c8fdea503bf0f656c3b795acb9ca2ae45aeb160cc53a18",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha reports the Barira purchase/emancipation and the separately introduced meat encounter; the prefatory chain remains context",
+          "start": 240
+        },
+        {
+          "component_id": "ur-report-2",
+          "end": 732,
+          "reason": "Both complete fields contain the actual intended purchase/emancipation of Barira, owners' wala condition, consultation/reply and the subsequent meat/charity-versus-gift encounter. Preserve two ordered event components and actual Aisha/Prophetic voices. The parenthetic enslaved status is the status of the person in this actual purchase/emancipation transaction and remains source-qualified material scope. Separate the multistep prefatory route; do not add any missing identity, canonical mapping or legal exposition. Exact-boundary qualifications: The parenthetic enslaved status belongs to the person in the actual purchase/emancipation transaction and remains source-qualified material status.",
+          "report_type": "companion_meat_encounter_with_prophetic_reply",
+          "sha256": "5b1091486a2374db3ebdb4cc7619d29d3c6635f38818fb87d051c9e48ff4a436",
+          "source_report_family_id": "deenhindi-bukhari:1493:report-1",
+          "speaker": "Aisha separately introduces the actual meat, charity and gift exchange",
+          "start": 499
+        }
+      ],
+      "language": "ur",
+      "occurrence_id": "deenhindi-bukhari:1493",
+      "prior_field_decision_sha256": "e7a428b7e2f27ab4adf32ec2a13df3962732b8937be8c4a732647169944f3384",
+      "reason": "The named Barira status parenthesis is an explanatory apposition. The surrounding actual purchase-for-emancipation purpose, original owners, wala condition, consultation and emancipation reply already supply the complete transaction; putting this duplicate status gloss in context removes no actor, action, condition or permission basis.",
+      "source_field": "translationUrdu",
+      "source_record_sha256": "149e1276e8c4b0aac4ee04de09411a89672db7b832bd686509a19190f36e83f2",
+      "source_text_sha256": "e27d0828f0bf43c874e379cc1cf55d2ef828e93a56c211ee9bf46613e0c96f3e",
+      "start": 223,
+      "text": "( جو باندی تھیں )",
+      "text_sha256": "c4b30ae768efed3480b09a37039fd8cfb3c5ad6629505a10154e26bb4ce26ed9",
+      "utf8_bytes": 28
+    },
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 10,
+      "end": 361,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "hi-report-1",
+          "end": 259,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "prophetic_payment_instruction",
+          "sha256": "245620c9a01b5a9635b10c593fabdd8846e329329c505ddc7904cc64c7e835de",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar transmits the instruction and separately reports the later people’s equivalence determination",
+          "start": 147
+        },
+        {
+          "component_id": "hi-report-2",
+          "end": 351,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "later_community_quantity_determination",
+          "sha256": "f06085c50dcc7df0484cdf8295476e5cd51ef42c9acf448474b421bb3d287e4c",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar explicitly reports the later people’s two-mudd wheat equivalence, not a second Prophetic instruction",
+          "start": 259
+        },
+        {
+          "component_id": "hi-report-2",
+          "end": 379,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "later_community_quantity_determination",
+          "sha256": "96016ac3ccdb8b6b89c39f8a87eabc86f65eb7cba5a07b7f5f860ae686b5a699",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar explicitly reports the later people’s two-mudd wheat equivalence, not a second Prophetic instruction",
+          "start": 361
+        }
+      ],
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:1507",
+      "prior_field_decision_sha256": "f2ea220942abe21dec46be49ceda28b249b59685882f75f95fd52fdfe7c1c498",
+      "reason": "This parenthesis converts the already complete two-mudd measure into another unit. The actual later people’s wheat-equivalence determination and its exact two-mudd amount remain selected; the source conversion remains visible context rather than being attributed as additional words of Ibn Umar or the Prophet.",
+      "source_field": "translationHindi",
+      "source_record_sha256": "af68c72f5a775fbfe0985f80fd39c0c64aaf39998d36e5e8c26065c0e31eee6e",
+      "source_text_sha256": "b67c5cadbb7fd14eadbbd5eb0ee2f237e3d81a5dc055951d75745a6952a6914b",
+      "start": 351,
+      "text": "(आधा सा'अ)",
+      "text_sha256": "34eefed9afecf1fd61e6804a6183a7296ae0a20ff43be3e937c189c4a026632a",
+      "utf8_bytes": 22
+    },
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 12,
+      "end": 319,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "ur-report-1",
+          "end": 230,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "prophetic_payment_instruction",
+          "sha256": "1026513544a02f2af77506676755c30edcdb281cac20b7704a337911d55c7023",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar transmits the instruction and separately reports the later people’s equivalence determination",
+          "start": 132
+        },
+        {
+          "component_id": "ur-report-2",
+          "end": 307,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "later_community_quantity_determination",
+          "sha256": "42240d373b92ab3deb65e6a98fbe7a662554513cb0221bad1be6e9e319e1c4fb",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar explicitly reports the later people’s two-mudd wheat equivalence, not a second Prophetic instruction",
+          "start": 230
+        },
+        {
+          "component_id": "ur-report-2",
+          "end": 337,
+          "reason": "Both full fields supply the Prophet's one-sa dates-or-barley instruction, followed by Ibn Umar's distinct report that people later equated it to two mudd of wheat. Preserve the two ordered voices/components and all actual equivalence/temporal language. The half-sa parenthesis specifies the equivalent measure of the actual two-mudd amount and remains a source-qualified quantity. Do not relabel the later people's determination as Prophetic speech or omit either amount. Separate the prefatory multistep route. Exact-boundary qualifications: Both the two-mudd amount and its source-rendered half-sa equivalent remain material quantity information.",
+          "report_type": "later_community_quantity_determination",
+          "sha256": "a8070ed701b560c05be311f491c1e329b0446e34b34682296c33feddd6f4c65d",
+          "source_report_family_id": "deenhindi-bukhari:1507:report-1",
+          "speaker": "Ibn Umar explicitly reports the later people’s two-mudd wheat equivalence, not a second Prophetic instruction",
+          "start": 319
+        }
+      ],
+      "language": "ur",
+      "occurrence_id": "deenhindi-bukhari:1507",
+      "prior_field_decision_sha256": "43e33303c54220b74cd5a3dbda13b9f5cd3f6677052e36f8cdad852d5b2bd279",
+      "reason": "This parenthesis converts the already complete two-mudd measure into another unit. The actual later people’s wheat-equivalence determination and its exact two-mudd amount remain selected; the source conversion remains visible context rather than being attributed as additional words of Ibn Umar or the Prophet.",
+      "source_field": "translationUrdu",
+      "source_record_sha256": "af68c72f5a775fbfe0985f80fd39c0c64aaf39998d36e5e8c26065c0e31eee6e",
+      "source_text_sha256": "3ea1c7b9799c9f2484c8bdfa917c8c3596f78750e18e26bca613aee1715e6a4d",
+      "start": 307,
+      "text": "( آدھا صاع )",
+      "text_sha256": "f6a09b076ba591f78ecb14b0d3ce24bc60ca324e2e7c1cb45d4cb85859661be4",
+      "utf8_bytes": 19
+    },
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 18,
+      "end": 241,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "hi-report-1",
+          "end": 223,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "0c627e93adcbb0ceae71f8d28baf68c08c21e853932a04fa007177f32b3c3d65",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 205
+        },
+        {
+          "component_id": "hi-report-1",
+          "end": 691,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "1d206e52fcf4de608bd624485f1bb65c2409ffc29002f5099d07ea2946ad0373",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 241
+        },
+        {
+          "component_id": "hi-report-1",
+          "end": 788,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "a681f23f8ef3756470ea49a09a16325b9b7a639d268b5f4d2698ab58a2a7bb3d",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 696
+        }
+      ],
+      "language": "hi",
+      "occurrence_id": "deenhindi-bukhari:1513",
+      "prior_field_decision_sha256": "e72e9b8df8a89b9ba97c9f3c5d6e9d0eefc9faf7607fc31567e969820fc14c11",
+      "reason": "The parenthesis at the opening repeats the explicit final finite sentence identifying this as the Farewell Pilgrimage event. Move only this duplicated chronological apposition to context; the actual final dating sentence and every riding, looking, wanted-to-turn, incapacity, representative-Hajj question and yes-answer remain selected.",
+      "source_field": "translationHindi",
+      "source_record_sha256": "9e406cbb99a7c3d6c04e77dbfe0cccf658b98b0873af3d2fce10d743dc2e9863",
+      "source_text_sha256": "f77b78e0a784e1cf47e4e2c33dd83cb0020d39707da5e94565e01bbed8f7c395",
+      "start": 223,
+      "text": "(हज्जतुल विदा में)",
+      "text_sha256": "4fecaf99d88bb844ae23fae826df951d10731669daee26c472b37fe9dde0f4e1",
+      "utf8_bytes": 46
+    },
+    {
+      "action": "move_exact_selected_range_to_source_context",
+      "characters": 18,
+      "end": 206,
+      "existing_component_type_speaker_family_identity_must_remain": true,
+      "expected_selected_spans_before_transparent_reason_refinement": [
+        {
+          "component_id": "ur-report-1",
+          "end": 188,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "bfdf65b10669675c1701e44d74c36ba151a007f2313aea14e81273c85655b851",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 176
+        },
+        {
+          "component_id": "ur-report-1",
+          "end": 619,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "65847c9be4d149bad6edba2e61fd973c58b117083fedc158dee923a7dff70fb1",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 206
+        },
+        {
+          "component_id": "ur-report-1",
+          "end": 708,
+          "reason": "Both complete fields supply Fadl riding behind at the farewell pilgrimage, the source-described Khatham woman, mutual looking, the Prophet's source-rendered repeated intention to turn the face, her elderly father's obligation and inability to sit on the camel, the on-his-behalf question and yes answer. Preserve the source's actual intention wording rather than strengthening it to a completed action. Keep the farewell-pilgrimage temporal frame and final occurrence statement. The parenthetic badal term only labels an already explicit on-his-behalf relationship and stays lexical context; the relationship and incapacity remain selected. Keep all names and limits without a modern ruling or external identity. The prefatory route is context. Exact-boundary qualifications: Preserve the source’s wanted-to-turn wording, farewell-pilgrimage time, old-age/camel-incapacity and on-his-behalf relation. The redundant technical badal label is context; no stronger completed-action wording is substituted.",
+          "report_type": "companion_hajj_encounter_with_prophetic_reply",
+          "sha256": "177f6a6be6de93f1f05d4aa0a63b43d1035b301fe7d47d366a957a6de8311313",
+          "source_report_family_id": "deenhindi-bukhari:1513:report-1",
+          "speaker": "Ibn Abbas transmits the Fadl/woman encounter, the actual on-her-father’s-behalf question and yes reply with the supplied incapacity and event setting",
+          "start": 626
+        }
+      ],
+      "language": "ur",
+      "occurrence_id": "deenhindi-bukhari:1513",
+      "prior_field_decision_sha256": "f74ccd70df4cde68e4e511d15f27c4c27907de4d97db9f390da4a25f371843bb",
+      "reason": "The parenthesis at the opening repeats the explicit final finite sentence identifying this as the Farewell Pilgrimage event. Move only this duplicated chronological apposition to context; the actual final dating sentence and every riding, looking, wanted-to-turn, incapacity, representative-Hajj question and yes-answer remain selected.",
+      "source_field": "translationUrdu",
+      "source_record_sha256": "9e406cbb99a7c3d6c04e77dbfe0cccf658b98b0873af3d2fce10d743dc2e9863",
+      "source_text_sha256": "363d91dcd34f641f9e255b9dcd785f98d691877c119c6619255ac63cde838e58",
+      "start": 188,
+      "text": "( حجۃ الوداع میں )",
+      "text_sha256": "03b2d83fb6f9bf69fe16732a3024aad9f139c5c744fb694e79aba6972e6bae95",
+      "utf8_bytes": 30
+    }
+  ],
+  "retained_meaningful_scope": [
+    "1501 herdsman charge and heat cause",
+    "1503 Eid prayer deadline",
+    "1510 food-grain object and those-days domain",
+    "1511 all-on participant scope and source fitr-or-Ramadan uncertainty",
+    "1522 resumed Zayd attribution",
+    "1523 actual supplied verse rendering",
+    "1526 actual abbreviated inner-region condition"
+  ],
+  "schema": "hadith-bank-independent-original-extension-boundary-findings-v1",
+  "source_commit": "d369026ca42af6ff972ffab83c9180e03759da41",
+  "source_http_requests": 0,
+  "source_wording_unchanged": true,
+  "status": "bounded_amendment_requested",
+  "utf8_bytes_read": 58879
+}
