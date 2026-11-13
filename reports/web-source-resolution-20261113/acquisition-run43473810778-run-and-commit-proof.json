@@ -1,0 +1,211 @@
+{
+  "commit": {
+    "author": {
+      "date": "2026-11-13T18:10:13Z",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "name": "github-actions[bot]"
+    },
+    "committer": {
+      "date": "2026-11-13T18:14:09Z",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "name": "github-actions[bot]"
+    },
+    "html_url": "https://github.com/blaghtayt-alt/Hadith-Bank/commit/17cd396eb858a29162505d545aad556ac73ce9ce",
+    "message": "Continue source-preserving multilingual website imports",
+    "node_id": "C_kwDOVpe8T9oAKDE3Y2QzOTZlYjg1OGEyOTE2MjUwNWQ1NDVhYWQ1NTZhYzczY2U5Y2U",
+    "parents": [
+      {
+        "html_url": "https://github.com/blaghtayt-alt/Hadith-Bank/commit/70c1a0799bcf67a18bf28bdb9a6672fe1edbc552",
+        "sha": "70c1a0799bcf67a18bf28bdb9a6672fe1edbc552",
+        "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/git/commits/70c1a0799bcf67a18bf28bdb9a6672fe1edbc552"
+      }
+    ],
+    "sha": "17cd396eb858a29162505d545aad556ac73ce9ce",
+    "tree": {
+      "sha": "7a3df5ed9cd7e3d1380bb2dc6f61b1c5a5424770",
+      "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/git/trees/7a3df5ed9cd7e3d1380bb2dc6f61b1c5a5424770"
+    },
+    "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/git/commits/17cd396eb858a29162505d545aad556ac73ce9ce",
+    "verification": {
+      "payload": null,
+      "reason": "unsigned",
+      "signature": null,
+      "verified": false,
+      "verified_at": null
+    }
+  },
+  "job": {
+    "conclusion": "success",
+    "id": 132052405716,
+    "logs_url": null,
+    "name": "resume",
+    "run_id": 43473810778,
+    "status": "completed",
+    "steps": [
+      {
+        "conclusion": "success",
+        "name": "Set up job",
+        "number": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Check out the current bank and saved source queues",
+        "number": 2,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Set up Python",
+        "number": 3,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Check importer and reader regressions",
+        "number": 4,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Recover the approved archived Deen source snapshots",
+        "number": 5,
+        "status": "completed"
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Rebuild the recovered checkpoint without new source requests",
+        "number": 6,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Resume bounded public-page batches",
+        "number": 7,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Save validated source snapshots and queue checkpoints",
+        "number": 8,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Request the website build after a saved or unchanged checkpoint",
+        "number": 9,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Continue the authorized Hindi queue after saved progress",
+        "number": 10,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Record the run outcome and source progress",
+        "number": 11,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Pause the finite schedule when no source can continue",
+        "number": 12,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Export bounded held evidence from the saved checkpoint",
+        "number": 13,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Retain bounded ordinary held-source evidence",
+        "number": 14,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Retain diagnostic logs for every outcome",
+        "number": 15,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Retain the recovered source delta and review queue",
+        "number": 16,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Retain the bounded held-source evidence bundle",
+        "number": 17,
+        "status": "completed"
+      },
+      {
+        "conclusion": "skipped",
+        "name": "Preserve interrupted intake evidence for recovery",
+        "number": 18,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Set up Python",
+        "number": 35,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Post Check out the current bank and saved source queues",
+        "number": 36,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "name": "Complete job",
+        "number": 37,
+        "status": "completed"
+      }
+    ]
+  },
+  "observed_at_utc": "2026-11-13 18:31:31 UTC",
+  "successors": [
+    {
+      "conclusion": null,
+      "created_at": "2026-11-13T18:17:04Z",
+      "head_sha": "17cd396eb858a29162505d545aad556ac73ce9ce",
+      "id": 43481117303,
+      "name": "Update Hadith Bank website",
+      "status": "in_progress",
+      "updated_at": "2026-11-13T18:17:10Z"
+    },
+    {
+      "conclusion": null,
+      "created_at": "2026-11-13T18:15:23Z",
+      "head_sha": "17cd396eb858a29162505d545aad556ac73ce9ce",
+      "id": 43480836830,
+      "name": "Continue authorized website imports",
+      "status": "in_progress",
+      "updated_at": "2026-11-13T18:15:38Z"
+    },
+    {
+      "conclusion": "cancelled",
+      "created_at": "2026-11-13T18:15:21Z",
+      "head_sha": "17cd396eb858a29162505d545aad556ac73ce9ce",
+      "id": 43480830497,
+      "name": "Update Hadith Bank website",
+      "status": "completed",
+      "updated_at": "2026-11-13T18:17:06Z"
+    }
+  ],
+  "workflow_run": {
+    "conclusion": "success",
+    "created_at": "2026-11-13T17:32:37Z",
+    "head_sha": "0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a",
+    "id": 43473810778,
+    "status": "completed",
+    "updated_at": "2026-11-13T18:15:35Z"
+  }
+}
