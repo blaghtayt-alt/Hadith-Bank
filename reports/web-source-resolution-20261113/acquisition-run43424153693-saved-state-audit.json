@@ -1,0 +1,1647 @@
+{
+  "actual_saved_tree": "dfdd47a363bc9e5c07cb88c6713a9951612cafa1",
+  "automatic_continuation_observed": {
+    "created_at": "2026-11-13T13:07:19Z",
+    "event": "workflow_dispatch",
+    "head_sha": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+    "run_id": 43430909086,
+    "status_at_observation": "in_progress"
+  },
+  "baseline_commit": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "baseline_receipts": {
+    "inventory.json": {
+      "bytes": 507081,
+      "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+      "path": "/workspace/scratch/44aeee8a6071/phase6-acquisition-monitor/saved-checkpoint/inventory.json",
+      "sha256": "fa8047fa9672438d7d0d926a8fb47b6e5d7d0fc03e734357543e7745f907d348"
+    },
+    "progress.json": {
+      "bytes": 77274,
+      "git_blob_sha1": "dfd0db29b957208801943db273b6251db3e0d353",
+      "path": "/workspace/scratch/44aeee8a6071/phase6-acquisition-monitor/saved-checkpoint/progress.json",
+      "sha256": "01ddcd95035f4efe94867e5743c5bc29fd0661d72d1e8e16dfe839278108810d"
+    },
+    "retry-authorizations.json": {
+      "bytes": 1447993,
+      "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+      "path": "/workspace/scratch/44aeee8a6071/phase6-acquisition-monitor/saved-checkpoint/retry-authorizations.json",
+      "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+    },
+    "state.json": {
+      "bytes": 9576971,
+      "git_blob_sha1": "f46f034f8128ef46be80f068ea44221e0a63d129",
+      "path": "/workspace/scratch/44aeee8a6071/phase6-acquisition-monitor/saved-checkpoint/state.json",
+      "sha256": "706406edb4662b82b442c0130424c425b58035ecdc24f3b784b1cf2e33df48d1"
+    }
+  },
+  "bounded_artifact_audit": {
+    "archive_bytes": 2439301,
+    "archive_sha256": "51515d578f09118184e4b64ee9bf1375f97c4ef4fc027e94c828039692ad662c",
+    "bundle_bytes": 3062298,
+    "bundle_files": 232,
+    "checkpoint_sha256": "d9f4037659e2237808c84d2ed1b78de6f8a8009a3c5ff59bb0b75c5a650cc86d",
+    "manifest_sha256": "d4d3a2530e82662338e350fb00f35e970c0fc8b167a8025e8d240cea4de1b6de",
+    "raw_and_parsed_pairs_reopened_and_reparsed": 114,
+    "remaining_held_queue_count": 0,
+    "selected_held_count": 114,
+    "source_files_verified": 228,
+    "source_importer_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "total_held_count": 114
+  },
+  "bounded_artifact_id": 14039777012,
+  "checkpoint_scope": "Exact worker-saved HEAD and its committed review inputs; not an assertion about the newest remote main or live site deployment.",
+  "github_writes_by_auditor": 0,
+  "independent_pro_qc": "not_performed",
+  "job_id": 131881374691,
+  "live_reader_deployment_verified": false,
+  "new_acquisition": {
+    "by_collection": {
+      "abudawud": {
+        "fetched": 70,
+        "new_held": 3
+      },
+      "bukhari": {
+        "fetched": 70,
+        "new_held": 28
+      },
+      "ibnmajah": {
+        "fetched": 69,
+        "new_held": 10
+      },
+      "malik": {
+        "fetched": 69,
+        "new_held": 4
+      },
+      "muslim": {
+        "fetched": 70,
+        "new_held": 25
+      },
+      "nasai": {
+        "fetched": 70,
+        "new_held": 22
+      },
+      "tirmidhi": {
+        "fetched": 70,
+        "new_held": 22
+      }
+    },
+    "fetched": 488,
+    "historical_retry_successes": 488,
+    "new_held": 114,
+    "ordinary_new_source_ids": []
+  },
+  "new_manual_semantic_decisions": 0,
+  "prior187_separate_accounting": {
+    "all_retained_held_source_rows_exactly_equal": true,
+    "baseline_count": 187,
+    "resolved_by_reviews_at_saved_head": 187,
+    "still_held_at_saved_head": 0
+  },
+  "prior_review_cohort_partition": {
+    "next93": {
+      "baseline_count": 93,
+      "no_longer_held_at_saved_head": [
+        "abudawud:690",
+        "abudawud:703",
+        "abudawud:706",
+        "abudawud:716",
+        "abudawud:718",
+        "abudawud:723",
+        "abudawud:724",
+        "abudawud:727",
+        "abudawud:729",
+        "abudawud:735",
+        "abudawud:747",
+        "abudawud:749",
+        "bukhari:690.2",
+        "bukhari:695",
+        "bukhari:698",
+        "bukhari:700",
+        "bukhari:704",
+        "bukhari:708",
+        "bukhari:711",
+        "bukhari:719",
+        "bukhari:726",
+        "bukhari:727",
+        "bukhari:728",
+        "bukhari:733",
+        "bukhari:740",
+        "bukhari:747",
+        "bukhari:748",
+        "bukhari:754",
+        "bukhari:755",
+        "ibnmajah:680",
+        "ibnmajah:693",
+        "ibnmajah:702",
+        "ibnmajah:709",
+        "ibnmajah:711",
+        "ibnmajah:714",
+        "ibnmajah:715",
+        "ibnmajah:716",
+        "ibnmajah:744",
+        "ibnmajah:746",
+        "malik:684",
+        "malik:701",
+        "malik:713",
+        "malik:723",
+        "malik:735",
+        "malik:740",
+        "muslim:688",
+        "muslim:690",
+        "muslim:691",
+        "muslim:696",
+        "muslim:701",
+        "muslim:702",
+        "muslim:705",
+        "muslim:706",
+        "muslim:711",
+        "muslim:713",
+        "muslim:717",
+        "muslim:719",
+        "muslim:722",
+        "muslim:723",
+        "muslim:730",
+        "muslim:731",
+        "muslim:732",
+        "muslim:733",
+        "muslim:735",
+        "muslim:744",
+        "muslim:745",
+        "muslim:746",
+        "muslim:747",
+        "muslim:748",
+        "muslim:751",
+        "muslim:754",
+        "nasai:683",
+        "nasai:684",
+        "nasai:686",
+        "nasai:701",
+        "nasai:702",
+        "nasai:703",
+        "nasai:710",
+        "nasai:712",
+        "nasai:720",
+        "nasai:732",
+        "tirmidhi:686",
+        "tirmidhi:690",
+        "tirmidhi:701",
+        "tirmidhi:702",
+        "tirmidhi:704",
+        "tirmidhi:712",
+        "tirmidhi:713",
+        "tirmidhi:731",
+        "tirmidhi:733",
+        "tirmidhi:735",
+        "tirmidhi:739",
+        "tirmidhi:751"
+      ],
+      "still_held": []
+    },
+    "old94": {
+      "baseline_count": 94,
+      "no_longer_held_at_saved_head": [
+        "abudawud:2066",
+        "abudawud:2075",
+        "abudawud:2094",
+        "abudawud:2096",
+        "abudawud:2099",
+        "abudawud:2112",
+        "abudawud:2115",
+        "abudawud:2118",
+        "abudawud:2121",
+        "abudawud:2123",
+        "abudawud:2128",
+        "abudawud:2140",
+        "abudawud:2142",
+        "abudawud:2143",
+        "bukhari:2084",
+        "bukhari:2086",
+        "bukhari:2088",
+        "bukhari:2091",
+        "bukhari:2094",
+        "bukhari:2095",
+        "bukhari:2096",
+        "bukhari:2099",
+        "bukhari:2100",
+        "bukhari:2102",
+        "bukhari:2104",
+        "bukhari:2116",
+        "bukhari:2117",
+        "bukhari:2123",
+        "bukhari:2124",
+        "bukhari:2125",
+        "bukhari:2131",
+        "bukhari:2135",
+        "bukhari:2137",
+        "bukhari:2138",
+        "bukhari:2140",
+        "bukhari:2142",
+        "bukhari:2145",
+        "bukhari:2147",
+        "bukhari:2149",
+        "ibnmajah:2065",
+        "ibnmajah:2069",
+        "ibnmajah:2074",
+        "ibnmajah:2081",
+        "ibnmajah:2082",
+        "ibnmajah:2109",
+        "ibnmajah:2112",
+        "ibnmajah:2119",
+        "ibnmajah:2122",
+        "muslim:2078",
+        "muslim:2079",
+        "muslim:2081",
+        "muslim:2082",
+        "muslim:2083",
+        "muslim:2090",
+        "muslim:2095",
+        "muslim:2096",
+        "muslim:2099",
+        "muslim:2103",
+        "muslim:2104",
+        "muslim:2105",
+        "muslim:2107",
+        "muslim:2110",
+        "muslim:2113",
+        "muslim:2116",
+        "muslim:2117",
+        "muslim:2118",
+        "muslim:2119",
+        "muslim:2120",
+        "muslim:2124",
+        "muslim:2131",
+        "muslim:2134",
+        "muslim:2136",
+        "muslim:2137",
+        "muslim:2141",
+        "muslim:2153",
+        "muslim:2156",
+        "nasai:2069",
+        "nasai:2075",
+        "nasai:2123",
+        "tirmidhi:2064",
+        "tirmidhi:2069",
+        "tirmidhi:2070",
+        "tirmidhi:2071",
+        "tirmidhi:2089",
+        "tirmidhi:2093",
+        "tirmidhi:2095",
+        "tirmidhi:2096",
+        "tirmidhi:2101",
+        "tirmidhi:2102",
+        "tirmidhi:2106",
+        "tirmidhi:2116",
+        "tirmidhi:2132",
+        "tirmidhi:2133",
+        "tirmidhi:2137"
+      ],
+      "still_held": []
+    }
+  },
+  "published_review_application": [
+    {
+      "all_published_inputs_match_saved_progress": true,
+      "cohort": "old94",
+      "decision_counts": {
+        "exclude": 6,
+        "register": 88
+      },
+      "input_bindings": [
+        {
+          "expected_sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58",
+            "size_bytes": 37813
+          }
+        },
+        {
+          "expected_sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7",
+            "size_bytes": 26972
+          }
+        },
+        {
+          "expected_sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8",
+            "size_bytes": 30572
+          }
+        }
+      ],
+      "no_longer_held_at_saved_head": [
+        "abudawud:2066",
+        "abudawud:2075",
+        "abudawud:2094",
+        "abudawud:2096",
+        "abudawud:2099",
+        "abudawud:2112",
+        "abudawud:2115",
+        "abudawud:2118",
+        "abudawud:2121",
+        "abudawud:2123",
+        "abudawud:2128",
+        "abudawud:2140",
+        "abudawud:2142",
+        "abudawud:2143",
+        "bukhari:2084",
+        "bukhari:2086",
+        "bukhari:2088",
+        "bukhari:2091",
+        "bukhari:2094",
+        "bukhari:2095",
+        "bukhari:2096",
+        "bukhari:2099",
+        "bukhari:2100",
+        "bukhari:2102",
+        "bukhari:2104",
+        "bukhari:2116",
+        "bukhari:2117",
+        "bukhari:2123",
+        "bukhari:2124",
+        "bukhari:2125",
+        "bukhari:2131",
+        "bukhari:2135",
+        "bukhari:2137",
+        "bukhari:2138",
+        "bukhari:2140",
+        "bukhari:2142",
+        "bukhari:2145",
+        "bukhari:2147",
+        "bukhari:2149",
+        "ibnmajah:2065",
+        "ibnmajah:2069",
+        "ibnmajah:2074",
+        "ibnmajah:2081",
+        "ibnmajah:2082",
+        "ibnmajah:2109",
+        "ibnmajah:2112",
+        "ibnmajah:2119",
+        "ibnmajah:2122",
+        "muslim:2078",
+        "muslim:2079",
+        "muslim:2081",
+        "muslim:2082",
+        "muslim:2083",
+        "muslim:2090",
+        "muslim:2095",
+        "muslim:2096",
+        "muslim:2099",
+        "muslim:2103",
+        "muslim:2104",
+        "muslim:2105",
+        "muslim:2107",
+        "muslim:2110",
+        "muslim:2113",
+        "muslim:2116",
+        "muslim:2117",
+        "muslim:2118",
+        "muslim:2119",
+        "muslim:2120",
+        "muslim:2124",
+        "muslim:2131",
+        "muslim:2134",
+        "muslim:2136",
+        "muslim:2137",
+        "muslim:2141",
+        "muslim:2153",
+        "muslim:2156",
+        "nasai:2069",
+        "nasai:2075",
+        "nasai:2123",
+        "tirmidhi:2064",
+        "tirmidhi:2069",
+        "tirmidhi:2070",
+        "tirmidhi:2071",
+        "tirmidhi:2089",
+        "tirmidhi:2093",
+        "tirmidhi:2095",
+        "tirmidhi:2096",
+        "tirmidhi:2101",
+        "tirmidhi:2102",
+        "tirmidhi:2106",
+        "tirmidhi:2116",
+        "tirmidhi:2132",
+        "tirmidhi:2133",
+        "tirmidhi:2137"
+      ],
+      "publication_commit": "695fe9ea6fd16c657de469257b17c4961c5d5cc1",
+      "source_objects_bound": 94,
+      "still_held_at_saved_head": []
+    },
+    {
+      "all_published_inputs_match_saved_progress": true,
+      "cohort": "next93",
+      "decision_counts": {
+        "exclude": 9,
+        "register": 84
+      },
+      "input_bindings": [
+        {
+          "expected_sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537",
+            "size_bytes": 52057
+          }
+        },
+        {
+          "expected_sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a",
+            "size_bytes": 21713
+          }
+        },
+        {
+          "expected_sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f",
+          "matching_saved_input": true,
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+          "saved_input": {
+            "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+            "role": "source_bound_review_and_coverage_evidence",
+            "sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f",
+            "size_bytes": 28209
+          }
+        }
+      ],
+      "no_longer_held_at_saved_head": [
+        "abudawud:690",
+        "abudawud:703",
+        "abudawud:706",
+        "abudawud:716",
+        "abudawud:718",
+        "abudawud:723",
+        "abudawud:724",
+        "abudawud:727",
+        "abudawud:729",
+        "abudawud:735",
+        "abudawud:747",
+        "abudawud:749",
+        "bukhari:690.2",
+        "bukhari:695",
+        "bukhari:698",
+        "bukhari:700",
+        "bukhari:704",
+        "bukhari:708",
+        "bukhari:711",
+        "bukhari:719",
+        "bukhari:726",
+        "bukhari:727",
+        "bukhari:728",
+        "bukhari:733",
+        "bukhari:740",
+        "bukhari:747",
+        "bukhari:748",
+        "bukhari:754",
+        "bukhari:755",
+        "ibnmajah:680",
+        "ibnmajah:693",
+        "ibnmajah:702",
+        "ibnmajah:709",
+        "ibnmajah:711",
+        "ibnmajah:714",
+        "ibnmajah:715",
+        "ibnmajah:716",
+        "ibnmajah:744",
+        "ibnmajah:746",
+        "malik:684",
+        "malik:701",
+        "malik:713",
+        "malik:723",
+        "malik:735",
+        "malik:740",
+        "muslim:688",
+        "muslim:690",
+        "muslim:691",
+        "muslim:696",
+        "muslim:701",
+        "muslim:702",
+        "muslim:705",
+        "muslim:706",
+        "muslim:711",
+        "muslim:713",
+        "muslim:717",
+        "muslim:719",
+        "muslim:722",
+        "muslim:723",
+        "muslim:730",
+        "muslim:731",
+        "muslim:732",
+        "muslim:733",
+        "muslim:735",
+        "muslim:744",
+        "muslim:745",
+        "muslim:746",
+        "muslim:747",
+        "muslim:748",
+        "muslim:751",
+        "muslim:754",
+        "nasai:683",
+        "nasai:684",
+        "nasai:686",
+        "nasai:701",
+        "nasai:702",
+        "nasai:703",
+        "nasai:710",
+        "nasai:712",
+        "nasai:720",
+        "nasai:732",
+        "tirmidhi:686",
+        "tirmidhi:690",
+        "tirmidhi:701",
+        "tirmidhi:702",
+        "tirmidhi:704",
+        "tirmidhi:712",
+        "tirmidhi:713",
+        "tirmidhi:731",
+        "tirmidhi:733",
+        "tirmidhi:735",
+        "tirmidhi:739",
+        "tirmidhi:751"
+      ],
+      "publication_commit": "863222d50ec9f701a06359400650dfad6911b216",
+      "source_objects_bound": 93,
+      "still_held_at_saved_head": []
+    }
+  ],
+  "retry_audit": {
+    "all1000_authorizations_byte_identical": true,
+    "all_new_receipts_bind_original_error_hash_and_max_requests_one": true,
+    "manifest_sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42",
+    "new_outcomes": {
+      "succeeded": 488
+    },
+    "new_receipts": 488,
+    "old_consumed_pilot_exactly_preserved": true,
+    "pilot_stop_flag": false,
+    "remaining_eligibility": 23
+  },
+  "review_disposition_scope": "Review inputs are recorded exactly; resolution of prior held records is distinct from source acquisition.",
+  "review_input_delta_since59ce": [
+    {
+      "after": {
+        "compression": "gzip",
+        "method": "identical_complete_same_language_prior_boundary_review_v1",
+        "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+        "role": "exact_same_language_prior_boundary_review_decisions",
+        "sha256": "17e4c422d4121d17394fd3002463d50ace07e29080859037ef61942407f61d50",
+        "size_bytes": 759565,
+        "uncompressed_sha256": "00ba959f8775e137252fbaa2879333d73dc56dd30068e5c7c91af405a7433260"
+      },
+      "before": {
+        "compression": "gzip",
+        "method": "identical_complete_same_language_prior_boundary_review_v1",
+        "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+        "role": "exact_same_language_prior_boundary_review_decisions",
+        "sha256": "edfd7343bf3a377965b4b1aa5fa1318f32cd45c04966ba15917c7e73893c4a30",
+        "size_bytes": 733136,
+        "uncompressed_sha256": "cdb9ca9538f05e73cd1c9aa3dfbfa4fcc6a76f009fd1f134b9d34662c99af6b4"
+      },
+      "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/REVIEW.md",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "eb611dc8cf0c4f9c649039c61e6a69018f3ca715d8daf7e2f3149ccdb81c6ff8",
+        "size_bytes": 7477
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/REVIEW.md"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-active.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "8678f9ccf00db8f946690048689b5093b0b61a482c7820acbb7b367799fc3aec",
+        "size_bytes": 20934
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-active.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-delivery-manifest.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "e98e274acd9f77d518bcc073f912fafc7da95a5466b47ee1fca9c4ff68ecf518",
+        "size_bytes": 8162
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-delivery-manifest.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-manual-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5b7eb09aaf5455ffd9dace298d76496285a7a63420e47ac6b580eedc64648912",
+        "size_bytes": 8790
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/before-independent-manual-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/build_review.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "3a54eff9e7c4c6783c3226e0708f71a3a94e02394303e9010e9842060ece0359",
+        "size_bytes": 25440
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/build_review.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/explicit-source-apparatus-context.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "4ecdd56764fbd266c989c9ac10875354747ae0a6bf15c640a378def745a97552",
+        "size_bytes": 26099
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/explicit-source-apparatus-context.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/field-partitions.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b83cbd5565c1ba285462e61e2da0dc6bc085e521c44115cdc4d6c9c975d39a1d",
+        "size_bytes": 14195
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/field-partitions.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/final-apparatus-inventory.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b4b4e8a5365da32d44f8941947efa57f100e08422ea339991466c07e0472ad3d",
+        "size_bytes": 6174
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/final-apparatus-inventory.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/independent-before-after-v2.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "64e7fac9ba15abb0a44ed8c87b5d82d3620310db662f59f4e2756f931eebc9f3",
+        "size_bytes": 10833
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/independent-before-after-v2.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/independent-boundary-corrections-v2.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "16b462ae1c5cee19732fed8db5a18d0ee62d500262a83feb347015a04cfa8af5",
+        "size_bytes": 14218
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/independent-boundary-corrections-v2.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/input-evidence-manifest.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "0f41de4217ece30cef5ec49429fb06bf3ef5ba9855e9549899d077de6214a286",
+        "size_bytes": 57690
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/input-evidence-manifest.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual-bukhari.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b864ac81d8fcf83cf5e2940d4040d860348651ef9815346a38e38368f626c636",
+        "size_bytes": 40514
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual-bukhari.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual-nasai.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d22b643a026f32863555957ffb5cf482df492309e28f5cddc0f16a676684803d",
+        "size_bytes": 16047
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual-nasai.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual_readings.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "8388246a4837972520f72cfe9fd39a4bed68d10536f86f9c5abea553b3ab68d4",
+        "size_bytes": 1061
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/manual_readings.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/saved-checkpoint-receipt.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "04f28e2f5626bcf8bfe6e71f2dd528014b3962a3e1c548ff414e5d4ed7b5b37e",
+        "size_bytes": 9417
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/saved-checkpoint-receipt.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/selected-state-entries.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "dbc456163cbc22ae9925f089d66b8233dce6c4ac872226f6df43b39b4a20675a",
+        "size_bytes": 11692
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/selected-state-entries.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-artifact-manifest.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "a3374f977a1c4b9e3c0d2c15ba24036e9cd3d2555f3a70209b0b447860f816fd",
+        "size_bytes": 88484
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-artifact-manifest.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-baseline.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b6e60331874a8052d7f2984e0d4570f00c8850a6a4d2ebdce9b12c28eda49f83",
+        "size_bytes": 41503
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-baseline.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-evidence.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d581232b4ef7e1fb014461a4838f6d24847885d252c0b38830f10b8e86f4ab1a",
+        "size_bytes": 47087
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/source-evidence.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/validation.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "94ec4f826ee6150c9011b5f1db86bd6e6a97dea53b91e381a241f4ce98653618",
+        "size_bytes": 6839
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/validation.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/verify_independent_changes.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "c71c666038e7505d8616290905a3486475047e71382921022f4f8fef28570f0d",
+        "size_bytes": 5026
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-bukhari-nasai-20261113/verify_independent_changes.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/disposition-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "2a57a93283a2fb09887108244ccb6a5ee1ea79616371c78bad13db685f6e5c57",
+        "size_bytes": 5746
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/disposition-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/field-coverage.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d0af6f7f064f322cbdf3dd9c2a2547033e3d2363e2211ad9372fb9da1208a2e0",
+        "size_bytes": 17904
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/field-coverage.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/independent-audit/complete-field-reading.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "fd121f217a3b686617f0a4772fe304b8ed191880f2cf5e545edce4c6cac87b5f",
+        "size_bytes": 9645
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/independent-audit/complete-field-reading.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/independent-audit/raw-source-verification.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "99f0936a2e95b677a39d8c49e16a027025eac735126329e06551e583512a2c98",
+        "size_bytes": 7935
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/independent-audit/raw-source-verification.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/manual-reading-and-boundary-specifications.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "9dc5bd4cbccbfeef95f1c8a8b4802ccf084840f4255070826fcd60eeb975ac89",
+        "size_bytes": 9587
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/manual-reading-and-boundary-specifications.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/package-file-manifest.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "806ec68def1b82a6bdf82bc1a05fe2a8ab6d125e8bba43709a0b59a18742fb62",
+        "size_bytes": 4997
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/package-file-manifest.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/raw-source-verification.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5dee041901956ce0dc2fafdb925bff164800893e8171de07ca10505d2f2aa7e8",
+        "size_bytes": 9913
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/raw-source-verification.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/source-apparatus-inventory.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "4e438f2dbd8b0cd4e07a1103fc6d9976b6f882f54e800fffb0898177699d7ba7",
+        "size_bytes": 8422
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/source-apparatus-inventory.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/source-baseline.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5e891410e4a2eebbaecc71f0bfec13825705d00f185996860ec478390c8e34dd",
+        "size_bytes": 27934
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/source-baseline.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/validation-and-coverage-summary.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "c86b83c0d9d85f8ddc70412db6a4665fb1b75d451ff842d3ae12a337481b96a5",
+        "size_bytes": 1794
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint59ce-muslim26-20261113/validation-and-coverage-summary.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/REVIEW.md",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d5328d9f48d2a803cead83695f6e246a156a03c9e4222b8af42da439c613e6ba",
+        "size_bytes": 10965
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/REVIEW.md"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-active.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "520e6f17b3608486dd48da21afdf9ac6c6c9a3325b99732d8e23984d7dde0603",
+        "size_bytes": 25160
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-active.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-delivery-manifest.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "2ecc2d1a2065cf3bb825c8a8426b78f1a13d529781565e9883a390db398c4274",
+        "size_bytes": 7237
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-delivery-manifest.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-manual-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "88aacede3eecde38d28cb4225b6d6e800c5a17089e0958a0d4a3fdcda053578b",
+        "size_bytes": 10057
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/before-source-apparatus-manual-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/build_review.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "18d222553ace6e5e8c925b9de9f2a542230d16906e1bcc26de219df2432e3f89",
+        "size_bytes": 23760
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/build_review.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/field-partitions.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d8fd540d2a3d7e5eac9959bc7c1052ef304c7d2ec31c2c30ea8ae42d601904ea",
+        "size_bytes": 18816
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/field-partitions.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/independent-review-corrections.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "031d7229988d48be5926bb98d9619fcd7d74db6eeb3f05e465a44de0eb9170a3",
+        "size_bytes": 38130
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/independent-review-corrections.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/input-evidence-manifest.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "7ccfc0b69bc848ad22685be6a9ddf3dc89f20cbd4881994d742f1e1d3bbd913c",
+        "size_bytes": 109454
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/input-evidence-manifest.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-abudawud.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "3dcfeec7efa28d5a0a51e74e748ee42039c7b8db3e669b506eae352f32060112",
+        "size_bytes": 27434
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-abudawud.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-ibnmajah.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "3ad3c95388997074b7f7830edfeab8acf81e2bcc126d86f6663f522bef151340",
+        "size_bytes": 16484
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-ibnmajah.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-tirmidhi.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "05ad59420d3309d4a660336f4dfbb463c35600623e37e1b7b1a5d04ae723f4f9",
+        "size_bytes": 32665
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/manual-tirmidhi.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/selected-state-entries.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "ba588e3a1f2c0913a74a5e03c9987259a5a01a33de5b2a9497b8c27c7c1cdd2c",
+        "size_bytes": 16723
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/selected-state-entries.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-apparatus-before-after-v2.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "624714f9c0a792c35f14589ace920085192e5e9cb30f4e000181c04aa2bca4a5",
+        "size_bytes": 35711
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-apparatus-before-after-v2.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-apparatus-corrections-v2.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "dbd0489bf7bd654c903e0ca44b3f5c4ee215641c73e04be4ddfe0922185e5175",
+        "size_bytes": 56636
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-apparatus-corrections-v2.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-baseline.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "dce4a0539d235e3f152d7f9b44f1ccd07a9bb277450db2cf9cc012a1ee148e3b",
+        "size_bytes": 52152
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-baseline.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-evidence.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "69f32e9899c80683274ddef04d16c958ea3f51fa69608d7667fdc9fefd615d71",
+        "size_bytes": 62761
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/source-evidence.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/validation.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5367140f1003cec99a2a014b2959298bd92162317d951bcf6fdba09dc21843cc",
+        "size_bytes": 8258
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/validation.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/verify_apparatus.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "74c46919d8542957dc7aeb01bb0a380a796afd6bd5162f03efe080ebfd24cd44",
+        "size_bytes": 6197
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-abudawud-tirmidhi-ibnmajah-20261113/verify_apparatus.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/disposition-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "2fb00556ad20d41cad559ff2e493bd736779bc00431ec019b3a84ae6283763cc",
+        "size_bytes": 5968
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/disposition-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/field-coverage.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5a4abe8e581ea2fd1eba1d9b658855abdc6d6f128875faf3b6adc604fb7bd9a4",
+        "size_bytes": 17567
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/field-coverage.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/manual-reading-and-boundary-specifications.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "a911dc7d7a636276e9e91eab4eff6cdfe5524873ef7c90ca0ddb5ed210b7bf86",
+        "size_bytes": 9507
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/manual-reading-and-boundary-specifications.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/raw-source-verification.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "c4db625fab978758e5b212afdccabefcf868eb03f150c534417007a736893e4f",
+        "size_bytes": 10770
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/raw-source-verification.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-apparatus-v2/previous-active-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b4f32596f310e55ce9c8500737bfceefae842687e75028e84c45ebd56b5b51d6",
+        "size_bytes": 30535
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-apparatus-v2/previous-active-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-apparatus-v2/source-apparatus-amendment-and-inventory.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "2cc7e54815e8708df590e19286d77637c784fefaebec2ccc83ec6ebb301d2f97",
+        "size_bytes": 28554
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-apparatus-v2/source-apparatus-amendment-and-inventory.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-baseline.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "c0f6d403f3926146ca3d85787884824418b29e3d997f75ff4af4b215acfd28e4",
+        "size_bytes": 43469
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/source-baseline.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/validation-and-coverage-summary.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "a6cb6ea40d5cc7425aab888494d551ffad498b9aac9d89f100f7de5ffe405179",
+        "size_bytes": 1798
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint659-muslim28-20261113/validation-and-coverage-summary.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/manual-field-reading-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "d9c7b98d78c1d658847ee526e3fc8a58711d483f92cefcc92c3eaa6651a4acac",
+        "size_bytes": 14391
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/manual-field-reading-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/source-ledger-40.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "ef028acec8bbceb49a3838a934b805dd33a93276f50908693645ca7831247eb3",
+        "size_bytes": 50406
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/source-ledger-40.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/source-verification.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "27220709829d47a1f251c6029dbd6a2bd406eb31747a68e24e35befa9b0d340a",
+        "size_bytes": 15192
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint59ce-other40-manual-v1/source-verification.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/before-after-boundary-comparison.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "93a8162f4f9d1567c52ffd3a888cdaa9f0257b538e437da46824a804042bd4f8",
+        "size_bytes": 18202
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/before-after-boundary-comparison.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/before-independent-boundary-review-active.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "f4c95c2c177c37d4c4b38c1387a50c66ff2b9181cebbf945b4a2da116e718f09",
+        "size_bytes": 31877
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/before-independent-boundary-review-active.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/field-reading-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "eb9fecc89ef43a255966fb04e1d6a564d4d8edbff82d942d6709be2cdd429f47",
+        "size_bytes": 26596
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/field-reading-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-boundary-amendments.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "baacc3378b43812a7db5ad143e8b421ffbc3c810464b3476ee3097f4021f7a49",
+        "size_bytes": 19871
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-boundary-amendments.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-complete-field-reading.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "c6bebb606bfaf219db76e921a8a385768a47ce1ee1fea30ea707de77bf84262d",
+        "size_bytes": 11149
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-complete-field-reading.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/source-ledger-28.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "837796523de693dd0229f2162ce3139ca7d7f7552955d9663149202afb7a9f0d",
+        "size_bytes": 43472
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/source-ledger-28.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/source-verification.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "635943ba286036c3d5fedd40f9b9bed3d61cfb745e18bbad84531318257175f8",
+        "size_bytes": 73051
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/source-verification.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/before-independent-apparatus-review-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "f65e3a7713e9b6bf87790dc3ebd8e56606d59653bb579fa4e3b33bdd3f6de9c9",
+        "size_bytes": 308438
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/before-independent-apparatus-review-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/complete-field-reading-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "5d5d7ca1d45c1e19975b14445dfda1e8c34190051c1859fc158aaf5ed9092513",
+        "size_bytes": 57659
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/complete-field-reading-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/independent-apparatus-correction-plan.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "002b568c38994b45d0870db24a0451810e5e2206fdeb768b9f2fa7b05fb78fbe",
+        "size_bytes": 16985
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/independent-apparatus-correction-plan.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/manual_reading_spec.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "35b7fab40cb686f0325db8dd929ad29e14f4fddc245027691a6d0d2781963713",
+        "size_bytes": 35808
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/manual_reading_spec.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/previous-review-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "1424f006393a018d6966de499ece2523b44bb6cb3fca78d4c40fbab85420e3b7",
+        "size_bytes": 291696
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/previous-review-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/source-provenance-report.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "374d970872766476845717271ad523ea05504cb4ad2b9baed74a7d63e48927a1",
+        "size_bytes": 64998
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/source-provenance-report.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/validation.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "65f8d0342f07a50a678e6d793a45b9ee3665dbf27d7d0d08f01f794b9fbeb39c",
+        "size_bytes": 1648
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-ibnmajah50-hindi-urdu-v1/validation.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "07d2e5dc1a8fcdeaac7a0696dd1a0517ebcab77d617e48e618eb8077bed9fb54",
+        "size_bytes": 310797
+      },
+      "before": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "1424f006393a018d6966de499ece2523b44bb6cb3fca78d4c40fbab85420e3b7",
+        "size_bytes": 291696
+      },
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537",
+        "size_bytes": 52057
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58",
+        "size_bytes": 37813
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a",
+        "size_bytes": 21713
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f",
+        "size_bytes": 28209
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7",
+        "size_bytes": 26972
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8",
+        "size_bytes": 30572
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz"
+    }
+  ],
+  "run_conclusion": "success",
+  "run_id": 43424153693,
+  "saved_commit": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+  "saved_commit_parent": "863222d50ec9f701a06359400650dfad6911b216",
+  "saved_commit_time_utc": "2026-11-13T13:06:17Z",
+  "saved_progress": {
+    "block_reason": null,
+    "blocked": false,
+    "certified_release_eligible": false,
+    "classification_pending_count": 114,
+    "done": false,
+    "errors_count": 23,
+    "historical_error_identities_count": 1000,
+    "imported_count": 14737,
+    "inventory_count": 36390,
+    "non_narration_source_entries": 138,
+    "pending_fetch_count": 21630,
+    "registered_hadith_count": 14485,
+    "remaining_count": 21653,
+    "requires_attention": false,
+    "resolved_historical_error_identities_count": 977,
+    "reviewed_error_attempts_count": 977,
+    "reviewed_error_retry_pending_count": 23,
+    "site": "deenhindi.com",
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "unresolved_historical_error_identities_count": 23,
+    "updated_at": "2026-11-13T13:02:34.043737+00:00"
+  },
+  "schema": "hadith-bank-saved-acquisition-state-audit-v2",
+  "site_evidence_timestamp_changes_only": [
+    {
+      "after_retrieved_at": "2026-11-13T12:25:13.742907+00:00",
+      "before_retrieved_at": "2026-11-13T11:41:17.409644+00:00",
+      "key": "robots",
+      "unchanged_content_sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25"
+    }
+  ],
+  "source_evidence_content_unchanged": true,
+  "source_http_requests_by_auditor": 0,
+  "source_input_receipts": {
+    "inventory.json": {
+      "bytes": 507081,
+      "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+      "ref": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+      "retrieval": "Exact locally retained bytes, rebound to current pinned GitHub blob SHA",
+      "sha256": "fa8047fa9672438d7d0d926a8fb47b6e5d7d0fc03e734357543e7745f907d348"
+    },
+    "progress.json": {
+      "bytes": 102162,
+      "git_blob_sha1": "ec0c9fed3847de48007cab5f47d3d040a651acd4",
+      "ref": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+      "retrieval": "GitHub connector bytes",
+      "sha256": "6a5f18488e9d378d5136a4623aa44e574988c50816aba3a4ff51c71ef15bd09b"
+    },
+    "retry-authorizations.json": {
+      "bytes": 1447993,
+      "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+      "ref": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+      "retrieval": "Exact locally retained bytes, rebound to current pinned GitHub blob SHA",
+      "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+    },
+    "state.json": {
+      "bytes": 12006795,
+      "git_blob_sha1": "1609554b4babf1c42af1f579232c42b3d6b124dd",
+      "ref": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+      "retrieval": "Ordinary public immutable GitHub raw URL; checked against pinned connector blob metadata and committed artifact receipt",
+      "sha256": "bcb415fb17d5943ac8783c07506d11be5883a2d2556eb0c123139ef67b0c943c",
+      "url": "https://raw.githubusercontent.com/blaghtayt-alt/Hadith-Bank/cdb66dbcf9ee781fe232219724d05033a0fcab13/imports/web-deenhindi-20261112/state.json"
+    }
+  },
+  "source_start_commit": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "source_state_preservation": {
+    "all_prior_error_objects_retained": true,
+    "lost_or_changed_prior_imported": 0,
+    "prior_consumed_receipts_exactly_equal": 489,
+    "prior_errors_changed_with_retained_history": 0,
+    "prior_errors_resolved_with_saved_receipts": 488,
+    "prior_errors_unchanged": 23,
+    "prior_history_lists_preserved_as_exact_prefixes": 489,
+    "prior_imported_descriptors_exactly_equal": 14249
+  },
+  "status": "PASS",
+  "successful_completed_workflow_steps": [
+    {
+      "conclusion": "success",
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check out the current bank and saved source queues",
+      "number": 2,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Set up Python",
+      "number": 3,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check importer and reader regressions",
+      "number": 4,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Recover the approved archived Deen source snapshots",
+      "number": 5,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Rebuild the recovered checkpoint without new source requests",
+      "number": 6,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Resume bounded public-page batches",
+      "number": 7,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Save validated source snapshots and queue checkpoints",
+      "number": 8,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Request the website build after a saved or unchanged checkpoint",
+      "number": 9,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Continue the authorized Hindi queue after saved progress",
+      "number": 10,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Record the run outcome and source progress",
+      "number": 11,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Pause the finite schedule when no source can continue",
+      "number": 12,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Export bounded held evidence from the saved checkpoint",
+      "number": 13,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain bounded ordinary held-source evidence",
+      "number": 14,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain diagnostic logs for every outcome",
+      "number": 15,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the recovered source delta and review queue",
+      "number": 16,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the bounded held-source evidence bundle",
+      "number": 17,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Preserve interrupted intake evidence for recovery",
+      "number": 18,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Set up Python",
+      "number": 35,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Check out the current bank and saved source queues",
+      "number": 36,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job",
+      "number": 37,
+      "status": "completed"
+    }
+  ]
+}

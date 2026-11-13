@@ -1,0 +1,128 @@
+{
+  "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointcdb6-other39-manual-v1.json.gz",
+  "active_ledger_sha256": "3741c5c897ebd304c82ba95b279a294879328e70074f4a935b71b05e6144dd24",
+  "actual_reading_scope": "81 complete nonempty fields:39Hindi,39Urdu,1Arabic,1English,1RomanUrdu;41,073 characters and84,589 UTF8 bytes.114 nonempty sibling fields remain unread source context. The39 registered parent dispositions do not claim those siblings were linguistically reviewed.",
+  "all39_new_ids_absent_from_prior14249_imports": true,
+  "by_collection": {
+    "abudawud": {
+      "register_occurrences": 3
+    },
+    "ibnmajah": {
+      "register_occurrences": 10
+    },
+    "malik": {
+      "register_occurrences": 4
+    },
+    "tirmidhi": {
+      "register_occurrences": 22
+    }
+  },
+  "canonical_identity_asserted": false,
+  "code_inputs": {
+    "import_deenhindi": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "web_commentary_quotes": "d90b6152fe421cf8b63ca5725c7a6deb85e07998f67b2b81cf204af553f81f73",
+    "web_source_reviews": "1411cbcb4ca2bdcbe4db7df9828c69c9ff482b0a011fea43ffd72b292e0c7c15"
+  },
+  "counts": {
+    "admitted_characters": 32434,
+    "admitted_fields": 81,
+    "admitted_utf8_bytes": 66821,
+    "characters_read": 41073,
+    "complete_fields_read": 81,
+    "lossless_partitions": 195,
+    "metadata_invariants": 741,
+    "nonempty_fields": 195,
+    "register_occurrences": 39,
+    "selected_spans": 152,
+    "unread_context_fields": 114,
+    "utf8_bytes_read": 84589
+  },
+  "empty_source_fields_inspected": [],
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "language_coverage": {
+    "ar": {
+      "admitted_characters": 770,
+      "admitted_fields": 1,
+      "admitted_utf8_bytes": 1448,
+      "characters_read": 918,
+      "complete_fields_read": 1,
+      "nonempty_fields": 39,
+      "selected_spans": 1,
+      "unread_context_fields": 38,
+      "utf8_bytes_read": 1728
+    },
+    "en": {
+      "admitted_characters": 810,
+      "admitted_fields": 1,
+      "admitted_utf8_bytes": 810,
+      "characters_read": 862,
+      "complete_fields_read": 1,
+      "nonempty_fields": 39,
+      "selected_spans": 4,
+      "unread_context_fields": 38,
+      "utf8_bytes_read": 862
+    },
+    "hi": {
+      "admitted_characters": 15196,
+      "admitted_fields": 39,
+      "admitted_utf8_bytes": 37662,
+      "characters_read": 18705,
+      "complete_fields_read": 39,
+      "nonempty_fields": 39,
+      "selected_spans": 62,
+      "utf8_bytes_read": 46471
+    },
+    "ur": {
+      "admitted_characters": 14687,
+      "admitted_fields": 39,
+      "admitted_utf8_bytes": 25930,
+      "characters_read": 19572,
+      "complete_fields_read": 39,
+      "nonempty_fields": 39,
+      "selected_spans": 83,
+      "utf8_bytes_read": 34512
+    },
+    "ur-Latn": {
+      "admitted_characters": 971,
+      "admitted_fields": 1,
+      "admitted_utf8_bytes": 971,
+      "characters_read": 1016,
+      "complete_fields_read": 1,
+      "nonempty_fields": 39,
+      "selected_spans": 2,
+      "unread_context_fields": 38,
+      "utf8_bytes_read": 1016
+    }
+  },
+  "native_SourceReviews_apply_finish": "PASS",
+  "raw_parsed_pairs_reopened_and_reparsed": 39,
+  "result": "PASS",
+  "review_batch": "20261113-checkpointcdb6-other39-manual-v1",
+  "schema": "hadith-bank-manual-source-review-validation-v1",
+  "source_commit": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+  "source_fields_modified": 0,
+  "source_http_requests": 0,
+  "source_identity_merges": 0,
+  "source_ledger_path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpointcdb6-other39-manual-v1/source-ledger-39.jsonl.gz",
+  "source_ledger_sha256": "0ae1a0d3d105ceb5aa12d906933276f1b452879b3b8b521ce8318e55ac2ba7a8",
+  "source_ledger_uncompressed_sha256": "593efc136268ca1c6bdc42bd1b245f8032cc931af5335c5546da81ae71e8fbc4",
+  "source_metadata_modified": 0,
+  "source_only_ids": [],
+  "source_script_amendment_v3": {
+    "changed_fields": 1,
+    "native_script_changes": [
+      {
+        "after_script": "Latn",
+        "before_script": "Deva",
+        "language": "hi",
+        "occurrence_id": "deenhindi-abudawud:804",
+        "source_text_chars": 606,
+        "source_text_sha256": "982c83069c4dbc10cb2eabd858a964736c526cfaf240f3f0f33607634a9111cd",
+        "visible_source_script_note": "The source labels this field as Hindi (hi), but supplies Latin-script transliteration. Its language identity, numbering and exact wording are preserved; no translation or transliteration was generated."
+      }
+    ],
+    "source_words_changed": 0,
+    "status": "PASS"
+  }
+}

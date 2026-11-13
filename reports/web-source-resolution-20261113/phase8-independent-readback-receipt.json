@@ -1,0 +1,59 @@
+{
+  "schema": "hadith-bank-independent-phase8-readback-v1",
+  "result": "PASS",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "exact_commit": "863222d50ec9f701a06359400650dfad6911b216",
+  "method": "Fetched all four files from the exact immutable commit through the GitHub connector, decoded all stored bytes and independently verified byte counts, SHA-256, Git blob SHA-1 and complete local candidate bytes. All three gzip ledgers parsed.",
+  "files": [
+    {
+      "path": "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+      "bytes": 30459,
+      "sha256": "6785984071852d895f2e475609803567649516118c609e9fc834bda03278df15",
+      "git_blob_sha1": "c57fb022435806b4816a827e9f172be7d5516c26",
+      "exact_local_candidate_bytes": true
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+      "bytes": 52057,
+      "sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537",
+      "git_blob_sha1": "fd64239b9aa2bfc29bcf6058efdff97a2d24e556",
+      "exact_local_candidate_bytes": true,
+      "records": 40,
+      "parent_dispositions": {
+        "exclude": 3,
+        "register": 37
+      }
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+      "bytes": 21713,
+      "sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a",
+      "git_blob_sha1": "c3e701e8f82495b7769d03d81a537a764c9e7f60",
+      "exact_local_candidate_bytes": true,
+      "records": 27,
+      "parent_dispositions": {
+        "exclude": 2,
+        "register": 25
+      }
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+      "bytes": 28209,
+      "sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f",
+      "git_blob_sha1": "39f05fb4f172443c75177f3c61070e62ed484cf7",
+      "exact_local_candidate_bytes": true,
+      "records": 26,
+      "parent_dispositions": {
+        "register": 22,
+        "exclude": 4
+      }
+    }
+  ],
+  "combined_reviewed_cohort": {
+    "occurrences": 93,
+    "register": 84,
+    "source_only": 9
+  },
+  "source_wording_or_github_mutations": false,
+  "deployment_claim": false
+}

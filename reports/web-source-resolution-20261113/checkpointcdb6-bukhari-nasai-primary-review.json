@@ -1,0 +1,113 @@
+{
+  "active_review": {
+    "bytes": 34368,
+    "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointcdb6-bukhari-nasai-20261113.json.gz",
+    "sha256": "ccff718f12da0ba9c3fbcd2e944bbe22d53922d837c9d642ddc381a29c7e72d7"
+  },
+  "apparatus_audit": {
+    "footnote_cuts": 7,
+    "literal_inside_body_cuts": 49,
+    "path": "imports/web-deenhindi-20261112/reviews/checkpointcdb6-bukhari-nasai-20261113/selected-apparatus-audit.json",
+    "retained_nonhonorific_parentheses": 24,
+    "selected_apparatus_candidates": 0,
+    "sha256": "df3a121a33dd0b850a35a6e637231c25f9368689e213a566ad10a76fec6d3c20"
+  },
+  "artifact_id": 14039777012,
+  "artifact_origin_note": "The shared source-audit agent verified the archive; this primary reviewer independently reopened all100 selected raw/parsed files and reparsed all50 HTML responses against the immutable saved objects.",
+  "artifact_origin_zip_sha256": "51515d578f09118184e4b64ee9bf1375f97c4ef4fc027e94c828039692ad662c",
+  "by_book": {
+    "bukhari": {
+      "admitted_language_fields": 56,
+      "characters_read": 29660,
+      "complete_fields_read": 56,
+      "exact_complete_field_partitions": 140,
+      "nonempty_source_fields": 140,
+      "quotation_spans": 92,
+      "register": 28,
+      "source_language_slots": 140,
+      "source_occurrences": 28,
+      "unread_nonempty_context_fields": 84,
+      "utf8_bytes_read": 64054
+    },
+    "nasai": {
+      "admitted_language_fields": 48,
+      "characters_read": 19343,
+      "complete_fields_read": 53,
+      "exact_complete_field_partitions": 110,
+      "exclude": 1,
+      "nonempty_source_fields": 110,
+      "quotation_spans": 75,
+      "read_context_fields": 5,
+      "register": 21,
+      "source_language_slots": 110,
+      "source_occurrences": 22,
+      "unread_nonempty_context_fields": 57,
+      "utf8_bytes_read": 39611
+    }
+  },
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "independent_second_reading_amendment": {
+    "after_active_sha256": "ccff718f12da0ba9c3fbcd2e944bbe22d53922d837c9d642ddc381a29c7e72d7",
+    "before_active_sha256": "3a33bc768f6bd7466c1446d3c35fa8d34670469a0e37b17c13302b1f78b7d957",
+    "changed_fields": 10,
+    "changed_occurrences": 5,
+    "corrections_path": "imports/web-deenhindi-20261112/reviews/checkpointcdb6-bukhari-nasai-20261113/independent-boundary-v2/corrections.json",
+    "exact_comparison_path": "imports/web-deenhindi-20261112/reviews/checkpointcdb6-bukhari-nasai-20261113/independent-boundary-v2/before-after-validation.json",
+    "removed_characters": 0,
+    "restored_characters": 158,
+    "restored_utf8_bytes": 313
+  },
+  "limits": "This primary review package passes local source replay and native lossless partition checks. An independent complete second reading, combined-repository export, current-main reader/browser validation and deployment remain separate gates.",
+  "read_scope": {
+    "ar": 4,
+    "en": 4,
+    "hi": 50,
+    "ur": 50,
+    "ur-Latn": 1
+  },
+  "schema": "hadith-bank-primary-complete-field-review-handoff-v1",
+  "scope_exceptions": [
+    "Nasai796 supplies only chains and similarity pointers in all5 fully read languages; no body is borrowed.",
+    "Bukhari774.2 remains a distinct decimal occurrence; no shared-number matching or identity filling is performed.",
+    "Bukhari773/802/803/805 Hindi source defects remain verbatim. Bukhari800 pronoun/honorific attribution remains explicitly ambiguous.",
+    "Bukhari805 contains6 ordered components in1 report family, keeping the finite seated-prayer/right-arm/right-shin variants distinct from the main account and from transmission commentary.",
+    "Bukhari802 contains the actual Malik demonstration and a separately attributed Abu Qilabah/Abu Yazid observation; both are admitted with their speakers.",
+    "Bukhari811 reliability appraisal and Nasai751 marfu-attribution assessment remain context, without promoting either into the report body.",
+    "Nasai752 explicit paraphrase, Nasai781 wording uncertainty and Nasai802 narrator timing are preserved; Nasai765 own-language affirmative reply is retained.",
+    "Nasai808 preserves the source’s unreconciled Abu Yaqub address and exact Hindi gloss defect; no outside identity is supplied."
+  ],
+  "source_baseline": {
+    "bytes": 64493,
+    "path": "imports/web-deenhindi-20261112/reviews/checkpointcdb6-bukhari-nasai-20261113/source-baseline.jsonl.gz",
+    "sha256": "529db271e2049e4401fb97a07cf38b3c95d7e6debb38cdc18c4c9cc994750f58"
+  },
+  "source_checkpoint": "cdb66dbcf9ee781fe232219724d05033a0fcab13",
+  "source_http_requests": 0,
+  "source_only_ids": [
+    "deenhindi-nasai:796"
+  ],
+  "source_or_engine_changes": false,
+  "status": "primary_v2_native_source_and_exact_amendment_validation_passed; final_independent_comparison_pending",
+  "totals": {
+    "admitted_language_fields": 104,
+    "characters_read": 49003,
+    "complete_fields_read": 109,
+    "exact_complete_field_partitions": 250,
+    "exclude": 1,
+    "metadata_value_equalities": 5350,
+    "nonempty_source_fields": 250,
+    "parsed_source_bytes": 276982,
+    "parsed_source_files_reopened": 50,
+    "quotation_spans": 167,
+    "raw_response_bytes": 4468386,
+    "raw_responses_reopened_and_reparsed": 50,
+    "read_context_fields": 5,
+    "register": 49,
+    "source_language_slots": 250,
+    "source_metadata_preservation_checks": 50,
+    "source_occurrences": 50,
+    "unread_nonempty_context_fields": 141,
+    "utf8_bytes_read": 103665
+  }
+}
