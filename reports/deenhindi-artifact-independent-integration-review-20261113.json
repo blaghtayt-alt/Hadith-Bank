@@ -1,0 +1,101 @@
+{
+  "schema": "deenhindi-artifact-independent-integration-review-v1",
+  "reviewed_at_utc": "2026-11-13T10:28:11.322558+00:00",
+  "reviewer": "queue_audit",
+  "result": "PASS_READ_ONLY_CODE_REVIEW",
+  "scope": "Practical integration of fixed GitHub artifact recovery into the existing serialized workflow; no source content certification.",
+  "files": [
+    {
+      "path": "scripts/recover_deenhindi_artifact.py",
+      "sha256": "f29e2b0a3fc5542e3d8d529fa3cf220db37f6451312ddd71efef7d262fc6baf2",
+      "bytes": 33517
+    },
+    {
+      "path": ".github/workflows/import-web-hadith.yml",
+      "sha256": "360a10e52ed52a668538e053d1b7b3f73ebc0bb5a76cd350e9d26726b9b03c42",
+      "bytes": 17028
+    },
+    {
+      "path": "catalog/deenhindi-artifact-recovery.json",
+      "sha256": "39e769d623188d06c966f709e03e9bd4fd71a7e80d2206441b545989423b7b93",
+      "bytes": 852
+    },
+    {
+      "path": "scripts/import_deenhindi.py",
+      "sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+      "bytes": 51103
+    }
+  ],
+  "artifact_pin": {
+    "run_id": 43400779530,
+    "artifact_id": 14026408835,
+    "archive_bytes": 674433448,
+    "archive_sha256": "286f14110e2de2c64e01c079ba23b5c2b4a8a0de574244d869f00fa7edbc341f",
+    "matched_live_github_metadata": true,
+    "archive_downloaded_by_this_reviewer": false
+  },
+  "verified_by_reading": [
+    "Fixed repository, run, artifact ID/name/expiry/size and SHA256 are checked; no arbitrary archive endpoint is accepted.",
+    "Workflow supplies GH_TOKEN from github.token; existing actions:write includes the actions:read permission needed for artifact retrieval.",
+    "Normal gh api authentication is used; no custom redirected Authorization header is constructed. Official CLI auth transport includes an explicit cross-host redirect guard.",
+    "The recovery step runs inside hadith-bank-web-imports with cancel-in-progress false; restore, report, offline rebuild and CLI import use the shared importer lock. The recovery script does not commit, push or dispatch.",
+    "The transaction only appends missing immutable Deen snapshots/parsed objects/imported entries after verification. Current errors, blocks, retry receipts, histories and other non-imported state fields remain unchanged.",
+    "The first recovery cycle writes and retains the original before-status, performs a fixed zero-request Deen rebuild and shared reviews-only validation, and skips the ordinary public-page batch.",
+    "The offline rebuild wrapper preserves an existing source block and exact current state bytes while allowing local derivatives to be validated; it does not accept a generic importer CLI exit code 2 as success.",
+    "The existing successful-save continuation compares retained before/after fetched counts, so recovered entries provide a productive-progress signal without source HTTP.",
+    "New recovery script and plan paths are included in the workflow push trigger.",
+    "Normal git add includes raw/parsed evidence, current state and the durable recovery receipt/index under imports/web-deenhindi-20261112.",
+    "A fresh zero-request rebuild and report refresh now run around the rebase review/status refresh and before staging/amending every recovery save attempt.",
+    "Report requires exact current state, progress, importer and verified-index rebuild proof hashes; rejects stale review inputs/engine; verifies held rows against exact immutable source data; and replaces generated artifact sets.",
+    "Full recovered exact source records and state descriptors are supplied in the compact delta; currently held rows receive their own raw/parsed evidence bundle with a 32 MiB source-payload limit."
+  ],
+  "findings_resolved": [
+    {
+      "issue": "Pre-save held bundle could become stale after rebasing newer reviews.",
+      "resolution": "RECOVERY_CHECKPOINT-conditioned offline rebuild and report regeneration after each rebase, with the report after review/status refresh and before git add/amend.",
+      "status": "verified_in_current_workflow"
+    },
+    {
+      "issue": "Bundling all 508 recovered raw snapshots could make the manual-review download unnecessarily large.",
+      "resolution": "Separate held-only evidence artifact; compact full-delta JSON records/descriptors; 32 MiB held source-payload cap.",
+      "status": "verified_in_current_module_and_workflow"
+    },
+    {
+      "issue": "A stale generated held directory could retain snapshots removed by newer reviews.",
+      "resolution": "Generated delta/held directories are replaced as complete sets.",
+      "status": "verified_in_current_module"
+    }
+  ],
+  "primary_reference_checks": [
+    {
+      "url": "https://docs.github.com/en/rest/actions/artifacts#download-an-artifact",
+      "finding": "Artifact download accepts GitHub App installation tokens and requires Actions read permission."
+    },
+    {
+      "url": "https://docs.github.com/en/github-cli/github-cli/authenticating-with-github-cli",
+      "finding": "GitHub Actions supplies github.token to CLI through GH_TOKEN."
+    },
+    {
+      "url": "https://github.com/cli/cli/blob/trunk/api/http_client.go",
+      "git_blob_sha": "4573e05202bb982f021cffafa41391957c0795f1",
+      "finding": "addAuthHeaderRoundTripper does not re-add authentication when a redirect changes hostname."
+    },
+    {
+      "url": "https://github.com/cli/cli/blob/trunk/pkg/cmd/api/http.go",
+      "git_blob_sha": "08c78d10eb2d03b5ccce3e2fa672a0b88dd0d0d1",
+      "finding": "The API command uses its configured HTTP client for the fixed API route."
+    }
+  ],
+  "reviewer_actions": {
+    "source_http_requests": 0,
+    "artifact_binary_downloads": 0,
+    "github_mutations": 0,
+    "implementation_edits": 0,
+    "tests_executed": 0
+  },
+  "remaining_verification": [
+    "Implementer transaction/replay tests and deployment_audit workflow integration tests are separate validation records.",
+    "Actual 674,433,448-byte artifact hash, full restored source bytes, resulting held count and validated save still require the authorized CI run."
+  ],
+  "independent_content_qc_performed": false
+}

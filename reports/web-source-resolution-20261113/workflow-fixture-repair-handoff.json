@@ -1,0 +1,31 @@
+{
+  "base_ref": "83b84f0",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "files": [
+    {
+      "path": "tests/test_fawaz_bulk_workflow.py",
+      "base_blob_sha": "6b7631aad6d808da5fcbaf6e7e487668ef1f53ee",
+      "new_blob_sha": "52a6a8f0027c49d77d5ca6bfdf4d7acfa5f52b8d",
+      "sha256": "8570b221b8071d541efc11b00cef4b76818736b2d12c6d9bdd8be900cdb622b9",
+      "size_bytes": 18972
+    }
+  ],
+  "validation": {
+    "before": "11 tests: 5 failures and 1 error reproduced",
+    "after": "13 tests passed, including 2 new offline-refresh publication tests",
+    "status": {
+      "schema_version": 1,
+      "job_id": "b0115d0d7bfd4883b59cd8c4ddbefa42",
+      "status": "succeeded",
+      "runner_pid": 2,
+      "child_pid": 5,
+      "started_at": "2026-11-13T10:05:41.731975+00:00",
+      "finished_at": "2026-11-13T10:05:45.276132+00:00",
+      "exit_code": 0,
+      "wrapper_exit_code": 0,
+      "command_sha256": "31b6b5c29b0a84adb226634e37c3ac8a12dfd34dd6bd2d73674ccc3ac1b30c89"
+    },
+    "log_path": "/workspace/scratch/44aeee8a6071/workflow-fixture-fix/validation-final/output.log"
+  },
+  "scope": "Test fixture only; no engine or workflow edits and no upstream writes."
+}

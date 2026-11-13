@@ -1,0 +1,72 @@
+{
+  "source_commit": "eb6061e1d4115d141d3f2d723ec83fc57f34b1b2",
+  "assigned_records": 46,
+  "decisions": {
+    "register": 44,
+    "exclude": 2,
+    "hold": 0
+  },
+  "by_book": {
+    "muslim": {
+      "exclude": 1,
+      "register": 4
+    },
+    "abudawud": {
+      "register": 18
+    },
+    "tirmidhi": {
+      "register": 6
+    },
+    "nasai": {
+      "register": 10
+    },
+    "ibnmajah": {
+      "register": 6,
+      "exclude": 1
+    }
+  },
+  "language_field_coverage": {
+    "en": {
+      "nonempty_source_fields": 45,
+      "fully_read_fields": 45,
+      "admitted_fields": 44,
+      "unread_nonempty_context_fields": 0
+    },
+    "hi": {
+      "nonempty_source_fields": 46,
+      "fully_read_fields": 46,
+      "admitted_fields": 44,
+      "unread_nonempty_context_fields": 0
+    },
+    "ur": {
+      "nonempty_source_fields": 46,
+      "fully_read_fields": 2,
+      "admitted_fields": 0,
+      "unread_nonempty_context_fields": 44
+    },
+    "ar": {
+      "nonempty_source_fields": 43,
+      "fully_read_fields": 1,
+      "admitted_fields": 0,
+      "unread_nonempty_context_fields": 42
+    },
+    "ur-Latn": {
+      "nonempty_source_fields": 46,
+      "fully_read_fields": 2,
+      "admitted_fields": 0,
+      "unread_nonempty_context_fields": 44
+    }
+  },
+  "excluded_ids": [
+    "deenhindi-muslim:1967",
+    "deenhindi-ibnmajah:1955"
+  ],
+  "excluded_nonempty_fields_all_read": true,
+  "disjoint_from_baseline_636_and_root_new_35": true,
+  "adapter_validation_uncompressed_and_compressed": "passed",
+  "source_baseline_decompresses_exactly_to_original": true,
+  "source_ledger_path": "imports/web-deenhindi-20261112/reviews/baselines/20261113-new-held-agent46-eb6061e.jsonl.gz",
+  "source_ledger_sha256": "438a9c06c07d7736fedf5dcc529d26eacd9c3dc24ae5d1bb43d213e0773ddf16",
+  "independent_pro_qc_performed": false,
+  "new_translation_created": false
+}

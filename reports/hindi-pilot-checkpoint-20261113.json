@@ -1,0 +1,73 @@
+{
+  "schema": "deenhindi-pilot-checkpoint-validation-v1",
+  "base_commit": "83b84f05695d4922b07a517fa549b0176fb689c0",
+  "source_requests_performed": 0,
+  "test_network": "fully mocked; unmocked source requests raise",
+  "active_manifest_keys": [
+    "bukhari:686"
+  ],
+  "pilot_only_setting": {
+    "name": "stop_batch_after_reviewed_retry",
+    "value": true,
+    "strict_boolean": true,
+    "default": false
+  },
+  "manifest_only_semantic_change_verified": true,
+  "inactive_full_candidate_modified": false,
+  "checks": [
+    {
+      "job": "test-job-1",
+      "tests": 9,
+      "result": "passed",
+      "command_sha256": "1c5c0b3b822e29ed4251d815ba052fcb755c5e9aa5e4127f8903198291c5ea27",
+      "log_sha256": "67a0071d4cecdee09b7f1d4179df234d995f5aa496aeae0ca4ad5320a42057f3"
+    },
+    {
+      "job": "test-job-related",
+      "tests": 71,
+      "result": "passed",
+      "command_sha256": "46d67970f8ec7dafbdcfa4d466b26b69b48ea0b488dc423627b6a3a2adbccb09",
+      "log_sha256": "2088e74bae78666e4402a8e356da2720f0a4cf384d578ab6b0a81b5d375cc945"
+    }
+  ],
+  "files": [
+    {
+      "path": "scripts/import_deenhindi.py",
+      "sha256": "24dc2044f1ffc273862ecd0f7797af9253c9ee02bb1c9806c6ef7a2b806dfc90",
+      "bytes": 51018,
+      "prior_sha256": "2f1e44643bfe89a257400d50851a59177ebade181cc71a44d22c10f229bd63f3"
+    },
+    {
+      "path": "tests/test_deenhindi_pilot_checkpoint.py",
+      "sha256": "94e240d02957662664f98f30ef53f21fd338248b2996279e32adf78cac26b761",
+      "bytes": 10697,
+      "prior_sha256": null
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/retry-authorizations.json",
+      "sha256": "08d241011220e176442ea96b2708c7e068d699d6728fe0b28b0c3b1e01706c9e",
+      "bytes": 3507,
+      "prior_sha256": "24934a451e061af933f046547a0ae096369b5abd645a15ed1bcae56716c64966"
+    }
+  ],
+  "safeguards_verified": [
+    "successful reviewed retry ends fetch loop and rebuilds",
+    "ordinary failure ends fetch loop and preserves both error histories",
+    "consumed receipt is persisted before request",
+    "ordinary pending identifiers and inventory remain unchanged",
+    "subsequent batch resumes ordinary work without pilot replay",
+    "verification response and HTTP403 preserve source-wide access stop",
+    "robots denial blocks before record HTTP request",
+    "pre-request deadline remains unconsumed and resumes only once",
+    "invalid non-boolean settings fail before network or derived mutation",
+    "omitted and false settings preserve ordinary batch throughput"
+  ],
+  "activation_requirement": "The full 1000-entry candidate remains inactive. When its separate observed-success gate is met, omit stop_batch_after_reviewed_retry or set it false.",
+  "patch_apply_check": {
+    "result": "passed",
+    "against": "base-manifest.json",
+    "patch_sha256": "223f4b449df28acbb24ccde5d2566db3375e4dff7e6f3cb85699c7ffee96cde2"
+  },
+  "unique_related_tests_total": 71,
+  "focused_tests_included_in_related_total": 9
+}

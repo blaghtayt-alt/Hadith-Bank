@@ -1,0 +1,63 @@
+{
+  "schema": "hadith-bank-reuse-source-path-repair-v1",
+  "checked_at_utc": "2026-11-13T10:11:25.714458+00:00",
+  "result": "pass",
+  "registry_guard_unchanged": true,
+  "live_source_requests": 0,
+  "repair": "Exact immutable copies of all prior review inputs are prepared under imports/web-deenhindi-20261112/review-reuse/inputs/<sha256>/<original-path>; original input receipts retained for change detection. All manual/source review preflight still precedes evidence commit.",
+  "checks": [
+    "actual importer rebuild plus real material_registry.checked_supporting_files gate",
+    "read-only preparation",
+    "changed-original rejection",
+    "tampered immutable-copy rejection preserves prior ledger",
+    "missing or changed supporting evidence triggers offline refresh",
+    "source identity and field boundary guards",
+    "pilot consume-before-request and prompt checkpoint regressions"
+  ],
+  "files": [
+    {
+      "path": "scripts/deenhindi_review_reuse.py",
+      "sha256": "89186fdc0db878887f2af550712e4b6b35cc0c331180e2afee8f5d59418b9f91"
+    },
+    {
+      "path": "scripts/import_deenhindi.py",
+      "sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0"
+    },
+    {
+      "path": "scripts/web_import_batch.py",
+      "sha256": "2bf8047a7de48381df7bcdd4d0dd610a31d7dbcec5a4ea13375353a02008b30f"
+    },
+    {
+      "path": "tests/test_deenhindi_review_reuse.py",
+      "sha256": "412813dcda02681f497422d0b06b0e561b58bf8b868eaea66eb58ae252b30256"
+    }
+  ],
+  "test_modules": [
+    {
+      "module": "test_deenhindi_pilot_checkpoint.py",
+      "test_count": 9,
+      "result": "pass"
+    },
+    {
+      "module": "test_deenhindi_review_reuse.py",
+      "test_count": 15,
+      "result": "pass"
+    },
+    {
+      "module": "test_deenhindi_reviewed_error_retries.py",
+      "test_count": 11,
+      "result": "pass"
+    },
+    {
+      "module": "test_import_deenhindi.py",
+      "test_count": 12,
+      "result": "pass"
+    },
+    {
+      "module": "test_web_import_batch.py",
+      "test_count": 27,
+      "result": "pass"
+    }
+  ],
+  "related_tests_passed": 74
+}

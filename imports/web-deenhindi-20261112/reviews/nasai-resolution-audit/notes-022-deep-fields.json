@@ -1,0 +1,50 @@
+{
+  "language": "hi",
+  "source_field": "translationHindi",
+  "complete_fields_read": [
+    "272",
+    "648",
+    "863",
+    "916",
+    "964",
+    "1368",
+    "1369",
+    "1372"
+  ],
+  "decisions": {
+    "272": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields contain only a chain or a similar-report pointer, without transmitted report wording. Preserve the full source occurrence as a reviewed source-only transmission pointer; do not import another numbered occurrence."
+    },
+    "648": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields contain only a similar-report pointer. The English and Arabic also contain compiler correction of a transmitter identity. No report body is supplied; preserve these as reviewed source context."
+    },
+    "863": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields provide an alternate chain or a similar-report pointer from Abu Rafi, without the report body. Preserve the exact chain and pointer as reviewed source context without borrowing text or identity."
+    },
+    "916": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields transmit Ibn Abbas's lexical/exegetical identification of the seven Mathani as the seven long surahs. This is standalone Quran explanation, outside the current narration admission rule; preserve the complete source wording and attribution as reviewed source context."
+    },
+    "964": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields provide only an alternate chain or a similar-report pointer from Abu Hurairah. No report body is present; retain the source occurrence as reviewed source-only context without reconstruction."
+    },
+    "1368": {
+      "reason": "The complete own-language field explicitly attributes to the Messenger a statement reported by Abu Hurairah and Hudhayfah about Friday and the sequence of religious communities. Preserve its own wording and narrator framing; empty Arabic and English fields remain empty."
+    },
+    "1369": {
+      "reason": "The complete own-language field explicitly attributes to the Prophet a warning, reported by Abu Jad al-Damri, concerning neglect of three Fridays. Preserve the statement and the source's own narration framing without supplying the empty Arabic or English."
+    },
+    "1372": {
+      "reason": "The complete own-language field explicitly attributes to the Messenger Samurah ibn Jundub's report of a dinar or half-dinar charity instruction for missing Friday without an excuse. Preserve the printed condition and amount without grading or reconciling them."
+    }
+  }
+}

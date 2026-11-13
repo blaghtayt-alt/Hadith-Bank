@@ -1,0 +1,70 @@
+{
+  "schema": "hadith-bank-agent-delivery-v1",
+  "task": "Pinned failed-worker Deen source artifact recovery",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "files": [
+    {
+      "path": ".github/workflows/import-web-hadith.yml",
+      "source_path": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/output/.github/workflows/import-web-hadith.yml",
+      "size_bytes": 17028,
+      "sha256": "360a10e52ed52a668538e053d1b7b3f73ebc0bb5a76cd350e9d26726b9b03c42",
+      "git_blob_sha": "6bfbca863a7aee2949ff0ab5c26c390b23ef2e07",
+      "base_git_blob_sha": "367a9f7e7ee73ccac76bd2034e9c92f0f1a047d7"
+    },
+    {
+      "path": "catalog/deenhindi-artifact-recovery.json",
+      "source_path": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/output/catalog/deenhindi-artifact-recovery.json",
+      "size_bytes": 852,
+      "sha256": "39e769d623188d06c966f709e03e9bd4fd71a7e80d2206441b545989423b7b93",
+      "git_blob_sha": "ab2e35cc2c9d96f3522d2f8988a57d229bfb6af7",
+      "base_git_blob_sha": null
+    },
+    {
+      "path": "scripts/recover_deenhindi_artifact.py",
+      "source_path": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/output/scripts/recover_deenhindi_artifact.py",
+      "size_bytes": 33517,
+      "sha256": "f29e2b0a3fc5542e3d8d529fa3cf220db37f6451312ddd71efef7d262fc6baf2",
+      "git_blob_sha": "3a18afe052142fb9d4a345d8516bb34359b14257",
+      "base_git_blob_sha": null
+    },
+    {
+      "path": "tests/test_recover_deenhindi_artifact.py",
+      "source_path": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/output/tests/test_recover_deenhindi_artifact.py",
+      "size_bytes": 23790,
+      "sha256": "d60d7695c09e6cc7cf092eb1eb8ed8d497249675f5f9a801493af65977004a69",
+      "git_blob_sha": "b6f159b060721971e0e9da3b8fe474567c69c9bc",
+      "base_git_blob_sha": null
+    },
+    {
+      "path": "tests/test_web_recovery_workflow.py",
+      "source_path": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/output/tests/test_web_recovery_workflow.py",
+      "size_bytes": 16651,
+      "sha256": "26462c41ff7d8ef30882d61bad1a9681378f55a699e27caf8567bf3de4f7e210",
+      "git_blob_sha": "5c6b3aa0e896697187ef244ea2e948b61e311180",
+      "base_git_blob_sha": null
+    }
+  ],
+  "total_files": 5,
+  "total_bytes": 91838,
+  "validation": {
+    "unit_tests": 66,
+    "status": "succeeded",
+    "test_log": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/work/.work/recovery-combined-tests-04/output.log",
+    "test_status": "/workspace/scratch/44aeee8a6071/hindi-artifact-recovery/work/.work/recovery-combined-tests-04/status.json",
+    "source_network_requests": 0,
+    "github_publication_performed": false,
+    "current_importer_and_batch_tests_included": true
+  },
+  "upstream_modified_files_excluded": [
+    "scripts/import_deenhindi.py",
+    "scripts/web_import_batch.py",
+    "scripts/deenhindi_review_reuse.py"
+  ],
+  "artifact": {
+    "run_id": 43400779530,
+    "artifact_id": 14026408835,
+    "bytes": 674433448,
+    "sha256": "286f14110e2de2c64e01c079ba23b5c2b4a8a0de574244d869f00fa7edbc341f"
+  },
+  "runtime_outcome": "Implementation and offline tests complete; real archive retrieval, count of newly held rows, validated publication and subsequent continuation remain runtime checks in the serialized worker."
+}

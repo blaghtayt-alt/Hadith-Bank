@@ -1,0 +1,26 @@
+{
+  "language": "en",
+  "source_field": "translationEnglish",
+  "complete_fields_read": [
+    "272",
+    "863",
+    "964"
+  ],
+  "decisions": {
+    "272": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields contain only a chain or a similar-report pointer, without transmitted report wording. Preserve the full source occurrence as a reviewed source-only transmission pointer; do not import another numbered occurrence."
+    },
+    "863": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields provide an alternate chain or a similar-report pointer from Abu Rafi, without the report body. Preserve the exact chain and pointer as reviewed source context without borrowing text or identity."
+    },
+    "964": {
+      "action": "context",
+      "record_action": "exclude",
+      "reason": "All five complete own-language fields provide only an alternate chain or a similar-report pointer from Abu Hurairah. No report body is present; retain the source occurrence as reviewed source-only context without reconstruction."
+    }
+  }
+}

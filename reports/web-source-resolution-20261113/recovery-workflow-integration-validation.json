@@ -1,0 +1,64 @@
+{
+  "behavioral_checks": [
+    "real recovery entry point preserves the original before-status receipt through real reviews-only validation and continuation evaluation",
+    "replay uses the durable original before-status and a preserved source block suppresses continuation",
+    "actual recovery hook runs fixed offline-rebuild, reviews-only and report modes in order; legacy/direct fetching routes fail the fixture",
+    "offline validation failure prevents report execution",
+    "actual save/rebase shell refreshes held evidence after concurrent review and publishes exact raw/parsed/state/index/receipt bytes to a local bare Git remote",
+    "rebase validation failure prevents publication and retains local recovered source state",
+    "ordinary save skips recovery-only work"
+  ],
+  "checks": {
+    "actions_read_capability": true,
+    "archive_zip_not_in_artifact_paths": true,
+    "bash_run_blocks_syntax_checked": 9,
+    "bounded_held_artifact_uploaded_even_on_failure": true,
+    "embedded_python_blocks_syntax_checked": 6,
+    "fixed_job_token_mapping": true,
+    "new_module_and_test_python_syntax": true,
+    "recovery_and_ordinary_batch_conditions_are_exclusive": true,
+    "serialized_non_cancelling_worker": true,
+    "source_recovery_push_triggers": true,
+    "yaml_parse": true
+  },
+  "final_handoff_docstring_only_change": "Companion test filename corrected by implementer; all executable AST nodes exactly match the 7-test isolated run.",
+  "finding_addressed": {
+    "issue": "ordinary importer CLI returns exit 2 for a preserved block even after an offline rebuild",
+    "resolution": "dedicated --offline-rebuild calls the current importer with fixed max_records=0 and preserves source state; workflow uses this mode"
+  },
+  "github_requests": 0,
+  "implementer_combined_suite": {
+    "evidence_manifest": "hindi-artifact-recovery/delivery-manifest.json",
+    "status": "reported passed by implementer; not counted as a separate execution by workflow reviewer",
+    "tests_passed": 66
+  },
+  "logged_job": {
+    "child_pid": 5,
+    "command_sha256": "6921a2ae703bbebf7ad08f38f6aac497b3c892f2023f00c8add5f07fedef49e6",
+    "exit_code": 0,
+    "finished_at": "2026-11-13T10:27:51.430653+00:00",
+    "job_id": "96f780742c214bab9bbade0438cb1f8d",
+    "runner_pid": 2,
+    "schema_version": 1,
+    "started_at": "2026-11-13T10:27:50.058503+00:00",
+    "status": "succeeded",
+    "wrapper_exit_code": 0
+  },
+  "recovery_script_sha256": "f29e2b0a3fc5542e3d8d529fa3cf220db37f6451312ddd71efef7d262fc6baf2",
+  "result": "passed",
+  "schema": "hadith-bank-recovery-workflow-integration-validation-v1",
+  "scope_limits": [
+    "Archive transaction/replay safety is covered by the separate recovery-module suite, not these workflow fixtures.",
+    "Shell integration uses strict offline CLI doubles with the production logged-task wrapper and real local Git remotes.",
+    "The initial before-status/continuation checks use real recovery and batch functions with archive restoration mocked.",
+    "No GitHub or publisher request is performed; this does not claim the live artifact has been recovered or published."
+  ],
+  "shared_module_or_workflow_edited": false,
+  "source_http_requests": 0,
+  "test_file_sha256": "26462c41ff7d8ef30882d61bad1a9681378f55a699e27caf8567bf3de4f7e210",
+  "test_log_sha256": "3193c4caadc113b22670fd7afb40b7a5d39cd51cb6eef916e6b9530a85c619c9",
+  "tests_passed": 7,
+  "upstream_mutations": 0,
+  "workflow_and_module_equal_current_authoring_files": true,
+  "workflow_sha256": "360a10e52ed52a668538e053d1b7b3f73ebc0bb5a76cd350e9d26726b9b03c42"
+}

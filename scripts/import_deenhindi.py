@@ -413,6 +413,7 @@ def reviewed_error_candidates(root, state, inventories):
             or manifest.get("site") != "deenhindi.com"
             or manifest.get("scope") != "one_ordinary_request_per_listed_error"
             or manifest.get("automatic_challenge_retries") is not False
+            or type(manifest.get("stop_batch_after_reviewed_retry", False)) is not bool
             or not isinstance(manifest.get("authorization_basis"), str)
             or not manifest["authorization_basis"].strip()
             or not isinstance(manifest.get("entries"), list)):
@@ -461,7 +462,8 @@ def reviewed_error_candidates(root, state, inventories):
             raise ValueError("Reviewed retry archive classification is unsupported or changed: " + key)
         candidates[key] = {"attempt_id": attempt_id, "decision": decision,
             "manifest": {"path": RETRY_MANIFEST, "sha256": digest(encoded)},
-            "authorization_basis": manifest["authorization_basis"], "prior_error": error}
+            "authorization_basis": manifest["authorization_basis"], "prior_error": error,
+            "stop_batch_after_reviewed_retry": manifest.get("stop_batch_after_reviewed_retry", False)}
     return candidates
 
 
@@ -697,7 +699,7 @@ def rebuild(root, state, inventories):
                     reused[identity] = decision
     reuse_receipt = reuse.prepare()
     if reuse_receipt:
-        reviews.files.extend([*reuse.inputs, reuse_receipt])
+        reviews.files.extend([*reuse.supporting_files(), reuse_receipt])
         for identity, decision in reused.items():
             reviews.decisions[identity] = (decision, reuse_receipt, 'register')
     for entry in state['imported'].values():
@@ -764,6 +766,7 @@ def rebuild(root, state, inventories):
                     "conflicting_fields_held": len(reuse.conflicts),
                     "source_context_dependent_fields_not_reused": len(reuse.context_dependent),
                     "ledger": reuse_receipt,
+                    "supporting_input_copies": reuse.supporting_files(),
                     "input_receipts": reuse.inputs},
                "remaining_count": remaining, "done": len(inventories) == len(BOOKS) and remaining == 0,
                "pending_fetch_count": pending,
@@ -791,6 +794,7 @@ def run(args):
     fetcher = Fetcher(root, args.delay_seconds, args.timeout_seconds, started + args.max_seconds)
     attempted = 0
     budget_exhausted = False
+    reviewed_retry_checkpoint = None
     try:
         # Refresh robots once per active batch, and retain every distinct version.
         robots_raw, robots_snapshot = fetcher.get(BASE + "/robots.txt")
@@ -847,6 +851,7 @@ def run(args):
                         "authorization_consumed": True, "status": "request_prepared",
                         "manifest": review["manifest"], "decision": review["decision"],
                         "authorization_basis": review["authorization_basis"],
+                        "stop_batch_after_reviewed_retry": review["stop_batch_after_reviewed_retry"],
                         "prior_error": json.loads(json_bytes(review["prior_error"]))}
                     if old_receipt:
                         retry_receipt["previous_preparations"] = [*old_receipt.get("previous_preparations", []),
@@ -892,10 +897,16 @@ def run(args):
                     if retry_receipt is not None:
                         retry_receipt.update(status="failed", finished_at=now(), error=state["errors"][key])
                 write_json(state_path, state)
+                if retry_receipt is not None and reviewed_retries[key]["stop_batch_after_reviewed_retry"]:
+                    # A pilot outcome must reach the existing rebuild/save path
+                    # before ordinary acquisition continues. Consumed receipts
+                    # are excluded next run, so this does not cap later batches.
+                    reviewed_retry_checkpoint = key
+                    break
             # Source checkpoints are durable after every record. Regenerate
             # canonical shards once at batch completion, avoiding a whole-bank
             # rewrite after every seven new pages as the collection grows.
-            if budget_exhausted:
+            if budget_exhausted or reviewed_retry_checkpoint is not None:
                 break
     except BudgetExpired:
         budget_exhausted = True
@@ -908,6 +919,7 @@ def run(args):
     summary = rebuild(root, state, inventories)
     summary["attempted_this_run"] = attempted
     summary["time_budget_exhausted"] = budget_exhausted
+    summary["reviewed_retry_checkpoint"] = reviewed_retry_checkpoint
     return summary
 
 

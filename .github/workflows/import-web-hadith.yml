@@ -10,9 +10,11 @@ on:
       - '.github/workflows/import-web-hadith.yml'
       - 'catalog/web-import-plan.json'
       - 'catalog/deenhindi-review-reuse-plan.json'
+      - 'catalog/deenhindi-artifact-recovery.json'
       - 'catalog/fawaz-review-inputs.json'
       - 'scripts/import_deenhindi.py'
       - 'scripts/deenhindi_review_reuse.py'
+      - 'scripts/recover_deenhindi_artifact.py'
       - 'scripts/import_uzbek_web.py'
       - 'scripts/import_hadisuz.py'
       - 'scripts/web_import_batch.py'
@@ -54,8 +56,34 @@ jobs:
           python scripts/run_logged_task.py run
           --job-dir .work/web-import-tests --cwd . --timeout 600 --
           python -m unittest discover -s tests
+      - name: Recover the approved archived Deen source snapshots
+        id: recovery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          python scripts/run_logged_task.py run
+          --job-dir .work/deenhindi-artifact-recovery-run --cwd . --timeout 1200 --
+          python scripts/recover_deenhindi_artifact.py --root .
+      - name: Rebuild the recovered checkpoint without new source requests
+        id: recovery_rebuild
+        if: steps.recovery.outputs.checkpoint_required == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/run_logged_task.py run \
+            --job-dir .work/deenhindi-artifact-recovery-rebuild --cwd . --timeout 600 -- \
+            python scripts/recover_deenhindi_artifact.py --root . --offline-rebuild
+          python scripts/run_logged_task.py run \
+            --job-dir .work/deenhindi-artifact-recovery-validation --cwd . --timeout 600 -- \
+            python scripts/web_import_batch.py --root . --reviews-only
+          python scripts/run_logged_task.py run \
+            --job-dir .work/deenhindi-artifact-recovery-report --cwd . --timeout 300 -- \
+            python scripts/recover_deenhindi_artifact.py --root . --report
       - name: Resume bounded public-page batches
         id: batch
+        # Recovery makes one offline checkpoint. The existing continuation
+        # resumes ordinary authorized acquisition after that checkpoint is saved.
+        if: steps.recovery.outputs.checkpoint_required != 'true'
         run: >-
           python scripts/run_logged_task.py run
           --job-dir .work/web-import-run --cwd . --timeout 2400 --
@@ -65,6 +93,7 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          RECOVERY_CHECKPOINT: ${{ steps.recovery.outputs.checkpoint_required }}
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -114,8 +143,17 @@ jobs:
             # A concurrent source review may change evidence hashes while this
             # batch is fetching. Re-export those exact saved inputs offline
             # before validating/committing the combined source checkpoint.
+            if [[ "${RECOVERY_CHECKPOINT:-false}" == 'true' ]]; then
+              python scripts/recover_deenhindi_artifact.py --root . --offline-rebuild
+            fi
             python scripts/web_import_batch.py --root . --reviews-only
             python scripts/web_import_batch.py --root . --status-only
+            if [[ "${RECOVERY_CHECKPOINT:-false}" == 'true' ]]; then
+              # Concurrent reviews may change the held subset during rebase.
+              # Bind the small review artifact and durable receipt to the same
+              # refreshed source checkpoint that this save attempt publishes.
+              python scripts/recover_deenhindi_artifact.py --root . --report
+            fi
             python - <<'PY'
           from pathlib import Path
           import subprocess
@@ -195,6 +233,8 @@ jobs:
         if: always()
         env:
           REGRESSION_OUTCOME: ${{ steps.regressions.outcome }}
+          RECOVERY_OUTCOME: ${{ steps.recovery.outcome }}
+          RECOVERY_REBUILD_OUTCOME: ${{ steps.recovery_rebuild.outcome }}
           BATCH_OUTCOME: ${{ steps.batch.outcome }}
           SAVE_OUTCOME: ${{ steps.save.outcome }}
           DISPATCH_OUTCOME: ${{ steps.dispatch.outcome }}
@@ -206,7 +246,8 @@ jobs:
           import subprocess
           context = {key: os.environ.get(key) for key in (
               'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT', 'GITHUB_SHA',
-              'REGRESSION_OUTCOME', 'BATCH_OUTCOME', 'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
+              'REGRESSION_OUTCOME', 'RECOVERY_OUTCOME', 'RECOVERY_REBUILD_OUTCOME',
+              'BATCH_OUTCOME', 'SAVE_OUTCOME', 'DISPATCH_OUTCOME')}
           head = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
           context['checked_out_commit'] = head.stdout.strip() if head.returncode == 0 else None
           status_path = Path('imports/web-import-status.json')
@@ -220,6 +261,8 @@ jobs:
           (folder / 'run-context.json').write_text(json.dumps(context, indent=2) + '\n')
           lines = ['## Website import checkpoint', '',
               'Tests: ' + str(context['REGRESSION_OUTCOME']) +
+              '; source recovery: ' + str(context['RECOVERY_OUTCOME']) +
+              '; recovery rebuild: ' + str(context['RECOVERY_REBUILD_OUTCOME']) +
               '; batch: ' + str(context['BATCH_OUTCOME']) +
               '; source save: ' + str(context['SAVE_OUTCOME']) +
               '; website build request: ' + str(context['DISPATCH_OUTCOME']) + '.', '',
@@ -258,9 +301,33 @@ jobs:
           path: |
             .work/web-import-tests/
             .work/web-import-run/
+            .work/deenhindi-artifact-recovery-run/
+            .work/deenhindi-artifact-recovery-rebuild/
+            .work/deenhindi-artifact-recovery-validation/
+            .work/deenhindi-artifact-recovery-report/
+            .work/deenhindi-artifact-recovery/github-artifact-metadata.json
+            .work/deenhindi-artifact-recovery/offline-rebuild.json
             .work/web-import-batch/
             imports/web-import-status.json
             imports/web-import-worker-stops.json
+      - name: Retain the recovered source delta and review queue
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deenhindi-recovery-delta-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          include-hidden-files: true
+          if-no-files-found: ignore
+          path: .work/deenhindi-artifact-recovery/delta/
+      - name: Retain the bounded held-source evidence bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deenhindi-recovery-held-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          include-hidden-files: true
+          if-no-files-found: ignore
+          path: .work/deenhindi-artifact-recovery/held/
       - name: Preserve interrupted intake evidence for recovery
         if: failure() || cancelled()
         uses: actions/upload-artifact@v4

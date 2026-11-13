@@ -20,6 +20,7 @@ from fawaz_report_types import validate_report_metadata
 
 PLAN_PATH = 'catalog/deenhindi-review-reuse-plan.json'
 LEDGER_PATH = 'imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz'
+INPUT_COPY_FOLDER = 'imports/web-deenhindi-20261112/review-reuse/inputs'
 REPOSITORY = 'fawazahmed0/hadith-api'
 REVISION = 'df57907be35291c91ad6a6691180e22ca9920784'
 METHOD = 'identical_complete_same_language_prior_boundary_review_v1'
@@ -34,6 +35,27 @@ def sha(data):
 def require(condition, message):
     if not condition:
         raise ValueError('Deen Hindi review reuse: ' + message)
+
+
+def checked_input_path(root, relative):
+    root, pure = Path(root), Path(relative)
+    require(not pure.is_absolute() and '..' not in pure.parts
+            and '\\' not in relative and ':' not in relative,
+            'unsafe prior review input path')
+    path = root / pure
+    require(path.resolve().is_relative_to(root.resolve())
+            and not any(p.is_symlink() for p in [path, *path.parents]
+                        if p.is_relative_to(root)), 'unsafe prior review input path')
+    return path
+
+
+def input_copy_receipts(inputs):
+    """Bind immutable source-path copies to their original working inputs."""
+    return [{'path': INPUT_COPY_FOLDER + '/' + item['sha256'] + '/' + item['path'],
+             'sha256': item['sha256'], 'size_bytes': item['size_bytes'],
+             'original_input_path': item['path'],
+             'role': 'exact_same_language_prior_boundary_review_input_copy'}
+            for item in inputs]
 
 
 def input_receipts(root):
@@ -58,14 +80,8 @@ def input_receipts(root):
     paths.extend(item['path'] for item in manifest.get('additional_reviews', []))
     result = []
     for relative in sorted(set(paths)):
-        pure = Path(relative)
-        require(not pure.is_absolute() and '..' not in pure.parts
-                and '\\' not in relative and ':' not in relative,
-                'unsafe prior review input path')
-        path = root / pure
-        require(path.is_file() and path.resolve().is_relative_to(root.resolve())
-                and not any(p.is_symlink() for p in [path, *path.parents]
-                            if p.is_relative_to(root)), 'missing or unsafe prior review input')
+        path = checked_input_path(root, relative)
+        require(path.is_file(), 'missing prior review input')
         data = path.read_bytes()
         result.append({'path': relative, 'sha256': sha(data), 'size_bytes': len(data),
                        'role': 'exact_same_language_prior_boundary_review_input'})
@@ -145,6 +161,7 @@ class ExactReviewReuse:
         self.index = collections.defaultdict(list)
         self.records, self.conflicts, self.context_dependent = [], [], []
         self.prepared = None
+        self.evidence_inputs = []
         if not self.enabled:
             return
         if decisions is None:
@@ -222,26 +239,57 @@ class ExactReviewReuse:
     def prepare(self):
         if not self.enabled:
             return None
+        self.prepared = None
+        self.evidence_inputs = []
+        copies = []
+        receipts = input_copy_receipts(self.inputs)
+        for original, receipt in zip(self.inputs, receipts):
+            source = checked_input_path(self.root, original['path'])
+            require(source.is_file(), 'missing prior review input')
+            data = source.read_bytes()
+            require(sha(data) == original['sha256'] and len(data) == original['size_bytes'],
+                    'prior review input changed during preparation: ' + original['path'])
+            target = checked_input_path(self.root, receipt['path'])
+            copies.append((target, data))
         document = {'schema': 'hadith-bank-exact-field-review-reuse-ledger-v1',
                     'site': 'deenhindi', 'method': METHOD,
                     'independent_pro_qc': 'not_performed',
                     'input_receipts': self.inputs,
+                    'supporting_input_copies': receipts,
                     'scope': 'Boundary/type/speaker review reuse for byte-identical full fields only. No edition, source identity, number, grade, chain or external reference is transferred. Unmatched fields are not approved.',
                     'records': self.records, 'conflicts': self.conflicts,
                     'context_dependent_fields_not_reused': self.context_dependent}
         raw = json_bytes(document)
         stored = gzip_bytes(raw)
         path = self.root / LEDGER_PATH
-        self.prepared = path, stored
+        self.prepared = path, stored, copies
+        self.evidence_inputs = receipts
         return {'path': LEDGER_PATH, 'sha256': sha(stored), 'size_bytes': len(stored),
                 'compression': 'gzip', 'uncompressed_sha256': sha(raw),
                 'method': METHOD, 'role': 'exact_same_language_prior_boundary_review_decisions'}
+
+    def supporting_files(self):
+        return copy.deepcopy(self.evidence_inputs)
 
     def commit(self):
         if not self.enabled:
             return
         require(self.prepared is not None, 'reuse evidence must be prepared before commit')
-        path, stored = self.prepared
+        path, stored, copies = self.prepared
+        # Validate every existing immutable copy before changing any durable
+        # evidence. A corrupted copy must never be silently overwritten.
+        for target, data in copies:
+            checked_input_path(self.root, str(target.relative_to(self.root)))
+            require(not target.exists() or (target.is_file() and target.read_bytes() == data),
+                    'immutable prior review input copy changed: ' + str(target.relative_to(self.root)))
+        for target, data in copies:
+            if target.exists():
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            temporary = target.with_name(target.name + '.tmp')
+            require(not temporary.is_symlink(), 'unsafe temporary input copy')
+            temporary.write_bytes(data)
+            temporary.replace(target)
         path.parent.mkdir(parents=True, exist_ok=True)
         temporary = path.with_name(path.name + '.tmp')
         temporary.write_bytes(stored)

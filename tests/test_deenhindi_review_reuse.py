@@ -40,6 +40,17 @@ class ExactPriorReviewReuseTests(unittest.TestCase):
     def engine(self, decisions=None):
         return ExactReviewReuse(self.root, decisions=decisions or [self.prior])
 
+    def engine_with_input(self):
+        engine = self.engine()
+        relative = 'catalog/TEST-prior-review.json'
+        data = b'TEST exact pinned prior review input\n'
+        path = self.root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        engine.inputs = [{'path': relative, 'sha256': sha(data), 'size_bytes': len(data),
+                          'role': 'exact_same_language_prior_boundary_review_input'}]
+        return engine
+
     def apply(self, engine):
         decision = engine.review(self.saved)
         receipt = engine.save()
@@ -96,6 +107,74 @@ class ExactPriorReviewReuseTests(unittest.TestCase):
         self.assertEqual(path.read_bytes(), original)
         engine.commit()
         self.assertEqual(sha(path.read_bytes()), changed['sha256'])
+
+    def test_actual_rebuild_registers_source_path_input_copies(self):
+        import import_deenhindi as importer
+        from material_registry import checked_supporting_files
+        engine = self.engine_with_input()
+        saved = copy.deepcopy(self.saved)
+        raw = b'TEST immutable source response'
+        raw_path = importer.IMPORT + '/raw/TEST.html'
+        saved['snapshot'].update(path=raw_path, sha256=sha(raw))
+        parsed_path = importer.IMPORT + '/parsed/TEST.json'
+        saved.pop('parsed_path')
+        parsed = importer.json_bytes(saved)
+        for relative, data in ((raw_path, raw), (parsed_path, parsed)):
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        state = {'imported': {'bukhari:12a': {'collection': 'bukhari', 'number': '12a',
+                  'parsed': {'path': parsed_path, 'sha256': sha(parsed)}}}}
+        with mock.patch.object(importer, 'ExactReviewReuse', return_value=engine):
+            summary = importer.rebuild(self.root, state, {'bukhari': {'identifiers': ['12a']}})
+        self.assertEqual(summary['registered_hadith_count'], 1)
+        self.assertEqual(summary['classification_pending_count'], 0)
+        manifest_path = 'materials/deenhindi-bukhari/manifest.json'
+        manifest = json.loads((self.root / manifest_path).read_bytes())
+        # This is the real registry gate that rejected the original catalog/
+        # and scripts/ input receipts during the failed GitHub save.
+        checked = checked_supporting_files(self.root, manifest, manifest_path)
+        copies = engine.supporting_files()
+        self.assertEqual(len(copies), 1)
+        self.assertIn(copies[0], checked)
+        self.assertNotIn(engine.inputs[0], checked)
+        self.assertEqual((self.root / copies[0]['path']).read_bytes(),
+                         (self.root / engine.inputs[0]['path']).read_bytes())
+        receipt = summary['exact_field_review_reuse']['ledger']
+        ledger = json.loads(gzip.decompress((self.root / receipt['path']).read_bytes()))
+        self.assertEqual(ledger['input_receipts'], engine.inputs)
+        self.assertEqual(ledger['supporting_input_copies'], copies)
+        self.assertEqual(summary['exact_field_review_reuse']['supporting_input_copies'], copies)
+
+    def test_preparation_is_read_only_and_changed_input_is_rejected(self):
+        engine = self.engine_with_input()
+        engine.review(self.saved)
+        receipt = engine.prepare()
+        target = self.root / engine.supporting_files()[0]['path']
+        self.assertFalse(target.exists())
+        self.assertFalse((self.root / receipt['path']).exists())
+        (self.root / engine.inputs[0]['path']).write_bytes(b'TEST changed input')
+        with self.assertRaisesRegex(ValueError, 'input changed during preparation'):
+            engine.prepare()
+        with self.assertRaisesRegex(ValueError, 'must be prepared'):
+            engine.commit()
+        self.assertFalse(target.exists())
+
+    def test_tampered_input_copy_cannot_replace_the_prior_ledger(self):
+        engine = self.engine_with_input()
+        engine.review(self.saved)
+        receipt = engine.save()
+        ledger = self.root / receipt['path']
+        previous = ledger.read_bytes()
+        target = self.root / engine.supporting_files()[0]['path']
+        tampered = b'TEST corrupted immutable evidence'
+        target.write_bytes(tampered)
+        engine.records.append({'TEST': 'new candidate only'})
+        engine.prepare()
+        with self.assertRaisesRegex(ValueError, 'immutable prior review input copy changed'):
+            engine.commit()
+        self.assertEqual(ledger.read_bytes(), previous)
+        self.assertEqual(target.read_bytes(), tampered)
 
     def test_inconsistent_prior_decisions_hold_the_field(self):
         second = {**self.prior, 'typed_hadithnumber': '2',
@@ -162,20 +241,30 @@ class ExactPriorReviewReuseTests(unittest.TestCase):
     def test_reuse_only_refresh_detects_missing_ledger_and_engine_change(self):
         import web_import_batch as batch
         from deenhindi_review_reuse import LEDGER_PATH
-        engine = self.engine()
+        engine = self.engine_with_input()
         engine.review(self.saved)
         receipt = engine.save()
-        inputs = [{'path': 'TEST pinned input', 'sha256': 'f' * 64}]
+        inputs, copies = engine.inputs, engine.supporting_files()
         source_reviews = SourceReviews(self.root, 'deenhindi')
         progress = {'source_review_inputs': [receipt],
                     'source_review_engine_sha256': source_reviews.engine_sha256,
-                    'exact_field_review_reuse': {'input_receipts': inputs, 'ledger': receipt}}
+                    'exact_field_review_reuse': {'input_receipts': inputs, 'ledger': receipt,
+                                                'supporting_input_copies': copies}}
         with mock.patch('deenhindi_review_reuse.input_receipts', return_value=inputs), \
                 mock.patch.object(batch, 'read_json', return_value=progress):
             self.assertFalse(batch.has_review_export_work(self.root, 'deenhindi'))
             progress['source_review_engine_sha256'] = 'changed engine'
             self.assertTrue(batch.has_review_export_work(self.root, 'deenhindi'))
             progress['source_review_engine_sha256'] = source_reviews.engine_sha256
+            copy_path = self.root / copies[0]['path']
+            copy_bytes = copy_path.read_bytes()
+            copy_path.unlink()
+            self.assertTrue(batch.has_review_export_work(self.root, 'deenhindi'))
+            copy_path.write_bytes(copy_bytes)
+            self.assertFalse(batch.has_review_export_work(self.root, 'deenhindi'))
+            copy_path.write_bytes(b'TEST corrupted input copy')
+            self.assertTrue(batch.has_review_export_work(self.root, 'deenhindi'))
+            copy_path.write_bytes(copy_bytes)
             (self.root / LEDGER_PATH).unlink()
             self.assertTrue(batch.has_review_export_work(self.root, 'deenhindi'))
 

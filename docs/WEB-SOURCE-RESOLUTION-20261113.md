@@ -1,5 +1,40 @@
 # Website-source queue resolution — 13 November 2026
 
+## Current status — phase 2 preflight, 13 November 2026
+
+The durable phase 1 repair is recorded at
+`eb6061e1d4115d141d3f2d723ec83fc57f34b1b2`; the subsequent workflow repair is
+`83b84f05695d4922b07a517fa549b0176fb689c0`. The phase 2 candidate now records
+the later source-review work in the [combined integration report](../reports/web-source-resolution-20261113/phase2-integration.md).
+
+At the saved `eb6061e` source checkpoint, **3,942 entries were held**: the
+original 3,824 plus 118 newly saved entries. The checked candidate gives every
+one a disposition: **3,821 register and 121 remain preserved source-only**,
+with **zero uncovered held IDs**. This consists of **2,289 explicit manual
+decisions** (2,168 register; 121 source-only) and **1,653 exact prior-review
+reuse decisions** (all register). The sets are disjoint; unread sibling fields
+remain source context. These are source-object preflight results, not a claim
+that the live export has completed.
+
+Combined with the checkpoint's 8,833 already registered entries, the verified
+projection for that **12,775-entry saved cohort** is **12,654 registered,
+121 source-only and zero held**. The [manual validation](../reports/web-source-resolution-20261113/phase2-validation.json)
+and [reuse-complement validation](../reports/web-source-resolution-20261113/phase2-reuse-complement-validation.json)
+bind these counts to exact saved sources and the current review inputs. Full
+CI still must reopen the raw/parsed files, rebuild, validate the complete
+registry and save the resulting export before those totals become published
+outcomes. Independent Pro QC is not claimed.
+
+**Acquisition remains unfinished.** Another **508 downloaded entries from an
+interrupted worker are under fixed-artifact recovery**; they are outside the
+12,775-entry cohort above, and recovery has not yet been claimed complete.
+The single historical-error pilot for **`bukhari:686` still awaits its observed
+result**. The remaining archived challenge responses are not blanket-authorized
+for replay; a renewed verification/access stop remains a stop.
+
+The dated phase 1 checkpoint below is retained unchanged as history. Its earlier
+counts and work-in-progress statements should be read in that context.
+
 The owner requested fixing the remaining Deen Hindi acquisition queue and held
 entries, the eleven Hadis.islom.uz holds, and the 244 Fawaz source entries.
 This checkpoint saves the first concrete repair set. Current generated progress

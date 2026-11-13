@@ -44,11 +44,37 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.git(self.root, 'clone', str(self.remote), str(self.work))
         self.identity(self.work)
         (self.work / 'scripts').mkdir()
+        # Exercise the production logged-task wrapper and the workflow's exact
+        # offline CLI contract without running unrelated website importers.
+        shutil.copyfile(ROOT / 'scripts/run_logged_task.py',
+                        self.work / 'scripts/run_logged_task.py')
+        (self.work / 'scripts/web_import_batch.py').write_text(
+            'import argparse, os\nfrom pathlib import Path\n'
+            'parser = argparse.ArgumentParser()\n'
+            'parser.add_argument("--root", required=True)\n'
+            'parser.add_argument("--reviews-only", action="store_true", required=True)\n'
+            'args = parser.parse_args()\n'
+            'assert args.root == "."\n'
+            'root = Path(args.root).resolve()\n'
+            'with open(os.environ["REVIEW_REFRESH_LOG"], "a") as stream:\n'
+            '    stream.write("attempted\\n")\n'
+            'if (root / "invalid-review-refresh").exists():\n'
+            '    raise SystemExit("TEST offline review refresh failed")\n'
+            'review = root / "imports/web-deenhindi-20261112/reviews/reviewed-source.txt"\n'
+            'if review.exists():\n'
+            '    material = root / "materials/deenhindi-test/reviewed-source.txt"\n'
+            '    material.parent.mkdir(parents=True, exist_ok=True)\n'
+            '    material.write_bytes(review.read_bytes())\n')
         (self.work / 'scripts/material_registry.py').write_text(
             'import os\nfrom pathlib import Path\n'
             'def load_public_materials(root):\n'
             '    if (root / "invalid-registry").exists():\n'
             '        raise ValueError("TEST concurrent registry is invalid")\n'
+            '    review = root / "imports/web-deenhindi-20261112/reviews/reviewed-source.txt"\n'
+            '    if review.exists():\n'
+            '        material = root / "materials/deenhindi-test/reviewed-source.txt"\n'
+            '        if not material.exists() or material.read_bytes() != review.read_bytes():\n'
+            '            raise ValueError("TEST current reviews were not refreshed before validation")\n'
             '    with open(os.environ["VALIDATION_LOG"], "a") as stream:\n'
             '        stream.write("validated\\n")\n'
             '    return {"manifests": []}\n')
@@ -60,7 +86,9 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.git(self.root, 'clone', str(self.remote), str(self.writer))
         self.identity(self.writer)
         self.validations = self.root / 'validations.txt'
-        self.env = {**os.environ, 'VALIDATION_LOG': str(self.validations)}
+        self.refreshes = self.root / 'review-refreshes.txt'
+        self.env = {**os.environ, 'VALIDATION_LOG': str(self.validations),
+                    'REVIEW_REFRESH_LOG': str(self.refreshes)}
         self.source = self.work / 'imports/web-fawaz-20261112/source.txt'
         self.source.parent.mkdir(parents=True)
         self.source.write_text('TEST complete exact source bytes\n')
@@ -78,6 +106,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.git(root, 'config', 'user.email', 'test@example.invalid')
 
     def source_commit(self, path='concurrent-source.txt', publish=True):
+        (self.writer / path).parent.mkdir(parents=True, exist_ok=True)
         (self.writer / path).write_text('TEST concurrent source bytes\n')
         self.git(self.writer, 'add', path)
         self.git(self.writer, 'commit', '-m', 'TEST concurrent source')
@@ -102,6 +131,38 @@ class FawazBulkWorkflowTests(unittest.TestCase):
                          'TEST complete exact source bytes\n')
         self.assertEqual(self.remote_text('materials/fawaz-test/records.jsonl'), '{"id":"TEST-record"}\n')
         self.assertEqual(self.validations.read_text(), 'validated\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
+
+    def test_rebased_reviews_are_refreshed_offline_before_validation_and_published(self):
+        review = 'imports/web-deenhindi-20261112/reviews/reviewed-source.txt'
+        concurrent = self.source_commit(path=review)
+        result = self.run_save()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(self.remote_text(review), 'TEST concurrent source bytes\n')
+        self.assertEqual(self.remote_text('materials/deenhindi-test/reviewed-source.txt'),
+                         'TEST concurrent source bytes\n')
+        self.assertEqual(self.remote_text('imports/web-fawaz-20261112/source.txt'),
+                         'TEST complete exact source bytes\n')
+        self.git(self.remote, 'merge-base', '--is-ancestor', concurrent, 'main')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
+        self.assertEqual(self.validations.read_text(), 'validated\n')
+        status = json.loads((self.work / '.work/fawaz-website-reviews-rebase-1/status.json').read_text())
+        self.assertEqual(status['status'], 'succeeded')
+        self.assertEqual(status['exit_code'], 0)
+
+    def test_rebased_review_refresh_failure_prevents_publication_and_retains_diagnostics(self):
+        concurrent = self.source_commit(path='invalid-review-refresh')
+        result = self.run_save()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(self.git(self.remote, 'rev-parse', 'main').strip(), concurrent)
+        self.assertEqual(self.source.read_text(), 'TEST complete exact source bytes\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
+        self.assertFalse(self.validations.exists())
+        job = self.work / '.work/fawaz-website-reviews-rebase-1'
+        status = json.loads((job / 'status.json').read_text())
+        self.assertEqual(status['status'], 'failed')
+        self.assertNotEqual(status['exit_code'], 0)
+        self.assertIn('TEST offline review refresh failed', (job / 'output.log').read_text())
 
     def test_push_race_rebases_and_revalidates_without_overwriting_writer(self):
         concurrent = self.source_commit(publish=False)
@@ -118,6 +179,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertEqual(self.remote_text('imports/web-fawaz-20261112/source.txt'),
                          'TEST complete exact source bytes\n')
         self.assertEqual(self.validations.read_text(), 'validated\nvalidated\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\nattempted\n')
 
     def test_unchanged_remote_rejection_is_a_failure(self):
         hook = self.remote / 'hooks/pre-receive'
@@ -127,6 +189,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(self.git(self.remote, 'rev-parse', 'main').strip(), self.start)
         self.assertEqual(self.validations.read_text(), 'validated\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
 
     def test_rebased_registry_failure_prevents_publication(self):
         concurrent = self.source_commit(path='invalid-registry')
@@ -135,6 +198,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertIn('TEST concurrent registry is invalid', result.stderr)
         self.assertEqual(self.git(self.remote, 'rev-parse', 'main').strip(), concurrent)
         self.assertFalse(self.validations.exists())
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
 
     def test_lost_push_acknowledgment_recovers_confirmed_remote_commit(self):
         executable = shutil.which('git')
@@ -150,6 +214,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertEqual(self.remote_text('imports/web-fawaz-20261112/source.txt'),
                          'TEST complete exact source bytes\n')
         self.assertEqual(self.validations.read_text(), 'validated\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
 
     def test_unchanged_checkpoint_does_not_create_or_push_another_commit(self):
         first = self.run_save()
@@ -159,6 +224,7 @@ class FawazBulkWorkflowTests(unittest.TestCase):
         self.assertEqual(second.returncode, 0, second.stderr)
         self.assertEqual(self.git(self.remote, 'rev-parse', 'main'), saved)
         self.assertEqual(self.validations.read_text(), 'validated\n')
+        self.assertEqual(self.refreshes.read_text(), 'attempted\n')
 
     def record_outcome(self, plan, fetched=21):
         folder = self.work / 'catalog'

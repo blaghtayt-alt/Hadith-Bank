@@ -176,7 +176,7 @@ def has_review_export_work(root, name):
     reviews = SourceReviews(root, name)
     progress = read_json(root / PROGRESS[name], {})
     if name == 'deenhindi':
-        from deenhindi_review_reuse import input_receipts
+        from deenhindi_review_reuse import input_receipts, input_copy_receipts
         reuse_inputs = input_receipts(root)
         prior_reuse = progress.get('exact_field_review_reuse', {})
         if reuse_inputs != prior_reuse.get('input_receipts', []):
@@ -189,6 +189,14 @@ def has_review_export_work(root, name):
                     or receipt.get('path') != LEDGER_PATH or not ledger.is_file()
                     or sha(ledger.read_bytes()) != receipt.get('sha256')):
                 return True
+            copies = input_copy_receipts(reuse_inputs)
+            if prior_reuse.get('supporting_input_copies', []) != copies:
+                return True
+            for item in copies:
+                evidence = root / item['path']
+                if (not evidence.is_file() or evidence.stat().st_size != item['size_bytes']
+                        or sha(evidence.read_bytes()) != item['sha256']):
+                    return True
         # Derived reuse evidence is independently fingerprinted above. It is
         # not a manual review input and must not cause perpetual refreshes.
         recorded = [item for item in progress.get('source_review_inputs', [])
