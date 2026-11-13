@@ -1,0 +1,327 @@
+{
+  "artifacts": {
+    "artifacts": [
+      {
+        "archive_download_url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14073907533/zip",
+        "created_at": "2026-11-13T20:28:57Z",
+        "digest": "sha256:c4fa570546bf72ba989588fc9a902d3b801ba44620e86538185479ab86856f9e",
+        "expired": false,
+        "expires_at": "2026-11-20T20:28:56Z",
+        "id": 14073907533,
+        "name": "reader-runtime-build",
+        "size_in_bytes": 3091346,
+        "updated_at": "2026-11-13T20:28:57Z",
+        "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14073907533",
+        "workflow_run": {
+          "head_branch": "main",
+          "head_repository_id": 1452784719,
+          "head_sha": "a6c52f35a320b10259bc7cc6200c53118d77f149",
+          "id": 43497811581,
+          "repository_id": 1452784719
+        }
+      },
+      {
+        "archive_download_url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14071809670/zip",
+        "created_at": "2026-11-13T20:11:07Z",
+        "digest": "sha256:79a80a902212aed7721a77de88ccd17399dc4fcefa3db114270221cc24b9f424",
+        "expired": false,
+        "expires_at": "2026-11-20T20:11:06Z",
+        "id": 14071809670,
+        "name": "fawaz-review-diagnostics-build",
+        "size_in_bytes": 32266,
+        "updated_at": "2026-11-13T20:11:07Z",
+        "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14071809670",
+        "workflow_run": {
+          "head_branch": "main",
+          "head_repository_id": 1452784719,
+          "head_sha": "a6c52f35a320b10259bc7cc6200c53118d77f149",
+          "id": 43497811581,
+          "repository_id": 1452784719
+        }
+      }
+    ]
+  },
+  "current_reader": {
+    "head_sha": "31c01136611b163683a01b47833bf74354820851",
+    "id": 43501979566,
+    "jobs": [
+      {
+        "conclusion": null,
+        "id": 132149864943,
+        "logs_url": null,
+        "name": "Refresh bank and build website",
+        "run_id": 43501979566,
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check out requested main revision",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Set up Python",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run software tests",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install reader browser test runtime",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": null,
+            "name": "Export saved Fawaz reviews and preserve published quotations",
+            "number": 6,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": null,
+            "name": "Apply changed saved website reviews before shared validation",
+            "number": 7,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Save bounded Fawaz validation evidence",
+            "number": 8,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Synchronize official counterpart sources for newly registered IDs",
+            "number": 9,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Rebuild and validate all registered material",
+            "number": 10,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Verify bounded reader in Chromium",
+            "number": 11,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Save reader runtime evidence",
+            "number": 12,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Keep generated bank files synchronized",
+            "number": 13,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Upload the verified website",
+            "number": 14,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Post Set up Python",
+            "number": 27,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Post Check out requested main revision",
+            "number": 28,
+            "status": "pending"
+          }
+        ]
+      },
+      {
+        "conclusion": "skipped",
+        "id": 132149867443,
+        "logs_url": null,
+        "name": "Validate proposed material and reader",
+        "run_id": 43501979566,
+        "status": "completed",
+        "steps": null
+      }
+    ]
+  },
+  "jobs": {
+    "jobs": [
+      {
+        "conclusion": "success",
+        "id": 132135412064,
+        "logs_url": null,
+        "name": "Refresh bank and build website",
+        "run_id": 43497811581,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Check out requested main revision",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Set up Python",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run software tests",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install reader browser test runtime",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Export saved Fawaz reviews and preserve published quotations",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Apply changed saved website reviews before shared validation",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Save bounded Fawaz validation evidence",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Synchronize official counterpart sources for newly registered IDs",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Rebuild and validate all registered material",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verify bounded reader in Chromium",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Save reader runtime evidence",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Keep generated bank files synchronized",
+            "number": 13,
+            "status": "completed"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Upload the verified website",
+            "number": 14,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Set up Python",
+            "number": 27,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Check out requested main revision",
+            "number": 28,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 29,
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "conclusion": "skipped",
+        "id": 132135414085,
+        "logs_url": null,
+        "name": "Validate proposed material and reader",
+        "run_id": 43497811581,
+        "status": "completed",
+        "steps": null
+      },
+      {
+        "conclusion": "skipped",
+        "id": 132149863905,
+        "logs_url": null,
+        "name": "Publish verified website",
+        "run_id": 43497811581,
+        "status": "completed",
+        "steps": null
+      }
+    ]
+  },
+  "main": {
+    "committer_date": "2026-11-13T20:13:16Z",
+    "message": "Resolve 85 Deen Hindi held parents and record audited 64f4 checkpoint",
+    "parents": [
+      "a6c52f35a320b10259bc7cc6200c53118d77f149"
+    ],
+    "sha": "31c01136611b163683a01b47833bf74354820851",
+    "tree": "ef2a623731fad42608136ccff3118e174e47d0b1"
+  },
+  "observation_window_end_utc": "2026-11-13 20:37:54 UTC",
+  "observation_window_start_utc": "2026-11-13 20:34:53 UTC",
+  "run": {
+    "artifacts_url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/runs/43497811581/artifacts",
+    "conclusion": "success",
+    "created_at": "2026-11-13T20:02:26Z",
+    "event": "push",
+    "head_branch": "main",
+    "head_sha": "a6c52f35a320b10259bc7cc6200c53118d77f149",
+    "html_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43497811581",
+    "id": 43497811581,
+    "jobs_url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/runs/43497811581/jobs",
+    "name": "Update Hadith Bank website",
+    "path": ".github/workflows/reader-pages.yml",
+    "run_attempt": 1,
+    "run_started_at": "2026-11-13T20:02:26Z",
+    "status": "completed",
+    "updated_at": "2026-11-13T20:29:14Z"
+  }
+}

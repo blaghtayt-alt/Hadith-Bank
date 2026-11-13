@@ -1,0 +1,70 @@
+{
+  "generated_reader_commit": {
+    "message": "Update generated Hadith Bank reader [skip ci]",
+    "parent": "7a3462ef5513e3c116ead9a496420e8b9f484841",
+    "sha": "d304bef0c7955377026a0c2aeebdd677b1e05b0a",
+    "tree": "0bd2631872dcdd7ecd0dd4dd3ddb39a2046a7f36"
+  },
+  "github_writes_by_this_receipt": 0,
+  "independent_pro_qc": "not_performed",
+  "input_bindings": {
+    "complete-current-ancestry.json": {
+      "bytes": 6875,
+      "sha256": "a2b1808b2860016cfd97716af3269b36ad3c909aa864e2fa770caeaf6bcc8b89"
+    },
+    "github-pr14.json": {
+      "bytes": 22140,
+      "sha256": "d85e55bea854239c531ecf9add2565509531ed3e13f828848f44dae4c7eea4d2"
+    },
+    "phase22-publication-receipt.json": {
+      "bytes": 1037,
+      "sha256": "bd540a8181295232d73d11a314a5f776dd7df79c1b4276ab613bdc12eba7ee0c"
+    },
+    "phase22-publication-rehash-gate.json": {
+      "bytes": 1620,
+      "sha256": "c6527809127ed7752faaa8f6d7a5a1206b5f8e6aeb77861f81c2f55c69e97185"
+    }
+  },
+  "merged_pr14": {
+    "body_statement_scope": "The PR body describes Bengali Riyadh preserved source-context assets and its own validation. This receipt verifies merge identity and preservation, not a new semantic or asset-by-asset audit of that separate cohort.",
+    "changed_files_reported_by_github": 268,
+    "head_commit": "5a00c0c6e5e306dc74fc9df011c126750513a192",
+    "merge_commit": "a6c52f35a320b10259bc7cc6200c53118d77f149",
+    "merge_parents": [
+      "d304bef0c7955377026a0c2aeebdd677b1e05b0a",
+      "5a00c0c6e5e306dc74fc9df011c126750513a192"
+    ],
+    "merged_at": "2026-11-13T20:02:24Z",
+    "number": 14,
+    "title": "Add Bengali Riyadh source context and preserved sources",
+    "tree": "462d43fa57a1ee845750fca3b7e61fb5a65ff024"
+  },
+  "new_linguistic_readings": 0,
+  "new_semantic_decisions": 0,
+  "observed_at_utc": "2026-11-13T20:16:35.277443+00:00",
+  "reader_deployment_evidence_separate": {
+    "deployed_source": "7a3462ef5513e3c116ead9a496420e8b9f484841",
+    "direct_cdn_readback": false,
+    "generated_commit": "d304bef0c7955377026a0c2aeebdd677b1e05b0a",
+    "manifest_sha256": "9fd120fd236fcc6220839a5e12d89380dfec1a1bf2cba99143da93501b3529b4",
+    "pr14_or_phase22_claimed_deployed": false,
+    "report_sha256": "718cee0018614916ecf48489194464c6ed7127064f762c0e312a405d9040604a"
+  },
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "review_baseline": "7a3462ef5513e3c116ead9a496420e8b9f484841",
+  "schema": "hadith-bank-concurrent-github-checkpoints-reconciliation-v1",
+  "source_requests": 0,
+  "status": "PASS_CHECKPOINT_IDENTITY_AND_PRESERVATION",
+  "subsequent_review_publication": {
+    "actual_parent_materials_tree": "acb1af952bed34e600c1503b8a55ea9cd8698620",
+    "bytes": 8208274,
+    "commit": "31c01136611b163683a01b47833bf74354820851",
+    "complete_old_document_retained_as_exact_suffix": true,
+    "existing_path_update": "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+    "files": 292,
+    "manifest_sha256": "543618ee8e8ab422a6e647cecda5925263d9447cf79c3cddf3e4d7aef1fa47c3",
+    "other_actual_parent_entries_preserved_by_complete_git_entry_maps": true,
+    "parent": "a6c52f35a320b10259bc7cc6200c53118d77f149",
+    "tree": "ef2a623731fad42608136ccff3118e174e47d0b1"
+  }
+}

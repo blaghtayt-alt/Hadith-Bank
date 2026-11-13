@@ -1,0 +1,134 @@
+{
+  "documented_base_commit": "31c01136611b163683a01b47833bf74354820851",
+  "expected_package_count": 14,
+  "integration_report_sha256": "a1ef0b922606c94d5bd9aa6045fa8163721d2f3d609cfeec259bdb07d6f732d0",
+  "packages": [
+    {
+      "manifest_path": "phase23-checkpoint64f4-bukhari30-review/delivery-manifest-v2.json",
+      "manifest_sha256": "4e028bc3afd3f78c0bb72860c4eaf841cd775b028700f2e30cb79bd978b60ee7",
+      "name": "primary-bukhari30"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-bukhari30-independent-audit/delivery-manifest.json",
+      "manifest_sha256": "f016e671802867ed25b2e1411a5de1001835794830c23e8d80f9dfc3005276ff",
+      "name": "independent-bukhari30"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-muslim-ibnmajah26-review/delivery-manifest-v2.json",
+      "manifest_sha256": "a8df0f90ce43ead3e8424ea88efa6d36a1cfcc86817df82b07b43576249fba90",
+      "name": "primary-muslim13_ibnmajah13"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-muslim-ibnmajah26-independent-audit/delivery-manifest.json",
+      "manifest_sha256": "65c712cf962580ba31389528b84b52f966664806486ac68bbf41ad936916e3bd",
+      "name": "independent-muslim13_ibnmajah13"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-nasai15-review/delivery-manifest-v2.json",
+      "manifest_sha256": "17a62ba0e1c9e90a09e52497c981926455cbc90f9ea831c425aa2007bbdaf9cc",
+      "name": "primary-nasai15"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-nasai15-independent-audit/delivery-manifest.json",
+      "manifest_sha256": "a56bcc579c7ab22c49b97238840228ab8690ddc44438160d0441f4c7b1a176f9",
+      "name": "independent-nasai15"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-abudawud-tirmidhi31-review/delivery-manifest-v2.json",
+      "manifest_sha256": "4f114031c3e7e44c58ef835a2195e2f81090ccf68fb2264dc3c524b14a477285",
+      "name": "primary-abudawud13_tirmidhi18"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-mixed31-independent-audit/delivery-manifest.json",
+      "manifest_sha256": "6685faef81b89774940ec3b62f3a4cd22848e05912bd6cbebe7b16aa1dbd1b9a",
+      "name": "independent-abudawud13_tirmidhi18"
+    },
+    {
+      "manifest_path": "phase23-checkpoint64f4-independent-integration/delivery-manifest.json",
+      "manifest_sha256": "ce70394292f87f23b92b3d158d6d587498927dec4fde9967444d85d10cfc4446",
+      "name": "combined102-integration"
+    },
+    {
+      "manifest_path": "phase22-independent-readback/delivery-manifest.json",
+      "manifest_sha256": "f90886e0cf94bbe0e13716c19eea46e172419e0a2e59c8ae7d1691e82aba0e56",
+      "name": "phase22-independent-readback"
+    },
+    {
+      "manifest_path": "reader-monitor-7a3462e/delivery-manifest.json",
+      "manifest_sha256": "9fd120fd236fcc6220839a5e12d89380dfec1a1bf2cba99143da93501b3529b4",
+      "name": "reader-7a-successful-deployment"
+    },
+    {
+      "manifest_path": "phase23-concurrent-checkpoints-audit/delivery-manifest.json",
+      "manifest_sha256": "22a942ec01a84075aaf5f9b1d3b6d1b4b2899d41975953fcc0f84fdfc034ba63",
+      "name": "concurrent-d304-a6-checkpoints"
+    },
+    {
+      "manifest_path": "reader-monitor-a6c52f35/delivery-manifest.json",
+      "manifest_sha256": "15cd7b1c83f26c2fc78919eeeb47ac2e3489327aa9fd871dde27a35254089f98",
+      "name": "reader-a6-superseded"
+    },
+    {
+      "manifest_path": "phase23-fawaz-count-clarification/delivery-manifest.json",
+      "manifest_sha256": "03037f27cf3d701c56e25abf4af9a35e3301e7b6b2ef92546d922520b9f443d1",
+      "name": "fawaz-historical-field-count-clarification"
+    }
+  ],
+  "prepublication_clarification": "Historical895-nonempty wording corrected to895total=204nonempty+691empty from exact published Fawaz summary and complete ledger; all13 existing review/checkpoint packages unchanged.",
+  "previously_published_acquisition_audit": {
+    "local_path": "phase22-successor-acquisition-monitor/publish/reports/web-source-resolution-20261113/acquisition-run43480836830-saved-state-audit.json",
+    "publication_commit": "31c01136611b163683a01b47833bf74354820851",
+    "repository_path": "reports/web-source-resolution-20261113/acquisition-run43480836830-saved-state-audit.json",
+    "sha256": "c326f1d468acb33ea469b4549a5a9b1a0a98e3dc825281b5c7b68491985dfaf4"
+  },
+  "primary_packages": {
+    "primary-abudawud13_tirmidhi18": 31,
+    "primary-bukhari30": 30,
+    "primary-muslim13_ibnmajah13": 26,
+    "primary-nasai15": 15
+  },
+  "prior_publication_receipts": [
+    {
+      "bytes": 196423,
+      "name": "manifest.json",
+      "sha256": "543618ee8e8ab422a6e647cecda5925263d9447cf79c3cddf3e4d7aef1fa47c3"
+    },
+    {
+      "bytes": 1037,
+      "name": "publication-receipt.json",
+      "sha256": "bd540a8181295232d73d11a314a5f776dd7df79c1b4276ab613bdc12eba7ee0c"
+    },
+    {
+      "bytes": 393890,
+      "name": "tree-verification-receipts.json",
+      "sha256": "0fa8d90f542e145ea39fcae3cd8b451a24fd5789b497d5bbccd3eedf1c2994c7"
+    },
+    {
+      "bytes": 200771,
+      "name": "verified-base-trees.json",
+      "sha256": "15ef98cd095b8645332e87105e4992a66ef542c3f34122d65d130618f636131c"
+    },
+    {
+      "bytes": 1202,
+      "name": "successor-preservation-gate.json",
+      "sha256": "9f22f8dbd93480a2524834a794e85dd85e3a03c908632f896f1bfda6c48a1714"
+    },
+    {
+      "bytes": 1620,
+      "name": "publication-rehash-gate.json",
+      "sha256": "c6527809127ed7752faaa8f6d7a5a1206b5f8e6aeb77861f81c2f55c69e97185"
+    },
+    {
+      "bytes": 89550,
+      "name": "upload-progress.json",
+      "sha256": "72d3375e0984be29e7559ee653751541bbcba59459543ed6c2422b43628df6d7"
+    }
+  ],
+  "root_approved_status_prefix_sha256": "aeef48c6a59f08b5729e64f1409475b980673f6d7fd83c98b6ab11c8f860e859",
+  "root_status_review_complete": true,
+  "root_tree_sha": "ef2a623731fad42608136ccff3118e174e47d0b1",
+  "schema": "hadith-bank-phase23-publication-inputs-v1",
+  "source_review_pin": "64f4ed50ed6026855237a5d547a86dd03e73f804",
+  "status_prefix_path": "current-status-prefix.md",
+  "superseded_unpublished_staging_manifest_sha256": "0187f2c5de1d1232479755818ae8039eb4f2e3fbc7b73178f1e00b88c688c860"
+}

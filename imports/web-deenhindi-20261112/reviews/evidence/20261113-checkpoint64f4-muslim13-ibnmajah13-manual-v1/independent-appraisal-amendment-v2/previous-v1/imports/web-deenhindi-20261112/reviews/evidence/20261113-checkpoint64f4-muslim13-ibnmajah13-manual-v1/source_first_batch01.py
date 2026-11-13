@@ -1,0 +1,19 @@
+"""Primary originals-only complete readings of rows0:8; no candidate authored."""
+READINGS={
+ 'muslim:2715':{
+  'hi':'Read all547 characters. Aisha supplies two different-day household encounters: food question/negative answer/fasting declaration, then gift of hays/request to eat/eating. The route refers to a previous chain and is context; retain coherent final Aisha framing. The second quoted morning phrase is damaged and omits the Urdu fasting-state assertion; keep the printed finite words with an explicit omission qualification, not a filled translation. Preserve the actual two-day relation and all replies, without inferring a legal conclusion.',
+  'ur':'Read all566 characters independently. Retain both different-day scenes, including the own second-day explicit morning-in-fasting statement and subsequent eating. The question\u2019s parenthetic food domain supplies what the otherwise indefinite something refers to, and belongs with the actual question. The previous-chain frame is context. The original final quotation and punctuation stay exact; no Hindi omission is repaired.'
+ },
+ 'muslim:2720':{
+  'hi':'Read all254 characters. The field supplies an actual finite Abdullah ibn Shaqiq I-asked-Aisha encounter, although its question and answer are absent. Preserve that short actual report with its limited scope; keep the multistep Qutaybah/Hammad/Ayyub prefix and same-previous-report/missing-chain-name appendix as context. Do not import the missing fasting question or its answer from another ID.',
+  'ur':'Read all250 characters. The corresponding encounter is printed with the defective noun سوا in سوا کیا; preserve that exact defect in a visibly qualified short Abdullah/Aisha encounter without silently supplying سوال or the omitted question/answer. The preceding route and following same-report/omitted-Hisham-and-Muhammad discussion are transmission apparatus, retained in context.'
+ },
+ 'muslim:2723':{
+  'hi':'Read all458 characters. The opening has a broken honorific and a bare any-month fragment with no completed fasting comparison; that orphan material is context and cannot be repaired from Urdu. The two actually supplied finite habitual sayings about capacity/endurance and the most-beloved continuing deed remain, with an honorific-only/damaged ultimate-speaker qualification rather than an inserted name. The action-doing parenthesis limits the domain of tiring and should remain. Keep the full little-but-continuing condition and every actual source word.',
+  'ur':'Read all527 characters. The source explicitly attributes Aisha\u2019s Shaaban-versus-other-months fasting observation and the two habitual sayings to the Messenger. Retain the supplied comparison without inventing a Ramadan exception in this field, then preserve the two capacity/endurance and continuing-deed sayings with the action-domain qualification. The last closing quotation is absent and remains absent. The multistep Yahya/AbuSalamah route is context; coherent final Aisha framing stays.'
+ },
+ 'muslim:2724':{
+  'hi':'Read all487 characters. Ibn Abbas reports the Ramadan exception, extended fasting and extended cessation patterns, with the anonymous onlooker\u2019s two oath statements. Preserve every negative, exception and temporal relation; the consecutive/continuous parenthesis describes the extent of the cessation and remains meaningful. These onlooker words are not direct Prophet speech. The preceding multistep route is context.',
+  'ur':'Read all462 characters independently. Retain Ramadan as the only stated whole-month exception, the two contrasting practice patterns and their anonymous quoted reactions. مسلسل is actual temporal scope of cessation, not an interchangeable word definition. Preserve the oaths and all printed negations without converting an onlooker\u2019s expectation into a guaranteed future act.'
+ }
+}

@@ -1,0 +1,71 @@
+{
+  "by_collection": {
+    "abudawud": 13,
+    "tirmidhi": 18
+  },
+  "characters": 28202,
+  "count": 31,
+  "fields": 62,
+  "independent_review_cycle": {
+    "checkpoint": "queue",
+    "deployment": "root",
+    "queue": "deployment",
+    "root": "checkpoint"
+  },
+  "keys": [
+    "abudawud:2705",
+    "abudawud:2707",
+    "abudawud:2720",
+    "abudawud:2722",
+    "abudawud:2725",
+    "abudawud:2729",
+    "abudawud:2732",
+    "abudawud:2734",
+    "abudawud:2741",
+    "abudawud:2743",
+    "abudawud:2745",
+    "abudawud:2755",
+    "abudawud:2775",
+    "tirmidhi:2711",
+    "tirmidhi:2715",
+    "tirmidhi:2717",
+    "tirmidhi:2718",
+    "tirmidhi:2720",
+    "tirmidhi:2722",
+    "tirmidhi:2725",
+    "tirmidhi:2728",
+    "tirmidhi:2732",
+    "tirmidhi:2733",
+    "tirmidhi:2734",
+    "tirmidhi:2738",
+    "tirmidhi:2739",
+    "tirmidhi:2743.4",
+    "tirmidhi:2748",
+    "tirmidhi:2753",
+    "tirmidhi:2759",
+    "tirmidhi:2769"
+  ],
+  "nonempty_fields": 62,
+  "partition": "deployment-abudawud13-tirmidhi18",
+  "reading_input": {
+    "bytes": 116959,
+    "git_blob_sha1": "1b835258f0e4bdcd3aac605a421e49f04467cd08",
+    "sha256": "41f87a48423f60e7757e3410f57739d6484a6dd287b192509568ac4a4c559c68"
+  },
+  "schema": "hadith-bank-source-reading-partition-v1",
+  "selection": "All Bukhari30 for checkpoint; all Muslim13 and IbnMajah13 for queue; all Nasai15 for root; all AbuDawud13 and Tirmidhi18 for deployment. The independently proved new102 set has no overlap among these partitions.",
+  "semantic_status": "Originals only; no complete readings or admission decisions have been claimed by preparation",
+  "source_commit": "64f4ed50ed6026855237a5d547a86dd03e73f804",
+  "source_files_directory": "/workspace/scratch/44aeee8a6071/phase22-successor-acquisition-monitor/complete-held-evidence/sources",
+  "source_rows": {
+    "bytes": 185057,
+    "git_blob_sha1": "b7cd2ce8b75d00c84939a524ebf01b98d38e3785",
+    "sha256": "0a13beaaab0870f9e9ca031bac2d29be050e456cae18fbe139d5db02f027cd7d"
+  },
+  "source_verification": {
+    "bytes": 53105,
+    "git_blob_sha1": "a7ef01420e516a40f08fb81adf77c3292edf49bc",
+    "sha256": "d5325e7f0808661b47fa696987fdefd72914d1f9a6bc5d286a0d9ec3b2fb2a59"
+  },
+  "utf8_bytes": 60537
+}
