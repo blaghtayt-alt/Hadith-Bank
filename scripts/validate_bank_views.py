@@ -548,7 +548,8 @@ def reader_shard_records(path, manifest, metrics=None):
             yield record
 
 
-def verify_reader(root, relative, projected_hashes, search):
+def verify_reader(root, relative, projected_hashes, search, catalog=None):
+    from reader_grouping import empty_reader_groups, load_reader_groups
     path = local(root, relative)
     source = path.read_text(encoding='utf-8')
     payload = re.search(r'<script\b[^>]*\bid="hadith-records"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
@@ -571,12 +572,16 @@ def verify_reader(root, relative, projected_hashes, search):
         require(isinstance(records, list) and len(records) == len(projected_hashes),
                 'Reader occurrence count mismatch')
     compared = 0
-    for record in records:
-        require(compared < len(projected_hashes), 'Reader has excess occurrences')
-        identifier, expected_hash = projected_hashes[compared]
-        require(isinstance(record, dict) and record.get('id') == identifier and object_hash(record) == expected_hash,
-                'Reader differs from source projection: ' + identifier)
-        compared += 1
+    def checked_records():
+        nonlocal compared
+        for record in records:
+            require(compared < len(projected_hashes), 'Reader has excess occurrences')
+            identifier, expected_hash = projected_hashes[compared]
+            require(isinstance(record, dict) and record.get('id') == identifier and object_hash(record) == expected_hash,
+                    'Reader differs from source projection: ' + identifier)
+            compared += 1
+            yield record
+    expected_groups = load_reader_groups(root, checked_records(), catalog)
     require(compared == len(projected_hashes), 'Reader occurrence count mismatch')
     if lazy:
         shard_count = sum(value['shard_count'] for value in reader_metrics['reader_store_metrics'].values())
@@ -587,6 +592,8 @@ def verify_reader(root, relative, projected_hashes, search):
     summary = parse_json(snapshot.group(1))
     require(summary.get('record_count') == compared and summary.get('records_sha256') == search['records_sha256'],
             'Reader snapshot differs from search catalog')
+    require(summary.get('reader_groups', empty_reader_groups(compared)) == expected_groups,
+            'Reader grouping snapshot differs from authorized exact-record evidence')
     if lazy:
         delivery = summary.get('data_delivery')
         require(isinstance(delivery, dict) and delivery.get('jsonl_sha256') == manifest['jsonl_sha256'],
@@ -595,6 +602,8 @@ def verify_reader(root, relative, projected_hashes, search):
             'Reader has external script/style dependency')
     return {'path': relative, 'sha256': file_hash(path), 'bytes': path.stat().st_size,
             'embedded_objects_compared': compared, 'data_shards_verified': shard_count,
+            'reviewed_reading_groups': len(expected_groups['groups']),
+            'grouped_reading_count': expected_groups['grouped_reading_count'],
             'external_script_or_stylesheet_dependencies': False, **reader_metrics}
 
 
@@ -737,7 +746,7 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
         language_catalog = read_json(root, 'catalog/languages/' + language + '.json')
         require(language_catalog.get('language') == language and language_catalog.get('record_count') == total and
                 language_catalog.get('datasets') == [m for m in materials if m['language'] == language], 'Language catalog mismatch: ' + language)
-    reader_result = verify_reader(root, reader, projected_hashes, catalog['search'])
+    reader_result = verify_reader(root, reader, projected_hashes, catalog['search'], catalog)
     navigation = verify_navigation(root, report_path)
     git_result = verify_git_baseline(root, baseline, evidence, registered['authorized_files']) if baseline else {'performed': False, 'reason': 'No local Git baseline requested'}
     # Source files must still match after all view comparisons.

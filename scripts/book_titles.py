@@ -31,6 +31,7 @@ ENGLISH_TITLES = {
     'islam-message': 'The Message of Islam',
     'otsuka-khutba': 'Otsuka Friday sermon summary',
     'basic-knowledge-of-islam': 'Basic Knowledge of Islam',
+    'fadael': 'Kitab al-Fadael',
     'unclassified': 'Collection not established',
 }
 
@@ -47,6 +48,7 @@ ORIGINAL_TITLES = {
     'mishkat-al-masabih': 'مشكاة المصابيح',
     'targhib-wa-tarhib': 'الترغيب والترهيب',
     'riyadh-al-salihin': 'رياض الصالحين',
+    'fadael': 'كتاب الفضائل',
     # These keys also contain source attribution groups. Do not infer a more
     # specific Arabic work from a compiler's name.
     'ibn-hibban': 'ابن حبان', 'tabarani': 'الطبراني', 'hakim': 'الحاكم',
@@ -71,6 +73,7 @@ LOCAL_TITLES = {'zh-CN': {'bukhari': '布哈里圣训实录',
         'islam-message': 'イスラームのメッセージ',
         'otsuka-khutba': '大塚マスジド 金曜日礼拝ホトバ 要約 — 2023年9月1日',
         'basic-knowledge-of-islam': 'イスラームの基本知識',
+        'fadael': '諸々の徳',
         'unclassified': '出典未特定',
         'abu-dawud': 'スナン・アブー・ダーウード',
         'tirmidhi': 'スナン・アッ＝ティルミズィー',

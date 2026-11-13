@@ -1348,15 +1348,18 @@ def write_lazy_reader_shards(records, output, directory, max_shard_bytes=MAX_REA
 
 def build(root, output, markdown_output=None, compress=True, site=None,
           data_directory=None, max_embedded_bytes=None, max_shard_bytes=MAX_READER_SHARD_BYTES):
+    from reader_grouping import load_reader_groups
     root = Path(root).resolve()
     output = Path(output).absolute()
     records, catalog, info = load_records(root)
+    reader_groups = load_reader_groups(root, records, catalog)
     template_path = Path(__file__).resolve().parents[1] / 'reader' / 'template.html'
     template = template_path.read_text(encoding='utf-8')
     ui_styles, ui_icons = reader_ui_assets(template_path.parent)
     if output.is_symlink() or any(parent.is_symlink() for parent in output.parents):
         raise ValueError('Reader output must not use symlinks')
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
+                'reader_groups': reader_groups,
                 'materials': [{key: value for key, value in material.items() if key != 'supporting_files'}
                               for material in catalog.get('materials', [])],
                 'language_names': LANGUAGE_NAMES, 'book_titles': title_metadata(),
@@ -1411,6 +1414,8 @@ def build(root, output, markdown_output=None, compress=True, site=None,
     if manifest is not None:
         _prune_reader_parts(output.parent, relative, previous_manifest, manifest)
     result = {**info, 'html_output': str(output), 'html_bytes': output.stat().st_size,
+              'grouped_reading_count': reader_groups['grouped_reading_count'],
+              'reviewed_reading_groups': len(reader_groups['groups']),
               'source_text_modified': False,
               'network_dependencies': ['same-origin reader data shards'] if manifest is not None else [],
               'embedded_encoding': encoding, 'self_contained': manifest is None}
