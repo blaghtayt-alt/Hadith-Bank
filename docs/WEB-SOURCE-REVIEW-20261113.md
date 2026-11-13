@@ -24,6 +24,25 @@ These counts are source occurrences. Separate reports or bilingual readings
 inside one provider occurrence do not become extra fetched entries. The review
 does not infer cross-edition canonical numbering from a website's display number.
 
+### Confirmed material export
+
+Review/code commit `4b0a367f023231ffe151f02d241c2527a08d4eb6` was applied by the
+serialized source workflow. Commit
+`7319a8788b64f48fc89cdb93119e3b6dcbf72a47` records all **614 additional
+registrations** against the then-current acquisition checkpoints. The saved
+progress files for all three sources bind the same review engine SHA-256,
+`507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78`.
+
+| Source at that export | Saved | Registered | Held | Excluded source context |
+| --- | ---: | ---: | ---: | ---: |
+| Deen Hindi | 11,919 | 8,231 | 3,688 | 0 |
+| Hadis.islom.uz | 8,625 | 8,614 | 11 | 0 |
+| Hadis.uz Tirmidhi | 607 | 605 | 1 | 1 |
+
+These are confirmed repository/material counts. They do not by themselves
+establish a completed Pages deployment. Later acquisition batches can change
+the totals without changing this fixed review cohort.
+
 ## Hadis.islom.uz
 
 All 290 held occurrences and their 543 existing main language fields were read:
@@ -107,10 +126,11 @@ identified as a note. Actual Companion, scholar and historical reports retain
 their true attributions. Integral Quran quotations are annotated inside their
 coherent reports, without presenting them as independent Prophetic speech.
 
-The complete checkpoint has **607 saved entries: 605 registered, one held and
+The exported checkpoint has **607 saved entries: 605 registered, one held and
 one excluded as non-narration source context** after applying the decisions.
-The observed 670-task queue remains complete. This does not certify that all
-content the website might contain has been discovered.
+The original 670-task queue was complete. The subsequent navigation audit found
+additional explicitly linked chapter/topic catalogues outside the old route
+allowlist, so that original queue is not a complete coverage boundary.
 
 The original 37-record held archive is retained as an immutable review baseline
 even after the current derived held archive shrinks. Its stored SHA-256 is
@@ -129,6 +149,83 @@ candidate, with its own exact boundaries and no inherited primary reference or
 grade. This recovery changes neither primary quotations nor occurrence counts.
 
 Evidence: `imports/web-hadisuz-20261112/reviews/`.
+
+### Recovery of omitted chapter and topic routes
+
+The finite audit verified all 61 saved pages of the original main catalogue,
+plus the two saved information pages. The first 60 catalogue pages each expose
+ten distinct detail links and the last exposes seven: all 607 link targets
+are represented in the saved source cohort. There is no explicit numerical
+grand total on those pages. Eight unused numeric URL labels therefore remain
+URL-label gaps, not proof of eight missing narrations.
+
+The saved main page also explicitly links seven chapter catalogues which the
+old route allowlist omitted:
+
+| Observed route | Exact parent-link label |
+| --- | --- |
+| `/hadiths/3` | Таҳорат боблари |
+| `/hadiths/15` | Намоз боблари |
+| `/hadiths/17` | Витр боблари |
+| `/hadiths/18` | Жумъа боблари |
+| `/hadiths/19` | Ҳайит боблари |
+| `/hadiths/20` | Сафар боблари |
+| `/hadiths/430` | Закот китоби |
+
+The first ordinary chapter request returned HTTP 200 and the exact expected
+heading, `Таҳорат боблари`. Its sidebar supplied 111 further topic links. The
+previous title check expected the book title on every catalogue, so it rejected
+this valid chapter response. The response bytes and parser-failure history were
+retained, and that saved response was subsequently processed offline after the
+scoped parser correction. No additional request was needed for that correction.
+
+The revised importer admits a descendant catalogue only through its actual link
+in the sources panel of an already validated parent. A checkpoint binding keeps
+the exact href, link text, parent URL and parent snapshot hashes. Each target
+heading must match its own parent-link label; the book root still identifies
+Tirmidhi. Resume and fetch operations revalidate that ancestry against the saved
+HTML. Pagination uses actual observed links. Unknown routes, changed headings,
+invented links and conflicting bindings stop processing; numeric ranges are not
+used to discover pages.
+
+The bounded recovery follows only catalogue pages. Its page counts measure
+navigation coverage, not newly downloaded hadith entries. Newly observed detail
+URLs, if any, stay as pending tasks for the ordinary importer. The merged
+production checkpoint retains the latest 605 material-part assignments and
+original source entries. The batch controller reads pending work from that
+durable checkpoint, so an older exported `done` flag cannot hide the new queue.
+
+The run stopped at its bounded time budget after **96 ordinary catalogue
+requests in total**, including the first chapter probe: seven chapter roots,
+65 pagination pages/aliases and 24 topic roots. All returned HTTP 200. The
+post-correction run issued 95 requests and took 602.963 seconds including its
+final in-flight response. It made no detail-page requests and no material exports.
+The original parser-failure event remains recorded; there are no active failed
+tasks or source access stops in this recovered Hadis.uz queue.
+
+The final saved-page audit covers **157 catalogue pages**: 61 original and 96
+new. Their 1,323 detail-link appearances resolve to the same **607 unique saved
+detail URLs**, with no newly discovered detail URLs. It adds 523 observed
+catalogue tasks and proves ancestry for 459 catalogue routes. The merged
+checkpoint contains **1,193 tasks: 766 done and 427 catalogue tasks pending**.
+Every observed in-scope catalogue URL is queued, and every queued catalogue
+has saved-link evidence. Pending pages may expose further links, so the full
+observed catalogue queue and whole-book coverage remain incomplete.
+
+The exact acquisition checkpoint is frozen separately. The production merge
+starts from commit `7319a8788b64f48fc89cdb93119e3b6dcbf72a47` and retains all
+605 current part assignments, 607 source entries, 670 existing tasks and 671
+existing snapshot descriptors. It adds only the new bindings, 523 tasks,
+96 snapshot descriptors and the preserved historical parser event. Its SHA-256
+is `06843aa904281b9c9c65f132e521949bc774733fb1757a8e8a36543ca9dc8bd9`.
+Independent validation rechecked 98 saved source witnesses, all 459 binding
+ancestries and the actual discovery links for all 523 added tasks, with zero
+HTTP requests. Source and registered-material bytes are not regenerated by
+this navigation merge.
+
+Evidence: `imports/web-hadisuz-20261112/coverage/`. The frozen acquisition
+checkpoint is evidence of the recovery run; it is distinct from the merged
+production checkpoint and its newer material-export state.
 
 ## Deen Hindi: complete first-300 language review
 
@@ -185,13 +282,13 @@ label is not treated as authentication of that component. Compiler explanations
 and transmission comparisons are separated using exact spans; substantive
 abbreviated transmissions retain their own qualified attribution.
 
-Acquisition continues independently. At the observed 07:15:57 UTC checkpoint
-saved in commit `5fb2171233e514bd9ca5bdd4d5b7cd541cfd0c48`,
-11,461 entries were saved, 7,611 were registered by the existing intake, 3,850
-were held, and 24,929 inventory entries had not been fetched successfully. The
-latter included 1,000 historical errors. Applying this fixed review adds 300
-registrations to the applicable acquisition checkpoint; later downloads may
-change the overall totals.
+Acquisition continues independently. At the confirmed material export in commit
+`7319a8788b64f48fc89cdb93119e3b6dcbf72a47`, 11,919 entries were saved,
+8,231 were registered and 3,688 were held. Of the 36,390 observed inventory
+entries, 23,471 ordinary fetches and 1,000 historical errors remained, a total
+of 24,471 entries not yet fetched successfully. Saved entries had increased by
+1,411 from the owner's 10,508-entry continuation table. These held totals include
+newly acquired entries as well as the 300 resolved by this fixed review.
 
 Historical verification-page errors are not requeued by this review. The active
 Hindi worker remains serialized, bounded and checkpointed, and its existing
@@ -219,7 +316,7 @@ save. An unchanged decision set and unchanged review adapter do not create an
 idle repeat loop. Existing source blocks, exhausted failures and owner exclusions
 remain enforced.
 
-The final local validation passed 188 software tests, including reader,
+The initial review-package validation passed 188 local software tests, including reader,
 importer, source-preservation, evidence-tampering, partial-update rejection and
 continuation checks. Separate real-source audits exercised all 290 Islom and all
 37 Hadis.uz decisions. The complete Hindi cohort was exported through the actual
@@ -229,3 +326,10 @@ selected language readings, exact reconstruction of all 1,500 source fields,
 software/evidence checks, not independent Pro or authenticity
 certification. A saved decision commit is distinct from the later successful
 material-export and Pages-deployment checkpoints.
+
+The subsequent navigation follow-up passed **218 local software tests**. The
+saved receipt binds the tested importer, batch controller, review adapter,
+test files and exact source fixtures; the compressed test log is retained.
+Real-checkpoint validation separately confirms the additive source-queue merge
+and preservation of the latest production registration state. Website deployment
+remains a distinct workflow outcome and is not inferred from these checks.

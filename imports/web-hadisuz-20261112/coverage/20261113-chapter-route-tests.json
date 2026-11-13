@@ -1,0 +1,54 @@
+{
+  "baseline_importer_git_blob_sha1": "1e8376a8a71c83a1f3a1397f032b65ee06debb12",
+  "baseline_importer_sha256": "0e5af1db01a81dcb0afa7a62efe7c1579fd25f323964859d1a16abb13c53d64c",
+  "behavior": [
+    "Explicit catalog path set: /hadiths/1,/3,/15,/17,/18,/19,/20,/430",
+    "Only observed bare-root hrefs enter chapters; no inferred numeric range or unlinked route enqueue",
+    "Existing info/details/next behavior retained; chapters queued afterwards with source discovery URL",
+    "Existing Tirmidhi h1 and HTTPS/origin/query/robots/redirect guards retained",
+    "Completed seed task needs one offline reprocessing of its verified cached HTML to discover the added chapter tasks"
+  ],
+  "changed_files": [
+    {
+      "bytes": 34453,
+      "path": "scripts/import_hadisuz.py",
+      "sha256": "1b241ba6dcd5f0982ac86e9f46660ed50ba5679104edb459202d36a04436942e"
+    },
+    {
+      "bytes": 9462,
+      "path": "tests/test_hadisuz_catalog_chapters.py",
+      "sha256": "3e818a08c40cb103be7491bd0b3a5074ffad23e2998c72fe8c62214eb5cba4db"
+    },
+    {
+      "bytes": 1444,
+      "path": "tests/fixtures/hadisuz-tirmidhi-sidebar.html",
+      "sha256": "624910ba52f99978cde778faef6384799d65897aae4fa5b71738f64e39aae3a2"
+    },
+    {
+      "bytes": 604,
+      "path": "tests/fixtures/hadisuz-tirmidhi-sidebar.json",
+      "sha256": "eaa0d0872764536bb8c8c6fdb3f6c8479c741db5daf4aa6c780b8f07687a501d"
+    }
+  ],
+  "errors": 0,
+  "existing_importer_and_source_review_tests": 22,
+  "failures": 0,
+  "limits": [
+    "New chapter response titles remain unobserved; the existing title check may correctly require further evidence-bound review",
+    "No public requests, checkpoint acquisition, source registration or site rebuild performed in this isolated patch task"
+  ],
+  "network_requests": 0,
+  "new_chapter_tests": 12,
+  "patch_sha256": "7c5eaed1f59411f30405a7e29434e698bbc9d9243877eb976bfacbbae5977691",
+  "root_or_remote_mutations": 0,
+  "status": "PASS",
+  "task": "Observed Hadisuz Tirmidhi chapter discovery",
+  "test_command": "python -m unittest discover -s tests -p 'test_hadisuz*.py' -v",
+  "tests_run": 34,
+  "unchanged_dependencies": {
+    "import_deenhindi.py": "4a6e9a39a3ae9bc9a79e5086b266ab5b7ec39fbcda962fb4b3521ea4e2f0db78",
+    "import_uzbek_web.py": "87ae18b66b3d96308e7379cb900f868da81cd998373f84c1a2cf0bc92da491f1",
+    "web_source_reviews.py": "507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78"
+  },
+  "unified_patch_check": "PASS; applying to exact baseline reproduces all four changed files byte-for-byte"
+}

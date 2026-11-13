@@ -47,11 +47,28 @@ def write_changed(path, value):
 def source_status(root, name):
     progress = read_json(root / PROGRESS[name], {})
     if name == 'hadisuz':
-        blocked = bool(progress.get('blocked') or progress.get('access_block'))
-        stopped = bool(progress.get('startup_stopped'))
+        checkpoint = read_json(root / 'imports/web-hadisuz-20261112/checkpoint.json', {})
+        access_block = checkpoint.get('access_block') or progress.get('access_block')
+        blocked = bool(progress.get('blocked') or access_block)
+        stopped = bool(progress.get('startup_stopped') or
+                       (checkpoint.get('robots_error') and checkpoint.get('robot_attempts', 0) >= 3))
         pending = int(progress.get('pending_requests', 0))
         retryable = int(progress.get('retryable_errors', 0))
         errors = int(progress.get('errors', 0))
+        queue_done = bool(progress.get('done'))
+        if 'tasks' in checkpoint:
+            tasks = checkpoint['tasks']
+            if not isinstance(tasks, list):
+                raise ValueError('Hadis.uz checkpoint tasks must be an array')
+            # A source-preserving recovery can add observed routes before the
+            # next material export. Read the durable queue rather than letting
+            # an older completed progress summary hide those pending pages.
+            pending = sum(task.get('status') == 'pending' for task in tasks)
+            retryable = sum(task.get('status') == 'failed' and task.get('attempts', 0) < 3
+                            for task in tasks)
+            errors = sum(task.get('status') == 'failed' for task in tasks) + bool(checkpoint.get('robots_error'))
+            blocked = blocked or any(task.get('status') == 'blocked' for task in tasks)
+            queue_done = bool(tasks) and all(task.get('status') == 'done' for task in tasks)
         return {
             'source': name, 'source_progress': PROGRESS[name],
             'last_source_update': progress.get('updated_at'),
@@ -61,11 +78,11 @@ def source_status(root, name):
             'non_narration_source_entries': progress.get('non_narration_source_entries', 0),
             'pending_requests': pending,
             'pending_unit': 'observed catalogue and detail pages; pagination may discover more',
-            'fetch_queue_done': bool(progress.get('done')) and not (blocked or stopped or errors),
+            'fetch_queue_done': queue_done and not (blocked or stopped or errors),
             'blocked': blocked, 'startup_stopped': stopped,
-            'access_block': progress.get('access_block'), 'errors': errors,
+            'access_block': access_block, 'errors': errors,
             'has_fetch_work': not blocked and not stopped and
-                (not progress or (not progress.get('done') and bool(pending or retryable))),
+                (not progress or (not queue_done and bool(pending or retryable))),
         }
     if name == 'deenhindi':
         books = progress.get('by_collection', {})

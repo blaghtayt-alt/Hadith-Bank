@@ -1,0 +1,66 @@
+{
+  "command": "python -m unittest discover -s tests -v",
+  "duration_seconds": 4.69,
+  "exit_code": 0,
+  "log_compression": "gzip",
+  "log_path": "imports/web-hadisuz-20261112/coverage/20261113-navigation-followup-unittest.log.gz",
+  "log_sha256": "de933c1f9e90209bf6470a203dcf80873caccad0af59390795156164d55720bb",
+  "log_stored_sha256": "0126edbd7b491c796734e327cab584cddee9417fb224bd5f27dca66238fd563c",
+  "network_requests": 0,
+  "schema": "hadith-bank-web-navigation-followup-tests-v1",
+  "scope": "All test modules present in this pinned local validation workspace; separate CI build and deployment status are not implied.",
+  "status": "PASS",
+  "tests_run": 218,
+  "validated_files": [
+    {
+      "bytes": 44775,
+      "path": "scripts/import_hadisuz.py",
+      "sha256": "4bfe3d57ebca2c6ca60957b903fc4df34ab2baef6f391a7fbe3f56fc0cb3a38a"
+    },
+    {
+      "bytes": 20971,
+      "path": "scripts/web_import_batch.py",
+      "sha256": "4779559d3d967b1a10cb202e9e7e70b506eddfb0b4c4e616b87a343d84b216ef"
+    },
+    {
+      "bytes": 29162,
+      "path": "scripts/web_source_reviews.py",
+      "sha256": "507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78"
+    },
+    {
+      "bytes": 26532,
+      "path": "tests/test_web_import_batch.py",
+      "sha256": "5e11b1c4bd491e2577c1fed94db5f5a2f136d0befe411bb03f8147e1ae6d6de6"
+    },
+    {
+      "bytes": 10515,
+      "path": "tests/test_hadisuz_catalog_chapters.py",
+      "sha256": "cc9936e4f4b3121471866f1cfc70c7848181e7bb77bf36f11ff2ba74ec65470a"
+    },
+    {
+      "bytes": 4156,
+      "path": "tests/test_hadisuz_catalog_pagination.py",
+      "sha256": "0e51804386d7197ea8a66afe5495d4b92f06af7e8c212a2c6ce138d98d32a1f2"
+    },
+    {
+      "bytes": 14141,
+      "path": "tests/test_hadisuz_catalog_bindings.py",
+      "sha256": "8fccb25869f156eb9003806ee5960bfb93e6c99f5083dfff518fe31dc7070af8"
+    },
+    {
+      "bytes": 1444,
+      "path": "tests/fixtures/hadisuz-tirmidhi-sidebar.html",
+      "sha256": "624910ba52f99978cde778faef6384799d65897aae4fa5b71738f64e39aae3a2"
+    },
+    {
+      "bytes": 604,
+      "path": "tests/fixtures/hadisuz-tirmidhi-sidebar.json",
+      "sha256": "eaa0d0872764536bb8c8c6fdb3f6c8479c741db5daf4aa6c780b8f07687a501d"
+    },
+    {
+      "bytes": 65905,
+      "path": "tests/fixtures/hadisuz-saved-catalog-pages.json",
+      "sha256": "57e7e00bd888e43b2a2c29af24779d2fd187938e8e30e9d027aab070731fc836"
+    }
+  ]
+}

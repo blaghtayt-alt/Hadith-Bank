@@ -102,6 +102,42 @@ class WebImportBatchTests(unittest.TestCase):
         self.assertIn('--max-pages', command)
         self.assertNotIn('scripts/import_uzbek_web.py', command)
 
+    def test_hadisuz_new_observed_tasks_override_stale_completed_progress(self):
+        self.progress('hadisuz', 'done', count=607)
+        path = self.root / 'imports/web-hadisuz-20261112/checkpoint.json'
+        batch.write_changed(path, {'tasks': [
+            {'status': 'done', 'attempts': 1},
+            {'status': 'pending', 'attempts': 0}]})
+        source = batch.source_status(self.root, 'hadisuz')
+        self.assertEqual(source['fetched_entries'], 607)
+        self.assertEqual(source['pending_requests'], 1)
+        self.assertTrue(source['has_fetch_work'])
+        self.assertFalse(source['fetch_queue_done'])
+
+    def test_hadisuz_checkpoint_stop_and_exhaustion_override_stale_progress(self):
+        self.progress('hadisuz', 'pending')
+        path = self.root / 'imports/web-hadisuz-20261112/checkpoint.json'
+        checkpoint = {'tasks': [{'status': 'failed', 'attempts': 3}]}
+        batch.write_changed(path, checkpoint)
+        self.assertFalse(batch.source_status(self.root, 'hadisuz')['has_fetch_work'])
+        checkpoint['tasks'].append({'status': 'pending', 'attempts': 0})
+        checkpoint['access_block'] = {'status': 403, 'automatic_retry_allowed': False}
+        batch.write_changed(path, checkpoint)
+        source = batch.source_status(self.root, 'hadisuz')
+        self.assertTrue(source['blocked'])
+        self.assertFalse(source['has_fetch_work'])
+        self.assertFalse(source['fetch_queue_done'])
+
+    def test_hadisuz_checkpoint_startup_stop_survives_pending_routes(self):
+        self.progress('hadisuz', 'done')
+        batch.write_changed(self.root / 'imports/web-hadisuz-20261112/checkpoint.json',
+            {'tasks': [{'status': 'pending', 'attempts': 0}],
+             'robots_error': 'TEST unavailable robots', 'robot_attempts': 3})
+        source = batch.source_status(self.root, 'hadisuz')
+        self.assertTrue(source['startup_stopped'])
+        self.assertFalse(source['has_fetch_work'])
+        self.assertFalse(source['fetch_queue_done'])
+
     def test_blocked_host_does_not_stop_another_pending_host(self):
         self.progress('deenhindi', 'blocked')
         self.progress('islom', 'done')

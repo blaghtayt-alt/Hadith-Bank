@@ -1,0 +1,625 @@
+{
+  "added_catalog_tasks": 523,
+  "all_inputs_unchanged": true,
+  "catalog_bindings_validated": 459,
+  "created_at_utc": "2026-11-13T08:28:14+00:00",
+  "findings": [],
+  "initial_parser_event_and_attempts_preserved": true,
+  "input_sha256": {
+    "baseline": "fab699e03c437139307a96ecd2bb6e8b7c3ef77c11ae21b91ed397503fdbc29a",
+    "candidate": "06843aa904281b9c9c65f132e521949bc774733fb1757a8e8a36543ca9dc8bd9",
+    "production": "e98fc7de52bf0025b1b46d600fa32b203cc3c4601709ce660b908abd52cead9e",
+    "proof": "1bc82cf12da723780e4821908b0268984360b4091247ab878beff7670898e54b",
+    "recovery": "1ba0df4b36a0192df7e2c78288492be7c3b7c79c1afd598932b463666c29c3bf"
+  },
+  "merged_candidate_sha256": "06843aa904281b9c9c65f132e521949bc774733fb1757a8e8a36543ca9dc8bd9",
+  "network_requests": 0,
+  "new_snapshots": 96,
+  "original_source_entries_unchanged": 607,
+  "original_task_objects_unchanged": 670,
+  "production_event_prefix_unchanged": true,
+  "production_part_assignments": 605,
+  "production_part_assignments_sha256": "e3d4f531b1dd1853f3bad2a40e37c7c06b94545f2ca0a8e8cd70543cba17144a",
+  "production_task_prefix_unchanged": true,
+  "publication_precondition": "Refresh destination ref and require the exact production checkpoint hash still matches; otherwise remerge from fresh production.",
+  "root_or_remote_mutations": 0,
+  "saved_witnesses_rehashed_and_reparsed": 98,
+  "schema": "hadisuz-independent-merged-candidate-validation-v1",
+  "status": "PASS",
+  "task_status_counts": {
+    "done": 766,
+    "pending": 427
+  },
+  "total_snapshots": 767,
+  "total_tasks": 1193,
+  "witnesses": [
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/de378fe50f65db5d-6965fcd966a37653.html.gz",
+      "raw_sha256": "6965fcd966a376538d5b0d38599837cba903470c9cd0b5be6366c97b5d00b1d6",
+      "stored_sha256": "13bfa2b633ad9df2b14e66a0ad7e128fdbff1b82186d96c39b14a4f173cb7edc",
+      "url": "https://hadis.uz/hadiths/1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/56723c267fed3c0a-85f8f534925eae21.html.gz",
+      "raw_sha256": "85f8f534925eae21a697f922f0c5b5a94902f62e76b0f066bd9f2d2474ffd85f",
+      "stored_sha256": "c22a1837ba809bb92f1ead74f7599066ffba9179094874cf1dfceac4b22fa619",
+      "url": "https://hadis.uz/hadiths/10"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/295e80d2767123ef-c7805124249731b0.html.gz",
+      "raw_sha256": "c7805124249731b02df4b6af3f55074c02e8660288813a339594b35645a64dab",
+      "stored_sha256": "ac3bba73a4bc6d24da09ae9872f8dab0bac1e21558f6f5d89d418bfa5ea6c881",
+      "url": "https://hadis.uz/hadiths/11"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/5e434b5477931b47-2f5d296dc4f44006.html.gz",
+      "raw_sha256": "2f5d296dc4f4400662d5eeb59101b9b14d8fe378d7768e0ea78329cdd3f9e96f",
+      "stored_sha256": "c971f3fccb99f1be88216b819c063aba03ddd88e81c6861765c041b5cdbf1fbd",
+      "url": "https://hadis.uz/hadiths/12"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/920bd09c8ae7846c-890c19dd7bbef30b.html.gz",
+      "raw_sha256": "890c19dd7bbef30bbabea2e8271c62d75d94e3b7b8888e163fc2fd2405b97721",
+      "stored_sha256": "0649c217134bbdc75d30f27ddb81b27993ba0c1178382d310771c1bfc42be3ac",
+      "url": "https://hadis.uz/hadiths/13"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b4487b15f5fb15c2-ec13a265663acb6e.html.gz",
+      "raw_sha256": "ec13a265663acb6e15992beac00003e4c7f4edb6db492959ac87e64442e31151",
+      "stored_sha256": "4a7ee3f90778b22514ff6aee5ff045995860591ef6cbea91cfc6a9037f532216",
+      "url": "https://hadis.uz/hadiths/14"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b51bc9959ba52670-2faca6ba2971bb35.html.gz",
+      "raw_sha256": "2faca6ba2971bb3558cba483ac88496425b4bb375912dbc9a198428b68e261b6",
+      "stored_sha256": "d33b130218966e95bd90cf4a9226a2a0a4a3d6eff7b2eaa151ba640484c782d6",
+      "url": "https://hadis.uz/hadiths/15"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/15d4288ce34a7cab-9007bd58acf7bcf2.html.gz",
+      "raw_sha256": "9007bd58acf7bcf2b02fb98f595eedac0a394768f40bcd87b63db48e7dbca7ca",
+      "stored_sha256": "9aca93ede486ce5d1b4126ea86115bec58d10abbbc85d4f5851804baa06f3e88",
+      "url": "https://hadis.uz/hadiths/15?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/e2674aee05ec6512-8d9b65a0fede64db.html.gz",
+      "raw_sha256": "8d9b65a0fede64db0bdd28a63556e01364cb01e37dec9bdff631cb1dfc93df64",
+      "stored_sha256": "7285f3d5b68c1ae61731f17b8af18a7b7f48dc402254d098cd329410fb361cf0",
+      "url": "https://hadis.uz/hadiths/15?page=10"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ffa45f2016cc2db5-313487729719dd83.html.gz",
+      "raw_sha256": "313487729719dd833a61283292cbdec41a9df13e1be0e1e94b39c8b9c7b41cb1",
+      "stored_sha256": "c59492558cbf1cc21529f7b7045b6dcf1490cc50bd771ab4cddb560394e58dae",
+      "url": "https://hadis.uz/hadiths/15?page=11"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/377268c7e87a6c93-81c9e496ea530160.html.gz",
+      "raw_sha256": "81c9e496ea5301609f220d2897178b6a78637ebfb3a102fc452d727dac7f0d0b",
+      "stored_sha256": "c7eb26d33a78c8bd0f3e12850785e458ea40f8be9ba522e6ae3fbe52919539f4",
+      "url": "https://hadis.uz/hadiths/15?page=12"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/513bfba83e1c4f8d-2e96a3070542ec7b.html.gz",
+      "raw_sha256": "2e96a3070542ec7b1272ef9463d0912dbfbc1c9627296f9cf568cd9b8c38d04a",
+      "stored_sha256": "5df788e2c38290af0ae2e5d074dc2f9d94946bcf1d10b57d26f7b77881d9dd04",
+      "url": "https://hadis.uz/hadiths/15?page=13"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/eeb30f3eae4cc803-42b971a6e74028d4.html.gz",
+      "raw_sha256": "42b971a6e74028d41dba073626bf0608d782d0905fb32cecf15f95893b94ae7b",
+      "stored_sha256": "703217531fa4f5d3bf1b96862a8aefe5f07bdf6ad7f6343277e1391c0e3ef7d5",
+      "url": "https://hadis.uz/hadiths/15?page=14"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/3e1d3c7a3477dc84-be85d5959df4d7ae.html.gz",
+      "raw_sha256": "be85d5959df4d7aef68da3bc1e52aa243fe3b62654324bbd12796410ab4221a1",
+      "stored_sha256": "510580433461e31ec27da2b5c3bca06e35c9cd8fb741be38b5542a6151785d0e",
+      "url": "https://hadis.uz/hadiths/15?page=15"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b65e5fd2d6ce6368-81d1592e0f901c80.html.gz",
+      "raw_sha256": "81d1592e0f901c80e46fdfe69616a270eccb34c7fb8ecb772f1a817f002b64e3",
+      "stored_sha256": "9fa199d95431cf2158239a15943453235fb2fe333256e24c68877ea3aa3abe05",
+      "url": "https://hadis.uz/hadiths/15?page=16"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/68ea2016f9c5c3d3-bda93e5a1853e8b4.html.gz",
+      "raw_sha256": "bda93e5a1853e8b4af176abfd259dfbeed74bfa67bf097582f5bf7604cc10f21",
+      "stored_sha256": "baf4d0fb2b44abd8806cd721257101f1fa814f66d7b6056497893b1debc656ae",
+      "url": "https://hadis.uz/hadiths/15?page=17"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ac49b6a3de5d6bd3-54f030f7c545008a.html.gz",
+      "raw_sha256": "54f030f7c545008a64954350a875bb5f2aced5d12553582da2e3422982fea91c",
+      "stored_sha256": "f3fc79abc1b610a4c087b36d5e8625634bdc30a5b85f7a2062103aa165609dbb",
+      "url": "https://hadis.uz/hadiths/15?page=18"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/effa0cabe8eb22b7-7556aa821ead69ef.html.gz",
+      "raw_sha256": "7556aa821ead69ef4316100afc079541f0ac3f9cfe11b78fe60eaebdec3ab3dc",
+      "stored_sha256": "095835759c4519752964f7cb1f44de7f7eb1d7ad7f3a461f74a9ab6b98bbaba0",
+      "url": "https://hadis.uz/hadiths/15?page=19"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1e6551542e4f339e-2ee7598a4e2bd29e.html.gz",
+      "raw_sha256": "2ee7598a4e2bd29e00abd5da69036ee9007a94054c51b12db805bf0df74a9a82",
+      "stored_sha256": "4f70de4d8360ddc76d273b5cc58df1a39402afd164122e14de49685b6bf3f3e5",
+      "url": "https://hadis.uz/hadiths/15?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/d1097b399c8fb7f6-b1f07639d74c51f5.html.gz",
+      "raw_sha256": "b1f07639d74c51f54f5b385933e2c0782ba0528408052bece28e778c41901088",
+      "stored_sha256": "8bcde138b05a069527906fbd23ed791425d33400d99d7f9b273858709bd101c6",
+      "url": "https://hadis.uz/hadiths/15?page=20"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/0bfb03959a803d84-126de6b18472e897.html.gz",
+      "raw_sha256": "126de6b18472e897d6d495f3d261352ba87693cc9fbea96dbdf7713c1609223f",
+      "stored_sha256": "66b8fae4df82dad7038bbbebf7cc0f38cf499abc82c096230bab2c633b0a733c",
+      "url": "https://hadis.uz/hadiths/15?page=21"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/c8fe3c619c3cf5f6-20564960e832d814.html.gz",
+      "raw_sha256": "20564960e832d81449d5697964bcc7a2ff597363cc0740d0202bbc5eaadb84af",
+      "stored_sha256": "1a335d382847224dd4d3b755fe315ce6d6a555b54e1b4f02d66f6d0de2aa3962",
+      "url": "https://hadis.uz/hadiths/15?page=22"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ac068e611add73f4-a8b69688584f0eae.html.gz",
+      "raw_sha256": "a8b69688584f0eaef0bd3fc66399ec21e509d45f996eebb668b2e4db90548aa1",
+      "stored_sha256": "b32e72d1f8d10d17cb2b82f865e89818a676d1dd9b56f393af5328e3250fd943",
+      "url": "https://hadis.uz/hadiths/15?page=23"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/c735034a74876179-5a4ccd00c4abad5a.html.gz",
+      "raw_sha256": "5a4ccd00c4abad5a8ffd6a373b416f9f25209b5636cec09b1351a1b3f68a5b6b",
+      "stored_sha256": "6a325718c879bd7e0b42aae6c7ca481b53daa45c0be675498011564f54f8d2d5",
+      "url": "https://hadis.uz/hadiths/15?page=24"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/10f98d74453e3fc6-4dd40b95a879780f.html.gz",
+      "raw_sha256": "4dd40b95a879780f18c20c7653fd7f9a02556ea66f42a6d303f0200d8c97da70",
+      "stored_sha256": "08554e80fc850d08b6a8f3e7f44bbf5024bc2770ee1d010a7b52f6133feb0f29",
+      "url": "https://hadis.uz/hadiths/15?page=25"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/691563587515ce2d-3a73f19f7c452729.html.gz",
+      "raw_sha256": "3a73f19f7c45272937f0f0d28c07ae7f271c934da76dc7664ffbf22ee58a07cc",
+      "stored_sha256": "79b8fbce821765125b65bf30f9897161eef37360561a088051deb8d58f72cfa5",
+      "url": "https://hadis.uz/hadiths/15?page=26"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ff15af379547c281-2b04ce96f037d43c.html.gz",
+      "raw_sha256": "2b04ce96f037d43c8f02a34e1bf34a5cfb2f31a71966ab4be5a48543a003df74",
+      "stored_sha256": "90705d83ab947a9c803242aa235d6b31b5bcea293065b08f3258cc7c94d174d3",
+      "url": "https://hadis.uz/hadiths/15?page=27"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/674fae516ad820bd-95baadf995804728.html.gz",
+      "raw_sha256": "95baadf995804728061fe4796018a27e0039209fae000acbf942c5704ce60b4f",
+      "stored_sha256": "56f02403194428e36209d869981c911b6da926116e5251c4265aca3c28cb9463",
+      "url": "https://hadis.uz/hadiths/15?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/c1b42ec7696817ae-0430d1015a477ad4.html.gz",
+      "raw_sha256": "0430d1015a477ad4c1594041bf1f4cc837b351fe0fe9838b91fd8f725b92817d",
+      "stored_sha256": "db862cf736941d8ec2d4da529f903f6e5269cc53c6ce987a06522518cc6712b0",
+      "url": "https://hadis.uz/hadiths/15?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b6a354bdc3378866-29f33f93da6eaefc.html.gz",
+      "raw_sha256": "29f33f93da6eaefce445a545cc054f70f615dce9fa258fcff50040ca855be291",
+      "stored_sha256": "b70811f3bb18bec1b4c2676bca6ad44956f39cc619e9e87abe59d2343feb21d5",
+      "url": "https://hadis.uz/hadiths/15?page=5"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/4b7b9a09322f14d0-9da7cc12a8ee50bd.html.gz",
+      "raw_sha256": "9da7cc12a8ee50bd195a73ae43d0413727110a2b667887fc3a8dd10a48c1b796",
+      "stored_sha256": "e6ba8d3421e8b78868dd63895b12d82f54579e4caef6c52c451d00b53da88e95",
+      "url": "https://hadis.uz/hadiths/15?page=6"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/8d31c271c6a4d5b2-520f69d9d001f2de.html.gz",
+      "raw_sha256": "520f69d9d001f2dedf4b45030b91a240fa7eb4d0600e21649077ae3b9ed4fc43",
+      "stored_sha256": "9accdc82b104fdd2ccc578fd0236d9ba520f3b80a836eb6ba4c07cf24babbc30",
+      "url": "https://hadis.uz/hadiths/15?page=7"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/99443bc1f52c66b1-6726611e6ef138ee.html.gz",
+      "raw_sha256": "6726611e6ef138eebf72c54c38fd5921ffe086049724127bb0eeff87478520de",
+      "stored_sha256": "929bba6320ce28f862fd5e188fe7dab03b4a368ee98393aac4bfd777ea1e3507",
+      "url": "https://hadis.uz/hadiths/15?page=8"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/3c64e6b4bfeb6a3f-41f83f4ad17b1062.html.gz",
+      "raw_sha256": "41f83f4ad17b1062513032caaccbc5b89b8386329794e3759140d22dc714a674",
+      "stored_sha256": "08bc9273ec9ea7f51ddb7248b418086ba8cfa90d47df1d5f967c5188a1e95ec7",
+      "url": "https://hadis.uz/hadiths/15?page=9"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1cea4c23d4944828-4eb21b6fab202e65.html.gz",
+      "raw_sha256": "4eb21b6fab202e65b0685540b6b1ade8dd89cd5f9a32c55b33e062c24638e1f8",
+      "stored_sha256": "be8bb06e839f199fd9a23d89b947c5210978d2ed68a33f3bb1d906391326f67a",
+      "url": "https://hadis.uz/hadiths/17"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/c03a647b1cbece2d-0f9859d30a2bfde2.html.gz",
+      "raw_sha256": "0f9859d30a2bfde2d0aabd9c9de88dc8bd56721bf276903048248e69ed3d8edc",
+      "stored_sha256": "8c7010f3d0705241d7415d03992b861ef1bb2ab3c6b39ded1c99664c9a825a40",
+      "url": "https://hadis.uz/hadiths/17?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/5f37135dd13fb55e-db74f3ef1e15d893.html.gz",
+      "raw_sha256": "db74f3ef1e15d893702eef16dcfb2428ccdcce858e6d73a6c744d27cf60b3268",
+      "stored_sha256": "51d7e9b2b4bb31c28bf92e3108affc1b1a9210350386c41ed7d709c285aaf60e",
+      "url": "https://hadis.uz/hadiths/17?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/5383382b31a602b8-6f4ed70f00b75460.html.gz",
+      "raw_sha256": "6f4ed70f00b754603ea2fbaad17144163a442f39d8f1fbcdab7053db42c1b3bc",
+      "stored_sha256": "97d27185eeeea63b24133ff3aa32a2b3cad9631063bd5be78ba9529c898e463b",
+      "url": "https://hadis.uz/hadiths/17?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/955dc0f37678016c-3573a9a29a7a11f7.html.gz",
+      "raw_sha256": "3573a9a29a7a11f757b77eebcd92b9c3b01c60347162954690cc25e2fd580735",
+      "stored_sha256": "0ad60ede6caa846bd7e9a8f21c27748fd8cbc6a4099dd16582093c3ea484c008",
+      "url": "https://hadis.uz/hadiths/17?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/f44d7102c81eec01-fccb4e21986cfd8c.html.gz",
+      "raw_sha256": "fccb4e21986cfd8c1f75a79e14936f9fd2e949f98cce460853f15b644c17a0e5",
+      "stored_sha256": "993c290aa689f3f1402a468beb0dd94ecdeb58a63cc1c752f6848f2a7ccf87db",
+      "url": "https://hadis.uz/hadiths/18"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/f150be73f5f0cad2-6d528df880898365.html.gz",
+      "raw_sha256": "6d528df8808983659caf08f509929963049135df6e520f4ff793221f3b18da55",
+      "stored_sha256": "e7653272e938be554744e16019d48ee3d1d9dcc16db37a901d6b69f319ae2e98",
+      "url": "https://hadis.uz/hadiths/18?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/4661e185a20cca13-e20185537d5022d6.html.gz",
+      "raw_sha256": "e20185537d5022d60741285247fb638be266871e17ddba9c7b3414110280e672",
+      "stored_sha256": "6118110cf939f1054f8213c1b56226598d587ac91ca064fa753a667c03bec221",
+      "url": "https://hadis.uz/hadiths/18?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/9a60cd8cd97a0ffb-4a224f25aa738215.html.gz",
+      "raw_sha256": "4a224f25aa738215caa977eb1a1282f2a4589ed3a663f11f03bbe8b59b79b944",
+      "stored_sha256": "afc9f4dd9ef3d92b98ac20bbbcf996803fe17e0b0989786241b59d492d9e7bb8",
+      "url": "https://hadis.uz/hadiths/18?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/11ddcdac8e7387da-8fce8afc04962f2a.html.gz",
+      "raw_sha256": "8fce8afc04962f2a9ed1cfebae92b706ef2d6e78187ca067080a67c208dc7677",
+      "stored_sha256": "7626a756ed4e488d34782c3a2c0c5f8237d9738ebe2437339d9125d1ea6dd4b8",
+      "url": "https://hadis.uz/hadiths/18?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/6b8e53a352841d25-b0045f2be69b683f.html.gz",
+      "raw_sha256": "b0045f2be69b683ff97212feb2ec0473143d16fd3047c60e8a9dc9a8b4840054",
+      "stored_sha256": "7bd8339674d47936a5a75f97e7850979d5599278f01989610dc784c2fdab308e",
+      "url": "https://hadis.uz/hadiths/19"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/50483daf2c46e206-4df0812384c2d931.html.gz",
+      "raw_sha256": "4df0812384c2d931bd7a4262af28d42e0f2c194fdcbe3ee81bd391a885b067a4",
+      "stored_sha256": "4964d5782defbba810074c63a9966ed966493b51e9e8890a2c35231c8b798ddf",
+      "url": "https://hadis.uz/hadiths/19?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/fa7283a6d194fb18-539b806e41bfb7b3.html.gz",
+      "raw_sha256": "539b806e41bfb7b36e0b3e22df29ccbb59ceb670408cb825ae23c2d06cbaa85d",
+      "stored_sha256": "413b3ebde0cae51e9977fd6f85214788d7ffb4730ef06718c32474d48094ef10",
+      "url": "https://hadis.uz/hadiths/19?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/689346136f39ca13-f32b91c2d08328f2.html.gz",
+      "raw_sha256": "f32b91c2d08328f2832e45ba7059ab303e4f258c1c6430a1460675102373e075",
+      "stored_sha256": "e306049e2c51183a7427e7c0e05e5496fe09a95fbf4f1d95f34bbe8fea104728",
+      "url": "https://hadis.uz/hadiths/1?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b51389403db3b8fc-f7e283f6189acda7.html.gz",
+      "raw_sha256": "f7e283f6189acda7248b8d32980fa00063af5bf4143b0af7d455f433ddcc21df",
+      "stored_sha256": "fce9740cf59542860013070bc78033511e5f6cc30868d7e946e417346e3e5574",
+      "url": "https://hadis.uz/hadiths/1?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/9b8571c76d004bbd-3840b8fbac35638a.html.gz",
+      "raw_sha256": "3840b8fbac35638a28d4ea0eee09de684fa2c1f754385b1516140afc1f306e1b",
+      "stored_sha256": "d0d94728dceeaf4467fcb4adf7b3de7026f9a55ecad6cd550a603ea32f51bc49",
+      "url": "https://hadis.uz/hadiths/20"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/0e11292170d0dbe5-17bccb2dc1047487.html.gz",
+      "raw_sha256": "17bccb2dc1047487eaf1f291e11381582e3050cf1c1087dfd5f3e0f29f9dc044",
+      "stored_sha256": "c97678e28628708e995b24355350557ba19bbed3d991924f17008f2eb5c9adc4",
+      "url": "https://hadis.uz/hadiths/20?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1dbb8a2f3f15800a-66af4eaa28310c4a.html.gz",
+      "raw_sha256": "66af4eaa28310c4a7911005da7e04381ccc7a472c3d5c07554a9566a7a71a880",
+      "stored_sha256": "7dcee4c7045b20303d7b2cbce352c47083672282d4a3e997f81b78758ed374e3",
+      "url": "https://hadis.uz/hadiths/20?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/972d3c56e7e24083-bd11cc8d3d3f26d2.html.gz",
+      "raw_sha256": "bd11cc8d3d3f26d217a59afddaf5ad604dc6f95aa35da1af03cdc25e772b946e",
+      "stored_sha256": "f9ba2e5fd0af22b8d0d8349ca40096ec57e7c941b8aac4e6a0387667b7397db1",
+      "url": "https://hadis.uz/hadiths/20?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/7da7910eee6b61e0-b1843aca52502219.html.gz",
+      "raw_sha256": "b1843aca525022197dde1c91ba563766cd264ed6679df59fa8126c515263f8e5",
+      "stored_sha256": "93f42ebd7866daaa9d851254a374c352d46d87137db07c8bdaa0c2a7f0fcca35",
+      "url": "https://hadis.uz/hadiths/20?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/50819d24d1647839-e1e9af3a70207df8.html.gz",
+      "raw_sha256": "e1e9af3a70207df86152b7a6d3430597306fc8f653491d01f91ce4c4130c37d0",
+      "stored_sha256": "0974e9187ff9ae5532237212e9ee74b7ce2cdc456165dca875b0ef3e87335e9a",
+      "url": "https://hadis.uz/hadiths/20?page=5"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b7c7a648b1dfcc1f-9cc645a773282cf8.html.gz",
+      "raw_sha256": "9cc645a773282cf8e63cc23e418b73d60b5a96a34427281bf1d754e1b4c075ec",
+      "stored_sha256": "933cafb14afd1040cfaf021691de2d5016432dbba58c5e1da5758d479011cfb4",
+      "url": "https://hadis.uz/hadiths/20?page=6"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/617a0e16c6350912-8a106205ba097719.html.gz",
+      "raw_sha256": "8a106205ba097719afdc515b2a75173e35f5aea988d304857a83706b414ea406",
+      "stored_sha256": "72ad1d023a8b59a75d0250ad53faeb82519f83365702a11bcf9565cb0d566269",
+      "url": "https://hadis.uz/hadiths/20?page=7"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1053d5d92b80e878-0724a1ae82b08288.html.gz",
+      "raw_sha256": "0724a1ae82b0828828b94eec5564e9b6d100b1e39a2155b4b5706d56df884b8f",
+      "stored_sha256": "f0114bf92120c14f624fb4fe32e7251e6b6882d90bdf5d14e99b874c8d2903c9",
+      "url": "https://hadis.uz/hadiths/21"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/a16844823759e8ce-ca4ac7c7929c4b8a.html.gz",
+      "raw_sha256": "ca4ac7c7929c4b8a04201a099297294ec6d456edab190f06ea25ba03c9d720d6",
+      "stored_sha256": "f874dab36acd02bef097d0276d05a760d03f73d35b05eaffa4ff622febf62917",
+      "url": "https://hadis.uz/hadiths/22"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/0d46e518fbb34aef-0ec08036845ffac3.html.gz",
+      "raw_sha256": "0ec08036845ffac347e2555cf5a74ca83457d9966c8c4f9ec189ebca73b11689",
+      "stored_sha256": "ee28690ab38788fdf14b3e9fac14204dfce624cf8c444022a8123ad7d9cba19d",
+      "url": "https://hadis.uz/hadiths/23"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1d5424393c8ad8e0-6a906640322fab47.html.gz",
+      "raw_sha256": "6a906640322fab479021ebc96e0528d0aa28271e267bf8294c32fbf8c80aff4f",
+      "stored_sha256": "b8b5e02dd50e40b53e3b276f43741e72a94d37ef65ea40d6ba0795e8b0f2b8c4",
+      "url": "https://hadis.uz/hadiths/24"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/3ab217f7a6b48b24-6a651fb8f70052fe.html.gz",
+      "raw_sha256": "6a651fb8f70052fec9359204b3622cd315e789854a1a2e7277286cc5c9bfbe45",
+      "stored_sha256": "273a4f2b7c3dc1e5bbf0a40235089582dc131c7dae4ee58eb4b1c725f72ccc84",
+      "url": "https://hadis.uz/hadiths/25"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/51dbed6503cbabaa-eb316074a7e8adf1.html.gz",
+      "raw_sha256": "eb316074a7e8adf150228378edfd45c08bfc1722cf573173f0bf3f06f2e31618",
+      "stored_sha256": "0ca1c71a25c31a7a7485e8be8a92de152b8245745b2ec2cb7bff11849efe820a",
+      "url": "https://hadis.uz/hadiths/26"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/113fe6c8ffed8a4b-859fff512caab960.html.gz",
+      "raw_sha256": "859fff512caab960626078243023cd17c3f6204db62e2cc6e59b890d657d4ae8",
+      "stored_sha256": "1c0679e84152be38607ca2c705329fe4cd199703ada60fd8dd1da417699370c0",
+      "url": "https://hadis.uz/hadiths/27"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/cd7da0bea10e7233-be225118d1e110a6.html.gz",
+      "raw_sha256": "be225118d1e110a62a380740b57b298a3cac52226b66e643198ab52d770b30fa",
+      "stored_sha256": "2e51ffd06412dbd6adea1fa2fb50a6863fba9a8d3e0829ccf69959ae5461eb38",
+      "url": "https://hadis.uz/hadiths/28"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/696641d440566b9d-939f440798671040.html.gz",
+      "raw_sha256": "939f4407986710405edbfcff8b0e9b676a00cb7da43bdda2c437df21b5c0c516",
+      "stored_sha256": "6d6c0f82e282fa804bd02517052bbbd3c8a1dfd308b460e3981a12c95712ed1b",
+      "url": "https://hadis.uz/hadiths/29"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b960a202107c82b1-c86c0b2153b181f5.html.gz",
+      "raw_sha256": "c86c0b2153b181f5e42355376cafd0299cc2d01bfba8f65b6f0b6428cdc7339b",
+      "stored_sha256": "ebc9e1a0fb61045b64ebb93b7a4462a8cec0292eb5ba85d785770e9ca4fd6f30",
+      "url": "https://hadis.uz/hadiths/3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/f4c4a593603c1226-9b80e092e6c348a9.html.gz",
+      "raw_sha256": "9b80e092e6c348a95e8168016b26f79dfaf93858bdfaef0a5e98fc7b4d8aa464",
+      "stored_sha256": "0b1fd59e9e87bdb6ff92e2656f4c01e66a35aad63dad56fef288a5e68d57c18a",
+      "url": "https://hadis.uz/hadiths/30"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/e9affa5ff2b250c9-86161b4f0e125930.html.gz",
+      "raw_sha256": "86161b4f0e125930d1e77c3b618d77ae4aca22e330a42b27fcfcde95d3e96b7d",
+      "stored_sha256": "9e63951732eb3079c2f0837125cff4d67e7fa65cfbbf18b1599c0abad7e3d612",
+      "url": "https://hadis.uz/hadiths/31"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/4f2bce80a60c1a41-4958cd43c430e1d0.html.gz",
+      "raw_sha256": "4958cd43c430e1d08cf52c31f6b5af3c3e37a166b215295cff12227ee8d18d4a",
+      "stored_sha256": "5042d3e235d8b343389fd53f9eda4a0ed491cfb2c71ebd60dc88f932eab5177a",
+      "url": "https://hadis.uz/hadiths/32"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/b5befbb536a4835a-690a4e4d5052e56a.html.gz",
+      "raw_sha256": "690a4e4d5052e56af0259ba08b7366e02ebdab26112f9d914be8788dc5418d23",
+      "stored_sha256": "c7bae715d4a6fcbb801d89948b08783f43752a5ea246b52163df2cf374ec6a49",
+      "url": "https://hadis.uz/hadiths/33"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/f8ac5c7be3a17382-ad1c4c15de88a7af.html.gz",
+      "raw_sha256": "ad1c4c15de88a7af5628e4af8e933d9653a86701b746a06bfa0ab2e112eb5426",
+      "stored_sha256": "885d73006840dbafe5aac5c91b30e9f15233a6202caad2e1cb180da21e31d5b5",
+      "url": "https://hadis.uz/hadiths/3?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/73acbb70fec83971-9f09c1e6632efffa.html.gz",
+      "raw_sha256": "9f09c1e6632efffa443db1875b022412ebccbec9c71f26222a24a81655219772",
+      "stored_sha256": "03f2d61495271d5539f6f6ddb0cdfe49814a85965d7e8ceae0b7ae0dd2a10fce",
+      "url": "https://hadis.uz/hadiths/3?page=10"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1dd9908d002ab47e-3ce8a4fcbebd041f.html.gz",
+      "raw_sha256": "3ce8a4fcbebd041f595c30047d7cf559324ba004e274b9cca18dc6d30903b30e",
+      "stored_sha256": "03d617e9bbc934552fde477d85ba82a70764881454e7498098db665bcbeeb9fe",
+      "url": "https://hadis.uz/hadiths/3?page=11"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/5ae5a1f5688ed811-3256c54410ab0baa.html.gz",
+      "raw_sha256": "3256c54410ab0baaefdb2889be263f9c79c7aace9b333812bdd6cca688efc3d0",
+      "stored_sha256": "b7b84721f54a5066377d98f57c5fa6d9164bbeba39f665f7b472cb8dc21eb617",
+      "url": "https://hadis.uz/hadiths/3?page=12"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/6473bbfa63328c5c-db0839547f533fe8.html.gz",
+      "raw_sha256": "db0839547f533fe88a2fe5cc67f9dcd233fdb66ee1ddd564e904f63724a3099c",
+      "stored_sha256": "bc6162183fdd1ef01c43b80a4bf8448ee70d9d8a9415d1f20ecb4bccd2512c1e",
+      "url": "https://hadis.uz/hadiths/3?page=13"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ee0a29373015986d-90701bf59198721d.html.gz",
+      "raw_sha256": "90701bf59198721df439ca05e9088320536d5a8eb0be1ea3ab0e6c1be00a0ef6",
+      "stored_sha256": "db35dd4511ae2039c7fca57bf609ac5fe24b584b8b18902da95fa33dde4206ec",
+      "url": "https://hadis.uz/hadiths/3?page=14"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/031cab540a7cd11f-2fa15c535fb16af7.html.gz",
+      "raw_sha256": "2fa15c535fb16af7cbebb3fa1aacc7bd9eeb844d8f5ed8190c7daa6db31ff5a8",
+      "stored_sha256": "c5945c12990922d6adaae52f15b6991364c91bcf5604fb61093e2aaeb1d883a7",
+      "url": "https://hadis.uz/hadiths/3?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/9ac6169ec69e550e-173bfdb0c0500e28.html.gz",
+      "raw_sha256": "173bfdb0c0500e28de61de659336210b6f8fa75a5260c0abd0b358d3c13ae6f7",
+      "stored_sha256": "29cb50c108e3b0ce8a212d20395a147875fcba0c73e0fae0b86c8c85a60f07ec",
+      "url": "https://hadis.uz/hadiths/3?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/6e5c75495c5cc6ac-2a888470e3d4da40.html.gz",
+      "raw_sha256": "2a888470e3d4da40feb77a356397d71324b9c219c061a0b01076d0b2c68bb5b4",
+      "stored_sha256": "f6e347c092560264bf5c03749406975192fac4bcee6085d9bdc8b91e2f47dc38",
+      "url": "https://hadis.uz/hadiths/3?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/3ecddca8aab55658-5ae797a13145ab8d.html.gz",
+      "raw_sha256": "5ae797a13145ab8dbe765e1bcdc40133509a75ddddd9b0623f61de8f7c9030f5",
+      "stored_sha256": "1c8f29f3d4cd1c2165e742e2b6c2dca2747d8f238cf1a0a57335393cb54b5e59",
+      "url": "https://hadis.uz/hadiths/3?page=5"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/0240dae2371a8bec-e78f7f74d41dd1e7.html.gz",
+      "raw_sha256": "e78f7f74d41dd1e732bfd8367273827d748490d14a27bce377792b343c6495b4",
+      "stored_sha256": "ab49b5f5133a8c487bdcc0f6376996cfe1514fbf2b87bd1cb09a212aef5c4562",
+      "url": "https://hadis.uz/hadiths/3?page=6"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/3c105c2a1768b95f-e095779e7bcff325.html.gz",
+      "raw_sha256": "e095779e7bcff32598ef977a55f02ca3ce5098c662ecd1a62aa73a8ba19d19ac",
+      "stored_sha256": "49d2f2614abb1b8028e98c9226e96f8050596949e5cc086207cb59fd3dcbbf97",
+      "url": "https://hadis.uz/hadiths/3?page=7"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/329a796f0244b1b3-474ccddf0c7b31b1.html.gz",
+      "raw_sha256": "474ccddf0c7b31b173914e56a5d115b284eb785343933fa0075618acae608543",
+      "stored_sha256": "dd6a48d7e9e787fd53d1746d311ed38e163c5876904679b88df47149b8a7d47d",
+      "url": "https://hadis.uz/hadiths/3?page=8"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/407b2a2af2805eb2-13afc7406bcdbaab.html.gz",
+      "raw_sha256": "13afc7406bcdbaabec4dc1bde06d74daf3feb9a225b480e109830d6649d15f01",
+      "stored_sha256": "f86cf90247b7d7eafe9243f80fc1d3c79b9f1ed902a020c6df81724597c3671e",
+      "url": "https://hadis.uz/hadiths/3?page=9"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/50482a43d31e18d1-8d2d119ee1605252.html.gz",
+      "raw_sha256": "8d2d119ee1605252aca677d67eafa0603f17d8fd71b41d5e1d8c9ad5f6217f1e",
+      "stored_sha256": "85066026a3e008a67898460704ea51cfcdcd2ee6344942b15a260360ef870138",
+      "url": "https://hadis.uz/hadiths/4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/a395c73ac61955aa-e2227eff7f14e531.html.gz",
+      "raw_sha256": "e2227eff7f14e53158980f920735d2443b7eb96707bf7aee0a432f519e751682",
+      "stored_sha256": "8f214923e2d453808aa72e18c5f87680d35c001c915ac8c2eb4530483381e49b",
+      "url": "https://hadis.uz/hadiths/430"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/6fd4b5beb7c3a7c2-6f80c3ee8072f64a.html.gz",
+      "raw_sha256": "6f80c3ee8072f64af61ae9162dc24a562d58a6174d7dfa2204f7e0b879d8c9ad",
+      "stored_sha256": "1d55416e02e799173b2da74684d005e60003c51f86b6c70b27d4c1ecf6036281",
+      "url": "https://hadis.uz/hadiths/430?page=1"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/bf6a936a939c9423-72c0f8a3ea95f18b.html.gz",
+      "raw_sha256": "72c0f8a3ea95f18b7a5faf14ab3cc5e6e01a35a7db1034c1b445f7c555dfef7c",
+      "stored_sha256": "e44bfb7cc6fc09e4aa9d86b09083bcd73fa5c5bcb10b33bcc7fb893ea7a0e7e8",
+      "url": "https://hadis.uz/hadiths/430?page=2"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/aeca98abf4bae544-28e426a3f6c7bae4.html.gz",
+      "raw_sha256": "28e426a3f6c7bae438a8dd1fac06369d855c505229c39af5e30a781d45a6402c",
+      "stored_sha256": "4c84eec5ae85b2420059c41bc4c4f92a9b82bc5a513a550ac91c0683308f9570",
+      "url": "https://hadis.uz/hadiths/430?page=3"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/1752aad9d3887c72-aa4cf7d2392d24a5.html.gz",
+      "raw_sha256": "aa4cf7d2392d24a5efe20ef474c3d3acecf30afc36fb83026b1d99177fe44014",
+      "stored_sha256": "19809b87f9929e17f8c06311beaf146d4e4ad19a0889843298b32370b1c788f7",
+      "url": "https://hadis.uz/hadiths/430?page=4"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/cc30bd7d39186030-6eb452777785d210.html.gz",
+      "raw_sha256": "6eb452777785d2107a3c92edd1884afade8dd111e1d97e921008a2a1f75fa2e3",
+      "stored_sha256": "4137201b42c84b614e82bdaf3239cf5a1b06fee42cd2cedc9aa0e33f4ec1e047",
+      "url": "https://hadis.uz/hadiths/430?page=5"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/507d9ed29f2d3cf3-57c85654134f5bc7.html.gz",
+      "raw_sha256": "57c85654134f5bc7a3647c5b13737da4767e6f352c6ac1d7bf5a9378cca16969",
+      "stored_sha256": "8b7d09b94d0af45105391def05e9a69e0a59ff0066113801efba833afcb75a8a",
+      "url": "https://hadis.uz/hadiths/430?page=6"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/f7f740c2d0cffd68-15629a75f7ba8b6c.html.gz",
+      "raw_sha256": "15629a75f7ba8b6c890e1a635ca22cab739cf1031e5c85c9f075493f4bf60b50",
+      "stored_sha256": "7cedb6db0555e628b4dc7256d1f0af3791e552644f4e5911aa02e467a3a98cde",
+      "url": "https://hadis.uz/hadiths/5"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/0943020668d1124e-22ab6853ccb410ac.html.gz",
+      "raw_sha256": "22ab6853ccb410ace42a99c0bf5e98d0c1f082afe32d74f2880d7bb3c240d675",
+      "stored_sha256": "617c646f7fb17860368e0e07efea8cd32d8f884e4f2c8d7eceb739a06a94b320",
+      "url": "https://hadis.uz/hadiths/6"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/ded176bb5e075087-8b7fd43387a11c98.html.gz",
+      "raw_sha256": "8b7fd43387a11c9845a03aaff85a26318b5f9474f8a0190c63617acff8472a5a",
+      "stored_sha256": "589f5bdc9f36e592e1ca3a75b3d1142702351f3c86a0c64e4762aacf0574090f",
+      "url": "https://hadis.uz/hadiths/7"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/587ca34926690f21-65a07845aedfac55.html.gz",
+      "raw_sha256": "65a07845aedfac55aa652b54bad44a185979e04a6bc5a104eed85ac4f349eb11",
+      "stored_sha256": "6e6ffd96bebd0c11f0332f9ff1346da1c29c98648a6e62c8221fc70c7727d319",
+      "url": "https://hadis.uz/hadiths/8"
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/snapshots/fc494b587a2d34cb-0259db47b6afc760.html.gz",
+      "raw_sha256": "0259db47b6afc760c6ebef3823f4ca06293de09a4e7069303d13c06630fca524",
+      "stored_sha256": "33fa6c6208a8fa46a3fe67c7736c8a38a780b2ec64909be80bbecf7db280245c",
+      "url": "https://hadis.uz/hadiths/9"
+    }
+  ]
+}

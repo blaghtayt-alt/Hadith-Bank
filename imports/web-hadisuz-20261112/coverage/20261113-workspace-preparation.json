@@ -1,0 +1,52 @@
+{
+  "baseline_commit": "5fb2171233e514bd9ca5bdd4d5b7cd541cfd0c48",
+  "catalog_only": true,
+  "checkpoint_original_git_blob": "eafbc84d753e82a46607836a2cccb4ea4b60ef64",
+  "checkpoint_original_sha256": "fab699e03c437139307a96ecd2bb6e8b7c3ef77c11ae21b91ed397503fdbc29a",
+  "code_sha256": {
+    "import_deenhindi.py": "4a6e9a39a3ae9bc9a79e5086b266ab5b7ec39fbcda962fb4b3521ea4e2f0db78",
+    "import_hadisuz.py": "1b241ba6dcd5f0982ac86e9f46660ed50ba5679104edb459202d36a04436942e",
+    "import_uzbek_web.py": "87ae18b66b3d96308e7379cb900f868da81cd998373f84c1a2cf0bc92da491f1",
+    "web_source_reviews.py": "507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78"
+  },
+  "delay_seconds": 1.5,
+  "export_or_material_writes": 0,
+  "local_snapshot_scope": "61 catalogs,2 information pages,1 robots;607 original detail/parsed bodies are not required for catalog-only acquisition and were not copied.",
+  "locally_available_verified_snapshots": 64,
+  "new_detail_urls_to_remain_pending": true,
+  "original_entries": 607,
+  "original_snapshot_descriptors": 671,
+  "original_tasks": 670,
+  "request_budget": 100,
+  "robots": {
+    "all_hashes_verified": true,
+    "descriptor": {
+      "bytes": 244,
+      "compression": "gzip",
+      "content_type": "text/plain; charset=utf-8",
+      "final_url": "https://hadis.uz/robots.txt",
+      "path": "imports/web-hadisuz-20261112/snapshots/c1adabc9c45170e8-6a4828f17ee7f76a.txt.gz",
+      "retrieved_at": "2026-11-12T08:51:01.146947+00:00",
+      "sha256": "6a4828f17ee7f76a87aed49187518e0188886fce0f3a994ab9b240785e9c6603",
+      "size_bytes": 177,
+      "status": 200,
+      "stored_sha256": "f42986800db8b82e9aaee5e1d606f383d75b695ca5dcae2c307a81b5cf5af73f",
+      "url": "https://hadis.uz/robots.txt"
+    },
+    "git_blob": "99b4a6b642061d8a4955a04084dc4886a7cf4833",
+    "observed_seed_permissions": {
+      "https://hadis.uz/hadiths/15": true,
+      "https://hadis.uz/hadiths/17": true,
+      "https://hadis.uz/hadiths/18": true,
+      "https://hadis.uz/hadiths/19": true,
+      "https://hadis.uz/hadiths/1?page=1": true,
+      "https://hadis.uz/hadiths/20": true,
+      "https://hadis.uz/hadiths/3": true,
+      "https://hadis.uz/hadiths/430": true
+    },
+    "raw_text": "# For the all user agents\nUser-agent: *\n\n# Disallow indexing urls with prefixes below:\nDisallow: /auth\nDisallow: /backend\nDisallow: /profile\n\n# Main mirror of the web site\nHost: https://hadis.uz\n\n# Sitemap\nSitemap: https://hadis.uz/sitemap.xml\n",
+    "user_agent": "HadithBankSourceImporter/1.0"
+  },
+  "seconds_budget": 600,
+  "seed_evidence": "recovery/observed-seeds.json"
+}

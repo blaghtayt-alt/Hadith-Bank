@@ -1,0 +1,47 @@
+{
+  "baseline_importer_sha256": "34efc54284e47c2d2cbf6bb66c8b016c196d3bf6d02cde42f2c676b28ba94566",
+  "changed_files": [
+    {
+      "bytes": 44775,
+      "path": "scripts/import_hadisuz.py",
+      "sha256": "4bfe3d57ebca2c6ca60957b903fc4df34ab2baef6f391a7fbe3f56fc0cb3a38a"
+    },
+    {
+      "bytes": 10515,
+      "path": "tests/test_hadisuz_catalog_chapters.py",
+      "sha256": "cc9936e4f4b3121471866f1cfc70c7848181e7bb77bf36f11ff2ba74ec65470a"
+    },
+    {
+      "bytes": 4156,
+      "path": "tests/test_hadisuz_catalog_pagination.py",
+      "sha256": "0e51804386d7197ea8a66afe5495d4b92f06af7e8c212a2c6ce138d98d32a1f2"
+    },
+    {
+      "bytes": 14141,
+      "path": "tests/test_hadisuz_catalog_bindings.py",
+      "sha256": "8fccb25869f156eb9003806ee5960bfb93e6c99f5083dfff518fe31dc7070af8"
+    },
+    {
+      "bytes": 65905,
+      "path": "tests/fixtures/hadisuz-saved-catalog-pages.json",
+      "sha256": "57e7e00bd888e43b2a2c29af24779d2fd187938e8e30e9d027aab070731fc836"
+    }
+  ],
+  "errors": 0,
+  "failures": 0,
+  "independent_review_status": "requested from deployment_audit; not asserted by this receipt",
+  "integration_note_sha256": "8101e81e83afeae6a729040ece98bc9831121034675eee87117328d47974fbde",
+  "network_requests": 0,
+  "new_binding_tests": 12,
+  "patch_apply_check": "PASS; all five changed files reproduced byte-for-byte",
+  "patch_sha256": "2cba81a64ff783ff93e6498f6bf12e952853d5f82de9ede41485ebf5400d4375",
+  "patched_importer_sha256": "4bfe3d57ebca2c6ca60957b903fc4df34ab2baef6f391a7fbe3f56fc0cb3a38a",
+  "prior_hadisuz_tests": 37,
+  "real_checkpoint_validation_sha256": "52cd638258a2551a81e318176f3d4e3910751c71ced08dfb894341ba657a83f2",
+  "root_or_remote_edits": 0,
+  "schema": "hadisuz-scoped-catalog-patch-validation-v1",
+  "status": "PASS",
+  "test_command": "python -m unittest discover -s tests -p 'test_hadisuz*.py' -v",
+  "tests_run": 49,
+  "unchanged_source_review_module_sha256": "507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78"
+}

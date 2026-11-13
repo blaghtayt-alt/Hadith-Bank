@@ -26,6 +26,14 @@ from web_source_reviews import SourceReviews
 
 ORIGIN = 'https://hadis.uz'
 CATALOG = ORIGIN + '/hadiths/1'
+# Exact labels of the seven chapter links in the verified original seed page.
+# Requests use checkpoint bindings to saved parent HTML, including these chapters.
+CATALOG_TITLES = {'/hadiths/1': 'Сунани Термизий', '/hadiths/3': 'Таҳорат боблари',
+    '/hadiths/15': 'Намоз боблари', '/hadiths/17': 'Витр боблари',
+    '/hadiths/18': 'Жумъа боблари', '/hadiths/19': 'Ҳайит боблари',
+    '/hadiths/20': 'Сафар боблари', '/hadiths/430': 'Закот китоби'}
+CATALOG_PATHS = set(CATALOG_TITLES)
+CATALOG_BINDINGS_SCHEMA = 'hadith-bank-hadisuz-catalog-bindings-v1'
 BASE = 'imports/web-hadisuz-20261112'
 SLUG = 'hadisuz-tirmidhi-uz-web'
 EDITION = 'hadisuz-tirmidhi-web-20261112'
@@ -55,7 +63,22 @@ def row_bytes(value):
     return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')) + '\n').encode()
 
 
-def allowed_url(url, kind=None):
+def catalog_route(url, root_only=False):
+    """Recognize a public catalogue URL shape; this alone never authorizes it."""
+    parsed = urllib.parse.urlsplit(url)
+    if (parsed.scheme != 'https' or parsed.netloc != 'hadis.uz' or parsed.fragment or
+            re.fullmatch(r'/hadiths/[1-9][0-9]*', parsed.path) is None):
+        return None
+    if root_only and parsed.query:
+        return None
+    query = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+    if query and not (set(query) == {'page'} and len(query['page']) == 1 and
+                      re.fullmatch(r'[1-9][0-9]*', query['page'][0]) is not None):
+        return None
+    return ORIGIN + parsed.path
+
+
+def allowed_url(url, kind=None, catalog_bindings=None):
     parsed = urllib.parse.urlsplit(url)
     if parsed.scheme != 'https' or parsed.netloc != 'hadis.uz' or parsed.fragment:
         return False
@@ -65,18 +88,24 @@ def allowed_url(url, kind=None):
         return kind in (None, 'info') and not parsed.query
     if re.fullmatch(r'/hadith/[1-9][0-9]*', parsed.path):
         return kind in (None, 'detail') and not parsed.query
-    if parsed.path != '/hadiths/1' or kind not in (None, 'catalog'):
+    route = catalog_route(url)
+    if route is None or kind not in (None, 'catalog'):
         return False
-    query = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
-    return not query or (set(query) == {'page'} and len(query['page']) == 1 and
-                         re.fullmatch(r'[1-9][0-9]*', query['page'][0]) is not None)
+    # Stateless inspection knows the original eight labels. Importer requests
+    # always supply the evidence-validated checkpoint registry instead.
+    return parsed.path in CATALOG_PATHS if catalog_bindings is None else route in catalog_bindings
 
 
 class PublicRedirects(urllib.request.HTTPRedirectHandler):
+    def __init__(self, catalog_bindings=None):
+        super().__init__()
+        self.catalog_bindings = catalog_bindings
+
     def redirect_request(self, request, fp, code, msg, headers, newurl):
         url = urllib.parse.urljoin(request.full_url, newurl)
         kind = 'robots' if request.full_url.endswith('/robots.txt') else None
-        if not allowed_url(url, kind) or url != request.full_url:
+        bindings = self.catalog_bindings() if callable(self.catalog_bindings) else self.catalog_bindings
+        if not allowed_url(url, kind, bindings) or url != request.full_url:
             raise ValueError('Redirect changes the observed public source identity; review required')
         return super().redirect_request(request, fp, code, msg, headers, url)
 
@@ -85,36 +114,77 @@ def source_tree(raw):
     return Tree(raw.decode('utf-8', errors='strict')).root
 
 
-def observed_links(tree, base):
+def observed_links(tree, base, catalog_bindings=None):
     for node in tree.all(lambda n: n.tag == 'a' and n.attrs.get('href')):
         url = urllib.parse.urljoin(base, node.attrs['href'])
-        if allowed_url(url):
+        if allowed_url(url, catalog_bindings=catalog_bindings):
             yield node, url
 
 
-def parse_catalog(raw, url):
+def scoped_catalog_links(tree, url, title):
+    """Read child links only in the source panel naming this validated parent."""
+    children = {}
+    for sidebar in tree.all(lambda n: n.has('col-md-3')):
+        for panel in sidebar.all(lambda n: n.has('panel')):
+            name = panel.first(lambda n: n.has('panel-body'))
+            heading = panel.first(lambda n: n.has('panel-title'))
+            if plain(name) != title or plain(heading) != 'Манбалар':
+                continue
+            group = panel.first(lambda n: n.has('list-group'))
+            if group is None:
+                continue
+            for node in group.all(lambda n: n.tag == 'a' and n.attrs.get('href')):
+                link = urllib.parse.urljoin(url, node.attrs['href'])
+                if catalog_route(link, root_only=True) is None or link == catalog_route(url):
+                    continue
+                label = plain(node)
+                if not label:
+                    raise ValueError('Empty observed child catalogue label')
+                value = {'url': link, 'label': label, 'href_as_parsed': node.attrs['href'],
+                         'label_source_text': node.text()}
+                if link in children and children[link]['label'] != label:
+                    raise ValueError('Conflicting labels for one observed child catalogue')
+                children.setdefault(link, value)
+    return list(children.values())
+
+
+def parse_catalog(raw, url, catalog_bindings=None):
+    if not allowed_url(url, 'catalog', catalog_bindings):
+        raise ValueError('Unbound or unexpected catalogue URL')
     tree = source_tree(raw)
     heading = tree.first(lambda n: n.tag == 'h1')
-    if heading is None or 'Термизий' not in plain(heading):
-        raise ValueError('Catalogue title does not identify the authorized Tirmidhi collection')
+    title = plain(heading)
+    route = catalog_route(url)
+    expected = (CATALOG_TITLES[urllib.parse.urlsplit(url).path] if catalog_bindings is None
+                else catalog_bindings[route]['label'])
+    if route == CATALOG:
+        if heading is None or 'Термизий' not in title:
+            raise ValueError('Catalogue title does not identify the authorized Tirmidhi collection')
+    elif heading is None or title != expected:
+        raise ValueError('Catalogue title does not match its observed parent-link label')
     column = tree.first(lambda n: n.has('col-md-9'))
     if column is None:
         raise ValueError('Missing observed catalogue content column')
     details = []
-    for node, link in observed_links(column, url):
+    for node, link in observed_links(column, url, catalog_bindings):
         if allowed_url(link, 'detail') and link not in details:
             details.append(link)
     if not details:
         raise ValueError('Empty catalogue layout; no completion inferred')
     next_pages = []
-    for node, link in observed_links(column, url):
-        if allowed_url(link, 'catalog') and 'next' in node.attrs.get('rel', '').split():
+    for node, link in observed_links(column, url, catalog_bindings):
+        if allowed_url(link, 'catalog', catalog_bindings) and 'next' in node.attrs.get('rel', '').split():
             next_pages.append(link)
     if len(set(next_pages)) > 1:
         raise ValueError('Ambiguous catalogue next-page links')
-    info = sorted({link for _, link in observed_links(tree, url) if allowed_url(link, 'info')})
-    return {'details': details, 'next': list(dict.fromkeys(next_pages)), 'info': info,
-            'title': plain(heading), 'previews_not_registered': True}
+    pagination = list(dict.fromkeys(link for _, link in observed_links(column, url, catalog_bindings)
+        if allowed_url(link, 'catalog', catalog_bindings)))
+    child_links = scoped_catalog_links(tree, url, title)
+    chapters = [child['url'] for child in child_links]
+    info = sorted({link for _, link in observed_links(tree, url, catalog_bindings) if allowed_url(link, 'info')})
+    return {'details': details, 'next': list(dict.fromkeys(next_pages)), 'chapters': chapters,
+            'pagination': pagination, 'catalog_links': child_links, 'info': info,
+            'title': title, 'previews_not_registered': True}
 
 
 def content_paragraphs(tree):
@@ -313,14 +383,123 @@ class Importer:
         self.max_pages, self.deadline, self.delay = max_pages, time.monotonic() + max_seconds, delay
         self.requests, self.last_request = 0, 0
         self.robot = None
-        self.opener = urllib.request.build_opener(PublicRedirects())
+        if 'catalog_bindings' not in self.state:
+            self.state['catalog_bindings_schema'] = CATALOG_BINDINGS_SCHEMA
+            self.state['catalog_bindings'] = {CATALOG: self.root_catalog_binding()}
+            # Upgrade a legacy checkpoint from its already saved seed, without
+            # re-requesting it or trusting old discovery summaries as evidence.
+            seed = self.state['snapshots'].get(CATALOG)
+            if seed is not None:
+                raw = self.checked(seed)
+                parsed = parse_catalog(raw, CATALOG, self.catalog_bindings)
+                self.register_catalog_links(CATALOG, raw, seed, parsed['catalog_links'])
+                for link in parsed['chapters']:
+                    self.enqueue(link, 'catalog', CATALOG)
+        elif self.state.get('catalog_bindings_schema') != CATALOG_BINDINGS_SCHEMA:
+            raise ValueError('Unexpected catalogue binding schema')
+        self.validate_catalog_bindings()
+        self.opener = urllib.request.build_opener(PublicRedirects(lambda: self.catalog_bindings))
         self.enqueue(CATALOG, 'catalog', 'owner_provided_catalogue')
+
+    @staticmethod
+    def root_catalog_binding():
+        return {'url': CATALOG, 'label': CATALOG_TITLES['/hadiths/1'],
+                'kind': 'owner_provided_catalogue'}
+
+    @property
+    def catalog_bindings(self):
+        return self.state['catalog_bindings']
+
+    def validate_catalog_bindings(self, urls=None, bindings=None):
+        """Reprove ancestry and every parent link from immutable saved HTML."""
+        bindings = self.catalog_bindings if bindings is None else bindings
+        if not isinstance(bindings, dict) or bindings.get(CATALOG) != self.root_catalog_binding():
+            raise ValueError('Missing or changed owner catalogue root binding')
+        if any(not isinstance(url, str) or catalog_route(url, root_only=True) != url for url in bindings):
+            raise ValueError('Invalid catalogue binding registry key')
+        visiting, verified, parents = set(), set(), {}
+        required = {'url', 'label', 'kind', 'href_as_parsed', 'label_source_text',
+                    'parent_url', 'parent_snapshot_path', 'parent_snapshot_sha256'}
+
+        def visit(route):
+            if route in verified:
+                return
+            if route in visiting:
+                raise ValueError('Cyclic catalogue binding ancestry')
+            if route not in bindings or catalog_route(route, root_only=True) != route:
+                raise ValueError('Unbound or invalid catalogue ancestor')
+            if route == CATALOG:
+                verified.add(route)
+                return
+            binding = bindings[route]
+            if (not isinstance(binding, dict) or set(binding) != required or
+                    not all(isinstance(value, str) and value for value in binding.values()) or
+                    binding['url'] != route or binding['kind'] != 'observed_tirmidhi_sidebar_link'):
+                raise ValueError('Malformed catalogue parent-link binding')
+            original_label = CATALOG_TITLES.get(urllib.parse.urlsplit(route).path)
+            if original_label is not None and binding['label'] != original_label:
+                raise ValueError('Original verified chapter label changed')
+            parent_url = binding['parent_url']
+            parent_route = catalog_route(parent_url)
+            if parent_route is None:
+                raise ValueError('Invalid parent catalogue URL')
+            visiting.add(route)
+            visit(parent_route)
+            snapshot = self.state['snapshots'].get(parent_url)
+            if (not isinstance(snapshot, dict) or snapshot.get('url') != parent_url or
+                    snapshot.get('final_url', parent_url) != parent_url or
+                    snapshot.get('path') != binding['parent_snapshot_path'] or
+                    snapshot.get('sha256') != binding['parent_snapshot_sha256']):
+                raise ValueError('Catalogue parent snapshot binding mismatch')
+            if parent_url not in parents:
+                raw = self.checked(snapshot)
+                parsed = parse_catalog(raw, parent_url, bindings)
+                parents[parent_url] = {link['url']: link for link in parsed['catalog_links']}
+            observed = parents[parent_url].get(route)
+            if observed is None or any(binding[key] != observed[key] for key in
+                                       ('url', 'label', 'href_as_parsed', 'label_source_text')):
+                raise ValueError('Catalogue binding lacks its exact validated parent link')
+            visiting.remove(route)
+            verified.add(route)
+
+        for url in bindings if urls is None else urls:
+            route = catalog_route(url)
+            if route is None:
+                raise ValueError('Invalid catalogue URL to validate')
+            visit(route)
+
+    def register_catalog_links(self, url, raw, snapshot, links):
+        """Append exact observed child bindings; never relabel or reparent one."""
+        if not links:
+            return
+        self.validate_catalog_bindings([url])
+        if (not isinstance(snapshot, dict) or self.state['snapshots'].get(url) != snapshot or snapshot.get('url') != url or
+                snapshot.get('final_url', url) != url or self.checked(snapshot) != raw):
+            raise ValueError('Child catalogue discovery requires its exact saved parent HTML')
+        proposed = dict(self.catalog_bindings)
+        for link in links:
+            route = link['url']
+            if catalog_route(route, root_only=True) != route:
+                raise ValueError('Invalid observed child catalogue route')
+            original_label = CATALOG_TITLES.get(urllib.parse.urlsplit(route).path)
+            if original_label is not None and link['label'] != original_label:
+                raise ValueError('Original verified chapter label changed')
+            if route in proposed:
+                if proposed[route]['label'] != link['label']:
+                    raise ValueError('Existing catalogue label cannot be overwritten')
+                continue
+            proposed[route] = {**link, 'kind': 'observed_tirmidhi_sidebar_link',
+                'parent_url': url, 'parent_snapshot_path': snapshot['path'],
+                'parent_snapshot_sha256': snapshot['sha256']}
+        # Validate the complete proposed update before changing checkpoint state.
+        self.validate_catalog_bindings([link['url'] for link in links], proposed)
+        self.state['catalog_bindings'] = proposed
 
     def save(self):
         atomic(self.state_path, json_bytes(self.state))
 
     def enqueue(self, url, kind, discovered_on):
-        if not allowed_url(url, kind):
+        if not allowed_url(url, kind, self.catalog_bindings):
             return
         if not any(task['url'] == url for task in self.state['tasks']):
             self.state['tasks'].append({'url': url, 'kind': kind, 'status': 'pending',
@@ -348,13 +527,15 @@ class Importer:
                 'bytes': len(raw), 'size_bytes': len(stored), 'compression': 'gzip'}
 
     def fetch(self, url, robots=False):
+        if not allowed_url(url, 'robots' if robots else None, self.catalog_bindings):
+            raise ValueError('Source URL outside authorized public routes')
+        if catalog_route(url) is not None:
+            self.validate_catalog_bindings([url])
         if url in self.state['snapshots']:
             descriptor = self.state['snapshots'][url]
             return self.checked(descriptor), descriptor
         if self.state.get('access_block'):
             raise RuntimeError('Prior access block retained; automatic retry prohibited')
-        if not allowed_url(url, 'robots' if robots else None):
-            raise ValueError('Source URL outside authorized public routes')
         if not robots and (self.robot is None or not self.robot.can_fetch(AGENT, url)):
             raise PermissionError('robots_disallowed: ' + url)
         if self.requests >= self.max_pages or time.monotonic() >= self.deadline:
@@ -400,12 +581,18 @@ class Importer:
     def process(self, task, raw, snapshot):
         url = task['url']
         if task['kind'] == 'catalog':
-            parsed = parse_catalog(raw, url)
+            self.validate_catalog_bindings([url])
+            parsed = parse_catalog(raw, url, self.catalog_bindings)
+            self.register_catalog_links(url, raw, snapshot, parsed['catalog_links'])
             for next_url in parsed['info']:
                 self.enqueue(next_url, 'info', url)
             for next_url in parsed['details']:
                 self.enqueue(next_url, 'detail', url)
             for next_url in parsed['next']:
+                self.enqueue(next_url, 'catalog', url)
+            for next_url in parsed.get('chapters', []):
+                self.enqueue(next_url, 'catalog', url)
+            for next_url in parsed.get('pagination', []):
                 self.enqueue(next_url, 'catalog', url)
             task['discovery'] = parsed
         elif task['kind'] == 'info':
