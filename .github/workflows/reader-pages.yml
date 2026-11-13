@@ -83,7 +83,7 @@ jobs:
     name: Refresh bank and build website
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: write
       actions: write

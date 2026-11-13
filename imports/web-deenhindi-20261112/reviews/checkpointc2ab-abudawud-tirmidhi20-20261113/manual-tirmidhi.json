@@ -1,0 +1,408 @@
+{
+  "records": [
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the whole Hindi field. The named debate between Dahhak and Saad is actual historical dialogue, including the reported Umar prohibition and Saad’s own claim of doing the act with the Prophet. Keep each voice as printed; Tirmidhi’s final authenticity assessment is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "historical_dialogue_with_attributed_prophetic_report",
+              "speaker": "Muhammad ibn Abdullah ibn Harith ibn Nawfal recounting the actual Dahhak/Saad exchange, with Saad’s own report of the Prophet’s practice.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the complete Urdu field separately. Admit the actual named exchange and its source-supplied attribution distinctions; do not collapse Dahhak’s or Saad’s words into one Prophetic statement. The final grade is source context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "historical_dialogue_with_attributed_prophetic_report",
+              "speaker": "Muhammad ibn Abdullah ibn Harith ibn Nawfal reporting Dahhak and Saad’s dialogue and Saad’s source-ascribed practice report.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:823",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit Surah/verse locator is source context; actual quoted scripture and its supplied translation remain admitted.",
+              "text": "(अल-क़मर: 48-49)"
+            }
+          ],
+          "reason": "Read the complete Hindi field. Preserve the reported dispute and the actual transliterated Quran quotation with its supplied translation, including the parenthetic address connective within that translation. The explicit chapter/verse locator and Tirmidhi’s grade/transmission tail are context; no new translation is created.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Hurayra recounting the dispute and the source-supplied revealed quotation and rendering.",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit Surah/verse locator is source context; actual quoted scripture and its supplied translation remain admitted.",
+              "text": "( القمر: ۴۸-۴۹ )"
+            }
+          ],
+          "reason": "Read every Urdu word. Keep the Arabic quotation and its own Urdu rendering as printed, including the address connective, with no theological or linguistic expansion. The explicit verse locator and compiler grading/chain tail remain source context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Hurayra reporting the dispute and the source-supplied Quran quotation with its rendering.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2157",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read all Hindi text. Preserve the source’s explicit father Yazid wording, farewell-pilgrimage circumstance and the narrator’s age seven. Do not replace the printed father/child relationship or repair this occurrence from another version.",
+          "report_type": "prophetic_report",
+          "speaker": "Saib ibn Yazid describing the source’s named Yazid/farewell-pilgrimage event and his own age."
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the complete Urdu field including the later transmitter discussion. Admit the finite pilgrimage/age report and retain the source-supplied parenthetic father relationship, which qualifies the named actor rather than identifying an externally supplied person. The subsequent Yahya/Muhammad ibn Yusuf grading, genealogy and transmission statements remain source context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Saib ibn Yazid reporting his source-identified father Yazid’s pilgrimage with the Prophet and his own age.",
+              "to": "یحییٰ بن سعید قطان کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2161",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or identifying source gloss is retained as context; the surrounding finite narrative remains in its original wording.",
+              "text": "(फफोला)"
+            }
+          ],
+          "reason": "Read all1498 Hindi characters. The source introduces two Prophetic trust statements, then explicitly assigns the pebble gesture and following prediction to Hudhayfa, followed by his own trading memory. Preserve these source voices instead of normalizing a familiar parallel. The withdrawal report and its Hudhayfa demonstration share one report family; descent and personal trade memory remain separately described families. Retain night/morning conditions; the blister synonym and final grade are context.",
+          "spans": [
+            {
+              "component_id": "descent",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "trust-descent-report",
+              "speaker": "Hudhayfa reporting the Prophet’s first trust-descent statement.",
+              "to": "फिर आप ने हम से अमानत"
+            },
+            {
+              "component_id": "withdrawal",
+              "from": "फिर आप ने हम से अमानत",
+              "report_type": "prophetic_report",
+              "source_report_family_id": "trust-withdrawal-report",
+              "speaker": "Hudhayfa reporting the Prophet’s trust-withdrawal statement and its source-supplied timing and simile.",
+              "to": "फिर हुज़ैफ़ा (रज़ियल्लाहु अन्हु) एक कंकरी"
+            },
+            {
+              "component_id": "gesture-and-statement",
+              "from": "फिर हुज़ैफ़ा (रज़ियल्लाहु अन्हु) एक कंकरी",
+              "report_type": "companion_demonstration_and_statement",
+              "source_report_family_id": "trust-withdrawal-report",
+              "speaker": "Hudhayfa performing the pebble gesture and speaking the following prediction as explicitly assigned by this Hindi source.",
+              "to": "हुज़ैफ़ा (रज़ियल्लाहु अन्हु) कहते हैं: मेरे ऊपर"
+            },
+            {
+              "component_id": "trade-memory",
+              "from": "हुज़ैफ़ा (रज़ियल्लाहु अन्हु) कहते हैं: मेरे ऊपर",
+              "report_type": "companion_personal_statement",
+              "source_report_family_id": "hudhayfa-trade-memory",
+              "speaker": "Hudhayfa recounting his own former and current trading experience.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Exact footnote marker is source apparatus, retained as context without changing surrounding words or punctuation.",
+              "text": "۱؎"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Exact footnote marker is source apparatus, retained as context without changing surrounding words or punctuation.",
+              "text": "۲؎"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Exact footnote marker is source apparatus, retained as context without changing surrounding words or punctuation.",
+              "text": "۳؎"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or identifying source gloss is retained as context; the surrounding finite narrative remains in its original wording.",
+              "text": "( پھپھولا )"
+            }
+          ],
+          "reason": "Read all1514 Urdu characters including the repeated Quran wording. Retain both Prophetic statements, and separately preserve Hudhayfa’s explicitly assigned pebble demonstration/prediction and his personal trading memory. Do not reassign the printed Hudhayfa speech to the Prophet. Night/morning conditions remain; the blister synonym, three footnotes and final grade are context. Four ordered components represent three specified source families.",
+          "spans": [
+            {
+              "component_id": "descent",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "trust-descent-report",
+              "speaker": "Hudhayfa reporting the Prophet’s first trust-descent statement.",
+              "to": "پھر آپ نے ہم سے امانت"
+            },
+            {
+              "component_id": "withdrawal",
+              "from": "پھر آپ نے ہم سے امانت",
+              "report_type": "prophetic_report",
+              "source_report_family_id": "trust-withdrawal-report",
+              "speaker": "Hudhayfa reporting the Prophet’s trust-withdrawal statement, timing and simile.",
+              "to": "پھر حذیفہ رضی الله عنہ ایک کنکری"
+            },
+            {
+              "component_id": "gesture-and-statement",
+              "from": "پھر حذیفہ رضی الله عنہ ایک کنکری",
+              "report_type": "companion_demonstration_and_statement",
+              "source_report_family_id": "trust-withdrawal-report",
+              "speaker": "Hudhayfa performing the pebble gesture and uttering the following prediction as explicitly assigned by this Urdu source.",
+              "to": "حذیفہ رضی الله عنہ کہتے ہیں: میرے اوپر"
+            },
+            {
+              "component_id": "trade-memory",
+              "from": "حذیفہ رضی الله عنہ کہتے ہیں: میرے اوپر",
+              "report_type": "companion_personal_statement",
+              "source_report_family_id": "hudhayfa-trade-memory",
+              "speaker": "Hudhayfa describing his personal former and current trading experience.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2179",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the entire Hindi field. Keep Abu Dharr’s event, the question/reply and the actual supplied recitation with its Hindi translation in parentheses. The narrator’s subsequent recension attribution and the compiler’s grading/parallel list remain context; no conventional verse wording is substituted.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Dharr describing the Prophet’s question, answer and source-supplied recitation and rendering.",
+              "to": "रावी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the whole Urdu field independently. Preserve its printed Quran wording and own translation exactly, including the stated temporal/conditional response. The later Ibn Masud-recension identification and grading/parallel list are apparatus context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Dharr recounting the question, answer and source-supplied recitation and rendering.",
+              "to": "راوی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2186",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or identifying source gloss is retained as context; the surrounding finite narrative remains in its original wording.",
+              "text": "(फ़ितना)"
+            }
+          ],
+          "reason": "Read all Hindi text. Keep the waking event, actual repeated invocation, source’s gesture with fingers and its numerical form, question and conditional reply. The finger-instrument qualifier is part of the printed action; the fitna synonym and the compiler’s grading/chain comparison and transmitter lists are context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Zaynab bint Jahsh describing the Prophet’s waking, invocation, gesture and reply.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or identifying source gloss is retained as context; the surrounding finite narrative remains in its original wording.",
+              "text": "( فتنہ )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Exact footnote marker is source apparatus, retained as context without changing surrounding words or punctuation.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the complete Urdu field, including all compiler apparatus. Keep the actual Arabic invocation with Urdu rendering, three repetitions, finger gesture, question and conditional answer. The lexical fitna synonym, footnote and source grading/chain-list discussion are context; no standalone report body is reconstructed from those chain lists.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Zaynab bint Jahsh describing the Prophet’s waking, invocation, gesture and reply.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2187",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi field. Hasan Basri’s named explanation is an actual scholarly saying under the expanded source scope, including its quoted finite hadith wording whose ultimate speaker is not named here. Preserve the printed blood/life-only explanation and honorific; do not import the Urdu sibling’s honor/property words or promote it to a directly attributed Prophetic saying.",
+          "report_type": "successor_explanatory_statement",
+          "speaker": "Hasan Basri giving his own explanation and quoting the finite wording called a hadith by this source; its ultimate speaker is not supplied."
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read every Urdu word. Admit Hasan Basri’s own explanation with its printed life, honor and property list and the quoted finite wording. Those own Urdu objects remain distinct from the shorter Hindi wording. No missing ultimate speaker or independent authenticity is asserted.",
+          "report_type": "successor_explanatory_statement",
+          "speaker": "Hasan Basri’s explanatory statement, with its source-quoted hadith wording retained under that frame and no ultimate speaker filled."
+        }
+      },
+      "key": "tirmidhi:2198",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read the entire Hindi field. Preserve Udaisa’s account of her father’s exchange with Ali, the conditional wooden-sword advice as actually relayed, his completed action and offer, and Ali’s response. Retain the parenthetic Messenger identification because it is the source’s actual advisor attribution, not an identity filled from elsewhere. The compiler’s grade/parallel tail is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "historical_dialogue_with_attributed_prophetic_report",
+              "speaker": "Udaisa recounting her father Ahban’s exchange with Ali and the advice explicitly attributed within this own field to the source-identified Messenger through Ahban.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Exact footnote marker is source apparatus, retained as context without changing surrounding words or punctuation.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the whole Urdu field. Keep the finite historical exchange, conditional advice and the source-supplied parenthetic Messenger identification: that own-language phrase identifies the actual advisor. No external identity or missing body is supplied. The footnote and compiler grade/parallel tail are context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "historical_dialogue_with_attributed_prophetic_report",
+              "speaker": "Udaisa describing her father Ahban’s exchange with Ali and the advice explicitly attributed by this own field to the source-identified Messenger through Ahban.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2203",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read all Hindi text. Preserve Zubayr’s visit/complaint, Anas’s actual statement and explicit heard-from-your-Prophet attribution. The parenthetic comparison with the preceding year restricts the statement and remains admitted. The final compiler grade is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas relaying the statement he expressly says he heard from the Prophet, in reply to Zubayr ibn Adi and companions.",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [],
+          "reason": "Read every Urdu word. Retain the complaint, Anas’s reply and explicit hearing attribution, including the previous-year comparison and endpoint. Only the final compiler grade is context.",
+          "spans": [
+            {
+              "component_id": "report-1",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Anas’s source-attributed hearing from the Prophet, relayed to Zubayr ibn Adi’s group.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2206",
+      "reason": "Both complete own Hindi and Urdu fields were read separately. Finite source-supplied material is admitted under the stated actual voices; unread siblings remain source context and no canonical identity or authentication is asserted."
+    }
+  ],
+  "source_checkpoint": "c2ab74d74821e244d8a83620f0e8e68dda694b16"
+}
