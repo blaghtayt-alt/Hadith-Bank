@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **102,452 source occurrences** in 11 languages, plus **83 preserved legacy source files**.
+This public bank contains **102,636 source occurrences** in 11 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -17,18 +17,18 @@ Counts describe source occurrences across translations and editions. They are no
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
 | Hindi | abu-dawud | `deenhindi-web-20261112` | 2,078 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
-| Hindi | abu-dawud | `deenhindi-web-20261112-part-002` | 659 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-abudawud-part-002/source-index.json) |
+| Hindi | abu-dawud | `deenhindi-web-20261112-part-002` | 688 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-abudawud-part-002/source-index.json) |
 | Hindi | bukhari | `deenhindi-web-20261112` | 1,819 | [Read](../browse/hi/bukhari/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-bukhari/source-index.json) |
-| Hindi | bukhari | `deenhindi-web-20261112-part-002` | 932 | [Read](../browse/hi/bukhari/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-bukhari-part-002/source-index.json) |
+| Hindi | bukhari | `deenhindi-web-20261112-part-002` | 976 | [Read](../browse/hi/bukhari/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-bukhari-part-002/source-index.json) |
 | Hindi | ibn-majah | `deenhindi-web-20261112` | 2,251 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-ibnmajah/source-index.json) |
-| Hindi | ibn-majah | `deenhindi-web-20261112-part-002` | 491 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-ibnmajah-part-002/source-index.json) |
+| Hindi | ibn-majah | `deenhindi-web-20261112-part-002` | 516 | [Read](../browse/hi/ibn-majah/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-ibnmajah-part-002/source-index.json) |
 | Hindi | malik | `deenhindi-web-20261112` | 1,836 | [Read](../browse/hi/malik/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-malik/source-index.json) |
 | Hindi | muslim | `deenhindi-web-20261112` | 2,053 | [Read](../browse/hi/muslim/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-muslim/source-index.json) |
-| Hindi | muslim | `deenhindi-web-20261112-part-002` | 618 | [Read](../browse/hi/muslim/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-muslim-part-002/source-index.json) |
+| Hindi | muslim | `deenhindi-web-20261112-part-002` | 644 | [Read](../browse/hi/muslim/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-muslim-part-002/source-index.json) |
 | Hindi | nasai | `deenhindi-web-20261112` | 2,208 | [Read](../browse/hi/nasai/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-nasai/source-index.json) |
-| Hindi | nasai | `deenhindi-web-20261112-part-002` | 527 | [Read](../browse/hi/nasai/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-nasai-part-002/source-index.json) |
+| Hindi | nasai | `deenhindi-web-20261112-part-002` | 563 | [Read](../browse/hi/nasai/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-nasai-part-002/source-index.json) |
 | Hindi | tirmidhi | `deenhindi-web-20261112` | 2,044 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-tirmidhi/source-index.json) |
-| Hindi | tirmidhi | `deenhindi-web-20261112-part-002` | 700 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-tirmidhi-part-002/source-index.json) |
+| Hindi | tirmidhi | `deenhindi-web-20261112-part-002` | 724 | [Read](../browse/hi/tirmidhi/deenhindi-web-20261112-part-002/README.md) | [Original file](../materials/deenhindi-tirmidhi-part-002/source-index.json) |
 | Persian | bukhari | `faiz-al-bari-heravi-v1` | 412 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v1/README.md) | [Original file](../materials/fa-faiz-al-bari-v1/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v2` | 451 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v2/README.md) | [Original file](../materials/fa-faiz-al-bari-v2/source.docx) |
 | Persian | bukhari | `faiz-al-bari-heravi-v3` | 504 | [Read](../browse/fa/bukhari/faiz-al-bari-heravi-v3/README.md) | [Original file](../materials/fa-faiz-al-bari-v3/source.docx) |
@@ -267,7 +267,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 101,285 |
+| Human | 101,469 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -277,7 +277,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 62,521 |
+| `unknown` | 62,705 |
 | `human_translator_credited` | 30,639 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |

@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/abu-dawud/deenhindi-web-20261112-part-002/)
 
-Edition: `deenhindi-web-20261112-part-002` · 659 source occurrences.
+Edition: `deenhindi-web-20261112-part-002` · 688 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -36,4 +36,5 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 576–600](page-0024.md)
 - [Narrations 601–625](page-0025.md)
 - [Narrations 626–650](page-0026.md)
-- [Narrations 651–659](page-0027.md)
+- [Narrations 651–675](page-0027.md)
+- [Narrations 676–688](page-0028.md)

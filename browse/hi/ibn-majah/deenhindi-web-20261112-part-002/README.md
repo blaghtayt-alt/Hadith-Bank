@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/ibn-majah/deenhindi-web-20261112-part-002/)
 
-Edition: `deenhindi-web-20261112-part-002` · 491 source occurrences.
+Edition: `deenhindi-web-20261112-part-002` · 516 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -29,4 +29,5 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 401–425](page-0017.md)
 - [Narrations 426–450](page-0018.md)
 - [Narrations 451–475](page-0019.md)
-- [Narrations 476–491](page-0020.md)
+- [Narrations 476–500](page-0020.md)
+- [Narrations 501–516](page-0021.md)
