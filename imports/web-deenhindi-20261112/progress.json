@@ -3,59 +3,59 @@
   "blocked": false,
   "by_collection": {
     "abudawud": {
-      "classification_pending": 14,
-      "fetched": 2001,
+      "classification_pending": 26,
+      "fetched": 2071,
       "inventory": 5274,
       "non_narration_source_entries": 4,
-      "registered_hadith": 1983
+      "registered_hadith": 2041
     },
     "bukhari": {
-      "classification_pending": 25,
-      "fetched": 2017,
+      "classification_pending": 42,
+      "fetched": 2087,
       "inventory": 7589,
       "non_narration_source_entries": 0,
-      "registered_hadith": 1992
+      "registered_hadith": 2045
     },
     "ibnmajah": {
-      "classification_pending": 9,
-      "fetched": 1995,
+      "classification_pending": 19,
+      "fetched": 2064,
       "inventory": 4343,
       "non_narration_source_entries": 1,
-      "registered_hadith": 1985
+      "registered_hadith": 2044
     },
     "malik": {
-      "classification_pending": 0,
-      "fetched": 1716,
+      "classification_pending": 6,
+      "fetched": 1785,
       "inventory": 1858,
       "non_narration_source_entries": 21,
-      "registered_hadith": 1695
+      "registered_hadith": 1758
     },
     "muslim": {
-      "classification_pending": 28,
-      "fetched": 2014,
+      "classification_pending": 54,
+      "fetched": 2084,
       "inventory": 7563,
       "non_narration_source_entries": 70,
-      "registered_hadith": 1916
+      "registered_hadith": 1960
     },
     "nasai": {
-      "classification_pending": 3,
-      "fetched": 2006,
+      "classification_pending": 13,
+      "fetched": 2076,
       "inventory": 5765,
       "non_narration_source_entries": 7,
-      "registered_hadith": 1996
+      "registered_hadith": 2056
     },
     "tirmidhi": {
-      "classification_pending": 15,
-      "fetched": 2012,
+      "classification_pending": 27,
+      "fetched": 2082,
       "inventory": 3998,
       "non_narration_source_entries": 20,
-      "registered_hadith": 1977
+      "registered_hadith": 2035
     }
   },
   "certified_release_eligible": false,
-  "classification_pending_count": 94,
+  "classification_pending_count": 187,
   "done": false,
-  "errors_count": 999,
+  "errors_count": 511,
   "exact_field_review_reuse": {
     "conflicting_fields_held": 0,
     "enabled": true,
@@ -222,13 +222,13 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "0fc6418c4b8882a52c042365d5eea820ad101e4cb0951ce086920193296e12dd",
-      "size_bytes": 708558,
-      "uncompressed_sha256": "85b65028c2410facac25e97e5ec8ae07c140a34cb55c5090a72b4f463a715bec"
+      "sha256": "edfd7343bf3a377965b4b1aa5fa1318f32cd45c04966ba15917c7e73893c4a30",
+      "size_bytes": 733136,
+      "uncompressed_sha256": "cdb9ca9538f05e73cd1c9aa3dfbfa4fcc6a76f009fd1f134b9d34662c99af6b4"
     },
-    "registered_occurrences": 1728,
-    "selected_language_fields": 2099,
-    "source_context_dependent_fields_not_reused": 9,
+    "registered_occurrences": 1791,
+    "selected_language_fields": 2166,
+    "source_context_dependent_fields_not_reused": 17,
     "supporting_input_copies": [
       {
         "original_input_path": "catalog/deenhindi-review-reuse-plan.json",
@@ -415,19 +415,19 @@
     ]
   },
   "historical_error_identities_count": 1000,
-  "imported_count": 13761,
+  "imported_count": 14249,
   "inventory_count": 36390,
   "non_narration_source_entries": 123,
   "pending_fetch_count": 21630,
-  "registered_hadith_count": 13544,
-  "remaining_count": 22629,
+  "registered_hadith_count": 13939,
+  "remaining_count": 22141,
   "requires_attention": false,
-  "resolved_historical_error_identities_count": 1,
+  "resolved_historical_error_identities_count": 489,
   "reviewed_error_attempt_outcomes": {
-    "succeeded": 1
+    "succeeded": 489
   },
-  "reviewed_error_attempts_count": 1,
-  "reviewed_error_retry_pending_count": 999,
+  "reviewed_error_attempts_count": 489,
+  "reviewed_error_retry_pending_count": 511,
   "site": "deenhindi.com",
   "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
   "source_review_inputs": [
@@ -558,6 +558,36 @@
       "size_bytes": 11312
     },
     {
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/before-active-ledger.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
+      "size_bytes": 198556
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/field-reading-notes.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "25022c4b6f7346899b8ebb7294cee04c53c87fb5efdbbbeb3c8a7f022aa7722b",
+      "size_bytes": 19394
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selected-source-records.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "dc66a4bb142cf5bd87857d261d271c1927d35509e3eccf135784055c73635bfb",
+      "size_bytes": 33697
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selection.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "94a265c574cbf4d68d2fff36cb88b71ee012cc80f2d37581a5d529e08c0ca37c",
+      "size_bytes": 1784
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/source-verification.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "66457341a9714cc3dc7946a87c097bd2e9f64b1c633a96404d1e0cde7b5e7818",
+      "size_bytes": 66816
+    },
+    {
       "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-pilot-bukhari-686-manual-v1-reading-notes.json.gz",
       "role": "source_bound_review_and_coverage_evidence",
       "sha256": "06da0324fa9a4b39225b5431480f116c3bc1b9d3d6f5d0da08c2b05450725de9",
@@ -604,6 +634,36 @@
       "role": "source_bound_review_and_coverage_evidence",
       "sha256": "be9149b67c212965869396c26272c94f996177a2e94eff044551651db16a783e",
       "size_bytes": 5781
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/complete-field-reading-notes.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "618b03c0fedd7308b37a65f85fae909f174f278002c765f595bca39038a46343",
+      "size_bytes": 36125
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/manual_reading_spec.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "78cd3880a2f15cc77ac9d1e9df0d6eabc6cf1795678df8d344004a14461f7807",
+      "size_bytes": 15573
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/previous-review-ledger.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "cc569049f1bf77ae0dcbe2b4a792f53dc396c88f0bbbf31bb5f05c698a980a9b",
+      "size_bytes": 281899
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/source-provenance-report.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "a2e36658c57b9aeac99ca4d7a7a0b376537ffdab6222172d572360e316c400d5",
+      "size_bytes": 68897
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/validation.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "de20bb1134bca3ba218aef2ebbc8bc84ac2bd72f20d7765a3b3f703b4d4616c7",
+      "size_bytes": 1594
     },
     {
       "path": "imports/web-deenhindi-20261112/reviews/first-pass-export-validation.json",
@@ -1094,14 +1154,14 @@
     {
       "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
       "role": "source_bound_review_and_coverage_evidence",
-      "sha256": "cc569049f1bf77ae0dcbe2b4a792f53dc396c88f0bbbf31bb5f05c698a980a9b",
-      "size_bytes": 281899
+      "sha256": "1424f006393a018d6966de499ece2523b44bb6cb3fca78d4c40fbab85420e3b7",
+      "size_bytes": 291696
     },
     {
       "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
       "role": "source_bound_review_and_coverage_evidence",
-      "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
-      "size_bytes": 198556
+      "sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa",
+      "size_bytes": 216232
     },
     {
       "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-agent46-eb6061e.json.gz",
@@ -1374,11 +1434,11 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "0fc6418c4b8882a52c042365d5eea820ad101e4cb0951ce086920193296e12dd",
-      "size_bytes": 708558,
-      "uncompressed_sha256": "85b65028c2410facac25e97e5ec8ae07c140a34cb55c5090a72b4f463a715bec"
+      "sha256": "edfd7343bf3a377965b4b1aa5fa1318f32cd45c04966ba15917c7e73893c4a30",
+      "size_bytes": 733136,
+      "uncompressed_sha256": "cdb9ca9538f05e73cd1c9aa3dfbfa4fcc6a76f009fd1f134b9d34662c99af6b4"
     }
   ],
-  "unresolved_historical_error_identities_count": 999,
-  "updated_at": "2026-11-13T11:31:42.903945+00:00"
+  "unresolved_historical_error_identities_count": 511,
+  "updated_at": "2026-11-13T12:14:17.741922+00:00"
 }
