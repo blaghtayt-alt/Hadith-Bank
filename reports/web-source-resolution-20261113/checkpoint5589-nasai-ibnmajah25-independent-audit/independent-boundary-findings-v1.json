@@ -1,0 +1,55 @@
+{
+  "accepted_scope_examples": [
+    "IbnMajah2370 claimant-oath actor scope",
+    "Nasai2303 question condition",
+    "Nasai2314 separately attributed IbnAbbas conclusion in one family",
+    "Nasai2336 Hafsa Companion saying without inferred Prophet speaker",
+    "Nasai2348 and2370 knowledge limits",
+    "Nasai2358 finite conditional consequent",
+    "Nasai2378 actual opening event plus qualified Ata memory/quote, with bare full-report pointer and word glosses in context"
+  ],
+  "active_ledger_sha256": "51657a28fb4a64ab768768554d7603e9600c5ea9afa39b72ef68fd79ebc3f865",
+  "candidate_manifest_sha256": "de0399c89be6d422c9c738404ec2c2474f695aef174da7ecd9a810da0c81ec74",
+  "characters_restored": 27,
+  "complete_fields_actually_read": 50,
+  "complete_fields_all_boundaries_inspected": 50,
+  "independent_complete_source_first_receipt_sha256": "91561405fa1e9423fa291f31adb4b86dae06ea6d2a276e784f83710118e4b258",
+  "independent_reconsiderations": [
+    {
+      "final_assessment": "Accept the candidate’s two not-remaining-fasting parentheses as lexical explanation context. In the whole sentence they render iftar, and the surrounding fasting/nonfasting contrast and the ensuing expectation already state the sustained practice. They do not supply a separate newly attributed saying. This narrows the initial optional retain-as-scope view after exact source-conditioned comparison.",
+      "id": "deenhindi-nasai:2349",
+      "initial_note_preserved": true,
+      "languages": [
+        "hi",
+        "ur"
+      ]
+    }
+  ],
+  "no_other_mask_or_voice_changes_requested": true,
+  "required_changes": [
+    {
+      "end": 578,
+      "id": "deenhindi-nasai:2322",
+      "language": "hi",
+      "operation": "restore_finite_source_first_person_predicate_to_existing_report_component",
+      "reason": "The parenthetical supplies an actual affirmative first-person future-eating predicate within the bring/fast-intention passage. It is not a lexical definition. Preserve it as source-supplied narration/speech wording, without claiming it was independently authenticated or supplementing it from another field.",
+      "source_field_sha256": "6d4c197277a8f3ca8bf0ad6759a6a0535e8687432bbedf6d5888cdbcaa61d2e9",
+      "start": 566,
+      "text": "(मगर खाऊँगा)"
+    },
+    {
+      "end": 560,
+      "id": "deenhindi-nasai:2322",
+      "language": "ur",
+      "operation": "restore_finite_source_first_person_predicate_to_existing_report_component",
+      "reason": "The parenthetical supplies an actual affirmative first-person future-eating predicate within the bring/fast-intention passage. It is not a lexical definition. Preserve it as source-supplied narration/speech wording, without claiming it was independently authenticated or supplementing it from another field.",
+      "source_field_sha256": "da05ab096596f261538c0eca6917117829aa6439f37394e87a0b4e7cd0552190",
+      "start": 545,
+      "text": "( مگر کھاؤ گا )"
+    }
+  ],
+  "schema": "hadith-bank-independent-boundary-findings-v1",
+  "source_bytes_or_parent_dispositions_changed": false,
+  "source_checkpoint": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+  "utf8_bytes_restored": 54
+}

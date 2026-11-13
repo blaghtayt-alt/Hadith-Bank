@@ -1,0 +1,380 @@
+{
+  "actual_complete_field_scope": "All50 own Hindi/Urdu fields, plus Ar/En/UrduRoman of Tirmidhi2296 and AbuDawud2330/2331;59 complete fields, with the additional six read after independent findings. No other reading is claimed.",
+  "records": [
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Inserted genealogy/Badri biographical explanation, retained as source context.",
+              "text": "(वह बनी आमिर बिन लुअय्य के एक फ़र्द और बद्री सहाबी हैं)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Lexical waiting-period label following the already explicit four-month-ten-day period.",
+              "text": "(की इद्दत)"
+            }
+          ],
+          "reason": "The complete Subayah correspondence/account remains with its actual nested voices and timing conditions. IbnShihab appended juristic exposition is source explanation and remains context; no independent report family is created from it. This binds the complete own hi reading.",
+          "spans": [
+            {
+              "component_id": "subayah-correspondence-account",
+              "from": null,
+              "report_type": "transmitted_companion_report_with_nested_dialogue",
+              "source_report_family_id": "abudawud:2306:hi:subayah-correspondence",
+              "speaker": "IbnShihab through Ubaydullah transmits the actual correspondence and Subayah account, preserving AbuSanabil objection and Messenger permission.",
+              "to": "इब्न शिहाब कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Inserted genealogy/Badri biographical explanation, retained as source context.",
+              "text": "( وہ بنی عامر بن لوی کے ایک فرد، اور بدری صحابی ہیں )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Lexical waiting-period label following the already explicit four-month-ten-day period.",
+              "text": "( کی عدت )"
+            }
+          ],
+          "reason": "The complete Subayah correspondence/account remains with its actual nested voices and timing conditions. IbnShihab appended juristic exposition is source explanation and remains context; no independent report family is created from it. This binds the complete own ur reading.",
+          "spans": [
+            {
+              "component_id": "subayah-correspondence-account",
+              "from": null,
+              "report_type": "transmitted_companion_report_with_nested_dialogue",
+              "source_report_family_id": "abudawud:2306:ur:subayah-correspondence",
+              "speaker": "IbnShihab through Ubaydullah transmits the actual correspondence and Subayah account, preserving AbuSanabil objection and Messenger permission.",
+              "to": "ابن شہاب کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2306",
+      "reason": "The complete Subayah correspondence/account remains with its actual nested voices and timing conditions. IbnShihab appended juristic exposition is source explanation and remains context; no independent report family is created from it."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source omitted-continuation ellipsis; no missing recitation is supplied.",
+              "text": "..."
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source chapter/verse locator; printed recitation and translation remain.",
+              "text": "(सौराह आल-फ़ुरक़ान: ६८)"
+            }
+          ],
+          "reason": "IbnMasud asks the greatest sins in order; printed answers name association with God, killing a child for food fears and the neighbour wife. A following narratorial revelation-confirmation statement contains actual recitation and translation; separate that attribution from the direct answers while retaining the same account family. Keep defective printed recitation/transliteration and translation. Explicit Furqan68 locator and omitted-continuation ellipsis need individually bound context cuts.",
+          "spans": [
+            {
+              "component_id": "ranked-sins-question-answer",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2310:hi:ranked-sins",
+              "speaker": "IbnMasud explicitly asks the Messenger the ranked sins and transmits the printed answers.",
+              "to": "निज़ा कहा:"
+            },
+            {
+              "component_id": "narratorial-revelation-confirmation",
+              "from": "निज़ा कहा:",
+              "report_type": "transmitted_narratorial_confirmation",
+              "source_report_family_id": "abudawud:2310:hi:ranked-sins",
+              "speaker": "The following also-said source voice reports revelation confirmation and the supplied verse wording; this is not converted into direct Messenger speech.",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit omitted-continuation pointer; actual preceding verse wording remains.",
+              "text": "الخ"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit source chapter/verse locator; printed recitation and translation remain.",
+              "text": "( سورۃ الفرقان: ۶۸ )"
+            }
+          ],
+          "reason": "IbnMasud asks the greatest sins in order; printed answers name association with God, killing a child for food fears and the neighbour wife. A following narratorial revelation-confirmation statement contains actual recitation and translation; separate that attribution from the direct answers while retaining the same account family. Keep actual recitation/translation; explicit Furqan68 locator and الخ omitted-continuation pointer are context. Opening parenthetic answer-ranking frame needs exact narrative assessment, not blanket parenthesis removal.",
+          "spans": [
+            {
+              "component_id": "ranked-sins-question-answer",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2310:ur:ranked-sins",
+              "speaker": "IbnMasud explicitly asks the Messenger the ranked sins and transmits the printed answers, including the source-supplied answer-ranking frame.",
+              "to": "نیز کہا:"
+            },
+            {
+              "component_id": "narratorial-revelation-confirmation",
+              "from": "نیز کہا:",
+              "report_type": "transmitted_narratorial_confirmation",
+              "source_report_family_id": "abudawud:2310:ur:ranked-sins",
+              "speaker": "The following also-said source voice reports revelation confirmation and the supplied verse wording; this is not converted into direct Messenger speech.",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2310",
+      "reason": "IbnMasud asks the greatest sins in order; printed answers name association with God, killing a child for food fears and the neighbour wife. A following narratorial revelation-confirmation statement contains actual recitation and translation; separate that attribution from the direct answers while retaining the same account family."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "IbnMasud finite group testimony: more shared twenty-nine-day fasts with the Prophet than thirty-day fasts. Complete report, with actual numbers unchanged. Whole finite co-practice testimony present; honorific retained.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_copractice_testimony",
+              "source_report_family_id": "abudawud:2322:hi:reported-account",
+              "speaker": "IbnMasud reports the actual group fasts with the Prophet; twenty-nine versus thirty stays exact.",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "IbnMasud finite group testimony: more shared twenty-nine-day fasts with the Prophet than thirty-day fasts. Complete report, with actual numbers unchanged. Whole finite co-practice testimony present; do not normalize wording or count.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_copractice_testimony",
+              "source_report_family_id": "abudawud:2322:ur:reported-account",
+              "speaker": "IbnMasud reports the actual group fasts with the Prophet; twenty-nine versus thirty stays exact.",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2322",
+      "reason": "IbnMasud finite group testimony: more shared twenty-nine-day fasts with the Prophet than thirty-day fasts. Complete report, with actual numbers unchanged."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Lexical definition of the already printed wuquf term.",
+              "text": "(ठहरने)"
+            }
+          ],
+          "reason": "AbuHurayra explicitly transmits the Prophet statement naming festival days and whole standing/sacrifice areas. Retain every place/domain/all qualifier. WuqUf gloss is lexical context. Broken joins and missing Makkah identity remain exactly as printed; do not fill from Urdu.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2324:hi:reported-account",
+              "speaker": "AbuHurayra transmits the explicitly named Prophet; defective place/action joins and the absent explicit Makkah name are not filled.",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Lexical definition of the already printed wuquf term.",
+              "text": "( ٹھہرنے )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "AbuHurayra explicitly transmits the Prophet statement naming festival days and whole standing/sacrifice areas. Retain every place/domain/all qualifier. WuqUf gloss is lexical context. Explicit Makkah streets remain; stopping-definition parenthesis and final footnote glyph are context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2324:ur:reported-account",
+              "speaker": "AbuHurayra transmits the explicitly named Prophet; the source explicitly includes Makkah streets and all-place qualifiers.",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2324",
+      "reason": "AbuHurayra explicitly transmits the Prophet statement naming festival days and whole standing/sacrifice areas. Retain every place/domain/all qualifier. WuqUf gloss is lexical context."
+    },
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ar field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own en field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own hi field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ur field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ur-Latn field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        }
+      },
+      "key": "abudawud:2330",
+      "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope."
+    },
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ar field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own en field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own hi field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ur field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope. This own ur-Latn field was read completely.",
+          "report_type": "lexical_explanation_only",
+          "speaker": "The source names lexical explainers, but no substantive report body is admitted."
+        }
+      },
+      "key": "abudawud:2331",
+      "reason": "All five complete own fields contain only a transmitted lexical definition and/or compiler lexical alternatives. The hearing/name formula does not supply substantive matn; explanatory material remains source-only under the project scope."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "SulaimanShaybani hears Abdullah ibnAbiAwfa narrate journey with fasting Prophet: sunset, repeated Bilal requests/objections, preparation/drinking and eastward night sign. Complete transmitted event with all temporal qualifiers and repeated dialogue preserved. Whole own narrative can be retained; vehicle descent is explicitly part of imperative.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2352:hi:reported-account",
+              "speaker": "SulaimanShaybani hears Abdullah ibnAbiAwfa recount the Messenger and Bilal, keeping all three instructions, sunset timing and eastward gesture.",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "SulaimanShaybani hears Abdullah ibnAbiAwfa narrate journey with fasting Prophet: sunset, repeated Bilal requests/objections, preparation/drinking and eastward night sign. Complete transmitted event with all temporal qualifiers and repeated dialogue preserved. The parenthetic vehicle-from qualifier supplies the object/domain of descent and is substantive narrative; retain it, not a generic lexical gloss.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "abudawud:2352:ur:reported-account",
+              "speaker": "SulaimanShaybani hears Abdullah ibnAbiAwfa recount the Messenger and Bilal; the sole vehicle-from descent qualifier remains substantive.",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2352",
+      "reason": "SulaimanShaybani hears Abdullah ibnAbiAwfa narrate journey with fasting Prophet: sunset, repeated Bilal requests/objections, preparation/drinking and eastward night sign. Complete transmitted event with all temporal qualifiers and repeated dialogue preserved."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuQilabah reports Shaddad actually walking with the Prophet. That finite witnessed-action frame exists independently of the later pointer. Admit only that frame with missing speech explicit; no content from the preceding hadith may be filled. Hanging while/then-he-said fragment and previous-hadith similarity pointer are context; retain the complete walking-with statement.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "abbreviated_companion_action_report",
+              "source_report_family_id": "abudawud:2368:hi:reported-account",
+              "speaker": "AbuQilabah reports Shaddad walking with the Prophet. Only that finite action is supplied; the subsequent speech body is absent.",
+              "to": "के इसी दौरान"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuQilabah reports Shaddad actually walking with the Prophet. That finite witnessed-action frame exists independently of the later pointer. Admit only that frame with missing speech explicit; no content from the preceding hadith may be filled. Same finite walking frame; dangling speech introduction and previous-hadith pointer are context, not invented Prophetic words.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "abbreviated_companion_action_report",
+              "source_report_family_id": "abudawud:2368:ur:reported-account",
+              "speaker": "AbuQilabah reports Shaddad walking with the Prophet. Only that finite action is supplied; the subsequent speech body is absent.",
+              "to": "کہ اسی دوران"
+            }
+          ]
+        }
+      },
+      "key": "abudawud:2368",
+      "reason": "AbuQilabah reports Shaddad actually walking with the Prophet. That finite witnessed-action frame exists independently of the later pointer. Admit only that frame with missing speech explicit; no content from the preceding hadith may be filled."
+    }
+  ],
+  "schema": "hadith-bank-manual-source-reading-instructions-v1",
+  "source_checkpoint": "5589a3ffc3b43c3324ae26f2b6c4d33152834456"
+}

@@ -1,0 +1,108 @@
+{
+  "baseline_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+  "baseline_root_tree": "bb937a8efb1fd95128f02b63028f4d25838d9355",
+  "classification": "Concurrent PR15 merge; not an acquisition checkpoint.",
+  "commit": "4b61373da1cd6205270f0c87d7c502ee5b36db26",
+  "committer": {
+    "date": "2026-11-13T15:56:25Z",
+    "email": "noreply@github.com",
+    "name": "GitHub"
+  },
+  "deen_progress_unchanged": {
+    "bytes": 147361,
+    "classification_pending_count": 217,
+    "git_blob_sha1": "2dcfcef38c94800e54fa2c284fb326c0551bf7d0",
+    "imported_count": 16169,
+    "non_narration_source_entries": 146,
+    "registered_hadith_count": 15806,
+    "sha256": "e2e84807801c4795b0cef25940e228f29776a982df92be50cee0ac3a33e29874"
+  },
+  "entire_imports_subtree_unchanged": {
+    "before_equals_after": true,
+    "git_tree_sha1": "2e1043e2e383321975442c96dc297ce56261980b"
+  },
+  "git_tree_proof_sha256": "2ad75c749966420b1a551b0beaa17f9ae06205d144894ba244353db44a4d4224",
+  "github_mutations": 0,
+  "interpretation": "Preserve both merge parents and the concurrent Japanese/reader changes when publishing later reviews. The checked Deen importer/review engine and state-gzip exporter are unchanged. No saved acquisition completion, source-job failure, or current deployment is inferred from this merge.",
+  "merge_root_tree": "e057d671a80976f3acaa8ad7373f89d22c49ef39",
+  "message": "Merge Japanese Fadael QC import and reviewed reading groups (#15)\n\nImport QC Japanese Fadael with reviewed duplicate-free reading groups",
+  "other_changed_script_entries_metadata_only": [
+    {
+      "after_blob": "3d7a59faa3666f1189134380e2938f0e4eb160fa",
+      "before_blob": "bd925922d3d7eb50ba0f1fc4f335d87ea229736a",
+      "path": "scripts/book_titles.py"
+    },
+    {
+      "after_blob": "02810d3a29b265afb495eb22e3579f3dda13fcb6",
+      "before_blob": "bdb86d45f4964562d2abfe846742d50190bfe220",
+      "path": "scripts/build_reader.py"
+    },
+    {
+      "after_blob": "fa2ae4b3d399806519cda0a8efa253d88086a325",
+      "before_blob": null,
+      "path": "scripts/import_japanese_fadael.py"
+    },
+    {
+      "after_blob": "40b23b31e3fe0a7f6f748b106d26771b9b25f6f4",
+      "before_blob": null,
+      "path": "scripts/reader_grouping.py"
+    },
+    {
+      "after_blob": "e174ce45814d16976929dfbb30857a3a716f3c5b",
+      "before_blob": "032b3ed24f16a63abd3815149ef5bb376c4144aa",
+      "path": "scripts/validate_bank_views.py"
+    },
+    {
+      "after_blob": "2e5f86117b069c78e41deac232c41c30f94858c3",
+      "before_blob": "b3adc953ca70311296dba93d86ce7f8ea019e341",
+      "path": "scripts/verify_reader_browser.py"
+    }
+  ],
+  "parents": [
+    "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+    "7cb61d9fe46bbfab826b9b1b93c451968910cbae"
+  ],
+  "result": "PASS",
+  "schema": "hadith-bank-concurrent-checkpoint-reconciliation-v1",
+  "script_trees": {
+    "after": "32a09a7471744d979abc57396c183acadc7c3b12",
+    "before": "d77a5425d6ada7bbeb769d68677cea057cad2f4b"
+  },
+  "source_http_requests": 0,
+  "source_worker_observation": {
+    "active_step": "Save validated source snapshots and queue checkpoints",
+    "artifact_observed": false,
+    "job_id": 131972485711,
+    "new_acquisition_counts_claimed": false,
+    "observed_at": "2026-11-13 16:02:57 UTC",
+    "run_id": 43450869489,
+    "status": "in_progress"
+  },
+  "unchanged_requested_paths": [
+    {
+      "bytes": 33105,
+      "git_blob_sha1": "458f2213b02f1f35bfcab17aebd4ac507b4d1740",
+      "path": "AGENTS.md",
+      "unchanged": true
+    },
+    {
+      "bytes": 51103,
+      "git_blob_sha1": "fa3c58387557a455b4323a09846bb407de3925e2",
+      "path": "scripts/import_deenhindi.py",
+      "unchanged": true
+    },
+    {
+      "bytes": 30227,
+      "git_blob_sha1": "7e6b27fb7cb76d2af8ce46c7033f6ccbf1ccdd12",
+      "path": "scripts/web_source_reviews.py",
+      "unchanged": true
+    },
+    {
+      "bytes": 17675,
+      "git_blob_sha1": "2ffbb84b219e85073c57263d819439d721a3cd12",
+      "path": "scripts/export_deenhindi_held_evidence.py",
+      "unchanged": true
+    }
+  ],
+  "unrelated_japanese_content_reviewed": false
+}

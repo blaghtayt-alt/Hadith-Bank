@@ -1,0 +1,946 @@
+{
+  "active_prior117_review_bindings": [
+    {
+      "git_blob_sha1": "de0877d255d4c59f003415cbb5b0e77ae7b55147",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
+      "sha256": "9fc8bf7fbee9027a1ad5cfd4c8debd4d18ba596e57dab9d70bab69cfdf0783fa"
+    },
+    {
+      "git_blob_sha1": "63bc0caa6c0bcc1e5d7354cb428a0121922d53c1",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-abudawud-tirmidhi21-20261113.json.gz",
+      "sha256": "b4735dc63110fd87e92205140a305fee5164f26eafe8b09bddcbca7643a13e34"
+    },
+    {
+      "git_blob_sha1": "4b3fff8d7421017fec36d9e23cef865b0913ea06",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-bukhari43-20261113.json.gz",
+      "sha256": "9819890c10d434ca3df69a4ebfee3f70d0aaadfb2aebc56360ebd740e79d9677"
+    },
+    {
+      "git_blob_sha1": "6ce839bce1061729f615bc162166fbe9c116c334",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-nasai-ibnmajah28-20261113.json.gz",
+      "sha256": "8d0dbd308198463389e36ad67ca94095b0402089cbef8a3b5ab0bbcd29de5eb6"
+    }
+  ],
+  "actual_progress_delta_from5589": {
+    "explanation": "Published117 reviews produce112 registrations and5 source-only dispositions; newly acquired495 contribute403 registrations and92 newly held rows, while the previous100 remain held.",
+    "fetched": 495,
+    "held": -25,
+    "registered": 515,
+    "source_only": 5
+  },
+  "bounded_artifact_audit": {
+    "archive_bytes": 6287811,
+    "archive_sha256": "4e55d16ef3eabbc79332430eeec9a599294866468cfcdbfed62d71d81bbaca10",
+    "artifact_metadata": {
+      "archive_download_url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14055391183/zip",
+      "created_at": "2026-11-13T16:03:20Z",
+      "digest": "sha256:4e55d16ef3eabbc79332430eeec9a599294866468cfcdbfed62d71d81bbaca10",
+      "expired": false,
+      "expires_at": "2026-11-27T16:03:19Z",
+      "id": 14055391183,
+      "name": "deenhindi-held-evidence-43450869489-1",
+      "size_in_bytes": 6287811,
+      "updated_at": "2026-11-13T16:03:20Z",
+      "url": "https://api.github.com/repos/blaghtayt-alt/Hadith-Bank/actions/artifacts/14055391183",
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1452784719,
+        "head_sha": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+        "id": 43450869489,
+        "repository_id": 1452784719
+      }
+    },
+    "bundle_bytes": 7534144,
+    "bundle_files": 389,
+    "checkpoint_sha256": "3d6076d3a01f64ca38da0daca285c118b18c817b1ec5f650661306fad42836ca",
+    "complete_history_comparison_performed": false,
+    "full_saved_state_bytes_hash_and_git_verified": true,
+    "github_writes": 0,
+    "manifest_sha256": "72f36a11482b3f630570d2c9298e73039fe6bf2978a17083bb17a3482981302f",
+    "raw_and_parsed_pairs_reopened_and_reparsed": 192,
+    "remaining_held_queue_count": 0,
+    "run_attempt": 1,
+    "run_id": 43450869489,
+    "saved_commit": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+    "saved_state": {
+      "bytes": 12991459,
+      "compression": "gzip",
+      "git_blob_sha1": "9580caaa0587797cbda69646e66bf2e1330858cb",
+      "maximum_uncompressed_bytes": 67108864,
+      "path": "saved-state.json.gz",
+      "sha256": "ab088c36fc4e4e44f9252067cbe34343226fb5479136a9b473d491ba63f2d34f",
+      "source_path": "imports/web-deenhindi-20261112/state.json",
+      "stored_bytes": 2115157,
+      "stored_sha256": "ba065b955f44c793853a25affe716333aee4e4d465e6deed4bbc7f6b6d1c5df5"
+    },
+    "schema": "hadith-bank-bounded-held-artifact-independent-verification-v1",
+    "selected_held_count": 192,
+    "semantic_review_decisions": 0,
+    "source_files_verified": 384,
+    "source_http_requests": 0,
+    "source_importer_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "status": "PASS",
+    "total_held_count": 192
+  },
+  "by_collection": {
+    "abudawud": {
+      "classification_pending": 16,
+      "fetched": 2461,
+      "fetched_count_delta_since5589": 82,
+      "inventory": 5274,
+      "newly_held_since5589": 8,
+      "non_narration_source_entries": 6,
+      "old100_still_held": 8,
+      "registered_hadith": 2439
+    },
+    "bukhari": {
+      "classification_pending": 42,
+      "fetched": 2479,
+      "fetched_count_delta_since5589": 83,
+      "inventory": 7589,
+      "newly_held_since5589": 22,
+      "non_narration_source_entries": 3,
+      "old100_still_held": 20,
+      "registered_hadith": 2434
+    },
+    "ibnmajah": {
+      "classification_pending": 25,
+      "fetched": 2452,
+      "fetched_count_delta_since5589": 82,
+      "inventory": 4343,
+      "newly_held_since5589": 10,
+      "non_narration_source_entries": 1,
+      "old100_still_held": 15,
+      "registered_hadith": 2426
+    },
+    "malik": {
+      "classification_pending": 0,
+      "fetched": 1858,
+      "fetched_count_delta_since5589": 0,
+      "inventory": 1858,
+      "newly_held_since5589": 0,
+      "non_narration_source_entries": 22,
+      "old100_still_held": 0,
+      "registered_hadith": 1836
+    },
+    "muslim": {
+      "classification_pending": 45,
+      "fetched": 2475,
+      "fetched_count_delta_since5589": 83,
+      "inventory": 7563,
+      "newly_held_since5589": 27,
+      "non_narration_source_entries": 86,
+      "old100_still_held": 18,
+      "registered_hadith": 2344
+    },
+    "nasai": {
+      "classification_pending": 38,
+      "fetched": 2466,
+      "fetched_count_delta_since5589": 82,
+      "inventory": 5765,
+      "newly_held_since5589": 16,
+      "non_narration_source_entries": 11,
+      "old100_still_held": 22,
+      "registered_hadith": 2417
+    },
+    "tirmidhi": {
+      "classification_pending": 26,
+      "fetched": 2473,
+      "fetched_count_delta_since5589": 83,
+      "inventory": 3998,
+      "newly_held_since5589": 9,
+      "non_narration_source_entries": 22,
+      "old100_still_held": 17,
+      "registered_hadith": 2425
+    }
+  },
+  "complete_excluded_file_receipts": [
+    {
+      "bytes": 9676,
+      "git_blob_sha1": "5a1ba02eb3343fd765b922916f72c1207c033167",
+      "path": "imports/web-deenhindi-20261112/excluded/bukhari.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "c9e16313261ab8f53c05362a13b75b63f10fec58b13ab2ce362f9874645f4997"
+    },
+    {
+      "bytes": 291399,
+      "git_blob_sha1": "5c4334f9917f42206534e683331a8c1f17088996",
+      "path": "imports/web-deenhindi-20261112/excluded/muslim.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "d03e845d9c5fbad7974e35f0d3c1b6967288066f46f83e3141633a53e6aa8715"
+    },
+    {
+      "bytes": 68312,
+      "git_blob_sha1": "8c55538c9908463620e1ef0eec332faa8878d3bf",
+      "path": "imports/web-deenhindi-20261112/excluded/tirmidhi.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "7bd4c9365499eb3be0e46f6fc3a37c5b5920448edcc1dcf1795b81c845288daa"
+    },
+    {
+      "bytes": 33717,
+      "git_blob_sha1": "a92d865e20ee4ee5f05428b9649448e53ac80d37",
+      "path": "imports/web-deenhindi-20261112/excluded/nasai.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "58c085671387639e644a6e93b3538449cc7d8c9376290c9e4ab131a8fe2cdabc"
+    },
+    {
+      "bytes": 32245,
+      "git_blob_sha1": "90cff07d81f7965395b3be4fc17fd8e9ca6a05d8",
+      "path": "imports/web-deenhindi-20261112/excluded/abudawud.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "a42fbcad29d775262f185203c5d929ea4e432ac4f19a619471923166c63c3bb0"
+    },
+    {
+      "bytes": 2339,
+      "git_blob_sha1": "64b1c980a3f482171d3c7d78f57c2f844a26582a",
+      "path": "imports/web-deenhindi-20261112/excluded/ibnmajah.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "5c8da2831dfa2b23f9e17e60ae43845819f347c437ee015a1cee3932b75d3465"
+    },
+    {
+      "bytes": 54487,
+      "git_blob_sha1": "064611ee4df33e9d08a7e97843890c86c5f5f387",
+      "path": "imports/web-deenhindi-20261112/excluded/malik.jsonl",
+      "reconstruction": "Exact prior excluded rows plus published five source-only decisions; entire resulting bytes independently match current committed Git blob",
+      "sha256": "d141349ab02409e0d27f8f38dabb765f13308e0b352a8f99d30f8ec06e0d4747"
+    }
+  ],
+  "complete_staged_file_receipts": [
+    {
+      "bytes": 302109,
+      "git_blob_sha1": "555b9915172df32399e239cdd7ed879475134238",
+      "path": "imports/web-deenhindi-20261112/staged/bukhari.jsonl",
+      "records": 42,
+      "sha256": "58eee256dff5be993015f1833d4214e878aceea3b92fccc31951b856e80e9f5c"
+    },
+    {
+      "bytes": 302534,
+      "git_blob_sha1": "81379463a6506a5e37a4c2c77c3c83206bc1498f",
+      "path": "imports/web-deenhindi-20261112/staged/muslim.jsonl",
+      "records": 45,
+      "sha256": "d5c9808cdc84280664f34e8b718d540d266544170e2b840e1219489db1d13aac"
+    },
+    {
+      "bytes": 208176,
+      "git_blob_sha1": "5dceb98359352f506415358570f4ee57de0d0c2b",
+      "path": "imports/web-deenhindi-20261112/staged/tirmidhi.jsonl",
+      "records": 26,
+      "sha256": "961c8021a9148b754e37a3d8d9576b18c9c2319fd9df5cd2aa8b1f6027fcea4f"
+    },
+    {
+      "bytes": 240217,
+      "git_blob_sha1": "5f1d6d5c2e3e432fe5b492ffbbf9492ab7d3da60",
+      "path": "imports/web-deenhindi-20261112/staged/nasai.jsonl",
+      "records": 38,
+      "sha256": "30dc267d9db166df42b03b529688e5684cddb2127d49c505ff6f472bb650e092"
+    },
+    {
+      "bytes": 91789,
+      "git_blob_sha1": "4ec3c1b14afaa780dbf9a03fffcb4af3f4db43b2",
+      "path": "imports/web-deenhindi-20261112/staged/abudawud.jsonl",
+      "records": 16,
+      "sha256": "0476fc906294733e28d4775116f255fc170278bb12a6eee731a7607369f2d8ee"
+    },
+    {
+      "bytes": 137084,
+      "git_blob_sha1": "ff8a4a29aff780fd9226835c489efd5b05aa8529",
+      "path": "imports/web-deenhindi-20261112/staged/ibnmajah.jsonl",
+      "records": 25,
+      "sha256": "96d60aebe0214f982da9b5fe67913289e1ab0485b4a96823a1d104e4956ab95d"
+    },
+    {
+      "bytes": 0,
+      "git_blob_sha1": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "imports/web-deenhindi-20261112/staged/malik.jsonl",
+      "records": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "full_state_comparison_baseline": {
+    "commit": "0639af7fd15786284b4c413fced77e38eec8825a",
+    "receipts": {
+      "inventory.json": {
+        "bytes": 507081,
+        "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+        "sha256": "fa8047fa9672438d7d0d926a8fb47b6e5d7d0fc03e734357543e7745f907d348"
+      },
+      "progress.json": {
+        "bytes": 147359,
+        "git_blob_sha1": "b59c1a180a0cafc7804dfe233d57b034238a9600",
+        "sha256": "89c4d10ee8d482152e42418415f3cce120deeb39f936f6f36d239a50d918d0ba"
+      },
+      "retry-authorizations.json": {
+        "bytes": 1447993,
+        "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+        "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+      },
+      "state.json": {
+        "bytes": 12538110,
+        "git_blob_sha1": "f9e6ab7f9f09810e05f3fc32c3711d4f12934c38",
+        "sha256": "5ce4a7ef9633cda58831c116d46f6a494703c6fa3931783d368fbd7fec62c4e1"
+      }
+    }
+  },
+  "full_state_transfer": {
+    "available": true,
+    "deterministic_gzip_recompression_exact": true,
+    "method": "Actual ordinary-run bounded diagnostic artifact exact saved-state.json.gz",
+    "receipt": {
+      "bytes": 12991459,
+      "compression": "gzip",
+      "git_blob_sha1": "9580caaa0587797cbda69646e66bf2e1330858cb",
+      "maximum_uncompressed_bytes": 67108864,
+      "path": "saved-state.json.gz",
+      "sha256": "ab088c36fc4e4e44f9252067cbe34343226fb5479136a9b473d491ba63f2d34f",
+      "source_path": "imports/web-deenhindi-20261112/state.json",
+      "stored_bytes": 2115157,
+      "stored_sha256": "ba065b955f44c793853a25affe716333aee4e4d465e6deed4bbc7f6b6d1c5df5"
+    },
+    "state_download_receipt": {
+      "archive_sha256": "4e55d16ef3eabbc79332430eeec9a599294866468cfcdbfed62d71d81bbaca10",
+      "artifact_id": 14055391183,
+      "bytes": 12991459,
+      "complete_history_comparison_performed": false,
+      "compression": "gzip",
+      "git_blob_sha1": "9580caaa0587797cbda69646e66bf2e1330858cb",
+      "maximum_uncompressed_bytes": 67108864,
+      "method": "Verified deterministic saved-state gzip in the bounded committed-head artifact",
+      "path": "saved-state.json.gz",
+      "saved_commit": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "sha256": "ab088c36fc4e4e44f9252067cbe34343226fb5479136a9b473d491ba63f2d34f",
+      "source_path": "imports/web-deenhindi-20261112/state.json",
+      "stored_bytes": 2115157,
+      "stored_sha256": "ba065b955f44c793853a25affe716333aee4e4d465e6deed4bbc7f6b6d1c5df5"
+    }
+  },
+  "github_writes_by_auditor": 0,
+  "held_partition": {
+    "counts": {
+      "current_held": 192,
+      "newly_held": 92,
+      "old117_registered": 112,
+      "old117_source_only": 5,
+      "old_still_held": 100
+    },
+    "input_delivery_manifest_sha256": "92b60d166a38b826cf7232c61ba7ae497539df0ff387a0d333d004ddb3974ee6",
+    "new92_keys": [
+      "abudawud:2385",
+      "abudawud:2403",
+      "abudawud:2405",
+      "abudawud:2409",
+      "abudawud:2417",
+      "abudawud:2423",
+      "abudawud:2426",
+      "abudawud:2456",
+      "bukhari:2390",
+      "bukhari:2394",
+      "bukhari:2395",
+      "bukhari:2401",
+      "bukhari:2405",
+      "bukhari:2406",
+      "bukhari:2407",
+      "bukhari:2413",
+      "bukhari:2415",
+      "bukhari:2418",
+      "bukhari:2423",
+      "bukhari:2425",
+      "bukhari:2427",
+      "bukhari:2431",
+      "bukhari:2437.2",
+      "bukhari:2439",
+      "bukhari:2450",
+      "bukhari:2460",
+      "bukhari:2461",
+      "bukhari:2462",
+      "bukhari:2464",
+      "bukhari:2467",
+      "ibnmajah:2376",
+      "ibnmajah:2389",
+      "ibnmajah:2392",
+      "ibnmajah:2396",
+      "ibnmajah:2428",
+      "ibnmajah:2437",
+      "ibnmajah:2444",
+      "ibnmajah:2448",
+      "ibnmajah:2449",
+      "ibnmajah:2450",
+      "muslim:2403",
+      "muslim:2404",
+      "muslim:2409",
+      "muslim:2419",
+      "muslim:2424",
+      "muslim:2428",
+      "muslim:2429",
+      "muslim:2431",
+      "muslim:2432",
+      "muslim:2433",
+      "muslim:2435",
+      "muslim:2437",
+      "muslim:2438",
+      "muslim:2440",
+      "muslim:2441",
+      "muslim:2442",
+      "muslim:2443",
+      "muslim:2445",
+      "muslim:2447",
+      "muslim:2448",
+      "muslim:2449",
+      "muslim:2453",
+      "muslim:2454",
+      "muslim:2464",
+      "muslim:2465",
+      "muslim:2466",
+      "muslim:2474",
+      "nasai:2387",
+      "nasai:2389",
+      "nasai:2395",
+      "nasai:2405",
+      "nasai:2406",
+      "nasai:2407",
+      "nasai:2412",
+      "nasai:2416",
+      "nasai:2436",
+      "nasai:2438",
+      "nasai:2447",
+      "nasai:2451",
+      "nasai:2452",
+      "nasai:2453",
+      "nasai:2455",
+      "nasai:2460",
+      "tirmidhi:2382",
+      "tirmidhi:2392",
+      "tirmidhi:2397",
+      "tirmidhi:2406",
+      "tirmidhi:2410",
+      "tirmidhi:2413",
+      "tirmidhi:2429",
+      "tirmidhi:2434",
+      "tirmidhi:2454"
+    ],
+    "old100_unchanged_held_keys": [
+      "abudawud:2306",
+      "abudawud:2310",
+      "abudawud:2322",
+      "abudawud:2324",
+      "abudawud:2330",
+      "abudawud:2331",
+      "abudawud:2352",
+      "abudawud:2368",
+      "bukhari:2313",
+      "bukhari:2316",
+      "bukhari:2317",
+      "bukhari:2325",
+      "bukhari:2327",
+      "bukhari:2329",
+      "bukhari:2332",
+      "bukhari:2334",
+      "bukhari:2345",
+      "bukhari:2346",
+      "bukhari:2347",
+      "bukhari:2349",
+      "bukhari:2351",
+      "bukhari:2352",
+      "bukhari:2366",
+      "bukhari:2375",
+      "bukhari:2376",
+      "bukhari:2380",
+      "bukhari:2381",
+      "bukhari:2382",
+      "ibnmajah:2291",
+      "ibnmajah:2298",
+      "ibnmajah:2303",
+      "ibnmajah:2305",
+      "ibnmajah:2307",
+      "ibnmajah:2310",
+      "ibnmajah:2329",
+      "ibnmajah:2332",
+      "ibnmajah:2345",
+      "ibnmajah:2346",
+      "ibnmajah:2349",
+      "ibnmajah:2352",
+      "ibnmajah:2355",
+      "ibnmajah:2360",
+      "ibnmajah:2370",
+      "muslim:2313",
+      "muslim:2320",
+      "muslim:2324",
+      "muslim:2325",
+      "muslim:2327",
+      "muslim:2331",
+      "muslim:2344",
+      "muslim:2349",
+      "muslim:2352",
+      "muslim:2353",
+      "muslim:2354",
+      "muslim:2355",
+      "muslim:2356",
+      "muslim:2357",
+      "muslim:2365",
+      "muslim:2369",
+      "muslim:2382",
+      "muslim:2384",
+      "nasai:2300",
+      "nasai:2301",
+      "nasai:2303",
+      "nasai:2305",
+      "nasai:2310",
+      "nasai:2311",
+      "nasai:2314",
+      "nasai:2322",
+      "nasai:2323",
+      "nasai:2325",
+      "nasai:2327",
+      "nasai:2330",
+      "nasai:2336",
+      "nasai:2348",
+      "nasai:2349",
+      "nasai:2354",
+      "nasai:2357",
+      "nasai:2358",
+      "nasai:2369",
+      "nasai:2370",
+      "nasai:2378",
+      "nasai:2379",
+      "tirmidhi:2296",
+      "tirmidhi:2329",
+      "tirmidhi:2330",
+      "tirmidhi:2335",
+      "tirmidhi:2342",
+      "tirmidhi:2350",
+      "tirmidhi:2356",
+      "tirmidhi:2357",
+      "tirmidhi:2358",
+      "tirmidhi:2359",
+      "tirmidhi:2363",
+      "tirmidhi:2365",
+      "tirmidhi:2366",
+      "tirmidhi:2367",
+      "tirmidhi:2371",
+      "tirmidhi:2372",
+      "tirmidhi:2377"
+    ],
+    "old117_registered_keys": [
+      "abudawud:2221",
+      "abudawud:2222",
+      "abudawud:2232",
+      "abudawud:2233",
+      "abudawud:2234",
+      "abudawud:2236",
+      "abudawud:2243",
+      "abudawud:2251",
+      "abudawud:2253",
+      "abudawud:2258",
+      "abudawud:2268",
+      "abudawud:2269",
+      "abudawud:2272",
+      "abudawud:2276",
+      "abudawud:2280",
+      "bukhari:2228",
+      "bukhari:2230",
+      "bukhari:2231",
+      "bukhari:2232",
+      "bukhari:2233",
+      "bukhari:2239",
+      "bukhari:2240",
+      "bukhari:2240.2",
+      "bukhari:2241",
+      "bukhari:2242",
+      "bukhari:2243",
+      "bukhari:2244",
+      "bukhari:2245",
+      "bukhari:2246",
+      "bukhari:2247",
+      "bukhari:2248",
+      "bukhari:2249",
+      "bukhari:2250",
+      "bukhari:2251",
+      "bukhari:2253",
+      "bukhari:2254",
+      "bukhari:2255",
+      "bukhari:2256",
+      "bukhari:2257",
+      "bukhari:2259",
+      "bukhari:2261",
+      "bukhari:2263",
+      "bukhari:2265",
+      "bukhari:2266",
+      "bukhari:2274",
+      "bukhari:2275",
+      "bukhari:2276",
+      "bukhari:2277",
+      "bukhari:2278",
+      "bukhari:2279",
+      "bukhari:2283",
+      "bukhari:2284",
+      "bukhari:2289",
+      "bukhari:2292",
+      "bukhari:2293",
+      "bukhari:2299",
+      "bukhari:2301",
+      "ibnmajah:2213",
+      "ibnmajah:2223",
+      "ibnmajah:2228",
+      "ibnmajah:2249",
+      "ibnmajah:2251",
+      "ibnmajah:2263",
+      "ibnmajah:2265",
+      "ibnmajah:2267",
+      "ibnmajah:2280",
+      "muslim:2237",
+      "muslim:2238",
+      "muslim:2240",
+      "muslim:2241",
+      "muslim:2243",
+      "muslim:2244",
+      "muslim:2245",
+      "muslim:2259",
+      "muslim:2262",
+      "muslim:2279",
+      "muslim:2280",
+      "muslim:2283",
+      "muslim:2284",
+      "muslim:2285",
+      "muslim:2286",
+      "muslim:2287",
+      "muslim:2291",
+      "muslim:2293",
+      "muslim:2300",
+      "muslim:2301",
+      "muslim:2305",
+      "muslim:2306",
+      "muslim:2307",
+      "nasai:2232",
+      "nasai:2239",
+      "nasai:2264",
+      "nasai:2265",
+      "nasai:2267",
+      "nasai:2269",
+      "nasai:2270",
+      "nasai:2271",
+      "nasai:2273",
+      "nasai:2275",
+      "nasai:2276",
+      "nasai:2277",
+      "nasai:2279",
+      "nasai:2281",
+      "nasai:2288",
+      "nasai:2291",
+      "nasai:2298",
+      "tirmidhi:2225",
+      "tirmidhi:2239",
+      "tirmidhi:2240",
+      "tirmidhi:2246",
+      "tirmidhi:2289",
+      "tirmidhi:2290"
+    ],
+    "old117_source_only_keys": [
+      "bukhari:2239.2",
+      "muslim:2264",
+      "muslim:2299",
+      "nasai:2259",
+      "nasai:2295"
+    ]
+  },
+  "immutable_tree_proofs": {
+    "all_git_tree_hashes_reconstructed": true,
+    "entries": 143,
+    "trees": 6
+  },
+  "independent_pro_qc": "not_performed",
+  "intermediate_checkpoint_scope": {
+    "commit": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+    "direct_full5589_to_bd4a_descriptor_comparison_performed": false,
+    "full_state_available": false,
+    "held_rows": {
+      "bytes": 1312124,
+      "git_blob_sha1": "ec3d96542c74ab8767b3d09d2b53d9d4822420ba",
+      "sha256": "5f7422830c6f08ef02d2c544c7f414ceb8c60bb6ea29685955dd86ddddbb98d3"
+    },
+    "limitation": "The failed intermediate full-state transfer is not replaced by an invented direct comparison. The complete prior217 held rows/descriptors and saved progress are compared; full history and imported descriptors are compared from exact0639.",
+    "progress": {
+      "bytes": 147361,
+      "git_blob_sha1": "2dcfcef38c94800e54fa2c284fb326c0551bf7d0",
+      "sha256": "e2e84807801c4795b0cef25940e228f29776a982df92be50cee0ac3a33e29874"
+    }
+  },
+  "job_id": 131972485711,
+  "live_reader_deployment_verified": false,
+  "new_semantic_decisions": 0,
+  "published_phase15_review_input_changes_exactly_consumed": true,
+  "raw_source_audit_scope": "All192 current held raw/parsed pairs were reopened and reparsed, including all92 next-cohort pairs. Other newly registered pages were not individually reopened by this auditor; successful worker validation and saved counts are recorded.",
+  "retry_audit": {
+    "all1000_attempts_succeeded_and_unchanged": true,
+    "all1000_manifest_entries_preserved": true,
+    "all1000_original_error_objects_retained": true,
+    "all_authorizations_max_requests_one": true,
+    "remaining_retry_eligibility": 0
+  },
+  "review_application_derivation": "Complete committed held and excluded files, full imported descriptors, exact active ledger decisions and saved counts establish dispositions. Individual canonical material shards were not newly downloaded.",
+  "review_input_change_count": 163,
+  "run_conclusion": "success",
+  "run_id": 43450869489,
+  "saved_commit": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+  "saved_commit_parent": "4b61373da1cd6205270f0c87d7c502ee5b36db26",
+  "saved_commit_time_utc": "2026-11-13T15:58:33Z",
+  "saved_progress": {
+    "block_reason": null,
+    "blocked": false,
+    "certified_release_eligible": false,
+    "classification_pending_count": 192,
+    "done": false,
+    "errors_count": 0,
+    "historical_error_identities_count": 1000,
+    "imported_count": 16664,
+    "inventory_count": 36390,
+    "non_narration_source_entries": 151,
+    "pending_fetch_count": 19726,
+    "registered_hadith_count": 16321,
+    "remaining_count": 19726,
+    "requires_attention": false,
+    "resolved_historical_error_identities_count": 1000,
+    "reviewed_error_attempts_count": 1000,
+    "reviewed_error_retry_pending_count": 0,
+    "site": "deenhindi.com",
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "unresolved_historical_error_identities_count": 0,
+    "updated_at": "2026-11-13T15:54:50.549081+00:00"
+  },
+  "saved_tree": "ec2ff078863299dcffe4dc718c725e9dc19dd8cc",
+  "schema": "hadith-bank-saved-acquisition-state-audit-v5",
+  "source_controls": {
+    "plan_deenhindi": {
+      "continuation_basis": "Owner requested complete Hindi alongside Urdu and Bengali on 2026-11-12. Continue the existing finite source queue after each validated, saved batch that fetched new pages; stop on no progress, completion, exclusion or an access/worker stop.",
+      "continue_after_success": true,
+      "delay_seconds": 1.25,
+      "enabled": true,
+      "max_requests_per_batch": 1000,
+      "max_seconds_per_batch": 1800
+    },
+    "source_importer_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "source_stop_guards_and_workflow_cadence_preserved": true,
+    "unchanged_files": [
+      {
+        "ancestor_tree_sha1": "63a9a864d89066720512d1016446ea45fc8ad1df",
+        "bytes": 1662,
+        "comparison_baseline": "0639af7fd15786284b4c413fced77e38eec8825a",
+        "git_blob_sha1": "07b5f55dfaefda3f7b5d222d73b59c10c9c47240",
+        "path": "catalog/web-import-plan.json",
+        "sha256": "95dc303bd8792e7c9246e997b7fea177cde7366903c2e08c318a494050bdc405",
+        "unchanged_entire_ancestor_tree": "catalog"
+      },
+      {
+        "ancestor_tree_sha1": "c63efaaf83c976ea4aa8eec6f4bc9bae6842421c",
+        "bytes": 18283,
+        "comparison_baseline": "0639af7fd15786284b4c413fced77e38eec8825a",
+        "git_blob_sha1": "dd4df70908f0db6f4ec0b439e70219cfbea859c9",
+        "path": ".github/workflows/import-web-hadith.yml",
+        "sha256": "595ce5e8cf1033fab7ebe0138d8d9981c8eb992fd312a6f8ade3171c828c3609",
+        "unchanged_entire_ancestor_tree": ".github"
+      }
+    ]
+  },
+  "source_http_requests_by_auditor": 0,
+  "source_input_receipts": {
+    "inventory.json": {
+      "bytes": 507081,
+      "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+      "path": "imports/web-deenhindi-20261112/inventory.json",
+      "ref": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "retrieval_method": "Previously verified complete bytes reused only after exact current Git blob and size match",
+      "sha256": "fa8047fa9672438d7d0d926a8fb47b6e5d7d0fc03e734357543e7745f907d348"
+    },
+    "progress.json": {
+      "bytes": 200902,
+      "git_blob_sha1": "d51a70244bdb3b74311a3200460d9fb84a8287e2",
+      "path": "imports/web-deenhindi-20261112/progress.json",
+      "ref": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "retrieval_method": "Exact GitHub commit file",
+      "sha256": "1d2dab7f60271117a828d24cea046023cd59725ecd1ce015d649a1be5d0a862c"
+    },
+    "retry-authorizations.json": {
+      "bytes": 1447993,
+      "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+      "path": "imports/web-deenhindi-20261112/retry-authorizations.json",
+      "ref": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "retrieval_method": "Previously verified complete bytes reused only after exact current Git blob and size match",
+      "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+    },
+    "state.json": {
+      "bytes": 12991459,
+      "git_blob_sha1": "9580caaa0587797cbda69646e66bf2e1330858cb",
+      "path": "imports/web-deenhindi-20261112/state.json",
+      "ref": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "retrieval_method": "Exact original state bytes from independently verified bounded artifact deterministic gzip",
+      "sha256": "ab088c36fc4e4e44f9252067cbe34343226fb5479136a9b473d491ba63f2d34f"
+    }
+  },
+  "source_state_preservation": {
+    "errors_after": 0,
+    "errors_before": 0,
+    "new_imported_ids_since_full0639": 992,
+    "new_retry_attempts": 0,
+    "prior_complete_history_lists_exactly_equal": 1000,
+    "prior_consumed_retry_receipts_exactly_equal": 1000,
+    "prior_errors_and_control_keys_preserved": true,
+    "prior_imported_descriptors_exactly_equal": 15672,
+    "site_evidence_content_unchanged": true,
+    "site_evidence_timestamp_changes_only": [
+      {
+        "after_retrieved_at": "2026-11-13T15:22:04.249044+00:00",
+        "before_retrieved_at": "2026-11-13T13:52:21.836599+00:00",
+        "content_sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25",
+        "key": "robots"
+      }
+    ]
+  },
+  "status": "PASS",
+  "successors_observed": [
+    {
+      "conclusion": null,
+      "created_at": "2026-11-13T16:03:12Z",
+      "event": "workflow_dispatch",
+      "head_sha": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "id": 43458763961,
+      "status": "in_progress",
+      "updated_at": "2026-11-13T16:03:27Z"
+    },
+    {
+      "conclusion": null,
+      "created_at": "2026-11-13T16:03:10Z",
+      "event": "workflow_dispatch",
+      "head_sha": "bd4a75695d3c695e98bf8efa5ce07764ac5e2633",
+      "id": 43458757814,
+      "status": "pending",
+      "updated_at": "2026-11-13T16:03:12Z"
+    }
+  ],
+  "worker_steps": [
+    {
+      "conclusion": "success",
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check out the current bank and saved source queues",
+      "number": 2,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Set up Python",
+      "number": 3,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check importer and reader regressions",
+      "number": 4,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Recover the approved archived Deen source snapshots",
+      "number": 5,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Rebuild the recovered checkpoint without new source requests",
+      "number": 6,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Resume bounded public-page batches",
+      "number": 7,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Save validated source snapshots and queue checkpoints",
+      "number": 8,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Request the website build after a saved or unchanged checkpoint",
+      "number": 9,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Continue the authorized Hindi queue after saved progress",
+      "number": 10,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Record the run outcome and source progress",
+      "number": 11,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Pause the finite schedule when no source can continue",
+      "number": 12,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Export bounded held evidence from the saved checkpoint",
+      "number": 13,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain bounded ordinary held-source evidence",
+      "number": 14,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain diagnostic logs for every outcome",
+      "number": 15,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the recovered source delta and review queue",
+      "number": 16,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the bounded held-source evidence bundle",
+      "number": 17,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Preserve interrupted intake evidence for recovery",
+      "number": 18,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Set up Python",
+      "number": 35,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Check out the current bank and saved source queues",
+      "number": 36,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job",
+      "number": 37,
+      "status": "completed"
+    }
+  ]
+}

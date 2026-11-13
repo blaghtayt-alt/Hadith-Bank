@@ -1,0 +1,77 @@
+{
+  "actual_characters": 25470,
+  "actual_utf8_bytes": 52806,
+  "candidate_v1_active_sha256": "b2f5305335c2a896ea850a2ef79b7f6b878a6f6f72e5301972c256cd1d8296af",
+  "candidate_v1_manifest_sha256": "4e82a1b13b65c21c8d31034e79439e11b1353aea1ca27d6510513aa2308668ec",
+  "complete_independent_fields_read": 59,
+  "exact_span_findings": [
+    {
+      "action": "move_appended_legal_exposition_to_context",
+      "end": 1560,
+      "id": "deenhindi-abudawud:2306",
+      "language": "hi",
+      "start": 1395,
+      "text": "इब्न शिहाब कहते हैं: मेरे ख्याल में बच्चा जनने के बाद औरत के निकाह करने में कोई हरज नहीं, अगरचे वह हालत-ए-निफ़ास ही में हो, अलबत्ता पाक होने तक शौहर सोहबत नहीं करेगा."
+    },
+    {
+      "action": "move_appended_legal_exposition_to_context",
+      "end": 1416,
+      "id": "deenhindi-abudawud:2306",
+      "language": "ur",
+      "start": 1260,
+      "text": "ابن شہاب کہتے ہیں: میرے خیال میں بچہ جننے کے بعد عورت کے نکاح کرنے میں کوئی حرج نہیں گرچہ وہ حالت نفاس ہی میں ہو البتہ پاک ہونے تک شوہر صحبت نہیں کرے گا ۱؎۔"
+    },
+    {
+      "action": "restore_supplied_object_alternative",
+      "end": 90,
+      "id": "deenhindi-tirmidhi:2363",
+      "language": "hi",
+      "start": 82,
+      "text": "(या मेज़)"
+    },
+    {
+      "action": "restore_supplied_object_alternative",
+      "end": 76,
+      "id": "deenhindi-tirmidhi:2363",
+      "language": "ur",
+      "start": 66,
+      "text": "( یا میز )"
+    }
+  ],
+  "expected_final_counts": {
+    "admitted_fields": 44,
+    "read_context_fields": 15,
+    "read_fields": 59,
+    "register": 22,
+    "source_only": 3,
+    "unread_context_fields": 66
+  },
+  "independent_pro_qc": "not_performed",
+  "other_boundary_voice_decisions": "All other50 Hindi/Urdu boundaries and the all-five Tirmidhi2296 source-only case were compared with the full original fields. Preserve the actual finite dialogue/practice/recollection, their conditions and speaker qualifiers, source corruption and all existing compiler/gloss cuts. No other change is requested.",
+  "own_source_first_sha256": "9c43db15281646afead594e6e9e313ec32f5c0ce9521134c660968ee3c898af4",
+  "source_commit": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+  "source_only_reclassifications": [
+    {
+      "all_five_fields_read": true,
+      "id": "deenhindi-abudawud:2330",
+      "reason": "Every supplied language contains a word definition and transmission/lexical discussion. AGENTS excludes explanatory material even when it has a provider number."
+    },
+    {
+      "all_five_fields_read": true,
+      "id": "deenhindi-abudawud:2331",
+      "reason": "Every supplied language contains a word definition and transmission/lexical discussion. AGENTS excludes explanatory material even when it has a provider number."
+    }
+  ],
+  "status": "REQUIRES_NARROW_V2",
+  "transparent_refinement_of_initial_notes": [
+    {
+      "final_judgment": "Retain it: it is a finite ranking predicate within the supplied answer, not a lexical definition. This refinement follows rereading of the complete source in its answer context, not an automatic keep-all-parentheses rule.",
+      "id": "deenhindi-abudawud:2310",
+      "initial_concern": "The parenthetic greatest-sin-is-that formula repeats the preceding question.",
+      "language": "ur"
+    }
+  ],
+  "unchanged_existing_explicit_field_decisions_expected": 45,
+  "unchanged_field_slots_expected": 111,
+  "unchanged_whole_parents_expected": 21
+}

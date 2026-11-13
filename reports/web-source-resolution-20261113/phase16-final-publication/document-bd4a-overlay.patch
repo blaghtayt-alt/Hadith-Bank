@@ -1,0 +1,60 @@
+--- document-update-v1.md
++++ document-update-v2.md
+@@ -76,6 +76,44 @@
+ additional held rows and reduce the unfetched queue. These decisions do not
+ claim that the finite Deen Hindi acquisition queue is complete.
+ 
++### Later verified acquisition checkpoint bd4a
++
++The ordinary source workflow then completed run
++[`43450869489`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43450869489)
++and saved
++[`bd4a75695d3c695e98bf8efa5ce07764ac5e2633`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/bd4a75695d3c695e98bf8efa5ce07764ac5e2633)
++on top of the concurrent PR15 merge. Its exact saved export records **16,664
++fetched, 16,321 registered, 151 source-only, 192 held and 19,726 ordinary unfetched
++occurrences**, with zero current errors and no access block.
++
++The 495 newly fetched occurrences comprise 403 registered and 92 newly held.
++The earlier 117 review decisions were consumed by this saved export. Its 192
++held rows consist of the **unchanged 100 reviewed in this checkpoint plus 92 new
++occurrences**; their source objects and immutable descriptors were compared
++before publication. The new 92 are disjoint from the full preceding 217-held set
++and the 15,672 imported occurrences in the complete 0639 baseline.
++
++| Fixed bd4a source data | Fetched | Registered | Source-only | Held | Unfetched |
++| --- | ---: | ---: | ---: | ---: | ---: |
++| Actual saved export | 16,664 | 16,321 | 151 | 192 | 19,726 |
++| Derived application of these 100 reviewed decisions | 16,664 | 16,417 | 155 | 92 | 19,726 |
++
++The second row remains a derived projection until a subsequent saved export
++consumes this publication. The 92 next-review source occurrences are eight Abu
++Dawud, 22 Bukhari,ten Ibn Majah, 27 Muslim, 16 Nasai and nine Tirmidhi. Their source
++verification is complete; no linguistic admission is claimed for them here.
++
++The bounded artifact now includes the exact complete saved state through the
++published gzip repair: **2,115,157 compressed bytes expand to 12,991,459 exact
++original bytes**, matching the state file's Git blob at bd4a. The audit checks all
++384 raw/parsed files and 192 raw reparses, preserves every one of the 15,672 baseline source
++descriptor and all 1,000 historical error-attempt lists/consumed attempts. This
++is a full bd4a-to0639 history comparison; the unavailable complete 5589
++intermediate state is not falsely claimed as compared. The original compressed
++and decompressed hashes, size bounds, Git path bindings and complete next 92
++partition are recorded in the
++[bd4a acquisition audit package](../reports/web-source-resolution-20261113/phase16-bd4a-full-acquisition-audit-delivery-manifest.json).
++
+ ### Original requested groups and remaining language work
+ 
+ The original 3,942 Deen Hindi held parents remain resolved as 3,821 registered and
+@@ -117,9 +155,9 @@
+ uses its exact progress and bounded 217-row source artifact; the complete 5589
+ state file was not transferred successfully in that earlier audit. No full
+ after-state history comparison is implied by the successful source reparse or
+-linguistic review. The published diagnostic-exporter repair includes exact
+-compressed saved-state bytes in future bounded artifacts while preserving all
+-existing size caps and source request budgets.
++linguistic review. The published diagnostic-exporter repair has now been exercised by the
++completed bd4a workflow, as recorded above. It preserves exact full-state bytes
++inside the existing artifact size caps without changing source request budgets.
+ 
+ ### Completed reader validation and actual deployment
+ 

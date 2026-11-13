@@ -1,0 +1,2046 @@
+{
+  "canonical_priority_queue_staged_or_changed": false,
+  "fresh_main_complete_tree_and_expected_head_lease_required": true,
+  "frozen_payloads_checked": 214,
+  "generated_at_utc": "2026-11-13T16:03:51.204332+00:00",
+  "github_writes": 0,
+  "identical_path_hash_deduplications": [],
+  "later_main_observation_from_root": {
+    "commit": "4b61373da1cd6205270f0c87d7c502ee5b36db26",
+    "independently_verified_by_this_stager": false,
+    "kind": "concurrent PR15 Japanese Fadael QC merge; no new Deen acquisition checkpoint reported",
+    "preserve_merge_and_refresh_before_publish": true
+  },
+  "latest_main_proof_claimed": false,
+  "limitations": "Every absence proof is relative only to the exact e3f88ac8 tree. Root must preserve the later concurrent merge and refresh current complete trees before a normal expected-head publication. This assembly makes no new source acquisition, linguistic decision, export or deployment claim.",
+  "new_active_ledgers": [
+    "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1.json.gz",
+    "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-abudawud-tirmidhi25-20261113.json.gz",
+    "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-bukhari20-ibnmajah5-20261113.json.gz",
+    "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-nasai-ibnmajah25-20261113.json.gz"
+  ],
+  "only_permitted_existing_path": "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+  "package_receipts": [
+    {
+      "kind": "primary",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-bukhari20-ibnmajah5.json",
+      "manifest_sha256": "e0398ac52d28c68710a0e8d8e41c467ef23340c4b727761f2a615201398e1ba5",
+      "name": "primary-bukhari20-ibnmajah5",
+      "payload_files": 27
+    },
+    {
+      "kind": "independent",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-bukhari20-ibnmajah5.json",
+      "manifest_sha256": "e84d12f4bd19f110546aa83151552fec5998bd21e23af3f7f42fe8ecb3da515a",
+      "name": "independent-bukhari20-ibnmajah5",
+      "payload_files": 8
+    },
+    {
+      "kind": "primary",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-muslim18-ibnmajah7.json",
+      "manifest_sha256": "ec9239b35946aedf1b3a0bd29d13c9c4b94a6956f644527ab0ab8c37aa6495ca",
+      "name": "primary-muslim18-ibnmajah7",
+      "payload_files": 13
+    },
+    {
+      "kind": "independent",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-muslim18-ibnmajah7.json",
+      "manifest_sha256": "30fa4430f9fa14f164c4e2e80c7006527d859bfe7e4b0c4feb3f8f17255a7a7a",
+      "name": "independent-muslim18-ibnmajah7",
+      "payload_files": 8
+    },
+    {
+      "kind": "primary",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-nasai22-ibnmajah3.json",
+      "manifest_sha256": "ecdf0e8a13a7d2591830ca61af738be297e78b62d531f061df94401b5e80ae04",
+      "name": "primary-nasai22-ibnmajah3",
+      "payload_files": 33
+    },
+    {
+      "kind": "independent",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-nasai22-ibnmajah3.json",
+      "manifest_sha256": "0afe7aed8ad02c8e425995d018e040213693ac80350e742e1e8c44421ea6c5c3",
+      "name": "independent-nasai22-ibnmajah3",
+      "payload_files": 8
+    },
+    {
+      "kind": "primary",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-abudawud8-tirmidhi17.json",
+      "manifest_sha256": "91beeed3d9617c464001117c9794f4fef76d296d1f015ce36d3accca0578ec91",
+      "name": "primary-abudawud8-tirmidhi17",
+      "payload_files": 60
+    },
+    {
+      "kind": "independent",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-abudawud8-tirmidhi17.json",
+      "manifest_sha256": "6c7ea45fd387a7e0e02934c237169f6320b61547c0404663e313e8b9155d9ce0",
+      "name": "independent-abudawud8-tirmidhi17",
+      "payload_files": 9
+    },
+    {
+      "kind": "integration",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/all100-integration.json",
+      "manifest_sha256": "493885d407c8a26ee40a9e90406b182cc62ded5dbd46343e34616f1e556cb066",
+      "name": "all100-integration",
+      "payload_files": 7
+    },
+    {
+      "kind": "source_partitions",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/original-source-partitions.json",
+      "manifest_sha256": "6dd654b3e8900cb19b3bd50ed76558dedb5fc7840459e495c3c05672ec7d629c",
+      "name": "original-source-partitions",
+      "payload_files": 18
+    },
+    {
+      "kind": "phase15_readback",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/phase15-independent-readback.json",
+      "manifest_sha256": "acecb392de36e764af845acb7e0bf837f8889a07ea7d7354fbd9564761441654",
+      "name": "phase15-independent-readback",
+      "payload_files": 3
+    },
+    {
+      "kind": "reader5589",
+      "manifest_repository_path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/reader-checkpoint5589-completed.json",
+      "manifest_sha256": "dbfbaad0f1caba88e33b9aadae22134d876dfa557f82cf708668dbd5d7381951",
+      "name": "reader-checkpoint5589-completed",
+      "payload_files": 1
+    }
+  ],
+  "path_absence_base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+  "path_absence_base_tree": "bb937a8efb1fd95128f02b63028f4d25838d9355",
+  "path_proofs": [
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "before_git_blob_sha1": "25a9bd3d09df08589a693a00715641d83c88c1b6",
+      "complete_parent_tree_sha1": "cda1c113d0e6ba94ac3779b54dcf2004cc45ae0b",
+      "path": "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+      "status": "SOLE_PERMITTED_DOCUMENT_UPDATE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/additional-six-complete-source-readings.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/build_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/complete-field-readings-and-boundaries.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/complete-source-first-readings.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/complete-source-reading-history.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/explicit-source-apparatus-context.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/field-partitions.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/accepted-final-field-plan.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/active-before-v1.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/additional-six-complete-source-readings.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/additional-six-original-fields.jsonl",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/build_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/complete-source-first-readings.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/manual-abudawud.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/manual-tirmidhi.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/manual_readings.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/package_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/build_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/complete-field-readings-and-boundaries.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/complete-source-first-readings.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/explicit-source-apparatus-context.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/field-partitions.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/input-evidence-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual-abudawud.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual-tirmidhi.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual_readings.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/package_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/portable-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/retained-source-parentheses.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/saved-checkpoint-receipt.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/selected-state-entries.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-artifact-manifest.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-baseline.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-evidence.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-first-notes.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/validation.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-abudawud-tirmidhi25-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/payload/reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-primary-review.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/before-v1/source-first-notes.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/complete-source-reading-history.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/delivery-manifest-before-v1.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/exact-scope-amendment.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/independent-boundary-findings-v1.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/independent-scope-v2/verify_amendment.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/input-evidence-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual-abudawud.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual-tirmidhi.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/manual_readings.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/package_review.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/portable-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/retained-source-parentheses.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/saved-checkpoint-receipt.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/selected-state-entries.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-artifact-manifest.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-baseline.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-evidence.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/source-first-notes.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-abudawud-tirmidhi25-20261113/validation.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/build_delivery_v2.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/complete-source-first-reading-receipt.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/disposition-ledger.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/field-coverage.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/finalize_v2.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/independent-boundary-findings-v1.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-build_delivery.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-delivery-manifest-v1.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-field-coverage.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-manual-reading-and-boundary-specifications.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-package-file-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-source-apparatus-inventory.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-source-first-reading-notes.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/independent-boundary-amendment-v2/previous-source-review-checkpoint5589-bukhari20-ibnmajah5-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/manual_rules.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/manual_rules_v2.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/package-file-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/pre-candidate-source-verification.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/raw-source-verification.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/source-apparatus-inventory.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/source-baseline.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/source-first-reading-notes.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/source-selection.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-bukhari20-ibnmajah5-20261113/validation-and-coverage-summary.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/assemble_primary.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/build_delivery.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/disposition-ledger.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/field-coverage.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/freeze_source_reading.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/amend_v2.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-delivery-manifest-v1.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/assemble_primary.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/build_delivery.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/disposition-ledger.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/field-coverage.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/freeze_source_reading.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/manual_rules.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/package-file-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/raw-source-verification.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-apparatus-inventory.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-baseline.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-first-complete-reading.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-verification.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/validation-and-coverage-summary.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/independent-boundary-amendment-v2/previous-v1/imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-nasai-ibnmajah25-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/manual_rules.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/package-file-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/raw-source-verification.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-apparatus-inventory.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-baseline.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-first-complete-reading.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/source-verification.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-20261113",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint5589-nasai-ibnmajah25-20261113/validation-and-coverage-summary.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/complete-source-first-readings.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/full-field-reading-input-53.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/manual-field-boundary-notes.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/manual_boundaries.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/manual_source_first_readings.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/package_and_validate.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/partition-receipt.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/portable-manifest.json",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/source-ledger-25.jsonl.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/source-verification.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1/verify_local_sources.py",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews/evidence",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "source-review-20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "source-review-checkpoint5589-abudawud-tirmidhi25-20261113.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-abudawud-tirmidhi25-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "source-review-checkpoint5589-bukhari20-ibnmajah5-20261113.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-bukhari20-ibnmajah5-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "first_absent_child": "source-review-checkpoint5589-nasai-ibnmajah25-20261113.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint5589-nasai-ibnmajah25-20261113.json.gz",
+      "proven_parent": "imports/web-deenhindi-20261112/reviews",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1-validation.json",
+      "path": "reports/web-source-resolution-20261113/20261113-checkpoint5589-muslim18-ibnmajah7-manual-v1-validation.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/accepted-final-field-plan.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/additional-abudawud2330-2331-originals.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/audit_final.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/complete-independent-source-first-readings.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/final-audit.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/freeze_findings.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/freeze_source_first.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/independent-boundary-findings-v1.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-independent-audit/independent-source-proof.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-abudawud-tirmidhi25-primary-review.json",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-abudawud-tirmidhi25-primary-review.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/audit_final_candidate.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/complete-independent-source-first-readings.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/freeze_findings_and_verify_sources.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/independent-boundary-findings-v1.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/independent-final-v2-audit.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/independent-source-verification.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/portable-manifest.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-bukhari20-ibnmajah5-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-bukhari20-ibnmajah5-independent-audit/source_first_notes.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/audit_final_packages.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/input-manifests.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/new100-raw-parsed-source-proof.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/per-occurrence-field-partitions.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/prepare_source_and_published_baseline.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/prepared-source-and-published-baseline.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-independent-integration",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-independent-integration/validation-report.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit.json",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/audit_peer.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/complete-independent-readings.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/final-candidate-binding.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/final-native-attributions.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/final53-field-boundaries-and-native-partitions.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/independent-source-first-notes.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-muslim-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-muslim-ibnmajah25-independent-audit/independent-source-verification.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/audit_candidate.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/complete-independent-source-first-readings.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/field-and-source-proof-final.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/freeze_audit.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/independent-boundary-findings-v1.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/independent-reading-audit.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/independently-accepted-boundary-plan.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "checkpoint5589-nasai-ibnmajah25-independent-audit",
+      "path": "reports/web-source-resolution-20261113/checkpoint5589-nasai-ibnmajah25-independent-audit/native-source-audit-final.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase15-independent-readback",
+      "path": "reports/web-source-resolution-20261113/phase15-independent-readback/audit_readback.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase15-independent-readback",
+      "path": "reports/web-source-resolution-20261113/phase15-independent-readback/readback-evidence.json.gz",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase15-independent-readback",
+      "path": "reports/web-source-resolution-20261113/phase15-independent-readback/readback-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/assemble_publication.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/all100-integration.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-abudawud8-tirmidhi17.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-bukhari20-ibnmajah5.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-muslim18-ibnmajah7.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/independent-nasai22-ibnmajah3.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/original-source-partitions.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/phase15-independent-readback.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-abudawud8-tirmidhi17.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-bukhari20-ibnmajah5.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-muslim18-ibnmajah7.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/primary-nasai22-ibnmajah3.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/manifests/reader-checkpoint5589-completed.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/publication-inputs.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/receipts/phase15-complete-tree-verification-receipts.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/receipts/phase15-final-publication-manifest.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/receipts/phase15-publication-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-publication-inputs-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-publication-inputs-v1/receipts/phase16-document-update-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/checkpoint-bukhari20-ibnmajah5/cohort.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/checkpoint-bukhari20-ibnmajah5/full-hi-ur-reading-input-50.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/checkpoint-bukhari20-ibnmajah5/partition-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/checkpoint-bukhari20-ibnmajah5/source-verification.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/deployment-abudawud8-tirmidhi17/cohort.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/deployment-abudawud8-tirmidhi17/full-hi-ur-reading-input-50.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/deployment-abudawud8-tirmidhi17/partition-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/deployment-abudawud8-tirmidhi17/source-verification.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/freeze_partitions.py",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/partition-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/queue-muslim18-ibnmajah7/cohort.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/queue-muslim18-ibnmajah7/full-hi-ur-reading-input-50.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/queue-muslim18-ibnmajah7/partition-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/queue-muslim18-ibnmajah7/source-verification.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/root-nasai22-ibnmajah3/cohort.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/root-nasai22-ibnmajah3/full-hi-ur-reading-input-50.jsonl",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/root-nasai22-ibnmajah3/partition-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "phase16-source-input-partitions-v1",
+      "path": "reports/web-source-resolution-20261113/phase16-source-input-partitions-v1/root-nasai22-ibnmajah3/source-verification.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    },
+    {
+      "base_commit": "e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d",
+      "complete_parent_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "first_absent_child": "reader-checkpoint5589-success-superseded-receipt.json",
+      "path": "reports/web-source-resolution-20261113/reader-checkpoint5589-success-superseded-receipt.json",
+      "proven_parent": "reports/web-source-resolution-20261113",
+      "status": "NEW_AT_PINNED_BASE"
+    }
+  ],
+  "prior_active_ledgers_staged_or_changed": false,
+  "rehash_verified_complete_trees": [
+    {
+      "complete_entries": 11,
+      "git_tree_sha1": "a73f461fc12ec443191e35d88f7f39413336e0df",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1"
+    },
+    {
+      "complete_entries": 1,
+      "git_tree_sha1": "eebf18b18ac5f58106ff823185c7d2f0f1af5514",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence"
+    },
+    {
+      "complete_entries": 2,
+      "git_tree_sha1": "c358d61a7677935ef0779695aee7dad0c9274fb3",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews"
+    },
+    {
+      "complete_entries": 1,
+      "git_tree_sha1": "27abeb32e88ac328251010d13f56267b65c6a0f9",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/reports/web-source-resolution-20261113"
+    },
+    {
+      "complete_entries": 1,
+      "git_tree_sha1": "6534d916a1c4954861a17ed320b6e803d374ecda",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112"
+    },
+    {
+      "complete_entries": 1,
+      "git_tree_sha1": "7f5e59ef2004465d93360e931917e630e79f9904",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/reports"
+    },
+    {
+      "complete_entries": 1,
+      "git_tree_sha1": "4fa04837d56d9a6b5af5e8667b157f23db3d866b",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports"
+    },
+    {
+      "complete_entries": 3,
+      "git_tree_sha1": "ece099bec202e4b04fe530da858657f449ad941d",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1"
+    },
+    {
+      "complete_entries": 9,
+      "git_tree_sha1": "83e4cf79b68d7654752ef2f3febfc04b02abbed6",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-abudawud50-urdu-v1/independent-boundary-v2"
+    },
+    {
+      "complete_entries": 4,
+      "git_tree_sha1": "06d116c402d4e4a8f8305902b7614e1ed0429c6e",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-40-hindi-urdu-v1/queue-binding-correction-v3"
+    },
+    {
+      "complete_entries": 9,
+      "git_tree_sha1": "583aaa1bbf5b6ac093d9e595c38df9f29cfbaa71",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-40-hindi-urdu-v1/independent-boundary-amendment-v2"
+    },
+    {
+      "complete_entries": 4,
+      "git_tree_sha1": "260b8a1a724b8beeba594fb2b5d482347dff58ef",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2"
+    },
+    {
+      "complete_entries": 20,
+      "git_tree_sha1": "cdf571534bc97aeec8be6cbdfdd4f7bb062e8a50",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-abudawud50-urdu-v1"
+    },
+    {
+      "complete_entries": 18,
+      "git_tree_sha1": "9621ee81ad92bdee9b6e3abddced2789fd118a9a",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-40-hindi-urdu-v1"
+    },
+    {
+      "complete_entries": 12,
+      "git_tree_sha1": "3b51edb6b885f4b5cd4260ebb9b356c88f382f28",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "7bba6f8ebc7e96766b4e7cb0ac601bb887451efb",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2"
+    },
+    {
+      "complete_entries": 8,
+      "git_tree_sha1": "8598cd12d0c33f23ff3efff12350aef39a5a0faa",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "ee685e7a5de1da3b8aa18c52453b86c07f53b204",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2"
+    },
+    {
+      "complete_entries": 2,
+      "git_tree_sha1": "f4673e26501c695f7480acd628594b083eddfc7f",
+      "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/previous-primary-v1"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "7b412ba5e7bf51dc4c1eef0abfae7f7a47962302",
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions"
+    },
+    {
+      "complete_entries": 17,
+      "git_tree_sha1": "eacf05ea000c4bb2fd82f59c8f3bc9d577888696",
+      "path": "imports/web-deenhindi-20261112/reviews/evidence"
+    },
+    {
+      "complete_entries": 13,
+      "git_tree_sha1": "57aed844dd31ac8565916e9517f996fa7b8d1e95",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "9b47264bdd70a46e9abb7651311803f4d54d371a",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113"
+    },
+    {
+      "complete_entries": 15,
+      "git_tree_sha1": "6fe56a0b5687a4e0403d7a0a7bbde14110c812a1",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113"
+    },
+    {
+      "complete_entries": 20,
+      "git_tree_sha1": "30a5ffc9fd92d5773be64e4a2fffa1df4662bb90",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113"
+    },
+    {
+      "complete_entries": 3,
+      "git_tree_sha1": "079009f3456760db10156bb122297d0d7a0dae17",
+      "path": "reports/web-source-resolution-20261113/phase15-original90-combined-queue-independent-audit"
+    },
+    {
+      "complete_entries": 3,
+      "git_tree_sha1": "aa7845f0e659bf9cf44fc30df988cb493501f288",
+      "path": "reports/web-source-resolution-20261113/phase15-combined1230-native-audit"
+    },
+    {
+      "complete_entries": 7,
+      "git_tree_sha1": "050997c8cea0a2611c3fe169565873b60af8ff6b",
+      "path": "reports/web-source-resolution-20261113/original-bukhari30-independent-audit"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "4bf23bf93d24cceec0503c2bf37ff8b4f97c5619",
+      "path": "reports/web-source-resolution-20261113/original-abudawud50-urdu-independent-audit"
+    },
+    {
+      "complete_entries": 5,
+      "git_tree_sha1": "9a3e15565837bed6ffc2df74fdcf48c1c9ccc3af",
+      "path": "reports/web-source-resolution-20261113/held-state-gzip-independent-audit"
+    },
+    {
+      "complete_entries": 11,
+      "git_tree_sha1": "23f875ec5e81f8e7fdb8f3e2ac2a5a9e469bbf26",
+      "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit"
+    },
+    {
+      "complete_entries": 4,
+      "git_tree_sha1": "980e6fc2cd6378c09e9c4d67860a16bb1d8c9461",
+      "path": "reports/web-source-resolution-20261113/checkpoint0639-independent-integration"
+    },
+    {
+      "complete_entries": 9,
+      "git_tree_sha1": "3e7e70c50d3e2a26cf96a09e9e76397eef4cb46b",
+      "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit"
+    },
+    {
+      "complete_entries": 6,
+      "git_tree_sha1": "23d90e0f5f66f2abb3f8b7f71fbfcc30515d3831",
+      "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit"
+    },
+    {
+      "complete_entries": 78,
+      "git_tree_sha1": "582d11796013cdaccf24862be0a1f49b5140a2d3",
+      "path": "imports/web-deenhindi-20261112/reviews"
+    },
+    {
+      "complete_entries": 233,
+      "git_tree_sha1": "07fab6ac63c10f0f448900673c15d1e51bcd099e",
+      "path": "reports/web-source-resolution-20261113"
+    },
+    {
+      "complete_entries": 13,
+      "git_tree_sha1": "6e75d5c1db245279600fcff086be7a5ac164b881",
+      "path": "imports/web-deenhindi-20261112"
+    },
+    {
+      "complete_entries": 82,
+      "git_tree_sha1": "d31f18dcea22ff6c1a1ed1dcc21b3000d8bfa9aa",
+      "path": "tests"
+    },
+    {
+      "complete_entries": 76,
+      "git_tree_sha1": "d77a5425d6ada7bbeb769d68677cea057cad2f4b",
+      "path": "scripts"
+    },
+    {
+      "complete_entries": 48,
+      "git_tree_sha1": "96df343b6610dbe05b01c4a5f9bde227355a3cf0",
+      "path": "reports"
+    },
+    {
+      "complete_entries": 12,
+      "git_tree_sha1": "2e1043e2e383321975442c96dc297ce56261980b",
+      "path": "imports"
+    },
+    {
+      "complete_entries": 33,
+      "git_tree_sha1": "cda1c113d0e6ba94ac3779b54dcf2004cc45ae0b",
+      "path": "docs"
+    },
+    {
+      "complete_entries": 26,
+      "git_tree_sha1": "bb937a8efb1fd95128f02b63028f4d25838d9355",
+      "path": "/"
+    }
+  ],
+  "result": "PASS",
+  "schema": "hadith-bank-phase16-immutable-publication-staging-validation-v1",
+  "source_checkpoint": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+  "source_http_requests": 0
+}

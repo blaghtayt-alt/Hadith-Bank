@@ -1,0 +1,759 @@
+{
+  "actual_complete_field_scope": "All50 own Hindi/Urdu fields, plus Ar/En/UrduRoman of Tirmidhi2296 and AbuDawud2330/2331;59 complete fields, with the additional six read after independent findings. No other reading is claimed.",
+  "records": [
+    {
+      "decision": "exclude",
+      "fields": {
+        "ar": {
+          "action": "source_context",
+          "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence. Complete Ahmad→Abdullah→Malik chain and nahwahu pointer, followed by Hasan/name-variant/corroboration/narrator-biography discussion; no supplied underlying report body.",
+          "report_type": "chain_grade_and_transmitter_apparatus_only",
+          "speaker": "No underlying narrative or independent finite saying is supplied by this own field."
+        },
+        "en": {
+          "action": "source_context",
+          "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence. Only another-chain attribution from Malik naming IbnAbiAmrah; no body.",
+          "report_type": "chain_grade_and_transmitter_apparatus_only",
+          "speaker": "No underlying narrative or independent finite saying is supplied by this own field."
+        },
+        "hi": {
+          "action": "source_context",
+          "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence. Complete pointer and compiler/transmitter discussion only.",
+          "report_type": "chain_grade_and_transmitter_apparatus_only",
+          "speaker": "No underlying narrative or independent finite saying is supplied by this own field."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence. Complete pointer and compiler/transmitter discussion only, with final apparatus glyph.",
+          "report_type": "chain_grade_and_transmitter_apparatus_only",
+          "speaker": "No underlying narrative or independent finite saying is supplied by this own field."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence. Complete Roman rendering remains pointer, grade, name variants and biography only.",
+          "report_type": "chain_grade_and_transmitter_apparatus_only",
+          "speaker": "No underlying narrative or independent finite saying is supplied by this own field."
+        }
+      },
+      "key": "tirmidhi:2296",
+      "reason": "All five fields were read. A preceding-report similarity pointer, transmitter-name variants, grade, chains and narrator biography are present; no actual report body or independent finite historical/narrative saying is supplied. The English merely names the IbnAbiAmrah chain variant. Resolve the entire parent as source-only, retaining every field without importing the preceding occurrence."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Abdullah ibnBusr transmits an unnamed Arab asking the Messenger who is best; the explicit answer is long life with good conduct. Compiler grade and parallel-name catalogue are context. Preserve source Arab wording and complete answer, without supplying questioner identity.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2329:hi:reported-account",
+              "speaker": "Abdullah ibnBusr transmits the unnamed Arab question and the explicitly addressed Messenger answer.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Abdullah ibnBusr transmits an unnamed Arab asking the Messenger who is best; the explicit answer is long life with good conduct. Compiler grade and parallel-name catalogue are context. Same own finite Q&A; final footnote glyph remains context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2329:ur:reported-account",
+              "speaker": "Abdullah ibnBusr transmits the unnamed Arab question and the explicitly addressed Messenger answer.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2329",
+      "reason": "Abdullah ibnBusr transmits an unnamed Arab asking the Messenger who is best; the explicit answer is long life with good conduct. Compiler grade and parallel-name catalogue are context."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuBakrah transmits unnamed questioner and Messenger: best long life/good conduct, worst long life/bad conduct. Complete two-part answer, compiler grade outside. Preserve damaged printed hadith/compiler spelling without editing.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2330:hi:reported-account",
+              "speaker": "AbuBakrah transmits the unnamed questioner and Messenger two answers about best and worst.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "AbuBakrah transmits unnamed questioner and Messenger: best long life/good conduct, worst long life/bad conduct. Complete two-part answer, compiler grade outside. Final footnote glyph and compiler grade are source context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2330:ur:reported-account",
+              "speaker": "AbuBakrah transmits the unnamed questioner and Messenger two answers about best and worst.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2330",
+      "reason": "AbuBakrah transmits unnamed questioner and Messenger: best long life/good conduct, worst long life/bad conduct. Complete two-part answer, compiler grade outside."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Lexical synonym of the already printed decayed/old word.",
+              "text": "(पुराना)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explanatory identification of the already printed matter term.",
+              "text": "(मौत)"
+            }
+          ],
+          "reason": "Abdullah ibnAmr recounts the Messenger passing during hut repairs, asking, hearing their reply and speaking of the nearer matter. Old/decayed and death-identification glosses are explanatory, while the actual words about the nearer matter remain. Both purana synonym and maut interpretation are context; the reported hut-repair action and comparative nearness remain.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2335:hi:reported-account",
+              "speaker": "Abdullah ibnAmr recounts the Messenger passing and asking during hut repairs and the own printed comparative-nearness statement.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explanatory identification of the already printed matter term.",
+              "text": "( موت )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Abdullah ibnAmr recounts the Messenger passing during hut repairs, asking, hearing their reply and speaking of the nearer matter. Old/decayed and death-identification glosses are explanatory, while the actual words about the nearer matter remain. Death parenthesis is source explanation, not supplied direct speech identity; final footnote and compiler grade context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2335:ur:reported-account",
+              "speaker": "Abdullah ibnAmr recounts the Messenger passing and asking during hut repairs and the own printed comparative-nearness statement.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2335",
+      "reason": "Abdullah ibnAmr recounts the Messenger passing during hut repairs, asking, hearing their reply and speaking of the nearer matter. Old/decayed and death-identification glosses are explanatory, while the actual words about the nearer matter remain."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Abdullah ibnShikhir arrives while the Prophet actually recites the supplied Alhakum phrase, followed by the wealth-used/given/consumed/clothed teaching. Actual recitation is part of the narrated event, not a citation locator. Keep the exact source transliteration of the recited phrase and all three wealth alternatives.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2342:hi:reported-account",
+              "speaker": "Abdullah ibnShikhir observes the Prophet actual recitation and transmits the ensuing wealth statement.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Abdullah ibnShikhir arrives while the Prophet actually recites the supplied Alhakum phrase, followed by the wealth-used/given/consumed/clothed teaching. Actual recitation is part of the narrated event, not a citation locator. Keep actual Arabic recitation; separate the mid-answer footnote glyph and compiler grade without deleting surrounding predicate.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2342:ur:reported-account",
+              "speaker": "Abdullah ibnShikhir observes the Prophet actual recitation and transmits the ensuing wealth statement.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2342",
+      "reason": "Abdullah ibnShikhir arrives while the Prophet actually recites the supplied Alhakum phrase, followed by the wealth-used/given/consumed/clothed teaching. Actual recitation is part of the narrated event, not a citation locator."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Lexical garment explanation of the already printed tat term.",
+              "text": "(लिबास)"
+            }
+          ],
+          "reason": "Abdullah ibnMughaffal transmits three love professions and cautions followed by the Prophet conditional poverty/flood comparison. All repetitions and conditional love limit remain. Libas parenthesis lexically explains tat, so context; preserve source malformed connective and no reconstruction from Urdu.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2350:hi:reported-account",
+              "speaker": "Abdullah ibnMughaffal transmits the unnamed man professions and explicitly named Prophet replies, preserving repetitions and the conditional poverty comparison.",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Abdullah ibnMughaffal transmits three love professions and cautions followed by the Prophet conditional poverty/flood comparison. All repetitions and conditional love limit remain. Complete own reported conversation and simile; no absent identity is assigned to the unnamed man.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2350:ur:reported-account",
+              "speaker": "Abdullah ibnMughaffal transmits the unnamed man professions and explicitly named Prophet replies, preserving repetitions and the conditional poverty comparison.",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2350",
+      "reason": "Abdullah ibnMughaffal transmits three love professions and cautions followed by the Prophet conditional poverty/flood comparison. All repetitions and conditional love limit remain."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Masruq witnesses Aisha requesting food and asking/answering about her crying; Aisha supplies her own memory of the Messenger circumstances. Attribute the encounter to Masruq and the retrospective claim to Aisha, not direct Prophetic speech. Own field ends the substantive memory at the condition of the Messenger death, with damaged ending; bread/meat and twice-in-one-day words are absent and must not be imported.",
+          "spans": [
+            {
+              "component_id": "masruq-encounter",
+              "from": null,
+              "report_type": "successor_eyewitness_report_with_nested_dialogue",
+              "source_report_family_id": "tirmidhi:2356:hi:masruq-aisha-encounter",
+              "speaker": "Masruq narrates the Aisha encounter, her crying statement and his question.",
+              "to": "ऐसा (रज़ियल्लाहु अन्हा) ने कहा:"
+            },
+            {
+              "component_id": "aisha-retrospective-memory",
+              "from": "ऐसा (रज़ियल्लाहु अन्हा) ने कहा:",
+              "report_type": "companion_retrospective_statement_with_source_truncation",
+              "source_report_family_id": "tirmidhi:2356:hi:masruq-aisha-encounter",
+              "speaker": "Aisha, whose second printed name is damaged, states her own memory; Hindi stops at the condition of the Messenger death.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Masruq witnesses Aisha requesting food and asking/answering about her crying; Aisha supplies her own memory of the Messenger circumstances. Attribute the encounter to Masruq and the retrospective claim to Aisha, not direct Prophetic speech. Own field additionally supplies Aisha oath and never twice-full-on-bread-and-meat statement; preserve its own frequency exactly. Compiler grade context.",
+          "spans": [
+            {
+              "component_id": "masruq-encounter",
+              "from": null,
+              "report_type": "successor_eyewitness_report_with_nested_dialogue",
+              "source_report_family_id": "tirmidhi:2356:ur:masruq-aisha-encounter",
+              "speaker": "Masruq narrates the Aisha encounter, her crying statement and his question.",
+              "to": "عائشہ رضی الله عنہا نے کہا:"
+            },
+            {
+              "component_id": "aisha-retrospective-memory",
+              "from": "عائشہ رضی الله عنہا نے کہا:",
+              "report_type": "companion_retrospective_statement",
+              "source_report_family_id": "tirmidhi:2356:ur:masruq-aisha-encounter",
+              "speaker": "Aisha supplies her own oath and memory including the explicit bread/meat and twice-in-one-day statement.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2356",
+      "reason": "Masruq witnesses Aisha requesting food and asking/answering about her crying; Aisha supplies her own memory of the Messenger circumstances. Attribute the encounter to Masruq and the retrospective claim to Aisha, not direct Prophetic speech."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Aisha reports the Messenger never filling himself with barley bread two consecutive days until death. Exact temporal and grain qualifiers retained; compiler grade/parallel context. Keep own two-day statement and honorific, no cross-number normalization.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_practice",
+              "source_report_family_id": "tirmidhi:2357:hi:reported-account",
+              "speaker": "Aisha retrospectively reports the Messenger two-consecutive-day barley-bread condition until death.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Aisha reports the Messenger never filling himself with barley bread two consecutive days until death. Exact temporal and grain qualifiers retained; compiler grade/parallel context. Keep own two-day statement; compiler tail context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_practice",
+              "source_report_family_id": "tirmidhi:2357:ur:reported-account",
+              "speaker": "Aisha retrospectively reports the Messenger two-consecutive-day barley-bread condition until death.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2357",
+      "reason": "Aisha reports the Messenger never filling himself with barley bread two consecutive days until death. Exact temporal and grain qualifiers retained; compiler grade/parallel context."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuHurayra reports the Messenger and household never full on wheat bread three successive days until death. This is Companion observation, not direct Prophetic saying. Keep exact three-day and wheat/household wording.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_household",
+              "source_report_family_id": "tirmidhi:2358:hi:reported-account",
+              "speaker": "AbuHurayra reports the Messenger and household three-consecutive-day wheat-bread condition until death.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuHurayra reports the Messenger and household never full on wheat bread three successive days until death. This is Companion observation, not direct Prophetic saying. Keep exact own grain, household and duration; compiler grade context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_household",
+              "source_report_family_id": "tirmidhi:2358:ur:reported-account",
+              "speaker": "AbuHurayra reports the Messenger and household three-consecutive-day wheat-bread condition until death.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2358",
+      "reason": "AbuHurayra reports the Messenger and household never full on wheat bread three successive days until death. This is Companion observation, not direct Prophetic saying."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuUmamah reports barley bread from the Prophet house never beyond household need. Household parenthesis supplies whose need defines the actual quantity/domain and stays in narration. Compiler grade and two transmitter biographies are context. Retain sole household-need scope parenthesis; no general removal rule.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_household",
+              "source_report_family_id": "tirmidhi:2359:hi:reported-account",
+              "speaker": "AbuUmamah reports barley bread relative to the explicitly supplied household need; the parenthetic scope remains.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "AbuUmamah reports barley bread from the Prophet house never beyond household need. Household parenthesis supplies whose need defines the actual quantity/domain and stays in narration. Compiler grade and two transmitter biographies are context. Retain sole household-need scope parenthesis; footnote glyph context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_household",
+              "source_report_family_id": "tirmidhi:2359:ur:reported-account",
+              "speaker": "AbuUmamah reports barley bread relative to the explicitly supplied household need; the parenthetic scope remains.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2359",
+      "reason": "AbuUmamah reports barley bread from the Prophet house never beyond household need. Household parenthesis supplies whose need defines the actual quantity/domain and stays in narration. Compiler grade and two transmitter biographies are context."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Anas retrospectively reports the actual eating-support and fine-flour-bread conditions until death. The printed OR supplies an alternative eating-support object, so retain the full source-qualified alternative without choosing a term; compiler grading remains context. This binds the complete own hi field.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_practice",
+              "source_report_family_id": "tirmidhi:2363:hi:reported-account",
+              "speaker": "Anas reports the Messenger eating-support and fine-flour-bread conditions until death.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Anas retrospectively reports the actual eating-support and fine-flour-bread conditions until death. The printed OR supplies an alternative eating-support object, so retain the full source-qualified alternative without choosing a term; compiler grading remains context. This binds the complete own ur field.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_observation_of_prophetic_practice",
+              "source_report_family_id": "tirmidhi:2363:ur:reported-account",
+              "speaker": "Anas reports the Messenger eating-support and fine-flour-bread conditions until death.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2363",
+      "reason": "Anas retrospectively reports the actual eating-support and fine-flour-bread conditions until death. The printed OR supplies an alternative eating-support object, so retain the full source-qualified alternative without choosing a term; compiler grading remains context."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explanatory gloss of bloodshed, retained as source context.",
+              "text": "(यानी काफ़िर को क़त्ल किया)"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Lexical definition of the printed hablah food term.",
+              "text": "(ख़ारदार दरख़्त के फल)"
+            }
+          ],
+          "reason": "Saad ibnAbiWaqqas gives his own first-person early striving/food-hardship testimony and current rebuke of BanuAsad criticism. Keep his conditional self-assessment; no Prophetic direct voice. Killing-an-unbeliever and thorn-fruit parenthetical definitions are context. Preserve exact animal comparison, named tribe and damaged transliteration.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_historical_testimony_and_admonition",
+              "source_report_family_id": "tirmidhi:2365:hi:reported-account",
+              "speaker": "Saad ibnAbiWaqqas gives his own early-history testimony and present conditional response to BanuAsad criticism; no direct Messenger speech.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explanatory gloss of bloodshed, retained as source context.",
+              "text": "( یعنی کافر کو قتل کیا )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Lexical definition of the printed hablah food term.",
+              "text": "( خاردار درخت کے پھل )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Saad ibnAbiWaqqas gives his own first-person early striving/food-hardship testimony and current rebuke of BanuAsad criticism. Keep his conditional self-assessment; no Prophetic direct voice. Killing-an-unbeliever and thorn-fruit parenthetical definitions are context. Preserve the own entire testimony and conditional ending; footnote and compiler grade context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_historical_testimony_and_admonition",
+              "source_report_family_id": "tirmidhi:2365:ur:reported-account",
+              "speaker": "Saad ibnAbiWaqqas gives his own early-history testimony and present conditional response to BanuAsad criticism; no direct Messenger speech.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2365",
+      "reason": "Saad ibnAbiWaqqas gives his own first-person early striving/food-hardship testimony and current rebuke of BanuAsad criticism. Keep his conditional self-assessment; no Prophetic direct voice. Killing-an-unbeliever and thorn-fruit parenthetical definitions are context."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Saad ibnMalik explicitly identified as AbiWaqqas gives his own first-Arab archer and hardship account followed by present BanuAsad criticism and conditional self-assessment. The source parenthetic personal identification stays; no outside identity filling. Keep named identification and exact local tree/fruit wording; no import of different food descriptions.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_historical_testimony_and_admonition",
+              "source_report_family_id": "tirmidhi:2366:hi:reported-account",
+              "speaker": "Saad ibnMalik, explicitly source-identified as AbiWaqqas, gives his own first-archer/hardship testimony and present conditional response.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Saad ibnMalik explicitly identified as AbiWaqqas gives his own first-Arab archer and hardship account followed by present BanuAsad criticism and conditional self-assessment. The source parenthetic personal identification stays; no outside identity filling. Keep named identification; mid-testimony footnote glyph and compiler grade/parallel tail context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_historical_testimony_and_admonition",
+              "source_report_family_id": "tirmidhi:2366:ur:reported-account",
+              "speaker": "Saad ibnMalik, explicitly source-identified as AbiWaqqas, gives his own first-archer/hardship testimony and present conditional response.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2366",
+      "reason": "Saad ibnMalik explicitly identified as AbiWaqqas gives his own first-Arab archer and hardship account followed by present BanuAsad criticism and conditional self-assessment. The source parenthetic personal identification stays; no outside identity filling."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Muhammad ibnSirin describes his own presence and AbuHurayra wiping his nose in dyed linen; AbuHurayra then speaks to himself and remembers hunger-collapse and misidentification as madness. Separate witness framing and AbuHurayra speech as ordered components of one occasion. No direct Prophet speech occurs. Keep exact spatial wording and source room/name spelling, no external repair.",
+          "spans": [
+            {
+              "component_id": "ibnsirin-encounter",
+              "from": null,
+              "report_type": "successor_eyewitness_framing",
+              "source_report_family_id": "tirmidhi:2367:hi:ibnsirin-abuhurayra-encounter",
+              "speaker": "Muhammad ibnSirin describes his own presence, the garments and AbuHurayra nose-wiping and speech introduction.",
+              "to": "वाह वाह,"
+            },
+            {
+              "component_id": "abuhurayra-retrospective-speech",
+              "from": "वाह वाह,",
+              "report_type": "companion_retrospective_statement",
+              "source_report_family_id": "tirmidhi:2367:hi:ibnsirin-abuhurayra-encounter",
+              "speaker": "AbuHurayra speaks about his own former hunger and rejects the observer assumption of madness; no Prophet speech is supplied.",
+              "to": "इमाम तिर्मिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Source footnote label; all surrounding actual narration is preserved.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Muhammad ibnSirin describes his own presence and AbuHurayra wiping his nose in dyed linen; AbuHurayra then speaks to himself and remembers hunger-collapse and misidentification as madness. Separate witness framing and AbuHurayra speech as ordered components of one occasion. No direct Prophet speech occurs. Keep actual denial/cause and spatial wording; footnote glyph and compiler grade context.",
+          "spans": [
+            {
+              "component_id": "ibnsirin-encounter",
+              "from": null,
+              "report_type": "successor_eyewitness_framing",
+              "source_report_family_id": "tirmidhi:2367:ur:ibnsirin-abuhurayra-encounter",
+              "speaker": "Muhammad ibnSirin describes his own presence, the garments and AbuHurayra nose-wiping and speech introduction.",
+              "to": "واہ واہ،"
+            },
+            {
+              "component_id": "abuhurayra-retrospective-speech",
+              "from": "واہ واہ،",
+              "report_type": "companion_retrospective_statement",
+              "source_report_family_id": "tirmidhi:2367:ur:ibnsirin-abuhurayra-encounter",
+              "speaker": "AbuHurayra speaks about his own former hunger and rejects the observer assumption of madness; no Prophet speech is supplied.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2367",
+      "reason": "Muhammad ibnSirin describes his own presence and AbuHurayra wiping his nose in dyed linen; AbuHurayra then speaks to himself and remembers hunger-collapse and misidentification as madness. Separate witness framing and AbuHurayra speech as ordered components of one occasion. No direct Prophet speech occurs."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuTalha narrates hunger complaint and stones; source battle-of-Khandaq parenthesis supplies actual timing and remains. Urdu expressly names the Messenger second action; Hindi omits that actor link and must be visibly qualified rather than filled. Two-stone final phrase is printed but its second lifting actor is unstated in the defective joining; retain limited own narration with source-attribution defect explicit.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_report_with_source_attribution_defect",
+              "source_report_family_id": "tirmidhi:2371:hi:reported-account",
+              "speaker": "AbuTalha reports the hunger complaint and printed one/two-stone sequence; the second garment-lifting actor is absent from the defective Hindi join and is not filled.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "AbuTalha narrates hunger complaint and stones; source battle-of-Khandaq parenthesis supplies actual timing and remains. Urdu expressly names the Messenger second action; Hindi omits that actor link and must be visibly qualified rather than filled. Explicit Messenger raising his own garment and two stones is present; preserve it without projecting those words into Hindi.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_eyewitness_report",
+              "source_report_family_id": "tirmidhi:2371:ur:reported-account",
+              "speaker": "AbuTalha reports the hunger complaint, companions one-stone display and explicitly identified Messenger two-stone display.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2371",
+      "reason": "AbuTalha narrates hunger complaint and stones; source battle-of-Khandaq parenthesis supplies actual timing and remains. Urdu expressly names the Messenger second action; Hindi omits that actor link and must be visibly qualified rather than filled."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Numan ibnBashir admonishes his addressees about present food choice and recounts his own observation of the Prophet lacking enough poor dates. One Companion statement with retrospective observation; no Prophet direct speech. Damaged source name and exact lack-of-sufficient-dates wording remain.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_admonition_with_prophetic_observation",
+              "source_report_family_id": "tirmidhi:2372:hi:reported-account",
+              "speaker": "The source-spelled Numan ibnBashir admonishes his addressees and gives his own observation of the Prophet insufficient dates.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Numan ibnBashir admonishes his addressees about present food choice and recounts his own observation of the Prophet lacking enough poor dates. One Companion statement with retrospective observation; no Prophet direct speech. Own comparison and eyewitness qualification remain; compiler grade context.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "companion_admonition_with_prophetic_observation",
+              "source_report_family_id": "tirmidhi:2372:ur:reported-account",
+              "speaker": "Numan ibnBashir admonishes his addressees and gives his own observation of the Prophet insufficient dates.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2372",
+      "reason": "Numan ibnBashir admonishes his addressees about present food choice and recounts his own observation of the Prophet lacking enough poor dates. One Companion statement with retrospective observation; no Prophet direct speech."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Abdullah ibnMasud recounts mat marks, Companion offer and Prophet own traveller/tree comparison. Preserve each speaker and the source own abbreviated wording; compiler grade and parallel list context. Traveller comparison has a broken departure phrase; retain exactly without filling the clearer Urdu clause.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2377:hi:reported-account",
+              "speaker": "IbnMasud reports the Messenger, companions offer and Messenger comparison; the damaged departure wording stays exact.",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [],
+          "reason": "Abdullah ibnMasud recounts mat marks, Companion offer and Prophet own traveller/tree comparison. Preserve each speaker and the source own abbreviated wording; compiler grade and parallel list context. Full departure/leave-tree comparison is present independently in this own field.",
+          "spans": [
+            {
+              "component_id": "reported-account",
+              "from": null,
+              "report_type": "prophetic_report",
+              "source_report_family_id": "tirmidhi:2377:ur:reported-account",
+              "speaker": "IbnMasud reports the Messenger, companions offer and Messenger comparison, including the own full departure wording.",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2377",
+      "reason": "Abdullah ibnMasud recounts mat marks, Companion offer and Prophet own traveller/tree comparison. Preserve each speaker and the source own abbreviated wording; compiler grade and parallel list context."
+    }
+  ],
+  "schema": "hadith-bank-manual-source-reading-instructions-v1",
+  "source_checkpoint": "5589a3ffc3b43c3324ae26f2b6c4d33152834456"
+}
