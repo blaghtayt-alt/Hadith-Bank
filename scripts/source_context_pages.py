@@ -28,6 +28,9 @@ def load_context_pages(root):
             relative = item.get('path') if isinstance(item, dict) else None
             digest = item.get('sha256') if isinstance(item, dict) else None
             size = item.get('bytes') if isinstance(item, dict) else None
+            publish = item.get('publish_to_site', True) if isinstance(item, dict) else None
+            if type(publish) is not bool:
+                raise ValueError('Invalid source context publication flag')
             if not isinstance(relative, str) or not re.fullmatch(r'source-context/[A-Za-z0-9._/-]+', relative) or any(p in ('', '.', '..') for p in relative.split('/')) or relative in paths or not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest) or type(size) is not int or size < 0:
                 raise ValueError('Invalid source context file')
             target = root.joinpath(*PurePosixPath(relative).parts)
@@ -40,8 +43,8 @@ def load_context_pages(root):
             if h.hexdigest() != digest:
                 raise ValueError('Source context checksum mismatch: ' + relative)
             paths.add(relative)
-            validated.append({'path': relative, 'sha256': digest, 'bytes': size})
-        if entry.get('html') not in {item['path'] for item in validated} or not entry['html'].endswith('.html'):
+            validated.append({'path': relative, 'sha256': digest, 'bytes': size, 'publish_to_site': publish})
+        if entry.get('html') not in {item['path'] for item in validated if item['publish_to_site']} or not entry['html'].endswith('.html'):
             raise ValueError('Source context page HTML is not registered')
         bengali_paths = [item['path'] for item in validated if item['path'].startswith('source-context/bn-riyadh-cp017/')]
         if entry['id'] == 'bn-riyadh-cp017' or bengali_paths:
@@ -59,6 +62,8 @@ def stage_context_assets(root, staging, pages):
     root, staging = Path(root).resolve(), Path(staging).resolve()
     for page in pages:
         for item in page['files']:
+            if not item.get('publish_to_site', True):
+                continue
             source = root.joinpath(*PurePosixPath(item['path']).parts)
             target = staging.joinpath(*PurePosixPath(item['path']).parts)
             target.parent.mkdir(parents=True, exist_ok=True)

@@ -28,6 +28,31 @@ class SourceContextTests(unittest.TestCase):
         site=self.root/'site';site.mkdir()
         pages.stage_context_assets(self.root,site,entries)
         self.assertEqual((site/'source-context/test/reader.html').read_bytes(),self.body)
+    def test_repository_only_evidence_is_verified_but_not_staged(self):
+        evidence = self.folder/'evidence.txt'
+        evidence.write_bytes(b'preserved evidence')
+        self.manifest['pages'][0]['files'].append({'path':'source-context/test/evidence.txt','bytes':evidence.stat().st_size,'sha256':hashlib.sha256(evidence.read_bytes()).hexdigest(),'publish_to_site':False})
+        self.write_manifest()
+        entries = pages.load_context_pages(self.root)
+        site = self.root/'site'; site.mkdir()
+        pages.stage_context_assets(self.root, site, entries)
+        self.assertTrue((site/'source-context/test/reader.html').is_file())
+        self.assertFalse((site/'source-context/test/evidence.txt').exists())
+        evidence.write_bytes(b'tampered evidence')
+        with self.assertRaisesRegex(ValueError, 'checksum mismatch|unsafe source context'):
+            pages.load_context_pages(self.root)
+        self.manifest['pages'][0]['files'][0]['publish_to_site'] = False
+        self.write_manifest()
+        evidence.write_bytes(b'preserved evidence')
+        with self.assertRaisesRegex(ValueError, 'HTML is not registered'):
+            pages.load_context_pages(self.root)
+
+    def test_rejects_non_boolean_publication_flag(self):
+        self.manifest['pages'][0]['files'][0]['publish_to_site'] = 'false'
+        self.write_manifest()
+        with self.assertRaisesRegex(ValueError, 'publication flag'):
+            pages.load_context_pages(self.root)
+
     def test_rejects_tampered_or_unsafe_files(self):
         (self.folder/'reader.html').write_bytes(b'tampered')
         with self.assertRaises(ValueError): pages.load_context_pages(self.root)

@@ -3,6 +3,7 @@
 This validates inherited document mappings and source transport. It does not
 re-extract DOC tables, certify a narration boundary, or claim a QC pass.
 """
+import base64
 import gzip
 import hashlib
 import json
@@ -41,17 +42,39 @@ def validate_note(parts, meta, record, story):
     require(record['doc_story'] != 'main' or record['doc_cp_start'] <= anchor < record['doc_cp_end'], 'Bengali note anchor outside source occurrence')
 
 
+def read_reader_data(html, expected_hash):
+    """Decode either reader transport and verify the exact saved JSON bytes."""
+    plain = re.findall(r'<script id="reader-data" type="application/json">(.*?)</script>', html, re.S)
+    packed = re.findall(r'<script id="reader-data" type="application/octet-stream" data-encoding="gzip-base64">(.*?)</script>', html, re.S)
+    require(len(plain) + len(packed) == 1, 'Bengali reader data is missing or duplicated')
+    if plain:
+        raw = plain[0].encode('utf-8')
+    else:
+        try:
+            raw = gzip.decompress(base64.b64decode(packed[0], validate=True))
+        except (ValueError, OSError) as error:
+            raise ValueError('Bengali compressed reader data is invalid') from error
+    require(hashlib.sha256(raw).hexdigest() == expected_hash, 'Bengali reader data hash mismatch')
+    return json.loads(raw)
+
+
+def require_bengali_site_files(entry):
+    required = {'source-context/bn-riyadh-cp017/originals/bn_riyadh_01.pdf',
+                'source-context/bn-riyadh-cp017/originals/bn_riyadh_02.pdf'}
+    published = {item['path'] for item in entry['files'] if item.get('publish_to_site', True)}
+    require(required <= published, 'Bengali original PDFs must be published for page links')
+
+
 def verify(root, entry):
     config = entry.get('validation') or {}
     require(config.get('type') == 'bn-riyadh-cp017-v1', 'Bengali source context requires the source-binding gate')
+    require_bengali_site_files(entry)
     files = {item['path'] for item in entry['files']}
     require(all(config.get(k) in files for k in ('records', 'segments', 'ledger')),
             'Bengali context evidence must be registered')
     html = Path(root).joinpath(*PurePosixPath(entry['html']).parts).read_text(encoding='utf-8')
-    match = re.search(r'<script id="reader-data" type="application/json">(.*?)</script>', html, re.S)
-    require(match is not None and hashlib.sha256(match.group(1).encode('utf-8')).hexdigest() == config.get('reader_data_sha256'),
-            'Bengali reader data hash mismatch')
-    data = json.loads(match.group(1)); atoms = data['atoms']; occurrences = data['occurrences']; uncertainties = data['uncertainties']
+    data = read_reader_data(html, config.get('reader_data_sha256'))
+    atoms = data['atoms']; occurrences = data['occurrences']; uncertainties = data['uncertainties']
     require(len(atoms) == 55499 and len(occurrences) == 2029 and len(uncertainties) == 32,
             'Bengali context source inventory mismatch')
     original_atoms = {}; references = set()
