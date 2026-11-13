@@ -1,0 +1,478 @@
+{
+  "actual_saved_tree": "3efde43cd3aff70e87aa9923274084f291cf9c1f",
+  "automatic_continuation_observed": {
+    "created_at": "2026-11-13T12:19:15Z",
+    "event": "workflow_dispatch",
+    "head_sha": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+    "run_id": 43424153693,
+    "status_at_observation": "in_progress"
+  },
+  "baseline_commit": "659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9",
+  "baseline_receipts": {
+    "held-source-records.jsonl": {
+      "bytes": 593037,
+      "git_blob_sha1": "bdd9f35759449b4f44b667bd11354fbaa00ec423",
+      "local_path": "/workspace/scratch/44aeee8a6071/phase3-checkpoint-monitor/checkpoints/659f21c/held-source-records.jsonl",
+      "sha256": "d3760e506e994f0be6c372148ce3609996ac7e9b3666a98c321686955ab1224b"
+    },
+    "progress.json": {
+      "bytes": 74152,
+      "git_blob_sha1": "1c8ac918aaa167bf7bdebdce07ef8f595f0f46e0",
+      "local_path": "/workspace/scratch/44aeee8a6071/phase3-checkpoint-monitor/checkpoints/659f21c/progress.json",
+      "sha256": "0f4b4221a561e32ce5c36d1868abb47dfd551ed621b76f28e82dfd1e65b2c70e"
+    },
+    "retry-authorizations.json": {
+      "bytes": 1447993,
+      "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+      "local_path": "/workspace/scratch/44aeee8a6071/phase3-checkpoint-monitor/checkpoints/659f21c/retry-authorizations.json",
+      "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+    },
+    "state.json": {
+      "bytes": 7147162,
+      "git_blob_sha1": "f529609c7ed4c5d77d7bab1bb1e93a112ec954f6",
+      "local_path": "/workspace/scratch/44aeee8a6071/phase3-checkpoint-monitor/checkpoints/659f21c/state.json",
+      "sha256": "0bcd184cca93534410eca020a2117f55f8034621266a8fa4d80b0086debb8417"
+    }
+  },
+  "bounded_artifact_audit": {
+    "archive_bytes": 4008176,
+    "archive_sha256": "ef59b34009982bbf8c38efa871f79dfa384d1960a67b5ac9ffd9cc044717644a",
+    "bundle_bytes": 5059348,
+    "bundle_files": 378,
+    "checkpoint_sha256": "04f28e2f5626bcf8bfe6e71f2dd528014b3962a3e1c548ff414e5d4ed7b5b37e",
+    "manifest_sha256": "8667c41a0e6ea6e8d2a5e45c905a1a652e92f0b6eb4c725d95ca7bf4222f1f12",
+    "raw_and_parsed_pairs_reopened_and_reparsed": 187,
+    "remaining_held_queue_count": 0,
+    "selected_held_count": 187,
+    "source_files_verified": 374,
+    "source_importer_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "total_held_count": 187
+  },
+  "bounded_artifact_id": 14035057758,
+  "checkpoint_scope": "Exact worker-saved HEAD and its committed review inputs; not an assertion about the newest remote main or live site deployment.",
+  "github_writes_by_auditor": 0,
+  "independent_pro_qc": "not_performed",
+  "job_id": 131861579409,
+  "live_reader_deployment_verified": false,
+  "new_acquisition": {
+    "by_collection": {
+      "abudawud": {
+        "fetched": 70,
+        "new_held": 12,
+        "old94_still_held": 14
+      },
+      "bukhari": {
+        "fetched": 70,
+        "new_held": 17,
+        "old94_still_held": 25
+      },
+      "ibnmajah": {
+        "fetched": 69,
+        "new_held": 10,
+        "old94_still_held": 9
+      },
+      "malik": {
+        "fetched": 69,
+        "new_held": 6
+      },
+      "muslim": {
+        "fetched": 70,
+        "new_held": 26,
+        "old94_still_held": 28
+      },
+      "nasai": {
+        "fetched": 70,
+        "new_held": 10,
+        "old94_still_held": 3
+      },
+      "tirmidhi": {
+        "fetched": 70,
+        "new_held": 12,
+        "old94_still_held": 15
+      }
+    },
+    "fetched": 488,
+    "historical_retry_successes": 488,
+    "new_held": 93
+  },
+  "new_manual_semantic_decisions": 0,
+  "old94_separate_accounting": {
+    "all_old94_source_rows_exactly_equal": true,
+    "baseline_count": 94,
+    "resolved_by_reviews_at_saved_head": 0,
+    "still_held_at_saved_head": 94
+  },
+  "phase6_manual_reviews_included_in_this_source_checkpoint": false,
+  "retry_audit": {
+    "all1000_authorizations_byte_identical": true,
+    "all_new_receipts_bind_original_error_hash_and_max_requests_one": true,
+    "manifest_sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42",
+    "new_outcomes": {
+      "succeeded": 488
+    },
+    "new_receipts": 488,
+    "old_consumed_pilot_exactly_preserved": true,
+    "pilot_stop_flag": false,
+    "remaining_eligibility": 511
+  },
+  "review_input_delta_since659f": [
+    {
+      "after": {
+        "compression": "gzip",
+        "method": "identical_complete_same_language_prior_boundary_review_v1",
+        "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+        "role": "exact_same_language_prior_boundary_review_decisions",
+        "sha256": "edfd7343bf3a377965b4b1aa5fa1318f32cd45c04966ba15917c7e73893c4a30",
+        "size_bytes": 733136,
+        "uncompressed_sha256": "cdb9ca9538f05e73cd1c9aa3dfbfa4fcc6a76f009fd1f134b9d34662c99af6b4"
+      },
+      "before": {
+        "compression": "gzip",
+        "method": "identical_complete_same_language_prior_boundary_review_v1",
+        "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+        "role": "exact_same_language_prior_boundary_review_decisions",
+        "sha256": "0fc6418c4b8882a52c042365d5eea820ad101e4cb0951ce086920193296e12dd",
+        "size_bytes": 708558,
+        "uncompressed_sha256": "85b65028c2410facac25e97e5ec8ae07c140a34cb55c5090a72b4f463a715bec"
+      },
+      "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/before-active-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
+        "size_bytes": 198556
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/before-active-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/field-reading-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "25022c4b6f7346899b8ebb7294cee04c53c87fb5efdbbbeb3c8a7f022aa7722b",
+        "size_bytes": 19394
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/field-reading-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selected-source-records.jsonl.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "dc66a4bb142cf5bd87857d261d271c1927d35509e3eccf135784055c73635bfb",
+        "size_bytes": 33697
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selected-source-records.jsonl.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selection.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "94a265c574cbf4d68d2fff36cb88b71ee012cc80f2d37581a5d529e08c0ca37c",
+        "size_bytes": 1784
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/selection.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/source-verification.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "66457341a9714cc3dc7946a87c097bd2e9f64b1c633a96404d1e0cde7b5e7818",
+        "size_bytes": 66816
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-nasai-hi-ur-extension-v1/source-verification.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/complete-field-reading-notes.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "618b03c0fedd7308b37a65f85fae909f174f278002c765f595bca39038a46343",
+        "size_bytes": 36125
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/complete-field-reading-notes.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/manual_reading_spec.py",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "78cd3880a2f15cc77ac9d1e9df0d6eabc6cf1795678df8d344004a14461f7807",
+        "size_bytes": 15573
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/manual_reading_spec.py"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/previous-review-ledger.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "cc569049f1bf77ae0dcbe2b4a792f53dc396c88f0bbbf31bb5f05c698a980a9b",
+        "size_bytes": 281899
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/previous-review-ledger.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/source-provenance-report.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "a2e36658c57b9aeac99ca4d7a7a0b376537ffdab6222172d572360e316c400d5",
+        "size_bytes": 68897
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/source-provenance-report.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/validation.json",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "de20bb1134bca3ba218aef2ebbc8bc84ac2bd72f20d7765a3b3f703b4d4616c7",
+        "size_bytes": 1594
+      },
+      "before": null,
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-bukhari30-hindi-urdu-v1/validation.json"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "1424f006393a018d6966de499ece2523b44bb6cb3fca78d4c40fbab85420e3b7",
+        "size_bytes": 291696
+      },
+      "before": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "cc569049f1bf77ae0dcbe2b4a792f53dc396c88f0bbbf31bb5f05c698a980a9b",
+        "size_bytes": 281899
+      },
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz"
+    },
+    {
+      "after": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa",
+        "size_bytes": 216232
+      },
+      "before": {
+        "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+        "role": "source_bound_review_and_coverage_evidence",
+        "sha256": "3debdf242d3f9ad14a7b3208cd8b3687a4920c38b5d594d8af3c3ee57ee0d937",
+        "size_bytes": 198556
+      },
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz"
+    }
+  ],
+  "run_conclusion": "success",
+  "run_id": 43418275117,
+  "saved_commit": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+  "saved_commit_parent": "ab76f729e7148d9c4c8b0759451f5fca0272ff3e",
+  "saved_commit_time_utc": "2026-11-13T12:18:19Z",
+  "saved_progress": {
+    "block_reason": null,
+    "blocked": false,
+    "certified_release_eligible": false,
+    "classification_pending_count": 187,
+    "done": false,
+    "errors_count": 511,
+    "historical_error_identities_count": 1000,
+    "imported_count": 14249,
+    "inventory_count": 36390,
+    "non_narration_source_entries": 123,
+    "pending_fetch_count": 21630,
+    "registered_hadith_count": 13939,
+    "remaining_count": 22141,
+    "requires_attention": false,
+    "resolved_historical_error_identities_count": 489,
+    "reviewed_error_attempts_count": 489,
+    "reviewed_error_retry_pending_count": 511,
+    "site": "deenhindi.com",
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "unresolved_historical_error_identities_count": 511,
+    "updated_at": "2026-11-13T12:14:17.741922+00:00"
+  },
+  "schema": "hadith-bank-saved-acquisition-state-audit-v2",
+  "site_evidence_timestamp_changes_only": [
+    {
+      "after_retrieved_at": "2026-11-13T11:41:17.409644+00:00",
+      "before_retrieved_at": "2026-11-13T10:59:34.141060+00:00",
+      "key": "robots",
+      "unchanged_content_sha256": "d645576fc296cd462ded742f791c6711e9d23cdbb0ec7d80b82b9b1435fa7b25"
+    }
+  ],
+  "source_evidence_content_unchanged": true,
+  "source_http_requests_by_auditor": 0,
+  "source_input_receipts": {
+    "inventory.json": {
+      "bytes": 507081,
+      "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+      "ref": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+      "sha256": "fa8047fa9672438d7d0d926a8fb47b6e5d7d0fc03e734357543e7745f907d348"
+    },
+    "progress.json": {
+      "bytes": 77274,
+      "git_blob_sha1": "dfd0db29b957208801943db273b6251db3e0d353",
+      "ref": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+      "sha256": "01ddcd95035f4efe94867e5743c5bc29fd0661d72d1e8e16dfe839278108810d"
+    },
+    "retry-authorizations.json": {
+      "bytes": 1447993,
+      "git_blob_sha1": "8f36b25b96003738466a2c2050ef80e583d20a7e",
+      "method": "Reused exact locally verified prior bytes after pinned current GitHub blob identity matched.",
+      "ref": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+      "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+    },
+    "state.json": {
+      "bytes": 9576971,
+      "git_blob_sha1": "f46f034f8128ef46be80f068ea44221e0a63d129",
+      "method": "Ordinary unauthenticated GET of the exact pinned public GitHub raw file after connector large-body transport failures; verified against pinned GitHub API blob identity and bounded artifact receipt.",
+      "ref": "59ce32dff9dde80992ac431d9bb82f40fefd5897",
+      "sha256": "706406edb4662b82b442c0130424c425b58035ecdc24f3b784b1cf2e33df48d1"
+    }
+  },
+  "source_start_commit": "659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9",
+  "source_state_preservation": {
+    "all_prior_error_objects_retained": true,
+    "lost_or_changed_prior_imported": 0,
+    "prior_consumed_receipts_exactly_equal": 1,
+    "prior_errors_changed_with_retained_history": 0,
+    "prior_errors_resolved_with_saved_receipts": 488,
+    "prior_errors_unchanged": 511,
+    "prior_history_lists_preserved_as_exact_prefixes": 1,
+    "prior_imported_descriptors_exactly_equal": 13761
+  },
+  "status": "PASS",
+  "successful_completed_workflow_steps": [
+    {
+      "conclusion": "success",
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check out the current bank and saved source queues",
+      "number": 2,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Set up Python",
+      "number": 3,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Check importer and reader regressions",
+      "number": 4,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Recover the approved archived Deen source snapshots",
+      "number": 5,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Rebuild the recovered checkpoint without new source requests",
+      "number": 6,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Resume bounded public-page batches",
+      "number": 7,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Save validated source snapshots and queue checkpoints",
+      "number": 8,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Request the website build after a saved or unchanged checkpoint",
+      "number": 9,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Continue the authorized Hindi queue after saved progress",
+      "number": 10,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Record the run outcome and source progress",
+      "number": 11,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Pause the finite schedule when no source can continue",
+      "number": 12,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Export bounded held evidence from the saved checkpoint",
+      "number": 13,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain bounded ordinary held-source evidence",
+      "number": 14,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain diagnostic logs for every outcome",
+      "number": 15,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the recovered source delta and review queue",
+      "number": 16,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Retain the bounded held-source evidence bundle",
+      "number": 17,
+      "status": "completed"
+    },
+    {
+      "conclusion": "skipped",
+      "name": "Preserve interrupted intake evidence for recovery",
+      "number": 18,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Set up Python",
+      "number": 35,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Check out the current bank and saved source queues",
+      "number": 36,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job",
+      "number": 37,
+      "status": "completed"
+    }
+  ]
+}

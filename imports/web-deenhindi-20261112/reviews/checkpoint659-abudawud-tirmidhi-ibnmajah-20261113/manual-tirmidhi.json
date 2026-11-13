@@ -1,0 +1,603 @@
+{
+  "records": [
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "reason": "Read the complete supplied Hindi abridgment. It contains actual Abu Said narrative and actual reported speech; keep those exact pieces as one explicitly abbreviated report. The inline hadith-summary editorial marker remains context, and no omitted detail is supplied from Urdu.",
+          "spans": [
+            {
+              "component_id": "abbreviated-fatiha-report",
+              "from": null,
+              "report_type": "explicitly_abbreviated_prophetic_report",
+              "speaker": "Abu Said al-Khudri reporting the companions' encounter and the Prophet's response",
+              "to": "(हदीथ का मुख़्तसर):"
+            },
+            {
+              "component_id": "abbreviated-fatiha-report",
+              "from": "हम में से एक आदमी",
+              "report_type": "explicitly_abbreviated_prophetic_report",
+              "speaker": "Abu Said al-Khudri reporting the companions' encounter and the Prophet's response",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( یعنی میں خود )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( کی دعا )"
+            }
+          ],
+          "reason": "Read all Urdu narrative and compiler text independently: the refusal of hospitality, illness, stipulated sheep, Fatihah recitation, recovery and later Prophetic response are the report. Keep Tirmidhi's grade, route comparison and chain catalogue as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "companion_account_with_prophetic_response",
+              "speaker": "Abu Said al-Khudri describing the encounter and the Prophet's response",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2064"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi first-person account of three, five or seven mushrooms, the expressed liquid and the girl's recovery. It is Abu Hurairah's attributed practice report; it is not relabelled as the Prophet's action or as a present-day treatment recommendation.",
+          "report_type": "companion_practice_report",
+          "speaker": "Abu Hurairah describing his own action"
+        },
+        "ur": {
+          "action": "whole",
+          "reason": "Read the entire Urdu first-person historical account independently. Preserve the three/five/seven alternative and the reported outcome under Abu Hurairah's attribution, without a new medical or authenticity assessment.",
+          "report_type": "companion_practice_report",
+          "speaker": "Abu Hurairah describing his own action"
+        }
+      },
+      "key": "tirmidhi:2069"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "(नाक)"
+            }
+          ],
+          "reason": "Read all Hindi wording. The initial statement is attributed here to Abu Hurairah; the subsequent detailed practice is attributed to Qatadah. Keep both actual source reports as separately labelled components, with no invented Prophetic attribution or treatment advice. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "component_id": "abu-hurairah-saying",
+              "from": null,
+              "report_type": "companion_saying",
+              "speaker": "Abu Hurairah, as explicitly attributed in this source field",
+              "to": "कतादा हर रोज़"
+            },
+            {
+              "component_id": "qatadah-practice",
+              "from": "कतादा हर रोज़",
+              "report_type": "successor_practice_report",
+              "speaker": "Qatadah's reported practice",
+              "to": null
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "reason": "Read the full Urdu statement and all three days of the reported practice independently. Separate Abu Hurairah's saying from Qatadah's practice and preserve the exact sequence; neither component is promoted to an independently verified medical instruction.",
+          "spans": [
+            {
+              "component_id": "abu-hurairah-saying",
+              "from": null,
+              "report_type": "companion_saying",
+              "speaker": "Abu Hurairah, as explicitly attributed in this source field",
+              "to": "قتادہ ہر روز"
+            },
+            {
+              "component_id": "qatadah-practice",
+              "from": "قتادہ ہر روز",
+              "report_type": "successor_practice_report",
+              "speaker": "Qatadah's reported practice",
+              "to": null
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2070"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "(ज्योत्षी/झूठ-सैर)"
+            }
+          ],
+          "reason": "Read the full Hindi prohibition and appended grade. Preserve its own woman-earnings wording and supplied kahin gloss; do not insert the more specific Urdu qualifier. Keep Tirmidhi's final Hasan Sahih assessment as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Masud al-Ansari reporting the Prophet's prohibition",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the entire Urdu field, including its specific zaniyah wording and footnote marker. Select the reported prohibition and preserve the appended Tirmidhi grade outside the report. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abu Masud al-Ansari reporting the Prophet's prohibition",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2071"
+    },
+    {
+      "decision": "exclude",
+      "fields": {
+        "hi": {
+          "action": "source_context",
+          "reason": "Read the complete Hindi information-not-provided placeholder. It contains no narration wording."
+        },
+        "ur": {
+          "action": "source_context",
+          "reason": "Read the complete Urdu information-not-provided placeholder. It contains no narration wording."
+        },
+        "ur-Latn": {
+          "action": "source_context",
+          "reason": "Read the complete Roman Urdu information-not-provided placeholder. Arabic and English were separately inspected and are empty strings, not missing quotations to reconstruct."
+        }
+      },
+      "key": "tirmidhi:2089",
+      "reason": "All three nonempty fields were read and the two other source fields are actually empty. Hindi, Urdu and Roman Urdu only state that information was not provided. No report body is present in this occurrence; preserve the placeholders and empties source-only."
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi account of the daughter, granddaughter and sister shares. Preserve the abbreviated journey/dialogue, the two initial advisers' answer and Ibn Masud's contrasting answer under their actual speakers; do not expand it from Urdu.",
+          "report_type": "companion_exchange_with_prophetic_ruling",
+          "speaker": "Huzayl, retaining the Hindi source spelling, reporting the two replies and Ibn Masud's answer"
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( بیٹیوں کا مکمل حصہ )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read all Urdu narrative and commentary, including the initial advisers' prediction, the man's report, and Ibn Masud's stated reliance on the Prophetic ruling. Select that full account; keep Tirmidhi's grade and Shubah/Abu Qays transmission note as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "companion_exchange_with_prophetic_ruling",
+              "speaker": "Huzayl ibn Shurahbil reporting Abu Musa, Salman ibn Rabiah and Ibn Masud",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2093"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "reason": "Read the full Hindi field. Select Ali's report concerning full and paternal-half brothers. The appended statement about scholarly practice is compiler commentary retained as context.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ali reporting the Prophet's ruling",
+              "to": "इमाम तिरमिधि कहते हैं"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "reason": "Read the complete Urdu field independently. Select the actual ruling; keep the unique-route notice, Abu Ishaq/Harith chain, criticism of Harith, and scholarly-practice note as context with their source attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Ali reporting the Prophet's ruling",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2095"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the entire Hindi account and its quoted inheritance verse. The verse is part of Jabir's narrated revelation account, not a separate Quran-derived occurrence. Preserve the supplied shortened wording without adding Urdu's location.",
+          "report_type": "prophetic_visit_and_revelation_account",
+          "speaker": "Jabir ibn Abdullah reporting the visit, his question and the subsequent revelation"
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            },
+            {
+              "expected_count": 1,
+              "reason": "The surah name and verse number identify the source citation; retain this exact reference label as context while all actual recitation and translated wording remains selected.",
+              "text": "( النساء: ۱۱ )"
+            }
+          ],
+          "reason": "Read the full Urdu account, the Bani Salimah location, unanswered question, Arabic verse and translation/reference. Retain them within the narrated account; the appended grade and transmitter list remain context. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_visit_and_revelation_account",
+              "speaker": "Jabir ibn Abdullah reporting the visit, his question and the subsequent revelation",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2096"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "(दादी और नानी)"
+            }
+          ],
+          "reason": "Read the complete Hindi account of Abu Bakr's consultation, Mughirah's evidence, Muhammad ibn Maslamah's confirmation and Umar's later reply. These actual companion exchanges retain their distinct speakers within Qabisah's narrative. The final grade, Malik/Sufyan preference and Buraidah catalogue remain compiler context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "historical_companion_account_with_prophetic_evidence",
+              "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 2,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( قرآن )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( دادی اور نانی )"
+            }
+          ],
+          "reason": "Read every Urdu word. Retain the actual consultations and quoted rulings with their speaker relationships. The inline conditional explanation of which grandmother is meant is translator context, and the final Tirmidhi grade/transmission catalogue is compiler context. The two selected spans are one narrated account across that inline explanation. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "component_id": "qabisah-inheritance-account",
+              "from": null,
+              "report_type": "historical_companion_account_with_prophetic_evidence",
+              "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges",
+              "to": "( اگر پہلی دادی تھی"
+            },
+            {
+              "component_id": "qabisah-inheritance-account",
+              "from": "میراث سے اپنا حصہ پوچھنے آئی۔ انہوں نے کہا:",
+              "report_type": "historical_companion_account_with_prophetic_evidence",
+              "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2101"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "(पोते के तरका में)"
+            }
+          ],
+          "reason": "Read the complete Hindi field. Select Ibn Masud's report of the first grandmother's one-sixth share while her son was alive, including its supplied translation framing. The route claim and survey of companion legal positions remain compiler context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Masud reporting the grandmother's share",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( پوتے کے ترکہ میں )"
+            }
+          ],
+          "reason": "Read the whole Urdu field independently. Select the actual report of the grandmother and living son; retain Tirmidhi's marfu-route and legal-position comments outside the narration. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Masud reporting the grandmother's share",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2102"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "reason": "Read the entire Hindi field. The deceased man's freed slave and the inheritance grant are actual reported content, despite the broken final honorific clause. Preserve that defect exactly; keep the Hasan grade and public-treasury legal discussion as context.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report_with_source_wording_defect",
+              "speaker": "Abdullah ibn Abbas reporting the inheritance grant",
+              "to": "इमाम तिरमिधि कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "reason": "Read the complete Urdu narrative and commentary. Select its explicit Prophetic grant to the freed slave, and retain the appended grade and scholarly rule about the public treasury outside the quotation.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Abbas reporting the inheritance grant",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2106"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "(हिजरत के बाद)"
+            }
+          ],
+          "reason": "Read the full long Hindi field: all proposed bequest shares, the one-third reply, care for heirs, reward for spending, migration question, prayer and Saad ibn Khawlah account. Retain that narrative, including its anomalous closing prayer wording. The grade, route list, Ibn Abbas catalogue and legal deductions remain context; their repeated one-third phrase is not counted as a new report. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+              "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( ہجرت کے بعد )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            },
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۲؎"
+            }
+          ],
+          "reason": "Read every Urdu sentence, all fractions and footnote markers, the migration exchange and prayer, and the Saad ibn Khawlah closing account. Select the actual narrative. Keep Tirmidhi's grade, transmission notices and legal deductions as context, preserving the source's duplicated list number and repeated quotation there. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+              "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2116"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "excerpt",
+          "reason": "Read the entire Hindi report, the father's exception, the supplied shortened dog simile and the final grade. Select its actual quotation; preserve Tirmidhi's Hasan Sahih assessment as context without extending the simile from Urdu.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Umar and Abdullah ibn Abbas reporting the Prophet's statement",
+              "to": "इमाम तिरमिज़ी कहते हैं:"
+            }
+          ]
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( وہ اسے واپس لے سکتا ہے )"
+            }
+          ],
+          "reason": "Read the full Urdu quotation and its longer simile, then the grade and Shafii discussion. Select only the actual reported statement; the appended Shafii legal inference is compiler-side explanation in this occurrence, retained as source context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Umar and Abdullah ibn Abbas reporting the Prophet's statement",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2132"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the complete Hindi account and admonition. It is shorter than Urdu and contains no appended compiler paragraph; preserve its own words without adding the omitted analogy or question.",
+          "report_type": "prophetic_report_and_admonition",
+          "speaker": "Abu Hurairah describing the Prophet's reaction to the discussion of destiny"
+        },
+        "ur": {
+          "action": "excerpt",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read all Urdu content, including the pomegranate comparison, the two questions and the admonition. Select the actual report and retain the Gharib grade, Salih al-Murri criticism and parallel-reporter list as context, alongside the separate source metadata grade without resolving it. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "spans": [
+            {
+              "from": null,
+              "report_type": "prophetic_report_and_admonition",
+              "speaker": "Abu Hurairah describing the Prophet's reaction to the discussion of destiny",
+              "to": "امام ترمذی کہتے ہیں:"
+            }
+          ]
+        }
+      },
+      "key": "tirmidhi:2133"
+    },
+    {
+      "decision": "register",
+      "fields": {
+        "hi": {
+          "action": "whole",
+          "reason": "Read the full Hindi account: the three periods, spirit, four written matters, oath and the two final-outcome scenarios. Preserve its explicitly compressed wording and do not complete it from Urdu.",
+          "report_type": "prophetic_report",
+          "speaker": "Abdullah ibn Masud transmitting the statement attributed to al-Sadiq al-Masduq"
+        },
+        "ur": {
+          "action": "excerpts",
+          "omit_source_context": [
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( یعنی جمے ہوئے خون )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( یعنی گوشت کے لوتھڑے )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( کے لکھنے )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( بدبخت )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context.",
+              "text": "( نیک بخت )"
+            },
+            {
+              "expected_count": 1,
+              "reason": "The numbered Urdu glyph refers to source footnote apparatus and contributes no report wording; retain it verbatim as source context.",
+              "text": "۱؎"
+            }
+          ],
+          "reason": "Read the entire Urdu account independently, including the supplied glosses, footnote marker, four written matters, oath and both final-outcome scenarios. The field contains no appended compiler block; retain all source wording exactly. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution. Final source-apparatus amendment: the explicitly inventoried footnote glyphs or verse-reference labels are retained as context, with all surrounding report wording, actual recitation, translation and speaker attribution unchanged.",
+          "report_type": "prophetic_report",
+          "spans": [
+            {
+              "component_id": "surrounding-narrated-report",
+              "from": null,
+              "report_type": "prophetic_report",
+              "speaker": "Abdullah ibn Masud transmitting the Prophet's statement",
+              "to": null
+            }
+          ],
+          "speaker": "Abdullah ibn Masud transmitting the Prophet's statement"
+        }
+      },
+      "key": "tirmidhi:2137"
+    }
+  ],
+  "source_read": "Individually read all 15 complete Hindi and all15 complete Urdu fields. For2089 also read the complete Roman Urdu placeholder and inspect the actual empty Arabic and English fields before source-only exclusion. Other Arabic, English and Roman Urdu siblings remain unread context."
+}

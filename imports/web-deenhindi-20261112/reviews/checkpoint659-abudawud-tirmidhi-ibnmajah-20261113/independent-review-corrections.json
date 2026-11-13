@@ -1,0 +1,686 @@
+{
+  "schema": "hadith-bank-independent-source-review-corrections-v1",
+  "source_checkpoint": "659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9",
+  "independent_reviewer": "root agent, independently reading the exact saved fields",
+  "independent_complete_nonempty_fields_read": 82,
+  "actual_empty_fields_inspected": 2,
+  "source_occurrences": 38,
+  "parent_dispositions_unchanged": {
+    "register": 36,
+    "exclude_source_only": 2
+  },
+  "corrected_language_fields": 16,
+  "reason": "Keep explicit lexical/translator explanations as context and distinguish the interleaved Sulayman transmission variant from Aisha's main account. No source wording is edited.",
+  "not_an_independent_pro_certification": true,
+  "changes": [
+    {
+      "id": "deenhindi-abudawud:2121",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "454b4400409caad2b796033a79abc76c71e5bf61a1c3bae6c8d409978b142f64",
+      "before": {
+        "action": "whole",
+        "report_type": "prophetic_report_with_explicit_transmission_variant",
+        "speaker": "Aisha's marriage account, retaining the stated Sulayman transmission variant",
+        "reason": "Read the whole Hindi account and its explicit seven/six-year Sulayman variant and nine-year wording. These are supplied attributed narrative readings; preserve them without harmonization or converting the variant into an inferred correction."
+      },
+      "after": {
+        "action": "excerpts",
+        "reason": "Complete field read independently. Preserve Aisha's seven/nine-year account as one source report family across the intervening variant and lexical gloss. Select the explicitly framed six-year Sulayman variant as its own attributed report family. Preserve source order and exact source bytes; the zafaf lexical gloss is context. The native engine represents interleaved families using distinct ordered components and explicit family IDs, without joining their attribution. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "(सुलैमान की रिवायत में है:",
+            "component_id": "aisha-initial-account",
+            "source_report_family_id": "deenhindi-abudawud:2121:hi:aisha-account",
+            "report_type": "prophetic_report",
+            "speaker": "Aisha reporting her seven-year marriage and nine-year subsequent account"
+          },
+          {
+            "from": "(सुलैमान की रिवायत में है:",
+            "to": " और आप",
+            "component_id": "sulayman-age-variant",
+            "source_report_family_id": "deenhindi-abudawud:2121:hi:sulayman-variant",
+            "report_type": "attributed_transmission_variant",
+            "speaker": "Aisha's six-year wording in the explicitly identified Sulayman transmission"
+          },
+          {
+            "from": " और आप",
+            "to": null,
+            "component_id": "aisha-concluding-account",
+            "source_report_family_id": "deenhindi-abudawud:2121:hi:aisha-account",
+            "report_type": "prophetic_report",
+            "speaker": "Aisha reporting her seven-year marriage and nine-year subsequent account"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(शब्-इ-ज़फाफ मनायी)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-abudawud:2121",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "9fa2dcd7e6c3de7cfbf410d4d860882e6d8a4857bb1d0193efdc78640ede28a3",
+      "before": {
+        "action": "whole",
+        "report_type": "prophetic_report_with_explicit_transmission_variant",
+        "speaker": "Aisha's marriage account, retaining the stated Sulayman transmission variant",
+        "reason": "Read the entire Urdu statement independently, including its parenthetical six-year Sulayman reading and the final nine-year statement. Keep the source's variant attribution and supplied translation parenthetical intact."
+      },
+      "after": {
+        "action": "excerpts",
+        "reason": "Complete field read independently. Preserve Aisha's seven/nine-year account as one source report family across the intervening variant and lexical gloss. Select the explicitly framed six-year Sulayman variant as its own attributed report family. Preserve source order and exact source bytes; the zafaf lexical gloss is context. The native engine represents interleaved families using distinct ordered components and explicit family IDs, without joining their attribution. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "( سلیمان کی روایت میں ہے:",
+            "component_id": "aisha-initial-account",
+            "source_report_family_id": "deenhindi-abudawud:2121:ur:aisha-account",
+            "report_type": "prophetic_report",
+            "speaker": "Aisha reporting her seven-year marriage and nine-year subsequent account"
+          },
+          {
+            "from": "( سلیمان کی روایت میں ہے:",
+            "to": " اور آپ",
+            "component_id": "sulayman-age-variant",
+            "source_report_family_id": "deenhindi-abudawud:2121:ur:sulayman-variant",
+            "report_type": "attributed_transmission_variant",
+            "speaker": "Aisha's six-year wording in the explicitly identified Sulayman transmission"
+          },
+          {
+            "from": " اور آپ",
+            "to": null,
+            "component_id": "aisha-concluding-account",
+            "source_report_family_id": "deenhindi-abudawud:2121:ur:aisha-account",
+            "report_type": "prophetic_report",
+            "speaker": "Aisha reporting her seven-year marriage and nine-year subsequent account"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( شب زفاف منائی )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-ibnmajah:2074",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "d91de54450b220a190a4f753b196b403d778c1e7c41aaedc3a05cc023169ee5f",
+      "before": {
+        "action": "whole",
+        "report_type": "companion_report_with_source_attribution_defect",
+        "speaker": "Aisha reporting Barirah's manumission and choice",
+        "reason": "Read all Hindi wording. It attributes the account to Aisha and contains the visibly defective Allah-with-honorific clause where Urdu supplies Rasul Allah. Preserve that source defect without inserting missing words; retain the stated choice and the source's husband-was-free wording."
+      },
+      "after": {
+        "action": "excerpts",
+        "report_type": "companion_report_with_source_attribution_defect",
+        "speaker": "Aisha reporting Barirah's manumission and choice",
+        "reason": "Read all Hindi wording. It attributes the account to Aisha and contains the visibly defective Allah-with-honorific clause where Urdu supplies Rasul Allah. Preserve that source defect without inserting missing words; retain the stated choice and the source's husband-was-free wording. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": null,
+            "component_id": "surrounding-narrated-report",
+            "report_type": "companion_report_with_source_attribution_defect",
+            "speaker": "Aisha reporting Barirah's manumission and choice"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(की वह अपने शौहर के पास रहें या उससे जुदा हो जाएँ)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-ibnmajah:2074",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "fa8ae46394bf57b52b0507bff8158848719be988c153aa1d058c141a351eeeb6",
+      "before": {
+        "action": "whole",
+        "report_type": "companion_report_with_prophetic_action",
+        "speaker": "Aisha reporting Barirah's manumission and the Prophet's granting her a choice",
+        "reason": "Read the complete Urdu account and its explanatory translation parenthetical. It explicitly names Rasul Allah and states that her husband was free. Retain both statements as supplied, without harmonizing another language or edition."
+      },
+      "after": {
+        "action": "excerpts",
+        "report_type": "companion_report_with_prophetic_action",
+        "speaker": "Aisha reporting Barirah's manumission and the Prophet's granting her a choice",
+        "reason": "Read the complete Urdu account and its explanatory translation parenthetical. It explicitly names Rasul Allah and states that her husband was free. Retain both statements as supplied, without harmonizing another language or edition. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": null,
+            "component_id": "surrounding-narrated-report",
+            "report_type": "companion_report_with_prophetic_action",
+            "speaker": "Aisha reporting Barirah's manumission and the Prophet's granting her a choice"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( کہ وہ اپنے شوہر کے پاس رہیں یا اس سے جدا ہو جائیں )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2064",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "a92259d61d6ad9ae8cdd35dd949ad015e1a2dc9f8a5046abb8af91b6a4adad44",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read all Urdu narrative and compiler text independently: the refusal of hospitality, illness, stipulated sheep, Fatihah recitation, recovery and later Prophetic response are the report. Keep Tirmidhi's grade, route comparison and chain catalogue as context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_account_with_prophetic_response",
+            "speaker": "Abu Said al-Khudri describing the encounter and the Prophet's response"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read all Urdu narrative and compiler text independently: the refusal of hospitality, illness, stipulated sheep, Fatihah recitation, recovery and later Prophetic response are the report. Keep Tirmidhi's grade, route comparison and chain catalogue as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_account_with_prophetic_response",
+            "speaker": "Abu Said al-Khudri describing the encounter and the Prophet's response"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( یعنی میں خود )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( کی دعا )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2070",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "d9856f61b612a0ca73406a4dfce201437e36c32e084fa3f0ca2487d4510272a6",
+      "before": {
+        "action": "excerpts",
+        "reason": "Read all Hindi wording. The initial statement is attributed here to Abu Hurairah; the subsequent detailed practice is attributed to Qatadah. Keep both actual source reports as separately labelled components, with no invented Prophetic attribution or treatment advice.",
+        "spans": [
+          {
+            "from": null,
+            "to": "कतादा हर रोज़",
+            "component_id": "abu-hurairah-saying",
+            "report_type": "companion_saying",
+            "speaker": "Abu Hurairah, as explicitly attributed in this source field"
+          },
+          {
+            "from": "कतादा हर रोज़",
+            "to": null,
+            "component_id": "qatadah-practice",
+            "report_type": "successor_practice_report",
+            "speaker": "Qatadah's reported practice"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpts",
+        "reason": "Read all Hindi wording. The initial statement is attributed here to Abu Hurairah; the subsequent detailed practice is attributed to Qatadah. Keep both actual source reports as separately labelled components, with no invented Prophetic attribution or treatment advice. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "कतादा हर रोज़",
+            "component_id": "abu-hurairah-saying",
+            "report_type": "companion_saying",
+            "speaker": "Abu Hurairah, as explicitly attributed in this source field"
+          },
+          {
+            "from": "कतादा हर रोज़",
+            "to": null,
+            "component_id": "qatadah-practice",
+            "report_type": "successor_practice_report",
+            "speaker": "Qatadah's reported practice"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(नाक)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2071",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "ef4342cc1235eb1d926f16d08e7082eaa563d94175970b39244ea2c450d22ff6",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the full Hindi prohibition and appended grade. Preserve its own woman-earnings wording and supplied kahin gloss; do not insert the more specific Urdu qualifier. Keep Tirmidhi's final Hasan Sahih assessment as context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिधि कहते हैं:",
+            "report_type": "prophetic_report",
+            "speaker": "Abu Masud al-Ansari reporting the Prophet's prohibition"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the full Hindi prohibition and appended grade. Preserve its own woman-earnings wording and supplied kahin gloss; do not insert the more specific Urdu qualifier. Keep Tirmidhi's final Hasan Sahih assessment as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिधि कहते हैं:",
+            "report_type": "prophetic_report",
+            "speaker": "Abu Masud al-Ansari reporting the Prophet's prohibition"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(ज्योत्षी/झूठ-सैर)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2093",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "63cb6a4d4a9afd8075f2a13e21b3ae2b8ed8b4c70a0dec05e7ba043437c31eab",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read all Urdu narrative and commentary, including the initial advisers' prediction, the man's report, and Ibn Masud's stated reliance on the Prophetic ruling. Select that full account; keep Tirmidhi's grade and Shubah/Abu Qays transmission note as context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_exchange_with_prophetic_ruling",
+            "speaker": "Huzayl ibn Shurahbil reporting Abu Musa, Salman ibn Rabiah and Ibn Masud"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read all Urdu narrative and commentary, including the initial advisers' prediction, the man's report, and Ibn Masud's stated reliance on the Prophetic ruling. Select that full account; keep Tirmidhi's grade and Shubah/Abu Qays transmission note as context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_exchange_with_prophetic_ruling",
+            "speaker": "Huzayl ibn Shurahbil reporting Abu Musa, Salman ibn Rabiah and Ibn Masud"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( بیٹیوں کا مکمل حصہ )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2101",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "562fa9884be6c7e42f29432f99bea12db69410bf769f89bda5b844798131e4aa",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the complete Hindi account of Abu Bakr's consultation, Mughirah's evidence, Muhammad ibn Maslamah's confirmation and Umar's later reply. These actual companion exchanges retain their distinct speakers within Qabisah's narrative. The final grade, Malik/Sufyan preference and Buraidah catalogue remain compiler context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the complete Hindi account of Abu Bakr's consultation, Mughirah's evidence, Muhammad ibn Maslamah's confirmation and Umar's later reply. These actual companion exchanges retain their distinct speakers within Qabisah's narrative. The final grade, Malik/Sufyan preference and Buraidah catalogue remain compiler context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(दादी और नानी)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2101",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "3b3db5cea5d0ea1ed1ff84010e0020f019079ea1236ef6e01b56cc40014884c0",
+      "before": {
+        "action": "excerpts",
+        "reason": "Read every Urdu word. Retain the actual consultations and quoted rulings with their speaker relationships. The inline conditional explanation of which grandmother is meant is translator context, and the final Tirmidhi grade/transmission catalogue is compiler context. The two selected spans are one narrated account across that inline explanation.",
+        "spans": [
+          {
+            "from": null,
+            "to": "( اگر پہلی دادی تھی",
+            "component_id": "qabisah-inheritance-account",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          },
+          {
+            "from": "میراث سے اپنا حصہ پوچھنے آئی۔ انہوں نے کہا:",
+            "to": "امام ترمذی کہتے ہیں:",
+            "component_id": "qabisah-inheritance-account",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpts",
+        "reason": "Read every Urdu word. Retain the actual consultations and quoted rulings with their speaker relationships. The inline conditional explanation of which grandmother is meant is translator context, and the final Tirmidhi grade/transmission catalogue is compiler context. The two selected spans are one narrated account across that inline explanation. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "( اگر پہلی دادی تھی",
+            "component_id": "qabisah-inheritance-account",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          },
+          {
+            "from": "میراث سے اپنا حصہ پوچھنے آئی۔ انہوں نے کہا:",
+            "to": "امام ترمذی کہتے ہیں:",
+            "component_id": "qabisah-inheritance-account",
+            "report_type": "historical_companion_account_with_prophetic_evidence",
+            "speaker": "Qabisah ibn Dhuayb reporting Abu Bakr's and Umar's inheritance exchanges"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( قرآن )",
+            "expected_count": 2,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( دادی اور نانی )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2102",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "853752e21cb48550bfd13b5ff10dba9e96da7738dfdcaa3585d171bd5174330c",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the complete Hindi field. Select Ibn Masud's report of the first grandmother's one-sixth share while her son was alive, including its supplied translation framing. The route claim and survey of companion legal positions remain compiler context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Masud reporting the grandmother's share"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the complete Hindi field. Select Ibn Masud's report of the first grandmother's one-sixth share while her son was alive, including its supplied translation framing. The route claim and survey of companion legal positions remain compiler context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Masud reporting the grandmother's share"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(पोते के तरका में)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2102",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "a4742066104948956bd8a2a2dd2147fb0e74660a4c0f0776f35742fca84d71cb",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the whole Urdu field independently. Select the actual report of the grandmother and living son; retain Tirmidhi's marfu-route and legal-position comments outside the narration.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Masud reporting the grandmother's share"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the whole Urdu field independently. Select the actual report of the grandmother and living son; retain Tirmidhi's marfu-route and legal-position comments outside the narration. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Masud reporting the grandmother's share"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( پوتے کے ترکہ میں )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2116",
+      "language": "hi",
+      "source_field": "translationHindi",
+      "source_text_sha256": "48ddbf1218d6dc3962d790258d8cf3558a02f4f79181e8110d5106df6bfbb6ee",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the full long Hindi field: all proposed bequest shares, the one-third reply, care for heirs, reward for spending, migration question, prayer and Saad ibn Khawlah account. Retain that narrative, including its anomalous closing prayer wording. The grade, route list, Ibn Abbas catalogue and legal deductions remain context; their repeated one-third phrase is not counted as a new report.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+            "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the full long Hindi field: all proposed bequest shares, the one-third reply, care for heirs, reward for spending, migration question, prayer and Saad ibn Khawlah account. Retain that narrative, including its anomalous closing prayer wording. The grade, route list, Ibn Abbas catalogue and legal deductions remain context; their repeated one-third phrase is not counted as a new report. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "इमाम तिरमिज़ी कहते हैं:",
+            "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+            "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "(हिजरत के बाद)",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2116",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "4f860fb0852e29fe7726108e530939bfc95dca71b4efda9ee4c277ed87d2ecca",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read every Urdu sentence, all fractions and footnote markers, the migration exchange and prayer, and the Saad ibn Khawlah closing account. Select the actual narrative. Keep Tirmidhi's grade, transmission notices and legal deductions as context, preserving the source's duplicated list number and repeated quotation there.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+            "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read every Urdu sentence, all fractions and footnote markers, the migration exchange and prayer, and the Saad ibn Khawlah closing account. Select the actual narrative. Keep Tirmidhi's grade, transmission notices and legal deductions as context, preserving the source's duplicated list number and repeated quotation there. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "companion_account_with_prophetic_dialogue_and_prayer",
+            "speaker": "Sad ibn Abi Waqqas reporting the Prophet's visit and their dialogue"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( ہجرت کے بعد )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2132",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "3cd95c79b764cd4cfa105c425ef1eb4f3036f3beb618fc01cdd7e469028b3d88",
+      "before": {
+        "action": "excerpt",
+        "reason": "Read the full Urdu quotation and its longer simile, then the grade and Shafii discussion. Select only the actual reported statement; the appended Shafii legal inference is compiler-side explanation in this occurrence, retained as source context.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Umar and Abdullah ibn Abbas reporting the Prophet's statement"
+          }
+        ]
+      },
+      "after": {
+        "action": "excerpt",
+        "reason": "Read the full Urdu quotation and its longer simile, then the grade and Shafii discussion. Select only the actual reported statement; the appended Shafii legal inference is compiler-side explanation in this occurrence, retained as source context. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": "امام ترمذی کہتے ہیں:",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Umar and Abdullah ibn Abbas reporting the Prophet's statement"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( وہ اسے واپس لے سکتا ہے )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    },
+    {
+      "id": "deenhindi-tirmidhi:2137",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "source_text_sha256": "92423f8064d95f559a04f77fc0221059ee2ec464217182e606121d5f049733b0",
+      "before": {
+        "action": "whole",
+        "report_type": "prophetic_report",
+        "speaker": "Abdullah ibn Masud transmitting the Prophet's statement",
+        "reason": "Read the entire Urdu account independently, including the supplied glosses, footnote marker, four written matters, oath and both final-outcome scenarios. The field contains no appended compiler block; retain all source wording exactly."
+      },
+      "after": {
+        "action": "excerpts",
+        "report_type": "prophetic_report",
+        "speaker": "Abdullah ibn Masud transmitting the Prophet's statement",
+        "reason": "Read the entire Urdu account independently, including the supplied glosses, footnote marker, four written matters, oath and both final-outcome scenarios. The field contains no appended compiler block; retain all source wording exactly. Independent complete-field review narrows the quotation around the explicitly listed lexical/translator explanations; surrounding narrative retains its own component attribution.",
+        "spans": [
+          {
+            "from": null,
+            "to": null,
+            "component_id": "surrounding-narrated-report",
+            "report_type": "prophetic_report",
+            "speaker": "Abdullah ibn Masud transmitting the Prophet's statement"
+          }
+        ],
+        "omit_source_context": [
+          {
+            "text": "( یعنی جمے ہوئے خون )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( یعنی گوشت کے لوتھڑے )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( کے لکھنے )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( بدبخت )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          },
+          {
+            "text": "( نیک بخت )",
+            "expected_count": 1,
+            "reason": "Explicit lexical or translator explanation identified by the independent complete-field reading; retain exact bytes as source context."
+          }
+        ]
+      }
+    }
+  ]
+}

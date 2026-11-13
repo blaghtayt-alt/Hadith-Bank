@@ -1,0 +1,534 @@
+{
+  "all28_raw_and_parsed_pairs_independently_reopened": true,
+  "all_requested_span_changes_exactly_applied": true,
+  "corrected_language_fields": 29,
+  "engine_sha256": {
+    "import_deenhindi.py": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+    "web_source_reviews.py": "1411cbcb4ca2bdcbe4db7df9828c69c9ff482b0a011fea43ffd72b292e0c7c15"
+  },
+  "final_active_ledger": {
+    "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+    "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58"
+  },
+  "final_delivery_manifest_sha256": "19b413f9bd87fde0f319178e695a88b09787fa8218a224385d3fa90c439966c6",
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "independent_reading_notes": {
+    "bytes": 11149,
+    "local_path": "/workspace/scratch/44aeee8a6071/checkpoint659-bukhari-nasai-independent-audit/publish/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-complete-field-reading.json.gz",
+    "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint659-bukhari-nasai-manual-v1/independent-complete-field-reading.json.gz",
+    "sha256": "c6bebb606bfaf219db76e921a8a385768a47ce1ee1fea30ea707de77bf84262d"
+  },
+  "limitations": "This independently verifies the identified28-source candidate and final byte-bound decisions. Shared integrated export, full-registry validation, browser build and deployment remain separate CI gates.",
+  "native_source_reviews_apply_finish": "PASS",
+  "parent_dispositions": {
+    "register": 28,
+    "source_only": 0,
+    "unresolved": 0
+  },
+  "previous_active_ledger_sha256": "f4c95c2c177c37d4c4b38c1387a50c66ff2b9181cebbf945b4a2da116e718f09",
+  "previous_exact_bytes_retained": true,
+  "result": "PASS",
+  "review_scope": "Independent complete reading of all56 Hindi/Urdu source fields, followed by exact final-ledger boundary, source-byte and native preservation checks. No unread sibling approval.",
+  "reviewer": "OpenAI assistant /root/deployment_audit",
+  "schema": "hadith-bank-independent-final-source-review-v1",
+  "source_baseline_sha256": "837796523de693dd0229f2162ce3139ca7d7f7552955d9663149202afb7a9f0d",
+  "source_checks": [
+    {
+      "files": [
+        {
+          "git_blob_sha1": "dc69cc996b86a54691d695b50906bd05b9f4a86d",
+          "path": "imports/web-deenhindi-20261112/raw/4a0b63d47fa53c5b77dbde2326e7ea93eddbdcf92c7411d9208044f4a2fb50f9.html.gz",
+          "sha256": "cbd7602f8007d237f3439b768949858334c75861aa35da358cac5c9ac4d684d5"
+        },
+        {
+          "git_blob_sha1": "c2943421d8d5263134ba72a08365f571df86304f",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/b6c72248769a680f8562dd3e45e858c42dd61df2b0a33a04dca25f6c4fde48ae.json.gz",
+          "sha256": "3dfb291cd1479d18a86127b3beeffcc012991df8fddc90aae1ad3cee5ea4c01c"
+        }
+      ],
+      "id": "deenhindi-bukhari:2084",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "c096b8fe99b8642bb8cef0576e90a4e122f3db155fdc9fba4c804e1226cc5cb2"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "6616e349ea598df211e9de93fc28259ec69c2e5a",
+          "path": "imports/web-deenhindi-20261112/raw/3c50884954c66ea40ee09d9f602b327838a4fd3d241da9bad218ea457d820a34.html.gz",
+          "sha256": "687d09d01e7b42b95bf4424f4d4c9e8d6ca6229dcf63ff9089f7804482c9cfe4"
+        },
+        {
+          "git_blob_sha1": "bed846b5b9804e0dc48ff2cbd6af48d1a59ff879",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/02e15952d7aa2de4b337679dd40dba50dab7b3e11078bf59dbb8294de86a9cda.json.gz",
+          "sha256": "95d350cd018ad8b2185f454005a16737e4489135fa6465c571a570dcc4116c22"
+        }
+      ],
+      "id": "deenhindi-bukhari:2086",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "79cd95f4a62324a06c70c2f6d5ef147c6d54c55029d67cbdb03822334ec8d281"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "89508d51fd65927b4f9e3ece8c338f0d8b803441",
+          "path": "imports/web-deenhindi-20261112/raw/525e06aeffa14f849f6febda28adbf6a9fd9beee7d18f706f663b217ae83e45c.html.gz",
+          "sha256": "ba3fbe73a015ba2f5883ed115a9b678eeaae3085b2c67b034f74bb322b7e99b1"
+        },
+        {
+          "git_blob_sha1": "2d2df397350c75ee7e398757893d7066c25c0a1e",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/fa557fc16aff43ec16d09f4fd4bb17869c9b4a3b7517f69b15f6c71d789635ca.json.gz",
+          "sha256": "9bdb44ecea22c0af2943bceb1826aa4f085c5e9988db111f40b66fc52835d4ad"
+        }
+      ],
+      "id": "deenhindi-bukhari:2088",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "47401f6893d663dde6f1240a1d6ed1f9d18c9bc6a6df7ab23da2c7328068fa02"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "ce488a2d57ee083867b195e65f4bd29b8706e41e",
+          "path": "imports/web-deenhindi-20261112/raw/32099a8aefb023a96befea861076dca8940da66365584307b112356f93d25595.html.gz",
+          "sha256": "31cf9564dbeb20fd3bdb5782dc8c0720e89a0d2ac8486055c9e0da38759e2cf8"
+        },
+        {
+          "git_blob_sha1": "68937984e51f8a8ca200a6e41ad0d74965f4aad4",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/9a5bb635a5aee8bac55d04f833867bb48080132d5d681c5d0e801599fb2202a5.json.gz",
+          "sha256": "e44ce9ed5710e0b2f4ed00edaa5df9a7038cc0465a0bbb0f41ab867e3a61291d"
+        }
+      ],
+      "id": "deenhindi-bukhari:2091",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "f4e269e286abde6c3f4c61e5b7ec23d972e4a706c25adf047e2ef9bb749f2ca8"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "9a3305f9c3a18e89853b7018bf4acf91ccdb6a62",
+          "path": "imports/web-deenhindi-20261112/raw/ce0bfea1365a331424140b074538a593588e66df1f33017bc42a73e0691f3378.html.gz",
+          "sha256": "c3b181de59df3d8d0f7fd437157500212a375b3405e0919f20b785933d7090a3"
+        },
+        {
+          "git_blob_sha1": "2aeb6d243dbaf65571800744a3056210e6b3a68e",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/03e058fd7c1c4c2b5015437091492d381a5482731a3b6b5c069c8721f11288d1.json.gz",
+          "sha256": "f8e646d946371fe51a1e3fba6d1f4b9ab7e19b661b2ebd30a82a133299a461a4"
+        }
+      ],
+      "id": "deenhindi-bukhari:2094",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "a9808a545ab7233b1f80123290e43b92ba07ed442e9be76b8bd600e9840cccb2"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "9c0dd06ac953a79f42b63fdd2683b3628c6e1f1a",
+          "path": "imports/web-deenhindi-20261112/raw/872c5937525de660e326206ce0d5883e3464b8fa9b5b2efb684a46229c32dbd8.html.gz",
+          "sha256": "f8551760191eaf0bddece12707d1266ea68d18f0755df6f13632b30416b24a45"
+        },
+        {
+          "git_blob_sha1": "b7b168c903e5d6046b63b75cc6cfb96272b0471d",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/e50edf1cab6624c3c2925393cb046ac2bfd53c233085aea924c241251ad0e83b.json.gz",
+          "sha256": "4e86a1f255e3fdd1dad2ede50728eee1777d3f6d06a4405e2f15f9a4a5bcd444"
+        }
+      ],
+      "id": "deenhindi-bukhari:2095",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "26d29254ee8d271a164ef9651f50173823065810c80fbf9a81b1b070c18583b4"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "d0db4a7b28e6e0aeb605a1eaec0ceb32a6145503",
+          "path": "imports/web-deenhindi-20261112/raw/1777a12a9903bcd9b7b279a07a58f8d20f55481c60ce54dfa12b41feca251716.html.gz",
+          "sha256": "fabf15c5627dc8df0a81540cc8d7811be97463b46a6c4584d7a3ff40d2721345"
+        },
+        {
+          "git_blob_sha1": "e2c81c756d6d178c4ae3e063d05515b54041bece",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/080bd68966b6bd1cfc9a090283f5a15424d07f6c564478d2f27275e227314c3b.json.gz",
+          "sha256": "3d18a7814e8c97fe38e9467fafd4610d371c0e493b19d22681beff494b273a43"
+        }
+      ],
+      "id": "deenhindi-bukhari:2096",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "8de8a31ca86b667dc410f4b3ac8e3f037198c3a5b5acfdb45de6e014f8026abd"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "b70f150023cf08f86fcf460c04b2b22f746ad06c",
+          "path": "imports/web-deenhindi-20261112/raw/ca7f3bf7a6274ce9dd8f661818952526f793ab39f1942ee0c4a27e1c33b29695.html.gz",
+          "sha256": "b6bcf48cb802bc0109286cbe2b221222958893ea549473e02deadb0979b43f5e"
+        },
+        {
+          "git_blob_sha1": "0323243071678a344298b79a57f6314abc145e82",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/30c016fb0f579b00c021a9625c7d3a276341adc19364cb45f1d5532b2d10748a.json.gz",
+          "sha256": "c075755661b8d823275b9dfb859d0aa549c2921fe4b2da654b98f5b27ac1bebf"
+        }
+      ],
+      "id": "deenhindi-bukhari:2099",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "6109f25671439847a03e4714324052b9ed1b6f253cc4284fc2c386755c2c6593"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "3a0273f5b3e64b29cfdb7ac54a8a7cc8524af972",
+          "path": "imports/web-deenhindi-20261112/raw/effe4b8c283c87aafbeed87a1994a5ac4278982a8798317d5d6accae75149536.html.gz",
+          "sha256": "9364b930e68d6301f732cc4c6a15b23e68c9c6c2fbefdb635fdaf7175fc4f8b9"
+        },
+        {
+          "git_blob_sha1": "0c8dc4ab555eb1c74af4f69fa42c70c5566912a5",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/9db79e440b1fce3bd9690c112ff1f2d3fa34b57cf272057aa9e9424505d0311a.json.gz",
+          "sha256": "4449473073a3ae5bc51d31180ec79f535761e77c7da3c79226f418dbfc915895"
+        }
+      ],
+      "id": "deenhindi-bukhari:2100",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "ff026045d5c5d9a9f25928aa61ae4cf699db613a13eab1a0d16e17783eba4c9c"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "c961b4bab0535b87b2dd02693543c0cfdc634cd4",
+          "path": "imports/web-deenhindi-20261112/raw/9937b322fe178ab3fff9aa40d7565535f7399affd692741a30291effc3492a15.html.gz",
+          "sha256": "16baae0b4b0da76a38fd03871e1271cdded6a1e6a3780a4f37379e2e272fb485"
+        },
+        {
+          "git_blob_sha1": "21495d77a80747651c3fbeca49069bc02c6357e1",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/1d746559406890c84ffa042055c792cb3d23fbe5b568f0edb05cd32a399f6cd3.json.gz",
+          "sha256": "f9a1686a9d70795475cc58234631acfc190932627e6dfc99f17434ebd8f86b2e"
+        }
+      ],
+      "id": "deenhindi-bukhari:2102",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "5dea2a1b467e9f39023fd274a6a4c6d00e9edfffdefff297cd95ea8750c610d1"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "8f7a930f33866b55ed729b0dd9851a91c3381868",
+          "path": "imports/web-deenhindi-20261112/raw/68c8ba05b924c6376e012aa2aa11397e301169a41d11d10787f2229af74d893e.html.gz",
+          "sha256": "91ad704eb00993c6c997520f9e7d63303c0e7c2c59d8d80b3d0e5cd2fd53b36d"
+        },
+        {
+          "git_blob_sha1": "04f3173588bf03cdad35dde0053dc7841747704e",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/b2df5037067ea6f9e50c191384cafed11ecd368792aa4f497adb56b67fab1f70.json.gz",
+          "sha256": "4b07efd764eb289fb0cd84ca90a080af44af849286a9860bba2a208fba22ef83"
+        }
+      ],
+      "id": "deenhindi-bukhari:2104",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "f9fed6ade71998c2121221e5bcb2876e23f2ba21114d6e4c2a7793459b8e76ac"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "009eff3eda7d3c9c36439e0601a76dbc6b192a34",
+          "path": "imports/web-deenhindi-20261112/raw/0a994b0baad18febdd6801290941e376e0a2635ec971fec91b3bf4d02fe8ae6c.html.gz",
+          "sha256": "c9fb69240909e90f4b7c3f2dd4781258ce7a6b6d1576c9fbddf1e9c3d41c52fa"
+        },
+        {
+          "git_blob_sha1": "555a52c2fab092f140d8a4b22ea6603a89c48898",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/56091f4975ccb22a80ff76768e04623c2e6364a4cf062d2517d623c96ed254b4.json.gz",
+          "sha256": "7fa220120badd0fd13f25638d30e6448c469b9b47ff868dcc196ae621a31c780"
+        }
+      ],
+      "id": "deenhindi-bukhari:2116",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "685e99b27e5e0cb8cd870b447c640f623fa5b207fcc7634467f263f7f5d5a1f5"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "74606921d0578ec8b0fca2798777691cfd0615fe",
+          "path": "imports/web-deenhindi-20261112/raw/02c930ae497f951a9a316e7375895cbf41a3eb8b9952a018aedd7bf005cbf584.html.gz",
+          "sha256": "9569c1f965029cb6b4526b3688edb019c856f01a737e34132ae75c3dd59e3c47"
+        },
+        {
+          "git_blob_sha1": "6198c6403c220892795fab256b4371d483e0ab0d",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/7a75608a2b85e22eff89e333044e8a35bdb1674b682112dbc0435bd0f91eb1f3.json.gz",
+          "sha256": "c56c72ee343bc112a2ad34987517adf9130b4076a12de20218465a00609ad6ae"
+        }
+      ],
+      "id": "deenhindi-bukhari:2117",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "0fdb239205ea6f497fcaadaa6884e9ff3010447f86230442f5310dbd8f3517ce"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "b7da8b0791acdc90a2bd0887b7f5e7323f555312",
+          "path": "imports/web-deenhindi-20261112/raw/62eb87997b61bdce54f2b12793be2c51395b6c950e72e00d15b0493baf27313d.html.gz",
+          "sha256": "ee2dcc5f80e2c6e7e05f572a6130842e7eff930b1d4749b8abbdc78c60c4af47"
+        },
+        {
+          "git_blob_sha1": "f135d4e6e9e910a36f61179dd4b89402656e1c0f",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/9c0d351c43ae3444ed6aade5089b25d8be36d7a76c6a43d35fe46f4d998c75a0.json.gz",
+          "sha256": "af2feb4f198d59aa063c47849bcfe240a89fa160648a6873e580f237e83ebe19"
+        }
+      ],
+      "id": "deenhindi-bukhari:2123",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "14be6add0561049b90bb5e0865102d3f4ade5f2f636614a4af330f3cf78df168"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "c2f70e82c8d4d7525f73cc1601c0d0a35caa05d1",
+          "path": "imports/web-deenhindi-20261112/raw/1d9734abff923b504b7c3379d8f6ec7740c42c41999487a54481a43b0c434167.html.gz",
+          "sha256": "cedb4e26328cf3282c7caa3645453a04b4ed527fdf55a8f3539f95bac15c2ad7"
+        },
+        {
+          "git_blob_sha1": "6cb4baedadccaa0408dafd80e2bf38c7232155aa",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/cff3b21d6bd1cdf214d6b6343b3d930c5c7569c74186770e6c5e7e13f10643da.json.gz",
+          "sha256": "1d28e7b75de5461a31e9256c3afecb9bea5a6597a9a386865329d9dbbba2b83e"
+        }
+      ],
+      "id": "deenhindi-bukhari:2124",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "02c08acba2dbaadad4dafd88a699e79ba844f4846f9de15fdbb523542b1d29fe"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "43068add16fcf8e84b6872ca3cd4d78adf018474",
+          "path": "imports/web-deenhindi-20261112/raw/d0fa3e0d6ed2fa799a19d867a1b2c3a66719e49a7eebcc9af0339bb23bfb08b6.html.gz",
+          "sha256": "c3680793861b553c2a878bfb88ace54f8f9d46488839baca9477b6a51565f054"
+        },
+        {
+          "git_blob_sha1": "dc3c3a828c803d785f7f9154cbb0dd6b2cc79b27",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/c488ab86dce1da7a503de85db40aed3b7d0b05d61c09f0ffc728cefb95bbf3b3.json.gz",
+          "sha256": "a8081c51da8dd28e108eb4c2ae9ebde491e2bbe33600af03539829f71dab4397"
+        }
+      ],
+      "id": "deenhindi-bukhari:2125",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "d46cf2759e7b0cd5b063d92dbb005093a5be05edfe2150a93533a1fb77499e6d"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "4cad60f229d50eb672be39b101c6dcd39c7925eb",
+          "path": "imports/web-deenhindi-20261112/raw/c2171419544fbbac0a36e21dbed996f73394cc9726d47a9bf62503a2cc677bda.html.gz",
+          "sha256": "1dadbc11508c707e075143c229f2bc11d1f3a1da3e408704addfcfcc547a2a74"
+        },
+        {
+          "git_blob_sha1": "f5886b3386505f4b774198bf134b9894b6cbe1d6",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/7380dfdd8c2c540367e6952ff682bdc129f9dff271b8c0382f416916184d8143.json.gz",
+          "sha256": "b53752ed21c0b17c7c96425a327222b00642be737f3f6cfdf1aa1edc3fe8a739"
+        }
+      ],
+      "id": "deenhindi-bukhari:2131",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "c4cfde46eb300327f1479130aaacc36923a381f07f5bb7bced4918c88514a212"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "1e1c2d232c9ed1b10bee83c3d84d27c896edc7be",
+          "path": "imports/web-deenhindi-20261112/raw/cae41b6a120a88b0e0c29bb1e35882ea25b0bac5932c317a517ffaf1241e78f9.html.gz",
+          "sha256": "789b2b1a75492cf7a9c4c015667e7bf94fed8c44ce4d56c34163e8e8effbe9ac"
+        },
+        {
+          "git_blob_sha1": "fe6607c0f6b6c991e8ee801073c53888288ec6f9",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/b9f2c2661b163f4bc5921d067bac38524bef54f26dd65f880b63294d05859ce2.json.gz",
+          "sha256": "5f0545c538e76b0c177af3c28fb2f83e2a6c0accb8f191b229da010a59ba7e06"
+        }
+      ],
+      "id": "deenhindi-bukhari:2135",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "6351087a356f14be15a37e5fd4141336cc3b134519c19ccbe90ede0a0cf864cb"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "7d41f7457c3aaedfaa97b6233d85fc4b2fc77b8d",
+          "path": "imports/web-deenhindi-20261112/raw/b95b6f3749cb1679d28b00a31d318d1729def4ac073c60bd35d0ca6dc0d4c838.html.gz",
+          "sha256": "d6fd063332ccd1f7efaceb5fee9cf770d8be2402e16189696bd7267e9496bcac"
+        },
+        {
+          "git_blob_sha1": "cbdfef080a4b0273458ec0395e1fcf29a7fddaf3",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/84e5ff5bb3fb59a77e9a68148a7f3d2daf3b5279c9b3960f20a54f2aa2781d8d.json.gz",
+          "sha256": "3ab9853907b99557ca61d08012c7049fe260959b7ed0b200669257700ba3fdae"
+        }
+      ],
+      "id": "deenhindi-bukhari:2137",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "9691058f74541348edf8313432ba215ceceaec5ca3be680e0ae39421e7da0a89"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "b5297bc4d2f2db6ccb96de552fd3d63ac4b650f1",
+          "path": "imports/web-deenhindi-20261112/raw/8d16b0b3aee28f7e27703f13ee61740b1ee0e133685f15440443fa12bffdf6aa.html.gz",
+          "sha256": "5e155c7aafbc05f739ce0cea3c5e4035de152b7dccb93dd627a5bc7eb07de141"
+        },
+        {
+          "git_blob_sha1": "fa63b581098186f0c7d0639ed2520d7382e3a364",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/92cab7d7dcc5124343111bd0c3a446b0a5a8044926b9c136fa44521b4f22804e.json.gz",
+          "sha256": "5b2e5665b5c254d2ab5c84f684e19414b122001f7d3bd2578b3f60fca430d502"
+        }
+      ],
+      "id": "deenhindi-bukhari:2138",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "dd32fa4f8f1777a20f05b6aa080ea6434366810546fa265552af9a6227a11ab4"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "7466d2e945fd493d99e783f2f5a0773026ffe416",
+          "path": "imports/web-deenhindi-20261112/raw/b1b5a6b12e8d94215594b703e54f23d97c44ff4178292cdcdfaebc6039ee1c0f.html.gz",
+          "sha256": "e8349201627fbeaf81fd38731ea244ce5799158b9790c7088fc824d8f280600f"
+        },
+        {
+          "git_blob_sha1": "55829189075d62a38fdd92e128e77fc61c8883f5",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/a96a645056972566edec73a8d8fc86a86bf3889206d5fd65423b782a0d260d30.json.gz",
+          "sha256": "fae50a4ed207df1ccc89b2c00d5c7215f96f7e88640c1fe5a363dd6babd3af7e"
+        }
+      ],
+      "id": "deenhindi-bukhari:2140",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "20535b20f2d961b6ff69db17dcc7d06fcc3b35e5fa6c10df428e5b70994917a5"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "0862299fdcd6a37285ea5c91d427cb3793d0a93f",
+          "path": "imports/web-deenhindi-20261112/raw/0d9980ba41e5ce36651227813e114d67e4763864e2dd4a733aa4deec2c1c4b4b.html.gz",
+          "sha256": "fc1beba9a90ec1c92525748c64834dcee340b5dbe695c7cc939e378a872dead3"
+        },
+        {
+          "git_blob_sha1": "343a5b805d06768674808330cd220d4a5a4c113a",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/7feb953dcd6e5e65c606b7dbbe82519f5402b10212064ef049c0cefa7551bbf7.json.gz",
+          "sha256": "21144dcfcfa4640aa89067f9aade2a62e6daa8528b4844f0635f804e2be70946"
+        }
+      ],
+      "id": "deenhindi-bukhari:2142",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "857ecb7010dac1610716db9674dd45ab578addcaf9e216d6db95af110f1ffdb8"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "91c65848592ac7077e3d7438bc91c698a03585f1",
+          "path": "imports/web-deenhindi-20261112/raw/3ca796b4f462b2e3305eea70351b7c72e5df4fdb79fadaea6252e095ef4ad4a5.html.gz",
+          "sha256": "2b36bf1ba6592dd07e9057416cb9f53bd27d121b0593f83de2051f49ffa1ec5b"
+        },
+        {
+          "git_blob_sha1": "5b74756a5e2d412d18775dc66007f97eccde7287",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/e1bf00955c2d82349d6341ef203f262e2a7d86515d41e044960dfa135f4779e1.json.gz",
+          "sha256": "6555abb2beb1887e122eb65c503a4126a4cb0f6be60bcac4e4bd254bebc09939"
+        }
+      ],
+      "id": "deenhindi-bukhari:2145",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "a44fc73b4e475357b593d9542a51899a403d22b615603f1eae8cb243bf61c9dc"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "361175f4dd6e0d3bec3a46470aa3a27dd3539468",
+          "path": "imports/web-deenhindi-20261112/raw/aef4ddaeb63e0337c1c18fb840b321c0a4cfd1c58f615110e38f1630e51fee7c.html.gz",
+          "sha256": "7edcd967736dac68b46cc6c228766eea3e11e83e48b30b6f6ad17004b9da0484"
+        },
+        {
+          "git_blob_sha1": "260f73aef3e18b9d5ca29452799444b2d3346d44",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/9c024d99c498d36ba323f99d1703d5690441164197db0a165cec0497eaecde3e.json.gz",
+          "sha256": "f6947f4041a69ba55d5b9d7a1a27e3e1e0df562c3f3b60d5a5de67c851df8e13"
+        }
+      ],
+      "id": "deenhindi-bukhari:2147",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "db72bcafffb41db79dde63ba736ddae0936246e3d27bf1b3d8d1a68f072091e2"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "2b28107feeb02498960118ec184f3dc464b8db2c",
+          "path": "imports/web-deenhindi-20261112/raw/cc7829d8c31712c82383c4b0362741ffd1453d579281577dadcbc75b4ddb1645.html.gz",
+          "sha256": "a81b812d846f44623ddca3727e4a07eedd7d3de80182067489a1fe4eb495550f"
+        },
+        {
+          "git_blob_sha1": "f48c8cd00d08eba8f31de2360d9399cbf974d549",
+          "path": "imports/web-deenhindi-20261112/parsed/bukhari/b6593065ee549ad7b8a5605adba4bde53e096c861187b752ee52d5ca782f7769.json.gz",
+          "sha256": "d3c59bda84e81cc69d3671f45b738d5901e77af45bc18179ddace32cfd10d052"
+        }
+      ],
+      "id": "deenhindi-bukhari:2149",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "465d8b8b5953720b981d1ebab1efd2b27ac0691883e7a0c9866de28bb2e4fbf1"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "5cc16cd16c10e4cfe5893f17b682eab3439052e1",
+          "path": "imports/web-deenhindi-20261112/raw/5470003fc061e0c91c7770a6014479deee95c7ae5525b5d44f7fbf3477e44cff.html.gz",
+          "sha256": "40cf73c31d608c0c6c2ce8e886593cbe289980ade6674ddb5bba72a1b6340c4a"
+        },
+        {
+          "git_blob_sha1": "c920f9f7aea10fb6a2b6b33e712e31bab6334d63",
+          "path": "imports/web-deenhindi-20261112/parsed/nasai/d464e8bdc8e97e76f9bc1ba4aef4a23739a91a2fc3f9dca8a3d396d8742126ba.json.gz",
+          "sha256": "5168e33581dca6655de6fed604273194d0bd760ce63ecec399d35a9d51f29fa5"
+        }
+      ],
+      "id": "deenhindi-nasai:2069",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "a6e82ddfa2233ffda0534fe868eb3a4b67039408b39e587ddc6a442eec054d27"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "9d456b89aa78fa857501b27f72fa7fc0360c80ed",
+          "path": "imports/web-deenhindi-20261112/raw/a48a056a0a39ae5be4de65c389db5eb48bcac2ef62cfd0c3689d0a5e75a23eda.html.gz",
+          "sha256": "66883403e96f6229c18b8fc081f347fed1794a6225c1c2aa6622f682c12a4ddb"
+        },
+        {
+          "git_blob_sha1": "ca7ccd7c3c0873e5b3cb546a7652cf3c9179ff83",
+          "path": "imports/web-deenhindi-20261112/parsed/nasai/62f35be5fa7c07ebafe5e20115289a6c0d23628162340ad08d1875376b5a426d.json.gz",
+          "sha256": "f6009aef9bc84b5c513f6e245a79c980dd96e9e70a8e0154be1560438e0502e7"
+        }
+      ],
+      "id": "deenhindi-nasai:2075",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "477867dab9f9a993aeddc6cb55dde2041076f303b6c80f83e87f4479784b370e"
+    },
+    {
+      "files": [
+        {
+          "git_blob_sha1": "72399309c47db2699abe5237da4a81e356990457",
+          "path": "imports/web-deenhindi-20261112/raw/1297ed10ea6298f53811ecad4d1901afc0b34a845b36876bd66ee8b718a9ede1.html.gz",
+          "sha256": "e6503a8e5f925c6d3562f6282de3f547f99cd9f4011e64de40524d20165d1253"
+        },
+        {
+          "git_blob_sha1": "85b829797febe786c77d2cff8adda2ff90505672",
+          "path": "imports/web-deenhindi-20261112/parsed/nasai/d16a0949dec08c90210b4966e0ad802b892062f5b550b0f9bb0c537ba4ad251b.json.gz",
+          "sha256": "10b5fbfd1122e34824b9e773822c94dd3b2b9be6ebb8e0527d67e21403e43028"
+        }
+      ],
+      "id": "deenhindi-nasai:2123",
+      "raw_reparse_exact": true,
+      "source_record_sha256": "4d59353da90da3187690b5da950c1dca2cedf367d0f88f9618ab3cddbd326f4a"
+    }
+  ],
+  "source_commit": "659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9",
+  "source_evidence_manifest_sha256": "7ccfc0b69bc848ad22685be6a9ddf3dc89f20cbd4881994d742f1e1d3bbd913c",
+  "source_http_requests": 0,
+  "source_metadata_changes": 0,
+  "totals": {
+    "bytes_moved_to_context": 1569,
+    "chars_moved_to_context": 757,
+    "chars_read": 32673,
+    "complete_fields_read": 56,
+    "exact_complete_field_partitions": 140,
+    "exact_requested_context_spans": 39,
+    "final_selected_spans": 117,
+    "native_registered": 28,
+    "raw_and_parsed_pairs_reopened_and_reparsed": 28,
+    "source_occurrences": 28,
+    "top_level_metadata_invariants": 616,
+    "unread_siblings_retained_context": 84,
+    "utf8_bytes_read": 70604
+  },
+  "unrequested_quotation_or_attribution_changes": 0
+}
