@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/tirmidhi/deenhindi-web-20261112-part-002/)
 
-Edition: `deenhindi-web-20261112-part-002` · 464 source occurrences.
+Edition: `deenhindi-web-20261112-part-002` · 700 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -28,4 +28,13 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 376–400](page-0016.md)
 - [Narrations 401–425](page-0017.md)
 - [Narrations 426–450](page-0018.md)
-- [Narrations 451–464](page-0019.md)
+- [Narrations 451–475](page-0019.md)
+- [Narrations 476–500](page-0020.md)
+- [Narrations 501–525](page-0021.md)
+- [Narrations 526–550](page-0022.md)
+- [Narrations 551–575](page-0023.md)
+- [Narrations 576–600](page-0024.md)
+- [Narrations 601–625](page-0025.md)
+- [Narrations 626–650](page-0026.md)
+- [Narrations 651–675](page-0027.md)
+- [Narrations 676–700](page-0028.md)

@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/bukhari/deenhindi-web-20261112-part-002/)
 
-Edition: `deenhindi-web-20261112-part-002` · 675 source occurrences.
+Edition: `deenhindi-web-20261112-part-002` · 932 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -37,3 +37,14 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 601–625](page-0025.md)
 - [Narrations 626–650](page-0026.md)
 - [Narrations 651–675](page-0027.md)
+- [Narrations 676–700](page-0028.md)
+- [Narrations 701–725](page-0029.md)
+- [Narrations 726–750](page-0030.md)
+- [Narrations 751–775](page-0031.md)
+- [Narrations 776–800](page-0032.md)
+- [Narrations 801–825](page-0033.md)
+- [Narrations 826–850](page-0034.md)
+- [Narrations 851–875](page-0035.md)
+- [Narrations 876–900](page-0036.md)
+- [Narrations 901–925](page-0037.md)
+- [Narrations 926–932](page-0038.md)
