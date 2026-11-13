@@ -3,25 +3,25 @@
   "blocked": false,
   "by_collection": {
     "abudawud": {
-      "classification_pending": 29,
-      "fetched": 2698,
+      "classification_pending": 42,
+      "fetched": 2778,
       "inventory": 5274,
       "non_narration_source_entries": 9,
-      "registered_hadith": 2660
+      "registered_hadith": 2727
     },
     "bukhari": {
-      "classification_pending": 44,
-      "fetched": 2717,
+      "classification_pending": 74,
+      "fetched": 2798,
       "inventory": 7589,
       "non_narration_source_entries": 3,
-      "registered_hadith": 2670
+      "registered_hadith": 2721
     },
     "ibnmajah": {
-      "classification_pending": 22,
-      "fetched": 2688,
+      "classification_pending": 35,
+      "fetched": 2768,
       "inventory": 4343,
       "non_narration_source_entries": 1,
-      "registered_hadith": 2665
+      "registered_hadith": 2732
     },
     "malik": {
       "classification_pending": 0,
@@ -31,29 +31,29 @@
       "registered_hadith": 1836
     },
     "muslim": {
-      "classification_pending": 36,
-      "fetched": 2713,
+      "classification_pending": 49,
+      "fetched": 2793,
       "inventory": 7563,
       "non_narration_source_entries": 95,
-      "registered_hadith": 2582
+      "registered_hadith": 2649
     },
     "nasai": {
-      "classification_pending": 28,
-      "fetched": 2704,
+      "classification_pending": 43,
+      "fetched": 2784,
       "inventory": 5765,
       "non_narration_source_entries": 12,
-      "registered_hadith": 2664
+      "registered_hadith": 2729
     },
     "tirmidhi": {
-      "classification_pending": 12,
-      "fetched": 2711,
+      "classification_pending": 30,
+      "fetched": 2791,
       "inventory": 3998,
       "non_narration_source_entries": 23,
-      "registered_hadith": 2676
+      "registered_hadith": 2738
     }
   },
   "certified_release_eligible": false,
-  "classification_pending_count": 171,
+  "classification_pending_count": 273,
   "done": false,
   "errors_count": 0,
   "exact_field_review_reuse": {
@@ -222,13 +222,13 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "183bc6553abdcce350a6c5b02f50095833c604481f97438b6961815cbc263947",
-      "size_bytes": 864632,
-      "uncompressed_sha256": "62938daefaf13d7802682531f9581e2a26792f768ff72f3968771ba220ea6ad8"
+      "sha256": "4d015a3ddf33cc78f3645537a38746c277b5095533cfff6c363b40c2c67f1801",
+      "size_bytes": 888215,
+      "uncompressed_sha256": "61643d1bc73d61df2faea3b1b5130af228e030b881d279580f6b6d68cba49442"
     },
-    "registered_occurrences": 2148,
-    "selected_language_fields": 2545,
-    "source_context_dependent_fields_not_reused": 8,
+    "registered_occurrences": 2209,
+    "selected_language_fields": 2618,
+    "source_context_dependent_fields_not_reused": 11,
     "supporting_input_copies": [
       {
         "original_input_path": "catalog/deenhindi-review-reuse-plan.json",
@@ -415,12 +415,12 @@
     ]
   },
   "historical_error_identities_count": 1000,
-  "imported_count": 18089,
+  "imported_count": 18570,
   "inventory_count": 36390,
   "non_narration_source_entries": 165,
-  "pending_fetch_count": 18301,
-  "registered_hadith_count": 17753,
-  "remaining_count": 18301,
+  "pending_fetch_count": 17820,
+  "registered_hadith_count": 18132,
+  "remaining_count": 17820,
   "requires_attention": false,
   "resolved_historical_error_identities_count": 1000,
   "reviewed_error_attempt_outcomes": {
@@ -5622,6 +5622,336 @@
       "size_bytes": 7257
     },
     {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/build_extension.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "02c139e559be24ccb096dcce2323f5ab202e7be64f91f47eb7be3d0999e7b951",
+      "size_bytes": 20691
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/candidate-priority-field-queue.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "8fd3e27cbfb6ae42a32e70268fe9793ecc228012afd8335a5efc1f869b1fe349",
+      "size_bytes": 722925
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-field-reading-notes.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "4f9424ab66594e83044ac950b52da30c0f598d61fc29e21cabcc5b92bcf9d65d",
+      "size_bytes": 39085
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-source-first-reading-receipt.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3c4829a18f5399b4b8f486cca3a3c8fc89015116e9987b93dc883017edf560f8",
+      "size_bytes": 106128
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/field-decision-delta.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "0a40328e598f32f99246ebfbecced7b121af9997aaa3012c1626e44e85a3e9c9",
+      "size_bytes": 31703
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/freeze_source_first.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "8523bc858ab97f25dc95c821650c0efa1105bef15bfc1c31da2eb4f8d08d4166",
+      "size_bytes": 2978
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/full-field-reading-input-50.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "6b13239f4967c664674c0eebd4341bc24bdb2fd957eb9f325538245bc0509e73",
+      "size_bytes": 16551
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/amend_v2.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "2b944160eae88fbe48b555b717a9bb8638a4a31cc2ded5fb2175ef53ff725ca9",
+      "size_bytes": 7352
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/amendment-receipt.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "49a1ed1fd89c17b6339d9cb6de5500314d3c2735e892c4daaeab6fbe1638481d",
+      "size_bytes": 6402
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/delivery-manifest-v1.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "9f3b6612ee3dd871f47b2741f55570a07567554eb569807dfaa48b2663d35e51",
+      "size_bytes": 16361
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/build_extension.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "02c139e559be24ccb096dcce2323f5ab202e7be64f91f47eb7be3d0999e7b951",
+      "size_bytes": 20691
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/candidate-priority-field-queue.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "8fd3e27cbfb6ae42a32e70268fe9793ecc228012afd8335a5efc1f869b1fe349",
+      "size_bytes": 722925
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-field-reading-notes.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "feb1c0d1462dc4fcdff7c20a97b0e84c2d4a80188469526dbc9b3bdf75127f35",
+      "size_bytes": 37501
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/complete-source-first-reading-receipt.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3c4829a18f5399b4b8f486cca3a3c8fc89015116e9987b93dc883017edf560f8",
+      "size_bytes": 106128
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/field-decision-delta.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "339857208f8852b3fdb2ee022112b27cda3b1050eaf5be03c2345769d3223c2c",
+      "size_bytes": 31703
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/freeze_source_first.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "8523bc858ab97f25dc95c821650c0efa1105bef15bfc1c31da2eb4f8d08d4166",
+      "size_bytes": 2978
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/full-field-reading-input-50.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "6b13239f4967c664674c0eebd4341bc24bdb2fd957eb9f325538245bc0509e73",
+      "size_bytes": 16551
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-01.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "68c67c1b6ce3cc0cc7d646f6badcdf819e242b906835f7fd52ba04ae517a6b56",
+      "size_bytes": 3027
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-02.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "c557a3306296fde36add3f1238db62321816df5051056732f3fac18cc2581177",
+      "size_bytes": 2709
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-03.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3b4ad89eb2f3144489cf123cec8cf5ba373bf743516e4852fbaa6f6f27e2e83f",
+      "size_bytes": 3451
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-04.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "932981318884a1ad7d7b73293ab7b5158bfcaaa3bde6ab9c1e13d6874a9d5cd1",
+      "size_bytes": 3019
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-05.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "46407c4a30eab198dbd4090b20ec2b930867099681d207c19c1930b08b1f1d5b",
+      "size_bytes": 3456
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/manual_readings.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "368ab0a0d57b829a84bc7654fbe91a21940b826cba93ee26c71fea85902446c9",
+      "size_bytes": 19394
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/native-validation.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "80c16462646afceb0c5c160e6321e10c6fde7e5b8bdb8ed0d5bd56131d37e0d5",
+      "size_bytes": 1844
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/prepare_inputs.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "7c8d335fb790060bae9e31ac57bdbedb3f0a4b8eb5a7449fa13f7765730c4c1b",
+      "size_bytes": 6250
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-priority-field-queue.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "74ce384bca242d5c130ddd1347774ab0c7e94e51185175d62cd8158e09e1a64a",
+      "size_bytes": 728256
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-review-ledger.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "18970b44b24868634c9e9d5f7db729c9f76c054502627c350a10f139c66e1d9c",
+      "size_bytes": 383557
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/priority-field-queue-delta.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "72df8fbab45171f2f24659fc033ce456339c7880bebff21cbd9d9471760cff57",
+      "size_bytes": 34527
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/selection.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "9f7d2f1cdb11dfd5ee48aa3b7ced4e2cd6a465ec3476d1af6b4722cb59a2b538",
+      "size_bytes": 49009
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-apparatus-inventory.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "39e2aceafbe76794649438d36554466199e6e690a1bf8243afbb4648a79d2969",
+      "size_bytes": 242312
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-input-delivery-manifest.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "1580d6caa2109437c1143d5d08019b9839c6f12e03d0cd2041a46ea192375962",
+      "size_bytes": 30593
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-ledger-25.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "891a698bb6b797455974d5b516dd5ce48a07f859892b212342d040c319e1dd9d",
+      "size_bytes": 33072
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-verification.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "864a0dcbf04fa261dcd5037590b5800e42d52a71cefe6ac45d1dae4cc93f336e",
+      "size_bytes": 85331
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/verify_sources.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "53c17d1abb8067a7106922d5d53025402e27e4f6f94f05b9a16aec0abcb19570",
+      "size_bytes": 7299
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/before-v1/payload/imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "14ae19f71bac85c74fa4652ca40d46c3a5f94d3d0e2dbdff7da0bb18a212c8e2",
+      "size_bytes": 399486
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/build_extension_v2.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "4b87967481a8f355befb6b1af59811cd4d43573eb8335960c716934252ef64a8",
+      "size_bytes": 20736
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/independent-boundary-findings-v1.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "ecc345ed2f2c3f34316267769bef30ec7fedcea043001db70a7f9cae36f7d1a1",
+      "size_bytes": 35236
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/independent-boundary-v2/manual_readings_v2.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "9f159cbbaa71bb4e51fae70ad377bc33f74712ce0316228a062c297edeca5b91",
+      "size_bytes": 3704
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-01.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "68c67c1b6ce3cc0cc7d646f6badcdf819e242b906835f7fd52ba04ae517a6b56",
+      "size_bytes": 3027
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-02.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "c557a3306296fde36add3f1238db62321816df5051056732f3fac18cc2581177",
+      "size_bytes": 2709
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-03.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3b4ad89eb2f3144489cf123cec8cf5ba373bf743516e4852fbaa6f6f27e2e83f",
+      "size_bytes": 3451
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-04.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "932981318884a1ad7d7b73293ab7b5158bfcaaa3bde6ab9c1e13d6874a9d5cd1",
+      "size_bytes": 3019
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/initial-reading-notes-05.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "46407c4a30eab198dbd4090b20ec2b930867099681d207c19c1930b08b1f1d5b",
+      "size_bytes": 3456
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/manual_readings.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "368ab0a0d57b829a84bc7654fbe91a21940b826cba93ee26c71fea85902446c9",
+      "size_bytes": 19394
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/native-validation.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "712396ad750999be3e614bed788a22273bf92c526d1bbdc4d5802dd331a1efd0",
+      "size_bytes": 1844
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/prepare_inputs.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "7c8d335fb790060bae9e31ac57bdbedb3f0a4b8eb5a7449fa13f7765730c4c1b",
+      "size_bytes": 6250
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-priority-field-queue.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "74ce384bca242d5c130ddd1347774ab0c7e94e51185175d62cd8158e09e1a64a",
+      "size_bytes": 728256
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/previous-review-ledger.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "18970b44b24868634c9e9d5f7db729c9f76c054502627c350a10f139c66e1d9c",
+      "size_bytes": 383557
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/priority-field-queue-delta.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "6080681eaf724ee73c81d6b4254ff02f5b17ecb471bee448e619c669a26506ff",
+      "size_bytes": 34527
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/selection.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "9f7d2f1cdb11dfd5ee48aa3b7ced4e2cd6a465ec3476d1af6b4722cb59a2b538",
+      "size_bytes": 49009
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-apparatus-inventory.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "c7ea2cfe7dc8172833a20764552dade05473294392633dbdc4e7ffff183489ff",
+      "size_bytes": 252747
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-input-delivery-manifest.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "1580d6caa2109437c1143d5d08019b9839c6f12e03d0cd2041a46ea192375962",
+      "size_bytes": 30593
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-ledger-25.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "891a698bb6b797455974d5b516dd5ce48a07f859892b212342d040c319e1dd9d",
+      "size_bytes": 33072
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/source-verification.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "864a0dcbf04fa261dcd5037590b5800e42d52a71cefe6ac45d1dae4cc93f336e",
+      "size_bytes": 85331
+    },
+    {
+      "path": "imports/web-deenhindi-20261112/reviews/field-expansions/20261113-original-bukhari25-next50-hindi-urdu-v1/verify_sources.py",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "53c17d1abb8067a7106922d5d53025402e27e4f6f94f05b9a16aec0abcb19570",
+      "size_bytes": 7299
+    },
+    {
       "path": "imports/web-deenhindi-20261112/reviews/first-pass-export-validation.json",
       "role": "source_bound_review_and_coverage_evidence",
       "sha256": "8f2b2e19e0dd14010d035e0109b50b07fd7c8049e2c51f2dc6f43ecc15ed639a",
@@ -6110,8 +6440,8 @@
     {
       "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
       "role": "source_bound_review_and_coverage_evidence",
-      "sha256": "18970b44b24868634c9e9d5f7db729c9f76c054502627c350a10f139c66e1d9c",
-      "size_bytes": 383557
+      "sha256": "6d099f91f2e406b6ca026930f4437cc1ce3983e26883cfedc3049f9cbb2f91a7",
+      "size_bytes": 400042
     },
     {
       "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
@@ -6564,11 +6894,11 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "183bc6553abdcce350a6c5b02f50095833c604481f97438b6961815cbc263947",
-      "size_bytes": 864632,
-      "uncompressed_sha256": "62938daefaf13d7802682531f9581e2a26792f768ff72f3968771ba220ea6ad8"
+      "sha256": "4d015a3ddf33cc78f3645537a38746c277b5095533cfff6c363b40c2c67f1801",
+      "size_bytes": 888215,
+      "uncompressed_sha256": "61643d1bc73d61df2faea3b1b5130af228e030b881d279580f6b6d68cba49442"
     }
   ],
   "unresolved_historical_error_identities_count": 0,
-  "updated_at": "2026-11-13T18:10:46.845196+00:00"
+  "updated_at": "2026-11-13T18:53:30.154344+00:00"
 }
