@@ -1,0 +1,9 @@
+# Independent targeted review — V2 pages 453–455
+
+Reader v7 SHA-256 5811534b13286152425a80a15fb1e3e7614ffbe02c01cfb4af3db28bdd50a518. Original V2 PDF SHA-256 194ba1091bbe7e63c564462b290821818ecf419aec6937286bb2bea1992032f5. Newly displayed 2x page images and their SHA-256: p453 612e57bba398e98a74079c552b0ce74bb2fdbe2baf692189ebc2e187787bbe96; p454 1ef4c17e566a69e690c825772d564f61370ec6cd0514bb5794fbea60b9113077; p455 54458933a446870ae888f2ef9f19e363008ae599857bd8f4188f274d1a293bab. These are localized checks, not complete page-by-page character or diacritic comparisons.
+
+- V2 p453 main CP408566–408710 visibly presents the Bengali discussion of alternate phonetic wordings and a recommendation to combine them. Current atoms distinguish the alternative forms, source discussion and combined recommended form; the recommendation is source commentary and must not be promoted into a separate certain transmitted Prophetic quotation.
+- V2 p454 main CP409666–410150 visibly presents the Bengali meaning of the preceding prayer followed by its source reference. The source meaning and reference have separate v7 roles; the review did not inspect every diacritic or establish independent grading.
+- V2 p455 main CP410553–410729 visibly interposes ‘(পাপের)’ and ‘(পুণ্যের)’ in the prayer meaning and separately gives an alternative explanatory interpretation. The v7 atoms keep the two insertions and the alternative interpretation separate from adjacent meaning text; this specific distinction is supported by the page. The source wording, parenthesis and limitation must remain unchanged.
+
+No new complete-page credit, whole-book independent QC, source correction, publication, or repository mutation. The overall review now has 22 distinct displayed page images across all three reports; each was reviewed only for specified localized spans. Remaining source pages, semantic boundaries and exact-final integration remain independently unreviewed.

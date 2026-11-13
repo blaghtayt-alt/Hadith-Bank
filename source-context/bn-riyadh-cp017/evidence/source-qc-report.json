@@ -1,0 +1,127 @@
+{
+  "status": "pass_for_defined_patch_scope_with_retained_source_limits",
+  "version": "v2_cp017_patch08",
+  "created_utc": "2026-11-13T07:30:38.757685+00:00",
+  "reviewed_content_candidate_revision": 4,
+  "reviewed_content_candidate_manifest_sha256": "a8a0a5314abc92e2a75284567571deb495aaf240c32a525cd3266b1b512c49a5",
+  "reviewed_component_reports": [
+    {
+      "component": "character",
+      "path": "continuation/patch08/independent_qc/character/REPORT.json",
+      "sha256": "19457945071e1cbcb3363171dde5395b572905aef141fe7ad6dd5664bc9aeb3f",
+      "status": "pass_reviewed_scope_with_retained_source_limit"
+    },
+    {
+      "component": "semantic",
+      "path": "continuation/patch08/independent_qc/semantic/REPORT.json",
+      "sha256": "689c88dd293bdee758b0be59c57daef658f3a9599288fb0bce074c7cba4b448c",
+      "status": "pass_after_corrections_with_explicit_scope_limitations"
+    },
+    {
+      "component": "integrity",
+      "path": "continuation/patch08/independent_qc/integrity/REPORT.json",
+      "sha256": "4b3a42e9a6a215fb5ff6052563e38ca79e6dc6891e8d035d7b0a7f3ff252b9f8",
+      "status": "pass_with_explicit_scope_limits"
+    },
+    {
+      "component": "packaging",
+      "path": "continuation/patch08/independent_qc/packaging/REPORT.json",
+      "sha256": "1bdc476e510cc3eca9d51f7e4a0fa724d1e85adb2e60dc582a0bf02b32eadaaa",
+      "status": "pass"
+    }
+  ],
+  "independent_character_scope": {
+    "actually_read_unique_pages": 27,
+    "actual_full_page_views": 13,
+    "full_page_scope": {
+      "1": [
+        8
+      ],
+      "2": [
+        1,
+        2,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030,
+        1031
+      ]
+    },
+    "localized_target_pages": 14,
+    "localized_scope": {
+      "1": [
+        150,
+        178,
+        315,
+        399,
+        433,
+        600,
+        641,
+        671,
+        962
+      ],
+      "2": [
+        148,
+        405,
+        407,
+        699,
+        721
+      ]
+    },
+    "localized_full_page_rereads": 0,
+    "actually_viewed_images": 28,
+    "full_page_images": 13,
+    "target_images": 15,
+    "extra_target_image": "V1 p962 honorific at 60x",
+    "all_2054_pages_independently_reread": false,
+    "whole_bank_character_certification": false,
+    "full_DOC_PDF_Unicode_equivalence_certified": false,
+    "tail_regions_compared": 220,
+    "appendix_rows_including_header": 53,
+    "appendix_numbered_entries": 52,
+    "appendix_blank_critic_source_cells": 5,
+    "appendix_blank_critic_page_regions": 7
+  },
+  "semantic_scope_authority": "continuation/patch08/independent_qc/semantic/REPORT.json",
+  "integrity_scope_authority": "continuation/patch08/independent_qc/integrity/REPORT.json",
+  "packager_code_review_authority": "continuation/patch08/independent_qc/packaging/REPORT.json",
+  "source_content_sha256": {
+    "records.jsonl": "20529a3d0daea37a171d8ea7cd94fe29407a37a1696a5b31dc851882dba8f8d9",
+    "records.json": "297507c9cefe10dfa22fea7120ec80faaf8a07ce690a9419d663ef50f6cbb318",
+    "records.csv": "804e483e6d29ea189b4a0328930fb80a6dd89919ec6227468780c534cdc938ca",
+    "data/all_source_units_annotated.jsonl": "33e74719bb4302b42bbd18c3392c9c315b99dd77e9d50e251f9647a69d0352fa",
+    "data/page_coverage.jsonl": "f7896b0196fceea694bcfcac466f95e36fff5f8956a9a1c8a1b2ce035dacf5a4",
+    "page_coverage.csv": "243d22d70febfb54dc715b13cea48f679e184225ff33d8c84172f6d2bea97611",
+    "continuation/integration/character_reviews.jsonl": "01ee055df648adf33da6381bd8f6c3f20d430e9d72b862ee0910ea5471cac0df",
+    "continuation/integration/character_regions.jsonl": "a585e2b10836026a271138a436f444801c0f04fff9c83a9dc8206bf190726f86",
+    "continuation/integration/semantic_interval_decisions.jsonl": "3628eb0009ad4e728ba3db8290c554ad1ffcf5592b6a62ac00471e8dbfa4f361",
+    "continuation/integration/semantic_current_status_index.jsonl": "0052ad15ee990c8e75e9f340ab0ccb9bd2dfb957ff4808d2864556faf9b55163",
+    "continuation/integration/current_source_semantic_segments.jsonl": "133c53ab64a8fb362b4df9917c6b2d76f08356811a3a3661f537aaf64ca18dad",
+    "continuation/integration/semantic_uncertainties.jsonl": "c93528881f8e99346a9310eb9084d546d05a25ff85eb715ce24dfd320f4c9ef5",
+    "continuation/integration/semantic_uncertainty_current_status.jsonl": "af40d45e3a5801da17403271d2c0e33201b625df8af4ebd28f95bd1d00e4ec1d",
+    "unresolved_exceptions.jsonl": "b85dca1bad9c1eafa951bfdc4d0f7e89073d38f84196ff5e62960b5ba5b09a05"
+  },
+  "semantic_interpretations_corrected_after_QC": 63,
+  "all_source_words_and_controls_changed": false,
+  "all_2054_pages_independently_reread": false,
+  "every_semantic_interpretation_independently_reread": false,
+  "whole_book_independent_Pro_QC": false,
+  "pure_matn_certification": false,
+  "canonical_identity_or_grade_certification": false,
+  "retained_character_partial_pages": {
+    "1": [
+      962
+    ],
+    "2": []
+  },
+  "retained_investigated_semantic_source_uncertainties": 32,
+  "remaining_unclassified_lexical_intervals": 0,
+  "bank_ready": false,
+  "publication_performed": false,
+  "final_status_metadata_verification": "See continuation/patch08/independent_qc/integrity/FINAL_DELTA_REVIEW.json; archive verification is supplied beside the finished checkpoint parts."
+}

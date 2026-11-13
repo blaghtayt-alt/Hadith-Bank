@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "scope": "Focused synthetic inspect input-path regression only",
+  "reviewed_packager_sha256": "74916d992cf75f769856804a1aa56b96f26b051a9293c61c8f95b2e585d9509f",
+  "mocked_parent_authentication": true,
+  "real_release_freeze_or_export_performed": false,
+  "tests": [
+    {
+      "test": "original_inspect_misreported_nested_archive_as_zero",
+      "status": "reproduced",
+      "sha256": "68857ead6b580dede1eb1077221ec715dd12818ef49e2b3617d3c876c7fa7681"
+    },
+    {
+      "test": "inspect_rejects_raw:unexpected.zip",
+      "status": "pass",
+      "error": "New nested archive rejected: continuation/patch08/unexpected.zip"
+    },
+    {
+      "test": "inspect_rejects_stage:unexpected.zip.001",
+      "status": "pass",
+      "error": "New nested archive rejected: unexpected.zip.001"
+    },
+    {
+      "test": "inspect_rejects_stage:data/all_source_paragraphs.jsonl",
+      "status": "pass",
+      "error": "Immutable source/history cannot be supplied as a replacement: data/all_source_paragraphs.jsonl"
+    },
+    {
+      "test": "inspect_rejects_stage:originals/new_source.txt",
+      "status": "pass",
+      "error": "Immutable source/history cannot be supplied as a replacement: originals/new_source.txt"
+    },
+    {
+      "test": "ordinary_inspect_remains_read_only_without_final_report_or_freeze",
+      "status": "pass"
+    },
+    {
+      "test": "freeze_inventory_still_rejects_nested_archive_with_shared_policy",
+      "status": "pass"
+    }
+  ]
+}

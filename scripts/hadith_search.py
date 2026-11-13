@@ -304,7 +304,7 @@ def _keys(record):
     # Normalize within each source field, then separate fields so a CJK substring
     # cannot be manufactured by joining a title to the start of the narration.
     body = '\n'.join(_fold(s) for value in values for s in _strings(value))
-    annotation_values = [record.get(field) for field in ('commentary', 'benefits', 'footnotes')]
+    annotation_values = [record.get(field) for field in ('commentary', 'benefits', 'footnotes', 'source_scoped_content')]
     annotation_values += [source.get(field) for field in _SOURCE_CONTEXT_FIELDS]
     annotation_values.append(narrator.get('source_context'))
     annotation_values += list(language_search_values(record, include_comments=True))

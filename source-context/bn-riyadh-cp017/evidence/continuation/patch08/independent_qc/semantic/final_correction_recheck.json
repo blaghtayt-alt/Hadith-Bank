@@ -1,0 +1,1241 @@
+{
+  "status": "pass",
+  "candidate_revision": 4,
+  "review_candidate_sha256": "a8a0a5314abc92e2a75284567571deb495aaf240c32a525cd3266b1b512c49a5",
+  "stage": "/workspace/scratch/9965d2d3679f/work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08",
+  "semantic_ledger_sha256": "3628eb0009ad4e728ba3db8290c554ad1ffcf5592b6a62ac00471e8dbfa4f361",
+  "semantic_ledger_rows": 43543,
+  "semantic_decisions_sha256": "963bb850ce4251e87f3ac59532ceb0dc471e5fe541d96580e740e3f190134a75",
+  "correction_overlay_sha256": "9a4b75d812613a31e173e5ff7e04dd25006c5395ccd4e0d8035620adfa0d2d37",
+  "overlays_reviewed": 63,
+  "replacement_spans_reviewed": 139,
+  "categories": {
+    "collection_grade_separation": 2,
+    "parenthetical_boundary_refinement": 8,
+    "exact_offset_voice_repair": 52,
+    "blank_only_normalization": 1
+  },
+  "bound_prefix_ledgers": {
+    "43528": "794034cfb58d8ad8b9ff2962f1ab5471ae013b6f74cda84fc799e675467ced05",
+    "43417": "954b579933bb77a415d822715fbaaa54d18c735bd181fd401a3ce062e640dd43",
+    "43404": "6a86e2d57a3ee0356327d3dd2f836d9262b1c0f287b7af99032ba35a5be55735"
+  },
+  "current_status_index_sha256": "0052ad15ee990c8e75e9f340ab0ccb9bd2dfb957ff4808d2864556faf9b55163",
+  "current_source_semantic_segments_sha256": "133c53ab64a8fb362b4df9917c6b2d76f08356811a3a3661f537aaf64ca18dad",
+  "all_superseded_target_interpretations_inactive": true,
+  "all_replacements_represented_in_current_atoms": true,
+  "errors": [],
+  "observations": [
+    {
+      "overlay_id": "p08-independent-QC-h888-reference-grade-separation",
+      "old_decision_id": "p08-root-broad-05283-02-00",
+      "old_ledger_ordinal": 43311,
+      "category": "collection_grade_separation",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1042109,
+      "cp_end": 1042143,
+      "replacement_decision_ids": [
+        "p08-qc-h888-reference-grade-01",
+        "p08-qc-h888-reference-grade-02",
+        "p08-qc-h888-reference-grade-03",
+        "p08-qc-h888-reference-grade-04",
+        "p08-qc-h888-reference-grade-05",
+        "p08-qc-h888-reference-grade-06"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-h893-reference-grade-separation",
+      "old_decision_id": "p08-root-broad-05306-01-00",
+      "old_ledger_ordinal": 43355,
+      "category": "collection_grade_separation",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1044950,
+      "cp_end": 1044971,
+      "replacement_decision_ids": [
+        "p08-qc-h893-reference-grade-01",
+        "p08-qc-h893-reference-grade-02",
+        "p08-qc-h893-reference-grade-03",
+        "p08-qc-h893-reference-grade-04",
+        "p08-qc-h893-reference-grade-05",
+        "p08-qc-h893-reference-grade-06",
+        "p08-qc-h893-reference-grade-07"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-h952-parenthetical-separation",
+      "old_decision_id": "p08-sem-late-gap-1577-0256",
+      "old_ledger_ordinal": 40844,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1095780,
+      "cp_end": 1096094,
+      "replacement_decision_ids": [
+        "p08-qc-h952-parenthetical-01",
+        "p08-qc-h952-parenthetical-02",
+        "p08-qc-h952-parenthetical-03",
+        "p08-qc-h952-parenthetical-04",
+        "p08-qc-h952-parenthetical-05"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-preface-Aisha-parenthetical-separation",
+      "old_decision_id": "p08-root-gap-0006-006",
+      "old_ledger_ordinal": 26671,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 9874,
+      "cp_end": 9920,
+      "replacement_decision_ids": [
+        "p08-qc-preface-Aisha-parenthetical-01",
+        "p08-qc-preface-Aisha-parenthetical-02",
+        "p08-qc-preface-Aisha-parenthetical-03",
+        "p08-qc-preface-Aisha-parenthetical-04",
+        "p08-qc-preface-Aisha-parenthetical-05"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-h962-parenthetical-separation",
+      "old_decision_id": "p08-sem-late-gap-1596-0275",
+      "old_ledger_ordinal": 40863,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1106082,
+      "cp_end": 1106244,
+      "replacement_decision_ids": [
+        "p08-qc-h962-parenthetical-01",
+        "p08-qc-h962-parenthetical-02",
+        "p08-qc-h962-parenthetical-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0289538",
+      "old_decision_id": "p08-v01-middle-main-cp0289538-0289733",
+      "old_ledger_ordinal": 36848,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 289538,
+      "cp_end": 289733,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0289538-01",
+        "p08-qc-middle-offset-cp0289538-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0327540",
+      "old_decision_id": "p08-v01-middle-main-cp0327540-0327541",
+      "old_ledger_ordinal": 37476,
+      "category": "blank_only_normalization",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 327540,
+      "cp_end": 327541,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0327540-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0327558",
+      "old_decision_id": "p08-v01-middle-main-cp0327558-0327637",
+      "old_ledger_ordinal": 37478,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 327558,
+      "cp_end": 327637,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0327558-01",
+        "p08-qc-middle-offset-cp0327558-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0331357",
+      "old_decision_id": "p08-v01-middle-main-cp0331357-0331503",
+      "old_ledger_ordinal": 37580,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 331357,
+      "cp_end": 331503,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0331357-01",
+        "p08-qc-middle-offset-cp0331357-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0334815",
+      "old_decision_id": "p08-v01-middle-main-cp0334815-0334851",
+      "old_ledger_ordinal": 37633,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 334815,
+      "cp_end": 334851,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0334815-01",
+        "p08-qc-middle-offset-cp0334815-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0353833",
+      "old_decision_id": "p08-v01-middle-main-cp0353833-0354025",
+      "old_ledger_ordinal": 37955,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 353833,
+      "cp_end": 354025,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0353833-01",
+        "p08-qc-middle-offset-cp0353833-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0354432",
+      "old_decision_id": "p08-v01-middle-main-cp0354432-0354484",
+      "old_ledger_ordinal": 37963,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 354432,
+      "cp_end": 354484,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0354432-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0354490",
+      "old_decision_id": "p08-v01-middle-main-cp0354490-0354583",
+      "old_ledger_ordinal": 37965,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 354490,
+      "cp_end": 354583,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0354490-01",
+        "p08-qc-middle-offset-cp0354490-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0355984",
+      "old_decision_id": "p08-v01-middle-main-cp0355984-0356061",
+      "old_ledger_ordinal": 37988,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 355984,
+      "cp_end": 356061,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0355984-01",
+        "p08-qc-middle-offset-cp0355984-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0356350",
+      "old_decision_id": "p08-v01-middle-main-cp0356350-0356420",
+      "old_ledger_ordinal": 37996,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 356350,
+      "cp_end": 356420,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0356350-01",
+        "p08-qc-middle-offset-cp0356350-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0356803",
+      "old_decision_id": "p08-v01-middle-main-cp0356803-0356970",
+      "old_ledger_ordinal": 38006,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 356803,
+      "cp_end": 356970,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0356803-01",
+        "p08-qc-middle-offset-cp0356803-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0358424",
+      "old_decision_id": "p08-v01-middle-main-cp0358424-0358579",
+      "old_ledger_ordinal": 38034,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 358424,
+      "cp_end": 358579,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0358424-01",
+        "p08-qc-middle-offset-cp0358424-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0359527",
+      "old_decision_id": "p08-v01-middle-main-cp0359527-0359741",
+      "old_ledger_ordinal": 38046,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 359527,
+      "cp_end": 359741,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0359527-01",
+        "p08-qc-middle-offset-cp0359527-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0359872",
+      "old_decision_id": "p08-v01-middle-main-cp0359872-0360234",
+      "old_ledger_ordinal": 38049,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 359872,
+      "cp_end": 360234,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0359872-01",
+        "p08-qc-middle-offset-cp0359872-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0363052",
+      "old_decision_id": "p08-v01-middle-main-cp0363052-0363107",
+      "old_ledger_ordinal": 38086,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 363052,
+      "cp_end": 363107,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0363052-01",
+        "p08-qc-middle-offset-cp0363052-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0363945",
+      "old_decision_id": "p08-v01-middle-main-cp0363945-0364117",
+      "old_ledger_ordinal": 38099,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 363945,
+      "cp_end": 364117,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0363945-01",
+        "p08-qc-middle-offset-cp0363945-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0366278",
+      "old_decision_id": "p08-v01-middle-main-cp0366278-0366366",
+      "old_ledger_ordinal": 38117,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 366278,
+      "cp_end": 366366,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0366278-01",
+        "p08-qc-middle-offset-cp0366278-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0369148",
+      "old_decision_id": "p08-v01-middle-main-cp0369148-0369362",
+      "old_ledger_ordinal": 38149,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 369148,
+      "cp_end": 369362,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0369148-01",
+        "p08-qc-middle-offset-cp0369148-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0369490",
+      "old_decision_id": "p08-v01-middle-main-cp0369490-0369849",
+      "old_ledger_ordinal": 38152,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 369490,
+      "cp_end": 369849,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0369490-01",
+        "p08-qc-middle-offset-cp0369490-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0370349",
+      "old_decision_id": "p08-v01-middle-main-cp0370349-0370655",
+      "old_ledger_ordinal": 38157,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 370349,
+      "cp_end": 370655,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0370349-01",
+        "p08-qc-middle-offset-cp0370349-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0381431",
+      "old_decision_id": "p08-v01-middle-main-cp0381431-0381480",
+      "old_ledger_ordinal": 38290,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 381431,
+      "cp_end": 381480,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0381431-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0381489",
+      "old_decision_id": "p08-v01-middle-main-cp0381489-0381673",
+      "old_ledger_ordinal": 38292,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 381489,
+      "cp_end": 381673,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0381489-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0381682",
+      "old_decision_id": "p08-v01-middle-main-cp0381682-0381732",
+      "old_ledger_ordinal": 38294,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 381682,
+      "cp_end": 381732,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0381682-01",
+        "p08-qc-middle-offset-cp0381682-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0384542",
+      "old_decision_id": "p08-v01-middle-main-cp0384542-0384623",
+      "old_ledger_ordinal": 38347,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 384542,
+      "cp_end": 384623,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0384542-01",
+        "p08-qc-middle-offset-cp0384542-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0385575",
+      "old_decision_id": "p08-v01-middle-main-cp0385575-0385684",
+      "old_ledger_ordinal": 38378,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 385575,
+      "cp_end": 385684,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0385575-01",
+        "p08-qc-middle-offset-cp0385575-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0397040",
+      "old_decision_id": "p08-v01-middle-main-cp0397040-0397083",
+      "old_ledger_ordinal": 38581,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 397040,
+      "cp_end": 397083,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0397040-01",
+        "p08-qc-middle-offset-cp0397040-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0397608",
+      "old_decision_id": "p08-v01-middle-main-cp0397608-0397649",
+      "old_ledger_ordinal": 38592,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 397608,
+      "cp_end": 397649,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0397608-01",
+        "p08-qc-middle-offset-cp0397608-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0398215",
+      "old_decision_id": "p08-v01-middle-main-cp0398215-0398291",
+      "old_ledger_ordinal": 38608,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 398215,
+      "cp_end": 398291,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0398215-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0399829",
+      "old_decision_id": "p08-v01-middle-main-cp0399829-0399904",
+      "old_ledger_ordinal": 38632,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 399829,
+      "cp_end": 399904,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0399829-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0404213",
+      "old_decision_id": "p08-v01-middle-main-cp0404213-0404324",
+      "old_ledger_ordinal": 38690,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 404213,
+      "cp_end": 404324,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0404213-01",
+        "p08-qc-middle-offset-cp0404213-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0405452",
+      "old_decision_id": "p08-v01-middle-main-cp0405452-0405564",
+      "old_ledger_ordinal": 38709,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 405452,
+      "cp_end": 405564,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0405452-01",
+        "p08-qc-middle-offset-cp0405452-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0413246",
+      "old_decision_id": "p08-v01-middle-main-cp0413246-0413386",
+      "old_ledger_ordinal": 38792,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 413246,
+      "cp_end": 413386,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0413246-01",
+        "p08-qc-middle-offset-cp0413246-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0414905",
+      "old_decision_id": "p08-v01-middle-main-cp0414905-0414982",
+      "old_ledger_ordinal": 38819,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 414905,
+      "cp_end": 414982,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0414905-01",
+        "p08-qc-middle-offset-cp0414905-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0417383",
+      "old_decision_id": "p08-v01-middle-main-cp0417383-0417536",
+      "old_ledger_ordinal": 38844,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 417383,
+      "cp_end": 417536,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0417383-01",
+        "p08-qc-middle-offset-cp0417383-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0417978",
+      "old_decision_id": "p08-v01-middle-main-cp0417978-0418427",
+      "old_ledger_ordinal": 38853,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 417978,
+      "cp_end": 418427,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0417978-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0419272",
+      "old_decision_id": "p08-v01-middle-main-cp0419272-0419376",
+      "old_ledger_ordinal": 38871,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 419272,
+      "cp_end": 419376,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0419272-01",
+        "p08-qc-middle-offset-cp0419272-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0419484",
+      "old_decision_id": "p08-v01-middle-main-cp0419484-0419557",
+      "old_ledger_ordinal": 38874,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 419484,
+      "cp_end": 419557,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0419484-01"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0420771",
+      "old_decision_id": "p08-v01-middle-main-cp0420771-0420847",
+      "old_ledger_ordinal": 38899,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 420771,
+      "cp_end": 420847,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0420771-01",
+        "p08-qc-middle-offset-cp0420771-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0424236",
+      "old_decision_id": "p08-v01-middle-main-cp0424236-0424384",
+      "old_ledger_ordinal": 38962,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 424236,
+      "cp_end": 424384,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0424236-01",
+        "p08-qc-middle-offset-cp0424236-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0424686",
+      "old_decision_id": "p08-v01-middle-main-cp0424686-0424772",
+      "old_ledger_ordinal": 38972,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 424686,
+      "cp_end": 424772,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0424686-01",
+        "p08-qc-middle-offset-cp0424686-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0433018",
+      "old_decision_id": "p08-v01-middle-main-cp0433018-0433514",
+      "old_ledger_ordinal": 39075,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 433018,
+      "cp_end": 433514,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0433018-01",
+        "p08-qc-middle-offset-cp0433018-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0433997",
+      "old_decision_id": "p08-v01-middle-main-cp0433997-0434168",
+      "old_ledger_ordinal": 39084,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 433997,
+      "cp_end": 434168,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0433997-01",
+        "p08-qc-middle-offset-cp0433997-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0434655",
+      "old_decision_id": "p08-v01-middle-main-cp0434655-0434730",
+      "old_ledger_ordinal": 39092,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 434655,
+      "cp_end": 434730,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0434655-01",
+        "p08-qc-middle-offset-cp0434655-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0435787",
+      "old_decision_id": "p08-v01-middle-main-cp0435787-0435899",
+      "old_ledger_ordinal": 39109,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 435787,
+      "cp_end": 435899,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0435787-01",
+        "p08-qc-middle-offset-cp0435787-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0437309",
+      "old_decision_id": "p08-v01-middle-main-cp0437309-0437361",
+      "old_ledger_ordinal": 39137,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 437309,
+      "cp_end": 437361,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0437309-01",
+        "p08-qc-middle-offset-cp0437309-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0439708",
+      "old_decision_id": "p08-v01-middle-main-cp0439708-0439969",
+      "old_ledger_ordinal": 39171,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 439708,
+      "cp_end": 439969,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0439708-01",
+        "p08-qc-middle-offset-cp0439708-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0440834",
+      "old_decision_id": "p08-v01-middle-main-cp0440834-0440969",
+      "old_ledger_ordinal": 39190,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 440834,
+      "cp_end": 440969,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0440834-01",
+        "p08-qc-middle-offset-cp0440834-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0453142",
+      "old_decision_id": "p08-v01-middle-main-cp0453142-0453211",
+      "old_ledger_ordinal": 39426,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 453142,
+      "cp_end": 453211,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0453142-01",
+        "p08-qc-middle-offset-cp0453142-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0466956",
+      "old_decision_id": "p08-v01-middle-main-cp0466956-0466984",
+      "old_ledger_ordinal": 39633,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 466956,
+      "cp_end": 466984,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0466956-01",
+        "p08-qc-middle-offset-cp0466956-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0480977",
+      "old_decision_id": "p08-v01-middle-main-cp0480977-0480993",
+      "old_ledger_ordinal": 39786,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 480977,
+      "cp_end": 480993,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0480977-01",
+        "p08-qc-middle-offset-cp0480977-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0493956",
+      "old_decision_id": "p08-v01-middle-main-cp0493956-0494051",
+      "old_ledger_ordinal": 39905,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 493956,
+      "cp_end": 494051,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0493956-01",
+        "p08-qc-middle-offset-cp0493956-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0523146",
+      "old_decision_id": "p08-v01-middle-main-cp0523146-0523298",
+      "old_ledger_ordinal": 39997,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 523146,
+      "cp_end": 523298,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0523146-01",
+        "p08-qc-middle-offset-cp0523146-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-middle-offset-cp0528408",
+      "old_decision_id": "p08-v01-middle-main-cp0528408-0528453",
+      "old_ledger_ordinal": 40019,
+      "category": "exact_offset_voice_repair",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 528408,
+      "cp_end": 528453,
+      "replacement_decision_ids": [
+        "p08-qc-middle-offset-cp0528408-01",
+        "p08-qc-middle-offset-cp0528408-02"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-attribution-insertion-cp0035183",
+      "old_decision_id": "p08-v1-earlyb-gap0038-cp0035183-0035199",
+      "old_ledger_ordinal": 31460,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 35183,
+      "cp_end": 35199,
+      "replacement_decision_ids": [
+        "p08-qc-attribution-insertion-cp0035183-01",
+        "p08-qc-attribution-insertion-cp0035183-02",
+        "p08-qc-attribution-insertion-cp0035183-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-attribution-insertion-cp0102505",
+      "old_decision_id": "p08-v1-earlyb-gap0103-cp0102505-0102528",
+      "old_ledger_ordinal": 33505,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 102505,
+      "cp_end": 102528,
+      "replacement_decision_ids": [
+        "p08-qc-attribution-insertion-cp0102505-01",
+        "p08-qc-attribution-insertion-cp0102505-02",
+        "p08-qc-attribution-insertion-cp0102505-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-attribution-insertion-cp0129229",
+      "old_decision_id": "p08-v1-earlyb-gap0177-cp0129229-0129254",
+      "old_ledger_ordinal": 34465,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 129229,
+      "cp_end": 129254,
+      "replacement_decision_ids": [
+        "p08-qc-attribution-insertion-cp0129229-01",
+        "p08-qc-attribution-insertion-cp0129229-02",
+        "p08-qc-attribution-insertion-cp0129229-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-attribution-insertion-cp1091487",
+      "old_decision_id": "p08-sem-late-gap-1571-0247",
+      "old_ledger_ordinal": 40835,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1091487,
+      "cp_end": 1091727,
+      "replacement_decision_ids": [
+        "p08-qc-attribution-insertion-cp1091487-01",
+        "p08-qc-attribution-insertion-cp1091487-02",
+        "p08-qc-attribution-insertion-cp1091487-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    },
+    {
+      "overlay_id": "p08-independent-QC-attribution-insertion-cp1041953",
+      "old_decision_id": "p08-root-broad-05283-01-02",
+      "old_ledger_ordinal": 43310,
+      "category": "parenthetical_boundary_refinement",
+      "source_volume": 1,
+      "story": "main",
+      "cp_start": 1041953,
+      "cp_end": 1041993,
+      "replacement_decision_ids": [
+        "p08-qc-attribution-insertion-cp1041953-01",
+        "p08-qc-attribution-insertion-cp1041953-02",
+        "p08-qc-attribution-insertion-cp1041953-03"
+      ],
+      "manual_semantic_acceptance_from": "targeted source reading and corresponding independent adjudication files",
+      "exact_source_partition_verified": true,
+      "historical_row_retained_and_current_interpretation_inactive": true,
+      "all_replacements_currently_active": true,
+      "errors": []
+    }
+  ],
+  "mechanical_vs_manual": "The role judgments were manually made in the stated source contexts. This script checks exact application, bytes, bounds and qualified current states; these checks create no additional manual review credit."
+}

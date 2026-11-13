@@ -1,0 +1,830 @@
+{
+  "created_utc": "2026-11-13T07:28:47.636665+00:00",
+  "reviewer": "independent semantic QC agent",
+  "candidate_revision": 4,
+  "input_count": 136,
+  "files": [
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/originals/bn_riyadh_01.pdf",
+      "bytes": 6351942,
+      "sha256": "be5be91ae127c276209722e4a1365cde783ffff3aad04c60d510154a72e31e22",
+      "actual_review_scope": "Targeted visual semantic inspection only on pages recorded in actual_image_observations.jsonl; not all pages or characters."
+    },
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/source_exports/v01/doc_all_stories.json",
+      "bytes": 2871633,
+      "sha256": "cf8f30ae2ecebc638459981bddbf7bc054693dc0bb4d4fca00d533e550848469",
+      "actual_review_scope": "Every new decision mechanically checked against exact global-CP source slices. Manual reading restricted to recorded sampled spans, source-case contexts and corrective contexts."
+    },
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/originals/bn_riyadh_02.pdf",
+      "bytes": 6144222,
+      "sha256": "194ba1091bbe7e63c564462b290821818ecf419aec6937286bb2bea1992032f5",
+      "actual_review_scope": "Targeted visual semantic inspection only on pages recorded in actual_image_observations.jsonl; not all pages or characters."
+    },
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/source_exports/v02/doc_all_stories.json",
+      "bytes": 2455003,
+      "sha256": "db873217e3152cb1e38e73dbd26a4323261ba509db4607d9f1833311f942e04b",
+      "actual_review_scope": "Every new decision mechanically checked against exact global-CP source slices. Manual reading restricted to recorded sampled spans, source-case contexts and corrective contexts."
+    },
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/continuation/integration/semantic_interval_decisions.jsonl",
+      "bytes": 36920331,
+      "sha256": "a35054a634eb15a3e729c2112a341f3b94d10198e7b772d2ac1c278afc96fa31",
+      "actual_review_scope": "Mechanically checked qualified original row/ordinal identities and overlay targets; selected inherited narrower spans and 16 reference parents manually read."
+    },
+    {
+      "path": "work/cp016_parent/bn_riyadh_20261113_v2_cp016_patch07/continuation/integration/semantic_uncertainties.jsonl",
+      "bytes": 60787,
+      "sha256": "4d4ae5115f8a56fe84a8dd21963916ec22fefd069cebf82a37cbbc7e66c24819",
+      "actual_review_scope": "All 22 inherited uncertainty cases independently reviewed in their exact source context; target identity checked mechanically."
+    },
+    {
+      "path": "patches/patch08/semantic_gap_inventory.jsonl",
+      "bytes": 2206191,
+      "sha256": "728c49f1c34ab8f427877b02ae80da8e8309f1be0e2c6e376b74ec7817712b08",
+      "actual_review_scope": "Used to select and locate 19 complete manually read gap samples; no manual credit for other inventory rows."
+    },
+    {
+      "path": "patches/patch08/semantic_review/semantic_decisions.jsonl",
+      "bytes": 271646,
+      "sha256": "0d6c1ee97ac0932b69f3ca5de36d1ac0e33bd2af1bff9f9f4173bd7321685e17",
+      "actual_review_scope": "Every row source/CP checked mechanically. 28 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_early/semantic_decisions.jsonl",
+      "bytes": 234116,
+      "sha256": "8ded10552732ab3b9fddd52812bf5ba6a904ce6b1b1bbeae9ba056149521c827",
+      "actual_review_scope": "Every row source/CP checked mechanically. 80 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_early_b/semantic_decisions.jsonl",
+      "bytes": 4653310,
+      "sha256": "11606cd9acce8f407bb894e5e88109c0f51ae6a1471d674e4881e9cb94ddab8d",
+      "actual_review_scope": "Every row source/CP checked mechanically. 84 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_early_c/semantic_decisions.jsonl",
+      "bytes": 2321859,
+      "sha256": "5dacebc7f62ae0e81d6834f618cbfe60f95ccb6db94dae0c71e374ebaa4db1ad",
+      "actual_review_scope": "Every row source/CP checked mechanically. 61 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_middle/semantic_decisions.jsonl",
+      "bytes": 5591599,
+      "sha256": "8b32a8eb581eeb967e6249871b8098a42b7ce1edd073aa0101173c96f446ddda",
+      "actual_review_scope": "Every row source/CP checked mechanically. 176 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_late_and_notes/semantic_decisions.jsonl",
+      "bytes": 1349806,
+      "sha256": "3940b23c4d599d3e7dc65750939cc5933b8f0302a8e2cca55747e58da73c99b1",
+      "actual_review_scope": "Every row source/CP checked mechanically. 86 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_v2_gaps/semantic_decisions.jsonl",
+      "bytes": 4727886,
+      "sha256": "1fdb07e139043e48f46cf584d2b14533887d55c8d1570af2ff57bb7d190e42dc",
+      "actual_review_scope": "Every row source/CP checked mechanically. 206 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/reference_refinement/semantic_decisions.jsonl",
+      "bytes": 668137,
+      "sha256": "7cd79cd41ba9488d7685fb2f6dd300c0c7c863d9e0e9476cb5e3bb6dc5a4fd0e",
+      "actual_review_scope": "Every row source/CP checked mechanically. 43 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/header_story_review/semantic_decisions.jsonl",
+      "bytes": 9584,
+      "sha256": "1ed3c21dc7d2f056dd3b4a22846f7693dd3b2897b70bad218673934adeef92b7",
+      "actual_review_scope": "Every row source/CP checked mechanically. 11 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_broad_v1_root/semantic_decisions.jsonl",
+      "bytes": 892353,
+      "sha256": "b602953c77ef0887633a3167e40a1628142c6e37d9c646ebe96abe268e7d0dea",
+      "actual_review_scope": "Every row source/CP checked mechanically. 80 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/semantics_broad_v1/semantic_decisions.jsonl",
+      "bytes": 2099197,
+      "sha256": "c5164e1631524ca8eef8e2a5958d056b370628bf035dc2fe2d50ad21fe0085c8",
+      "actual_review_scope": "Every row source/CP checked mechanically. 76 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/root_scope_review/semantic_decisions.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "actual_review_scope": "Every row source/CP checked mechanically. 0 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/tail_review/semantic_decisions.jsonl",
+      "bytes": 20409,
+      "sha256": "4423aa38b94cca606ae7947537ce766c5308d8fa7f0594ce6f7097e28d84bf65",
+      "actual_review_scope": "Every row source/CP checked mechanically. 19 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/qc_corrections/semantic_decisions.jsonl",
+      "bytes": 342818,
+      "sha256": "963bb850ce4251e87f3ac59532ceb0dc471e5fe541d96580e740e3f190134a75",
+      "actual_review_scope": "Every row source/CP checked mechanically. 139 rows manually read; exact IDs in span_observations.jsonl."
+    },
+    {
+      "path": "patches/patch08/root_scope_review/semantic_uncertainties.jsonl",
+      "bytes": 1454,
+      "sha256": "0a571646726a275840538071a6b6b055c1eb7f260e671721b5e1bffa717776dd",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantic_review/additional_semantic_exceptions.jsonl",
+      "bytes": 1508,
+      "sha256": "bf599f2d5b043e6f0a36bd0b9c0ede2f15371b9a93056663129eee188ab84cd1",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantic_review/retained_semantic_exceptions.jsonl",
+      "bytes": 208265,
+      "sha256": "a1e4a5a7c89ca58e83b5d44942fbb4c37bbd9819d469bee5f270101020ca9b14",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantics_broad_v1/semantic_uncertainties.jsonl",
+      "bytes": 5269,
+      "sha256": "887205048285002df0d3b91ed24dde329bf7c24ee7ab38b4e0ab0727b1ba8276",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_early_c/semantic_uncertainties.jsonl",
+      "bytes": 6150,
+      "sha256": "60e75be85bacea09016ff383f4abdf28edf92b04442b7b51c0755f17b73f37e8",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_late_and_notes/semantic_uncertainties.jsonl",
+      "bytes": 1349,
+      "sha256": "f78477abdda5b06901977d64d1d062e8144e06ed519a83108711b82f2bfc60b4",
+      "actual_review_scope": "All cases from this author file are independently adjudicated in case_observations.jsonl; source limitations are retained."
+    },
+    {
+      "path": "patches/patch08/semantic_review/semantic_review_status_overlay.jsonl",
+      "bytes": 55528,
+      "sha256": "ce18844aa1a48ad16837d2765bfb6cfa101b069326e7696a1621191319ce0352",
+      "actual_review_scope": "All 79 qualified target bindings and additive decision links checked mechanically; source semantic dispositions assessed through 32 case reviews."
+    },
+    {
+      "path": "patches/patch08/reference_refinement/semantic_correction_overlay.jsonl",
+      "bytes": 128500,
+      "sha256": "63d4be8108131487fa321097715a0e6771645a7fbaa2fff212273045922ed51c",
+      "actual_review_scope": "All 207 parent SHA/ordinal identities and exact replacement partitions mechanically checked; 16 parents manually reviewed."
+    },
+    {
+      "path": "patches/patch08/qc_corrections/semantic_correction_overlay.jsonl",
+      "bytes": 151775,
+      "sha256": "9a4b75d812613a31e173e5ff7e04dd25006c5395ccd4e0d8035620adfa0d2d37",
+      "actual_review_scope": "All 63 overlays independently checked for exact approved correction application, preserved historical rows and current deactivation/activation."
+    },
+    {
+      "path": "patches/patch08/semantics_v1_middle/review_writer.py",
+      "bytes": 12697,
+      "sha256": "2f239404cd3b0b5914ebb917462a3ba6d317ea1ba3f9b9e8086aeb2a0a4d418d",
+      "actual_review_scope": "Manually inspected the standard/manual_quotes/add offset serialization path to understand the observed systematic defect; no author code was changed by this reviewer."
+    },
+    {
+      "path": "patches/patch08/qc_corrections/middle_offset_replay/REPLAY_SUMMARY.json",
+      "bytes": 638,
+      "sha256": "1f7929bffbcc7280361682c6aa8ab4baa9cf8ec41c626b2388112f400278229f",
+      "actual_review_scope": "Read replay scope and claimed causal isolation; semantic acceptance did not rely on replay alone."
+    },
+    {
+      "path": "patches/patch08/qc_corrections/middle_offset_replay/candidate_corrections.jsonl",
+      "bytes": 201113,
+      "sha256": "121c733c8170d7d4048f4e65b06919df96bf9268ea2d62c18d898a354c300cba",
+      "actual_review_scope": "All 53 old rows and proposed exact partitions manually read and source/CP checked; 52 lexical changes accepted and one blank normalized."
+    },
+    {
+      "path": "patches/patch08/REVIEW_CANDIDATE.json",
+      "bytes": 8808,
+      "sha256": "a8a0a5314abc92e2a75284567571deb495aaf240c32a525cd3266b1b512c49a5",
+      "actual_review_scope": "Binds candidate revision 4; semantic-related files used below were rehashed directly."
+    },
+    {
+      "path": "work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08/continuation/integration/semantic_interval_decisions.jsonl",
+      "bytes": 60961278,
+      "sha256": "3628eb0009ad4e728ba3db8290c554ad1ffcf5592b6a62ac00471e8dbfa4f361",
+      "actual_review_scope": "All 63 exact historical correction targets and all 139 final replacements matched by SHA-qualified ordinal; entire ledger read mechanically, not semantically."
+    },
+    {
+      "path": "work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08/continuation/integration/semantic_current_status_index.jsonl",
+      "bytes": 28702626,
+      "sha256": "0052ad15ee990c8e75e9f340ab0ccb9bd2dfb957ff4808d2864556faf9b55163",
+      "actual_review_scope": "All corrected targets inactive, historical rows retained, all 139 replacements active; qualified current SHA/ordinal checks."
+    },
+    {
+      "path": "work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08/continuation/integration/current_source_semantic_segments.jsonl",
+      "bytes": 50775475,
+      "sha256": "133c53ab64a8fb362b4df9917c6b2d76f08356811a3a3661f537aaf64ca18dad",
+      "actual_review_scope": "All corrected target/replacement current participation checked mechanically; 106 equal-width multiple-label atoms counted without asserting universal semantic equivalence."
+    },
+    {
+      "path": "work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08/continuation/integration/semantic_uncertainties.jsonl",
+      "bytes": 77093,
+      "sha256": "c93528881f8e99346a9310eb9084d546d05a25ff85eb715ce24dfd320f4c9ef5",
+      "actual_review_scope": "All 32 retained source-limited uncertainty IDs and source dispositions reconciled to independent case observations."
+    },
+    {
+      "path": "work/patch08_integration_output/bn_riyadh_20261113_v2_cp017_patch08/continuation/integration/semantic_uncertainty_current_status.jsonl",
+      "bytes": 222531,
+      "sha256": "af40d45e3a5801da17403271d2c0e33201b625df8af4ebd28f95bd1d00e4ec1d",
+      "actual_review_scope": "All 32 independently reviewed cases remain unresolved and investigation-complete."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0032_full_3x.png",
+      "bytes": 220450,
+      "sha256": "9ed59153a2897db0d007b119936adaefd8869562e8399440528a77c82966ea0a",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0112_full_3x.png",
+      "bytes": 223386,
+      "sha256": "66de1e6eb937824f69d8b9c4d42a674b2f49e8f924612b4fecba2c163da515e0",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0139_full_3x.png",
+      "bytes": 223788,
+      "sha256": "41f8572a4855970076afad63480a432d1433110bce821ba365dd39f23cf32cde",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0149_full_3x.png",
+      "bytes": 210077,
+      "sha256": "47d52b0460fc7bd9ded88fa7473a0584489a7495a834c812926313ae7c0e9fb1",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0164_full_3x.png",
+      "bytes": 226838,
+      "sha256": "12aa85c1a157f1b617d908611f44b7e6adff4ab6144d4ce5d3552a933d52e93f",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0241_full_3x.png",
+      "bytes": 226495,
+      "sha256": "ad8f79f86e966582bf89b81385aa92cb4a464106224d42dac80d30dfb2908ee3",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0304_full_3x.png",
+      "bytes": 221041,
+      "sha256": "93e09ed15fdcc55223504573be93c7533af69dd7371a6b09c024e445b97734c7",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0305_full_3x.png",
+      "bytes": 207428,
+      "sha256": "600b44f9bdf650a0fc0e92135b46ec0dcda531e189117edbf395bda51e4542b6",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0517_full_3x.png",
+      "bytes": 214646,
+      "sha256": "f922e84b2203848a85122064e642c61221f1a3472331313634acd8f42f2653b2",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0518_full_3x.png",
+      "bytes": 210205,
+      "sha256": "ce8d7756c9d7df35177b29b18a267ead3f2db1c3347d5719eac54c12614b6714",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0554_full_3x.png",
+      "bytes": 239630,
+      "sha256": "6a7375d26cbd4f4b24a693700c8f9f797c3bcd7a4d34fff587d76f2d43e22d81",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0555_full_3x.png",
+      "bytes": 218948,
+      "sha256": "a3323b157bdd9b5eafc091f405880bfa708c10f25e8777ce088129c2db9e3966",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0556_full_3x.png",
+      "bytes": 217595,
+      "sha256": "f791a652b3a69e021901244b77cfac12628bcc834bbdeb74f08fb497c9ffcec5",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0621_full_3x.png",
+      "bytes": 217796,
+      "sha256": "c881e245fe9035b419ee6cd22a000c4c3c91032291cb16cf362fce4e78332956",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0802_full_3x.png",
+      "bytes": 205639,
+      "sha256": "4d3b05dbf642ea6d620d2384b23031f7236824250bfb512464fa66655f9ebe35",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0803_full_3x.png",
+      "bytes": 218138,
+      "sha256": "a419ebc1b64c3f37ee9fc79fbbe4ae1020978a00f019472454cea91ebe5bb26a",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0804_full_3x.png",
+      "bytes": 182872,
+      "sha256": "82b002fe060d6699d39e98e272ef9365fe1579f3cb82c3c01a6c6a7568092fc9",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0823_full_3x.png",
+      "bytes": 189184,
+      "sha256": "35982dc9f354d8add6dcb2595ecc295a414d14983ce12ea64cf65d16243c8db6",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0149_full_3x.png",
+      "bytes": 200696,
+      "sha256": "af04e3230eedf472e2aaa2c61b4de4d9cb8ac499210418c8acfa2d7dcfc2a34f",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0200_full_3x.png",
+      "bytes": 214881,
+      "sha256": "4c0f1e019d9f23e482269f591092860fbb524c34beb7cb773dc3819b786354f1",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0201_full_3x.png",
+      "bytes": 210650,
+      "sha256": "ccc87e0da2f81a5c66b5ce6ec83a7144c54d78728e01ead9c0055c490d4be2e6",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0202_full_3x.png",
+      "bytes": 201754,
+      "sha256": "ee38cebc5a5caa419b843acb045d569b7da688322b3cce73f58d88e457c06749",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0203_full_3x.png",
+      "bytes": 220182,
+      "sha256": "ef978ba92bdfadc3fafd5479f1f766effad5e0c962d53eb910907dadb54dae58",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0469_full_3x.png",
+      "bytes": 207629,
+      "sha256": "d318cab803e36001769a2f0a584aa911a0572dce092737654845d0a8678a5353",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0470_full_3x.png",
+      "bytes": 189123,
+      "sha256": "eeb7fa150377fc0eff0a1999dfa4c81f471bb675bfad087139b7f0e1040101f3",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0480_full_3x.png",
+      "bytes": 189213,
+      "sha256": "983fcc52f455de5f9aee16e1b8f35cd4464ee35bf881be7023168a4c181ca746",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0509_full_3x.png",
+      "bytes": 187909,
+      "sha256": "f6ac0209ccbb884927e0bb728e78c11fde336298ac0865d1755c25f417db802a",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0510_full_3x.png",
+      "bytes": 192601,
+      "sha256": "8d97d201e6f3d8bc223f99b5353c96f87d96049fad7f85f3881a299ab85c62cf",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0533_full_3x.png",
+      "bytes": 166252,
+      "sha256": "8c51a50fd05595a29e01ebc5d94cafc9707e60f320a83ec647e3635ecaec7af4",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0624_full_3x.png",
+      "bytes": 191431,
+      "sha256": "9e0c7fa1d373919bba1676b732c05cacc52f30e59bb96ed4cc52c11952bb72d5",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0625_full_3x.png",
+      "bytes": 179401,
+      "sha256": "39857e4f1a79469c2239cdd7b3fba8573b1685750c99831483027e897f979688",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0688_full_3x.png",
+      "bytes": 188877,
+      "sha256": "f55d3027f05068abcffd7ed20ec37fe3c11f21ce21241e300a5afa22f666b11b",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0689_full_3x.png",
+      "bytes": 201698,
+      "sha256": "cf5307eae1b435e8cbe10c7cfae2d2e74b38e8870e17723d854b9f766da98240",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0690_full_3x.png",
+      "bytes": 182632,
+      "sha256": "41511b287b7f361527e9d9802ff71dfd04e4750cce162f535bd070d26d362292",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0691_full_3x.png",
+      "bytes": 181020,
+      "sha256": "3a879e7eb623cb34d9dfa7c08358ec7fdfb19a891a97bcfb22127f3adcb7dcee",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0710_full_3x.png",
+      "bytes": 163857,
+      "sha256": "8d80678169071035dcc667bfd3087dc370331e23d3392193b2981d05782122a4",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0711_full_3x.png",
+      "bytes": 190683,
+      "sha256": "c64b8bccf5543ddd63798c4cbf6e1e4b896238d29ab8e6a8e4737ea917e260b4",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0802_full_3x.png",
+      "bytes": 197626,
+      "sha256": "9c9b74e4be31e18741f47f49caf48dbe276e19d1bb5f6e7a5e2ec3aef6219198",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0803_full_3x.png",
+      "bytes": 204142,
+      "sha256": "ff697884fd4b8f2479dd2b6bdc019eed3a9983fb00a1192f9e8178f32f82fcac",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0838_full_3x.png",
+      "bytes": 209711,
+      "sha256": "91871dc21a1668ef9fc6a39fbc109d3ddce1928e99e295f42fbe6217e1bd94e8",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0839_full_3x.png",
+      "bytes": 240369,
+      "sha256": "c9bcc8ee1aeb1bf0e3030d8e5b83006fcd0bc4168c964b7a90e34f93864d4687",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0840_full_3x.png",
+      "bytes": 220059,
+      "sha256": "77984bece62cc1c7e1bc49b7f04f34956bd8f4a9db3cd201b5894c6a16ee9ffa",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0852_full_3x.png",
+      "bytes": 186548,
+      "sha256": "7daa7a73e83a38b6d11cc445025917c3a3c75c00480db7ef0703e9d807ca1329",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0906_full_3x.png",
+      "bytes": 260168,
+      "sha256": "d59df9b6d1a0271f50da5b89d9c228a613169528e5b8bcde86030b4654b212b9",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0907_full_3x.png",
+      "bytes": 235111,
+      "sha256": "7b79940b16c42b7999a03bf70a36040700aa8d97fa84020d04d46696f71c8568",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0912_full_3x.png",
+      "bytes": 201727,
+      "sha256": "18761f764b069a8ceb34c3f2a481110d3bb3066086d75ab82e2c8f3698e36506",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0913_full_3x.png",
+      "bytes": 204157,
+      "sha256": "057b41079ee296a6cd61d9f3348f9b315b32e39155a55e47fd75f9a88fedcf2e",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0914_full_3x.png",
+      "bytes": 212350,
+      "sha256": "bbf40dcbd508c2e9a4bb6c96702c6493172bdebda74b2440a83147b8777f4639",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0915_full_3x.png",
+      "bytes": 223468,
+      "sha256": "9a9174058c45b890d02038e5e8998ffd7e0b85cb5ccc66d02c6d3ecf9552b804",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0916_full_3x.png",
+      "bytes": 183680,
+      "sha256": "be28ab631c4d3753f10f89923fb1f0ce8c3ec258d150f20f91275729d7794ad1",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0031_full_3x.png",
+      "bytes": 228975,
+      "sha256": "aec059c51e06e8d90b7c137f24b036c76911647f9c2cd4dc9c5d112d4353c4a8",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0033_full_3x.png",
+      "bytes": 228900,
+      "sha256": "c65765ffbd6d8cc922562cd80805590e51b928b619d029903dd1ae9c2baffed2",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0034_full_3x.png",
+      "bytes": 248159,
+      "sha256": "fe03395e7cbb22a0805a9fc7752754827d257ab94409c18803016fbd201a1224",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0863_full_3x.png",
+      "bytes": 258042,
+      "sha256": "897fe2d92854f048cde7ae3dcf2fcf131e9f88ebeab5e25c83235d51b9cb0333",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0864_full_3x.png",
+      "bytes": 227093,
+      "sha256": "3217b1be9fc22bd890e762588eb8a744d471fb83a6036b378ce36a380ff81460",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0865_full_3x.png",
+      "bytes": 234268,
+      "sha256": "f53a389627e1f5752cd0d21c0ea357a3d6a2f79db867bbe36478e78909b4098b",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p1014_full_3x.png",
+      "bytes": 164748,
+      "sha256": "8266450362cca94e45dd370407fc4b9aea9b4ddc5562dad886779b343be7e084",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p1016_full_3x.png",
+      "bytes": 223104,
+      "sha256": "b8b3af72bfe96ff9e8e94ff2a6351712e5134affbbd0a1a1b1c853eda959f1ba",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0866_full_3x.png",
+      "bytes": 210904,
+      "sha256": "489bc6b2ad98171341dee1c54cb74e314715a83c8f86049f1dee873261107ff7",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0867_full_3x.png",
+      "bytes": 201321,
+      "sha256": "03e29f457f11d3fd92ec0a6efe8fcb38c7d1088f85e931475d82b99e1d3218eb",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0904_full_3x.png",
+      "bytes": 211918,
+      "sha256": "875aad59319c753ed327bc578ae3886edd224c91e5fbaf748e1c930699b837f6",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0905_full_3x.png",
+      "bytes": 213929,
+      "sha256": "db393ed249fbb623e3e87131dc08dc6520ce671362032c7e172c3e0d598925f4",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0929_full_3x.png",
+      "bytes": 223372,
+      "sha256": "c3043894f1cc8a8c6238020c4040be93d4ec3f85637e8c4e302941e5a6c6c685",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0931_full_3x.png",
+      "bytes": 209610,
+      "sha256": "20cb3791423dfd7957a34856e567db3984810e763093f30ea6fd2e11bfdc63e3",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0932_full_3x.png",
+      "bytes": 219572,
+      "sha256": "f92c489074837d49f1dc0d28fed2df98e8068b5a29eb215664c417a80864ae42",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0937_full_3x.png",
+      "bytes": 232645,
+      "sha256": "b1594c7ad659545bc592ed1c1b72718455244086859694135a08ffa5beb89285",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0938_full_3x.png",
+      "bytes": 201278,
+      "sha256": "5219463e598beff965f9f97a7b5267d57b8590d9554f3af9fef37138582ab85d",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0939_full_3x.png",
+      "bytes": 203532,
+      "sha256": "b46017d933d69a31795ef5872d79d6e02c3fe20d35f90f9412024cf69200da31",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0289_full_3x.png",
+      "bytes": 183286,
+      "sha256": "3a04e45ae539bf7a810fedfb98231dbcbeb6776bec11632d753b9d5deaf537c7",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0290_full_3x.png",
+      "bytes": 223672,
+      "sha256": "e93e7ed6705801a8f83ba0c1bdb564502bcc658f00785f9f006dd4fe21d8c6b2",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0291_full_3x.png",
+      "bytes": 222378,
+      "sha256": "e2e43089c06a2f6797d0f3ed521d0d03ac0fc0037dffad6772771f6a56bf155a",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0003_full_3x.png",
+      "bytes": 217146,
+      "sha256": "2146a0910ed90186958606ce833bca03983ad3fa05208d9415aab02a67c4ddaa",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0015_full_3x.png",
+      "bytes": 237898,
+      "sha256": "d2b9cafeed148a7d7265b381fb90dda1dd5b6a2e8c47b4c83d02ecd2abb15ab7",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0070_full_3x.png",
+      "bytes": 242455,
+      "sha256": "9fc2a2c7277186c8c47ae651ae1c12e5b6ffe9c70f94baae0cdf2f29a39d6887",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0156_full_3x.png",
+      "bytes": 199814,
+      "sha256": "d3d6f2a0a5210ece4c269ae463218402c507b738002b860d47729e5661ddc799",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0282_full_3x.png",
+      "bytes": 256603,
+      "sha256": "4df0c086985d8d47d735c8a10bc4228dd24dbbf0d043e3f64aee2cd43d35e300",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0614_full_3x.png",
+      "bytes": 231574,
+      "sha256": "23bd26233791de46e631cfc91dda50abcbc2f0a37dc4737c8bf0afcc44db4a69",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0980_full_3x.png",
+      "bytes": 219292,
+      "sha256": "a795fab57a76c48e7a85c395193cc9efa71fe48cdf62ca73f2c8f74b7104cc6b",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0981_full_3x.png",
+      "bytes": 205100,
+      "sha256": "d7c83ceebfe02faacccd158c45c8eaec7676aef05e25da4d6677e5673324ead0",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0146_full_3x.png",
+      "bytes": 209697,
+      "sha256": "a4e4d1d6c55ae494262d5bc5cd945660a2a55953bf164ee5615e076ef5cf937b",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0165_full_3x.png",
+      "bytes": 193941,
+      "sha256": "b4b53317dc740086601fb73d711ba27ca3f20edf70955f09b3de5a2b711f8cfb",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v02_p0232_full_3x.png",
+      "bytes": 191934,
+      "sha256": "11c567e2c8ecd067807f07cced9bcfab24268e39bc1fa7ac27f50a71b2733281",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0011_full_3x.png",
+      "bytes": 226134,
+      "sha256": "257fa500ae955683a5d203ec2fc1854d38ec6688e92a76ce519c18858f417c38",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0991_full_3x.png",
+      "bytes": 214471,
+      "sha256": "325723ce0920f69039a6df6dc8fb6d1e62891a9cda291cf4806073ffcf2056b8",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0252_full_3x.png",
+      "bytes": 212224,
+      "sha256": "c7fc925f42428ef3269937e3df47153f26e6a31d1620b1644fcbb41dc6b30e5d",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0285_full_3x.png",
+      "bytes": 211343,
+      "sha256": "b47db9c02b1c33d45f9f31ee0c87ffc06707e6b1be3bc9df851fd228c96fbc78",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0289_full_3x.png",
+      "bytes": 206495,
+      "sha256": "7320f85bd940395e23cfa8df0f50ab62a2601cf57e9510d4da50e4e1e72c08e4",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0292_full_3x.png",
+      "bytes": 228044,
+      "sha256": "dd433bbc0619c9124b4b34ae184b617f0bfd1575df36141a53466010a8b1675e",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0317_full_3x.png",
+      "bytes": 209930,
+      "sha256": "21a601528b209575aa75e956ad724c8ac6d28bd10e4a27e34e3f60eb487abfde",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0318_full_3x.png",
+      "bytes": 216212,
+      "sha256": "fd60dcf653f2e0f0cfd47d2127e5c94bce6b30e4538ea22c21d94a3981c1ef81",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0333_full_3x.png",
+      "bytes": 197191,
+      "sha256": "abe1fb1cfb9cddba08927dd52c050270b12c874654ad8d5348da620a6c790b29",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0324_full_3x.png",
+      "bytes": 221898,
+      "sha256": "0e20785797634bfc936aaad71d5172a47c077486607a1be32703ab73caf6d0c7",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0422_full_3x.png",
+      "bytes": 184358,
+      "sha256": "2ac234590bc88fb2e1d70aa600696e1722e93b6eb0d0d1fd2447e048936e8470",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0463_full_3x.png",
+      "bytes": 203048,
+      "sha256": "f6c31d3fdf0b3f2f078c1aac8467f9d90d1e0fdc55cad829432727a4621696b3",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0087_full_3x.png",
+      "bytes": 218811,
+      "sha256": "5e7a07cee9db2dad4faaad14f98930c0d55fe33228eed2978d59c7a3acc623f9",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0110_full_3x.png",
+      "bytes": 219166,
+      "sha256": "3a98170403ccfa0ed9fae115207793bf632eb90761846206f4326f5425b5bcce",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    },
+    {
+      "path": "patches/patch08/independent_qc/semantic/images/v01_p0976_full_3x.png",
+      "bytes": 208110,
+      "sha256": "b1a040f28b2f7a0d0fcefe93d851577ad52bb27dac8fe90231cedb590899eb5f",
+      "actual_review_scope": "Actually displayed independent PDF render; targeted semantic issue and local page context inspected. No full-page character-review credit."
+    }
+  ],
+  "reviewed_prior_ledger_prefix_bindings": {
+    "43528": "794034cfb58d8ad8b9ff2962f1ab5471ae013b6f74cda84fc799e675467ced05",
+    "43417": "954b579933bb77a415d822715fbaaa54d18c735bd181fd401a3ce062e640dd43",
+    "43404": "6a86e2d57a3ee0356327d3dd2f836d9262b1c0f287b7af99032ba35a5be55735"
+  },
+  "note": "Hash binding is not a claim that every byte was manually interpreted. The actual review scope is explicit per file."
+}

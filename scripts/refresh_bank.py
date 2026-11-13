@@ -21,6 +21,7 @@ from build_discovery import build as build_discovery
 from build_book_catalog import write_catalog as write_book_catalog
 from validate_bank_views import validate
 from prepare_counterpart_review import prepare_review
+from source_context_pages import load_context_pages, stage_context_assets
 
 
 def git_revision(root):
@@ -63,6 +64,7 @@ def stage_site(root, output, info):
         hosted = build_reader(root, staging / 'index.html', site=settings,
                               data_directory=staging / data_name)
         info['hosted_reader'] = reader_build_metrics(hosted)
+        stage_context_assets(root, staging, load_context_pages(root))
         discovery = build_discovery(root, staging, site={
             'source_ref': info['source_ref'],
             **({'build_commit': info['source_commit']} if info.get('source_commit') else {}),

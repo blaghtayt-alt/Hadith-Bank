@@ -277,6 +277,58 @@ def normalized_projection(row, material, position):
         'canonical_record_sha256': hashlib.sha256(canonical(row)).hexdigest(),
     }
     with_publication(result, material['publication'])
+    if 'source_scoped_content' in row:
+        scoped = row['source_scoped_content']
+        require(isinstance(scoped, dict) and isinstance(scoped.get('segments'), list) and
+                isinstance(scoped.get('footnotes'), list) and isinstance(scoped.get('uncertainties'), dict),
+                'source_scoped_content requires segments, footnotes and uncertainties: ' + row['id'])
+        source_volume = row.get('source', {}).get('volume')
+        require(type(source_volume) is int and source_volume > 0, 'Source volume is required: ' + row['id'])
+        def check_segments(segments, footnote=False):
+            require(isinstance(segments, list), 'Source segments must be an array: ' + row['id'])
+            identifiers = set()
+            for segment in segments:
+                require(isinstance(segment, dict) and isinstance(segment.get('source_segment_id'), str) and
+                        segment['source_segment_id'] and segment['source_segment_id'] not in identifiers and
+                        isinstance(segment.get('text_verbatim'), str) and isinstance(segment.get('story'), str) and
+                        type(segment.get('cp_start')) is int and type(segment.get('cp_end')) is int and
+                        0 <= segment['cp_start'] <= segment['cp_end'] and
+                        isinstance(segment.get('role_candidates'), list) and
+                        isinstance(segment.get('source_ambiguity_ids'), list) and
+                        isinstance(segment.get('leaf_semantic_references'), list),
+                        'Invalid or duplicate source segment: ' + row['id'])
+                identifiers.add(segment['source_segment_id'])
+                require(segment.get('source_volume') == source_volume,
+                        'Source segment volume mismatch: ' + row['id'])
+                if footnote:
+                    require(segment['story'] == 'footnote', 'Source note segment has wrong story: ' + row['id'])
+                else:
+                    owners = segment.get('source_occurrence_record_ids')
+                    require(isinstance(owners, list) and row['id'] in owners,
+                            'Source segment is not linked to the occurrence: ' + row['id'])
+                for ref in segment['leaf_semantic_references']:
+                    require(isinstance(ref, dict) and isinstance(ref.get('ledger_sha256'), str) and
+                            re.fullmatch(r'[0-9a-f]{64}', ref['ledger_sha256']) is not None and
+                            type(ref.get('ledger_1_based_row')) is int and ref['ledger_1_based_row'] > 0,
+                            'Source semantic reference needs hash and row: ' + row['id'])
+                for ambiguity in segment['source_ambiguity_ids']:
+                    require(ambiguity in scoped['uncertainties'], 'Missing source ambiguity: ' + row['id'])
+        check_segments(scoped['segments'])
+        for note in scoped['footnotes']:
+            require(isinstance(note, dict) and isinstance(note.get('source_note'), dict),
+                    'Source footnote metadata is required: ' + row['id'])
+            check_segments(note.get('segments'), footnote=True)
+            parts, metadata = note['segments'], note['source_note']
+            require(parts and type(metadata.get('cp_start')) is int and type(metadata.get('cp_end')) is int and
+                    parts[0]['cp_start'] == metadata['cp_start'] and parts[-1]['cp_end'] == metadata['cp_end'] and
+                    all(a['cp_end'] == b['cp_start'] for a, b in zip(parts, parts[1:])),
+                    'Source footnote segments do not cover their exact interval: ' + row['id'])
+            require(type(metadata.get('main_cp_anchor')) is int and metadata['main_cp_anchor'] >= 0 and
+                    isinstance(metadata.get('main_anchor_char'), str) and len(metadata['main_anchor_char']) == 1,
+                    'Source footnote anchor metadata is missing: ' + row['id'])
+            require(''.join(part['text_verbatim'] for part in parts) == metadata.get('raw_text'),
+                    'Source footnote text does not match its segments: ' + row['id'])
+        result['source_scoped_content'] = copy.deepcopy(scoped)
     if 'language_versions' in row:
         result['language_versions'] = project_language_versions(row['language_versions'], material.get('language_version_default_policy'))
     if material.get('display_policy') is not None:

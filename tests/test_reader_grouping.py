@@ -211,6 +211,13 @@ const readerGroups=createReaderGroupIndex(records,input.mapping);
 
     def test_grouped_dom_has_one_card_full_source_versions_and_lossless_selection(self):
         # Real card/render constructors with a small DOM harness, not a browser-layout claim.
+        for index in (1, 2):
+            self.records[index]['source_scoped_content'] = {
+                'segments': [{'source_segment_id': 'TEST-scope-' + str(index), 'story': 'main',
+                              'cp_start': 0, 'cp_end': 1, 'text_verbatim': 'TEST scoped passage ' + str(index),
+                              'role_candidates': ['TEST source role'], 'leaf_semantic_references': [],
+                              'source_ambiguity_ids': []}],
+                'footnotes': [], 'uncertainties': {}}
         constructors = 'function meta(' + self.template.split('function meta(', 1)[1].split('function updateSelection(', 1)[0]
         renderer = 'async function render(' + self.template.split('async function render(', 1)[1].split('async function applyFilters(', 1)[0]
         program = '''
@@ -235,8 +242,12 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
  const cards=all.filter(node=>node.className==='record-card'),versions=all.filter(node=>node.className==='source-version');
  const first=cards[0],firstNodes=walk(first),checkbox=firstNodes.find(node=>node.tag==='input');checkbox.checked=true;checkbox.events.change();
  const sourceText=firstNodes.filter(node=>node.className==='narration').map(node=>node.textContent);
+ const scopedByOccurrence=Object.fromEntries([first,...versions].map(card=>{
+  const panel=card.childNodes.find(node=>(node.childNodes || []).some(child=>child.className==='source-scoped-content'));
+  return [card.dataset.occurrenceId,panel?walk(panel).map(node=>node.textContent || '').join('\\n'):''];
+ }));
  process.stdout.write(JSON.stringify({cardCount:cards.length,versions:versions.length,representative:first.dataset.occurrenceId,
-  group:first.dataset.groupId,sourceText,badges:firstNodes.filter(node=>(node.className || '').startsWith('reading-origin')).map(node=>node.textContent),
+  group:first.dataset.groupId,sourceText,scopedByOccurrence,badges:firstNodes.filter(node=>(node.className || '').startsWith('reading-origin')).map(node=>node.textContent),
   text:firstNodes.map(node=>node.textContent || '').join('\\n'),links:firstNodes.filter(node=>node.tag==='a').map(node=>node.href),
   selected:[...state.selected].sort(),hydrated,counts:fields['result-count'].textContent,records}));
 })().catch(error=>{process.stderr.write(error.stack);process.exitCode=1;});
@@ -254,6 +265,11 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
             self.assertIn('PDF page ' + str(row['page']['pdf'][0]), actual['text'])
         self.assertIn('AI translation', actual['badges'])
         self.assertIn('Human translation', actual['badges'])
+        self.assertIn('TEST scoped passage 1', actual['scopedByOccurrence']['TEST-occurrence-1'])
+        self.assertNotIn('TEST scoped passage 2', actual['scopedByOccurrence']['TEST-occurrence-1'])
+        self.assertIn('TEST scoped passage 2', actual['scopedByOccurrence']['TEST-occurrence-2'])
+        self.assertNotIn('TEST scoped passage 1', actual['scopedByOccurrence']['TEST-occurrence-2'])
+        self.assertEqual(actual['scopedByOccurrence']['TEST-occurrence-0'], '')
         self.assertIn('Source comparison', actual['text'])
         self.assertIn('TEST review does not establish complete chain equality.', actual['text'])
         self.assertIn('Human review\nNo', actual['text'])

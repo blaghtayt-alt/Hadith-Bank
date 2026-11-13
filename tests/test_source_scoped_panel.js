@@ -1,0 +1,22 @@
+const fs=require('fs'),assert=require('assert'),path=require('path');
+const base=path.resolve(__dirname,'..');
+const template=fs.readFileSync(base+'/reader/template.html','utf8');
+const seg={source_segment_id:'TEST:1',story:'main',cp_start:1,cp_end:2,text_verbatim:'TEST source <script>\\uf079',role_candidates:['TEST role'],source_ambiguity_ids:['TEST:amb'],leaf_semantic_references:[{ledger_sha256:'a'.repeat(64),ledger_1_based_row:3}]};
+const note={...seg,source_segment_id:'TEST:2',story:'footnote',text_verbatim:'TEST note exclusive'};
+const scoped={segments:[seg],footnotes:[{source_note:{sequence:1,raw_text:note.text_verbatim},segments:[note]}],uncertainties:{'TEST:amb':{status:'unknown'}}};
+const record={id:'TEST:id',language:'bn',book_key:'TEST:book',edition:'TEST:edition',source_id:'TEST:source',text_arabic:null,text_translation:null,source_scoped_content:scoped,source:{},narrator:{}};
+const {createProjector}=require(base+'/scripts/reader_projection.js');
+const projection=createProjector(template)(record,[0,1]);
+assert(!projection[1].includes('test note exclusive'));assert(projection[2].includes('test note exclusive'));
+class N{constructor(tag,text){this.tag=tag;this.textContent=text;this.children=[];}append(...a){this.children.push(...a)}}
+const element=(tag,cls,text)=>new N(tag,text);const detail=(label,body)=>{let d=new N('details',label);d.append(body);return d};
+const helper=template.slice(template.indexOf('const hasSourcePassages ='),template.indexOf('function appendLanguageReadings('));
+const hasSourcePassages=new Function(helper+';return hasSourcePassages')();
+assert(!hasSourcePassages({}));assert(!hasSourcePassages({source_scoped_content:{segments:[],footnotes:[]}}));assert(hasSourcePassages({source_scoped_content:{segments:[seg],footnotes:[]}}));assert(hasSourcePassages({source_scoped_content:{segments:[],footnotes:[{}]}}));
+const source=template.slice(template.indexOf('function appendSourceScopedContent('),template.indexOf('function card(record,index,'));
+const render=new Function('element','detail',source+';return appendSourceScopedContent')(element,detail);let root=new N('article');render(root,record);
+const flatten=n=>[n,...n.children.flatMap(flatten)];let nodes=flatten(root);
+assert(nodes.some(n=>n.tag==='pre'&&n.textContent===seg.text_verbatim));assert(nodes.some(n=>n.tag==='pre'&&n.textContent===note.text_verbatim));
+assert(nodes.some(n=>typeof n.textContent==='string'&&n.textContent.includes('TEST:amb')));
+assert(nodes.some(n=>n.textContent==='Source footnotes (1)'));
+assert(!nodes.some(n=>n.tag==='script'));console.log('PASS source panel text, uncertainty, note, and hosted search separation');

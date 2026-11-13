@@ -1,0 +1,9 @@
+# Independent targeted candidate review addendum — 2026-11-13
+
+This addendum records a separate reviewer’s read-only checks of the saved candidate and staging as reported in this session. It does not change or replace the original image-only review.
+
+The exact v8 candidate reader SHA-256 is a8b45d3234fde1c91d597347237ab2892bf0001050e8d39278558fdbc2fd3a07. The inspected static page before these evidence-navigation additions had SHA-256 63c7473df71638775aab7fa9d1250931546ad82e461a2d4557270a54f821c4c2 and embedded JSON byte-identical to v8. The reviewer found that V2 p475 CP428703–428751 has the neutral pending-context display label, retains its original role and two hash-qualified references, and that 17 other reported label spans retained their prior corrections.
+
+Across 55,499 atoms, the v7-to-v8 comparison found exactly one changed display group; stories, all 32 uncertainty objects and occurrence fields other than the added note bindings were unchanged. All 1,915 inherited note bindings matched saved input metadata and reconstructed the raw note body; main-story markers, source volume and contiguous note ranges were checked against saved evidence. The 46,019 ledger references resolved to the pinned ledger hash and row. These checks validate saved-data transport and inherited mappings; they are not a fresh independent extraction of DOC footnote tables.
+
+The reviewer found 9,067 source passages outside occurrence and note links, including two ambiguity IDs. The separately labeled source-context explorer retained them without adding them to the hadith count. Targeted original-image observations on V2 pp469–475 are documented separately; no complete-page character review or whole-book independent pass is claimed. The independent review identified a mandatory-gate identity bypass and missing component reports; subsequent staged corrections must receive their own final code review. No deployed-site validation is claimed.

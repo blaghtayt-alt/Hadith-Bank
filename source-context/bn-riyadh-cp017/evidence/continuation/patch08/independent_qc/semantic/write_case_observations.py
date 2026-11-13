@@ -1,0 +1,52 @@
+from pathlib import Path
+import json,hashlib
+P=Path('patches/patch08');O=P/'independent_qc/semantic'
+notes={
+1:'Two openings precede গুরুত্বপূর্ণ and তুমি; the visible close follows রেখো. The first endpoint is absent. The qualification preserves the identifiable Prophetic outer report and does not invent the explanatory scope.',
+2:'Arabic pp200–201 has one outer quotation continuing beyond وأنا أجزي به; Bengali p201 prints a close after the reward sentence. The main Arabic Divine endpoint remains source-limited. The full containing qualification is appropriate only with narrower introduction/reference/utterance children retained.',
+3:'The Muslim variant on p201 names God within an outer quotation but supplies no independent inner close. Bengali pp202–203 closes after the abstention-for-Me clause. Retaining an Arabic endpoint ambiguity is justified.',
+4:'The opening before কিন্তু on p304 remains unclosed through the h223 ending on p305. Inner explanatory pairs are visible. No endpoint should be synthesized from the following report or from an inner pair.',
+5:'The starred paragraph on p518 is commentary and explicitly introduces Abu Hurayra’s report. The single opening before প্রত্যেকের has no matching close before the মুক্তিপণ explanation. The disputed যেহেতু sentence cannot be assigned exclusively to either voice from the typography.',
+6:'Arabic p554 switches from Abu Dharr’s account into the Prophet’s Gabriel retelling. Final قلت/قال lacks an explicit return to a named layer; Bengali p556 also leaves the wider retelling open. Both final-dialogue qualifications avoid asserting a final questioner or respondent.',
+7:'Arabic p621 closes after اليد السفلى and then gives the giving/asking definition without a new speaker name. Bengali encloses that definition within the quoted translation. The different printed boundaries are preserved.',
+8:'The Bengali Quran rendering on p533 opens [ before অনুসরণ and never prints ]. The dash does not identify a bracket endpoint. The Arabic green Quran line and its reference remain distinct from the Bengali supplement.',
+9:'Footnote502 on p470 opens with an explicit Albani first-person cue, then refers to Hakim and Daeefa before using তিনি for the very-weak claim. Its new pronominal grader is not uniquely named. This is a source grading comment, not a verified-grade determination.',
+10:'The Quran 3:37 excerpt on p480 contains Maryam’s reply and the ensuing إن الله يرزق clause without a separate inner ending delimiter in either language. The entire passage remains Quran; the internal speaker boundary is properly qualified.',
+11:'The Hasan Sahih line at the top of p509 belongs to h1525. h1526 supplies only Tirmidhi as its collection tail; footnote527 on p510 says তিনি এরূপই বলেছেন without a named claim antecedent. The uncertainty is real and cannot be filled from h1525.',
+12:'Pages802–804 delimit the taught istikhara supplication and then introduce قال / তিনি বলেন without repeating a name. The final instruction is outside the supplication, with a further Bengali explanatory parenthesis. Qualification avoids over-attributing that final instruction.',
+13:'Ibn Umar is the ongoing speaker in the Arabic/Bengali discourse on p823. The further exception follows ثم يقول / তারপর বললেন, so contextual Ibn Umar discourse is supported; its ultimate prophetic versus explanatory attribution is not explicitly resolved.',
+14:'The preceding h1615 on p624 names Ibn Abbas. Arabic h1616 on p625 uses وعنه, while the Bengali h1616 attribution explicitly names Jabir. The bilingual presentation difference is visible and retained.',
+15:'The dash-delimited وهو السحاب on p688 explains العنان. Neither it nor the corresponding Bengali variant on p689 names the gloss supplier. A lexical gloss role with unresolved attribution is supported.',
+16:'Footnote680 on p691 explicitly names Albani, Hayyan ibn Ala, and Ghayatul Maram299, but its opening তিনি এরূপই বলেছেন has no recoverable explicit prior claim in h1679 on pp690–691. The uncertainty is appropriately narrow; known criticism and reference are retained.',
+17:'The explanation on p711 follows h1702 and names Ruyani/Al-Bahr, then continues into the contrast about paved/mosaic floors without a quote end or reattribution. This is non-Prophetic commentary with an unresolved named-source endpoint.',
+18:'The Bengali instruction on p803 closes the first hypothetical praise example and opens another single quote before এবং আল্লাহ. Only the outer close is visible at the end. The unmarked inner ending remains unresolved; [জ্ঞানের] is an explanatory insertion.',
+19:'The Arabic duration uncertainty appears inside the outer quotation on p839; Bengali p840 similarly places আমি জানি না within the translated block. No separate speaker is named for the forty-day/month/year alternatives.',
+20:'The Arabic يريد and dash-marked explanation of العوافي on p852 clearly perform a lexical explanatory function. The source does not name their supplier. The qualification prevents assuming the whole printed quotation is a single pure speech layer.',
+21:'Bengali p913 opens a Prophetic aside and continues through settlement, marriage, and death without a closing mark; p914 continues historical dialogue. Arabic p906 closes its shorter corresponding aside. The source also visibly lacks the name component after ইবনে; neither omission is silently repaired.',
+22:'Arabic p907 names the Prophet for one observation and then uses unnamed قال for the meat/water comment. Bengali pp915–916 visibly closes the first observation and says বর্ণনাকারী বলেন for the comment. The Bengali presentation is clear; the Arabic speaker is not inserted from it.'}
+rr=[json.loads(l) for l in (P/'semantic_review/retained_semantic_exceptions.jsonl').read_text().splitlines()]
+out=[]
+for r in rr:
+ out.append({'qc_case_id':f"qc-inherited-{r['case']:02}",'uncertainty_id':r['uncertainty_id'],'source_volume':r['source_volume'],'source_spans':r['source_spans'],'pdf_pages_actually_displayed':r['evidence']['pdf_pages'],'manual_observation':notes[r['case']],'verdict':'retain_source_limited_uncertainty','author_disposition_supported':True,'scope':'Targeted semantic source passages and local context; no full-page character verification','reviewed_author_file':'patches/patch08/semantic_review/retained_semantic_exceptions.jsonl'})
+newnotes={
+'p08-v02-p0802-h1798-bilingual-narrator-difference':'V2p802 visibly names أبي بكرة in Arabic h1798 and আবূ হুরাইরা in its Bengali line. The discrepancy is real; neither form may be silently harmonized.',
+'p08-v01-p0139-h84-inline-gloss-suppliers':'Both يعني explanations are visible in Arabic h84 on p139. They explain the departure and the addressed satan without naming a gloss supplier. The explanatory roles preserve this limit.',
+'p08-v01-p0149-h91-hypothetical-bequest-inner-boundary':'The p149 top lines retain a single opening before the hypothetical bequest and only the outer closing quotation. The final অথচ sentence has no separately printed inner endpoint. The inheritance parenthesis is independently explanatory.',
+'p08-v01-p0164-h111-inline-gloss-suppliers':'The supplication in h111 on p164 includes two dash-marked يعني glosses identifying the demonstratives. The words explain the supplication rather than constituting another named utterance; the supplier is not given.',
+'p08-v01-p0241-h174-simile-warning-subject':'Arabic p241 puts the warning after the army-warner comparison كأنه منذر جيش يقول; Bengali explicitly says তিনি বলতেন. The cautious Arabic comparison role retains the two source-supported readings rather than equating the language-specific presentation.',
+'p08-v02-p0149-note169-IbnHajar-judgment-subject':'V2p149 note169 names Yahya ibn al-Hasan, then Musa ibn Yaqub, then uses এর সম্পর্কে / তিনি in Ibn Hajar’s judgment before a corrective contrast mentioning Ashath and Musa. The unexpanded antecedent is rightly preserved.',
+'p08-v01-sufyan-unmarked-return-to-reported-speech':'V1pp31–32 visibly closes a prior phrase and names Sufyan before the Syria comment, then continues the creation-of-the-door account with no new named speaker boundary. Bengali pp33–34 puts the Sufyan comment in parentheses. The Arabic return-to-report layer is not uniquely delimited.',
+'p08-v01-p1014-h987-bilingual-narrator-difference':'The Arabic attribution on p1014 says أبي هريرة; the Bengali attribution says আবূ আব্দুল্লাহ. Both names are clear. The candidate preserves this source discrepancy.',
+'p08-v01-p1016-h990-bilingual-narrator-difference':'The Arabic Ibn Amr spelling, including final waw, is visible on p1016; Bengali names Abdullah ibn Umar. No harmonized narrator identity is justified by the edition alone.',
+'p08-v01-p0863-0865-h802-bilingual-narrator-layer':'Arabic p863 explicitly has Qays reporting from his father, the associate of Abu Darda. Bengali p864 starts incompletely but parenthetically names Bishr; p865 explicitly names Qays at the eyewitness return. The candidate’s language-specific narrator-role wording and retained ambiguity are supported.'}
+for f in [P/'semantic_review/additional_semantic_exceptions.jsonl',P/'semantics_v1_early_c/semantic_uncertainties.jsonl',P/'semantics_v1_late_and_notes/semantic_uncertainties.jsonl',P/'root_scope_review/semantic_uncertainties.jsonl',P/'semantics_broad_v1/semantic_uncertainties.jsonl']:
+ for r in map(json.loads,f.read_text().splitlines()):
+  pgs=r['evidence']['pdf_pages'];
+  if 'sufyan' in r['uncertainty_id']:pgs=[31,32,33,34]
+  out.append({'qc_case_id':f"qc-new-{len(out)-21:02}",'uncertainty_id':r['uncertainty_id'],'source_volume':r['source_volume'],'source_spans':r['source_spans'],'pdf_pages_actually_displayed':pgs,'manual_observation':newnotes[r['uncertainty_id']],'verdict':'retain_source_limited_uncertainty','author_disposition_supported':True,'scope':'Targeted semantic source passages and local context; no full-page character verification','reviewed_author_file':str(f)})
+assert len(out)==32
+(O/'case_observations.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in out))
+m=json.loads((O/'prepared_images.json').read_text())
+for r in m:r['displayed']=True;r['inspection_scope']='Targeted semantic passage and local page context; no full-character verification.'
+(O/'actual_image_observations.jsonl').write_text(''.join(json.dumps(r,ensure_ascii=False)+'\n' for r in m))
+print('Wrote 32 manually recorded case observations and',len(m),'actually displayed pages')

@@ -1,0 +1,299 @@
+{
+  "status": "pass_after_corrections_with_explicit_scope_limitations",
+  "created_utc": "2026-11-13T07:28:47.636665+00:00",
+  "candidate_revision": 4,
+  "candidate_manifest_sha256": "a8a0a5314abc92e2a75284567571deb495aaf240c32a525cd3266b1b512c49a5",
+  "candidate_semantic_ledger_sha256": "3628eb0009ad4e728ba3db8290c554ad1ffcf5592b6a62ac00471e8dbfa4f361",
+  "semantic_ledger_rows": 43543,
+  "independent_reviewer_modified_author_files": false,
+  "manual_scope": {
+    "original_new_rows_read": 950,
+    "original_new_rows_total": 16837,
+    "final_correction_rows_read": 139,
+    "all_selected_rows_read": 1089,
+    "lexical_selected_rows": 866,
+    "nonlexical_selected_rows": 223,
+    "original_new_rows_not_manually_read": 15887,
+    "complete_gap_samples": 19,
+    "reference_parents_sampled": 16,
+    "reference_replacement_rows_sampled": 43,
+    "footnote_discussion_spans_read": 49,
+    "complete_footnote_contexts_read": 18,
+    "uncertainty_cases_read": 32,
+    "inherited_uncertainty_cases": 22,
+    "new_uncertainty_cases": 10,
+    "pdf_pages_actually_displayed": 97,
+    "pdf_total_pages": 2054,
+    "pdf_pages_not_displayed": 1957,
+    "displayed_page_numbers": {
+      "v01": [
+        3,
+        11,
+        15,
+        31,
+        32,
+        33,
+        34,
+        70,
+        87,
+        110,
+        112,
+        139,
+        149,
+        156,
+        164,
+        241,
+        252,
+        282,
+        285,
+        289,
+        292,
+        304,
+        305,
+        317,
+        318,
+        324,
+        333,
+        422,
+        463,
+        517,
+        518,
+        554,
+        555,
+        556,
+        614,
+        621,
+        802,
+        803,
+        804,
+        823,
+        863,
+        864,
+        865,
+        866,
+        867,
+        904,
+        905,
+        929,
+        931,
+        932,
+        937,
+        938,
+        939,
+        976,
+        980,
+        981,
+        991,
+        1014,
+        1016
+      ],
+      "v02": [
+        146,
+        149,
+        165,
+        200,
+        201,
+        202,
+        203,
+        232,
+        289,
+        290,
+        291,
+        469,
+        470,
+        480,
+        509,
+        510,
+        533,
+        624,
+        625,
+        688,
+        689,
+        690,
+        691,
+        710,
+        711,
+        802,
+        803,
+        838,
+        839,
+        840,
+        852,
+        906,
+        907,
+        912,
+        913,
+        914,
+        915,
+        916
+      ]
+    },
+    "selected_row_CP_union": {
+      "v01:header": {
+        "source_CP": 58,
+        "merged_spans": 1
+      },
+      "v02:header": {
+        "source_CP": 106,
+        "merged_spans": 1
+      },
+      "v01:main": {
+        "source_CP": 37040,
+        "merged_spans": 135
+      },
+      "v02:main": {
+        "source_CP": 10554,
+        "merged_spans": 54
+      },
+      "v02:footnote": {
+        "source_CP": 2491,
+        "merged_spans": 9
+      },
+      "v01:footnote": {
+        "source_CP": 1695,
+        "merged_spans": 21
+      }
+    },
+    "selected_row_CP_union_total": 51944,
+    "selection": "purposive risk-based; not a statistical estimate"
+  },
+  "mechanical_scope": {
+    "all_new_decision_rows": 16976,
+    "source_CP_errors": 0,
+    "duplicate_new_decision_ids": 0,
+    "status_overlays_checked": 79,
+    "reference_replacement_overlays_checked": 207,
+    "correction_overlays_checked": 63,
+    "manual_credit_from_mechanical_checks": 0
+  },
+  "findings": {
+    "incorrect_lexical_speaker_rows_fixed": 52,
+    "parenthetical_boundary_targets_refined": 8,
+    "parenthetical_insertions_separated": 10,
+    "collection_grade_conflations_fixed": 2,
+    "blank_only_target_normalized": 1,
+    "historical_targets_retained": 63,
+    "additive_replacement_spans": 139,
+    "open_implementation_findings_in_defined_scope": 0,
+    "source_limited_uncertainties_retained": 32,
+    "source_limited_uncertainties_resolved": 0
+  },
+  "final_correction_application": {
+    "status": "pass",
+    "all63_old_interpretations_inactive": true,
+    "all139_replacements_active_and_in_current_atoms": true,
+    "source_bytes_changed": 0
+  },
+  "current_multiple_equal_width_role_label_atoms": 106,
+  "limitations": [
+    "This is not an exhaustive independent reread of 2,054 PDF pages or every new semantic span.",
+    "15,887 original new decision rows were not manually reread; they received exact-source/CP checks and author review only.",
+    "97 PDF pages were displayed for targeted semantic passages; no new full-page character-review credit is claimed.",
+    "The 52 lexical offset repairs were all read in exact source context; only representative corrective pages were image-inspected.",
+    "External canonical narrator identities, hadith grades, collection editions and theological interpretations were not independently authenticated.",
+    "Qualified historical multi-label authorities remain; this report does not collapse or equate all 106 equal-width label combinations.",
+    "Full candidate integrity, reconstruction, record preservation and package publication are handled by separate reviewers."
+  ],
+  "branch_scope": [
+    {
+      "branch": "semantic_review",
+      "new_rows_mechanically_checked": 28,
+      "rows_manually_read": 28,
+      "rows_not_manually_read": 0
+    },
+    {
+      "branch": "semantics_v1_early",
+      "new_rows_mechanically_checked": 199,
+      "rows_manually_read": 80,
+      "rows_not_manually_read": 119
+    },
+    {
+      "branch": "semantics_v1_early_b",
+      "new_rows_mechanically_checked": 3672,
+      "rows_manually_read": 84,
+      "rows_not_manually_read": 3588
+    },
+    {
+      "branch": "semantics_v1_early_c",
+      "new_rows_mechanically_checked": 1938,
+      "rows_manually_read": 61,
+      "rows_not_manually_read": 1877
+    },
+    {
+      "branch": "semantics_v1_middle",
+      "new_rows_mechanically_checked": 3775,
+      "rows_manually_read": 176,
+      "rows_not_manually_read": 3599
+    },
+    {
+      "branch": "semantics_v1_late_and_notes",
+      "new_rows_mechanically_checked": 1010,
+      "rows_manually_read": 86,
+      "rows_not_manually_read": 924
+    },
+    {
+      "branch": "semantics_v2_gaps",
+      "new_rows_mechanically_checked": 3990,
+      "rows_manually_read": 206,
+      "rows_not_manually_read": 3784
+    },
+    {
+      "branch": "reference_refinement",
+      "new_rows_mechanically_checked": 389,
+      "rows_manually_read": 43,
+      "rows_not_manually_read": 346
+    },
+    {
+      "branch": "header_story_review",
+      "new_rows_mechanically_checked": 11,
+      "rows_manually_read": 11,
+      "rows_not_manually_read": 0
+    },
+    {
+      "branch": "semantics_broad_v1_root",
+      "new_rows_mechanically_checked": 543,
+      "rows_manually_read": 80,
+      "rows_not_manually_read": 463
+    },
+    {
+      "branch": "semantics_broad_v1",
+      "new_rows_mechanically_checked": 1263,
+      "rows_manually_read": 76,
+      "rows_not_manually_read": 1187
+    },
+    {
+      "branch": "root_scope_review",
+      "new_rows_mechanically_checked": 0,
+      "rows_manually_read": 0,
+      "rows_not_manually_read": 0
+    },
+    {
+      "branch": "tail_review",
+      "new_rows_mechanically_checked": 19,
+      "rows_manually_read": 19,
+      "rows_not_manually_read": 0
+    },
+    {
+      "branch": "qc_corrections",
+      "new_rows_mechanically_checked": 139,
+      "rows_manually_read": 139,
+      "rows_not_manually_read": 0
+    }
+  ],
+  "evidence_files": [
+    "reviewed_inputs.json",
+    "case_observations.jsonl",
+    "span_observations.jsonl",
+    "sampling_inventory.json",
+    "actual_image_observations.jsonl",
+    "sampled_footnote_contexts.json",
+    "parenthetical_narration_adjudications.json",
+    "parenthetical_attribution_adjudications.json",
+    "narration_closing_quote_adjudications.json",
+    "middle_offset_replay_adjudications.jsonl",
+    "mechanical_semantic_input_checks.json",
+    "final_correction_recheck.json",
+    "uncertainty_current_state_check.json",
+    "multiple_current_leaf_labels.json"
+  ]
+}

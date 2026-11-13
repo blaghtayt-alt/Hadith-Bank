@@ -1,0 +1,40 @@
+--- a/patches/patch08/package_patch08_streaming.py
++++ b/patches/patch08/package_patch08_streaming.py
+@@ -396,15 +396,23 @@
+     return rows
+ 
+ 
++def new_archive_path(source, relative):
++    """Apply the same lightweight input-path policy before inspect or freeze."""
++    require(source in ("stage", "raw"), "Invalid input source category")
++    relative = path_ok(relative)
++    archive_relative = relative if source == "stage" else EP + "/" + relative
++    require(not nested_archive(archive_relative), "New nested archive rejected: " + archive_relative)
++    if source == "stage":
++        require(not relative.startswith(PROTECTED_PREFIXES) and relative != "data/all_source_paragraphs.jsonl",
++                "Immutable source/history cannot be supplied as a replacement: " + relative)
++    return archive_relative
++
++
+ def inventory_new(stage, raw):
+     rows = []
+     for source, root in (("stage", stage), ("raw", raw)):
+         for relative in list_files(root, exclude_ephemeral=(source == "raw")):
+-            archive_relative = relative if source == "stage" else EP + "/" + relative
+-            require(not nested_archive(archive_relative), "New nested archive rejected: " + archive_relative)
+-            if source == "stage":
+-                require(not relative.startswith(PROTECTED_PREFIXES) and relative != "data/all_source_paragraphs.jsonl",
+-                        "Immutable source/history cannot be supplied as a replacement: " + relative)
++            archive_relative = new_archive_path(source, relative)
+             row = fingerprint(root, relative)
+             rows.append({**row, "source": source, "archive_path": archive_relative})
+     return rows
+@@ -951,7 +959,7 @@
+         for source in ("stage", "raw"):
+             for relative in list_files(roots[source], exclude_ephemeral=source == "raw"):
+                 rows.append({"path": relative, "source": source,
+-                             "archive_path": relative if source == "stage" else EP + "/" + relative})
++                             "archive_path": new_archive_path(source, relative)})
+         report = make_plan(parent, rows)[1]
+         report["final_report_present"] = (roots["stage"] / args.report_relative).is_file()
+         report["input_bytes_frozen_or_release_packaged"] = False
