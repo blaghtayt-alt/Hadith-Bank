@@ -2,17 +2,76 @@
   "access_block": null,
   "blocked": false,
   "catalogue": "https://hadis.uz/hadiths/1",
-  "classification_pending_hidden": 37,
+  "classification_pending_hidden": 1,
   "complete_content_import_certified": false,
   "done": true,
   "errors": 0,
+  "non_narration_source_entries": 1,
   "pending_requests": 0,
-  "prophetic_source_entries_registered": 570,
+  "prophetic_source_entries_registered": 605,
+  "registered_source_occurrences": 605,
   "retryable_errors": 0,
   "schema": "hadith-bank-hadisuz-progress-v1",
-  "scope_note": "Observed catalogue links only; source occurrences, not deduplicated canonical hadiths. Held classifications and commentary quotations remain separate.",
+  "scope_note": "Observed catalogue links only; source occurrences, not deduplicated canonical hadiths. The legacy prophetic_source_entries_registered field aliases registered_source_occurrences and includes reviewed reports and sayings under their actual report type. Held attributions, non-narration entries and detached commentary remain separate.",
   "site": "hadisuz",
   "source_entries_obtained": 607,
+  "source_review_engine_sha256": "507632a7bdea8f0cbdbfb25f8950d4fe23eace25af37e621edd07dd9c221cc78",
+  "source_review_inputs": [
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/coverage-hadisuz-held-20261113.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "a44f9b36def3783a603be4d22992f47cf29e57f90e63f2e17b93f96b44c32b83",
+      "size_bytes": 853
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/ol-recovery-validation.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "a3690cb072065c9342fa03f5d2eac75c29833ab872c5d18864d854ca215486fa",
+      "size_bytes": 1934
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/ordered-list-accounting.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "0bfc3cf16374c8ca06d10683ce5171fc30749d9849ed7b0d2e2746a1bc8c5126",
+      "size_bytes": 13311
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/original-held-records-20261113.jsonl.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "ca229635bb236d3962204e7ed23f6d08ff6b57b5b379c349d7109db5b5dd27ce",
+      "size_bytes": 45487
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/review-log-hadisuz-held-20261113.jsonl",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "e2d8dd31c2d10950e0b49f90ab65121acf1009faec92ebca37544f14c94b2d5f",
+      "size_bytes": 21334
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/source-review-hadisuz-held-20261113.json.gz",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "3d79f42d0a49c5f3052e5e01daf5013d1ea64f6f6a6cf067bc9db670c4a73e5e",
+      "size_bytes": 38197
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/supplemental-commentary-candidate-75.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "7acdfea87657b92f10664ed429dd6e6929be1f9edd5fb3a25e1957ade51b16d3",
+      "size_bytes": 3745
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/supplemental-commentary-candidates-20261113.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "ce202c181865b23cf20fccd8ebe4ed07f6f3661be144a431d41f1edee3ba81a7",
+      "size_bytes": 32338
+    },
+    {
+      "path": "imports/web-hadisuz-20261112/reviews/validation-hadisuz-held-20261113.json",
+      "role": "source_bound_review_and_coverage_evidence",
+      "sha256": "371c033eeec8a3f48e98601c0a175bfb0f6d70f3e1add490993453a8b315cece",
+      "size_bytes": 1969
+    }
+  ],
   "startup_stopped": false,
   "task_counts": {
     "done": 670
