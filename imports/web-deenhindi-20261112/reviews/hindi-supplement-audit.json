@@ -1,0 +1,77 @@
+{
+  "actions": {
+    "excerpt": 62,
+    "whole": 228
+  },
+  "checks": {
+    "all_290_fields_losslessly_reconstruct_in_utf8": true,
+    "all_boundary_selectors_exact_and_unique": true,
+    "all_individual_manual_specs_present": true,
+    "all_quote_and_context_spans_hash_valid": true,
+    "exact_expected_290_previously_unread_hindi_fields": true,
+    "first_ten_hindi_and_other_languages_untouched": true,
+    "full_field_hashes_match_original_provider_fields": true,
+    "main_ledger_and_source_inputs_unchanged": true,
+    "original_source_record_and_snapshot_bindings_match": true,
+    "prior_field_hash_bindings_match": true
+  },
+  "field_report_types": {
+    "abbreviated_transmission": 9,
+    "companion_report": 62,
+    "historical_report": 10,
+    "historical_report_with_prophetic_narration": 1,
+    "historical_report_with_prophetic_quotation": 2,
+    "mixed_reports": 9,
+    "narrated_instruction": 1,
+    "narrated_sermon": 1,
+    "prophetic_report": 193,
+    "successor_report": 1,
+    "successor_report_with_prophetic_narration": 1
+  },
+  "fields_with_multiple_report_components": 24,
+  "fields_with_retained_nonwhitespace_context": 44,
+  "latin_script_hindi_source_fields": [
+    "464",
+    "465",
+    "469",
+    "473",
+    "482",
+    "493",
+    "497",
+    "499"
+  ],
+  "nested_quran_annotation_fields": [
+    "118",
+    "125",
+    "402",
+    "526",
+    "554",
+    "573",
+    "936",
+    "1077",
+    "1101"
+  ],
+  "report_components_within_existing_parents": 317,
+  "schema": "hadith-bank-hindi-field-review-supplement-audit-v1",
+  "scope": {
+    "first_ten_previously_reviewed_hindi_fields_changed": 0,
+    "language": "hi",
+    "other_language_fields_changed": 0,
+    "previously_unread_fields_fully_read": 290,
+    "source_cohort_occurrences": 300,
+    "source_field": "translationHindi",
+    "source_text_bytes_changed": 0,
+    "span_unit": "unicode_codepoints",
+    "supplement_occurrences": 290,
+    "unicode_characters_read": 174118,
+    "utf8_bytes_read": 433080
+  },
+  "selected_passages": 319,
+  "selected_unicode_characters": 169852,
+  "source_context_unicode_characters": 4266,
+  "source_criticism_components": [
+    "deenhindi-bukhari:848:hi:component-03"
+  ],
+  "supplement_file": "hindi-field-replacements.json",
+  "supplement_sha256": "14de2941815256644b9533b59ef8b12dd5247202bbc2c19af1f9c814caf879ba"
+}

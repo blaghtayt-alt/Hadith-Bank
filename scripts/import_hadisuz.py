@@ -21,6 +21,7 @@ import urllib.robotparser
 
 from import_deenhindi import atomic, immutable, json_bytes, digest, now
 from import_uzbek_web import Node, Tree, plain
+from web_source_reviews import SourceReviews
 
 
 ORIGIN = 'https://hadis.uz'
@@ -470,7 +471,8 @@ class Importer:
         return self.export()
 
     def export(self):
-        rows, held, supporting = [], [], {}
+        rows, held, excluded, supporting = [], [], [], {}
+        reviews = SourceReviews(self.root, 'hadisuz')
         credits = [{'url': item['url'], 'snapshot_path': item['snapshot']['path'],
                     'snapshot_sha256': item['snapshot']['sha256'], 'scope': item['scope']}
                    for item in self.state['collection_credits'].values()]
@@ -484,7 +486,14 @@ class Importer:
             parsed = json.loads(self.checked(entry))
             self.checked(entry['snapshot'])
             row = record_from(parsed, entry['snapshot'], credits, credit_statements)
-            (rows if parsed['content_kind'] == 'prophetic_report' else held).append(row)
+            row, decision = reviews.apply(row)
+            if decision == 'register' or (decision is None and parsed['content_kind'] == 'prophetic_report'):
+                rows.append(row)
+            elif decision == 'exclude':
+                excluded.append(row)
+            else:
+                held.append(row)
+        reviews.finish()
         for snapshot in self.state['snapshots'].values():
             self.checked(snapshot)
             supporting[snapshot['path']] = {'path': snapshot['path'],
@@ -495,6 +504,8 @@ class Importer:
             supporting[entry['path']] = {'path': entry['path'], 'sha256': entry['stored_sha256'],
                 'size_bytes': entry['size_bytes'], 'compression': 'gzip',
                 'uncompressed_sha256': entry['sha256']}
+        for evidence in reviews.supporting_files():
+            supporting[evidence['path']] = evidence
         active = []
         mapping = self.state['part_assignments']
         groups, sizes = collections.defaultdict(list), collections.Counter()
@@ -518,8 +529,12 @@ class Importer:
             sizes[part] += size
         tasks = self.state['tasks']
         report = {'schema': 'hadith-bank-hadisuz-progress-v1', 'site': 'hadisuz',
-            'catalogue': CATALOG, 'source_entries_obtained': len(rows) + len(held),
+            'catalogue': CATALOG, 'source_entries_obtained': len(rows) + len(held) + len(excluded),
+            'registered_source_occurrences': len(rows),
             'prophetic_source_entries_registered': len(rows), 'classification_pending_hidden': len(held),
+            'non_narration_source_entries': len(excluded),
+            'source_review_inputs': reviews.supporting_files(),
+            'source_review_engine_sha256': reviews.engine_sha256,
             'pending_requests': sum(t['status'] == 'pending' for t in tasks),
             'retryable_errors': sum(t['status'] == 'failed' and t['attempts'] < 3 for t in tasks),
             'errors': sum(t['status'] == 'failed' for t in tasks) + bool(self.state.get('robots_error')),
@@ -529,8 +544,9 @@ class Importer:
             'done': bool(tasks) and all(t['status'] == 'done' for t in tasks) and not self.state.get('access_block'),
             'task_counts': dict(collections.Counter(t['status'] for t in tasks)),
             'complete_content_import_certified': False,
-            'scope_note': 'Observed catalogue links only; source occurrences, not deduplicated canonical hadiths. Held classifications and commentary quotations remain separate.'}
+            'scope_note': 'Observed catalogue links only; source occurrences, not deduplicated canonical hadiths. The legacy prophetic_source_entries_registered field aliases registered_source_occurrences and includes reviewed reports and sayings under their actual report type. Held attributions, non-narration entries and detached commentary remain separate.'}
         atomic(self.folder / 'held-records.jsonl.gz', gzip.compress(b''.join(row_bytes(r) for r in held), mtime=0))
+        atomic(self.folder / 'excluded-records.jsonl.gz', gzip.compress(b''.join(row_bytes(r) for r in excluded), mtime=0))
         for number, part_rows in sorted(groups.items()):
             slug = SLUG if number == 1 else SLUG + '-part-' + str(number).zfill(4)
             folder = self.root / 'materials' / slug

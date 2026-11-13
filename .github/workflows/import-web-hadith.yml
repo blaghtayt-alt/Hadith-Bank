@@ -13,6 +13,10 @@ on:
       - 'scripts/import_uzbek_web.py'
       - 'scripts/import_hadisuz.py'
       - 'scripts/web_import_batch.py'
+      - 'scripts/web_source_reviews.py'
+      - 'imports/web-deenhindi-20261112/reviews/**'
+      - 'imports/web-uzbek-20261112/islom/reviews/**'
+      - 'imports/web-hadisuz-20261112/reviews/**'
 
 permissions:
   contents: read
@@ -102,8 +106,20 @@ jobs:
             fi
             # This also validates the integrated material registry. A newly
             # added provider legitimately changes global counts after rebase.
+            # A concurrent source review may change evidence hashes while this
+            # batch is fetching. Re-export those exact saved inputs offline
+            # before validating/committing the combined source checkpoint.
+            python scripts/web_import_batch.py --root . --reviews-only
             python scripts/web_import_batch.py --root . --status-only
-            git add -- imports/web-import-status.json
+            python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          paths = [str(path) for pattern in ('imports/web-deenhindi-20261112', 'imports/web-uzbek-20261112',
+              'imports/web-hadisuz-20261112', 'imports/web-import-status.json',
+              'imports/web-import-worker-stops.json', 'materials/deenhindi-*', 'materials/islom-*',
+              'materials/hadisuz-*') for path in Path('.').glob(pattern)]
+          subprocess.run(['git', 'add', '-A', '--', *paths], check=True)
+          PY
             git diff --exit-code -- imports materials
             if ! git diff --cached --quiet; then
               if [[ "$(git rev-parse HEAD)" == "$(git rev-parse origin/main)" ]]; then

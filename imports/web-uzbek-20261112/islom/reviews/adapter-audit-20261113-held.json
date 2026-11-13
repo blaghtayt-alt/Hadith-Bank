@@ -1,0 +1,43 @@
+{
+  "schema": "hadith-bank-islom-source-review-adapter-audit-v1",
+  "status": "passed",
+  "module_sha256": "5f9bf5e678b2cb6d8f68c39bbc33b6d0b22872ed0dd54c907c9256854af5b59c",
+  "reader_sha256": "62c37a350c446d5336120e5365ea312e4cdf8ad86f93d6d1b58b1932b61442bd",
+  "decision_sha256": "39c80d255aa7ac3cbb790435df04b336759bbb3006a93b36b4e2fde000784912",
+  "counts": {
+    "rows": 290,
+    "registered": 279,
+    "held": 11,
+    "fields": 543,
+    "selected_fields": 518,
+    "rendered_multi_span_fields": 21,
+    "retained_context_fields": 25,
+    "exact_partition_reconstructions": 543
+  },
+  "immutable_input_and_source_columns": true,
+  "language_ids_and_references_preserved": true,
+  "exact_quotation_and_context_reconstruction": true,
+  "numeric_only_uzbek_quotation_fields": 0,
+  "sample2413_transliteration_note_visible": true,
+  "sample4394": {
+    "quotation_status": "disjoint_source_spans",
+    "source_report_count": 3,
+    "source_report_family_count": 3,
+    "labels": [
+      "Source excerpt 1",
+      "Source excerpt 2",
+      "Source excerpt 3",
+      "Source excerpt 4",
+      "Source excerpt 5",
+      "Source excerpt 6"
+    ],
+    "qualification": "This reading preserves separate source spans. Intervening source notes are retained under Comments. Report type: prophetic report. Attribution: Prophet Muhammad (source attribution; no independent authenticity judgment). One source occurrence contains three Friday reports in Arabic followed by their Uzbek renderings. Six exact passages are grouped into three components under the unchanged occurrence ID; lesson heading is context. 6 ordered source reading components represent 3 report families in this one provider entry. Their original language order is preserved in separate excerpt blocks.",
+    "passage_count": 6
+  },
+  "stale_input_checks": [
+    "changed_current_field_rejected",
+    "changed_baseline_record_rejected"
+  ],
+  "errors": [],
+  "scope": "Independent adapter execution and reader projection on all actual baseline held rows; does not claim a browser or deployed site test."
+}

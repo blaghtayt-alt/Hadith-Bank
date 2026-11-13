@@ -1,0 +1,176 @@
+{
+  "schema": "hadith-bank-web-source-review-summary-v1",
+  "baseline_commit": "1bdc84b9483a068cc56da97046c55ffe756ea478",
+  "decisions_file_sha256": "39c80d255aa7ac3cbb790435df04b336759bbb3006a93b36b4e2fde000784912",
+  "status": "validated",
+  "scope": {
+    "held_occurrences": 290,
+    "current_language_fields_read": 543,
+    "current_main_characters_read": 161827,
+    "detached_commentary_semantic_review": "not_separately_reviewed",
+    "saved_html_snapshots_verified": 86,
+    "source_column_fidelity_checks": 580
+  },
+  "occurrences_by_decision": {
+    "register": 279,
+    "hold": 11
+  },
+  "registered_by_report_type": {
+    "prophetic_report": 128,
+    "companion_report": 119,
+    "successor_report": 6,
+    "mixed_reports": 3,
+    "abbreviated_transmission": 22,
+    "scholar_saying": 1
+  },
+  "fields_by_decision": {
+    "whole": 417,
+    "excerpts": 101,
+    "uncertain": 11,
+    "source_context": 14
+  },
+  "selected_language_fields": 518,
+  "selected_source_passages": 547,
+  "selected_component_count": 295,
+  "selected_report_family_count": 292,
+  "held": [
+    {
+      "occurrence_id": "islom:book-17:2578",
+      "category": "uncertain_attribution",
+      "reason": "The complete current fields contain a qunut prayer and an Ibn Abi Shayba citation, but no named speaker or explicit Prophetic attribution. Nearby Umar material uses a different wording; no identity is inferred. Keep held pending exact attribution evidence.",
+      "url": "https://hadis.islom.uz/kitob/17/1/130"
+    },
+    {
+      "occurrence_id": "islom:book-22:2817",
+      "category": "uncertain_attribution",
+      "reason": "The isolated saying has no sufficient individual source citation or explicit speaker in the current fields. The anthology title alone does not establish this specific attribution. Preserve the full wording and keep it held.",
+      "url": "https://hadis.islom.uz/kitob/22/1/3"
+    },
+    {
+      "occurrence_id": "islom:book-22:2829",
+      "category": "uncertain_attribution",
+      "reason": "The isolated saying has no sufficient individual source citation or explicit speaker in the current fields. The anthology title alone does not establish this specific attribution. Preserve the full wording and keep it held.",
+      "url": "https://hadis.islom.uz/kitob/22/1/15"
+    },
+    {
+      "occurrence_id": "islom:book-22:2866",
+      "category": "uncertain_attribution",
+      "reason": "The isolated saying has no sufficient individual source citation or explicit speaker in the current fields. The anthology title alone does not establish this specific attribution. Preserve the full wording and keep it held.",
+      "url": "https://hadis.islom.uz/kitob/22/1/52"
+    },
+    {
+      "occurrence_id": "islom:book-22:2876",
+      "category": "uncertain_attribution",
+      "reason": "The isolated saying has no sufficient individual source citation or explicit speaker in the current fields. The anthology title alone does not establish this specific attribution. Preserve the full wording and keep it held.",
+      "url": "https://hadis.islom.uz/kitob/22/1/62"
+    },
+    {
+      "occurrence_id": "islom:book-23:4377",
+      "category": "uncertain_attribution",
+      "reason": "The entry provides only the isolated cleanliness/faith saying and its Uzbek rendering, without an individual citation or speaker. No familiar external reference is supplied from memory; retain it held.",
+      "url": "https://hadis.islom.uz/kitob/23/30/1422"
+    },
+    {
+      "occurrence_id": "islom:book-25:5655",
+      "category": "source_context",
+      "reason": "This material concerns narrator Awf's age relative to Qatada and compiler biographical explanation. It is a narrator annotation, not a separately established narration for publication; preserve it as context.",
+      "url": "https://hadis.islom.uz/kitob/25/56/411"
+    },
+    {
+      "occurrence_id": "islom:book-30:7784",
+      "category": "source_context",
+      "reason": "The Arabic is solely a compiler pointer to a repeated Aisha report already given in full; no finite quoted matn or new abbreviated chain is present here. Uzbek contains only numbering. Keep this locator as source context.",
+      "url": "https://hadis.islom.uz/kitob/30/29/856"
+    },
+    {
+      "occurrence_id": "islom:book-32:13143",
+      "category": "source_context",
+      "reason": "The complete fields only direct the reader to source hadith 164; there is no actual quoted narration or new transmission text. Preserve this compiler cross-reference without publishing it as matn.",
+      "url": "https://hadis.islom.uz/kitob/32/0/177"
+    },
+    {
+      "occurrence_id": "islom:book-32:14183",
+      "category": "source_context",
+      "reason": "Both current fields are only a chapter heading about the merit of adhan. No narration text is present; preserve the heading as source context.",
+      "url": "https://hadis.islom.uz/kitob/32/0/7"
+    },
+    {
+      "occurrence_id": "islom:book-32:9982",
+      "category": "source_context",
+      "reason": "Both fields are a chapter heading and compiler legal explanation of how to greet and respond. There is no separately attributed narration; preserve this source context.",
+      "url": "https://hadis.islom.uz/kitob/32/0/2"
+    }
+  ],
+  "source_only_language_fields_on_registered_records": [
+    {
+      "occurrence_id": "islom:book-30:11967",
+      "version_id": "islom:book-30:11967:uz-Cyrl",
+      "reason": "The entire current Uzbek field was read and contains only source numbering. It has no translation text; preserve it as context and do not expose it as a hadith language version."
+    },
+    {
+      "occurrence_id": "islom:book-30:6972",
+      "version_id": "islom:book-30:6972:uz-Cyrl",
+      "reason": "The complete source field contains only an Umar narrator label with no matn or translation. Retain as context, not a fabricated translated report."
+    },
+    {
+      "occurrence_id": "islom:book-30:7253",
+      "version_id": "islom:book-30:7253:uz-Cyrl",
+      "reason": "The entire current Uzbek field was read and contains only source numbering. It has no translation text; preserve it as context and do not expose it as a hadith language version."
+    },
+    {
+      "occurrence_id": "islom:book-30:8285",
+      "version_id": "islom:book-30:8285:uz-Cyrl",
+      "reason": "The entire current Uzbek field was read and contains only source numbering. It has no translation text; preserve it as context and do not expose it as a hadith language version."
+    }
+  ],
+  "per_collection": {
+    "book-17": {
+      "register": 18,
+      "hold": 1
+    },
+    "book-22": {
+      "hold": 4,
+      "register": 16
+    },
+    "book-23": {
+      "register": 60,
+      "hold": 1
+    },
+    "book-25": {
+      "register": 19,
+      "hold": 1
+    },
+    "book-26": {
+      "register": 6
+    },
+    "book-27": {
+      "register": 7
+    },
+    "book-28": {
+      "register": 52
+    },
+    "book-29": {
+      "register": 1
+    },
+    "book-30": {
+      "register": 63,
+      "hold": 1
+    },
+    "book-32": {
+      "register": 37,
+      "hold": 3
+    }
+  },
+  "preservation_checks": {
+    "source_ledgers_and_checkpoint_unchanged": true,
+    "all_saved_snapshots_unchanged": true,
+    "all290_baseline_ids_accounted_for": true,
+    "all543_current_language_fields_read": true,
+    "selected_spans_exact_and_nonoverlapping": true
+  },
+  "limits": [
+    "Detached commentary not separately semantically reviewed.",
+    "Source attribution and quotation boundaries do not certify authenticity, translation equivalence, independent Pro QC or rights.",
+    "Unresolved source attribution remains explicit; no missing language or matn reconstructed."
+  ]
+}

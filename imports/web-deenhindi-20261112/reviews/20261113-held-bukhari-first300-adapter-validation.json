@@ -1,0 +1,24 @@
+{
+  "adapter_path": "/workspace/scratch/428783afefb3/websites-continue/islom-recovery/scripts/web_source_reviews.py",
+  "adapter_sha256": "94ee089cfbfc0fda764cefc788c012988cdd2336c24d1971346798f29d7a302d",
+  "checks": [
+    "All fallback source-object and snapshot bindings accepted by shared adapter",
+    "Original saved source object, canonical row and baseline remain unchanged",
+    "All 1500 fields retain exact selected plus context partition",
+    "No unread Hindi/Urdu/Roman-Urdu field promoted as a quotation",
+    "Independent source-content mismatch retained for 1114 ar/en only",
+    "Stable component IDs, groups, speakers and report types preserved",
+    "Primary Hindi field remains null wherever its own field lacks selected text"
+  ],
+  "derived_fixture_sha256": "fe8e637e480c55e56c54f44c2aa62eb3c55bfb718679966918f80f7504ff79e7",
+  "exact_selected_plus_context_partitions": 1500,
+  "importer_path": "/workspace/scratch/428783afefb3/intake-guard/scripts/import_deenhindi.py",
+  "importer_sha256": "2802fdbde35f74e32cae95fe6e3d81d2ce3d25da052f09d9c8d6e6d7bd0c0206",
+  "language_fields": 1500,
+  "raw_html_network_requests": 0,
+  "records_applied": 300,
+  "review_sha256": "7a7771c8584601684a0e2a28b264dc3884e95bed5309c533641f9c446a55c293",
+  "schema": "hadith-bank-web-source-adapter-validation-v1",
+  "source_objects_mutated": 0,
+  "status": "PASS"
+}

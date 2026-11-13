@@ -1,0 +1,80 @@
+{
+  "adapter_path": "/workspace/scratch/428783afefb3/websites-continue/islom-recovery/scripts/web_source_reviews.py",
+  "adapter_sha256": "3e180bdcb5cbcad17f039900b4e80394e0755ecbed7c3f163b1d379cf0f6c495",
+  "baseline_commit": "1bdc84b9483a068cc56da97046c55ffe756ea478",
+  "by_language": {
+    "ar": {
+      "reviewed_fields": 300,
+      "selected_fields": 297,
+      "source_fields": 300
+    },
+    "en": {
+      "reviewed_fields": 300,
+      "selected_fields": 299,
+      "source_fields": 300
+    },
+    "hi": {
+      "reviewed_fields": 10,
+      "selected_fields": 9,
+      "source_fields": 300
+    },
+    "ur": {
+      "reviewed_fields": 300,
+      "selected_fields": 297,
+      "source_fields": 300
+    },
+    "ur-Latn": {
+      "reviewed_fields": 10,
+      "selected_fields": 9,
+      "source_fields": 300
+    }
+  },
+  "checks": [
+    "Exactly the 290 previously unread Urdu fields in the frozen cohort replaced; 1210 other field decisions unchanged",
+    "All 600 previously downloaded pinned GitHub files retain their compressed/decompressed and Git blob hashes",
+    "All 300 HTML snapshots reparsed to the complete original source objects and literal source references",
+    "All 300 source-bound reviews applied through the current shared adapter",
+    "All 1500 original language fields reconstruct exactly from selected and context spans",
+    "Original saved objects, canonical inputs, source occurrence IDs and frozen first-pass bytes unchanged",
+    "All 300 Urdu fields now read; 297 selected, two pointers context and the original ordinal-1 attribution hold preserved",
+    "Qualified abbreviated 239 attribution and null ultimate speaker survive adapter grouping",
+    "848 practices remain separate and the claimed prohibition plus criticism stays complete context",
+    "1114 Urdu/English confirmed posture difference retained with both exact own-field evidence hashes",
+    "Unread Hindi/Roman Urdu fields remain context in this parent-plus-Urdu-only fixture"
+  ],
+  "counts": {
+    "exact_source_partitions": 1500,
+    "read_fields": 920,
+    "selected_fields": 911,
+    "unread_fields": 580
+  },
+  "derived_fixture_sha256": "595a9245bf7d2e4c9775ba625d42f15d3120ab1713ab44e1c43965f7d21b82db",
+  "field_replacements": 290,
+  "frozen_first_pass_artifacts_changed": 0,
+  "github_network_requests_in_supplement_validation": 0,
+  "historical_source_url_retries": 0,
+  "importer_path": "/workspace/scratch/428783afefb3/intake-guard/scripts/import_deenhindi.py",
+  "importer_sha256": "2802fdbde35f74e32cae95fe6e3d81d2ce3d25da052f09d9c8d6e6d7bd0c0206",
+  "independent_pro_qc": "not_performed",
+  "limits": [
+    "The separate Hindi supplement is not part of this fixture or these counts.",
+    "Semantic reading and structural validation do not constitute independent Pro, translation-accuracy or authenticity certification.",
+    "This replacement wrapper must be merged into its exact parent before loader discovery; it is not a separate additive source-review ledger."
+  ],
+  "merged_validation_fixture_sha256": "7955d66a79df4cbb08c5523675e3c83938cf6cb766264b4d17f26c1550027f84",
+  "original_pinned_github_evidence_audit_sha256": "b27a9058559b8d45ea9e77f6c6879e3c78781af9f7148aea0db3eeea2bd43115",
+  "parent_review_sha256": "7a7771c8584601684a0e2a28b264dc3884e95bed5309c533641f9c446a55c293",
+  "records_applied": 300,
+  "saved_evidence_checks": {
+    "html_payloads_reparsed_exact": 300,
+    "parsed_files_checked": 300,
+    "raw_html_files_checked": 300
+  },
+  "saved_evidence_files_rechecked": 600,
+  "schema": "hadith-bank-web-review-supplement-validation-v1",
+  "source_objects_mutated": 0,
+  "source_website_requests": 0,
+  "status": "PASS",
+  "supplement_sha256": "e1bfd079175ee55c41fd5c09b80cc8217785eba10a88d9c7e530e3337780622e",
+  "unchanged_other_field_reviews": 1210
+}

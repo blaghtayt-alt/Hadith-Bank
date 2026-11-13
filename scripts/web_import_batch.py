@@ -10,6 +10,8 @@ import sys
 import tempfile
 import traceback
 
+from web_source_reviews import SourceReviews, FOLDERS as REVIEW_FOLDERS
+
 PROGRESS = {
     'deenhindi': 'imports/web-deenhindi-20261112/progress.json',
     'rivoyat': 'imports/web-uzbek-20261112/rivoyat/progress.json',
@@ -56,6 +58,7 @@ def source_status(root, name):
             'fetched_entries': progress.get('source_entries_obtained', 0),
             'registered_occurrences': progress.get('prophetic_source_entries_registered', 0),
             'held_entries': progress.get('classification_pending_hidden', 0),
+            'non_narration_source_entries': progress.get('non_narration_source_entries', 0),
             'pending_requests': pending,
             'pending_unit': 'observed catalogue and detail pages; pagination may discover more',
             'fetch_queue_done': bool(progress.get('done')) and not (blocked or stopped or errors),
@@ -73,6 +76,7 @@ def source_status(root, name):
             'fetched_entries': progress.get('imported_count', 0),
             'registered_occurrences': progress.get('registered_hadith_count', 0),
             'held_entries': progress.get('classification_pending_count', 0),
+            'non_narration_source_entries': progress.get('non_narration_source_entries', 0),
             'pending_requests': progress.get('pending_fetch_count'),
             'pending_unit': 'source entry pages',
             'observed_inventory_count': progress.get('inventory_count'),
@@ -100,6 +104,7 @@ def source_status(root, name):
         'fetched_entries': progress.get('source_entries_obtained', 0),
         'registered_occurrences': progress.get('prophetic_source_entries_registered', 0),
         'held_entries': progress.get('classification_pending_hidden', 0),
+        'non_narration_source_entries': progress.get('non_narration_source_entries', 0),
         'pending_requests': pending,
         'pending_unit': 'linked catalogue, section or detail pages; pagination may discover more',
         'pending_page_requests': pending_pages,
@@ -119,12 +124,30 @@ def command(root, name, settings):
     if name not in PROGRESS or not 1 <= count <= 2000 or not 1 <= seconds <= 2400 or not 1 <= delay <= 30:
         raise ValueError('Invalid bounded source budget')
     if name == 'deenhindi':
-        args = ['scripts/import_deenhindi.py', '--max-records', str(count), '--delay-seconds', str(delay)]
+        args = ['scripts/import_deenhindi.py', '--max-records', '0' if settings.get('export_only') else str(count), '--delay-seconds', str(delay)]
     elif name == 'hadisuz':
         args = ['scripts/import_hadisuz.py', '--max-pages', str(count), '--delay', str(delay)]
     else:
         args = ['scripts/import_uzbek_web.py', '--site', name, '--max-pages', str(count), '--delay', str(delay)]
+    if settings.get('export_only') and name != 'deenhindi':
+        args.append('--export-only')
     return [sys.executable, *args, '--root', str(root), '--max-seconds', str(seconds)]
+
+
+def has_review_export_work(root, name):
+    """A newly saved review can be applied even when public fetching is done.
+
+    This compares durable input receipts; it never resets an access stop or a
+    failed URL, and it does not turn an unchanged review into a recurring job.
+    """
+    if name not in REVIEW_FOLDERS:
+        return False
+    reviews = SourceReviews(root, name)
+    if not reviews.decisions:
+        return False
+    progress = read_json(root / PROGRESS[name], {})
+    return (progress.get('source_review_inputs', []) != reviews.supporting_files()
+            or progress.get('source_review_engine_sha256') != reviews.engine_sha256)
 
 
 def run_source(root, name, settings, logs):
@@ -181,6 +204,7 @@ def summarize(root, plan):
         'fetched_entries': sum(item['fetched_entries'] for item in sources),
         'registered_occurrences': sum(item['registered_occurrences'] for item in sources),
         'held_entries': sum(item['held_entries'] for item in sources),
+        'non_narration_source_entries': sum(item['non_narration_source_entries'] for item in active_sources),
         'requires_attention': attention,
         'fetch_queues_done': done,
         'has_fetch_work': has_work,
@@ -218,7 +242,8 @@ def continuation_request(root):
                 or not current.get('enabled') or current.get('excluded_by_owner')
                 or current.get('blocked') or current.get('worker_stop')
                 or current.get('startup_stopped') or not current.get('has_fetch_work')
-                or current['fetched_entries'] <= original.get('fetched_entries', 0)):
+                or (current['fetched_entries'] <= original.get('fetched_entries', 0)
+                    and name not in diagnostic.get('applied_review_sources', []))):
             continue
         result['sources'].append({'source': name,
             'before_fetched': original['fetched_entries'],
@@ -234,9 +259,13 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--status-only', action='store_true')
+    parser.add_argument('--reviews-only', action='store_true',
+                        help='Apply changed saved reviews offline without fetching or replacing the acquisition-before receipt')
     parser.add_argument('--continuation-request', action='store_true',
                         help='Report whether a successfully saved batch may continue; do not fetch or dispatch')
     args = parser.parse_args(argv)
+    if args.status_only and args.reviews_only:
+        parser.error('status-only and reviews-only cannot be combined')
     root = args.root.resolve()
     plan = read_json(root / 'catalog/web-import-plan.json')
     if not isinstance(plan, dict) or plan.get('schema') != 'hadith-bank-web-import-plan-v1':
@@ -245,18 +274,31 @@ def main(argv=None):
         print(json.dumps(continuation_request(root), ensure_ascii=False))
         return 0
     stops = read_json(root / STOP_FILE, {})
+    review_sources = []
     if plan.get('enabled') and not args.status_only:
-        write_changed(root / BEFORE_STATUS, summarize(root, plan))
-        pending = [name for name in PROGRESS if name not in stops and plan['sources'][name]['enabled']
+        if not args.reviews_only:
+            write_changed(root / BEFORE_STATUS, summarize(root, plan))
+        eligible = [name for name in PROGRESS if name not in stops and plan['sources'][name]['enabled']
                    and not plan['sources'][name].get('excluded_by_owner')
-                   and source_status(root, name)['has_fetch_work']]
+                   ]
+        review_sources = [name for name in eligible if has_review_export_work(root, name)]
+        # Save newly reviewed source selections promptly in one network-free
+        # cycle. The ordinary Hindi queue resumes only after that checkpoint
+        # passes validation and is saved by the existing workflow.
+        pending = review_sources or ([] if args.reviews_only else
+                                     [name for name in eligible if source_status(root, name)['has_fetch_work']])
         with ThreadPoolExecutor(max_workers=3) as executor:
             jobs = {}
             for name in pending:
                 settings = dict(plan['sources'][name])
+                if review_sources:
+                    settings['export_only'] = True
                 if not (root / PROGRESS[name]).exists():
                     settings['max_seconds_per_batch'] = min(settings['max_seconds_per_batch'], plan.get('initial_max_seconds', 300))
-                jobs[executor.submit(run_source, root, name, settings, root / '.work/web-import-batch')] = name
+                logs = root / '.work/web-import-batch'
+                if args.reviews_only:
+                    logs = logs / 'rebase-review'
+                jobs[executor.submit(run_source, root, name, settings, logs)] = name
             for future in as_completed(jobs):
                 try:
                     result = future.result()
@@ -265,7 +307,10 @@ def main(argv=None):
                     # other hosts' completed results or their saved stops.
                     result = {'source': jobs[future], 'exit_code': 1,
                               'error': type(error).__name__ + ': ' + str(error)[:300]}
-                    write_changed(root / '.work/web-import-batch' / (jobs[future] + '.result.json'), result)
+                    diagnostic_dir = root / '.work/web-import-batch'
+                    if args.reviews_only:
+                        diagnostic_dir = diagnostic_dir / 'rebase-review'
+                    write_changed(diagnostic_dir / (jobs[future] + '.result.json'), result)
                 print(json.dumps(result), flush=True)
                 if result['exit_code']:
                     stops[result['source']] = {**result,
@@ -285,7 +330,14 @@ def main(argv=None):
             'validation_error': type(error).__name__ + ': ' + str(error)[:300],
         })
         raise
-    write_changed(root / '.work/web-import-batch/status.json', {**status, 'validation_state': 'passed'})
+    if args.status_only or args.reviews_only:
+        prior_diagnostic = read_json(root / '.work/web-import-batch/status.json', {})
+        if prior_diagnostic.get('validation_state') == 'passed':
+            review_sources = list(dict.fromkeys([*review_sources, *prior_diagnostic.get('applied_review_sources', [])]))
+    applied_reviews = [name for name in review_sources if name in REVIEW_FOLDERS
+                       and name not in stops and not has_review_export_work(root, name)]
+    write_changed(root / '.work/web-import-batch/status.json', {
+        **status, 'validation_state': 'passed', 'applied_review_sources': applied_reviews})
     write_changed(root / 'imports/web-import-status.json', status)
     print(json.dumps({k: v for k, v in status.items() if k != 'source_status'}, ensure_ascii=False), flush=True)
     # Valid stopped/blocked checkpoints must be committed. Invalid evidence

@@ -371,6 +371,64 @@ class WebImportBatchTests(unittest.TestCase):
         (self.root / batch.BEFORE_STATUS).unlink()
         self.assertFalse(batch.continuation_request(self.root)['continue'])
 
+    def test_review_only_checkpoint_survives_status_refresh_and_resumes_hindi_once(self):
+        self.plan['sources']['deenhindi']['continue_after_success'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        pending_review = {'deenhindi': True}
+        calls = []
+
+        def has_review(root, name):
+            return pending_review.get(name, False)
+
+        def worker(root, name, settings, logs):
+            calls.append((name, settings.get('export_only', False)))
+            pending_review[name] = False
+            return {'source': name, 'exit_code': 0}
+
+        with mock.patch.object(batch, 'has_review_export_work', side_effect=has_review):
+            self.assertEqual(self.run_batch(worker), 0)
+            self.assertEqual(calls, [('deenhindi', True)])
+            self.assertTrue(batch.continuation_request(self.root)['continue'])
+            before = (self.root / batch.BEFORE_STATUS).read_bytes()
+            self.assertEqual(self.run_batch(worker, None, '--status-only'), 0)
+            self.assertEqual((self.root / batch.BEFORE_STATUS).read_bytes(), before)
+            self.assertEqual(self.read('.work/web-import-batch/status.json')['applied_review_sources'], ['deenhindi'])
+            self.assertTrue(batch.continuation_request(self.root)['continue'])
+            # The next ordinary run has no review receipt and cannot perpetuate
+            # itself without successful new source acquisition.
+            calls.clear()
+            self.assertEqual(self.run_batch(worker), 0)
+            self.assertTrue(calls)
+            self.assertFalse(any(offline for _, offline in calls))
+            self.assertFalse(batch.continuation_request(self.root)['continue'])
+
+    def test_rebase_review_refresh_keeps_acquisition_receipt_and_never_fetches(self):
+        self.plan['sources']['deenhindi']['continue_after_success'] = True
+        batch.write_changed(self.root / 'catalog/web-import-plan.json', self.plan)
+        batch.write_changed(self.root / batch.BEFORE_STATUS, batch.summarize(self.root, self.plan))
+        before = (self.root / batch.BEFORE_STATUS).read_bytes()
+        self.progress('deenhindi', 'pending', count=1)
+        batch.write_changed(self.root / '.work/web-import-batch/status.json', {'validation_state': 'passed'})
+        changed = {'deenhindi': True}
+        calls = []
+
+        def worker(root, name, settings, logs):
+            calls.append(name)
+            self.assertTrue(settings['export_only'])
+            self.assertEqual(logs.name, 'rebase-review')
+            changed[name] = False
+            return {'source': name, 'exit_code': 0}
+
+        with mock.patch.object(batch, 'has_review_export_work', side_effect=lambda root, name: changed.get(name, False)):
+            self.assertEqual(self.run_batch(worker, None, '--reviews-only'), 0)
+            self.assertEqual(calls, ['deenhindi'])
+            self.assertEqual((self.root / batch.BEFORE_STATUS).read_bytes(), before)
+            self.assertTrue(batch.continuation_request(self.root)['continue'])
+            calls.clear()
+            self.assertEqual(self.run_batch(worker, None, '--reviews-only'), 0)
+            self.assertEqual(calls, [])
+            self.assertEqual((self.root / batch.BEFORE_STATUS).read_bytes(), before)
+
 
 if __name__ == '__main__':
     unittest.main()

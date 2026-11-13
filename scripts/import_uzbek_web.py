@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import copy
 import datetime as dt
 import gzip
 import hashlib
@@ -32,6 +33,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import urllib.robotparser
+
+from web_source_reviews import SourceReviews
 
 
 BASE = 'imports/web-uzbek-20261112'
@@ -1134,20 +1137,34 @@ class Importer:
             atomic_json(folder / 'manifest.json', part_manifest)
 
     def export(self):
+        reviews = SourceReviews(self.root, self.site) if self.site == 'islom' else None
+        baselines = {identity: copy.deepcopy(row) for identity, row in self.records.items()
+                     if reviews and identity in reviews.decisions}
         self.prepare_detail_metadata_queue()
         self.enrich_cached_details()
         self.prepare_detail_metadata_queue()
         self.enrich_local_metadata()
+        reviewed_rows, decisions = {}, {}
+        for identity, row in self.records.items():
+            reviewed_rows[identity], decisions[identity] = (reviews.apply(row, baseline=baselines.get(identity))
+                if reviews else (row, None))
+        if reviews:
+            reviews.finish()
         summaries = []
         for key, collection in self.state['collections'].items():
-            all_rows = [r for r in self.records.values() if r['book_key'] == key]
-            accepted = [r for r in all_rows if r['content_kind'] == 'prophetic_report']
-            held = [r for r in all_rows if r['content_kind'] != 'prophetic_report']
+            all_rows = [r for r in reviewed_rows.values() if r['book_key'] == key]
+            accepted = [r for r in all_rows if decisions[r['id']] == 'register' or
+                        (decisions[r['id']] is None and r['content_kind'] == 'prophetic_report')]
+            excluded = [r for r in all_rows if decisions[r['id']] == 'exclude']
+            held = [r for r in all_rows if decisions[r['id']] == 'hold' or
+                    (decisions[r['id']] is None and r['content_kind'] != 'prophetic_report')]
             tasks = [t for t in self.state['tasks'] if t.get('collection') == key]
             detail_tasks = [t for t in self.state.get('detail_metadata_tasks', {}).values()
                             if t.get('collection') == key]
             summary = {'collection': key, 'title': collection['title'], 'advertised_count': collection['advertised_count'],
                        'source_entries_obtained': len(all_rows), 'prophetic_source_entries_registered': len(accepted),
+                       'registered_source_occurrences': len(accepted), 'non_narration_source_entries': len(excluded),
+                       'registration_count_scope': 'Legacy prophetic count includes explicitly reviewed numbered reports and sayings under their actual report type.',
                        'classification_pending_hidden': len(held), 'page_tasks': dict(collections.Counter(t['status'] for t in tasks)),
                        'detail_metadata_tasks': dict(collections.Counter(t['status'] for t in detail_tasks)),
                        'all_declared_entries_obtained': len(all_rows) == collection['advertised_count'] if collection['advertised_count'] is not None else None,
@@ -1203,6 +1220,8 @@ class Importer:
                 'format': 'jsonl+gzip', 'compression': 'gzip',
                 'uncompressed_sha256': sha(gzip.decompress(ledger_path.read_bytes())),
                 'role': 'complete_source_entry_and_commentary_ledger'})
+            if reviews:
+                manifest['supporting_files'].extend(reviews.supporting_files())
             if self.site == 'rivoyat':
                 queue_path = self.folder / 'detail-metadata-queue.json'
                 manifest['supporting_files'].append({'path': str(queue_path.relative_to(self.root)),
@@ -1214,6 +1233,10 @@ class Importer:
                   'collections': summaries, 'task_counts': self.state.get('counts', {}),
                   'source_entries_obtained': len(self.records),
                   'prophetic_source_entries_registered': sum(s['prophetic_source_entries_registered'] for s in summaries),
+                  'registered_source_occurrences': sum(s['registered_source_occurrences'] for s in summaries),
+                  'non_narration_source_entries': sum(s['non_narration_source_entries'] for s in summaries),
+                  'source_review_inputs': reviews.supporting_files() if reviews else [],
+                  'source_review_engine_sha256': reviews.engine_sha256 if reviews else None,
                   'classification_pending_hidden': sum(s['classification_pending_hidden'] for s in summaries),
                   'access_block': self.state.get('site_access_block') or self.state.get('access_block'),
                   'site_stop_reason': self.state.get('site_stop_reason'),

@@ -96,6 +96,52 @@ class DeenHindiImporterTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Duplicate identifiers'):
             importer.parse_inventory(object_page('collection', inventory), 'bukhari')
 
+    def test_review_preflight_failure_preserves_all_existing_derived_files(self):
+        review_path = self.root / importer.IMPORT / 'reviews/source-review-test.json'
+        staged = self.root / importer.IMPORT / 'staged/bukhari.jsonl'
+        staged.parent.mkdir(parents=True, exist_ok=True)
+        staged.write_bytes(b'TEST previous validated staged bytes\n')
+        review_path.parent.mkdir(parents=True)
+        documents, entries, decisions = {}, {}, []
+        for slug in ('bukhari', 'malik'):
+            text = 'TEST source report ' + slug
+            source = {'textArabic': text}
+            snapshot = {'path': 'TEST-' + slug + '.html', 'sha256': 'a' * 64,
+                        'url': 'https://deenhindi.com/hadith/' + slug + '/1'}
+            saved = {'collection': slug, 'number': '1', 'source_record': source,
+                'snapshot': snapshot, 'source_reference_verbatim': '[TEST 1]',
+                'classification': {'classification': 'unknown'}}
+            parsed = {'path': 'TEST-' + slug + '.json'}
+            documents[parsed['path']] = importer.json_bytes(saved)
+            documents[snapshot['path']] = b'TEST original HTML'
+            entries[slug + ':1'] = {'collection': slug, 'number': '1', 'parsed': parsed}
+            decisions.append({'id': 'deenhindi-' + slug + ':1', 'decision': 'register',
+                'source_record_sha256': importer.digest(importer.json_bytes(source)),
+                'source_snapshot_sha256': snapshot['sha256'],
+                'field_reviews': [{'language_version_id': 'deenhindi-' + slug + ':1:ar',
+                    'language': 'ar', 'source_field': 'textArabic', 'action': 'whole',
+                    'reviewed': True, 'text_sha256': importer.digest(text.encode()),
+                    'reason': 'TEST reviewed own-field attribution.', 'report_type': 'companion_report',
+                    'speaker': 'TEST speaker',
+                    'spans': [{'start': 0, 'end': len(text), 'sha256': importer.digest(text.encode())}]}]})
+        # The first book is valid; the last book's review is invalid.
+        decisions[-1]['field_reviews'][0]['text_sha256'] = '0' * 64
+        review_path.write_text(json.dumps({'schema': 'hadith-bank-web-source-review-v1',
+            'site': 'deenhindi', 'records': decisions}))
+        original = staged.read_bytes()
+        with mock.patch.object(importer, 'checked_bytes', side_effect=lambda root, item: documents[item['path']]):
+            with self.assertRaisesRegex(ValueError, 'field hash mismatch'):
+                importer.rebuild(self.root, {'imported': entries}, {})
+        self.assertEqual(staged.read_bytes(), original)
+        self.assertFalse((self.root / 'materials').exists())
+        # An otherwise well-formed decision for an absent provider ID must also
+        # fail before empty staged files or stale material retirement are written.
+        review_path.write_text(json.dumps({'schema': 'hadith-bank-web-source-review-v1',
+            'site': 'deenhindi', 'records': [decisions[0]]}))
+        with self.assertRaisesRegex(ValueError, 'absent from source'):
+            importer.rebuild(self.root, {'imported': {}}, {})
+        self.assertEqual(staged.read_bytes(), original)
+
     def test_prophetic_name_is_a_complete_token_not_the_prefix_of_nabidh(self):
         # Regression from a provider entry discussing النبيذ, not a Prophet attribution.
         for text in ('TEST عَنِ النَّبِيذِ TEST', 'TEST عن النبيذ TEST', 'TEST عن النبيين TEST'):

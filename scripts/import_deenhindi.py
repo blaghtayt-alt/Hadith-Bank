@@ -29,6 +29,8 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
+from web_source_reviews import SourceReviews
+
 
 BASE = "https://deenhindi.com"
 IMPORT = "imports/web-deenhindi-20261112"
@@ -534,41 +536,70 @@ def retire_stale_shards(root, slug, active):
 
 def rebuild(root, state, inventories):
     overrides = load_json(root / IMPORT / "classification-overrides.json", {})
+    reviews = SourceReviews(root, 'deenhindi')
+
+    def prepare_saved(entry):
+        saved = json.loads(checked_bytes(root, entry["parsed"]))
+        saved["parsed_path"] = entry["parsed"]["path"]
+        checked_bytes(root, saved["snapshot"])
+        saved["intake_classification"] = saved["classification"]
+        override = overrides.get(entry['collection'] + ":" + entry["number"])
+        if override is not None:
+            if override.get("snapshot_sha256") != saved["snapshot"]["sha256"] or override.get("source_record_sha256") != digest(json_bytes(saved["source_record"])):
+                raise ValueError("Classification override does not bind to the saved source")
+            if override.get("classification") not in ("hadith", "unknown", "non_hadith"):
+                raise ValueError("Invalid source-bound classification override")
+            saved["classification"] = override
+        else:
+            saved["classification"] = classify(saved["source_record"])
+        return saved
+
+    # Validate the entire review set before replacing any staged/material file.
+    # A late unknown ID or source mismatch must not leave earlier books partly
+    # republished by a worker that subsequently records a failed stop.
+    reviewed, saved_reviews = {}, {}
+    for entry in state['imported'].values():
+        identity = 'deenhindi-' + entry['collection'] + ':' + entry['number']
+        if identity in reviews.decisions:
+            saved = prepare_saved(entry)
+            saved_reviews[identity] = saved
+            reviewed[identity] = reviews.apply(canonical_record(saved), saved=saved)
+    reviews.finish()
     counts, registered = {}, 0
     for slug, (book, title) in BOOKS.items():
         entries = [entry for entry in state["imported"].values() if entry["collection"] == slug]
         order = {n: i for i, n in enumerate(inventories.get(slug, {}).get("identifiers", []))}
         entries.sort(key=lambda entry: order.get(entry["number"], 10**9))
-        accepted, staged, sources = [], [], []
+        accepted, staged, excluded, sources = [], [], [], []
         for entry in entries:
-            saved = json.loads(checked_bytes(root, entry["parsed"]))
-            saved["parsed_path"] = entry["parsed"]["path"]
-            checked_bytes(root, saved["snapshot"])
-            saved["intake_classification"] = saved["classification"]
-            override = overrides.get(slug + ":" + entry["number"])
-            if override is not None:
-                if override.get("snapshot_sha256") != saved["snapshot"]["sha256"] or override.get("source_record_sha256") != digest(json_bytes(saved["source_record"])):
-                    raise ValueError("Classification override does not bind to the saved source")
-                if override.get("classification") not in ("hadith", "unknown", "non_hadith"):
-                    raise ValueError("Invalid source-bound classification override")
-                saved["classification"] = override
-            else:
-                saved["classification"] = classify(saved["source_record"])
-            if saved["classification"]["classification"] == "hadith":
-                accepted.append(canonical_record(saved))
+            identity = 'deenhindi-' + entry['collection'] + ':' + entry['number']
+            saved = saved_reviews.get(identity)
+            if saved is None:
+                saved = prepare_saved(entry)
+            row, decision = reviewed.get(identity, (canonical_record(saved), None))
+            if decision == 'register' or (decision is None and saved["classification"]["classification"] == "hadith"):
+                accepted.append(row)
                 sources.append({"number": entry["number"], "snapshot": saved["snapshot"], "parsed": entry["parsed"]})
+            elif decision == 'exclude':
+                excluded.append(saved)
             else:
                 staged.append(saved)
         counts[slug] = {"inventory": len(inventories.get(slug, {}).get("identifiers", [])),
                         "fetched": len(entries), "registered_hadith": len(accepted),
-                        "classification_pending": len(staged)}
+                        "classification_pending": len(staged), "non_narration_source_entries": len(excluded)}
         atomic(root / IMPORT / "staged" / (slug + ".jsonl"), rows_bytes(staged))
+        atomic(root / IMPORT / "excluded" / (slug + ".jsonl"), rows_bytes(excluded))
         if not accepted:
             retire_stale_shards(root, slug, set())
             continue
         shards = canonical_shards(accepted)
         active = {write_material_shard(root, slug, book, title, shard, len(shards), sources, state, inventories, counts[slug])
                   for shard in shards}
+        for material in active:
+            path = root / 'materials' / material / 'manifest.json'
+            manifest = load_json(path, {})
+            manifest.setdefault('supporting_files', []).extend(reviews.supporting_files())
+            write_json(path, manifest)
         retire_stale_shards(root, slug, active)
         registered += len(accepted)
     inventory_total = sum(len(value.get("identifiers", [])) for value in inventories.values())
@@ -576,7 +607,10 @@ def rebuild(root, state, inventories):
     pending = max(0, remaining - len(state.get("errors", {})))
     summary = {"site": "deenhindi.com", "inventory_count": inventory_total,
                "imported_count": len(state["imported"]), "registered_hadith_count": registered,
-               "classification_pending_count": len(state["imported"]) - registered,
+               "classification_pending_count": sum(value['classification_pending'] for value in counts.values()),
+               "non_narration_source_entries": sum(value['non_narration_source_entries'] for value in counts.values()),
+               "source_review_inputs": reviews.supporting_files(),
+               "source_review_engine_sha256": reviews.engine_sha256,
                "remaining_count": remaining, "done": len(inventories) == len(BOOKS) and remaining == 0,
                "pending_fetch_count": pending,
                "requires_attention": bool(state.get("blocked")) or (remaining > 0 and pending == 0),
