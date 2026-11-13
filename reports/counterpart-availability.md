@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**91,125 source occurrences**: Arabic text 73,998; English text 52,703; English source links 2,762.
+**92,711 source occurrences**: Arabic text 75,511; English text 53,973; English source links 2,763.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -15,10 +15,10 @@ Text and external-only links are counted separately. An English source link requ
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 9,859 | 9,827 | 9,675 | 0 | 32 | 184 |
+| hi | 11,131 | 11,096 | 10,945 | 1 | 32 | 185 |
 | ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
 | ur | 231 | 0 | 0 | 12 | 223 | 219 |
-| uz | 9,457 | 8,766 | 452 | 0 | 691 | 9,005 |
+| uz | 9,771 | 9,010 | 452 | 0 | 761 | 9,319 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
 
@@ -71,13 +71,13 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
-| deenhindi-abudawud | hi | 1,058 | 1,058 | 1,058 | 0 | 0 | 0 |
-| deenhindi-bukhari | hi | 1,082 | 1,082 | 1,082 | 0 | 0 | 0 |
-| deenhindi-ibnmajah | hi | 1,223 | 1,223 | 1,223 | 0 | 0 | 0 |
-| deenhindi-malik | hi | 578 | 578 | 574 | 0 | 0 | 4 |
-| deenhindi-muslim | hi | 1,019 | 1,019 | 1,019 | 0 | 0 | 0 |
-| deenhindi-nasai | hi | 1,084 | 1,084 | 1,084 | 0 | 0 | 0 |
-| deenhindi-tirmidhi | hi | 1,231 | 1,231 | 1,231 | 0 | 0 | 0 |
+| deenhindi-abudawud | hi | 1,189 | 1,189 | 1,189 | 0 | 0 | 0 |
+| deenhindi-bukhari | hi | 1,512 | 1,509 | 1,511 | 1 | 0 | 0 |
+| deenhindi-ibnmajah | hi | 1,390 | 1,390 | 1,390 | 0 | 0 | 0 |
+| deenhindi-malik | hi | 683 | 683 | 678 | 0 | 0 | 5 |
+| deenhindi-muslim | hi | 1,167 | 1,167 | 1,167 | 0 | 0 | 0 |
+| deenhindi-nasai | hi | 1,241 | 1,241 | 1,241 | 0 | 0 | 0 |
+| deenhindi-tirmidhi | hi | 1,365 | 1,365 | 1,365 | 0 | 0 | 0 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
@@ -140,18 +140,18 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 417 | 0 | 0 | 3 |
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
-| hadisuz-tirmidhi-uz-web | uz | 570 | 0 | 0 | 0 | 570 | 570 |
-| islom-book-17-uz-web | uz | 285 | 283 | 0 | 0 | 2 | 285 |
-| islom-book-22-uz-web | uz | 80 | 80 | 0 | 0 | 0 | 80 |
-| islom-book-23-uz-web | uz | 1,443 | 1,378 | 0 | 0 | 65 | 1,443 |
+| hadisuz-tirmidhi-uz-web | uz | 605 | 0 | 0 | 0 | 605 | 605 |
+| islom-book-17-uz-web | uz | 303 | 301 | 0 | 0 | 2 | 303 |
+| islom-book-22-uz-web | uz | 96 | 96 | 0 | 0 | 0 | 96 |
+| islom-book-23-uz-web | uz | 1,503 | 1,405 | 0 | 0 | 98 | 1,503 |
 | islom-book-24-uz-web | uz | 40 | 40 | 0 | 0 | 0 | 40 |
-| islom-book-25-uz-web | uz | 395 | 395 | 0 | 0 | 0 | 395 |
-| islom-book-26-uz-web | uz | 290 | 290 | 0 | 0 | 0 | 290 |
-| islom-book-27-uz-web | uz | 401 | 395 | 0 | 0 | 6 | 401 |
-| islom-book-28-uz-web | uz | 1,817 | 1,817 | 0 | 0 | 0 | 1,817 |
-| islom-book-29-uz-web | uz | 123 | 122 | 0 | 0 | 1 | 123 |
-| islom-book-30-uz-web | uz | 2,014 | 2,014 | 0 | 0 | 0 | 2,014 |
-| islom-book-32-uz-web | uz | 1,447 | 1,447 | 0 | 0 | 0 | 1,447 |
+| islom-book-25-uz-web | uz | 414 | 414 | 0 | 0 | 0 | 414 |
+| islom-book-26-uz-web | uz | 296 | 296 | 0 | 0 | 0 | 296 |
+| islom-book-27-uz-web | uz | 408 | 401 | 0 | 0 | 7 | 408 |
+| islom-book-28-uz-web | uz | 1,869 | 1,869 | 0 | 0 | 0 | 1,869 |
+| islom-book-29-uz-web | uz | 124 | 123 | 0 | 0 | 1 | 124 |
+| islom-book-30-uz-web | uz | 2,077 | 2,076 | 0 | 0 | 1 | 2,077 |
+| islom-book-32-uz-web | uz | 1,484 | 1,484 | 0 | 0 | 0 | 1,484 |
 | ja-hisn-2007-research-v3 | ja | 261 | 0 | 0 | 0 | 261 | 261 |
 | ja-islam-message-research-v3 | ja | 306 | 0 | 0 | 0 | 306 | 306 |
 | ja-muslim-web-c859ce57c211ea1b | ja | 1,811 | 0 | 0 | 0 | 1,811 | 1,811 |

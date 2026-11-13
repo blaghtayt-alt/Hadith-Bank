@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/book-30/publisher-web-20261112/)
 
-Edition: `publisher-web-20261112` · 2014 source occurrences.
+Edition: `publisher-web-20261112` · 2077 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -90,4 +90,7 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 1926–1950](page-0078.md)
 - [Narrations 1951–1975](page-0079.md)
 - [Narrations 1976–2000](page-0080.md)
-- [Narrations 2001–2014](page-0081.md)
+- [Narrations 2001–2025](page-0081.md)
+- [Narrations 2026–2050](page-0082.md)
+- [Narrations 2051–2075](page-0083.md)
+- [Narrations 2076–2077](page-0084.md)

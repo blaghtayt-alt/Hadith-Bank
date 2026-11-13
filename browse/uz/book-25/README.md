@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [publisher-web-20261112](publisher-web-20261112/README.md) — 395 source occurrences
+- [publisher-web-20261112](publisher-web-20261112/README.md) — 414 source occurrences
