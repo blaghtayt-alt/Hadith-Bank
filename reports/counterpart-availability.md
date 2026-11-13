@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**92,711 source occurrences**: Arabic text 75,511; English text 53,973; English source links 2,763.
+**101,040 source occurrences**: Arabic text 79,154; English text 61,278; English source links 3,538.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -10,15 +10,15 @@ Text and external-only links are counted separately. An English source link requ
 
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
-| ar | 32,261 | 32,261 | 32,179 | 69 | 0 | 13 |
+| ar | 32,267 | 32,267 | 32,185 | 69 | 0 | 13 |
 | bn | 44 | 0 | 0 | 4 | 40 | 40 |
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 11,131 | 11,096 | 10,945 | 1 | 32 | 185 |
-| ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
+| hi | 19,388 | 14,728 | 18,244 | 776 | 211 | 368 |
+| ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ur | 231 | 0 | 0 | 12 | 223 | 219 |
-| uz | 9,771 | 9,010 | 452 | 0 | 761 | 9,319 |
+| uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
 
@@ -71,13 +71,19 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
-| deenhindi-abudawud | hi | 1,189 | 1,189 | 1,189 | 0 | 0 | 0 |
-| deenhindi-bukhari | hi | 1,512 | 1,509 | 1,511 | 1 | 0 | 0 |
-| deenhindi-ibnmajah | hi | 1,390 | 1,390 | 1,390 | 0 | 0 | 0 |
-| deenhindi-malik | hi | 683 | 683 | 678 | 0 | 0 | 5 |
-| deenhindi-muslim | hi | 1,167 | 1,167 | 1,167 | 0 | 0 | 0 |
-| deenhindi-nasai | hi | 1,241 | 1,241 | 1,241 | 0 | 0 | 0 |
-| deenhindi-tirmidhi | hi | 1,365 | 1,365 | 1,365 | 0 | 0 | 0 |
+| deenhindi-abudawud | hi | 2,078 | 1,394 | 2,061 | 16 | 1 | 1 |
+| deenhindi-abudawud-part-002 | hi | 441 | 300 | 398 | 43 | 0 | 0 |
+| deenhindi-bukhari | hi | 1,835 | 1,543 | 1,769 | 66 | 0 | 0 |
+| deenhindi-bukhari-part-002 | hi | 675 | 486 | 565 | 110 | 0 | 0 |
+| deenhindi-ibnmajah | hi | 2,251 | 1,752 | 2,068 | 183 | 2 | 0 |
+| deenhindi-ibnmajah-part-002 | hi | 257 | 218 | 237 | 19 | 1 | 1 |
+| deenhindi-malik | hi | 1,836 | 920 | 1,788 | 29 | 8 | 19 |
+| deenhindi-muslim | hi | 2,053 | 1,427 | 1,869 | 80 | 104 | 104 |
+| deenhindi-muslim-part-002 | hi | 366 | 277 | 303 | 60 | 3 | 3 |
+| deenhindi-nasai | hi | 2,208 | 1,624 | 2,160 | 44 | 4 | 4 |
+| deenhindi-nasai-part-002 | hi | 296 | 215 | 255 | 41 | 0 | 0 |
+| deenhindi-tirmidhi | hi | 2,044 | 1,605 | 1,948 | 41 | 55 | 55 |
+| deenhindi-tirmidhi-part-002 | hi | 464 | 415 | 419 | 44 | 1 | 1 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
@@ -93,7 +99,7 @@ Text and external-only links are counted separately. An English source link requ
 | fawaz-abudawud-df57907be352-ar | ar | 1,494 | 1,494 | 1,489 | 5 | 0 | 0 |
 | fawaz-abudawud-df57907be352-ar-part-002 | ar | 1,494 | 1,494 | 1,487 | 7 | 0 | 0 |
 | fawaz-abudawud-df57907be352-ar-part-003 | ar | 1,539 | 1,539 | 1,531 | 8 | 0 | 0 |
-| fawaz-abudawud-df57907be352-ar-part-004 | ar | 164 | 164 | 164 | 0 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-004 | ar | 168 | 168 | 168 | 0 | 0 | 0 |
 | fawaz-abudawud-df57907be352-en | en | 544 | 0 | 544 | 0 | 8 | 0 |
 | fawaz-abudawud-df57907be352-ur | ur | 6 | 0 | 0 | 4 | 6 | 2 |
 | fawaz-bukhari-df57907be352-ar | ar | 1,864 | 1,864 | 1,863 | 0 | 0 | 1 |
@@ -123,7 +129,7 @@ Text and external-only links are counted separately. An English source link requ
 | fawaz-nasai-df57907be352-ar | ar | 1,630 | 1,630 | 1,630 | 0 | 0 | 0 |
 | fawaz-nasai-df57907be352-ar-part-002 | ar | 1,630 | 1,630 | 1,628 | 2 | 0 | 0 |
 | fawaz-nasai-df57907be352-ar-part-003 | ar | 1,919 | 1,919 | 1,918 | 1 | 0 | 0 |
-| fawaz-nasai-df57907be352-ar-part-004 | ar | 102 | 102 | 102 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-004 | ar | 104 | 104 | 104 | 0 | 0 | 0 |
 | fawaz-nasai-df57907be352-bn | bn | 4 | 0 | 0 | 4 | 0 | 0 |
 | fawaz-nasai-df57907be352-en | en | 385 | 0 | 385 | 0 | 0 | 0 |
 | fawaz-nasai-df57907be352-ur | ur | 6 | 0 | 0 | 2 | 4 | 4 |
@@ -140,18 +146,19 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-uz-sqlite-8241193c5ac1f3bc | uz | 420 | 420 | 417 | 0 | 0 | 3 |
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
-| hadisuz-tirmidhi-uz-web | uz | 605 | 0 | 0 | 0 | 605 | 605 |
-| islom-book-17-uz-web | uz | 303 | 301 | 0 | 0 | 2 | 303 |
-| islom-book-22-uz-web | uz | 96 | 96 | 0 | 0 | 0 | 96 |
-| islom-book-23-uz-web | uz | 1,503 | 1,405 | 0 | 0 | 98 | 1,503 |
+| hadisuz-tirmidhi-uz-web | uz | 606 | 0 | 0 | 0 | 606 | 606 |
+| islom-book-17-uz-web | uz | 304 | 302 | 0 | 0 | 2 | 304 |
+| islom-book-22-uz-web | uz | 100 | 99 | 0 | 0 | 1 | 100 |
+| islom-book-23-uz-web | uz | 1,504 | 1,405 | 0 | 0 | 99 | 1,504 |
 | islom-book-24-uz-web | uz | 40 | 40 | 0 | 0 | 0 | 40 |
-| islom-book-25-uz-web | uz | 414 | 414 | 0 | 0 | 0 | 414 |
+| islom-book-25-uz-web | uz | 415 | 415 | 0 | 0 | 0 | 415 |
 | islom-book-26-uz-web | uz | 296 | 296 | 0 | 0 | 0 | 296 |
 | islom-book-27-uz-web | uz | 408 | 401 | 0 | 0 | 7 | 408 |
 | islom-book-28-uz-web | uz | 1,869 | 1,869 | 0 | 0 | 0 | 1,869 |
 | islom-book-29-uz-web | uz | 124 | 123 | 0 | 0 | 1 | 124 |
 | islom-book-30-uz-web | uz | 2,077 | 2,076 | 0 | 0 | 1 | 2,077 |
-| islom-book-32-uz-web | uz | 1,484 | 1,484 | 0 | 0 | 0 | 1,484 |
+| islom-book-32-uz-web | uz | 1,485 | 1,484 | 0 | 0 | 1 | 1,485 |
+| ja-fadael-2-tuwaijri-1438-qc-v1 | ja | 57 | 0 | 0 | 0 | 57 | 57 |
 | ja-hisn-2007-research-v3 | ja | 261 | 0 | 0 | 0 | 261 | 261 |
 | ja-islam-message-research-v3 | ja | 306 | 0 | 0 | 0 | 306 | 306 |
 | ja-muslim-web-c859ce57c211ea1b | ja | 1,811 | 0 | 0 | 0 | 1,811 | 1,811 |

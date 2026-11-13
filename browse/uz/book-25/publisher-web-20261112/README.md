@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/book-25/publisher-web-20261112/)
 
-Edition: `publisher-web-20261112` · 414 source occurrences.
+Edition: `publisher-web-20261112` · 415 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -26,4 +26,4 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 326–350](page-0014.md)
 - [Narrations 351–375](page-0015.md)
 - [Narrations 376–400](page-0016.md)
-- [Narrations 401–414](page-0017.md)
+- [Narrations 401–415](page-0017.md)

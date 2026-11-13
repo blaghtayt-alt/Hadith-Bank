@@ -9,6 +9,7 @@
 - [ムスナド・アフマド — Musnad Ahmad](ahmad/README.md) — 4 source occurrences
 - [イスラームの基本知識 — Basic Knowledge of Islam](basic-knowledge-of-islam/README.md) — 650 source occurrences
 - [サヒーフ・アル＝ブハーリー — Sahih al-Bukhari](bukhari/README.md) — 36 source occurrences
+- [諸々の徳 — Kitab al-Fadael](fadael/README.md) — 57 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 281 source occurrences
 - [الحاكم — Reports attributed to al-Hakim](hakim/README.md) — 1 source occurrences
 - [ムスリムの砦 — Hisn al-Muslim](hisn-al-muslim/README.md) — 263 source occurrences
