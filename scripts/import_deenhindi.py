@@ -178,6 +178,32 @@ def payload_object(payload, key):
     raise ValueError("Missing page object: " + key)
 
 
+def is_soft_verification_page(raw):
+    """Recognize the observed HTTP-200 gate without mistaking source text for it."""
+    html = raw.decode("utf-8", errors="replace")
+    if not re.search(r"<title\b[^>]*>\s*One moment,\s*please(?:\.{3}|…)\s*</title\s*>",
+                     html, re.IGNORECASE):
+        return False
+    parser = PageParser()
+    parser.feed(html)
+    if not re.search(r"\bPlease\s+wait\s+while\s+your\s+request\s+is\s+being\s+verified(?:\.{3}|…)",
+                     " ".join(parser.visible), re.IGNORECASE):
+        return False
+    try:
+        payload, _ = page_payload(raw)
+    except (ValueError, UnicodeError):
+        return True
+    # A real source object still goes through the existing identity and text
+    # checks, even if a page happens to display the same verification wording.
+    for key in ("hadith", "collection"):
+        try:
+            payload_object(payload, key)
+        except ValueError:
+            continue
+        return False
+    return True
+
+
 def parse_inventory(raw, slug):
     payload, _ = page_payload(raw)
     value = payload_object(payload, "collection")
@@ -234,7 +260,9 @@ def classify(value):
 
 
 class Halt(Exception):
-    pass
+    def __init__(self, message, snapshot=None):
+        super().__init__(message)
+        self.snapshot = snapshot
 
 
 class BudgetExpired(Exception):
@@ -287,6 +315,9 @@ class Fetcher:
         metadata["compression"] = None if is_text else "gzip"
         metadata["stored_sha256"] = digest(stored)
         metadata["stored_bytes"] = len(stored)
+        if metadata["status"] == 200 and is_soft_verification_page(data):
+            raise Halt("HTTP 200 verification page received; no retry or bypass: " + url,
+                       snapshot=metadata)
         return data, metadata
 
 
@@ -635,6 +666,8 @@ def run(args):
         write_json(state_path, state)
     except Halt as error:
         state["blocked"] = {"reason": str(error), "at": now(), "automatic_retry_allowed": False}
+        if error.snapshot is not None:
+            state["blocked"]["snapshot"] = error.snapshot
         write_json(state_path, state)
     summary = rebuild(root, state, inventories)
     summary["attempted_this_run"] = attempted
@@ -649,7 +682,7 @@ def main():
     parser.add_argument("--delay-seconds", type=float, default=1.25, help="Minimum pause after each response, including failures")
     parser.add_argument("--timeout-seconds", type=float, default=30)
     parser.add_argument("--max-seconds", type=float, default=600, help="Gracefully checkpoint when this elapsed-time budget is reached; one in-flight request may finish")
-    parser.add_argument("--retry-errors", action="store_true", help="Retry prior nonblocking fetch/parser errors; never overrides a 401/403/429 stop")
+    parser.add_argument("--retry-errors", action="store_true", help="Retry prior nonblocking fetch/parser errors; never overrides a persisted access or verification stop")
     args = parser.parse_args()
     if args.max_records < 0 or args.delay_seconds < 0.5 or args.timeout_seconds <= 0 or args.max_seconds <= 0:
         parser.error("Nonnegative record budget, delay >= 0.5 seconds and positive time budgets required")

@@ -27,6 +27,12 @@ def object_page(key, value):
     return page('0:' + json.dumps({key: value}, ensure_ascii=False) + '\n')
 
 
+VERIFICATION_PAGE = (
+    b'<html><head><title>One moment, please...</title></head><body>'
+    b'<p>Please wait while your request is being verified...</p></body></html>'
+)
+
+
 class Response(io.BytesIO):
     status = 200
     headers = {'Content-Type': 'text/html; charset=utf-8'}
@@ -163,6 +169,98 @@ class DeenHindiImporterTests(unittest.TestCase):
         self.assertTrue(second['blocked'])
         self.assertEqual(request.call_count, 1)
         self.assertFalse(second['done'])
+
+    def test_http_200_verification_preserves_evidence_and_persistent_stop(self):
+        previous_errors = {'bukhari:old': {'url': importer.BASE + '/hadith/bukhari/old',
+                           'error': 'TEST historical error', 'snapshot': None}}
+        importer.write_json(self.root / importer.IMPORT / 'state.json', {
+            'schema': 'deenhindi-import-state-v1', 'imported': {},
+            'errors': previous_errors, 'site_evidence': {}})
+        inventories = {slug: {'slug': slug, 'identifiers': ['old', '1a'] if slug == 'bukhari' else ['1a']}
+                       for slug in importer.BOOKS}
+        importer.write_json(self.root / importer.IMPORT / 'inventory.json', inventories)
+        requested = []
+
+        def response(request, **_kwargs):
+            url = request.full_url
+            requested.append(url)
+            if url.endswith('/robots.txt'):
+                body = b'User-agent: *\nAllow: /\n'
+            elif url.endswith('/page/about-us'):
+                body = b'<p>TEST source description</p>'
+            elif url.endswith('/hadith/bukhari/1a'):
+                body = VERIFICATION_PAGE
+            else:
+                self.fail('The verification stop must prevent later source requests: ' + url)
+            return Response(url, body)
+
+        with mock.patch.object(importer.urllib.request, 'urlopen', side_effect=response), \
+                mock.patch.object(importer.time, 'sleep'):
+            first = importer.run(self.args())
+            request_count = len(requested)
+            # Even an explicit error-retry option must not clear an access stop.
+            second = importer.run(self.args(retry_errors=True))
+        self.assertEqual(len(requested), request_count)
+        self.assertEqual(requested[-1], importer.BASE + '/hadith/bukhari/1a')
+        self.assertEqual(len(requested), 3)
+        self.assertTrue(first['blocked'])
+        self.assertTrue(second['blocked'])
+        self.assertEqual(first['imported_count'], 0)
+        self.assertEqual(first['errors_count'], 1)
+        state = importer.load_json(self.root / importer.IMPORT / 'state.json')
+        self.assertEqual(state['errors'], previous_errors)
+        self.assertFalse(state['blocked']['automatic_retry_allowed'])
+        snapshot = state['blocked']['snapshot']
+        self.assertEqual(snapshot['status'], 200)
+        self.assertEqual(snapshot['url'], requested[-1])
+        self.assertEqual(snapshot['sha256'], importer.digest(VERIFICATION_PAGE))
+        self.assertEqual(importer.checked_bytes(self.root, snapshot), VERIFICATION_PAGE)
+        self.assertEqual(second['block_reason'], state['blocked'])
+
+    def test_verification_wording_does_not_block_real_source_payloads(self):
+        record = {'id': 'TEST', 'collectionSlug': 'bukhari', 'hadithNumber': '1a',
+                  'textArabic': 'TEST Arabic', 'translationHindi': 'TEST हिन्दी'}
+        collection = {'slug': 'bukhari', 'name': 'TEST collection',
+                      'hadithsMetadata': [{'hadithNumber': '1a'}]}
+        for key, value, path in (('hadith', record, '/hadith/bukhari/1a'),
+                                 ('collection', collection, '/hadith/bukhari')):
+            for prefix in (b'', VERIFICATION_PAGE):
+                with self.subTest(key=key, verification_wording=bool(prefix)):
+                    raw = prefix + object_page(key, value)
+                    url = importer.BASE + path
+                    with mock.patch.object(importer.urllib.request, 'urlopen',
+                                           return_value=Response(url, raw)):
+                        fetched, snapshot = importer.Fetcher(self.root, 1.25, 30).get(url)
+                    self.assertEqual(fetched, raw)
+                    self.assertEqual(importer.checked_bytes(self.root, snapshot), raw)
+                    if key == 'hadith':
+                        parsed, citation = importer.parse_record(fetched, 'bukhari', '1a')
+                        self.assertEqual(parsed, record)
+                        self.assertEqual(citation, '[TEST source reference]')
+                    else:
+                        self.assertEqual(importer.parse_inventory(fetched, 'bukhari')['identifiers'], ['1a'])
+
+    def test_partial_or_script_only_verification_markers_do_not_stop_fetches(self):
+        title = b'<title>One moment, please...</title>'
+        message = b'Please wait while your request is being verified...'
+        cases = (b'<html>' + title + b'<p>TEST ordinary page</p></html>',
+                 b'<html><title>TEST ordinary title</title><p>' + message + b'</p></html>',
+                 b'<html>' + title + b'<script>' + message + b'</script><p>TEST page</p></html>')
+        url = importer.BASE + '/hadith/bukhari/1a'
+        for raw in cases:
+            with self.subTest(raw=raw):
+                with mock.patch.object(importer.urllib.request, 'urlopen', return_value=Response(url, raw)):
+                    fetched, snapshot = importer.Fetcher(self.root, 1.25, 30).get(url)
+                self.assertEqual(fetched, raw)
+                self.assertEqual(importer.checked_bytes(self.root, snapshot), raw)
+
+    def test_verification_with_non_source_flight_payload_still_stops(self):
+        raw = VERIFICATION_PAGE + object_page('unrelated', {'label': 'TEST loader'})
+        url = importer.BASE + '/hadith/bukhari/1a'
+        with mock.patch.object(importer.urllib.request, 'urlopen', return_value=Response(url, raw)):
+            with self.assertRaises(importer.Halt) as stopped:
+                importer.Fetcher(self.root, 1.25, 30).get(url)
+        self.assertEqual(importer.checked_bytes(self.root, stopped.exception.snapshot), raw)
 
     def test_expired_deadline_stops_without_network(self):
         summary = importer.run(self.args(max_seconds=0.000000001))
