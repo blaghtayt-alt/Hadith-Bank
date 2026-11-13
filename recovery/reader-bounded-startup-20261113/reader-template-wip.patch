@@ -1,0 +1,139 @@
+*** Begin Patch
+*** Update File: reader/template.html
+@@
+ <script>
+ "use strict";
++__HADITH_LAZY_STORE_JS__
+ (async () => {
+@@
+-let records, snapshot, hostedData=false;
++let records, snapshot, hostedData=false, hostedStore=null;
+@@
+-  if(payload.dataset.encoding === "gzip-jsonl-shards"){
++  if(payload.dataset.encoding === "gzip-jsonl-lazy-v2"){
++    hostedData=true;
++    hostedStore=HadithLazyStore.create(JSON.parse(payload.textContent),window.location.href,progress=>{
++      $("result-count").textContent="Opening the collection directory…";
++      const status=$("results").querySelector(".loading > span:last-child");
++      if(status)status.textContent="Checking directory part "+progress.part+" of "+progress.parts+".";
++    });
++    records=await hostedStore.loadDirectory();
++  } else if(payload.dataset.encoding === "gzip-jsonl-shards"){
+@@
+-const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null };
++const state = { page:0, matches:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0 };
++const occurrenceOrdinals=new Map(records.map((record,index)=>[record.id,index]));
+@@
+ const originCategory = record => {
++  if(record._reader)return record._reader.origin;
+@@
+ const counterpartAvailability = record => {
++  if(record._reader)return record._reader.availability;
+@@
+ const needsOCRReview = record => {
++  if(record._reader)return record._reader.ocr_pending;
+@@
+ const availableLanguageCodes = record => {
++  if(record._reader)return record._reader.languages;
+@@
+-const citationPairKeys=records.map(recordCitationPairs);
++const citationPairKeys=hostedStore?records.map(record=>new Set(record._reader.citation_pairs)):records.map(recordCitationPairs);
+@@
+-const searchKeys = records.map(primarySearchKey);
++const searchKeys = hostedStore?null:records.map(primarySearchKey);
+@@
+-$("reader-context").textContent=hostedData?"Checked source texts · loaded from this site":offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
++$("reader-context").textContent=hostedStore?"Checked source texts · opened as you read":hostedData?"Checked source texts · loaded from this site":offline?"Your downloaded library · ready to read offline":"Read online. Take your library offline.";
+@@
+-  audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));
+-  card.append(detail("Record details & provenance",audit));
++  const auditDetails=detail("Record details & provenance",audit);
++  let auditWritten=false;
++  auditDetails.addEventListener("toggle",()=>{
++    if(auditDetails.open && !auditWritten){auditWritten=true;audit.append(element("pre","audit-text",JSON.stringify(record,null,2)));}
++  });
++  card.append(auditDetails);
+@@
+-function updateSelection(){const n=state.selected.size;$("download").disabled=!n;$("download").textContent="Download selected JSON ("+nf.format(n)+")";$("clear-selection").hidden=!n;}
+-function render(){
++function updateSelection(){const n=state.selected.size;$("download").disabled=!n || state.downloading;$("download").textContent=state.downloading?"Preparing selected JSON… "+nf.format(state.downloadProgress):"Download selected JSON ("+nf.format(n)+")";$("clear-selection").hidden=!n;}
++function cancelView(){state.viewGeneration++;if(state.viewController)state.viewController.abort();$("previous").disabled=true;$("next").disabled=true;}
++function beginView(){cancelView();const controller=new AbortController();state.viewController=controller;return {generation:state.viewGeneration,controller};}
++const isCurrentView=request=>request.generation===state.viewGeneration && !request.controller.signal.aborted;
++function pendingView(message){
++  const loading=element("div","loading");loading.append(element("span",null,message));$("results").replaceChildren(loading);$("results").setAttribute("aria-busy","true");$("result-count").textContent=message;$("page-meta").textContent="";$("previous").disabled=true;$("next").disabled=true;
++}
++function failedView(error,request){
++  if(!isCurrentView(request) || error && error.name==="AbortError")return;
++  const failure=element("div","error"),retry=element("button",null,"Try again");
++  failure.append(element("p",null,error && error.message?error.message:"The complete results could not be loaded."));retry.type="button";retry.addEventListener("click",()=>applyFilters());failure.append(retry);$("results").replaceChildren(failure);$("results").setAttribute("aria-busy","false");$("result-count").textContent="Results could not be completed";$("page-meta").textContent="";$("previous").disabled=true;$("next").disabled=true;
++}
++async function render(request=beginView()){
++  try{
+   const total=state.matches.length, max=Math.max(0,Math.ceil(total/PAGE_SIZE)-1);state.page=Math.min(state.page,max);
+   const start=state.page*PAGE_SIZE,end=Math.min(start+PAGE_SIZE,total), fragment=document.createDocumentFragment();
++  const pageOrdinals=state.matches.slice(start,end);
++  let pageRecords;
++  if(hostedStore && total){pendingView("Opening "+nf.format(pageOrdinals.length)+" source occurrences…");pageRecords=await hostedStore.getRecords(pageOrdinals,{signal:request.controller.signal,concurrency:3});if(!isCurrentView(request))return;}
++  else pageRecords=pageOrdinals.map(index=>records[index]);
+@@
+-  else state.matches.slice(start,end).forEach(index=>fragment.append(card(records[index],index)));
++  else for(let position=0;position<pageOrdinals.length;position++){
++    if(!isCurrentView(request))return;
++    fragment.append(card(pageRecords[position],pageOrdinals[position]));
++    if(position%5===4)await new Promise(resolve=>setTimeout(resolve,0));
++  }
++  if(!isCurrentView(request))return;
+@@
+   $("previous").disabled=state.page===0;$("next").disabled=!total || state.page===max;updateSelection();
++  }catch(error){failedView(error,request);}
+ }
+-function applyFilters(){
+-  const query=splitCitationQuery(fold($("query").value,false)), terms=query.text?query.text.split(/\s+/):[],language=$("language-filter").value,book=$("book-filter").value,source=$("source-filter").value,origin=$("origin-filter").value,availability=$("counterpart-filter")?.value || "",include=$("include-commentary").checked;
+-  if(include && !commentaryKeys)commentaryKeys=records.map(annotationSearchKey);
+-  state.matches=[];
+-  records.forEach((r,index)=>{if(state.exactOccurrence && r.id!==state.exactOccurrence || language && !availableLanguageCodes(r).includes(language) || book && r.book_key!==book || source && r.source_id!==source || origin && originCategory(r)!==origin || !matchesCounterpartAvailability(r,availability))return;const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");if(query.pairs.every(pair=>citationPairKeys[index].has(pair)) && terms.every(term=>haystack.includes(term)))state.matches.push(index);});
+-  state.page=0;render();
++async function applyFilters(){
++  const request=beginView();
++  try{
++  const entered=$("query").value.trim(),exactQuery=occurrenceOrdinals.has(entered)?entered:null;
++  const query=exactQuery?{pairs:[],text:""}:splitCitationQuery(fold(entered,false)), terms=query.text?query.text.split(/\s+/):[],language=$("language-filter").value,book=$("book-filter").value,source=$("source-filter").value,origin=$("origin-filter").value,availability=$("counterpart-filter")?.value || "",include=$("include-commentary").checked;
++  const candidates=[];
++  records.forEach((r,index)=>{if(state.exactOccurrence && r.id!==state.exactOccurrence || exactQuery && r.id!==exactQuery || language && !availableLanguageCodes(r).includes(language) || book && r.book_key!==book || source && r.source_id!==source || origin && originCategory(r)!==origin || !matchesCounterpartAvailability(r,availability))return;if(query.pairs.every(pair=>citationPairKeys[index].has(pair)))candidates.push(index);});
++  updateActiveFilters();
++  let matches=candidates;
++  if(terms.length && hostedStore){
++    pendingView("Searching the selected sources…");
++    matches=await hostedStore.search(candidates,terms,include,{signal:request.controller.signal,onProgress:progress=>{if(isCurrentView(request))$("result-count").textContent="Searching source text… "+nf.format(progress.part || 0)+" of "+nf.format(progress.parts || 0)+" parts";}});
++  }else if(terms.length){
++    if(include && !commentaryKeys)commentaryKeys=records.map(annotationSearchKey);
++    matches=candidates.filter(index=>{const haystack=searchKeys[index]+(include?"\n"+commentaryKeys[index]:"");return terms.every(term=>haystack.includes(term));});
++  }
++  if(!isCurrentView(request))return;
++  state.matches=matches;state.page=0;await render(request);
++  }catch(error){failedView(error,request);}
+ }
+-$("query").addEventListener("input",()=>{clearTimeout(state.timer);clearExactOccurrence();state.timer=setTimeout(applyFilters,180);});
++$("query").addEventListener("input",()=>{clearTimeout(state.timer);cancelView();clearExactOccurrence();state.timer=setTimeout(applyFilters,180);});
+@@
+-$("clear-selection").addEventListener("click",()=>{state.selected.clear();render();});
+-$("download").addEventListener("click",()=>{const chosen=[...state.selected].sort((a,b)=>a-b).map(i=>records[i]);if(!chosen.length)return;const blob=new Blob([JSON.stringify(chosen,null,2)+"\n"],{type:"application/json;charset=utf-8"}),url=URL.createObjectURL(blob),anchor=element("a");anchor.href=url;anchor.download="hadith-bank-selected-records.json";document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);});
++$("clear-selection").addEventListener("click",()=>{if(state.downloadController)state.downloadController.abort();state.selected.clear();render();});
++$("download").addEventListener("click",async()=>{
++  const chosen=[...state.selected].sort((a,b)=>a-b);if(!chosen.length || state.downloading)return;
++  const controller=new AbortController(),encoder=new TextEncoder(),parts=[encoder.encode("[\n")];state.downloadController=controller;state.downloading=true;state.downloadProgress=0;updateSelection();
++  try{
++    for(let position=0;position<chosen.length;position++){
++      if(controller.signal.aborted)throw new DOMException("Download cancelled.","AbortError");
++      const record=hostedStore?await hostedStore.getRecord(chosen[position],{signal:controller.signal}):records[chosen[position]];
++      parts.push(encoder.encode((position?",\n":"")+JSON.stringify(record,null,2)));state.downloadProgress=position+1;updateSelection();
++      await new Promise(resolve=>setTimeout(resolve,0));
++    }
++    if(controller.signal.aborted)throw new DOMException("Download cancelled.","AbortError");
++    parts.push(encoder.encode("\n]\n"));const blob=new Blob(parts,{type:"application/json;charset=utf-8"}),url=URL.createObjectURL(blob),anchor=element("a");anchor.href=url;anchor.download="hadith-bank-selected-records.json";document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
++  }catch(error){
++    if(error && error.name!=="AbortError"){const notice=element("p","error","Selected JSON was not downloaded: "+(error.message || "a complete source record could not be loaded."));$("results").prepend(notice);}
++  }finally{parts.length=0;state.downloading=false;state.downloadController=null;updateSelection();}
++});
+*** End Patch
