@@ -1,0 +1,510 @@
+{
+  "all_complete_objects_and_references_equal": true,
+  "all_exact_independently_accepted_positions_verified": true,
+  "all_inputs_unchanged": true,
+  "baseline_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+  "baseline_sha256": "6a505f64dc56932e91ed08a50a1ec8ce4a628b3f90f5f2224e707a646cbecabe",
+  "complete_raw_reparses": 20,
+  "counts": {
+    "admitted_fields": 40,
+    "characters_read": 10697,
+    "complete_fields_read": 40,
+    "empty_source_slots": 2,
+    "lossless_nonempty_partitions": 98,
+    "register": 20,
+    "selected_spans": 57,
+    "source_slots": 100,
+    "unchanged_other_field_definitions": 94,
+    "unchanged_whole_parents": 18,
+    "unread_context_fields": 58,
+    "utf8_bytes_read": 21245
+  },
+  "frozen_candidate_file_bindings": [
+    {
+      "bytes": 23413,
+      "git_blob_sha1": "2af8f28ee1ab349f30a068a896768386ae5e0043",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py",
+      "sha256": "b4c1f0ca9be2b5dedfba2eeea8edf0a7b0bcef0fd510214b6d7f321c223779bc"
+    },
+    {
+      "bytes": 2372,
+      "git_blob_sha1": "121f3b2aea579179ae418e36ce5c3d504ab1a3ce",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz",
+      "sha256": "b36bf87f9106801e6476fd8f356feb2fbce4196ce05236010fa753bea8370318"
+    },
+    {
+      "bytes": 12273,
+      "git_blob_sha1": "df855d3e030075659fc31af3d1555cab46d71051",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz",
+      "sha256": "70281af57a225e54aca3bc328bb7783395b4f396f8feca6db7f3937c34610222"
+    },
+    {
+      "bytes": 14451,
+      "git_blob_sha1": "79d6a9da02ed369e2a4c4b3a834807938f28b18c",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py",
+      "sha256": "d3e4d90aeb3781f139763875b6761b1fb0eac4c2d956bdf2e49d6a3b8e543f82"
+    },
+    {
+      "bytes": 9880,
+      "git_blob_sha1": "c7d6847a6130b46b4e22d1abc337d2ff6a94a1f7",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/amend_v2.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/amend_v2.py",
+      "sha256": "10e7951ddac5a57941bf5258f47a97996667e1e41387a20640c960ce5a451b52"
+    },
+    {
+      "bytes": 5659,
+      "git_blob_sha1": "2b7e3a8d6add0266ccaa459b571d7f709eb5d02b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+      "sha256": "3b8eb3fa30233494fed6029ec057b3cbbbf697cac7600b6eceb3818b3b9eb056"
+    },
+    {
+      "bytes": 138262,
+      "git_blob_sha1": "7e05af8cf69465a9172e52533adc8d1501da798d",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/independent-boundary-findings-v1.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/independent-boundary-findings-v1.json",
+      "sha256": "7e3fd736813bc75a70909a72de203bd9a233f2756a7225d0b33919ef20e315ae"
+    },
+    {
+      "bytes": 14782,
+      "git_blob_sha1": "b93a20ee959bb6ad1d98386478265201f0f94b10",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-delivery-manifest-v1.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-delivery-manifest-v1.json",
+      "sha256": "fda319d9c0c9a2bf0b6f7a98cdb32e5ae1bce7684a89fe4b7fcfc98e4cdb856a"
+    },
+    {
+      "bytes": 23259,
+      "git_blob_sha1": "fdc39eabe2b4ae6250b04ae55887d82ab2ea64bd",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py",
+      "sha256": "4ad4023caec17f4348a71137099ef2cfe817d98f6fcb511840d004c950d127c1"
+    },
+    {
+      "bytes": 2372,
+      "git_blob_sha1": "121f3b2aea579179ae418e36ce5c3d504ab1a3ce",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz",
+      "sha256": "b36bf87f9106801e6476fd8f356feb2fbce4196ce05236010fa753bea8370318"
+    },
+    {
+      "bytes": 12207,
+      "git_blob_sha1": "43b7ad582b3c09801bfd0f184b59733045623088",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz",
+      "sha256": "48bfcdf7ecb996e6f38f754735c262a4d3a5333a943c1bb7d8af7706ac8be9d7"
+    },
+    {
+      "bytes": 14451,
+      "git_blob_sha1": "79d6a9da02ed369e2a4c4b3a834807938f28b18c",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py",
+      "sha256": "d3e4d90aeb3781f139763875b6761b1fb0eac4c2d956bdf2e49d6a3b8e543f82"
+    },
+    {
+      "bytes": 6711,
+      "git_blob_sha1": "f13d58905cd81c7642288a4d2a8d7a4fe3ca483a",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "sha256": "5a1b45ade3d40d1ce287e30ac7db9c448f8267d55201e2fca98781a3e0691e4e"
+    },
+    {
+      "bytes": 48633,
+      "git_blob_sha1": "99221624415757e0039b5af9f6fa4f60683df2fe",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py",
+      "sha256": "1acf662842de7a78a6afd97534c1d7d79b86719bd65f3b3d3258f76ffaa9438d"
+    },
+    {
+      "bytes": 8169,
+      "git_blob_sha1": "0efc0ff38a7d0b3986d1e7bffa5f199033402db9",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json",
+      "sha256": "1060fbca8d73033a48f7b322833856710f79bb8322c387d0b11ccf92dbf368cb"
+    },
+    {
+      "bytes": 12776,
+      "git_blob_sha1": "ead07d5a51be3f07aac8991d693eb20722a8a2f6",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py",
+      "sha256": "e1ff4ab4b22cfafda4f72d5f3a4500ad36ce2884d3b72fc72583768398fadd3b"
+    },
+    {
+      "bytes": 7794,
+      "git_blob_sha1": "e44e5151efcb2f3690827bab53dfe4815d87254b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz",
+      "sha256": "265592cf389b432b05339b75a70018c950124827f4b756cd27f95593a2e2af20"
+    },
+    {
+      "bytes": 10319,
+      "git_blob_sha1": "e4292173aba98e24042d8bdd7d4dd59647a9776b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz",
+      "sha256": "fd6d1a0a8f701caa23092783e9fb9e50a71654cd9eb4615fd4d2e80f05a52b8d"
+    },
+    {
+      "bytes": 18144,
+      "git_blob_sha1": "46178999006843712b99a0e14b75c81199d252f8",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+      "sha256": "6a505f64dc56932e91ed08a50a1ec8ce4a628b3f90f5f2224e707a646cbecabe"
+    },
+    {
+      "bytes": 50880,
+      "git_blob_sha1": "f37fb439e32f2e3dc77503ddadcc189cf2c8756b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json",
+      "sha256": "dafc871d2b94e2976220e2a11309c15a3c550a1e4cc6bf4d5f217cb23ab9fe70"
+    },
+    {
+      "bytes": 21364,
+      "git_blob_sha1": "3562ab8fec236b9b85aee23125b68c04e94dd3eb",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json",
+      "sha256": "2f71a9300a7ec4561492b84bf3968fe026d8d77b601bac31ef7f6154d863ca46"
+    },
+    {
+      "bytes": 2848,
+      "git_blob_sha1": "eb12b73a8d119749542bcc3eca1cbba291439da9",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json",
+      "sha256": "12496a1a9edc26557a72912bb66ffdfe01781a8b76726241c5ef43df4d1810ee"
+    },
+    {
+      "bytes": 18469,
+      "git_blob_sha1": "b48539e03eb2cd6b29926dd009c16eee744b2bb6",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+      "sha256": "ecaa9e8e077b2a55e64288e6b10adb63af69f3c64b56d4fddd32eaa1542316e1"
+    },
+    {
+      "bytes": 7024,
+      "git_blob_sha1": "a892d60745be33e297e8d7885486f2403ce16363",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz",
+      "sha256": "5a79d0be4a80977b2bc10d28ed5063b34d5a59eda17f5bfc079c4726a60e716d"
+    },
+    {
+      "bytes": 52948,
+      "git_blob_sha1": "554109ca135cd04497c56d7109701504f7a42acc",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py",
+      "sha256": "d776c36aedb7f5acce6a2125f2932dc65a30e724c88ab1c9e18e48e38838b47e"
+    },
+    {
+      "bytes": 22450,
+      "git_blob_sha1": "99dcb6066a0752e1fc2eea40abe4de97e7802a70",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json",
+      "sha256": "aa4c06e50f0e8a3c3e372fdc7f4da9837af5c41fb4b9138451613b9fea95f7e1"
+    },
+    {
+      "bytes": 12776,
+      "git_blob_sha1": "ead07d5a51be3f07aac8991d693eb20722a8a2f6",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py",
+      "sha256": "e1ff4ab4b22cfafda4f72d5f3a4500ad36ce2884d3b72fc72583768398fadd3b"
+    },
+    {
+      "bytes": 7794,
+      "git_blob_sha1": "e44e5151efcb2f3690827bab53dfe4815d87254b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz",
+      "sha256": "265592cf389b432b05339b75a70018c950124827f4b756cd27f95593a2e2af20"
+    },
+    {
+      "bytes": 10421,
+      "git_blob_sha1": "2ef7bb381213874685c9d1b357b45232338ed8c4",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz",
+      "sha256": "01286bbdb0c067c40bbb34483f3f39acdc0c71e2f9bce60506326fed9f9cc802"
+    },
+    {
+      "bytes": 18144,
+      "git_blob_sha1": "46178999006843712b99a0e14b75c81199d252f8",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+      "sha256": "6a505f64dc56932e91ed08a50a1ec8ce4a628b3f90f5f2224e707a646cbecabe"
+    },
+    {
+      "bytes": 50880,
+      "git_blob_sha1": "f37fb439e32f2e3dc77503ddadcc189cf2c8756b",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json",
+      "sha256": "dafc871d2b94e2976220e2a11309c15a3c550a1e4cc6bf4d5f217cb23ab9fe70"
+    },
+    {
+      "bytes": 21364,
+      "git_blob_sha1": "3562ab8fec236b9b85aee23125b68c04e94dd3eb",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json",
+      "sha256": "2f71a9300a7ec4561492b84bf3968fe026d8d77b601bac31ef7f6154d863ca46"
+    },
+    {
+      "bytes": 2848,
+      "git_blob_sha1": "eb12b73a8d119749542bcc3eca1cbba291439da9",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json",
+      "path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json",
+      "sha256": "12496a1a9edc26557a72912bb66ffdfe01781a8b76726241c5ef43df4d1810ee"
+    },
+    {
+      "bytes": 18901,
+      "git_blob_sha1": "b72a71c5dd441cb7ef6025afb6711cb871d32a83",
+      "owner_path": "/workspace/scratch/44aeee8a6071/phase19-checkpoint3e574-nasai-ibnmajah20-review/publish-v2/imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+      "sha256": "73fec4c12c1426fb5b3402638fbbcfc4c4f42b3fa96fd824f1c14cdd8e6fe14a"
+    }
+  ],
+  "github_writes": 0,
+  "independent_findings_sha256": "7e3fd736813bc75a70909a72de203bd9a233f2756a7225d0b33919ef20e315ae",
+  "independent_pro_qc": "not_performed",
+  "limitations": "This exact source packet and reviewed languages only. No canonical identity repair, authenticity certification or deployment claim.",
+  "metadata_leaf_equalities": {
+    "language": 1296,
+    "parent": 1600,
+    "source": 1470
+  },
+  "metadata_leaf_equalities_total": 4366,
+  "native_apply_and_finish_pass": true,
+  "observed_script_corrections": [
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2532",
+      "language": "hi",
+      "source_field_sha256": "432917efc9bf5e45fdf74d0b8797cc4e5381cbd672a9b2bce471f07cbb362465"
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2537",
+      "language": "hi",
+      "source_field_sha256": "25693f41b5667ae8f9a18dd7db09a284dd67ec7bc003b60d6c7bd262e83ddc0a"
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2540",
+      "language": "hi",
+      "source_field_sha256": "65e382b84e18864e0c35b7b96d9ebe25b67f679b4b6d93869ffc9eda75475651"
+    }
+  ],
+  "primary_active_ledger": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz",
+  "primary_active_sha256": "73fec4c12c1426fb5b3402638fbbcfc4c4f42b3fa96fd824f1c14cdd8e6fe14a",
+  "primary_manifest_path": "delivery-manifest-v2.json",
+  "primary_manifest_sha256": "864f2f5781196e974c2135f9619e01111009f04954fc58b1d9ae93973a368833",
+  "schema": "independent-source-reading-native-audit-v1",
+  "source_checkpoint": "3e574b9e7e4dd7cf8bc23232249004a18692c61c",
+  "source_files_reopened": 40,
+  "source_first_reading_receipt_sha256": "088d0cf7ca63c5c4daecfa21dc2ef7823d9f95e096f650674b76785a2b333f08",
+  "source_parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+  "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "source_site_requests": 0,
+  "status": "PASS",
+  "stored_decompressed_git_blob_hashes_pass": true,
+  "surgical_final_amendment": [
+    {
+      "after_field_sha256": "4cd1ff71b4aa25ed028bf1c18f2483f549bc17787195f7f95a657f53008518d3",
+      "before_field_sha256": "99194640e079c80d6ac12fddb7be5928ca08c97d2aee07f9869cba0b2e358373",
+      "id": "deenhindi-nasai:2492",
+      "language": "hi",
+      "requested_change": {
+        "actual_speaker": "Abu Umama as named in this own source field, relayed to Ibn Shihab; no external identity or biographical status is inferred.",
+        "id": "deenhindi-nasai:2492",
+        "language": "hi",
+        "opening_interval": [
+          0,
+          276
+        ],
+        "opening_text": "इब्न शिहाब ज़ुहरी कहते हैं कि अबू उम्मा बिन सहल बिन हुनैफ़ (रज़ियल्लाहु अन्हु) ने अल्लाह अज़्ज़ा-व-जल के फरमान 'वाला तयम्मामु आल-कहबिथा मिनहु तूंफीकुन' (अल्लाह की राह में बुरा माल ख़र्च करने का क़स्द न करो) के मुताल्लिक़ मुझसे बयां किया के खाबीत से मुराद 'जरूर' और 'लोन-इ-हबीक' हैं. ",
+        "parent_disposition_or_field_reading_change": false,
+        "reason": "The source explicitly reports that the named speaker told Ibn Shihab about this quoted verse and identifies two particular date varieties as its referent. That is a finite transmitted exegetical application, not a dictionary synonym of khabith. Preserve the actual verse and supplied rendering inside that distinct saying, with the existing Prophet prohibition separately attributed afterward. The Urdu verse locator alone remains reference apparatus; no canonical mapping is added.",
+        "recommended_type": "attributed_exegetical_statement",
+        "requested_change": "restore_attributed_exegesis_as_separate_named_interpreter_component",
+        "retain_as_context": [],
+        "source_field_sha256": "a04c60b219bad4ee97348f092cddb56b3fff92c2b731ae2b7b37e504c38428c6"
+      }
+    },
+    {
+      "after_field_sha256": "927457673c04e34f411969636af3c867e28b817b80efd9917cdfc292d21d220a",
+      "before_field_sha256": "f46035d6a2d0865bd934dad5d4ba82e2b29a93cce6c55e4a1f728263beaa951b",
+      "id": "deenhindi-nasai:2492",
+      "language": "ur",
+      "requested_change": {
+        "actual_speaker": "Abu Umama as named in this own source field, relayed to Ibn Shihab; no external identity or biographical status is inferred.",
+        "id": "deenhindi-nasai:2492",
+        "language": "ur",
+        "opening_interval": [
+          0,
+          257
+        ],
+        "opening_text": "ابن شہاب زہری کہتے ہیں کہ ابوامامہ بن سہیل بن حنیف رضی اللہ عنہ نے اللہ عز و جل کے فرمان: «ولا تيمموا الخبيث منه تنفقون» ”اللہ کی راہ میں برا مال خرچ کرنے کا قصد نہ کرو“ ( البقرہ: ۲۶۷ ) کے متعلق مجھ سے بیان کیا کہ «خبيث» سے مراد «جعرور» اور «لون حبیق» ہیں، ",
+        "parent_disposition_or_field_reading_change": false,
+        "reason": "The source explicitly reports that the named speaker told Ibn Shihab about this quoted verse and identifies two particular date varieties as its referent. That is a finite transmitted exegetical application, not a dictionary synonym of khabith. Preserve the actual verse and supplied rendering inside that distinct saying, with the existing Prophet prohibition separately attributed afterward. The Urdu verse locator alone remains reference apparatus; no canonical mapping is added.",
+        "recommended_type": "attributed_exegetical_statement",
+        "requested_change": "restore_attributed_exegesis_as_separate_named_interpreter_component",
+        "retain_as_context": [
+          {
+            "end": 185,
+            "start": 170,
+            "text": "( البقرہ: ۲۶۷ )"
+          }
+        ],
+        "source_field_sha256": "8f04c15f4aefbdef698677bdcfde00925c56a82c9cd87100395b254a260a9c15"
+      }
+    },
+    {
+      "after_field_sha256": "deaba978c20f244e66fa771d6dfdeaea11f9e19a212249e50717fb966692edec",
+      "before_field_sha256": "5b492c1fff4c9603b0dbd980dd0601cf1f245c2cf0d00b0c23d2b9c33b82e2d4",
+      "id": "deenhindi-nasai:2540",
+      "language": "hi",
+      "requested_change": {
+        "exact_all_source_positions_speakers_and_families_to_preserve": true,
+        "id": "deenhindi-nasai:2540",
+        "language": "hi",
+        "old_report_type": "witnessed_speech_and_prophetic_statement",
+        "parent_disposition_or_field_reading_change": false,
+        "reason": "Abdullah ibn Amr reports that when the Prophet conquered Mecca he stood and spoke. Neither own field says Abdullah personally saw, heard or attended this scene. Preserve the supplied transmitter and statement, but do not add eyewitness status. Nasai2532 is different because its own we-arrived-and-saw wording explicitly supports a witnessed report.",
+        "recommended_report_type": "reported_speech_and_prophetic_statement",
+        "requested_change": "narrow_report_type_without_any_boundary_change",
+        "source_field_sha256": "65e382b84e18864e0c35b7b96d9ebe25b67f679b4b6d93869ffc9eda75475651"
+      }
+    },
+    {
+      "after_field_sha256": "0fc23a333b64b2aab1f49b2bf52c76a7dbb75562b9c276dc998b7d1d0601d80c",
+      "before_field_sha256": "47a023e8f47e6156c66165a0f1c391bf53bb473afe8af1e3cfe46d05b696e2d9",
+      "id": "deenhindi-nasai:2540",
+      "language": "ur",
+      "requested_change": {
+        "exact_all_source_positions_speakers_and_families_to_preserve": true,
+        "id": "deenhindi-nasai:2540",
+        "language": "ur",
+        "old_report_type": "witnessed_speech_and_prophetic_statement",
+        "parent_disposition_or_field_reading_change": false,
+        "reason": "Abdullah ibn Amr reports that when the Prophet conquered Mecca he stood and spoke. Neither own field says Abdullah personally saw, heard or attended this scene. Preserve the supplied transmitter and statement, but do not add eyewitness status. Nasai2532 is different because its own we-arrived-and-saw wording explicitly supports a witnessed report.",
+        "recommended_report_type": "reported_speech_and_prophetic_statement",
+        "requested_change": "narrow_report_type_without_any_boundary_change",
+        "source_field_sha256": "e8906be7bf15194f1bb984dcbe1ac5c4414459ddb6f2610af0e849fc8a34f313"
+      }
+    }
+  ],
+  "v1_payload_evidence_retained": [
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py"
+      ],
+      "sha256": "4ad4023caec17f4348a71137099ef2cfe817d98f6fcb511840d004c950d127c1",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/build_delivery.py"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz"
+      ],
+      "sha256": "b36bf87f9106801e6476fd8f356feb2fbce4196ce05236010fa753bea8370318",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/disposition-ledger.json.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz"
+      ],
+      "sha256": "48bfcdf7ecb996e6f38f754735c262a4d3a5333a943c1bb7d8af7706ac8be9d7",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/field-coverage.json.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py"
+      ],
+      "sha256": "d3e4d90aeb3781f139763875b6761b1fb0eac4c2d956bdf2e49d6a3b8e543f82",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/freeze_source_first.py"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz"
+      ],
+      "sha256": "5a1b45ade3d40d1ce287e30ac7db9c448f8267d55201e2fca98781a3e0691e4e",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual-reading-and-boundary-specifications.json.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py"
+      ],
+      "sha256": "1acf662842de7a78a6afd97534c1d7d79b86719bd65f3b3d3258f76ffaa9438d",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/manual_rules.py"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json"
+      ],
+      "sha256": "1060fbca8d73033a48f7b322833856710f79bb8322c387d0b11ccf92dbf368cb",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/package-file-manifest.json"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py"
+      ],
+      "sha256": "e1ff4ab4b22cfafda4f72d5f3a4500ad36ce2884d3b72fc72583768398fadd3b",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/prepare_primary.py"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz"
+      ],
+      "sha256": "265592cf389b432b05339b75a70018c950124827f4b756cd27f95593a2e2af20",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/raw-source-verification.json.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz"
+      ],
+      "sha256": "fd6d1a0a8f701caa23092783e9fb9e50a71654cd9eb4615fd4d2e80f05a52b8d",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-apparatus-inventory.json.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz"
+      ],
+      "sha256": "6a505f64dc56932e91ed08a50a1ec8ce4a628b3f90f5f2224e707a646cbecabe",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-baseline.jsonl.gz"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json"
+      ],
+      "sha256": "dafc871d2b94e2976220e2a11309c15a3c550a1e4cc6bf4d5f217cb23ab9fe70",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-first-complete-reading.json"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json"
+      ],
+      "sha256": "2f71a9300a7ec4561492b84bf3968fe026d8d77b601bac31ef7f6154d863ca46",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/source-verification.json"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json",
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json"
+      ],
+      "sha256": "12496a1a9edc26557a72912bb66ffdfe01781a8b76726241c5ef43df4d1810ee",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/validation-and-coverage-summary.json"
+    },
+    {
+      "final_matching_paths": [
+        "imports/web-deenhindi-20261112/reviews/checkpoint3e574-nasai-ibnmajah20-20261113/independent-boundary-amendment-v2/previous-v1-payload/imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz"
+      ],
+      "sha256": "ecaa9e8e077b2a55e64288e6b10adb63af69f3c64b56d4fddd32eaa1542316e1",
+      "v1_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint3e574-nasai-ibnmajah20-20261113.json.gz"
+    }
+  ]
+}

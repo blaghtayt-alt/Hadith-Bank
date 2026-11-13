@@ -1,0 +1,67 @@
+{
+  "by_language": {
+    "ar": {
+      "empty_source_field": 1,
+      "unreviewed_source_context": 19
+    },
+    "en": {
+      "empty_source_field": 1,
+      "unreviewed_source_context": 19
+    },
+    "hi": {
+      "selected_report": 20
+    },
+    "ur": {
+      "selected_report": 20
+    },
+    "ur-Latn": {
+      "unreviewed_source_context": 20
+    }
+  },
+  "complete_fields_chars_read": 10697,
+  "complete_fields_utf8_bytes_read": 21245,
+  "exact_empty_source_fields": 2,
+  "exact_lossless_field_partitions": 98,
+  "exact_source_metadata_checks": 431,
+  "fully_read_nonempty_fields": 40,
+  "independent_pro_qc": "not_performed",
+  "nonempty_source_fields": 98,
+  "records": 20,
+  "registered_records": 20,
+  "resolved_source_only_records": 0,
+  "reviewed_context_fields": 0,
+  "selected_language_fields": 40,
+  "source_checkpoint": "3e574b9e7e4dd7cf8bc23232249004a18692c61c",
+  "source_field_slots": 100,
+  "source_first_complete_reading_sha256": "dafc871d2b94e2976220e2a11309c15a3c550a1e4cc6bf4d5f217cb23ab9fe70",
+  "source_only_ids": [],
+  "source_responses_reopened_hashed_and_reparsed": 20,
+  "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "source_script_corrections": [
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2532",
+      "language": "hi",
+      "reason": "The provider labels this field translationHindi, but its complete saved body is Roman Urdu in Latin script. Preserve the source language/version identity and exact original text; record observed script Latn rather than inventing a Hindi translation."
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2537",
+      "language": "hi",
+      "reason": "The provider labels this field translationHindi, but its complete saved body is Roman Urdu in Latin script. Preserve the source language/version identity and exact original text; record observed script Latn rather than inventing a Hindi translation."
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-nasai:2540",
+      "language": "hi",
+      "reason": "The provider labels this field translationHindi, but its complete saved body is Roman Urdu in Latin script. Preserve the source language/version identity and exact original text; record observed script Latn rather than inventing a Hindi translation."
+    }
+  ],
+  "source_snapshot_files_verified": 40,
+  "unresolved_record_dispositions": 0,
+  "unreviewed_sibling_context_fields": 58,
+  "validation": "SourceReviews apply/finish passed for all20; exact original-field partitions and all stated metadata invariants passed. Each original HTML and parsed snapshot was reopened and checked against stored, decompressed and Git blob hashes, then reparsed against the full saved source object and source reference."
+}
