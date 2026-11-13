@@ -1,16 +1,16 @@
 {
   "schema": "hadith-bank-site-build-v1",
   "status": "passed",
-  "source_commit": "feca6f1bc1a3377f63a63a6799f6b0d15e6a99d9",
-  "source_ref": "feca6f1bc1a3377f63a63a6799f6b0d15e6a99d9",
-  "record_count": 103014,
+  "source_commit": "c041e951e7591a9047cf9f0b7af65735b0909c09",
+  "source_ref": "c041e951e7591a9047cf9f0b7af65735b0909c09",
+  "record_count": 103398,
   "by_language": {
     "ar": 32267,
     "bn": 44,
     "en": 3684,
     "fa": 14382,
     "fil": 2354,
-    "hi": 21362,
+    "hi": 21746,
     "ja": 3520,
     "ur": 231,
     "uz": 9780,
@@ -18,18 +18,18 @@
     "zh-CN": 10835
   },
   "source_dataset_count": 251,
-  "search_sha256": "1a81dc568afdfbc467aa73e4d3ea83be56a458deec1fd64ba8d0ccb6848a683f",
-  "reader_sha256": "8cc8e063f8e71d095a4ac8b1af414730aff81712994418e9e384c7763068fc5f",
-  "reader_bytes": 1324952,
+  "search_sha256": "2580512d1340178b79bffc9c992608634023470f3a2e92b4b5b31be801c27c6b",
+  "reader_sha256": "1025609fc05dc577215b6a8b4464970447bfeb17b2028e206b5f714ae8475605",
+  "reader_bytes": 1326516,
   "reader_self_contained": false,
   "reader_transport": {
-    "html_bytes": 1324952,
+    "html_bytes": 1326516,
     "embedded_encoding": "gzip-jsonl-lazy-v2",
     "self_contained": false,
-    "shard_count": 1398,
-    "shard_bytes": 273079077,
-    "detail_shard_count": 973,
-    "directory_bytes": 35494060,
+    "shard_count": 1405,
+    "shard_bytes": 274518922,
+    "detail_shard_count": 978,
+    "directory_bytes": 35629879,
     "max_projection_row_bytes": {
       "directory": 467,
       "search": 215760,
@@ -38,31 +38,31 @@
     "max_detail_record_bytes": 257373,
     "reader_store_metrics": {
       "directory": {
-        "record_count": 103014,
+        "record_count": 103398,
         "shard_count": 18,
-        "compressed_bytes": 1582650,
-        "uncompressed_bytes": 35494060,
+        "compressed_bytes": 1589089,
+        "uncompressed_bytes": 35629879,
         "max_row_bytes": 467
       },
       "search": {
-        "record_count": 103014,
-        "shard_count": 319,
-        "compressed_bytes": 70956076,
-        "uncompressed_bytes": 661447668,
+        "record_count": 103398,
+        "shard_count": 321,
+        "compressed_bytes": 71411551,
+        "uncompressed_bytes": 665069694,
         "max_row_bytes": 215760
       },
       "annotations": {
-        "record_count": 103014,
+        "record_count": 103398,
         "shard_count": 88,
-        "compressed_bytes": 24535578,
-        "uncompressed_bytes": 181304702,
+        "compressed_bytes": 24636184,
+        "uncompressed_bytes": 181774140,
         "max_row_bytes": 128046
       },
       "details": {
-        "record_count": 103014,
-        "shard_count": 973,
-        "compressed_bytes": 176004773,
-        "uncompressed_bytes": 2024253565,
+        "record_count": 103398,
+        "shard_count": 978,
+        "compressed_bytes": 176882098,
+        "uncompressed_bytes": 2033238368,
         "max_row_bytes": 257373
       }
     }
@@ -72,30 +72,30 @@
   "counterpart_review": {
     "schema": "hadith-bank-counterpart-review-queue-v1",
     "status": "candidates_only",
-    "inspected_occurrences": 103014,
-    "occurrences_without_candidate": 34803,
-    "arabic_missing_occurrences": 13759,
+    "inspected_occurrences": 103398,
+    "occurrences_without_candidate": 34807,
+    "arabic_missing_occurrences": 13760,
     "english_missing_occurrences": 36227,
-    "already_linked_occurrences": 66766,
-    "candidate_occurrences": 1445,
-    "queued_occurrences": 36248,
-    "candidate_targets": 1041,
+    "already_linked_occurrences": 67149,
+    "candidate_occurrences": 1442,
+    "queued_occurrences": 36249,
+    "candidate_targets": 1039,
     "available_candidate_targets": 10753,
     "accepted_by_this_preparation": 0,
-    "queue_bytes": 10926591,
-    "target_bytes": 573571,
+    "queue_bytes": 10926621,
+    "target_bytes": 572517,
     "manifest": "reports/counterpart-review/manifest.json"
   },
   "registry": "materials/*/manifest.json",
   "validation_report": "reports/portable-validation.json",
   "hosted_reader": {
-    "html_bytes": 1324952,
+    "html_bytes": 1326516,
     "embedded_encoding": "gzip-jsonl-lazy-v2",
     "self_contained": false,
-    "shard_count": 1398,
-    "shard_bytes": 273079077,
-    "detail_shard_count": 973,
-    "directory_bytes": 35494060,
+    "shard_count": 1405,
+    "shard_bytes": 274518922,
+    "detail_shard_count": 978,
+    "directory_bytes": 35629879,
     "max_projection_row_bytes": {
       "directory": 467,
       "search": 215760,
@@ -104,31 +104,31 @@
     "max_detail_record_bytes": 257373,
     "reader_store_metrics": {
       "directory": {
-        "record_count": 103014,
+        "record_count": 103398,
         "shard_count": 18,
-        "compressed_bytes": 1582650,
-        "uncompressed_bytes": 35494060,
+        "compressed_bytes": 1589089,
+        "uncompressed_bytes": 35629879,
         "max_row_bytes": 467
       },
       "search": {
-        "record_count": 103014,
-        "shard_count": 319,
-        "compressed_bytes": 70956076,
-        "uncompressed_bytes": 661447668,
+        "record_count": 103398,
+        "shard_count": 321,
+        "compressed_bytes": 71411551,
+        "uncompressed_bytes": 665069694,
         "max_row_bytes": 215760
       },
       "annotations": {
-        "record_count": 103014,
+        "record_count": 103398,
         "shard_count": 88,
-        "compressed_bytes": 24535578,
-        "uncompressed_bytes": 181304702,
+        "compressed_bytes": 24636184,
+        "uncompressed_bytes": 181774140,
         "max_row_bytes": 128046
       },
       "details": {
-        "record_count": 103014,
-        "shard_count": 973,
-        "compressed_bytes": 176004773,
-        "uncompressed_bytes": 2024253565,
+        "record_count": 103398,
+        "shard_count": 978,
+        "compressed_bytes": 176882098,
+        "uncompressed_bytes": 2033238368,
         "max_row_bytes": 257373
       }
     }
@@ -136,13 +136,13 @@
   "discovery": {
     "schema": "hadith-bank-discovery-v1",
     "record_pages": 38782,
-    "shared_reader_occurrences": 64232,
-    "index_pages": 1346,
-    "indexable_pages": 40128,
-    "generated_files": 40740,
-    "generated_bytes": 621871842,
-    "site_bytes": 916713146,
-    "source_records_sha256": "1a81dc568afdfbc467aa73e4d3ea83be56a458deec1fd64ba8d0ccb6848a683f",
+    "shared_reader_occurrences": 64616,
+    "index_pages": 1350,
+    "indexable_pages": 40132,
+    "generated_files": 40744,
+    "generated_bytes": 621949528,
+    "site_bytes": 918235857,
+    "source_records_sha256": "2580512d1340178b79bffc9c992608634023470f3a2e92b4b5b31be801c27c6b",
     "source_texts_unchanged": true,
     "independent_qc_performed": false,
     "complete_source_views": {
@@ -160,7 +160,7 @@
       "en": 3684,
       "fa": 14382,
       "fil": 2354,
-      "hi": 21362,
+      "hi": 21746,
       "ja": 3520,
       "ur": 231,
       "uz": 9780,
@@ -171,7 +171,7 @@
     "book_language_count": 126,
     "edition_count": 251,
     "sitemap_count": 2,
-    "sitemap_url_count": 40129,
+    "sitemap_url_count": 40133,
     "sitemap": "https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml"
   }
 }
