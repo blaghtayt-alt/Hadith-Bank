@@ -1,6 +1,73 @@
 # Website-source queue resolution — 13 November 2026
 
-## Current status — phase 2 preflight, 13 November 2026
+## Current status — recovered sources and saved retry pilot, 13 November 2026
+
+Phase 2 was published at `92bf9cdf87f5919b91eadfce8f338e283e6d12bb`.
+The actual recovery worker then saved **508 previously downloaded entries** at
+`b65b894adfc1fcd80ff2ebbcedba60970e4f163f`, without making new source requests.
+All 12,775 overlapping saved entries passed source-preservation checks. The
+single historical-error pilot subsequently succeeded and was committed at
+`46f2ffbb77e5be8a3698ddd2655302053ca9c2b5`; its old failure and request history
+remain intact. The original failed response, new raw HTML and parsed source
+were independently reopened, hashed and verified against the saved receipt.
+
+The latest observed committed acquisition totals are **13,284 fetched,
+13,045 registered, 118 held and 121 source-only**, with no active source block.
+All **3,942 holds in the earlier 12,775-entry cohort have been resolved**.
+The 118 holds above arose from the recovered 508 entries and the new pilot.
+
+The current additive review checkpoint resolves those **118 further entries**:
+**116 register and two remain source-only**, with zero uncovered IDs. The
+source-only entries are `deenhindi-nasai:1990` and `deenhindi-muslim:2032`;
+their supplied fields contain chains or pointers without the report itself.
+The reviews independently read 395 complete language fields, admit 380 and
+retain 15 as reviewed context. Another 195 unread sibling fields remain intact
+as source context. Every one of the 590 field partitions is lossless. All 118
+raw/parsed source pairs were reopened and reparsed to the exact saved objects.
+This projects **13,161 registered, 123 source-only and zero held** for the
+13,284-entry cohort, pending the full saved export. Newly fetched entries are
+outside that fixed cohort and may require further review.
+
+The full 1,000-ID historical-error authorization can now be activated after
+the observed successful pilot: **999 identities remain eligible for one
+ordinary request each**. The consumed `bukhari:686` authorization cannot be
+replayed. The active manifest binds the saved pilot proof and disables only
+the pilot-specific one-request checkpoint flag. Normal request pacing,
+serialized execution, error history and persistent source-access stops remain
+unchanged. An access challenge still stops the source.
+
+**Acquisition remains unfinished:** at `46f2ffb`, 22,107 ordinary pages and
+999 historical errors remain, **23,106 in total**. The bounded importer has
+automatically dispatched its next ordinary batch. These queued pages have not
+been represented as acquired, reviewed or deployed.
+
+The full reader worker passed its tests and both Fawaz and website review
+exports, then failed at the shared counterpart-review preparation for
+`deenhindi-malik:1057`. That source has an independently admitted Urdu reading
+while its Arabic and English primaries are absent. The current repair binds
+the actual stable language-version ID, text, language and complete version
+hash; it keeps the missing primary fields empty and creates no counterpart
+approval. All 44 focused old/new counterpart tests passed, including the
+actual source regression and stale-binding rejection. Full rebuild, browser
+verification and deployment still require an observed successful repair run.
+
+The actual Fawaz export confirmed **36,226 registered, 238 resolved source-only
+and zero unresolved source dispositions**. All 244 requested parent cases are
+accounted for. The separate unread sibling-language queue remains separate.
+Hadis.islom.uz has **8,622 registered occurrences and zero held**, including
+the two source-bound commentary children; its eleven requested parent cases
+are resolved. Its known unavailable `/kitob/32/17` route remains an observed
+HTTP500 source limitation.
+
+Evidence and delivery manifests are in
+[`reports/web-source-resolution-20261113/`](../reports/web-source-resolution-20261113/),
+including the saved pilot proof, phase 2 publication receipt, recovered-review
+manifests and reader-repair validation. The dated preflight and phase 1 notes
+below are retained as history. Independent Pro QC, authenticity regrading and
+translation-equivalence certification are not claimed.
+
+
+## Historical phase 2 preflight — 13 November 2026
 
 The durable phase 1 repair is recorded at
 `eb6061e1d4115d141d3f2d723ec83fc57f34b1b2`; the subsequent workflow repair is

@@ -1,0 +1,120 @@
+{
+  "activation_metadata_changed_only": [
+    "activated_at_utc",
+    "pilot_verification",
+    "stage",
+    "stop_batch_after_reviewed_retry"
+  ],
+  "active_manifest": {
+    "bytes": 1447993,
+    "path": "phase3-recovered-review/publish/imports/web-deenhindi-20261112/retry-authorizations.json",
+    "sha256": "145b3f7ce1cfa04f9ac21b8d9306f52754184ba38bceae6556861d00f1243e42"
+  },
+  "actual_importer_preflight": {
+    "all_candidate_checkpoint_flags_are_boolean_false": true,
+    "consumed_686_absent": true,
+    "consumed_receipt_blocks_replay_even_without_import_pointer": true,
+    "current_saved_state": {
+      "all_999_current_error_objects_compared_exactly_with_original_archived_state": true,
+      "blocked": false,
+      "errors_count": 999,
+      "imported_count": 13284,
+      "ordinary_pending_count": 22107,
+      "source_commit": "46f2ffbb77e5be8a3698ddd2655302053ca9c2b5",
+      "state_git_blob_sha1": "86a0cc2a0f7ebfe87c42f37a00c66bed23ab24fc"
+    },
+    "eligible_keys_equal_current_unresolved_errors": true,
+    "function": "import_deenhindi.reviewed_error_candidates",
+    "inventory_source": {
+      "full_identifier_count": 36390,
+      "git_blob_sha1": "b647bafa25f312d687df79f6611d9f7af2420150",
+      "scope": "Exact 1000 requested identities projected from the independently retrieved committed full source inventory; every candidate is present.",
+      "source_commit": "46f2ffbb77e5be8a3698ddd2655302053ca9c2b5"
+    },
+    "remaining_eligible": 999,
+    "result": "passed",
+    "state_scope": "All validator-relevant current error, attempt, history and pilot import fields; all 999 current errors were compared exactly against the original archived state. Inventory membership is the exact requested-identity projection of the committed 36,390-ID inventory.",
+    "state_unchanged_by_validation": true
+  },
+  "audit_script_sha256": "e782a54bdc6ecf21a73072dc75a11539c5880445e880672960536e3c7d510db3",
+  "audited_original_candidate": {
+    "bytes": 1447326,
+    "path": "hindi-acquisition/.work/retry-authorizations-all-1000-candidate.json",
+    "sha256": "7c3ae9ff39c0fbc3ca884927e11e8c8b2957105825053d0a2e0ddc5348322b08"
+  },
+  "audited_saved_commit": "46f2ffbb77e5be8a3698ddd2655302053ca9c2b5",
+  "current_importer": {
+    "bytes": 51103,
+    "path": "hindi-resolve/work/scripts/import_deenhindi.py",
+    "sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0"
+  },
+  "entry_integrity": {
+    "archived_responses_reopened_and_hash_verified": 1000,
+    "by_collection": {
+      "abudawud": 143,
+      "bukhari": 143,
+      "ibnmajah": 143,
+      "malik": 142,
+      "muslim": 143,
+      "nasai": 143,
+      "tirmidhi": 143
+    },
+    "exact_original_entries_unchanged": 1000,
+    "original_audit_ledger": {
+      "bytes": 166937,
+      "path": "hindi-acquisition/imports/web-deenhindi-20261112/retry-audits/20261113-historical-errors.jsonl.gz",
+      "sha256": "851a5e13333e1085b9d29eb26506199720fab9097f1cc4476735c8225a2aac26"
+    },
+    "original_response_bytes_checked": 12132596,
+    "original_state": {
+      "bytes": 6506030,
+      "path": "hindi-acquisition/.work/historical-error-audit/github-snapshot/imports/web-deenhindi-20261112/state.json",
+      "sha256": "1d0d6a0706ab5b835166aebc2253e08cf67a471a79756440b4359ffcea973722"
+    },
+    "stored_response_bytes_checked": 5091017,
+    "urls_error_hashes_snapshot_hashes_and_one_request_limits_unchanged": 1000
+  },
+  "execution_guards": {
+    "automatic_continuation_remains_enabled": true,
+    "blocked_state_bytes_unchanged": true,
+    "cancel_in_progress": false,
+    "current_importer_byte_identical_to_audited_deployed_importer": true,
+    "github_writes": 0,
+    "input_manifest_edits": 0,
+    "max_requests_per_batch": 1000,
+    "max_seconds_per_batch": 1800,
+    "minimum_configured_delay_seconds": 1.25,
+    "ordinary_pending_at_saved_checkpoint": 22107,
+    "persistent_block_short_circuits_before_fetcher": true,
+    "same_serialized_workflow_group": "hadith-bank-web-imports",
+    "source_http_requests_by_auditor": 0,
+    "unchanged_code_preserves_401_403_429_and_soft_verification_stops": true,
+    "unchanged_code_preserves_consume_before_request_and_uncertain_attempt_no_replay": true,
+    "unchanged_code_preserves_ordinary_https_source_route_and_cross_site_redirect_guard": true,
+    "unchanged_code_preserves_robots_checks": true
+  },
+  "focused_offline_regressions": {
+    "errors": 0,
+    "failures": 0,
+    "log_sha256": "c9332eff619575dbf2f5b7602768c5fb0c4857f182c3f06267727a7f6ef411bd",
+    "scope": "Consumed-before-request success, verification/access persistent stops, uncertain outcomes, invalid evidence, transient-only blanket retry, pre-request deadlines, grown manifests, serialized worker stops, offline-recoverable sources and retained failed attempts.",
+    "tests_run": 11
+  },
+  "limitations": [
+    "This report validates activation and existing protections; it does not promise that any of the remaining 999 requests will succeed. A renewed access/verification stop still halts the source.",
+    "The observed committed state is pinned to 46f2ffbb77e5be8a3698ddd2655302053ca9c2b5. Later ordinary acquisition may change imported/pending counts; consumed historical attempt identity remains source-error-bound."
+  ],
+  "result": "passed",
+  "saved_pilot": {
+    "authorization_consumed": true,
+    "key": "bukhari:686",
+    "observed_success_proof_path": "reports/web-source-resolution-20261113/bukhari-686-saved-pilot-proof.json",
+    "observed_success_proof_sha256": "f5c28d4015911b11effde0308c5b4f86667178a751042cb999db35d4885bc1f0",
+    "original_error_and_history_preserved": true,
+    "original_error_sha256": "f3b26edda6ff81cacb34747ccda318e0499dd00ea2061edd7c5eecaef72c46f6",
+    "proof_contains_independently_reopened_old_and_new_source_checksums": true,
+    "receipt_status": "succeeded",
+    "saved_pilot_manifest_sha256": "08d241011220e176442ea96b2708c7e068d699d6728fe0b28b0c3b1e01706c9e"
+  },
+  "schema": "deenhindi-retry-activation-independent-audit-v1"
+}

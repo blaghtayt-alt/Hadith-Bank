@@ -11,7 +11,8 @@ import tempfile
 import unicodedata
 
 from counterpart_review import (QUEUE_SCHEMA, LANGUAGES, canonical, descriptor, load_source_records,
-    local, object_hash, raw_abu_dawud_targets, require, rows_bytes, source_binding, source_locator, text_hash)
+    local, object_hash, raw_abu_dawud_targets, require, rows_bytes, source_binding, source_locator,
+    source_text, text_hash)
 from resolve_counterparts import (CounterpartResolver, normalize_quote, source_references,
                                   reference_key, narration_reference_scope)
 from citation_search import reference_pair
@@ -307,7 +308,7 @@ def prepare_review(root, output='.work/counterpart-review', records=None, source
             'existing_availability': current, 'existing_match_status': (value or {}).get('status'),
             'existing_match_method': (value or {}).get('match_method'),
             'source_locator': source_locator(record),
-            'source_preview': record[binding['source_text_field']][:240],
+            'source_preview': source_text(record, binding['source_text_field'])[:240],
             'source_book_key': record.get('book_key'), 'source_edition': record.get('edition'),
             'source_number': copy.deepcopy(record.get('number')), 'candidates': candidates})
         sources[record['source_id']] += 1

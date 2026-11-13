@@ -1,0 +1,100 @@
+{
+  "actual_case": {
+    "admitted_language": "ur",
+    "empty_originals": [
+      "textArabic",
+      "translationEnglish"
+    ],
+    "id": "deenhindi-malik:1057",
+    "primary_text_values_remain_null": true,
+    "quotation_chars": 224,
+    "quotation_sha256": "031b558c287bc65dcf3cc7b148ba0d74395d71b8f4a4493e5bf0a98bb54e8022",
+    "selected_spans": [
+      {
+        "component_id": "report-1",
+        "end": 90,
+        "reason": "The source attributes this numbered report to the named speaker or actor; it is not relabelled as the Prophet’s words.",
+        "report_type": "companion_report",
+        "sha256": "7e78c0526571cba98a97bc2f1156229e0c13fcd5c2445cfaa2d08b3b9098e175",
+        "speaker": "عبداللہ بن عمر (companion)",
+        "start": 0
+      },
+      {
+        "component_id": "report-2",
+        "end": 225,
+        "reason": "The source attributes this numbered report to the named speaker or actor; it is not relabelled as the Prophet’s words.",
+        "report_type": "companion_report",
+        "sha256": "c9180fd52b27b62e75b47121e74c3cd1d1b078505020b4ea8118a072ecdfe9e9",
+        "speaker": "سعد بن ابی وقاص (companion)",
+        "start": 91
+      }
+    ],
+    "source_field": "translationUrdu",
+    "source_record_sha256": "80cf92f5b5a6f5ffacdc800f2201c8e23e764722b14cec4e072ec358ba72d814",
+    "source_snapshot_sha256": "b94a5d0138206641e8c5fa2f3fd7e8876ac61c11c700d0e9b592eb9c9e35383f",
+    "unread_context_languages": [
+      "hi",
+      "ur-Latn"
+    ]
+  },
+  "error": "Occurrence has no source text to review: deenhindi-malik:1057",
+  "failed_head": "92bf9cdf87f5919b91eadfce8f338e283e6d12bb",
+  "failed_job": 131832906500,
+  "failed_run": 43409749952,
+  "failure_time_utc": "2026-11-13T10:52:30Z",
+  "invariants": {
+    "context_only_fields_not_accepted_as_quotations": true,
+    "explicit_missing_primary_binding_does_not_fall_back": true,
+    "no_absent_primary_field_filled": true,
+    "no_automatic_counterpart_approval": true,
+    "no_github_writes": true,
+    "no_registry_guard_relaxed": true,
+    "no_source_http_requests": true,
+    "source_and_canonical_inputs_not_mutated": true,
+    "source_bytes_unchanged": true,
+    "version_id_language_text_context_and_presence_changes_fail_closed": true,
+    "whole_version_metadata_and_context_hash_bound": true
+  },
+  "remaining_gate": "Full repository shared refresh, reader browser verification and deployment at the published repair revision.",
+  "schema": "hadith-bank-reader-secondary-language-repair-v1",
+  "source_checkpoint": "b65b894adfc1fcd80ff2ebbcedba60970e4f163f",
+  "status": "focused_validation_passed",
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "failed": 0,
+    "new_regressions": 4,
+    "passed": 44,
+    "scope": [
+      "test_counterpart_review_workflow.py",
+      "test_reviewed_counterparts.py",
+      "test_counterpart_secondary_languages.py"
+    ],
+    "test_content_note": "Actual frozen-source fixture for preparation; counterpart alignment/approval regressions use explicit TEST-only text."
+  },
+  "verified_baselines": [
+    {
+      "bytes": 16327,
+      "git_blob_sha1": "954094fa30f14c86f1b959cf124cd78eb445f2ca",
+      "path": "scripts/counterpart_review.py",
+      "sha256": "bb6f57b413232608db348c5db16cb6f73088a28c32aa75d5bd4d56da20ac1e8d"
+    },
+    {
+      "bytes": 20364,
+      "git_blob_sha1": "dbf12acfb3feb522b24b1962e64fedefded5234a",
+      "path": "scripts/prepare_counterpart_review.py",
+      "sha256": "7427ae184abe1f6c5be9d8c2cde28571a79147cd5cfb412bc3b09c142614572b"
+    },
+    {
+      "bytes": 18102,
+      "git_blob_sha1": "e6afb4fc983a734e7b82a7241546bd37e2694bca",
+      "path": "scripts/reviewed_counterparts.py",
+      "sha256": "b556518c7e8fe5bc45e0b9c1e8801b68c95c599bb864c40e7e7810d2b4b07967"
+    },
+    {
+      "bytes": 13551,
+      "git_blob_sha1": "f575553c2bcb5f6a5f08b9d5df8d4cb1b45be925",
+      "path": "scripts/compile_reviewed_counterparts.py",
+      "sha256": "f01346d7f27774a33f78803aa16e16a8a73dd8ed8b51b9f0734e5ff674002eae"
+    }
+  ]
+}

@@ -14,7 +14,8 @@ from pathlib import Path, PurePosixPath
 import re
 from urllib.parse import urlsplit
 
-from counterpart_review import (CONTRACT, object_hash,
+from counterpart_review import (CONTRACT, VERSION_FIELD_PREFIX, object_hash, source_text,
+                                supported_source_text_field,
                                 validate_language_decisions, validate_review_evidence, validate_source_binding)
 
 
@@ -234,8 +235,14 @@ class ReviewedCounterpartResolver:
             if item is not None and (language not in hashes or hashes[language] != item.get('text_sha256')):
                 raise ValueError('Reviewed mapping target text checksum mismatch')
         if strict:
-            if mapping.get('source_text_field') not in ('text_translation', 'text_arabic'):
+            if not supported_source_text_field(mapping.get('source_text_field')):
                 raise ValueError('Reviewed mapping needs its exact source text field')
+            if mapping['source_text_field'].startswith(VERSION_FIELD_PREFIX):
+                if (mapping.get('source_language_version_id') != mapping['source_text_field'][len(VERSION_FIELD_PREFIX):]
+                        or not isinstance(mapping.get('source_text_language'), str)
+                        or not mapping['source_text_language'].strip()
+                        or not _hash(mapping.get('source_language_version_sha256'))):
+                    raise ValueError('Reviewed mapping needs its exact source language version')
             if any(not _hash(mapping.get(key)) for key in
                    ('source_record_sha256', 'source_locator_sha256', 'target_entry_sha256',
                     'review_target_entry_sha256')):
@@ -268,7 +275,10 @@ class ReviewedCounterpartResolver:
         bundle, entry = data['metadata'], data['entries'][mapping['target_id']]
         strict = bundle.get('evidence_contract') == CONTRACT
         text_field = mapping.get('source_text_field', 'text_translation') if strict else 'text_translation'
-        text = record.get(text_field)
+        try:
+            text = source_text(record, text_field) if strict else record.get(text_field)
+        except ValueError:
+            return self._unresolved('stale_reviewed_source_binding')
         if (record.get('source_id') != mapping['source_id'] or record.get('language') != mapping['language'] or
                 not isinstance(text, str) or text_hash(text) != mapping['source_text_sha256'] or
                 (record.get('source') or {}).get('sha256') != mapping['source_file_sha256']):
@@ -302,6 +312,9 @@ class ReviewedCounterpartResolver:
                 'source_locator_sha256': mapping['source_locator_sha256'],
                 'target_entry_sha256': mapping['target_entry_sha256'],
                 'language_decisions': copy.deepcopy(mapping['language_decisions'])})
+            for key in ('source_language_version_id', 'source_text_language', 'source_language_version_sha256'):
+                if key in mapping:
+                    result['quotation_evidence'][key] = mapping[key]
         for language in LANGUAGES:
             item = entry.get(language)
             if item is None:

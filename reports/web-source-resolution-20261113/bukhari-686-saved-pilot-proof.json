@@ -1,0 +1,200 @@
+{
+  "attempt": {
+    "authorization_basis": "The owner requested fixing the remaining Deen Hindi acquisition failures on 13 November 2026. This first pilot authorizes one ordinary recheck of the exact archived error identified below, using the existing public URL, client, pacing, and persistent access-stop guards. A renewed verification or access stop must halt the source; it is not automatically retried.",
+    "authorization_consumed": true,
+    "decision": {
+      "archive_classification": "http_200_verification_page",
+      "archived_response_reviewed": true,
+      "error_entry_sha256": "f3b26edda6ff81cacb34747ccda318e0499dd00ea2061edd7c5eecaef72c46f6",
+      "key": "bukhari:686",
+      "max_requests": 1,
+      "reason": "The checksum-verified archived HTTP 200 response is a verification page with no source hadith object. This explicit one-request pilot checks the same ordinary page after later normal acquisition resumed; it does not assert that the old failure is resolved.",
+      "review_evidence": {
+        "independent_content_qc_performed": false,
+        "method": "offline archived-byte checksum verification and observed verification-page signature classification",
+        "original_error": {
+          "at": "2026-11-12T19:37:46.032974+00:00",
+          "error": "No public page data found; extraction stopped without guessing",
+          "snapshot": {
+            "bytes": 12130,
+            "compression": "gzip",
+            "content_type": "text/html",
+            "final_url": "https://deenhindi.com/hadith/bukhari/686",
+            "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+            "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+            "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+            "status": 200,
+            "stored_bytes": 5097,
+            "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+            "url": "https://deenhindi.com/hadith/bukhari/686"
+          },
+          "url": "https://deenhindi.com/hadith/bukhari/686"
+        },
+        "retries_issued_during_evidence_review": 0,
+        "source_requests_during_evidence_review": 0,
+        "source_snapshot": {
+          "bytes": 12130,
+          "compression": "gzip",
+          "content_type": "text/html",
+          "final_url": "https://deenhindi.com/hadith/bukhari/686",
+          "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+          "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+          "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+          "status": 200,
+          "stored_bytes": 5097,
+          "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+          "url": "https://deenhindi.com/hadith/bukhari/686"
+        },
+        "source_state_git_blob_sha1": "2f80c21f5b1cb8a61fdcf4e3340a341be900ea3e"
+      },
+      "snapshot_sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+      "url": "https://deenhindi.com/hadith/bukhari/686"
+    },
+    "finished_at": "2026-11-13T10:49:47.056923+00:00",
+    "key": "bukhari:686",
+    "manifest": {
+      "path": "imports/web-deenhindi-20261112/retry-authorizations.json",
+      "sha256": "08d241011220e176442ea96b2708c7e068d699d6728fe0b28b0c3b1e01706c9e"
+    },
+    "parsed": {
+      "compression": "gzip",
+      "path": "imports/web-deenhindi-20261112/parsed/bukhari/526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7.json.gz",
+      "sha256": "526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7",
+      "stored_sha256": "95bcb6effeb070e2d6a9040290d6e53c71a85d33bd20f8f43abd055d550c235f"
+    },
+    "prepared_at": "2026-11-13T10:49:43.388490+00:00",
+    "prior_error": {
+      "at": "2026-11-12T19:37:46.032974+00:00",
+      "error": "No public page data found; extraction stopped without guessing",
+      "snapshot": {
+        "bytes": 12130,
+        "compression": "gzip",
+        "content_type": "text/html",
+        "final_url": "https://deenhindi.com/hadith/bukhari/686",
+        "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+        "retrieved_at": "2026-11-12T19:37:46.030668+00:00",
+        "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+        "status": 200,
+        "stored_bytes": 5097,
+        "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4",
+        "url": "https://deenhindi.com/hadith/bukhari/686"
+      },
+      "url": "https://deenhindi.com/hadith/bukhari/686"
+    },
+    "response_snapshot": {
+      "bytes": 90086,
+      "compression": "gzip",
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://deenhindi.com/hadith/bukhari/686",
+      "path": "imports/web-deenhindi-20261112/raw/fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e.html.gz",
+      "retrieved_at": "2026-11-13T10:49:47.048012+00:00",
+      "sha256": "fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e",
+      "status": 200,
+      "stored_bytes": 16431,
+      "stored_sha256": "e5b8a66d5bfb9d0d6ab13986adea7936e4267f56fcfb33658ec56934c3f53452",
+      "url": "https://deenhindi.com/hadith/bukhari/686"
+    },
+    "status": "succeeded",
+    "stop_batch_after_reviewed_retry": true,
+    "url": "https://deenhindi.com/hadith/bukhari/686"
+  },
+  "job_id": 131838617753,
+  "progress": {
+    "block_reason": null,
+    "blocked": false,
+    "certified_release_eligible": false,
+    "classification_pending_count": 118,
+    "done": false,
+    "errors_count": 999,
+    "historical_error_identities_count": 1000,
+    "imported_count": 13284,
+    "inventory_count": 36390,
+    "non_narration_source_entries": 121,
+    "pending_fetch_count": 22107,
+    "registered_hadith_count": 13045,
+    "remaining_count": 23106,
+    "requires_attention": false,
+    "resolved_historical_error_identities_count": 1,
+    "reviewed_error_attempts_count": 1,
+    "reviewed_error_retry_pending_count": 0,
+    "site": "deenhindi.com",
+    "source_review_engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+    "unresolved_historical_error_identities_count": 999,
+    "updated_at": "2026-11-13T10:50:07.890576+00:00"
+  },
+  "raw_reparse_matches_parsed_source_record_and_reference": true,
+  "ref": "46f2ffbb77e5be8a3698ddd2655302053ca9c2b5",
+  "run_id": 43411434552,
+  "semantic_classification": "newly_acquired_and_preserved_pending_manual_boundary_review",
+  "source_requests_by_auditor": 0,
+  "verification": {
+    "authorization_consumed_once": true,
+    "classification": {
+      "classification": "unknown",
+      "evidence": null,
+      "independent_authenticity_assessment": false,
+      "method": "no_unambiguous_supported_attribution_pattern",
+      "rule_version": "deenhindi-attribution-v3-token-boundaries",
+      "scope_note": "Not excluded as non-hadith; retained for classification. Book membership or a grade alone does not establish Prophetic attribution."
+    },
+    "finished_at": "2026-11-13T10:49:47.056923+00:00",
+    "manifest_sha256": "08d241011220e176442ea96b2708c7e068d699d6728fe0b28b0c3b1e01706c9e",
+    "old_error_preserved_exactly": true,
+    "parsed_keys": [
+      "classification",
+      "collection",
+      "number",
+      "schema",
+      "snapshot",
+      "source_record",
+      "source_reference_verbatim"
+    ],
+    "pass": true,
+    "receipt_status": "succeeded",
+    "source_blobs": [
+      {
+        "bytes": 90086,
+        "git_blob_sha1": "d6135fb011ef12cc430edf7d2593dc23391aee19",
+        "path": "imports/web-deenhindi-20261112/raw/fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e.html.gz",
+        "sha256": "fc8ad26b15984e682f82e2c9361753ed334ba18da460d0a8570fa46623fb636e",
+        "stored_bytes": 16431,
+        "stored_sha256": "e5b8a66d5bfb9d0d6ab13986adea7936e4267f56fcfb33658ec56934c3f53452"
+      },
+      {
+        "bytes": 6100,
+        "git_blob_sha1": "2570c74dffc7c90ade06b973c5367296c5556234",
+        "path": "imports/web-deenhindi-20261112/parsed/bukhari/526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7.json.gz",
+        "sha256": "526789c0adb268110964c67bff00945c4c1827a6f30f37bb2fe9e445a47e08b7",
+        "stored_bytes": 2671,
+        "stored_sha256": "95bcb6effeb070e2d6a9040290d6e53c71a85d33bd20f8f43abd055d550c235f"
+      },
+      {
+        "bytes": 12130,
+        "git_blob_sha1": "c85e264652745977a17dd99daf8d85c312f6952f",
+        "path": "imports/web-deenhindi-20261112/raw/33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3.html.gz",
+        "sha256": "33c772ec3dba872f74e29c764442cea8ff8ef31e4b3a5c744d2e7716396c48b3",
+        "stored_bytes": 5097,
+        "stored_sha256": "d6137920caec34726138d9d6f621e30e76ec03ab88aa75cc9b57dbb4e80068d4"
+      }
+    ],
+    "source_record": {
+      "chapterEnglish": "Call to Prayers (Adhaan)",
+      "chapterHindi": "Call to Prayers (Adhaan)",
+      "chapterName": "Call to Prayers (Adhaan)",
+      "chapterUrdu": "Call to Prayers (Adhaan)",
+      "collectionSlug": "bukhari",
+      "grade": "Sahih",
+      "hadithNumber": "686",
+      "id": 15865,
+      "narrator": null,
+      "narratorEnglish": null,
+      "narratorHindi": null,
+      "narratorUrdu": null,
+      "textArabic": "حَدَّثَنَا مُعَاذُ بْنُ أَسَدٍ، أَخْبَرَنَا عَبْدُ اللَّهِ، أَخْبَرَنَا مَعْمَرٌ، عَنِ الزُّهْرِيِّ، قَالَ أَخْبَرَنِي مَحْمُودُ بْنُ الرَّبِيعِ، قَالَ سَمِعْتُ عِتْبَانَ بْنَ مَالِكٍ الأَنْصَارِيَّ، قَالَ اسْتَأْذَنَ النَّبِيُّ صلى الله عليه وسلم فَأَذِنْتُ لَهُ فَقَالَ ‏ \"‏ أَيْنَ تُحِبُّ أَنْ أُصَلِّيَ مِنْ بَيْتِكَ ‏\"‏‏.‏ فَأَشَرْتُ لَهُ إِلَى الْمَكَانِ الَّذِي أُحِبُّ، فَقَامَ وَصَفَفْنَا خَلْفَهُ ثُمَّ سَلَّمَ وَسَلَّمْنَا‏.‏",
+      "translationEnglish": "Narrated `Itban bin Malik Al-Ansari: The Prophet (came to my house and) asked permission for entering and I allowed him. He asked, \"Where do you like me to pray in your house?\" I pointed to a place which I liked. He stood up for prayer and we aligned behind him and he finished the prayer with Taslim and we did the same",
+      "translationHindi": "हम से मुआज़ बिन असद ने बयान किया, कहा के हमें अब्दुल्लाह बिन मुबारक ने ख़बर दी, कहा के हमें मुअम्मर ने ज़ुहरी से ख़बर दी, कहा के मुझे महमूद बिन रबी ने ख़बर दी, कहा के मैं ने उत्बान बिन मालिक अन्सारी (रदी अल्लाहु अन्हु) से सुना, उन्हों ने बयान किया के रसूल अल्लाह (सल्लल्लाहु अलैहि वसल्लम) ने (मेरे घर तशरीफ़ लाने की) इजाज़त चाही और मैं ने आप को इजाज़त दी, आप (सल्लल्लाहु अलैहि वसल्लम) ने दरयाफ़्त फरमाया के तुम लोग अपने घर में जिस जगह पसंद करो मैं नमाज़ पढ़ दूँ? मैं जहाँ चाहता था उस की तरफ़ मैं ने इशारा किया। फिर आप खड़े हो गये और हम ने आप के पीछे सफ़ बांध ली। फिर आप ने जब सलाम फेरा तोह हम ने भी सलाम फेरा।",
+      "translationUrdu": "ہم سے معاذ بن اسد نے بیان کیا، کہا کہ ہمیں عبداللہ بن مبارک نے خبر دی، کہا کہ ہمیں معمر نے زہری سے خبر دی، کہا کہ مجھے محمود بن ربیع نے خبر دی، کہا کہ میں نے عتبان بن مالک انصاری رضی اللہ عنہ سے سنا، انہوں نے بیان کیا کہ رسول اللہ صلی اللہ علیہ وسلم نے ( میرے گھر تشریف لانے کی ) اجازت چاہی اور میں نے آپ کو اجازت دی، آپ صلی اللہ علیہ وسلم نے دریافت فرمایا کہ تم لوگ اپنے گھر میں جس جگہ پسند کرو میں نماز پڑھ دوں میں جہاں چاہتا تھا اس کی طرف میں نے اشارہ کیا۔ پھر آپ کھڑے ہو گئے اور ہم نے آپ کے پیچھے صف باندھ لی۔ پھر آپ نے جب سلام پھیرا تو ہم نے بھی سلام پھیرا۔",
+      "translationUrduRoman": "Hum se Muaz bin Asad ne bayan kiya, kaha ke hamein Abdullah bin Mubarak ne khabar di, kaha ke hamein Muammar ne Zuhri se khabar di, kaha ke mujhe Mahmood bin Rabi ne khabar di, kaha ke main ne Utban bin Malik Ansari (Radi Allahu Anhu) se suna, unhon ne bayan kiya ke Rasool Allah (Sallallahu Alaihi Wasallam) ne (mere ghar tashreef lane ki) ijazat chahi aur main ne aap ko ijazat di, aap (Sallallahu Alaihi Wasallam) ne daryaft farmaya ke tum log apne ghar mein jis jagah pasand karo main namaz padh doon? Main jahan chahta tha us ki taraf main ne ishara kiya. Phir aap khade ho gaye aur hum ne aap ke peeche saf bandh li. Phir aap ne jab salam phera toh hum ne bhi salam phera."
+    }
+  }
+}

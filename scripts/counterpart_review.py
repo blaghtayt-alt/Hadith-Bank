@@ -16,6 +16,7 @@ QUEUE_SCHEMA = 'hadith-bank-counterpart-review-queue-v1'
 RAW_ABU_BASE = 'sources/counterparts/reviewed/zh-abu-dawud-yu-2002-doc/2026-11-11'
 LANGUAGES = ('arabic', 'english')
 HASH = re.compile(r'[0-9a-f]{64}\Z')
+VERSION_FIELD_PREFIX = 'language_versions:'
 
 
 def require(condition, message):
@@ -89,15 +90,61 @@ def source_locator(record):
             'page': copy.deepcopy(record.get('page'))}
 
 
+def supported_source_text_field(field):
+    return (field in ('text_translation', 'text_arabic') or
+            isinstance(field, str) and field.startswith(VERSION_FIELD_PREFIX)
+            and bool(field[len(VERSION_FIELD_PREFIX):].strip()))
+
+
+def _source_version(record, field):
+    identity = field[len(VERSION_FIELD_PREFIX):]
+    versions = record.get('language_versions')
+    require(isinstance(versions, list), 'Occurrence has no language versions: ' + str(record.get('id')))
+    matches = [version for version in versions if isinstance(version, dict) and version.get('id') == identity]
+    require(len(matches) == 1, 'Review source language version is missing or ambiguous: ' + identity)
+    version = matches[0]
+    require(isinstance(version.get('language'), str) and version['language'].strip(),
+            'Review source language version needs its own language: ' + identity)
+    require(version.get('scope') not in ('external_source', 'source_context') and
+            version.get('quotation_status') not in ('boundary_pending', 'attribution_pending', 'content_mismatch'),
+            'Review source language version is context only: ' + identity)
+    return version
+
+
+def source_text(record, field):
+    """Read one exact quotation field without filling primary text or using comments."""
+    require(supported_source_text_field(field), 'Unsupported review source text field')
+    value = (_source_version(record, field).get('text') if field.startswith(VERSION_FIELD_PREFIX)
+             else record.get(field))
+    require(isinstance(value, str) and value.strip(),
+            'Occurrence has no source text to review: ' + str(record.get('id')))
+    return value
+
+
+def _default_source_text_field(record):
+    # Keep existing primary-field bindings byte-for-byte compatible. A registered
+    # multilingual occurrence may instead have only an admitted secondary reading.
+    for field in ('text_translation', 'text_arabic'):
+        if isinstance(record.get(field), str) and record[field].strip():
+            return field
+    versions = record.get('language_versions') or []
+    require(isinstance(versions, list), 'Occurrence language versions must be an array')
+    eligible = [version for version in versions if isinstance(version, dict)
+                and isinstance(version.get('id'), str) and version['id'].strip()
+                and isinstance(version.get('text'), str) and version['text'].strip()
+                and version.get('scope') not in ('external_source', 'source_context')
+                and version.get('quotation_status') not in ('boundary_pending', 'attribution_pending', 'content_mismatch')]
+    require(eligible, 'Occurrence has no source text to review: ' + str(record.get('id')))
+    return VERSION_FIELD_PREFIX + min(eligible, key=lambda version: version['id'])['id']
+
+
 def source_binding(record, text_field=None):
-    field = text_field or ('text_translation' if isinstance(record.get('text_translation'), str)
-                          and record['text_translation'].strip() else 'text_arabic')
-    require(field in ('text_translation', 'text_arabic') and isinstance(record.get(field), str)
-            and record[field].strip(), 'Occurrence has no source text to review: ' + str(record.get('id')))
+    field = _default_source_text_field(record) if text_field is None else text_field
+    text = source_text(record, field)
     source = record.get('source') or {}
     result = {'record_id': record.get('id'), 'source_id': record.get('source_id'),
               'language': record.get('language'), 'source_text_field': field,
-              'source_text_sha256': text_hash(record[field]), 'source_file_sha256': source.get('sha256'),
+              'source_text_sha256': text_hash(text), 'source_file_sha256': source.get('sha256'),
               'source_record_sha256': record.get('canonical_record_sha256'),
               'source_locator_sha256': object_hash(source_locator(record))}
     require(all(isinstance(result[key], str) and result[key] for key in ('record_id', 'source_id', 'language')),
@@ -105,6 +152,10 @@ def source_binding(record, text_field=None):
     require(all(isinstance(result[key], str) and HASH.fullmatch(result[key]) for key in
                 ('source_text_sha256', 'source_file_sha256', 'source_record_sha256', 'source_locator_sha256')),
             'Occurrence needs verified canonical/source hashes: ' + result['record_id'])
+    if field.startswith(VERSION_FIELD_PREFIX):
+        version = _source_version(record, field)
+        result.update(source_language_version_id=version['id'], source_text_language=version['language'],
+                      source_language_version_sha256=object_hash(version))
     return result
 
 
@@ -190,11 +241,11 @@ def validate_review_evidence(review, record, entry):
     for item in evidence:
         require(isinstance(item, dict), 'Review evidence must be structured')
         field, language = item.get('source_field'), item.get('target_language')
-        require(field in ('text_arabic', 'text_translation') and language in LANGUAGES,
+        require(supported_source_text_field(field) and language in LANGUAGES,
                 'Unsupported quotation evidence field')
         left, right = item.get('source_quote'), item.get('target_quote')
         require(substantive_quote(left)
-                and (record is None or left in (record.get(field) or '')),
+                and (record is None or left in source_text(record, field)),
                 'Review quotation is absent from exact source text')
         target = entry.get(language) or {}
         require(substantive_quote(right)
