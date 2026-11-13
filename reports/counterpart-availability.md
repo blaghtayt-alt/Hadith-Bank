@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**80,763 source occurrences**: Arabic text 67,470; English text 42,561; English source links 2,740.
+**87,709 source occurrences**: Arabic text 70,582; English text 49,289; English source links 2,762.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -10,14 +10,14 @@ Text and external-only links are counted separately. An English source link requ
 
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
-| ar | 29,786 | 29,786 | 29,723 | 57 | 0 | 6 |
-| bn | 2 | 0 | 0 | 0 | 2 | 2 |
-| en | 49 | 0 | 49 | 0 | 4 | 0 |
+| ar | 32,261 | 32,261 | 32,179 | 69 | 0 | 13 |
+| bn | 44 | 0 | 0 | 4 | 40 | 40 |
+| en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 5,806 | 5,774 | 5,624 | 0 | 32 | 182 |
+| hi | 6,443 | 6,411 | 6,261 | 0 | 32 | 182 |
 | ja | 3,463 | 366 | 327 | 0 | 3,097 | 3,136 |
-| ur | 74 | 0 | 0 | 6 | 72 | 68 |
+| ur | 231 | 0 | 0 | 12 | 223 | 219 |
 | uz | 9,457 | 8,766 | 452 | 0 | 691 | 9,005 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
@@ -71,13 +71,13 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
-| deenhindi-abudawud | hi | 462 | 462 | 462 | 0 | 0 | 0 |
-| deenhindi-bukhari | hi | 489 | 489 | 489 | 0 | 0 | 0 |
-| deenhindi-ibnmajah | hi | 528 | 528 | 528 | 0 | 0 | 0 |
-| deenhindi-malik | hi | 283 | 283 | 281 | 0 | 0 | 2 |
-| deenhindi-muslim | hi | 438 | 438 | 438 | 0 | 0 | 0 |
-| deenhindi-nasai | hi | 468 | 468 | 468 | 0 | 0 | 0 |
-| deenhindi-tirmidhi | hi | 554 | 554 | 554 | 0 | 0 | 0 |
+| deenhindi-abudawud | hi | 555 | 555 | 555 | 0 | 0 | 0 |
+| deenhindi-bukhari | hi | 589 | 589 | 589 | 0 | 0 | 0 |
+| deenhindi-ibnmajah | hi | 645 | 645 | 645 | 0 | 0 | 0 |
+| deenhindi-malik | hi | 316 | 316 | 314 | 0 | 0 | 2 |
+| deenhindi-muslim | hi | 524 | 524 | 524 | 0 | 0 | 0 |
+| deenhindi-nasai | hi | 575 | 575 | 575 | 0 | 0 | 0 |
+| deenhindi-tirmidhi | hi | 655 | 655 | 655 | 0 | 0 | 0 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
@@ -90,42 +90,49 @@ Text and external-only links are counted separately. An English source link requ
 | fa-targhib-bazmandegan-v1 | fa | 2,416 | 2,395 | 19 | 7 | 21 | 2,390 |
 | fa-targhib-bazmandegan-v2 | fa | 2,834 | 2,828 | 33 | 3 | 6 | 2,798 |
 | fa-targhib-bazmandegan-v3 | fa | 2,054 | 2,034 | 13 | 3 | 20 | 2,038 |
-| fawaz-abudawud-df57907be352-ar | ar | 1,497 | 1,497 | 1,491 | 6 | 0 | 0 |
-| fawaz-abudawud-df57907be352-ar-part-002 | ar | 1,508 | 1,508 | 1,504 | 4 | 0 | 0 |
-| fawaz-abudawud-df57907be352-ar-part-003 | ar | 1,307 | 1,307 | 1,301 | 6 | 0 | 0 |
-| fawaz-abudawud-df57907be352-en | en | 2 | 0 | 2 | 0 | 2 | 0 |
+| fawaz-abudawud-df57907be352-ar | ar | 1,494 | 1,494 | 1,489 | 5 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-002 | ar | 1,494 | 1,494 | 1,487 | 7 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-003 | ar | 1,539 | 1,539 | 1,531 | 8 | 0 | 0 |
+| fawaz-abudawud-df57907be352-ar-part-004 | ar | 164 | 164 | 164 | 0 | 0 | 0 |
+| fawaz-abudawud-df57907be352-en | en | 544 | 0 | 544 | 0 | 8 | 0 |
 | fawaz-abudawud-df57907be352-ur | ur | 6 | 0 | 0 | 4 | 6 | 2 |
-| fawaz-bukhari-df57907be352-ar | ar | 1,869 | 1,869 | 1,869 | 0 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ar-part-002 | ar | 1,743 | 1,743 | 1,743 | 0 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ar-part-003 | ar | 1,786 | 1,786 | 1,785 | 1 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ar-part-004 | ar | 1,042 | 1,042 | 1,040 | 2 | 0 | 0 |
-| fawaz-bukhari-df57907be352-en | en | 6 | 0 | 6 | 0 | 0 | 0 |
-| fawaz-bukhari-df57907be352-ur | ur | 2 | 0 | 0 | 0 | 2 | 2 |
-| fawaz-ibnmajah-df57907be352-ar | ar | 1,589 | 1,589 | 1,589 | 0 | 0 | 0 |
-| fawaz-ibnmajah-df57907be352-ar-part-002 | ar | 1,585 | 1,585 | 1,585 | 0 | 0 | 0 |
-| fawaz-ibnmajah-df57907be352-ar-part-003 | ar | 768 | 768 | 768 | 0 | 0 | 0 |
-| fawaz-ibnmajah-df57907be352-en | en | 2 | 0 | 2 | 0 | 2 | 0 |
-| fawaz-ibnmajah-df57907be352-ur | ur | 1 | 0 | 0 | 0 | 1 | 1 |
-| fawaz-malik-df57907be352-ar | ar | 773 | 773 | 729 | 38 | 0 | 6 |
-| fawaz-malik-df57907be352-en | en | 4 | 0 | 4 | 0 | 0 | 0 |
-| fawaz-malik-df57907be352-ur | ur | 4 | 0 | 0 | 2 | 2 | 2 |
-| fawaz-muslim-df57907be352-ar | ar | 1,867 | 1,867 | 1,867 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-ar-part-002 | ar | 1,837 | 1,837 | 1,837 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-ar-part-003 | ar | 1,864 | 1,864 | 1,864 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-ar-part-004 | ar | 367 | 367 | 367 | 0 | 0 | 0 |
-| fawaz-muslim-df57907be352-bn | bn | 2 | 0 | 0 | 0 | 2 | 2 |
-| fawaz-muslim-df57907be352-ur | ur | 29 | 0 | 0 | 0 | 29 | 29 |
-| fawaz-nasai-df57907be352-ar | ar | 1,641 | 1,641 | 1,641 | 0 | 0 | 0 |
-| fawaz-nasai-df57907be352-ar-part-002 | ar | 1,626 | 1,626 | 1,626 | 0 | 0 | 0 |
-| fawaz-nasai-df57907be352-ar-part-003 | ar | 1,588 | 1,588 | 1,588 | 0 | 0 | 0 |
-| fawaz-nasai-df57907be352-en | en | 1 | 0 | 1 | 0 | 0 | 0 |
-| fawaz-nasai-df57907be352-ur | ur | 3 | 0 | 0 | 0 | 3 | 3 |
+| fawaz-bukhari-df57907be352-ar | ar | 1,864 | 1,864 | 1,863 | 0 | 0 | 1 |
+| fawaz-bukhari-df57907be352-ar-part-002 | ar | 1,775 | 1,775 | 1,775 | 0 | 0 | 0 |
+| fawaz-bukhari-df57907be352-ar-part-003 | ar | 1,749 | 1,749 | 1,747 | 1 | 0 | 1 |
+| fawaz-bukhari-df57907be352-ar-part-004 | ar | 1,475 | 1,475 | 1,473 | 2 | 0 | 0 |
+| fawaz-bukhari-df57907be352-bn | bn | 1 | 0 | 0 | 0 | 1 | 1 |
+| fawaz-bukhari-df57907be352-en | en | 714 | 0 | 714 | 0 | 1 | 0 |
+| fawaz-bukhari-df57907be352-ur | ur | 5 | 0 | 0 | 2 | 3 | 3 |
+| fawaz-ibnmajah-df57907be352-ar | ar | 1,585 | 1,585 | 1,585 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ar-part-002 | ar | 1,577 | 1,577 | 1,577 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-ar-part-003 | ar | 1,023 | 1,023 | 1,023 | 0 | 0 | 0 |
+| fawaz-ibnmajah-df57907be352-bn | bn | 1 | 0 | 0 | 0 | 1 | 1 |
+| fawaz-ibnmajah-df57907be352-en | en | 155 | 0 | 155 | 0 | 2 | 0 |
+| fawaz-ibnmajah-df57907be352-ur | ur | 2 | 0 | 0 | 0 | 2 | 2 |
+| fawaz-malik-df57907be352-ar | ar | 1,004 | 1,004 | 950 | 43 | 0 | 11 |
+| fawaz-malik-df57907be352-bn | bn | 11 | 0 | 0 | 0 | 11 | 11 |
+| fawaz-malik-df57907be352-en | en | 796 | 0 | 796 | 0 | 1 | 0 |
+| fawaz-malik-df57907be352-ur | ur | 27 | 0 | 0 | 4 | 23 | 23 |
+| fawaz-muslim-df57907be352-ar | ar | 1,868 | 1,868 | 1,868 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-002 | ar | 1,860 | 1,860 | 1,860 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-003 | ar | 1,833 | 1,833 | 1,833 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ar-part-004 | ar | 920 | 920 | 920 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-bn | bn | 27 | 0 | 0 | 0 | 27 | 27 |
+| fawaz-muslim-df57907be352-en | en | 878 | 0 | 878 | 0 | 0 | 0 |
+| fawaz-muslim-df57907be352-ur | ur | 122 | 0 | 0 | 0 | 122 | 122 |
+| fawaz-nasai-df57907be352-ar | ar | 1,630 | 1,630 | 1,630 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-002 | ar | 1,630 | 1,630 | 1,628 | 2 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-003 | ar | 1,919 | 1,919 | 1,918 | 1 | 0 | 0 |
+| fawaz-nasai-df57907be352-ar-part-004 | ar | 102 | 102 | 102 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-bn | bn | 4 | 0 | 0 | 4 | 0 | 0 |
+| fawaz-nasai-df57907be352-en | en | 385 | 0 | 385 | 0 | 0 | 0 |
+| fawaz-nasai-df57907be352-ur | ur | 6 | 0 | 0 | 2 | 4 | 4 |
 | fawaz-nawawi-df57907be352-ar | ar | 42 | 42 | 42 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-ar | ar | 1,401 | 1,401 | 1,401 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-ar-part-002 | ar | 1,397 | 1,397 | 1,397 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-ar-part-003 | ar | 689 | 689 | 689 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-en | en | 34 | 0 | 34 | 0 | 0 | 0 |
-| fawaz-tirmidhi-df57907be352-ur | ur | 29 | 0 | 0 | 0 | 29 | 29 |
+| fawaz-tirmidhi-df57907be352-ar | ar | 1,403 | 1,403 | 1,403 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ar-part-002 | ar | 1,410 | 1,410 | 1,410 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-ar-part-003 | ar | 901 | 901 | 901 | 0 | 0 | 0 |
+| fawaz-tirmidhi-df57907be352-en | en | 212 | 0 | 212 | 0 | 2 | 0 |
+| fawaz-tirmidhi-df57907be352-ur | ur | 63 | 0 | 0 | 0 | 63 | 63 |
 | fil-hisn-muslim-3e409dd7 | fil | 298 | 259 | 0 | 0 | 39 | 298 |
 | hadeethenc-hi-sqlite-3b74b6c4da6dc883 | hi | 2,314 | 2,314 | 2,308 | 0 | 0 | 6 |
 | hadeethenc-ja-sqlite-a81da9af28f854f6 | ja | 281 | 281 | 278 | 0 | 0 | 3 |

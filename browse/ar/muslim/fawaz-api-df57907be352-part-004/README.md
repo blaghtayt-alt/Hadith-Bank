@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ar/muslim/fawaz-api-df57907be352-part-004/)
 
-Edition: `fawaz-api-df57907be352-part-004` · 367 source occurrences.
+Edition: `fawaz-api-df57907be352-part-004` · 920 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -24,4 +24,26 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 276–300](page-0012.md)
 - [Narrations 301–325](page-0013.md)
 - [Narrations 326–350](page-0014.md)
-- [Narrations 351–367](page-0015.md)
+- [Narrations 351–375](page-0015.md)
+- [Narrations 376–400](page-0016.md)
+- [Narrations 401–425](page-0017.md)
+- [Narrations 426–450](page-0018.md)
+- [Narrations 451–475](page-0019.md)
+- [Narrations 476–500](page-0020.md)
+- [Narrations 501–525](page-0021.md)
+- [Narrations 526–550](page-0022.md)
+- [Narrations 551–575](page-0023.md)
+- [Narrations 576–600](page-0024.md)
+- [Narrations 601–625](page-0025.md)
+- [Narrations 626–650](page-0026.md)
+- [Narrations 651–675](page-0027.md)
+- [Narrations 676–700](page-0028.md)
+- [Narrations 701–725](page-0029.md)
+- [Narrations 726–750](page-0030.md)
+- [Narrations 751–775](page-0031.md)
+- [Narrations 776–800](page-0032.md)
+- [Narrations 801–825](page-0033.md)
+- [Narrations 826–850](page-0034.md)
+- [Narrations 851–875](page-0035.md)
+- [Narrations 876–900](page-0036.md)
+- [Narrations 901–920](page-0037.md)

@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ar/nasai/fawaz-api-df57907be352-part-002/)
 
-Edition: `fawaz-api-df57907be352-part-002` · 1626 source occurrences.
+Edition: `fawaz-api-df57907be352-part-002` · 1630 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -75,4 +75,4 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 1551–1575](page-0063.md)
 - [Narrations 1576–1600](page-0064.md)
 - [Narrations 1601–1625](page-0065.md)
-- [Narrations 1626–1626](page-0066.md)
+- [Narrations 1626–1630](page-0066.md)
