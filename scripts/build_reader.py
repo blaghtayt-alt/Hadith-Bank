@@ -19,7 +19,11 @@ import math
 import os
 from pathlib import Path, PurePosixPath
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
+import threading
 from urllib.parse import quote, urljoin, urlsplit
 import xml.etree.ElementTree as ET
 
@@ -938,7 +942,8 @@ def compressed_reader_payload(records, max_embedded_bytes=None):
     return base64.b64encode(raw).decode('ascii')
 
 
-def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_SHARD_BYTES):
+def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_SHARD_BYTES,
+                        publish=True):
     """Write bounded gzip JSONL pieces; a record may span several pieces."""
     if type(max_shard_bytes) is not int or not 1024 <= max_shard_bytes <= MAX_READER_SHARD_BYTES:
         raise ValueError('Reader shard size must be between 1024 and 2097152 bytes')
@@ -973,7 +978,7 @@ def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_S
         digest = hashlib.sha256(compressed).hexdigest()
         name = 'part-' + str(len(shards) + 1).zfill(5) + '-' + digest[:16] + '.jsonl.gz'
         target = local(output.parent, relative + '/' + name)
-        target.write_bytes(compressed)
+        _atomic_reader_bytes(target, compressed)
         shards.append({'path': relative + '/' + name, 'sha256': digest,
                        'bytes': len(compressed), 'uncompressed_bytes': len(plain),
                        'count': plain.count(b'\n')})
@@ -995,20 +1000,349 @@ def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_S
     manifest = {'schema': 'hadith-bank-reader-shards-v1', 'encoding': 'gzip-jsonl-shards',
                 'record_count': record_count, 'jsonl_sha256': aggregate.hexdigest(),
                 'max_shard_bytes': max_shard_bytes, 'shards': shards}
-    write(manifest_path, json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
-    retained = {part['path'] for part in shards}
-    if isinstance(previous, dict) and previous.get('schema') == manifest['schema']:
-        for part in previous.get('shards', []):
-            if not isinstance(part, dict) or part.get('path') in retained:
-                continue
-            candidate = part.get('path')
-            if (not isinstance(candidate, str) or
-                    PurePosixPath(candidate).parent.as_posix() != relative or
-                    not re.fullmatch(r'part-[0-9]{5,}-[0-9a-f]{16}\.jsonl\.gz', PurePosixPath(candidate).name)):
-                continue
-            target = local(output.parent, candidate)
-            if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == part.get('sha256'):
-                target.unlink()
+    if publish:
+        _atomic_reader_manifest(manifest_path, manifest)
+        _prune_reader_parts(output.parent, relative, previous, manifest)
+    return manifest
+
+
+class _ReaderStore:
+    """Write content-addressed pieces without changing a published manifest."""
+
+    def __init__(self, output_root, relative, max_shard_bytes, whole_rows):
+        self.root, self.relative = output_root, relative
+        self.directory = local(output_root, relative)
+        self.directory.mkdir(parents=True, exist_ok=True)
+        self.limit = max_shard_bytes
+        self.plain_limit = max_shard_bytes - max(256, max_shard_bytes // 128)
+        self.whole_rows = whole_rows
+        self.pending = bytearray()
+        self.shards = []
+        self.aggregate = hashlib.sha256()
+        self.count = self.max_row_bytes = 0
+        self.first = self.last = None
+
+    def _flush(self):
+        if not self.pending:
+            return
+        plain = bytes(self.pending)
+        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        if len(compressed) > self.limit:
+            raise ValueError('Compressed reader shard exceeds its bound: ' + self.relative)
+        digest = hashlib.sha256(compressed).hexdigest()
+        name = 'part-' + str(len(self.shards) + 1).zfill(5) + '-' + digest[:16] + '.jsonl.gz'
+        relative = self.relative + '/' + name
+        _atomic_reader_bytes(local(self.root, relative), compressed)
+        part = {'path': relative, 'sha256': digest, 'bytes': len(compressed),
+                'uncompressed_bytes': len(plain), 'count': plain.count(b'\n')}
+        if self.whole_rows:
+            part.update(first_ordinal=self.first, last_ordinal=self.last)
+            if part['count'] != self.last - self.first + 1:
+                raise ValueError('Noncontiguous reader projection rows: ' + self.relative)
+        self.shards.append(part)
+        self.pending.clear()
+        self.first = self.last = None
+
+    def add(self, raw, ordinal, identity):
+        if ordinal != self.count or not raw.endswith(b'\n') or raw.count(b'\n') != 1:
+            raise ValueError('Invalid ordered reader JSONL row: ' + self.relative)
+        self.max_row_bytes = max(self.max_row_bytes, len(raw))
+        if self.whole_rows:
+            if len(raw) > self.plain_limit:
+                raise ValueError('Reader projection row exceeds decoded shard limit: ' +
+                                 self.relative + ', ordinal ' + str(ordinal) + ', id ' +
+                                 str(identity)[:160] + ', bytes ' + str(len(raw)) +
+                                 ', limit ' + str(self.plain_limit))
+            if len(self.pending) + len(raw) > self.plain_limit:
+                self._flush()
+            if not self.pending:
+                self.first = ordinal
+            self.last = ordinal
+            self.pending.extend(raw)
+            if len(self.pending) == self.plain_limit:
+                self._flush()
+        else:
+            offset = 0
+            while offset < len(raw):
+                take = min(self.plain_limit - len(self.pending), len(raw) - offset)
+                self.pending.extend(raw[offset:offset + take])
+                offset += take
+                if len(self.pending) == self.plain_limit:
+                    self._flush()
+        self.aggregate.update(raw)
+        self.count += 1
+
+    def finish(self):
+        self._flush()
+        result = {'encoding': 'gzip-jsonl-shards', 'record_count': self.count,
+                  'jsonl_sha256': self.aggregate.hexdigest(), 'max_shard_bytes': self.limit,
+                  'shards': self.shards}
+        if not self.whole_rows:
+            result.update(schema='hadith-bank-reader-shards-v1', plain_part_bytes=self.plain_limit)
+        return result
+
+
+def _reader_manifest_parts(manifest):
+    if not isinstance(manifest, dict):
+        return []
+    if manifest.get('schema') == 'hadith-bank-reader-shards-v1':
+        stores = [manifest]
+    elif manifest.get('schema') == 'hadith-bank-reader-lazy-v2':
+        stores = [manifest.get(name) for name in ('directory', 'search', 'annotations', 'details')]
+    else:
+        return []
+    return [part for store in stores if isinstance(store, dict)
+            for part in (store['shards'] if isinstance(store.get('shards'), list) else [])
+            if isinstance(part, dict)]
+
+
+def _prune_reader_parts(root, relative, previous, current):
+    retained = {part['path'] for part in _reader_manifest_parts(current)}
+    parents = {relative, *(relative + '/' + name for name in ('directory', 'search', 'annotations', 'details'))}
+    for part in _reader_manifest_parts(previous):
+        candidate = part.get('path')
+        if not isinstance(candidate, str) or candidate in retained:
+            continue
+        if (PurePosixPath(candidate).parent.as_posix() not in parents or
+                not re.fullmatch(r'part-[0-9]{5,}-[0-9a-f]{16}\.jsonl\.gz', PurePosixPath(candidate).name)):
+            continue
+        try:
+            target = local(root, candidate)
+        except ValueError:
+            continue
+        if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == part.get('sha256'):
+            target.unlink()
+
+
+def _atomic_reader_bytes(path, data):
+    """A failed write cannot truncate a part still named by the previous manifest."""
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='wb', dir=path.parent, prefix='.reader-part-',
+                                         suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(data)
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
+
+def _publish_reader_document(output, document, manifest_path=None, manifest=None):
+    """Prepare both files before switching, retaining the prior playable pair.
+
+    Parts are content-addressed and remain untouched until the HTML is installed.
+    If the second replacement fails, restore the previous manifest from an already
+    prepared file rather than requiring another allocation after a disk failure.
+    """
+    output.parent.mkdir(parents=True, exist_ok=True)
+    temporary = []
+
+    def stage(path, data):
+        with tempfile.NamedTemporaryFile(mode='wb', dir=path.parent, prefix='.reader-publish-',
+                                         suffix='.tmp', delete=False) as stream:
+            candidate = Path(stream.name)
+            temporary.append(candidate)
+            stream.write(data)
+        return candidate
+
+    installed_manifest = False
+    previous_manifest = None
+    try:
+        new_output = stage(output, document.encode('utf-8'))
+        if manifest_path is not None:
+            if manifest_path.exists():
+                previous_manifest = stage(manifest_path, manifest_path.read_bytes())
+            new_manifest = stage(manifest_path,
+                (json.dumps(manifest, ensure_ascii=False, indent=2, allow_nan=False) + '\n').encode('utf-8'))
+            os.replace(new_manifest, manifest_path)
+            installed_manifest = True
+        try:
+            os.replace(new_output, output)
+        except BaseException:
+            if installed_manifest:
+                if previous_manifest is not None:
+                    os.replace(previous_manifest, manifest_path)
+                else:
+                    manifest_path.unlink()
+            raise
+    finally:
+        for candidate in temporary:
+            if candidate.exists():
+                candidate.unlink()
+
+
+def _atomic_reader_manifest(path, manifest):
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
+                                         prefix='.manifest-', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            json.dump(manifest, stream, ensure_ascii=False, indent=2, allow_nan=False)
+            stream.write('\n')
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None and temporary.exists():
+            temporary.unlink()
+
+
+def write_lazy_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_SHARD_BYTES,
+                             template_path=None, publish=True):
+    """Project bounded search stores and an exact, addressable full-record store.
+
+    The existing JSONL byte stream and gzip boundary algorithm are unchanged.
+    Only the atomically replaced top-level manifest publishes the new stores;
+    stale generated pieces are pruned after all projection and count checks pass.
+    With publish=False, leave the existing manifest and chunks intact so build()
+    can install its HTML and manifest together before pruning.
+    """
+    if type(max_shard_bytes) is not int or not 1024 <= max_shard_bytes <= MAX_READER_SHARD_BYTES:
+        raise ValueError('Reader shard size must be between 1024 and 2097152 bytes')
+    output, directory = Path(output).absolute(), Path(directory).absolute()
+    try:
+        relative = directory.relative_to(output.parent).as_posix()
+    except ValueError as error:
+        raise ValueError('Reader data directory must be inside the output directory') from error
+    if relative == '.' or re.search(r'[%:?#\\\x00-\x1f\x7f]', relative):
+        raise ValueError('Unsafe reader data directory')
+    directory = local(output.parent, relative)
+    manifest_path = local(output.parent, relative + '/manifest.json')
+    previous = {}
+    if manifest_path.exists():
+        try:
+            previous = parse_json(manifest_path.read_text(encoding='utf-8'))
+        except (ValueError, UnicodeError):
+            pass
+        if not isinstance(previous, dict):
+            previous = {}
+    node = shutil.which('node')
+    if node is None:
+        raise ValueError('Node.js is required to build exact browser reader projections')
+    projector = Path(__file__).resolve().with_name('reader_projection.js')
+    template_path = Path(template_path) if template_path else projector.parents[1] / 'reader/template.html'
+    stores = {name: _ReaderStore(output.parent, relative + '/' + name, max_shard_bytes, name != 'details')
+              for name in ('directory', 'search', 'annotations', 'details')}
+    compact = lambda value: (json.dumps(value, ensure_ascii=False, separators=(',', ':'),
+                                       allow_nan=False) + '\n').encode('utf-8')
+    errors, detail_spans = [], []
+    # A draining thread avoids stdout/stdin pipe deadlock. The diagnostic file
+    # keeps at most 64 KiB even if Node fails before our bounded error handler.
+    with tempfile.TemporaryFile() as diagnostics:
+        process = subprocess.Popen([node, str(projector), str(template_path)],
+                                   stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        def feed():
+            offset = 0
+            try:
+                for ordinal, record in enumerate(records):
+                    raw = compact(record)
+                    stores['details'].add(raw, ordinal, record.get('id'))
+                    detail_spans.append([offset, len(raw)])
+                    offset += len(raw)
+                    process.stdin.write(raw)
+            except BaseException as error:
+                errors.append(error)
+                # Do not let a failed input writer leave the reader waiting for
+                # output from a child that is still processing buffered input.
+                try:
+                    process.terminate()
+                except OSError:
+                    pass
+            finally:
+                try:
+                    process.stdin.close()
+                except OSError:
+                    pass
+
+        def capture_errors():
+            retained = 0
+            try:
+                while True:
+                    chunk = process.stderr.read(8192)
+                    if not chunk:
+                        break
+                    keep = chunk[:max(0, 65536 - retained)]
+                    diagnostics.write(keep)
+                    retained += len(keep)
+            except (OSError, ValueError) as error:
+                errors.append(error)
+
+        feeder = threading.Thread(target=feed, name='reader-projection-input', daemon=True)
+        collector = threading.Thread(target=capture_errors, name='reader-projection-errors', daemon=True)
+        feeder.start()
+        collector.start()
+        received = 0
+        try:
+            # Each output contains three bounded rows. A corrupt projector must
+            # not make an unbounded allocation before the row-size checks run.
+            projection_limit = 3 * max_shard_bytes + 4096
+            while True:
+                raw = process.stdout.readline(projection_limit + 1)
+                if not raw:
+                    break
+                if len(raw) > projection_limit or not raw.endswith(b'\n'):
+                    raise ValueError('Reader projection output row exceeds its bound or lacks a newline')
+                projected = parse_json(raw.decode('utf-8'))
+                if (not isinstance(projected, list) or len(projected) != 4 or
+                        type(projected[0]) is not int or projected[0] != received or
+                        not isinstance(projected[1], dict) or
+                        any(not isinstance(value, str) for value in projected[2:])):
+                    raise ValueError('Invalid ordered reader projection output')
+                ordinal, entry, search_key, annotation_key = projected
+                if ordinal >= len(records) or any(entry.get(key) != records[ordinal].get(key)
+                        for key in ('id', 'language', 'book_key', 'edition', 'source_id')):
+                    raise ValueError('Reader projection occurrence identity mismatch')
+                metadata = entry.get('_reader')
+                if not isinstance(metadata, dict):
+                    raise ValueError('Invalid reader directory metadata')
+                locator = metadata.get('detail')
+                if (not isinstance(locator, list) or len(locator) != 2 or
+                        any(type(value) is not int or value < 0 for value in locator) or locator[1] == 0 or
+                        ordinal >= len(detail_spans) or locator != detail_spans[ordinal]):
+                    raise ValueError('Invalid reader detail byte locator')
+                stores['directory'].add(compact(entry), ordinal, entry['id'])
+                stores['search'].add(compact([ordinal, search_key]), ordinal, entry['id'])
+                stores['annotations'].add(compact([ordinal, annotation_key]), ordinal, entry['id'])
+                received += 1
+            try:
+                status = process.wait(timeout=5)
+            except subprocess.TimeoutExpired as error:
+                raise ValueError('Reader projection process did not exit after closing its output') from error
+            feeder.join()
+            collector.join()
+            if errors and not isinstance(errors[0], BrokenPipeError):
+                raise ValueError('Reader projection input failed: ' + str(errors[0])[:1000]) from errors[0]
+            if status:
+                diagnostics.seek(0)
+                message = diagnostics.read(4096).decode('utf-8', 'replace').strip()
+                raise ValueError('Reader projection process failed (' + str(status) + '): ' + message)
+            if errors:
+                raise ValueError('Reader projection input failed: ' + str(errors[0])[:1000]) from errors[0]
+            if received != len(records) or stores['details'].count != received:
+                raise ValueError('Reader projection record count mismatch')
+        finally:
+            if process.poll() is None:
+                process.terminate()
+                try:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait()
+            feeder.join(timeout=5)
+            collector.join(timeout=5)
+            process.stdout.close()
+            process.stderr.close()
+    finished = {name: store.finish() for name, store in stores.items()}
+    manifest = {'schema': 'hadith-bank-reader-lazy-v2', 'encoding': 'gzip-jsonl-lazy-v2',
+                'record_count': len(records), 'jsonl_sha256': finished['details']['jsonl_sha256'],
+                'max_shard_bytes': max_shard_bytes,
+                'max_projection_row_bytes': {name: stores[name].max_row_bytes
+                                             for name in ('directory', 'search', 'annotations')},
+                'max_detail_record_bytes': stores['details'].max_row_bytes,
+                **finished}
+    if publish:
+        _atomic_reader_manifest(manifest_path, manifest)
+        _prune_reader_parts(output.parent, relative, previous, manifest)
     return manifest
 
 
@@ -1034,7 +1368,7 @@ def build(root, output, markdown_output=None, compress=True, site=None,
                 'private_materials_not_in_this_tree': catalog.get('private_materials_not_in_this_tree', [])}
     if max_embedded_bytes is not None:
         valid_count(max_embedded_bytes, 'max_embedded_bytes')
-    payload, manifest = None, None
+    payload, manifest, manifest_path, previous_manifest = None, None, None, {}
     if data_directory is None:
         if compress:
             payload = compressed_reader_payload(records, max_embedded_bytes)
@@ -1044,20 +1378,38 @@ def build(root, output, markdown_output=None, compress=True, site=None,
                 payload = None
     if payload is None:
         directory = Path(data_directory) if data_directory is not None else output.parent / (output.stem + '-data')
-        manifest = write_reader_shards(records, output, directory, max_shard_bytes)
-        payload, encoding = script_json(manifest), 'gzip-jsonl-shards'
+        manifest = write_lazy_reader_shards(records, output, directory, max_shard_bytes, template_path,
+                                            publish=False)
+        relative = Path(directory).absolute().relative_to(output.parent).as_posix()
+        manifest_path = local(output.parent, relative + '/manifest.json')
+        if manifest_path.exists():
+            try:
+                previous_manifest = parse_json(manifest_path.read_text(encoding='utf-8'))
+            except (ValueError, UnicodeError):
+                previous_manifest = {}
+        payload, encoding = script_json(manifest), manifest['encoding']
     else:
         encoding = 'gzip-base64' if compress else 'json'
+    parts = _reader_manifest_parts(manifest) if manifest is not None else []
     metadata['data_delivery'] = {'encoding': encoding, 'self_contained': manifest is None,
-                                 'shard_count': len(manifest['shards']) if manifest is not None else 0}
+                                 'shard_count': len(parts)}
+    if manifest is not None:
+        # records_sha256 remains the canonical input stream's hash. The hosted
+        # detail stream is a compact serialization of those exact objects and
+        # can legitimately have different JSON whitespace and a different hash.
+        metadata['data_delivery']['jsonl_sha256'] = manifest['jsonl_sha256']
+    lazy_store = (template_path.parent / 'lazy-store.js').read_text(encoding='utf-8') if '__HADITH_LAZY_STORE_JS__' in template else ''
     replacements = {'__HADITH_RECORDS_JSON__': payload,
                     '__HADITH_ENCODING__': encoding,
                     '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
                     '__HADITH_UI_STYLES__': ui_styles, '__HADITH_UI_ICONS__': ui_icons,
+                    '__HADITH_LAZY_STORE_JS__': lazy_store,
                     '__HADITH_DISCOVERY_HEAD__': discovery_head(records, metadata['site']),
                     '__HADITH_DISCOVERY_NAV__': discovery_navigation(records, metadata['site'])}
     document = render_template(template, replacements)
-    write(output, document)
+    _publish_reader_document(output, document, manifest_path, manifest)
+    if manifest is not None:
+        _prune_reader_parts(output.parent, relative, previous_manifest, manifest)
     result = {**info, 'html_output': str(output), 'html_bytes': output.stat().st_size,
               'source_text_modified': False,
               'network_dependencies': ['same-origin reader data shards'] if manifest is not None else [],
@@ -1065,8 +1417,20 @@ def build(root, output, markdown_output=None, compress=True, site=None,
     if manifest is not None:
         directory = Path(data_directory).absolute() if data_directory is not None else output.parent / (output.stem + '-data')
         result.update(data_directory=str(directory), shard_manifest=str(directory / 'manifest.json'),
-                      shard_count=len(manifest['shards']),
-                      shard_bytes=sum(part['bytes'] for part in manifest['shards']))
+                      shard_count=len(parts), shard_bytes=sum(part['bytes'] for part in parts))
+        if manifest['schema'] == 'hadith-bank-reader-lazy-v2':
+            result['max_projection_row_bytes'] = manifest['max_projection_row_bytes']
+            result['max_detail_record_bytes'] = manifest['max_detail_record_bytes']
+            result['detail_shard_count'] = len(manifest['details']['shards'])
+            result['directory_bytes'] = sum(part['uncompressed_bytes'] for part in manifest['directory']['shards'])
+            result['reader_store_metrics'] = {
+                name: {'record_count': manifest[name]['record_count'],
+                       'shard_count': len(manifest[name]['shards']),
+                       'compressed_bytes': sum(part['bytes'] for part in manifest[name]['shards']),
+                       'uncompressed_bytes': sum(part['uncompressed_bytes'] for part in manifest[name]['shards']),
+                       'max_row_bytes': (manifest['max_detail_record_bytes'] if name == 'details'
+                                         else manifest['max_projection_row_bytes'][name])}
+                for name in ('directory', 'search', 'annotations', 'details')}
     if markdown_output is not None:
         result.update(build_markdown(records, markdown_output, info, catalog, root))
     return result
@@ -1093,3 +1457,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+

@@ -35,7 +35,13 @@ jobs:
         with:
           python-version: '3.13'
       - name: Run software tests
-        run: python -m unittest discover -s tests
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/test_lazy_store.js
+      - name: Install reader browser test runtime
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m playwright install --with-deps chromium
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
       - name: Save bounded Fawaz validation evidence
@@ -54,6 +60,20 @@ jobs:
           retention-days: 7
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+      - name: Verify bounded reader in Chromium
+        run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
+      - name: Save reader runtime evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: reader-runtime-${{ github.job }}
+          path: |
+            .work/reader-browser-smoke.json
+            reports/portable-validation.json
+            reports/site-build.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
 
   build:
     name: Refresh bank and build website
@@ -76,7 +96,13 @@ jobs:
         with:
           python-version: '3.13'
       - name: Run software tests
-        run: python -m unittest discover -s tests
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/test_lazy_store.js
+      - name: Install reader browser test runtime
+        run: |
+          python -m pip install --disable-pip-version-check playwright==1.62.0
+          python -m playwright install --with-deps chromium
       - name: Export saved Fawaz reviews and preserve published quotations
         run: python scripts/refresh_fawaz_reviewed.py --root .
       - name: Save bounded Fawaz validation evidence
@@ -106,6 +132,20 @@ jobs:
           fi
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+      - name: Verify bounded reader in Chromium
+        run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
+      - name: Save reader runtime evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: reader-runtime-${{ github.job }}
+          path: |
+            .work/reader-browser-smoke.json
+            reports/portable-validation.json
+            reports/site-build.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Keep generated bank files synchronized
         id: sync
         shell: bash

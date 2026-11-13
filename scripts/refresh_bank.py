@@ -2,7 +2,8 @@
 """Rebuild and validate every registered source, then atomically stage the reader.
 
 Run after adding materials/<slug>/manifest.json and its local records/source files.
-Uses only Python's standard library; never extracts, translates, or certifies text.
+Uses Python's standard library and the local Node search projector; never
+extracts, translates, or certifies text.
 """
 import argparse
 import datetime
@@ -26,6 +27,15 @@ def git_revision(root):
     result = subprocess.run(['git', '-C', str(root), 'rev-parse', 'HEAD'],
                             capture_output=True, text=True)
     return result.stdout.strip() if result.returncode == 0 else None
+
+
+def reader_build_metrics(result):
+    """Keep transport/row measurements while omitting local output paths."""
+    fields = ('html_bytes', 'embedded_encoding', 'self_contained', 'shard_count',
+              'shard_bytes', 'detail_shard_count', 'directory_bytes',
+              'max_projection_row_bytes', 'max_detail_record_bytes',
+              'reader_store_metrics')
+    return {key: result[key] for key in fields if key in result}
 
 
 def stage_site(root, output, info):
@@ -52,8 +62,7 @@ def stage_site(root, output, info):
             shutil.copytree(root / data_name, staging / data_name)
         hosted = build_reader(root, staging / 'index.html', site=settings,
                               data_directory=staging / data_name)
-        info['hosted_reader'] = {key: hosted[key] for key in
-            ('html_bytes', 'embedded_encoding', 'self_contained', 'shard_count', 'shard_bytes')}
+        info['hosted_reader'] = reader_build_metrics(hosted)
         discovery = build_discovery(root, staging, site={
             'source_ref': info['source_ref'],
             **({'build_commit': info['source_commit']} if info.get('source_commit') else {}),
@@ -108,6 +117,7 @@ def refresh(root, site_output='_site'):
             'search_sha256': catalog['search']['records_sha256'],
             'reader_sha256': report['reader']['sha256'], 'reader_bytes': report['reader']['bytes'],
             'reader_self_contained': reader_result['self_contained'],
+            'reader_transport': reader_build_metrics(reader_result),
             'canonical_source_bytes_unchanged': True, 'independent_qc_performed': False,
             'counterpart_review': {
                 **{key: value for key, value in review_queue.items() if key not in ('output', 'manifest')},
@@ -136,3 +146,4 @@ def main(argv=None):
 
 if __name__ == '__main__':
     main()
+

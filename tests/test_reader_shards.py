@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_reader as reader
@@ -19,6 +20,7 @@ from test_reader import fixture
 
 
 class ReaderShardTests(unittest.TestCase):
+    """Retain v1 transport compatibility; v2 production has its own test suite."""
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -39,7 +41,12 @@ class ReaderShardTests(unittest.TestCase):
         (self.root / 'catalog/materials.json').write_text(json.dumps(self.catalog), encoding='utf-8')
 
     def build(self, **options):
-        return reader.build(self.root, self.output, **options)
+        # Existing v1 browser-loader/integrity tests must continue to exercise
+        # their original byte-chunk format after the hosted default moves to v2.
+        def legacy(records, output, directory, max_shard_bytes, template_path, publish=True):
+            return reader.write_reader_shards(records, output, directory, max_shard_bytes, publish=publish)
+        with mock.patch.object(reader, 'write_lazy_reader_shards', side_effect=legacy):
+            return reader.build(self.root, self.output, **options)
 
     def payload(self, identifier='hadith-records'):
         source = self.output.read_text(encoding='utf-8')
@@ -262,3 +269,4 @@ globalThis.fetch=(url,options)=>new Promise((resolve,reject)=>{
 
 if __name__ == '__main__':
     unittest.main()
+

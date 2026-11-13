@@ -12,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from test_reader import READER_SNAPSHOT_JS, READER_FILTER_HARNESS_JS
 from unittest import mock
 
 
@@ -249,12 +250,15 @@ class HadithSearchTests(unittest.TestCase):
         template = (SCRIPT.parents[1] / 'reader/template.html').read_text(encoding='utf-8')
         helpers = template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
         filtering = template.split('function applyFilters(){', 1)[1].split('$("query").addEventListener', 1)[0]
-        program = '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+        program = READER_SNAPSHOT_JS + '''const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
 const records=input.records,names={},state={matches:[]},fields={query:{value:''},'language-filter':{value:''},'book-filter':{value:''},'source-filter':{value:''},'origin-filter':{value:''},'include-commentary':{checked:false}};
 const $=id=>fields[id],render=()=>{};
-const valueText = ''' + helpers + '''\nfunction applyFilters(){''' + filtering + '''
-const results=input.queries.map(item=>{fields.query.value=item.query;fields['origin-filter'].value=item.origin;fields['include-commentary'].checked=item.commentary;applyFilters();return state.matches.map(index=>records[index].id);});
-process.stdout.write(JSON.stringify({results,records}));'''
+const valueText = ''' + helpers + READER_FILTER_HARNESS_JS + '''\nasync function applyFilters(){''' + filtering + '''
+(async()=>{
+const results=[];
+for(const item of input.queries){fields.query.value=item.query;fields['origin-filter'].value=item.origin;fields['include-commentary'].checked=item.commentary;await applyFilters();results.push(state.matches.map(index=>records[index].id));}
+process.stdout.write(JSON.stringify({results,records}));
+})().catch(error=>{process.stderr.write(String(error.stack || error));process.exitCode=1;});'''
         result = subprocess.run([shutil.which('node'), '-e', program],
                                 input=json.dumps({'records': self.records, 'queries': queries}, ensure_ascii=False),
                                 text=True, encoding='utf-8', capture_output=True, check=True)
