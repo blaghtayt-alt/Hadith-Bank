@@ -1,9 +1,11 @@
 """Offline saved-head evidence export, using only synthetic TEST source pages."""
 import copy
 import gzip
+import hashlib
 import json
 import os
 from pathlib import Path
+import random
 import shutil
 import subprocess
 import sys
@@ -132,7 +134,7 @@ class CommittedHeldEvidenceTests(unittest.TestCase):
             with self.subTest(options=options), self.assertRaises(ValueError):
                 self.export(**options)
         before = self.bundle(result)
-        with self.assertRaisesRegex(ValueError, 'first held source'):
+        with self.assertRaisesRegex(ValueError, 'exceed.*byte bound'):
             self.export(max_bytes=1)
         self.assertEqual(self.bundle(result), before)
 
@@ -144,6 +146,71 @@ class CommittedHeldEvidenceTests(unittest.TestCase):
         files = self.bundle(result)
         self.assertFalse(any(name.startswith('sources/') for name in files))
         self.assertEqual(files['held-source-records.jsonl'], b'')
+        state = (self.root / importer.IMPORT / 'state.json').read_bytes()
+        self.assertEqual(gzip.decompress(files[exporter.STATE_ARTIFACT]), state)
+
+    def test_complete_saved_state_is_exact_deterministic_and_hash_bound(self):
+        self.state['error_history'] = {'TEST': [{'message': 'retained original error',
+                                               'response_sha256': 'a' * 64}]}
+        self.write_checkpoint()
+        path = self.root / importer.IMPORT / 'state.json'
+        # Valid, deliberately noncanonical JSON spacing proves byte preservation,
+        # not a reconstruction from selected entries or a parsed state object.
+        source = b' \n' + path.read_bytes() + b'\t\n'
+        path.write_bytes(source)
+        self.head = self.commit()
+        result = self.export(max_records=1)
+        files = self.bundle(result)
+        checkpoint = json.loads(files['checkpoint.json'])
+        descriptor = checkpoint['saved_state']
+        stored = files[descriptor['path']]
+        self.assertEqual(descriptor['source_path'], importer.IMPORT + '/state.json')
+        self.assertEqual(descriptor['compression'], 'gzip')
+        self.assertEqual(descriptor['bytes'], len(source))
+        self.assertEqual(descriptor['sha256'], recovery.sha(source))
+        self.assertEqual(descriptor['stored_bytes'], len(stored))
+        self.assertEqual(descriptor['stored_sha256'], recovery.sha(stored))
+        self.assertEqual(descriptor['maximum_uncompressed_bytes'], recovery.MAX_STATE_BYTES)
+        self.assertEqual(descriptor['git_blob_sha1'], self.git('rev-parse', self.head + ':' + descriptor['source_path']))
+        self.assertEqual(descriptor['git_blob_sha1'], hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest())
+        self.assertEqual(checkpoint['input_receipts'][descriptor['source_path']]['sha256'], descriptor['sha256'])
+        self.assertEqual(gzip.decompress(stored), source)
+        self.assertEqual(recovery.uncompress(stored, descriptor['bytes']), source)
+        with self.assertRaisesRegex(ValueError, 'gzip source exceeds object limit'):
+            recovery.uncompress(stored, descriptor['bytes'] - 1)
+        recovered = json.loads(gzip.decompress(stored))
+        self.assertEqual(recovered, self.state)
+        self.assertEqual(len(recovered['imported']), 4)
+        self.assertEqual(result['selected_held_entries'], 1)
+        self.assertEqual(recovered['blocked'], self.state['blocked'])
+        self.assertEqual(recovered['errors'], self.state['errors'])
+        self.assertEqual(recovered['error_history'], self.state['error_history'])
+        self.assertEqual(recovered['reviewed_error_attempts'], self.state['reviewed_error_attempts'])
+        self.assertEqual(recovered['future_control'], self.state['future_control'])
+        self.assertEqual(stored[4:8], b'\0' * 4)
+        self.assertEqual(stored[3], 0)  # No filename or other variable gzip headers.
+        self.assertEqual(stored[9], 255)  # Stable platform-independent gzip header.
+        manifest = json.loads(files['evidence-manifest.json'])
+        self.assertEqual(manifest['artifact_files'][descriptor['path']],
+                         {'bytes': len(stored), 'sha256': recovery.sha(stored)})
+        self.assertEqual(self.bundle(self.export(max_records=1)), files)
+        self.assertEqual(path.read_bytes(), source)
+        self.network.assert_not_called()
+
+    def test_whole_state_and_receipts_use_existing_cap_without_replacing_bundle(self):
+        prior = self.export(max_records=1)
+        before = self.bundle(prior)
+        budget = prior['total_output_bytes'] + 100
+        self.state['future_control'] = random.Random(117).randbytes(65536).hex()
+        self.write_checkpoint()
+        self.head = self.commit()
+        state_before = (self.root / importer.IMPORT / 'state.json').read_bytes()
+        with self.assertRaisesRegex(ValueError, 'committed state and checkpoint receipts exceed the byte bound'):
+            self.export(max_bytes=budget)
+        self.assertEqual(self.bundle(prior), before)
+        self.assertEqual((self.root / importer.IMPORT / 'state.json').read_bytes(), state_before)
+        self.assertEqual(self.git('rev-parse', 'HEAD'), self.head)
+        self.network.assert_not_called()
 
     def test_missing_committed_source_fails_without_replacing_a_prior_bundle(self):
         prior = self.export()

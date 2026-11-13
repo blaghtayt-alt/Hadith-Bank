@@ -1,0 +1,93 @@
+{
+  "schema": "independent-explicit-boundary-findings-v1",
+  "status": "Three narrow proposed changes; final candidate and native audit pending",
+  "candidate_manifest_sha256": "784a4fa83e26339e326f42fab4caf57fc6961c7e7b559238867e5dee37fdc919",
+  "candidate_active_sha256": "4db581a8e4961539cdcffcada959990c7d42aab8698f698808b741cf02824601",
+  "source_first_receipt_sha256": "c4e35f365b7f262f87b7861b769f22d56a3b1b4365a8049640e3c0243de8f1b5",
+  "source_verification_sha256": "31fae3bd0612247c64b76a988ac82fcefa030f4fa658dc683347c6f986425f83",
+  "all50_proposed_field_boundaries_and_speakers_inspected": true,
+  "changes": [
+    {
+      "occurrence_id": "deenhindi-abudawud:17",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "whole_source_sha256": "a6e0d251f26bca7e2ee9cec4bc8c809726d45dc755fbd0893f6804168838805c",
+      "source_record_sha256": "34af90cc34deb3fdafef3194b370050c2a05165867ea1333324f9655ae34702a",
+      "action": "move_to_context",
+      "start": 337,
+      "end": 385,
+      "text": "راوی کو شک ہے «على طهر» کہا، یا «على طهارة» کہا۔",
+      "text_sha256": "cbaa12a4433e90977de568ebb31a9cfe23f3681183d3420f5f5684bb5fcd8896",
+      "reason": "This explicitly describes an unnamed transmitter's uncertainty between two prepositional wording formulas. It is transmission apparatus, not a supplied finite narrated body or independent saying; the exact uncertainty remains visible as source context."
+    },
+    {
+      "occurrence_id": "deenhindi-abudawud:324",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "whole_source_sha256": "54072810f99fae088899bf5fa32999cad3725b1ea1d7a5c001ce9189eaf12c4d",
+      "source_record_sha256": "074bcb7731ec518fd271456e18f2a449b2527ee67922d9ec331c36086c3fa769",
+      "action": "move_to_context",
+      "start": 305,
+      "end": 460,
+      "text": "سلمہ کو شک ہے، وہ کہتے ہیں: مجھے نہیں معلوم کہ اس میں «إلى المرفقين» ہے یا«إلى الكفين‏.» ( یعنی آپ صلی اللہ علیہ وسلم نے کہنیوں تک پھیرا، یا پہونچوں تک ) ۔",
+      "text_sha256": "48828991273f817a820c03f65f4dd3a49340eab2bea4f418b7f0c5ecc90321a7",
+      "reason": "This is Salamah's express uncertainty about the transmitted anatomical wording, followed by its explanatory rendering. Source context preserves the unresolved qualification fully without registering an apparatus component as an additional report."
+    },
+    {
+      "occurrence_id": "deenhindi-abudawud:42",
+      "language": "ur",
+      "source_field": "translationUrdu",
+      "whole_source_sha256": "3caf755a062dbaaf7e387b6d2ea0d58a18013336c5af2c03b0044ec92d52f18f",
+      "source_record_sha256": "628551e0baaf6210769b1274505c9a88e81f8f9660d126bf96e524d8942edf58",
+      "action": "restore_to_selected",
+      "start": 386,
+      "end": 395,
+      "text": "( واجبہ )",
+      "text_sha256": "2b0b1f8ce94e3f1128e63521108befe01260173de798d45993597e5c8778195d",
+      "reason": "The obligatory qualifier changes the legal force of the stated counterfactual consequence. Retain it in this supplied Urdu report rather than changing obligatory practice into an unqualified sunnah claim."
+    }
+  ],
+  "explicit_refinements_to_initial_optional_notes": [
+    {
+      "ids": [
+        "10"
+      ],
+      "refinement": "The paired qiblah names define the prohibition's dual object and can remain as source-supplied scope; the compiler identity tail remains context."
+    },
+    {
+      "ids": [
+        "20"
+      ],
+      "refinement": "The Hannad tail actually supplies an alternative finite concealment predicate and its Urdu rendering. It may remain a separately qualified fragment in the same source report family, with the comparison framing contextual and no new eyewitness or canonical identity inferred."
+    },
+    {
+      "ids": [
+        "58"
+      ],
+      "refinement": "The parenthetic enumeration defines the actions in the later repeated cycle; retaining those actual source-supplied actions does not import a missing event. The explicit finite Ibn Fudayl/Husayn variant remains separate."
+    },
+    {
+      "ids": [
+        "198",
+        "231",
+        "247",
+        "283",
+        "322"
+      ],
+      "refinement": "The retained pursuit/arrival/distance/recitation circumstances, movement/question predicate, prayer-time unit, elapsed-day unit and camel-grazing action are source-supplied narrative or scope clauses. Initial optional context suggestions are not mandatory cuts after exact sentence review."
+    },
+    {
+      "ids": [
+        "251"
+      ],
+      "refinement": "The local questioner-identity variant is retained visibly as attribution framing rather than silently resolved."
+    },
+    {
+      "ids": [
+        "286"
+      ],
+      "refinement": "The ten finite components preserve actual named voices, including the Aisha/Fatimah historical fragment and both Sa'id variants. The vein-blood completion and cessation/prayer-domain qualifiers make the local predicates explicit; no later scholar's statement is relabelled as the Prophet's."
+    }
+  ],
+  "scope": "Only newly reviewed Urdu decisions are addressed; all previous Hindi and other field decisions remain unchanged. No source bytes or provider identities are altered."
+}

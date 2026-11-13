@@ -1,0 +1,1235 @@
+{
+  "active_ledgers": 4,
+  "all117_absent_prior_imported_and_manual_sets": true,
+  "all117_exactly_cover_current_held_set": true,
+  "all_prior_manual_ledger_hashes_bound_to_actual_saved_progress": true,
+  "all_raw_parsed_and_full_source_objects_exact": true,
+  "collection_coverage": {
+    "abudawud": {
+      "register": 15
+    },
+    "bukhari": {
+      "exclude": 1,
+      "register": 42
+    },
+    "ibnmajah": {
+      "register": 9
+    },
+    "muslim": {
+      "exclude": 2,
+      "register": 23
+    },
+    "nasai": {
+      "exclude": 2,
+      "register": 17
+    },
+    "tirmidhi": {
+      "register": 6
+    }
+  },
+  "counts": {
+    "admitted": 226,
+    "exclude": 5,
+    "explicit_field_decisions": 522,
+    "implicit_unread_field_slots": 63,
+    "partitions": 585,
+    "read_characters": 127519,
+    "read_context": 29,
+    "read_fields": 255,
+    "read_utf8_bytes": 266493,
+    "register": 112,
+    "selected_spans": 445,
+    "unread_context": 330
+  },
+  "derived_totals_are_newly_saved_export": false,
+  "engine_sha256": "cc253d0d89d839f79a99e5209824b953fa6ac21be80fdb898a130025cbc7114b",
+  "fixed_checkpoint_derived_totals_after_this117": {
+    "fetched": 15672,
+    "held": 0,
+    "registered": 15521,
+    "resolved_source_only": 151,
+    "unfetched": 20718
+  },
+  "generated_at_utc": "2026-11-13T15:26:58.689513+00:00",
+  "github_writes": 0,
+  "independent_linguistic_audit_receipts": [
+    {
+      "files": [
+        {
+          "bytes": 13771,
+          "git_blob_sha1": "b8347d6168c25f6f73bba47e8f9fc1e3f52cdc8c",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/audit_final_candidate.py",
+          "sha256": "7e0c264e37be03b25076b4f5c02b86e28d9e7e195b416bd6dfb7868843c07410"
+        },
+        {
+          "bytes": 74642,
+          "git_blob_sha1": "ee38e280ff66c12da1f02a9caeef6b0868412ed2",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/complete-independent-source-first-readings.json",
+          "sha256": "ab201199a8051fe974e19c296ba71a4738309901ee8c33956a4009fa58dbc6bb"
+        },
+        {
+          "bytes": 7326,
+          "git_blob_sha1": "7648c11aacc16d97281f7d45d00bc6d3fe0861c7",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/independent-boundary-findings-v1.json",
+          "sha256": "231dbdb85b2b6d2a4d9b9b85fd4fa7eb3cf20cd1b2692ad3c7c2162223f5ea1f"
+        },
+        {
+          "bytes": 72676,
+          "git_blob_sha1": "a18e19c1503cdb2b110bf7ebb1984893471d0531",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/independent-final-v2-audit.json",
+          "sha256": "f389a7bcd461d7681747793ed6d7f684be83b95c31e59ccab2d7d337d58e6151"
+        },
+        {
+          "bytes": 61867,
+          "git_blob_sha1": "b524739eca214c7f703141ef05111d48991a8a84",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/independent-source-verification.json",
+          "sha256": "4c85745a2f0f5d6c63951fbd2d00658865fb0416a8c025d8963dbbd994b6af0f"
+        },
+        {
+          "bytes": 7579,
+          "git_blob_sha1": "dfc9653ae7ac5c74840ef7b3da5a4a590cba9884",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/previous-primary-v1/disposition-ledger.json.gz",
+          "sha256": "337c9cbad5221e4d3f2b065121563103b4876f141a82b9803b801d943a6c681e"
+        },
+        {
+          "bytes": 28890,
+          "git_blob_sha1": "f9f86c02f93eb610e6fc632b8ab71155ed291e52",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/previous-primary-v1/field-coverage.json.gz",
+          "sha256": "144be358267b4779928fa87b9c3ce652d316d012f0927107eded4e199fb60a55"
+        },
+        {
+          "bytes": 27442,
+          "git_blob_sha1": "364dfff0e365ca51c69248d2fb23d9eeaa0032c4",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/source_first_notes.py",
+          "sha256": "91a7602c2f9407b1466aee69a07893f242a99de4ebb91d56435dea036222fb74"
+        },
+        {
+          "bytes": 5411,
+          "git_blob_sha1": "97d320d9b2cf87d9af21fc3b6525537210c05b30",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/verify_sources_independently.py",
+          "sha256": "a2e505c84e6667383e9fe1dfa5eb58095ea8413d39831c375bf644e777cc02bb"
+        },
+        {
+          "bytes": 2912,
+          "git_blob_sha1": "19997ed88bd67812831cd5410c979c641c438ece",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-bukhari43-independent-audit/portable-manifest.json",
+          "sha256": "9f8c591454b7a7c8d180aba10d30b13fd1d0396cd28a4fefe6342ec0cf2cfa83"
+        }
+      ],
+      "manifest_sha256": "8d324c507c5949cebe242472e78517b8d692c46ae25a0ac28f959f7e95a49095",
+      "package": "bukhari43"
+    },
+    {
+      "files": [
+        {
+          "bytes": 24473,
+          "git_blob_sha1": "74839198853bedf2a271556bebb7aa35ef5fd640",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/source-first-complete-reading.json.gz",
+          "sha256": "54e367fff614058c3100a83d1f8056abd534ca007a6df5f2b67382078b022f63"
+        },
+        {
+          "bytes": 77216,
+          "git_blob_sha1": "fb210397f8e1655ffabcd6b8d8d988d15fc63ba3",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/complete-field-boundary-audit.json.gz",
+          "sha256": "d4502b3ee8b73ca1797fe67c45ed8231d80dd3332d8a768a059cd75c44efedc3"
+        },
+        {
+          "bytes": 9494,
+          "git_blob_sha1": "7cd6c6d4064094131a0c64ac4629d94550cdeee8",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/saved-source-and-package-verification.json.gz",
+          "sha256": "44f6e0805d36589001a907e7b11150b9b4a8bfad0c3ddcc1d71c1392be9b8431"
+        },
+        {
+          "bytes": 8580,
+          "git_blob_sha1": "a9f453463decf331394b1a0b1aee72a6f535e5cf",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/exact-independent-amendments.json",
+          "sha256": "06adf4097c108fae8bee36d006a110638914ab53c604ab05e978b54a3a330f84"
+        },
+        {
+          "bytes": 3104,
+          "git_blob_sha1": "db2f37819d7a386eaaf0aa0ea371141bb888e594",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-muslim25-independent-review.json",
+          "sha256": "ef9f804950b26963f7545470974a90bbb60d0e0b60362ffe2f4e51e771b61da3"
+        },
+        {
+          "bytes": 20474,
+          "git_blob_sha1": "e4b8a3dd8088f71a7c3bdc40f39d8382529084ad",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/audit_peer.py",
+          "sha256": "b43cf72def64bc7ed2c7150b95fa56793e8d716823d2a92ea2ef42bc48a596b0"
+        },
+        {
+          "bytes": 839,
+          "git_blob_sha1": "10e6c8b11b80b190dcea554376edf1144fc6fc69",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-muslim25-independent-audit-20261113/final-candidate-binding.json",
+          "sha256": "6cedcd2a4383558899f2d5e49c762a4c83951688c7ae395443be3b9d92e8d9ab"
+        }
+      ],
+      "manifest_sha256": "1f4dd618953a74fa073a68e72d5082e53cf912b03d0d1afd981d5137520929a6",
+      "package": "muslim25"
+    },
+    {
+      "files": [
+        {
+          "bytes": 91363,
+          "git_blob_sha1": "6fe4900084288f8058a28589f340027aca44a680",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/final-audit.json",
+          "sha256": "a0926af0875acb525a57d28c5939fd393404fa4cc8bd3678cd85f1f24a1d8b5c"
+        },
+        {
+          "bytes": 91365,
+          "git_blob_sha1": "43a3457b289d65640542c1ec74a880f5748321aa",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/independent-complete-source-first-readings.json",
+          "sha256": "0f0a882140bbf9e5d6f9552a51b699f4d72864399fd65975d7ea80912dc36729"
+        },
+        {
+          "bytes": 25131,
+          "git_blob_sha1": "8c0f7e9860f5a0f1263db7ed9982cdafe288da06",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/independent-source-verification.json",
+          "sha256": "b47538af55a81b0a8dd398bdf4cf5dd1c92988469d0c20f56c9f4573047d0f16"
+        },
+        {
+          "bytes": 1667,
+          "git_blob_sha1": "7bd43845661f7f2482915ca9eebc566d25089d31",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/independent-findings-resolution.json",
+          "sha256": "8d2d5583e436723c0ac75793e8f548b0f2fb41d957f92b0a259679f7e24ac2fc"
+        },
+        {
+          "bytes": 17350,
+          "git_blob_sha1": "72f2235d64954299fa83d0dba02d11616fb26055",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/source_first.py",
+          "sha256": "944a929282d78612cf1892824accf6c37123314c20ee4e294feb16d70731423e"
+        },
+        {
+          "bytes": 11310,
+          "git_blob_sha1": "25f461e5d1c358b07d74c51eff29346b8e549a6a",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-independent-audit/audit_final.py",
+          "sha256": "506910ba70f7ce5b087563c32a1c9ccfb8e7cf85613635579170ca39dfa781ac"
+        }
+      ],
+      "manifest_sha256": "c99ac680ab115e311f54a6aaa9389661e6c86b090b10b7475b2673fef9f4fbf7",
+      "package": "abudawud-tirmidhi21"
+    },
+    {
+      "files": [
+        {
+          "bytes": 2557,
+          "git_blob_sha1": "ffd763bf85a4a8298bbdbce8bfe20ba18fe98f31",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/validation-report.json",
+          "sha256": "1a53aeed5312030f66a0d7028f13055b78caae946befc767dc211902f89e6d10"
+        },
+        {
+          "bytes": 56660,
+          "git_blob_sha1": "2c670e488dfc7a1785e5675dd17d808ad73f1eb2",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/independent-complete-source-first-readings.json",
+          "sha256": "ae3aca312883b0b07c343c1dbda696b5b090b5df7ba68b1238a32a2d3a32d4f3"
+        },
+        {
+          "bytes": 5789,
+          "git_blob_sha1": "b83d65532ae3e9ddc3f3d0c389e9227f9b3f5bd7",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/independent-boundary-findings-v1.json",
+          "sha256": "673b42871f3ea8faf14d25f9972de769ece6d9fe8f1705d125b4223952b949e8"
+        },
+        {
+          "bytes": 3469,
+          "git_blob_sha1": "74b8bf32d1f5c2a4cf7da85ce5e20571f6829765",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/independent-v2-exact-amendment-verification.json",
+          "sha256": "4807d36f82a1a6feaa85f3aabf59cc82f9aac6a747474f9041edceec78cb0ee1"
+        },
+        {
+          "bytes": 23118,
+          "git_blob_sha1": "acc106f1c79381a143aa0fe0217651cbfc5e4bcc",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/independently-accepted-boundary-plan.json",
+          "sha256": "f28de98f75b14c52a667e0705d3d66bb6b3529921eb51e0c445484659aadcbe9"
+        },
+        {
+          "bytes": 19792,
+          "git_blob_sha1": "c932dd49677860eab26304ef177b7edb3ce36bd0",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/field-and-source-proof-final.json.gz",
+          "sha256": "5a6d0fb86a489a4a3213bd591d30ac87c37899c19e50a08d28fa17bef6a3e4d0"
+        },
+        {
+          "bytes": 15734,
+          "git_blob_sha1": "55fbe721c9a0e66ecf2228fc0285c876d2cbe0e4",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/audit_candidate.py",
+          "sha256": "f7baaa33d45f4b374b7ee0870e8bc75e5a28d3d29c4452843cfdf37c2fd4b632"
+        },
+        {
+          "bytes": 19387,
+          "git_blob_sha1": "f489b4ce86c82ae54fd8d4936ecae87533f19b8a",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/source-first-notes-01.json",
+          "sha256": "299aa619e92ca102680f5826d3a6ef06d145519f3acb48e219dd3a650f7bbaec"
+        },
+        {
+          "bytes": 10025,
+          "git_blob_sha1": "5aced4e15fde2fd9e3a0d9f8c07384ba3933341d",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/source-first-notes-02.json",
+          "sha256": "37673bfaffd4e3edc838ed2e1936dd5a1aaec93d42fb066573fa018ac1094311"
+        },
+        {
+          "bytes": 12804,
+          "git_blob_sha1": "533cadcd0c489fae0d567d43d8df39edbc0d79dc",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/source-first-notes-03.json",
+          "sha256": "429e8e885e838244241a65ac5d6f1591508984690db9c8ca6a2f5900065973ee"
+        },
+        {
+          "bytes": 12786,
+          "git_blob_sha1": "97f339990d4995b0850bfbd22f899b2a1780813b",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-nasai-ibnmajah28-independent-audit/source-first-notes-04.json",
+          "sha256": "9f7d5209d6e707d7088ef56f9f5e891d6f1b78e430b62b3772742893107d5f50"
+        }
+      ],
+      "manifest_sha256": "5bc0195a6f6abb9730e00fe27ae301cdef13929355ae9a5e9c8018b78bae140d",
+      "package": "nasai-ibnmajah28"
+    }
+  ],
+  "independent_pro_qc": "not_performed",
+  "language_coverage": {
+    "ar": {
+      "admitted": 2,
+      "read_context": 5,
+      "unread_context": 110
+    },
+    "en": {
+      "admitted": 1,
+      "read_context": 6,
+      "unread_context": 110
+    },
+    "hi": {
+      "admitted": 111,
+      "read_context": 6
+    },
+    "ur": {
+      "admitted": 111,
+      "read_context": 6
+    },
+    "ur-Latn": {
+      "admitted": 1,
+      "read_context": 6,
+      "unread_context": 110
+    }
+  },
+  "limitations": "Exact four final review packages and fixed0639 cohort only. Full semantic reread receipts are separate and hash-bound; future acquisition checkpoints and live reader deployment are not claimed.",
+  "metadata_leaf_equalities": {
+    "language": 8304,
+    "parent": 9360,
+    "source": 8775
+  },
+  "metadata_leaf_equalities_total": 26439,
+  "native_apply_finish": "PASS",
+  "new_id_collisions": [],
+  "no_new_linguistic_approvals_by_integration": true,
+  "parser_sha256": "c2b6df1d243b7e9c695358d9f06221c4cba45e880a1a215e4ef697008ed144d0",
+  "primary_package_files_verified": 100,
+  "primary_package_receipts": [
+    {
+      "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-bukhari43-20261113.json.gz",
+      "active_ledger_sha256": "9819890c10d434ca3df69a4ebfee3f70d0aaadfb2aebc56360ebd740e79d9677",
+      "files": [
+        {
+          "bytes": 22927,
+          "git_blob_sha1": "74b63226ab01ff72e9db09264775d452583f56b5",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/build_delivery_v2.py",
+          "sha256": "a3b2f335b23bbe529e38b82f603819869f340a92a54ed514874a250c3a03ada0"
+        },
+        {
+          "bytes": 39337,
+          "git_blob_sha1": "d7df80554c043db64341b61feb7037962391b4b9",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/complete-source-first-reading-receipt.json.gz",
+          "sha256": "0d0ecdcbf367d8798fd4d2713da5406c13e79fcc95d44e8466810fc2e2b8be3d"
+        },
+        {
+          "bytes": 7706,
+          "git_blob_sha1": "21cfb9202c9f63ec3af7bf97f103de274f1c7bca",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/disposition-ledger.json.gz",
+          "sha256": "1081ce865edf7b487aa4365f615f8369a124f48d130c0d54cb58de09f8eb94dd"
+        },
+        {
+          "bytes": 29399,
+          "git_blob_sha1": "10e4670a8b893bf795a5315a193911838d8d9c81",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/field-coverage.json.gz",
+          "sha256": "d5483a22cfb2f7c1afce308572d02692a4979263730b0f5ed1b31245c4b9e917"
+        },
+        {
+          "bytes": 10266,
+          "git_blob_sha1": "8f7ab084f0ffe9db8ee55600acdc581ffd771c21",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/finalize_amendment_v2.py",
+          "sha256": "27d5c87b00249a1f441360210ed75e258eaef29c701ea1598ef430e866dffc3c"
+        },
+        {
+          "bytes": 9023,
+          "git_blob_sha1": "0a79fe39e09b2e15ceafe12671dbdb99152c75ef",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+          "sha256": "ee0751f348b3c431f2def3c0027679d743ae85680cdfa53c5d2f1bbdd62d41c2"
+        },
+        {
+          "bytes": 7326,
+          "git_blob_sha1": "7648c11aacc16d97281f7d45d00bc6d3fe0861c7",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/independent-boundary-findings-v1.json",
+          "sha256": "231dbdb85b2b6d2a4d9b9b85fd4fa7eb3cf20cd1b2692ad3c7c2162223f5ea1f"
+        },
+        {
+          "bytes": 44052,
+          "git_blob_sha1": "22c6cc8adf99fee1f88bc364da9cca28994680cf",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-active-ledger.json.gz",
+          "sha256": "9e0a2ec1579c489087a8229db97d2d8c56a977b546e08a26f0f9bbea898832bc"
+        },
+        {
+          "bytes": 11649,
+          "git_blob_sha1": "aacde908bf141531aa200809f82191d412c671a5",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-delivery-manifest.json",
+          "sha256": "1c2418b2dcd475e247f0fcd2228d1fa29dee631075105bc5b5cc091af01889b5"
+        },
+        {
+          "bytes": 17443,
+          "git_blob_sha1": "f4573facf0b2af221b8767e7c1cea18e7b0cab17",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-manual-reading-and-boundary-specifications.json.gz",
+          "sha256": "e2e179fa9ac303c7f3f942d5cd036ca5a2abb7190501ef0be842cd1d5db341e7"
+        },
+        {
+          "bytes": 6189,
+          "git_blob_sha1": "c09710ed0d2191a39bc70c1704b3c43ff99eb3b3",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-package-file-manifest.json",
+          "sha256": "3866abc788f625d76709f58d9060e3da296e467e5241c073f119934faeb4a8d8"
+        },
+        {
+          "bytes": 18226,
+          "git_blob_sha1": "ee37d607646b2885e6c796da9e448aa368651e38",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-source-apparatus-inventory.json.gz",
+          "sha256": "946f1343c67d498a6cdc079a81b1c58470b903cd67e8e43ee71a22eae2456042"
+        },
+        {
+          "bytes": 33358,
+          "git_blob_sha1": "921a245553c5df25a6784e21fba5c6e6d58843ee",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/independent-boundary-amendment-v2/previous-source-first-reading-notes.json",
+          "sha256": "c4a4ce9e9ba92039b7c37d6151a99118d93fce9a57697d4413ca493849f937a8"
+        },
+        {
+          "bytes": 17989,
+          "git_blob_sha1": "cfeeab8e7e6b74772a357433e8e596205755d091",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/manual-reading-and-boundary-specifications.json.gz",
+          "sha256": "0e6fa4cc6bf1f000b67e362506d20868157e7df6f5c8018485ee6aae4a98cb54"
+        },
+        {
+          "bytes": 36956,
+          "git_blob_sha1": "92dfc8e5d1ec5d62c3b14d93a997f5effe57f6bf",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/manual_rules.py",
+          "sha256": "f83785dc2e775fb4d1a1789241db91701f8703bb9fa08c08759944ad89532767"
+        },
+        {
+          "bytes": 7507,
+          "git_blob_sha1": "15812a18285f039b4e284c3d20ce45f9f583dd02",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/manual_rules_v2.py",
+          "sha256": "443d0f57ebc892d1580f97386c3aa6c66f6fd55b8e22ca09c79477af25388012"
+        },
+        {
+          "bytes": 7515,
+          "git_blob_sha1": "c3473c62341e0a1ee65f78b4ec64f09e2797d95a",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/package-file-manifest.json",
+          "sha256": "c1ad47ec084a476444a9cee347d27a890ae9e07b709b4cf485889471f0c7bc62"
+        },
+        {
+          "bytes": 16004,
+          "git_blob_sha1": "60217fcd10a3ed450a1a2444f64b35493e8f7855",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/raw-source-verification.json.gz",
+          "sha256": "4899011fae2d0c7336424591e00bcef76030919ad975e6b3f1f85e5d319d38b8"
+        },
+        {
+          "bytes": 19492,
+          "git_blob_sha1": "b7809b3b9acb61ea3d7e346726547be9124cf4bf",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/source-apparatus-inventory.json.gz",
+          "sha256": "fe82bef79c88b14377ca392782735f2c7026c3f5d38d1a1ce272e5e27cdad679"
+        },
+        {
+          "bytes": 53434,
+          "git_blob_sha1": "8d95749fb9cecfd778b8d6928dc3687bac3afb42",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/source-baseline.jsonl.gz",
+          "sha256": "830ebd3def66d7e20c244c2e82c4c110a6ba1fcb5deb2140da281b66aa5b9a6d"
+        },
+        {
+          "bytes": 35685,
+          "git_blob_sha1": "9c12d44edc2250b618696ef0e793c3c43d8dfdc5",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/source-first-reading-notes.json",
+          "sha256": "3eba9237a027e1808f7330b40d0c77ea5d47ddd60c8a15374903f85157778065"
+        },
+        {
+          "bytes": 1660,
+          "git_blob_sha1": "541874cc10e8a1cf1ef7b7a9c7805fd558c9587b",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-bukhari43-20261113/validation-and-coverage-summary.json",
+          "sha256": "dce83a4185e8e4aeeab70da618a2b13157ee0e5c542aed2f3d6f277f9c2eff3b"
+        },
+        {
+          "bytes": 44746,
+          "git_blob_sha1": "4b3fff8d7421017fec36d9e23cef865b0913ea06",
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-bukhari43-20261113.json.gz",
+          "sha256": "9819890c10d434ca3df69a4ebfee3f70d0aaadfb2aebc56360ebd740e79d9677"
+        }
+      ],
+      "manifest_sha256": "37d6df4a05dbd6a10fa23c3a1f0a604757ead04ddf1b7d1e15f0b7fd3eb4448b",
+      "package": "bukhari43"
+    },
+    {
+      "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
+      "active_ledger_sha256": "9fc8bf7fbee9027a1ad5cfd4c8debd4d18ba596e57dab9d70bab69cfdf0783fa",
+      "files": [
+        {
+          "bytes": 12415,
+          "git_blob_sha1": "e4fe5930c06a5aa0e68cf6bccec4083a23fbf1b2",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/complete-source-first-readings.json.gz",
+          "sha256": "acf91594b4e84805aea1ff30c76b823e09e1b2b431497365df52194de9dcc1d7"
+        },
+        {
+          "bytes": 23181,
+          "git_blob_sha1": "902323117af4fb782b8c57f245b4a5e3e7650c12",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/full-field-reading-input-59.jsonl.gz",
+          "sha256": "1769b32a10bfa83ebb750b0232e1a9295d61e2bb9d500a84eb1d91784378da6c"
+        },
+        {
+          "bytes": 17952,
+          "git_blob_sha1": "22e9dae04eb248ef5d5e167ceb5b72b4b4e46651",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/amend_v2.py",
+          "sha256": "c4891c6e390174386497a0cf321ea57bf309bb1ce791776d2d65000b66e50c42"
+        },
+        {
+          "bytes": 16933,
+          "git_blob_sha1": "8529578e080739d4be6e53bf467d29557b212dae",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/exact-amendment-and-validation.json",
+          "sha256": "9ddfd3888a2042a494e2dba2b9fbb06ae05ad2c9f6132a75079f08d9db8a3adf"
+        },
+        {
+          "bytes": 6849,
+          "git_blob_sha1": "df5c69dc47c6fd3ece4b4a3f1fcc06badd088f7c",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/delivery-manifest-v1.json",
+          "sha256": "b7d1e30f93974ed746e1d660cb3f8799ac3d48f38e29ec431b50957f7c9a3503"
+        },
+        {
+          "bytes": 12415,
+          "git_blob_sha1": "e4fe5930c06a5aa0e68cf6bccec4083a23fbf1b2",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/complete-source-first-readings.json.gz",
+          "sha256": "acf91594b4e84805aea1ff30c76b823e09e1b2b431497365df52194de9dcc1d7"
+        },
+        {
+          "bytes": 23181,
+          "git_blob_sha1": "902323117af4fb782b8c57f245b4a5e3e7650c12",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/full-field-reading-input-59.jsonl.gz",
+          "sha256": "1769b32a10bfa83ebb750b0232e1a9295d61e2bb9d500a84eb1d91784378da6c"
+        },
+        {
+          "bytes": 14819,
+          "git_blob_sha1": "aa80773b2c1c9638e957eac941cde70109f6f223",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual-field-boundary-notes.json.gz",
+          "sha256": "cd5facf272955bc08631e56a1a6cbbf4f6d72dca0cfec5d7cb1f00e3b3f281e3"
+        },
+        {
+          "bytes": 33609,
+          "git_blob_sha1": "d14bf4c9abc7cf56b9d6d68a90badff7add246a9",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual_boundaries.py",
+          "sha256": "cb92651d08fe0b65d8c8e3a54046b04d76e8fca46fa85e9e620d7c18952a07d1"
+        },
+        {
+          "bytes": 20929,
+          "git_blob_sha1": "707cd271830c850feefe7fa110d29e2612b921cb",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual_source_first_readings.py",
+          "sha256": "3b46313e57fd368b41c9c8c66695a0986a61c7bbc0891932f85b4b51aa4b44b0"
+        },
+        {
+          "bytes": 22639,
+          "git_blob_sha1": "2db9145b8c60108ee9b6c7ab72ed36bc3a6c4b74",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/package_and_validate.py",
+          "sha256": "865589eaa3dd3df1d2c649dcb3b0e03e2b3a531ba8b2c888c860a40587936f18"
+        },
+        {
+          "bytes": 3728,
+          "git_blob_sha1": "50687a6d9ec7c8b4b42747501f6f42aab57c5d4c",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/portable-manifest.json",
+          "sha256": "d42178378d6344080c0effd6ae39802b80cb2df64dc8343caaa094be089d0928"
+        },
+        {
+          "bytes": 6850,
+          "git_blob_sha1": "3bb2acefd13ad160813c29724ea7f50c0cbf9d73",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/prepare_and_verify_sources.py",
+          "sha256": "0fe01ade033a7f60f77e7a8295705db823cd176cfb1ac25ffc34c7e3c02848e2"
+        },
+        {
+          "bytes": 531,
+          "git_blob_sha1": "b78fab32e45b88e85edb7869f975998132abbc2f",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/selection.json.gz",
+          "sha256": "d8f47531ef98e7e4b983fd7ebd7987f38146e4b2dd8067b12dcfc3401eec3f26"
+        },
+        {
+          "bytes": 37630,
+          "git_blob_sha1": "420a955bbe04435d2a15c815c5c51dbbed06253d",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/source-ledger-25.jsonl.gz",
+          "sha256": "c25b9258c573946b1c3e2384e1436ea8a1731bfd5ac87e465cf9fbd4965d3dff"
+        },
+        {
+          "bytes": 8567,
+          "git_blob_sha1": "44fe32b67ee9f837ebfd289e092d7ee669aaf1d8",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/source-verification.json.gz",
+          "sha256": "499c0a403c12aa37d0ba55e350f784690cce43411bcf61df0ba7b9b8e1b1e55d"
+        },
+        {
+          "bytes": 45226,
+          "git_blob_sha1": "6419633270a37d76dfe93e682fc12f9086f619ce",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
+          "sha256": "deffc347dd549d63caa58100a64701e9a4c2304f473d090a7761e2af68660854"
+        },
+        {
+          "bytes": 4224,
+          "git_blob_sha1": "c92f7fa035918d8defee63781e1817e272390648",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/previous-v1/reports/web-source-resolution-20261113/20261113-checkpoint0639-muslim25-manual-v1-validation.json",
+          "sha256": "14246791f3d2c77efbb9ac5940fefe03121329956621ec71afc524d1fcfb0437"
+        },
+        {
+          "bytes": 14819,
+          "git_blob_sha1": "aa80773b2c1c9638e957eac941cde70109f6f223",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual-field-boundary-notes.json.gz",
+          "sha256": "cd5facf272955bc08631e56a1a6cbbf4f6d72dca0cfec5d7cb1f00e3b3f281e3"
+        },
+        {
+          "bytes": 33609,
+          "git_blob_sha1": "d14bf4c9abc7cf56b9d6d68a90badff7add246a9",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual_boundaries.py",
+          "sha256": "cb92651d08fe0b65d8c8e3a54046b04d76e8fca46fa85e9e620d7c18952a07d1"
+        },
+        {
+          "bytes": 20929,
+          "git_blob_sha1": "707cd271830c850feefe7fa110d29e2612b921cb",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/manual_source_first_readings.py",
+          "sha256": "3b46313e57fd368b41c9c8c66695a0986a61c7bbc0891932f85b4b51aa4b44b0"
+        },
+        {
+          "bytes": 22639,
+          "git_blob_sha1": "2db9145b8c60108ee9b6c7ab72ed36bc3a6c4b74",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/package_and_validate.py",
+          "sha256": "865589eaa3dd3df1d2c649dcb3b0e03e2b3a531ba8b2c888c860a40587936f18"
+        },
+        {
+          "bytes": 3728,
+          "git_blob_sha1": "50687a6d9ec7c8b4b42747501f6f42aab57c5d4c",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/portable-manifest.json",
+          "sha256": "d42178378d6344080c0effd6ae39802b80cb2df64dc8343caaa094be089d0928"
+        },
+        {
+          "bytes": 6850,
+          "git_blob_sha1": "3bb2acefd13ad160813c29724ea7f50c0cbf9d73",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/prepare_and_verify_sources.py",
+          "sha256": "0fe01ade033a7f60f77e7a8295705db823cd176cfb1ac25ffc34c7e3c02848e2"
+        },
+        {
+          "bytes": 531,
+          "git_blob_sha1": "b78fab32e45b88e85edb7869f975998132abbc2f",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/selection.json.gz",
+          "sha256": "d8f47531ef98e7e4b983fd7ebd7987f38146e4b2dd8067b12dcfc3401eec3f26"
+        },
+        {
+          "bytes": 37630,
+          "git_blob_sha1": "420a955bbe04435d2a15c815c5c51dbbed06253d",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/source-ledger-25.jsonl.gz",
+          "sha256": "c25b9258c573946b1c3e2384e1436ea8a1731bfd5ac87e465cf9fbd4965d3dff"
+        },
+        {
+          "bytes": 8567,
+          "git_blob_sha1": "44fe32b67ee9f837ebfd289e092d7ee669aaf1d8",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/source-verification.json.gz",
+          "sha256": "499c0a403c12aa37d0ba55e350f784690cce43411bcf61df0ba7b9b8e1b1e55d"
+        },
+        {
+          "bytes": 46943,
+          "git_blob_sha1": "de0877d255d4c59f003415cbb5b0e77ae7b55147",
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint0639-muslim25-manual-v1.json.gz",
+          "sha256": "9fc8bf7fbee9027a1ad5cfd4c8debd4d18ba596e57dab9d70bab69cfdf0783fa"
+        },
+        {
+          "bytes": 4224,
+          "git_blob_sha1": "c92f7fa035918d8defee63781e1817e272390648",
+          "path": "reports/web-source-resolution-20261113/20261113-checkpoint0639-muslim25-manual-v1-validation.json",
+          "sha256": "14246791f3d2c77efbb9ac5940fefe03121329956621ec71afc524d1fcfb0437"
+        },
+        {
+          "bytes": 16933,
+          "git_blob_sha1": "8529578e080739d4be6e53bf467d29557b212dae",
+          "path": "reports/web-source-resolution-20261113/20261113-checkpoint0639-muslim25-manual-v2-validation.json",
+          "sha256": "9ddfd3888a2042a494e2dba2b9fbb06ae05ad2c9f6132a75079f08d9db8a3adf"
+        },
+        {
+          "bytes": 10251,
+          "git_blob_sha1": "af5a6513f5a7b5dd47efb1c053e374976103e352",
+          "path": "imports/web-deenhindi-20261112/reviews/evidence/20261113-checkpoint0639-muslim25-manual-v1/independent-boundary-refinement-v2/portable-manifest-v2.json",
+          "sha256": "05c91e430d3e66fa390fae0e7efee28b8650a9d694761fd7e6027ddd9f6b119d"
+        }
+      ],
+      "manifest_sha256": "c043b388ecc82e8f11a5afe099f4bdd2b71d7646f191d4bce75421ac4b6240d9",
+      "package": "muslim25"
+    },
+    {
+      "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-abudawud-tirmidhi21-20261113.json.gz",
+      "active_ledger_sha256": "b4735dc63110fd87e92205140a305fee5164f26eafe8b09bddcbca7643a13e34",
+      "files": [
+        {
+          "bytes": 25986,
+          "git_blob_sha1": "2a2a62f476dba3d69f6e05306e68688f9cf18b02",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/build_review.py",
+          "sha256": "8fbcbda365c80214299242824af36bc633f66bf8e5a5c7d766ba20163852ff28"
+        },
+        {
+          "bytes": 41203,
+          "git_blob_sha1": "1b28aa4d6af089bbfe65c9e9c45a3558d2096e42",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/complete-field-readings-and-boundaries.json.gz",
+          "sha256": "f64bfe0d90a3d67f6645e280d84174769b9fa207f0fd35568add59751d9051cc"
+        },
+        {
+          "bytes": 23970,
+          "git_blob_sha1": "4d5a559ccaa0d59210f032068f5624d2f656504b",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/complete-source-first-readings.json.gz",
+          "sha256": "74e88e8b22e5e51c051b0a26ac5f36d7115289a2a82c247212c07491f8c52c33"
+        },
+        {
+          "bytes": 19331,
+          "git_blob_sha1": "50bde9aeb80e98acf666d2fab30de4f3e46b69a7",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/explicit-source-apparatus-context.json",
+          "sha256": "a88aee5c41b2e30365845190641c3b98f9224fb76fd51fb18d1b840b150021e8"
+        },
+        {
+          "bytes": 12045,
+          "git_blob_sha1": "79bd1d0bae9dad480a1050dc8563b5aa5bbb50ce",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/field-partitions.json.gz",
+          "sha256": "0668c0f2b776f20793a4cdfedc5f27c8ac389c5de17352ae250f513f7f3ea3c3"
+        },
+        {
+          "bytes": 16821,
+          "git_blob_sha1": "4ec8e76aae8e192c9c7b963b1a23d1c68fa2cf89",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/active-before-v1.json.gz",
+          "sha256": "b03ba173957857ac7acf9b0eaa4375151f4320fa212cda765a7d10a1036f4410"
+        },
+        {
+          "bytes": 11683,
+          "git_blob_sha1": "42f1f453148146e2c1a9f72a62f5dbf66c3bcbfb",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/delivery-manifest-before-v1.json",
+          "sha256": "cb1f293fc0d21c128a3cf18ba7b432e6630cebb92a81f47db27b91b5de693166"
+        },
+        {
+          "bytes": 12221,
+          "git_blob_sha1": "7703c34f823f4e58dd22f1d8032976d1b49bd603",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/exact-amendment.json",
+          "sha256": "ffb3e844a48ee7b4b841af13009b8480ccf7fb9c8566144ae64b74bfc81e5265"
+        },
+        {
+          "bytes": 46477,
+          "git_blob_sha1": "3d735ee2e4106239f57c2d053722ab1070747b0e",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/manual-abudawud-before-v1.json",
+          "sha256": "9e18049096938318aceb39817bcafc407a3cea5f028bf9675997dcb014ec941f"
+        },
+        {
+          "bytes": 15498,
+          "git_blob_sha1": "e710071f5cfe9b5806ba285dbc2b6ecf7576fcb6",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/manual_readings-before-v1.py",
+          "sha256": "2cd049d0649004b96429f399e6a2511682335dbe22f947f4e4312db8f8476fa4"
+        },
+        {
+          "bytes": 7017,
+          "git_blob_sha1": "33bf786fcbae121253438f3df6b49dbfb72a1d4f",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/independent-boundary-v2/verify_amendment.py",
+          "sha256": "7d9b97c462741d3acfe2463993fab98a31dbe37068711868d8e657a7fdf95789"
+        },
+        {
+          "bytes": 1418,
+          "git_blob_sha1": "4a6ddc1897b4cd7e6cd1ae9dfa38ecdf6988950d",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/input-evidence-manifest.json",
+          "sha256": "58b948ba0eea3ff5eadf035f9ab0f96f9b978e45696b5e7e53fd985575567449"
+        },
+        {
+          "bytes": 47284,
+          "git_blob_sha1": "0546f7ba471e9614d242d3e864ea0b0569a1b431",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/manual-abudawud.json",
+          "sha256": "e6bc32547e3fec963e37c63039360556db05b5ff1057a16755c904440ddfc823"
+        },
+        {
+          "bytes": 23536,
+          "git_blob_sha1": "aaf82b9794a937363235ff5b62bbe9d6e6636feb",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/manual-tirmidhi.json",
+          "sha256": "bcf1b29fc9b04a404a30210e75bd63b9d49a6d7acf9632af4c32e68d77d85db4"
+        },
+        {
+          "bytes": 16421,
+          "git_blob_sha1": "34067a8791a3aef3867fd710bcde7bc4a1d2ffe2",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/manual_readings.py",
+          "sha256": "22dafa8c4f817f5ed89d91008334eec15e01eb2907043002f4a104c32fd93afe"
+        },
+        {
+          "bytes": 12029,
+          "git_blob_sha1": "c45df68ddbb18ac3957e1157807a1f7244a8aa00",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/package_review.py",
+          "sha256": "122c06031888ba1f01469dc3bd931b4ca6a762b4b57826df6bd21169632356f8"
+        },
+        {
+          "bytes": 8505,
+          "git_blob_sha1": "f54d6c5e967ec9df838131a5e46ab2c2701babe6",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/portable-manifest.json",
+          "sha256": "485f3a9132c2edf6616f10d3d627d36db71210457c07a48fa88779f5a67abdbe"
+        },
+        {
+          "bytes": 43657,
+          "git_blob_sha1": "45332f9031a545b5fc581df720a72267937a01f7",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/retained-source-parentheses.json",
+          "sha256": "594ba81cab3a839791e75dc6ed775b2cd8c9428ce8f0a490926710adf9d74f22"
+        },
+        {
+          "bytes": 8090,
+          "git_blob_sha1": "a190d767e74f7050236e815f50c1abd93be19c8e",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/saved-checkpoint-receipt.json",
+          "sha256": "25d501b96359bcf289fbd4b8b50ffab006e18af24a12cd4ad8ee430257f79459"
+        },
+        {
+          "bytes": 9243,
+          "git_blob_sha1": "dc7ce31b13c49331b229975aa673a350dd50d557",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/selected-state-entries.json",
+          "sha256": "cb31e2863d4a9c2d3febe835ec3e0e05dc491dcaabb900c636f13ed80d3ac05d"
+        },
+        {
+          "bytes": 55774,
+          "git_blob_sha1": "0f76b133d9549a5d8f4ed68feb7500d21f64de36",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/source-artifact-manifest.json.gz",
+          "sha256": "6768dc91a9d2d7bdfe983ae8a6d1a6f380c8226d4a8076cc314514af1a6bdba0"
+        },
+        {
+          "bytes": 45690,
+          "git_blob_sha1": "909f33aa3d817e6c072755df7c148fe29e8f8df7",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/source-baseline.jsonl.gz",
+          "sha256": "d53514c451698b1711105aa4598be7b23141502b9f4c86790f10ebbfdad0a299"
+        },
+        {
+          "bytes": 37172,
+          "git_blob_sha1": "386c0be32d7bf79345a8f57e7f7a5f85f292a7b1",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/source-evidence.json",
+          "sha256": "9f616d635223f1676c7fa1794ee9ac7d46fbf7a8e2967023fb4f3df2ddbcdbc5"
+        },
+        {
+          "bytes": 12798,
+          "git_blob_sha1": "2bf2c21badc17f37bc9cdb3cf757ac1d9b880c9b",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/source-first-notes.json",
+          "sha256": "d57c9ad3d3f9c1a779940c3bd4c0ef7631ea0cb65d337d23cd8fff7c7721305e"
+        },
+        {
+          "bytes": 4724,
+          "git_blob_sha1": "4d9901732f2734695f7a3456ed0ad88de2369517",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-abudawud-tirmidhi21-20261113/validation.json",
+          "sha256": "6d2930b951012c8744f8403954f1d8488a3780a982067909c3c878c0909d81cd"
+        },
+        {
+          "bytes": 17003,
+          "git_blob_sha1": "63bc0caa6c0bcc1e5d7354cb428a0121922d53c1",
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-abudawud-tirmidhi21-20261113.json.gz",
+          "sha256": "b4735dc63110fd87e92205140a305fee5164f26eafe8b09bddcbca7643a13e34"
+        },
+        {
+          "bytes": 5989,
+          "git_blob_sha1": "8dd6ccecd9b3cda79b980369393285e21af0e017",
+          "path": "reports/web-source-resolution-20261113/checkpoint0639-abudawud-tirmidhi21-primary-review.json",
+          "sha256": "8d07fb5175ee916a501ec5f4fe1b584572fe32a060cd0e0bb307ea3dca3ede85"
+        }
+      ],
+      "manifest_sha256": "cfa965d100052e481a10c36c2534b799088293e05ff95154ecb6f699765eb77f",
+      "package": "abudawud-tirmidhi21"
+    },
+    {
+      "active_ledger_path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-nasai-ibnmajah28-20261113.json.gz",
+      "active_ledger_sha256": "8d0dbd308198463389e36ad67ca94095b0402089cbef8a3b5ab0bbcd29de5eb6",
+      "files": [
+        {
+          "bytes": 22211,
+          "git_blob_sha1": "a61c757e055a06e7595d4a6a0ce34b5656f07397",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/build_delivery.py",
+          "sha256": "89a001423ceffe44e9672a63f7a4cef10e3c9b62d54bdda42c001adbbe911ed4"
+        },
+        {
+          "bytes": 3430,
+          "git_blob_sha1": "45863878e4eed8d2689aac8c5465ac2c4a22c39b",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/disposition-ledger.json.gz",
+          "sha256": "e78ebf571ffe8b02c7ff0fb07b1de2c57b845a4f96ea93853f1a6362efd66eb2"
+        },
+        {
+          "bytes": 17698,
+          "git_blob_sha1": "e9153787d08a875c20015aadbfa1285c0c25bdb6",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/field-coverage.json.gz",
+          "sha256": "4a1f164c5c6e82a3a194e18de547d6569ccd736308df954b071dca5f8c6408eb"
+        },
+        {
+          "bytes": 9165,
+          "git_blob_sha1": "863c04b6dec3897af8016ffa1655be7e41eea3ac",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/amend_v2.py",
+          "sha256": "2488e371305e9e922afc6feee8f46d634e4ca5655a73d8034fcd54b9467d6123"
+        },
+        {
+          "bytes": 8438,
+          "git_blob_sha1": "cfe85ab236dbe3a94c06c220fe9cc58362c9ed3a",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/amendment-receipt.json",
+          "sha256": "97ff197d60c463b8c5a7d57a224344778c382fffac2a5617c4da25929163a02d"
+        },
+        {
+          "bytes": 5789,
+          "git_blob_sha1": "b83d65532ae3e9ddc3f3d0c389e9227f9b3f5bd7",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/independent-boundary-findings-v1.json",
+          "sha256": "673b42871f3ea8faf14d25f9972de769ece6d9fe8f1705d125b4223952b949e8"
+        },
+        {
+          "bytes": 26882,
+          "git_blob_sha1": "f6bf45caf7fc3d4de1266b044e07681ef894c9ed",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/previous-active-review.json.gz",
+          "sha256": "3898c6efeb62b5e87b6158365cfbade43cb9a323d57d4b6803bca1799c7ca217"
+        },
+        {
+          "bytes": 13204,
+          "git_blob_sha1": "d34e23fd386e2dfc0b7e5287df5121ae5d7fe44f",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/previous-delivery-manifest.json",
+          "sha256": "16ea5e794e9706cc9053915513c3cfd1841917b94b9d1ce63a03be75bc2859b7"
+        },
+        {
+          "bytes": 28821,
+          "git_blob_sha1": "c7a96cae2a3dfc3b3b016f5cef93206360bac3ff",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/independent-boundary-amendment-v2/previous-manual_rules.py",
+          "sha256": "0604accb6147569b04f8278f2d412a6945036ce729ed096eda1f3734e69f520b"
+        },
+        {
+          "bytes": 9246,
+          "git_blob_sha1": "3b050da33e0a074e7b5a792cb9fd7b6c9e38a9e0",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/manual-reading-and-boundary-specifications.json.gz",
+          "sha256": "d532ae5cd8ac4d77eb66ac498a68b91ba6cdd8b927c385d61a767a240dee94e1"
+        },
+        {
+          "bytes": 60436,
+          "git_blob_sha1": "f1e14aeb12dfe44ffd3a1e08f04be9d583237476",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/manual_rules.py",
+          "sha256": "ea8c68284718244d4e1f59d7ceb6ca0392baf4b8b02185b8e496adc391bc2a6a"
+        },
+        {
+          "bytes": 18559,
+          "git_blob_sha1": "6585eb365d0101532915f09009d20076844cb816",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/package-file-manifest.json",
+          "sha256": "4d810dfe8575bba18fae77e5102d3e87a88399ff0175a2f15fbe92d6009ca2aa"
+        },
+        {
+          "bytes": 10660,
+          "git_blob_sha1": "6a4b6fb730a89151f98b8e48cb1c152b8e01b499",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/raw-source-verification.json.gz",
+          "sha256": "3e69c4e693dd241a8d8b88d6569a0ffd9accd41085e38c25321a5aace934bd8c"
+        },
+        {
+          "bytes": 13438,
+          "git_blob_sha1": "4d7684a7f67f2a68d0d440ad3e108be909169f87",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/source-apparatus-inventory.json.gz",
+          "sha256": "e127634dd8b52df4a894ae1eec44ef1d2de586d592c72bd6ce14fc0bfb2d35bf"
+        },
+        {
+          "bytes": 25915,
+          "git_blob_sha1": "c8242b88bb0bc39e41ad4365649fe5958ae6cd7d",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/source-baseline.jsonl.gz",
+          "sha256": "33e96108ac5d4d4a42e44fabb0d091200f2d3ef85decb554faa20ac039b59dcf"
+        },
+        {
+          "bytes": 79473,
+          "git_blob_sha1": "201bf9be871ccbb5e1a143ad097f1c645074f99b",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/source-first-complete-reading.json",
+          "sha256": "9064df272f069bf281097820aca6aa4d52a5d4dad736e11663cf55ba5c9618c7"
+        },
+        {
+          "bytes": 37109,
+          "git_blob_sha1": "8694fd4bc0585e1e23533c6902761197eb4f23aa",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/source-verification.json",
+          "sha256": "e66dea127a5511152586e87a49dad6ee2caa0be19ac85d1c6effc12e135299b8"
+        },
+        {
+          "bytes": 2834,
+          "git_blob_sha1": "650b72bf474a57e486d58f562d8224635675e9f8",
+          "path": "imports/web-deenhindi-20261112/reviews/checkpoint0639-nasai-ibnmajah28-20261113/validation-and-coverage-summary.json",
+          "sha256": "22676afbc9ff5b1898c853842eb16f3e821ff1cc197a76f39b4811a03f72f6bc"
+        },
+        {
+          "bytes": 26199,
+          "git_blob_sha1": "6ce839bce1061729f615bc162166fbe9c116c334",
+          "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint0639-nasai-ibnmajah28-20261113.json.gz",
+          "sha256": "8d0dbd308198463389e36ad67ca94095b0402089cbef8a3b5ab0bbcd29de5eb6"
+        }
+      ],
+      "manifest_sha256": "81e477637b6dd8e0a00cb4657652ab05f7040efd7e980ee13a15d7ac7fe8873d",
+      "package": "nasai-ibnmajah28"
+    }
+  ],
+  "prior_imported_occurrences": 15215,
+  "prior_manual_ledger_bindings": [
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 184225,
+      "git_blob_sha1": "0fc4762ed05416bdef2ae55994135e75ae5d23f2",
+      "id_set_sha256": "0125a47e9b6a62a8613b4861960e0fccf180cd7ffcd4dd9d832bb8aa2619dbcc",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-abudawud-tirmidhi-manual.json.gz",
+      "records": 636,
+      "sha256": "6167b575a7f944a149f2db965ee937a4f9f74d856e39194b13ac7fcad6bc6abf"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 355638,
+      "git_blob_sha1": "c1d1ca8923a673cb72de7ef1bad0e3ca6e2e5ecf",
+      "id_set_sha256": "ad44154461d9d3074ed15e135a47f5eae3d570633d857d1d6b6f8737cb039b14",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-first300.json.gz",
+      "records": 300,
+      "sha256": "0f9a9bd933ae27d912ddfc987d3d3af020de212dd3daf6f818d352dac1aa369c"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 356894,
+      "git_blob_sha1": "58159eb0c32f0c53538934e97584535b73b421f6",
+      "id_set_sha256": "34cfa0f39e05180ee6d848e6a3e4f1636fc95e3c242acac89333f43e9bac7364",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-bukhari-ibnmajah-manual-v1.json.gz",
+      "records": 477,
+      "sha256": "925f5b3b70b6b3a23274ab7667b23d8577495c6a313c4cf0a66f786622352864"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 52057,
+      "git_blob_sha1": "fd64239b9aa2bfc29bcf6058efdff97a2d24e556",
+      "id_set_sha256": "d7dc85e7b1adfa724c90852558a802a3d93e13f7c6a93590ae3d850fe3e6c06b",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint59ce-other40-manual-v1.json.gz",
+      "records": 40,
+      "sha256": "cb3aa598a5c74ef75ef7dc006178bf0b1b7c71db66cb0e1c5a90899823bdd537"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 37813,
+      "git_blob_sha1": "c4bbb9f9d322b8a0c1d79cf5fecaaa12e1123db9",
+      "id_set_sha256": "fd6e9b1deeee291acce2b38e23542ae0187e46979615a30553a69ac2e8ccb09c",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpoint659-bukhari-nasai-manual-v1.json.gz",
+      "records": 28,
+      "sha256": "97c8dc45626e53a7d9b0602085c40b8d0bf84f9540603f9b9cb09c63d630cc58"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 22485,
+      "git_blob_sha1": "4ad7c0cdddd74d424d52a67e17e7e3a9253e7811",
+      "id_set_sha256": "7498b5e2c4f8565141188d649974c24dcd0b26093c9eed1ff28099d90dd084e7",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointc2ab-ibnmajah21-manual-v1.json.gz",
+      "records": 21,
+      "sha256": "4fdc18bcf9bbbb63e84402edc975aa1e779fcdb181d33da8b36b713145990c98"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 55706,
+      "git_blob_sha1": "12be124a474bb70120f392be006e8d247cf2fd35",
+      "id_set_sha256": "4bc891e2b1359048e2ff1c6602d4e18d240895749b2f246f46f83e46dc84811b",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-checkpointcdb6-other39-manual-v1.json.gz",
+      "records": 39,
+      "sha256": "3741c5c897ebd304c82ba95b279a294879328e70074f4a935b71b05e6144dd24"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 216232,
+      "git_blob_sha1": "fc9a217bbff92685f2d027451768c3e7ed133051",
+      "id_set_sha256": "8c2717601252549972e605d4d5d393b10e98cdea267c6a18224b36f3caab5b32",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-nasai-resolution.json.gz",
+      "records": 519,
+      "sha256": "69dca28d9f3b9c0fbfec3964486aab615868a1d8cf5a01f750f9c8774b643ffa"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 19219,
+      "git_blob_sha1": "11bd7e1b9231d031df01cba3678d34e96c4b298c",
+      "id_set_sha256": "d2c51c80efd4fbcffe54e575c2388335e040bf757dc7f866226df5a5f72eeac3",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-agent46-eb6061e.json.gz",
+      "records": 46,
+      "sha256": "7ebc72f47e07830aac17a4161d5af6387a7dc2f0d01a85bfca99c568284e6c27"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 16397,
+      "git_blob_sha1": "aee3e88d9ee155cad9af0935691f2085ccaba32d",
+      "id_set_sha256": "1327ed667632b74d45b73031551709a1f1d3f55f59b211c10ff8ecdb8db1d0b1",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-new-held-root35.json.gz",
+      "records": 35,
+      "sha256": "8a2b9305794201c8753e34ac48e21fc5c26acf75551f18e4aa4c71ca2d3bb0b5"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 3215,
+      "git_blob_sha1": "f5a0f1fd53ac93a21762d6552f828f95df43b8b1",
+      "id_set_sha256": "cb92c8a1f44ec0d2ffc80acda3b228b66052b1d86c90d358c08be0836f1ff204",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-pilot-bukhari-686-manual-v1.json.gz",
+      "records": 1,
+      "sha256": "52c1ee4eaf72cc52749779bf31f643931597275f94dfa0fe4711cef734a5c1d3"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 36758,
+      "git_blob_sha1": "eabd544a179c31e1328faa8dc491fe009bf2d157",
+      "id_set_sha256": "a996e2c6c2cae485134478e882567c9dac988e297a07b7191a1905dbfcea38de",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-recovered-bukhari-ibnmajah-manual-v1.json.gz",
+      "records": 36,
+      "sha256": "f397cf9089aa0510610929bf4a0a2f55823a60d79108df8c7dbf744de4084155"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 19147,
+      "git_blob_sha1": "6f9f7748ec6bca5566445a5b6582b4d620ab407f",
+      "id_set_sha256": "bae0f06c25247aa8a434ea2580161c203dd4b581b37bfce3e2cfd8a463d62729",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-20261113-recovered-nasai-22.json.gz",
+      "records": 22,
+      "sha256": "f11d5e29144b24aa25c1e1cbc7c6b0d78b9a9ce8b9f69be07683b7d386f626e4"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 21713,
+      "git_blob_sha1": "c3e701e8f82495b7769d03d81a537a764c9e7f60",
+      "id_set_sha256": "f6cf048749d850af996380dbabb5637cdbe6cab2a52638dc608c6af22c63103a",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-bukhari-nasai-20261113.json.gz",
+      "records": 27,
+      "sha256": "2822e69dc43f98a8a0a431e9e5afbb207188f75fe3399cc6ec88af7b4e458d4a"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 28209,
+      "git_blob_sha1": "39f05fb4f172443c75177f3c61070e62ed484cf7",
+      "id_set_sha256": "e5305ac8944fbdb7ed477e88ad694b1a33b360e85fa45874b069d419358d30a2",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint59ce-muslim26-20261113.json.gz",
+      "records": 26,
+      "sha256": "602097481fc1b02bf04939c2adb6b76d567a6119be67b5e24fe8ac33d5b2548f"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 26972,
+      "git_blob_sha1": "16707b3f6f3df7c756a7e61b870ba881ea82127f",
+      "id_set_sha256": "e77a2d803cd96ba60b1a1583b4c97ddf14fd0ac24b5a7a6c52dd2328ab90e0c9",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-abudawud-tirmidhi-ibnmajah-20261113.json.gz",
+      "records": 38,
+      "sha256": "a242fc8b03e63850263303ad4db358855e0c844bdf87bc092b99e2a2a81927f7"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 30572,
+      "git_blob_sha1": "4ff86a28aa3859269e4181a921f349a8fbc5faea",
+      "id_set_sha256": "bff5b027b670300afc01c6394a96b752e714e5d8c6a864dd4bc801ed73b2e444",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpoint659-muslim28-20261113.json.gz",
+      "records": 28,
+      "sha256": "b782ff33b9cd50b835165907cab7e89a84bb262b5351f5dfc8e821b65745efe8"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 16155,
+      "git_blob_sha1": "4a5d57e85c1f5f41f8ff80f2e09864e7dbdc9b03",
+      "id_set_sha256": "a8ea20ad2dfd2be51b8fca1da96a1dde60b9aa2fdb65e18afc4d686333c72a99",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-abudawud-tirmidhi20-20261113.json.gz",
+      "records": 20,
+      "sha256": "0abfafac0c086155db3f38564a75f0f9c93f72e54dec7021c875f29967747186"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 43082,
+      "git_blob_sha1": "4d847a356bae077679769b66f27f188c76856aa4",
+      "id_set_sha256": "7ec058aca43fb4412929f53c93b21a14c10b82a88a4d8b64f577f19a407201f2",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-bukhari-muslim42-20261113.json.gz",
+      "records": 42,
+      "sha256": "31c95fe4fdcbb6063c7281e5de6b148376c646129c1c12cc795b212275863b2f"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 10081,
+      "git_blob_sha1": "3ee2faa4eb9b23585f75369e28f02a55e09d6c8d",
+      "id_set_sha256": "9f3846623199bb96f28c1e59d4f9e7503be4e055fba94dd816a3e012faff85fb",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointc2ab-nasai10-20261113.json.gz",
+      "records": 10,
+      "sha256": "dff78a9f6d56e93570a6a06dad9f20b1f4a97fa0030c79dd45a26112ec49370c"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 34368,
+      "git_blob_sha1": "702b13df961308c90878f3325372420575976edd",
+      "id_set_sha256": "f1929a3a788fdcc33826973f7e3156242dc1c55fa71adb0ba5f00dd48fdaaf9b",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointcdb6-bukhari-nasai-20261113.json.gz",
+      "records": 50,
+      "sha256": "ccff718f12da0ba9c3fbcd2e944bbe22d53922d837c9d642ddc381a29c7e72d7"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 31269,
+      "git_blob_sha1": "7476451e9e3f86c58f8c0c75bb45583aca9ae33c",
+      "id_set_sha256": "0a3e5717debbd259c2b9695f50bda5b1614001c177acc6c712a552aeadb7c41a",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-checkpointcdb6-muslim25-20261113.json.gz",
+      "records": 25,
+      "sha256": "2bf9baee523d61c513b4a0e914cd60aef9af950f045663e7878e23d0665b09cd"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 251700,
+      "git_blob_sha1": "be223d5c01979b12c3a2d0d398545ee05f8db237",
+      "id_set_sha256": "d85734475ee69ad8272d871544f15c22cddc3c00d6ff1f5566eaaa565dd9f9cd",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-muslim-malik-20261113.json.gz",
+      "records": 576,
+      "sha256": "f2f47e0126eb479a6c3ab2fe4cd2d8353df7f04dfbe5b2820f0bdbeadc88eb70"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 32870,
+      "git_blob_sha1": "ce2e85f96ab77d1027846972ece9d41ae733533d",
+      "id_set_sha256": "3e27b9b1ad7fc628cfabe3fee4343739afa0aa4f2bcb1f74c64ed20d3fa9589f",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-recovered-muslim-20261113.json.gz",
+      "records": 30,
+      "sha256": "7136152758d19b9b1814018b7eaf86c51046693350a889062d5d52229d716903"
+    },
+    {
+      "bound_to_saved_progress": true,
+      "bytes": 15540,
+      "git_blob_sha1": "5f588ef6be93bcb6c342f5a28726923a52e6b5e0",
+      "id_set_sha256": "3eca3c751f94f5be2474fffb494d2879801f4a5d3b875bbedc70b71468e9071f",
+      "path": "imports/web-deenhindi-20261112/reviews/source-review-recovered29-abudawud-tirmidhi-b65b894-20261113.json.gz",
+      "records": 29,
+      "sha256": "50b8ecce7264d2240ed6b12f969b865788ceabb5d72d42a630365d277fa362fc"
+    }
+  ],
+  "prior_manual_ledgers": 25,
+  "prior_manual_occurrences": 3101,
+  "raw_pages_reparsed": 117,
+  "schema": "hadith-bank-checkpoint0639-independent-integration-audit-v1",
+  "script_corrections": [
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-ibnmajah:2223",
+      "language": "hi"
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-ibnmajah:2249",
+      "language": "hi"
+    },
+    {
+      "after": "Latn",
+      "before": "Deva",
+      "id": "deenhindi-ibnmajah:2251",
+      "language": "hi"
+    }
+  ],
+  "source_cohort_sha256": "a253b86c17219976a4db42e0b203a14affa8f01b62f7e58fbe3ec145aeb3efb8",
+  "source_commit": "0639af7fd15786284b4c413fced77e38eec8825a",
+  "source_count": 117,
+  "source_http_requests": 0,
+  "source_raw_and_parsed_files_reopened": 234,
+  "state_authority": {
+    "acquisition_audit_manifest_sha256": "9d5eb33b8e03816ce8a4356f764ad033410836529aa6186ec92a5a9da279ed0a",
+    "acquisition_audit_sha256": "c71c82be13ba2a65e192120babadaa7fca901cf5f2625cff82460bd674eed6be",
+    "baseline_commit": "c2ab74d74821e244d8a83620f0e8e68dda694b16",
+    "baseline_state": {
+      "bytes": 12329253,
+      "git_blob_sha1": "859298aad6d2f4d300554bc6b4d05f10830e9391",
+      "sha256": "0047205a6820d14d424104a5aeda588425a040ee36dbebb0206d8714911fcd6f"
+    },
+    "saved_progress": {
+      "bytes": 147359,
+      "git_blob_sha1": "b59c1a180a0cafc7804dfe233d57b034238a9600",
+      "sha256": "89c4d10ee8d482152e42418415f3cce120deeb39f936f6f36d239a50d918d0ba"
+    },
+    "saved_state": {
+      "bytes": 12538110,
+      "git_blob_sha1": "f9e6ab7f9f09810e05f3fc32c3711d4f12934c38",
+      "sha256": "5ce4a7ef9633cda58831c116d46f6a494703c6fa3931783d368fbd7fec62c4e1"
+    }
+  },
+  "status": "PASS"
+}

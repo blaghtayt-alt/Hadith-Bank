@@ -1,0 +1,91 @@
+{
+  "base_commit": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+  "change": "Add complete exact committed state bytes as deterministic saved-state.json.gz, with stored/original SHA256, original Git blob, byte lengths and existing64MiB decompression ceiling in checkpoint.json. All bytes count inside the unchanged32MiB total artifact cap before held selection.",
+  "changed_files": [
+    {
+      "after": {
+        "bytes": 17675,
+        "git_blob_sha1": "2ffbb84b219e85073c57263d819439d721a3cd12",
+        "sha256": "802402cb54a4f197f6821bacdecb12f4768913bff7ba05ffb5ccd8ec8949a4cd"
+      },
+      "before": {
+        "bytes": 16212,
+        "git_blob_sha1": "8de1452477d1732b8cf96ddf85c06e94ef2361f6",
+        "sha256": "c78f4e4c32bcc628c6088d96f3125c5b447bb397a679341838c81405403e7aa6"
+      },
+      "path": "scripts/export_deenhindi_held_evidence.py"
+    },
+    {
+      "after": {
+        "bytes": 17357,
+        "git_blob_sha1": "91ba8d1e79b5214aa264964d83b2ac05e39ac545",
+        "sha256": "ac5043a58a03637bd1d3eaa9ff9e3629fe1a3746f2fcf81a9ffb9f1cb075b8bc"
+      },
+      "before": {
+        "bytes": 13066,
+        "git_blob_sha1": "2012c5c8d738aaf5383472fbb2461393257c3569",
+        "sha256": "c9b876e85a517b1b5da14a03f85e84e4eb0735f52509c8548403fce14c08fa1b"
+      },
+      "path": "tests/test_export_deenhindi_held_evidence.py"
+    }
+  ],
+  "compatibility": "Additive saved_state descriptor and manifest-listed artifact file; existing selected held rows, source-file descriptors, schema and ordinary workflow upload path remain unchanged.",
+  "failure_behavior": "If complete state plus fixed receipts cannot fit the existing total cap, export fails before replacing any existing bundle. Existing workflow makes export/upload diagnostic-only and does not gate acquisition continuation.",
+  "full5589_state_history_audit": "Still unavailable from prior artifact; patch enables future saved checkpoints only.",
+  "github_writes": 0,
+  "measured_prior_snapshot_compression": {
+    "exact_roundtrip": true,
+    "gzip_bytes": 2022622,
+    "gzip_sha256": "690d350bd17e39f841a9d6ab4a0c00e0d2296f86e54fcb891dc1a14dc16559f9",
+    "original_bytes": 12538110,
+    "original_sha256": "5ce4a7ef9633cda58831c116d46f6a494703c6fa3931783d368fbd7fec62c4e1",
+    "scope": "Compression measurement only on already verified prior0639 bytes; this does not recover unavailable5589 state or claim an actual workflow artifact.",
+    "source_commit": "0639af7fd15786284b4c413fced77e38eec8825a"
+  },
+  "no_source_or_review_mutations": true,
+  "offline_validation": {
+    "command": "python -m unittest discover -s tests -p test_export_deenhindi_held_evidence.py -v",
+    "coverage": [
+      "Exact committed state bytes despite deliberately noncanonical JSON spacing.",
+      "All imported descriptors and errors/history/consumed attempts/block/unknown controls survive even when one of four held records is selected.",
+      "Original/stored hashes and original Git blob binding match the actual bytes.",
+      "Deterministic zero-time, no-filename, platform-stable gzip header and repeated identical export.",
+      "Recorded decompression length succeeds; shorter bound rejects.",
+      "State plus receipts count before held rows; oversized state failure preserves the previous complete artifact and committed inputs.",
+      "Existing source hash/reparse, stable selection, dirty input, saved-head, zero-held and diagnostic-workflow tests remain passing."
+    ],
+    "existing_tests": 7,
+    "log_bytes": 1888,
+    "log_sha256": "96880ef0b0ea0eb2487a31f859cb2a23fff13e5d7a4f38f9c79d333777650a0b",
+    "new_substantive_state_tests": 2,
+    "result": "PASS",
+    "source_http_mocked_to_fail": true,
+    "tests": 9
+  },
+  "review_status": "Awaiting root independent review before publication.",
+  "schema": "hadith-bank-bounded-held-state-export-validation-v1",
+  "source_and_workflow_controls": {
+    "authorization_changes": false,
+    "pacing_changes": false,
+    "same_atomic_output_replacement": true,
+    "same_head_source_hash_and_reparse_guards": true,
+    "source_budget_changes": false,
+    "unchanged_functions_ast_sha256": {
+      "Snapshot": "1202ce6cef3b438578654b7722c8e9b1c149355dac97d4df0f8077da5c79f7eb",
+      "git": "dde0bfc0757d82c7b031f4353e5e49a3dafe5e6651a555f780949f2a4a24f3bb",
+      "main": "a3050b231465a1bbd0f8779028e9ecedd22d48f86b8d6562ac80be8cc7263e05",
+      "replace_bundle": "91d7cfb3f2dc6766c4dc61e1246391705da99a3b9da87a49f663ee832a577cb2",
+      "require": "fa56327309bc48a584ff706fe43240678a03d9a43f03edb391e3cf185025912b"
+    },
+    "workflow_changes": false,
+    "workflow_git_blob_sha1": "dd4df70908f0db6f4ec0b439e70219cfbea859c9",
+    "workflow_sha256": "595ce5e8cf1033fab7ebe0138d8d9981c8eb992fd312a6f8ade3171c828c3609"
+  },
+  "source_http_requests_by_patch_validation": 0,
+  "status": "PASS",
+  "unchanged_limits": {
+    "maximum_records": 250,
+    "maximum_state_input_or_decompression_bytes": 67108864,
+    "maximum_total_artifact_bytes": 33554432
+  }
+}

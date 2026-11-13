@@ -1,0 +1,50 @@
+{
+  "all_payload_bytes_hash_verified": true,
+  "base_commit": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+  "current5589_full_state_history_audit_performed": false,
+  "current5589_full_state_recovered": false,
+  "effect_scope": "Future diagnostic bundles can carry the full state. This code approval does not claim an existing artifact, source run or deployment used the change.",
+  "exact_patch_sha256": "82fcb2cb016cc8d77dec34f8f8c4db3325f7718e19ed3916c000c0623c23d5ca",
+  "focused_tests_passed": 9,
+  "github_writes": 0,
+  "independent_complete_changed_module_context_and_test_diff_read": true,
+  "independent_unchanged_guard_ast_sha256": {
+    "Snapshot": "1202ce6cef3b438578654b7722c8e9b1c149355dac97d4df0f8077da5c79f7eb",
+    "git": "dde0bfc0757d82c7b031f4353e5e49a3dafe5e6651a555f780949f2a4a24f3bb",
+    "main": "a3050b231465a1bbd0f8779028e9ecedd22d48f86b8d6562ac80be8cc7263e05",
+    "replace_bundle": "91d7cfb3f2dc6766c4dc61e1246391705da99a3b9da87a49f663ee832a577cb2",
+    "require": "fa56327309bc48a584ff706fe43240678a03d9a43f03edb391e3cf185025912b"
+  },
+  "new_substantive_tests": 2,
+  "observed_transfer_failure": {
+    "browser_download": "Timed out; subsequent AX protocol request timed out. No matching complete local file found.",
+    "commit": "5589a3ffc3b43c3324ae26f2b6c4d33152834456",
+    "expected_state_bytes": 12765240,
+    "expected_state_git_blob": "16838750962a9ce31c545dad5eae4e0a62101d40",
+    "expected_state_sha256": "e08cbbf205e3fa4d4ac159d80663b392efe440135321c996000364373239e9f6",
+    "github_fetch_blob": "Transport closed.",
+    "github_fetch_file_1000_line_probe": "Returned matching blob metadata with empty content.",
+    "no_rate_limit_access_or_github_outage_inferred": true
+  },
+  "open_findings": [],
+  "primary_manifest_sha256": "2936aeba688b305832a80c3ff17d647bf8b6a395f5bcf64226eba8c8dac0d09f",
+  "primary_test_log_reopened_and_hash_verified": true,
+  "reason_no_duplicate_run": "The exact final test/module bytes and complete successful focused log are bound; the independent check reviews behavior, guard identity and the specific regression coverage.",
+  "reviewed_behavior": [
+    "Read the exact committed state through unchanged saved-HEAD, working-copy and Git-blob guards.",
+    "Preserve the original complete bytes rather than reserializing JSON or selecting imported rows.",
+    "Use zero-time filename-free gzip and bind original/stored sizes and hashes plus the original Git blob.",
+    "Count compressed state and complete fixed receipts within the existing total cap before selecting any held row; retain final manifest-inclusive accounting.",
+    "Leave atomic output replacement, source selection, command-line bounds, workflow, network behavior, source budgets and review decisions unchanged."
+  ],
+  "reviewer": "/root",
+  "same_existing_caps": {
+    "records": 250,
+    "state_input_and_declared_decompression_bytes": 67108864,
+    "whole_bundle_bytes": 33554432
+  },
+  "schema": "hadith-bank-independent-bounded-state-export-code-audit-v1",
+  "source_http_requests": 0,
+  "status": "PASS",
+  "tests_independently_rerun": false
+}

@@ -1,0 +1,100 @@
+{
+  "actual_new_complete_reading": {
+    "ur": {
+      "admitted_fields": 50,
+      "characters_read": 21750,
+      "context_spans": 61,
+      "fully_read_fields": 50,
+      "selected_characters": 18839,
+      "selected_spans": 105,
+      "selected_utf8_bytes": 33191,
+      "utf8_bytes_read": 38287
+    }
+  },
+  "all20_v1_payload_files_and_manifest_reverified_unchanged": true,
+  "candidate_active_ledger_sha256": "7a1893ac1e838c73b7f4dfa5d4a47ed805b1f5fb82571f633bc86d4804c79f8a",
+  "candidate_bytes_verified": 2741943,
+  "candidate_files_verified": 29,
+  "candidate_manifest_sha256": "db63f76f44ee298577960c255ab5298d9c6b96936597ffb3aebca776f1f94bf6",
+  "evidence_sha256": {
+    "independent-boundary-findings-v1.json": "df7cb5181ea674ff4ab70ded970d945654d28ea7a0bcaf16d88903199b78a575",
+    "independent-boundary-refinement.json": "ef478127c20e036c7e5e6ba17217f52fe293049c4b0ebd696b71c34ceb5cc293",
+    "independent-complete-source-first-readings.json": "c4e35f365b7f262f87b7861b769f22d56a3b1b4365a8049640e3c0243de8f1b5",
+    "independent-native-v2.json": "6b1bfc6885039cebdbacee245b07ca81bc72af51f61eed13ad783cbbd5c53eaa",
+    "independent-source-verification.json": "31fae3bd0612247c64b76a988ac82fcefa030f4fa658dc683347c6f986425f83"
+  },
+  "exact_final_two_amendments": [
+    {
+      "after_field_sha256": "6a1c8cde4b324993aa7fa1ddde44616ecd6355c12fe4063a16488acae0df2782",
+      "before_field_sha256": "122348baf3c265cbac3ceaee972b3bba56e852a853b008766552ba0973e81e28",
+      "direction": "to_context",
+      "end": 385,
+      "exact_requested_mask_change_only": true,
+      "id": "deenhindi-abudawud:17",
+      "language": "ur",
+      "start": 337
+    },
+    {
+      "after_field_sha256": "48fb28b7e1d3dcaedb4819f3d366adb13dcc270f7ee13b141bdf01f716533a75",
+      "before_field_sha256": "8cb22604fa9facca76cf92eaccdd474a6543c7686909c995fbde77d53d1c68c9",
+      "direction": "to_selected",
+      "end": 395,
+      "exact_requested_mask_change_only": true,
+      "id": "deenhindi-abudawud:42",
+      "language": "ur",
+      "start": 386
+    }
+  ],
+  "full_ledger_native_checks": {
+    "language_metadata_leaf_equalities": 38114,
+    "language_source_metadata_leaf_equalities": 46770,
+    "new_complete_fields_read": 50,
+    "nonempty_lossless_partitions": 3118,
+    "other_native_field_slots_exact_decisions": 3068,
+    "parent_metadata_leaf_equalities": 50880,
+    "previous_explicit_field_decisions_exact": 819,
+    "previous_explicit_script_corrections_exact": 3,
+    "previous_script_results_exact": 3118,
+    "untouched_complete_parent_records_exact": 586
+  },
+  "github_writes": 0,
+  "independent_pro_qc": "not_performed",
+  "initial_staged_selection_preserved": true,
+  "open_findings": [],
+  "parent_dispositions": {
+    "exclude": 24,
+    "register": 612
+  },
+  "published_dependency_commit": "6b20d4578c85ec2a8fb00bb7a7796f487cde755f",
+  "published_dependency_receipt_sha256": "af9505930959e9fe3c6121db4de08e6378feaf04c03c3d32c116b6988f8b7543",
+  "queue": {
+    "candidate_sha256": "a57984e06f27fbcba0300f90bd4af5a0ba04b61fcfb1a1c0b98145a6cbb69abe",
+    "every_remaining_line_byte_and_order_exact": true,
+    "exact_removed_fields": 50,
+    "exact_removed_occurrences": 50,
+    "integration_scope": "This is this extension alone against the published6501-field baseline. Combine the two disjoint batch removals during integration; do not overwrite one candidate queue with the other.",
+    "previous_sha256": "f5fa86ff645098396c7daf978f7491bddff6fd9104f5e50acc72f7d02701a660",
+    "remaining_by_language": {
+      "hi": 3320,
+      "ur": 3131
+    },
+    "remaining_fields": 6451,
+    "remaining_occurrences": 3434
+  },
+  "result": "PASS",
+  "reviewer": "/root/queue_audit",
+  "schema": "hadith-bank-independent-complete-field-final-audit-v1",
+  "scope": "Exactly50 independently read Urdu fields on existing registered occurrences; no new Hindi reading, source acquisition, provider identity, parent registration or independent authenticity certification.",
+  "semantic_assessment": "Every original Urdu field and all proposed selected/context positions and component attributions were independently inspected. The final two amendments resolve the boundary findings. Abu324’s named endpoint uncertainty is accepted under its own voice within the same source family after explicit reconsideration and root’s separate full reading. Actual finite variant additions and the ten source-named components in286 remain separately qualified; compiler chains, explanation and pointers remain visible context as specified.",
+  "source_commit": "5749ec389f1925f4d5e05a34d64c39acbc1f90f4",
+  "source_http_requests": 0,
+  "source_reopen": {
+    "complete_raw_reparses": 50,
+    "files": 100,
+    "result": "PASS"
+  },
+  "v1_324_complete_parent_exact": true,
+  "v1_complete_parent_rows_unchanged": 634,
+  "v1_other48_new_urdu_fields_exact": true,
+  "v1_other_explicit_fields_unchanged": 867
+}
