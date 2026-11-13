@@ -8,7 +8,7 @@
 
 [![Website build](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
-[Browse languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared)
+[Browse languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared) · [Detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md)
 
 | Language | Read online | Read in this repository |
 | --- | --- | --- |
@@ -40,7 +40,7 @@ Deen Hindi, Hadis.islom.uz and the selected Hadis.uz Tirmidhi source use resumab
 
 ## Coverage and recent additions
 
-**Status audit: 14 November 2026 (Japan time).** The figures below are dated checkpoints. Acquisition, classification, registration, generated catalogs and deployment have separate evidence; an ongoing import can advance before the next reader build.
+**Status audit: 14 November 2026 (Japan time).** The figures below are dated checkpoints. Acquisition, classification, registration, generated catalogs and deployment have separate evidence; an ongoing import can advance before the next reader build. The [detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md) and [JSON evidence summary](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.json) record exact review scopes, source revisions, report hashes and unresolved evidence gaps.
 
 ### Generated corpus snapshot
 
@@ -67,7 +67,7 @@ These counts describe preserved **source occurrences**, not unique canonical had
 | **Hisnul Muslim — KUTANG-TANGGULAN NG MUSLIM**, Filipino | **298 reader occurrences** from **323 preserved source records** | Active owner-authorized import. Non-narration material and five unresolved-attribution records remain separate; earlier review history is preserved. [Filipino source and status](docs/FILIPINO-HISN.md) |
 | **Fawaz Arabic / English / Urdu / Bengali editions** | **31 of 31 edition files**, **8 collections**, **36,226 registered provider occurrences** | All **36,464 provider identities** are accounted for. The former 244-case cohort became six additional registrations and **238 resolved source-only records**; unresolved source dispositions are **0**. Review of individual sibling-language fields remains separate. [Progress](imports/web-fawaz-20261112/progress.json) · [Import scope](docs/FAWAZ-BULK-IMPORT.md) |
 
-Fawaz covers Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah and Malik in the four configured languages, plus Nawawi in Arabic, English and Bengali. Its pinned catalog supplies **no Urdu Nawawi or Hindi edition**. The 238 source-only records comprise **67 commentary/discussion items and 171 source gaps**; they remain preserved with their dispositions. “All edition files acquired” and “all source identities classified” do not certify every translation, language boundary, chain or grade.
+Fawaz covers Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah and Malik in the four configured languages, plus Nawawi in Arabic, English and Bengali. Its pinned catalog supplies **no Urdu Nawawi or Hindi edition**. The 238 source-only records comprise **67 commentary/discussion items and 171 source gaps**; they remain preserved with their dispositions. “All edition files acquired” and “all source identities classified” do not certify every translation, language boundary, chain or grade. Separate sibling-language semantic review remains; its current remaining-field count was not revalidated in this audit. The older 6,112-field figure belongs to a historical review cohort and is not presented as a current total.
 
 ### Website acquisition and review queues
 
@@ -108,16 +108,18 @@ These are separately saved extraction and review projects, **outside the registe
 
 | Book and language | Latest inspected checkpoint | Saved progress | Remaining work |
 | --- | --- | --- | --- |
-| **Mukhtasar Sahih Bukhari — Hindi**, three volumes | `HI_MSB_3V_v0.7.10-QC10` | Initial transcription and a scoped image-comparison pass cover **1,921 pages**, **2,230 numbered occurrences** and **4,460 Arabic/Hindi rows**. | Retained local source readings and independent proofreading remain. The checkpoint records **0 certified-verbatim records**, **0 fully glyph-verified pages** and whole-corpus independent Pro QC pending. |
-| **Mishkat al-Masabih — Urdu**, five volumes | `UR_MISHKAT_172207_v0.14.0` | Initial text for **2,790 pages**; **1,874 image drafts** and **683 separate-author full-page comparison attempts**. | **2,107 pages** have no full-page comparison attempt. The **1,514 occurrence fragments** remain uncertified, including **460 incomplete boundaries**; no fully character-verified pages or Bank-ready status is claimed. |
-| **Al-Adab al-Mufrad — Urdu** | `UR_ADAB_MUFRAD_20261113_v0.2.0-pre.18` | Candidate comparison attempts cover all **372 physical pages**. The latest 400-event patch includes focused revisits. | **26 pages** currently have full character self-review credit; independent Pro QC covers **0 pages**. **2,777 tasks** remain across source readings, annotations, metadata and review. |
+| **Mukhtasar Sahih Bukhari — Hindi**, three volumes | `HI_MSB_3V_v0.7.10-QC10` | Initial transcription and a scoped image-comparison pass cover **1,921 pages**, **2,230 numbered occurrences** and **4,460 Arabic/Hindi rows**. | Retained local source readings and independent proofreading remain. The checkpoint records **0 certified-verbatim records**, **0 fully glyph-verified pages** and independent professional proofreading pending. |
+| **Mishkat al-Masabih — Urdu**, five volumes | `UR_MISHKAT_172207_v0.14.0` | Initial text for **2,790 pages**; **1,874 image drafts** and **683 separate-author model full-page comparison attempts**. | **2,107 pages** have no full-page comparison attempt. The **1,514 occurrence fragments** remain uncertified, including **460 incomplete boundaries**; no fully character-verified pages or Bank-ready status is claimed. |
+| **Al-Adab al-Mufrad — Urdu** | `UR_ADAB_MUFRAD_20261113_v0.2.0-pre.18` | Candidate comparison attempts cover all **372 physical pages**. The latest 400-event patch includes focused revisits. | **26 pages** currently have full character self-review credit; **346 complete-page character reviews** remain. Independent source QC covers **0 pages**. **2,777 tasks** remain across source readings, annotations, metadata and review; task categories overlap. |
 | **Riyadh al-Salihin — Bengali**, two volumes | `v2_cp017_patch08` | **2,029 source occurrences / 11,484 source units** preserved; character-review attempts cover **2,054 pages**, with **2,053 marked full** and one localized glyph partial. Scoped independent patch QC passed after corrections. | Retain **32 investigated source limitations** and the glyph partial. A package-aware adapter and local reader validation are still required; the checkpoint records **no Bank upload or registration**. |
 
-The table summarizes the saved packages’ own evidence; this README audit performed no new page proofreading. A comparison attempt, full author review, scoped independent patch QC and whole-book certification are different measures. In particular, Bengali patch QC does not claim an independent reread of all 2,054 pages, and Mishkat fragments are not complete verified hadith entries.
+The table summarizes the saved packages’ own evidence; this README audit performed no new page proofreading. A comparison attempt, full author review, scoped independent patch QC and whole-book certification are different measures. In particular, Bengali patch QC does not claim an independent reread of all 2,054 pages, and Mishkat fragments are not complete verified hadith entries. Mishkat’s separate-author comparisons are model reviews; the checkpoint does not claim human or professional proofreading. The five-volume Urdu project is this same UM172207 Mishkat package. HI_MSB identifies the Hindi Zubaydi abridgment of Sahih Bukhari, not Mishkat.
 
 Checkpoint evidence is maintained with those separate working packages: `HI_MSB_3V_v0.7.10_QC10_RESUME.json`, `UR_MISHKAT_172207_v0.14.0_COVERAGE.json`, `UR_ADAB_MUFRAD_20261113_v0.2.0-pre.18_CHECKPOINT_REVIEW_SUMMARY.json`, and the `v2_cp017_patch08` `REPORT.md`. The first was saved on 14 November JST; the other three on 13 November JST. These filenames identify resumable work, not public downloads from this repository.
 
-Earlier saved intake/review packages also include **Portuguese Sahih al-Bukhari volume I** (`pt_bukhari_v1`) and **Portuguese Riyadh al-Salihin, SBMRJ** (`pro_qc_v2`). They remain a separate backlog: recent continuation or current reader registration is not established here, and completion of Portuguese Bukhari volumes II/III is not claimed.
+Eight further Hindi, Bengali and Urdu books appear in an older tracker: Hindi 300 Hadith, Hindi Selected Hadith Encyclopedia, Hindi Hisn, Bengali Qudsi, Bengali Hisn, the five-volume Bengali Selected Hadith series, Urdu Diya-e-Nabawi Nawawi Forty and Urdu Hisn. Their latest primary checkpoint bytes could not be inspected, so the [historical tracker table](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md#other-tracker-listed-books) retains the 13 November, 10:43 JST snapshot with current progress explicitly unknown. No source-specific registration for these eight packages was found at the audited Bank revision.
+
+Older saved reports also cover **Portuguese Sahih al-Bukhari volume I** (`pt_bukhari_v1`, 9 November) and **Portuguese Riyadh al-Salihin, SBMRJ** (`pro_qc_v2`, 11 November). Bukhari I reports scoped image review of 914 pages and 2,970 source report rows, with character-review limits. Riyadh retains 821 pages and 1,869 occurrences with source fidelity PARTIAL and Bank readiness FAIL. Their [separate backlog evidence](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md#older-portuguese-backlog) does not establish recent continuation or publication; no Portuguese source-specific registration was found at the audited revision. Completion of Bukhari volumes II/III is not claimed.
 
 Current priorities are to finish the bounded Hindi queue and language-field reviews, reconcile the remaining Uzbek source gap, prepare these book-specific adapters after their required review work, and resolve evidence-supported Arabic/English counterparts. Source uncertainties and original wording remain explicit throughout.
 
@@ -181,6 +183,7 @@ The same build updates the language and book indexes, individual HTML pages, boo
 | Hosted sitemap index and its shards | `_site/sitemap.xml` and generated sitemap files |
 | Hosted reader shell and checksum-verified data shards | `hadith-bank-reader.html` + `hadith-bank-reader-data/` |
 | Optional standalone offline export | Built with `scripts/build_reader.py` without external-data options |
+| Dated active-book, review and intake evidence | `reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md` and its JSON companion |
 
 The workflow builds `_site/` as the deployment artifact. Its individual HTML pages are generated from the accepted data rather than maintained as thousands of additional source files in Git. Existing source paths and occurrence IDs remain stable.
 
@@ -200,7 +203,7 @@ A separate self-contained export is supported:
 python scripts/build_reader.py --root . --output hadith-bank-offline.html
 ```
 
-Open that generated file directly. Add `--uncompressed` for a browser without built-in gzip decompression. A whole-corpus embedded export can be large; the sharded local copy loads records as needed. A **Download offline reader** link is only available when that build supplies a separate offline artifact. [Reader loading and preservation](docs/READER-DEMAND-LOADING.md)
+Open that generated file directly. Add `--uncompressed` for a browser without built-in gzip decompression. A whole-corpus embedded export can be large; the sharded local copy loads records as needed. A **Download offline reader** link is only available when that build supplies a separate offline artifact. [Reader loading and preservation](docs/READER-DEMAND-LOADING.md) · [Detailed offline-use instructions](docs/WEBSITE.md#offline-use)
 
 For command-line text search, Python 3.11 or later is sufficient; the search tools use the standard library.
 
@@ -222,3 +225,4 @@ node --test tests/test_lazy_store.js
 ```
 
 The refresh command verifies canonical files and hashes, rebuilds the accepted language/book/edition views, validates the search stream and reader, and stages the static reading pages and sitemap. The full reader build also uses Node.js for its search projections. The website workflow adds browser verification before deployment. Invalid input stops publication; a failed GitHub build leaves the previously deployed website available. These checks establish software and source-preservation behavior, not independent scholarly certification.
+

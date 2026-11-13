@@ -6,7 +6,7 @@
 
 **Workflow:** [Update Hadith Bank website](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
-The website is generated from the accepted canonical data in this repository. It offers every language found in the successfully registered corpus. The interactive reader is self-contained HTML: searching and exporting its embedded records do not call an external Hadith service. Individual reading pages provide the same source texts in ordinary HTML, with language, book and edition navigation and links to the repository and original documents.
+The website is generated from the accepted canonical data in this repository. It offers every language found in the successfully registered corpus. The current hosted interactive reader loads checksum-verified companion files from this same website as needed. Its HTML alone does not contain the corpus. Reading and search do not call a live external Hadith service. The builder separately supports an embedded standalone artifact; its availability is distinct from the hosted reader. Individual reading pages provide the same source texts in ordinary HTML, with language, book and edition navigation and links to the repository and original documents.
 
 The **Arabic & English availability** table and filter distinguish stored text, external-only source links and missing counterparts. Counts are based on each actual occurrence, including Arabic already supplied by its original source. The [generated availability report](../reports/counterpart-availability.md) also groups these counts by source edition. Every rebuild prepares a source-bound review queue for missing counterparts; candidates do not appear as accepted language links. [Language-counterpart preparation](LANGUAGE-COUNTERPARTS.md) describes future editions and the review/compiler gate.
 
@@ -17,8 +17,8 @@ The reader’s translation-origin filter uses **Human**, **AI** and **Unknown**.
 1. An owner-approved material folder is committed or merged into `main`.
 2. GitHub Actions runs the software tests and `python scripts/refresh_bank.py --root . --site-output _site`.
 3. The refresh command discovers `materials/*/manifest.json`, checks records and local source files, rebuilds catalogs/search/Markdown views, and validates the interactive reader.
-4. The static discovery generator builds language, book and edition indexes, a stable page for each accepted source occurrence, and the sitemap index and its shards. The generated [book catalog](../catalog/BOOKS.md) connects source-edition names with reading and download links.
-5. The workflow commits changed generated catalogs, search shards, Markdown reading pages, reports and `hadith-bank-reader.html` back to `main`.
+4. The static discovery generator builds language, book and edition indexes, stable individual pages or shared-reader occurrence links according to the source edition, and the sitemap index and its shards. The generated [book catalog](../catalog/BOOKS.md) connects source-edition names with reading and download links.
+5. The workflow commits changed generated catalogs, search shards, Markdown reading pages, reports, `hadith-bank-reader.html` and its `hadith-bank-reader-data/` companion files back to `main`.
 6. GitHub Pages deploys the verified `_site` artifact. Its individual HTML pages are generated deployment files; they are not maintained as thousands of extra checked-in source files.
 
 The workflow uses a normal Git push and checks whether `main` advanced during the build. It never force-pushes over a newer material addition. A stale run skips publication; a rejected push or failed validation does not deploy its artifact. The next successful run updates the website.
@@ -34,17 +34,40 @@ Generated commits use GitHub’s built-in workflow token and a `[skip ci]` messa
 | `hadith/<language>/<book>/<edition>/<stable-id-hash>.html` on the website | Individual source text, provenance and available source downloads. The URL derives from the stable occurrence ID. |
 | [Book catalog](../catalog/BOOKS.md) | Human-readable source-edition titles and reading/download links in GitHub. |
 | [Sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) | Machine-readable discovery of canonical reading URLs; regenerated on each successful build. |
-| **Download offline reader** | Saves the current reader and all its searchable records in one HTML file. |
-| Previously downloaded `hadith-bank-reader.html` | Remains the saved snapshot; download a fresh copy for later additions. |
+| Hosted `hadith-bank-reader.html` | Requires the matching companion data files; downloading the HTML alone is insufficient for offline use. |
+| **Download offline reader**, when configured | Links to a separately configured standalone artifact. The control is hidden when no standalone URL is supplied. |
+| Explicitly generated standalone reader | Embeds its saved text snapshot; rebuild it to include later additions. |
 | Full Git checkout | `git pull` retrieves canonical additions and synchronized generated files; rebuild locally to produce `_site/`. |
 
 Use HTTPS website URLs when sharing a reading page. A file address such as `file:///C:/...` refers only to a file on that computer.
 
-The standalone reader uses the browser’s built-in gzip decompression. To create an uncompressed reader for a browser without that API:
+## Offline use
+
+For the current hosted format, keep `hadith-bank-reader.html` and the complete matching `hadith-bank-reader-data/` directory from the same repository snapshot. Serve their parent directory through a local HTTP server; the browser loader does not support opening the sharded edition through a `file:` URL.
+
+From the repository root:
 
 ```bash
-python scripts/build_reader.py --root . --output reader-uncompressed.html --uncompressed
+python -m http.server 8000 --bind 127.0.0.1
 ```
+
+Open `http://127.0.0.1:8000/hadith-bank-reader.html` in a current browser with built-in gzip decompression and integrity-checking support. Once the complete local files are present, narration reading/search uses those local files. External reference links and original-book links pointing to GitHub still require connectivity; original local files remain in a full repository copy. Stop the local server with Ctrl+C when finished.
+
+To generate a separate embedded standalone artifact from a complete, validated local bank:
+
+```bash
+python scripts/build_reader.py --root . --output standalone-reader.html
+```
+
+Do not add `--data-directory` or `--max-embedded-bytes` when a single embedded file is required. The builder's default embedded mode is distinct from the automatic website build, which selects companion-file delivery for the current large corpus. A full embedded build can be large and resource-intensive. This audit inspected the supported code path; it did not generate a new full-corpus standalone download.
+
+The compressed standalone reader uses the browser’s built-in gzip decompression. An uncompressed alternative is supported:
+
+```bash
+python scripts/build_reader.py --root . --output standalone-reader-uncompressed.html --uncompressed
+```
+
+See [reader loading and preservation](READER-DEMAND-LOADING.md) and the current [build report](../reports/site-build.json) for the generated format and source revision.
 
 The individual HTML reading pages do not need JavaScript to display their narration text. They do not embed the whole search dataset. Word and PDF originals remain direct GitHub downloads, avoiding duplication of every source binary in the hosted site.
 
@@ -80,3 +103,4 @@ Hosted source links open the preserved source/evidence paths in GitHub. A full d
 - [Pages deployment action](https://github.com/actions/deploy-pages)
 - [Workflow triggers and the built-in token](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
 - [Google’s crawlable-link guidance](https://developers.google.com/search/docs/crawling-indexing/links-crawlable)
+
