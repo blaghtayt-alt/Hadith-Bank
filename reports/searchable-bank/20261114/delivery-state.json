@@ -1,6 +1,6 @@
 {
   "schema": "hadith-bank-delivery-state-v2",
-  "updated_at": "2026-11-14T16:12:57.577054+00:00",
+  "updated_at": "2026-11-14T16:36:48.907480+00:00",
   "phase": "implemented_validated_integrated_publication_deferred",
   "integration": {
     "commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
@@ -34,18 +34,19 @@
     "evidence_directory": "integrated-43608019736"
   },
   "current_main": {
-    "commit": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
+    "commit": "f2ac3dee3636e9113190a7689494041420c4a15b",
     "contains_integration": true,
-    "latest_delta_paths": 531,
-    "latest_delta_additions": 481,
-    "latest_delta_modifications": 50,
+    "latest_delta_paths": 529,
+    "latest_delta_additions": 476,
+    "latest_delta_modifications": 53,
     "latest_delta_deletions": 0,
     "latest_delta_owned_overlap": [],
     "latest_delta_scope": "DeenHindi importer and source-status only",
-    "run": 43613385963,
-    "job": 132503111842,
-    "observed_stage": "applying saved website reviews",
-    "final_result": "not_observed"
+    "run": 43616104169,
+    "observed_status": "pending",
+    "status_observed_at": "2026-11-14T16:32:47Z",
+    "final_result": "not_observed",
+    "scope_receipt": "main-f2ac-scope-check.json.gz"
   },
   "publication": {
     "new_ui_published": false,
@@ -60,17 +61,20 @@
       "remote_commit": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
       "build_request": "submitted"
     },
-    "automatic_current_head_retry": "submitted_and_running",
-    "no_jobs_cancelled_by_this_session": true
+    "automatic_current_head_retry": "submitted_pending_43616104169",
+    "no_jobs_cancelled_by_this_session": true,
+    "accepted_build_run": 43608019736,
+    "accepted_build_source_commit": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1"
   },
   "actual_live": {
-    "observed_at": "2026-11-14T16:06:18.694312+00:00",
+    "observed_at": "2026-11-14T16:35:52.422082+00:00",
+    "refetch_at": "2026-11-14T16:36:00.218117+00:00",
     "source_commit": "5a6cb8e999941615414e7ae66051aff5935e08a8",
     "source_occurrences": 109211,
     "html_bytes": 1350084,
     "html_sha256": "da1e5f4827fa8df243e83c97ccc8e0c8401cce9d58586170a0fced8304163fd1",
     "new_compact_discovery_present": false,
-    "receipt": "live-observation-20261114T160623Z.json"
+    "receipt": "live-observation-20261114T163600Z.json"
   },
   "live_acceptance": {
     "new_ui_bytes_index_source_data": "open_no_new_deployment",
@@ -84,5 +88,17 @@
     "Require actual Pages deployment success; a successful superseded build is not publication.",
     "Run and verify exact-revision live HTML/index/data checks, actual browser journeys and complete cold/warm measurements.",
     "Keep subsequent importer and held/excluded source states intact."
-  ]
+  ],
+  "previous_retry": {
+    "source_commit": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
+    "run": 43613385963,
+    "job": 132503111842,
+    "status_observed_at": "2026-11-14T16:32:47Z",
+    "observed_status": "in_progress",
+    "observed_stage": "Rebuild and validate all registered material",
+    "remote_source_head_advanced_before_publication": true,
+    "publication_guard_result": "not_yet_observed",
+    "upload_deployment_result": "not_yet_observed",
+    "receipt": "retry-43613385963-source-supersession.json"
+  }
 }

@@ -1,18 +1,18 @@
 {
   "schema": "hadith-bank-delivery-evidence-upload-v1",
-  "updated_at": "2026-11-14T16:09:41.177084+00:00",
+  "updated_at": "2026-11-14T16:38:43.024061+00:00",
   "source_commit": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
   "integration_commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
   "destination_branch": "evidence/searchable-bank-20261114",
-  "expected_head": "3ca872704964ab9869b56380a0e7b977f50c7f71",
+  "expected_head": "30d324ad035ccca333dfff8fbd721caea53cecde",
   "source_runtime_artifact": {
     "id": 14121151711,
     "run": 43608019736,
     "remote_expires_at": "2026-11-21T16:01:29Z"
   },
   "publication": "deferred_superseded_no_upload_or_deployment",
-  "current_main": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
-  "current_main_run": 43613385963,
+  "current_main": "f2ac3dee3636e9113190a7689494041420c4a15b",
+  "current_main_run": 43616104169,
   "independent_live_observation": "old_source5a_new_discovery_absent",
   "files": [
     {
@@ -81,20 +81,24 @@
     {
       "local_path": ".work/searchable-bank-final-report.md",
       "path": "reports/searchable-bank/20261114/delivery-acceptance.md",
-      "bytes": 18421,
-      "sha256": "559b719520bbe169bd34b38938fd998b9d270dbe46665de0c8b4da4f1b93e1e3",
-      "expected_git_blob": "fb8b9bb079cc4e584b66b8aa3f8eddfb43e58ae7",
+      "bytes": 19948,
+      "sha256": "8c9b8d67f3167e96b36e972e3eb057997036a2ed53ac5f9a37ccbf8a1d4d0c18",
+      "expected_git_blob": "f98e64d63c740a40a8fe67924e1707c6c416b8e2",
       "upload_status": "uploaded",
-      "blob_sha": "fb8b9bb079cc4e584b66b8aa3f8eddfb43e58ae7"
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "f98e64d63c740a40a8fe67924e1707c6c416b8e2"
     },
     {
       "local_path": ".work/searchable-bank-delivery-state.json",
       "path": "reports/searchable-bank/20261114/delivery-state.json",
-      "bytes": 3616,
-      "sha256": "8b0628d0e168419acfad922881a422991aa71e1c27e4c74377e70b446918f1f3",
-      "expected_git_blob": "662483fd81ceb75de9db8a509f89c252d0867347",
+      "bytes": 4377,
+      "sha256": "badbbb0e01ae8f99232896d0de16012af1d51698b289ac29b6d905103245a3ae",
+      "expected_git_blob": "7f6fdf1dd3ffb313746fd86e1903d0921347f565",
       "upload_status": "uploaded",
-      "blob_sha": "662483fd81ceb75de9db8a509f89c252d0867347"
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "7f6fdf1dd3ffb313746fd86e1903d0921347f565"
     },
     {
       "local_path": ".work/searchable-bank-main-1a9c-scope-check.json.gz",
@@ -113,17 +117,81 @@
       "expected_git_blob": "6968e3644cb9e8c72d3866af91c4059196fd4af4",
       "upload_status": "uploaded",
       "blob_sha": "6968e3644cb9e8c72d3866af91c4059196fd4af4"
+    },
+    {
+      "local_path": ".work/searchable-bank-live/observed-20261114T163600Z.json",
+      "path": "reports/searchable-bank/20261114/live-observation-20261114T163600Z.json",
+      "bytes": 1780,
+      "sha256": "3d50dbc1d7010e51b5694c353632e4fad263a7d6590bf70af2d505cb9cd57f3c",
+      "expected_git_blob": "7dfd8cd69634e40cb68484487e66533d90411a3e",
+      "upload_status": "uploaded",
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "7dfd8cd69634e40cb68484487e66533d90411a3e"
+    },
+    {
+      "local_path": ".work/searchable-bank-live/observed-20261114T163600Z.html.gz",
+      "path": "reports/searchable-bank/20261114/live-observation-20261114T163600Z.html.gz",
+      "bytes": 210575,
+      "sha256": "d1eee924e42a3f4af249771e60aa641520766a4625cd007abd3d5845fa8e515b",
+      "expected_git_blob": "7bd3e7011b5270b09ec8fd8c3a5a2d6a98e0c1a5",
+      "upload_status": "uploaded",
+      "encoding": "base64",
+      "chunks": 9,
+      "blob_sha": "7bd3e7011b5270b09ec8fd8c3a5a2d6a98e0c1a5"
+    },
+    {
+      "local_path": ".work/searchable-bank-live/build-info-20261114T163600Z.json",
+      "path": "reports/searchable-bank/20261114/live-build-info-20261114T163600Z.json",
+      "bytes": 5164,
+      "sha256": "aae54f898888660eef03ebf0e17d59d468cf0c4a75dd4626d096e93b808ea369",
+      "expected_git_blob": "60540c8a91c45aafb9a579e06bc235070bb75dc3",
+      "upload_status": "uploaded",
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "60540c8a91c45aafb9a579e06bc235070bb75dc3"
+    },
+    {
+      "local_path": ".work/searchable-bank-main-f2ac-scope-check.json.gz",
+      "path": "reports/searchable-bank/20261114/main-f2ac-scope-check.json.gz",
+      "bytes": 20195,
+      "sha256": "4b3d9804cefec29727bee34506d613f24a63c5c54148a2e2e735a9b6f505a2f7",
+      "expected_git_blob": "3deca1fe943ef8447a067bfbecf8a7c563028579",
+      "upload_status": "uploaded",
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "3deca1fe943ef8447a067bfbecf8a7c563028579"
+    },
+    {
+      "local_path": ".work/ci-run43613385963/source-supersession.json",
+      "path": "reports/searchable-bank/20261114/retry-43613385963-source-supersession.json",
+      "bytes": 1232,
+      "sha256": "f78c701fbb788a219e13dcc7836de2877a506e51d71a737e93c4e87ba8f0e06d",
+      "expected_git_blob": "04814afcd30ef850ea0e4afcf3a8a3f04fb62388",
+      "upload_status": "uploaded",
+      "encoding": "base64",
+      "chunks": 1,
+      "blob_sha": "04814afcd30ef850ea0e4afcf3a8a3f04fb62388"
     }
   ],
   "evidence_upload_stage": "complete",
-  "completed_file_count": 11,
+  "completed_file_count": 16,
   "remaining_files": [],
-  "actual_live_receipt": "reports/searchable-bank/20261114/live-observation-20261114T160623Z.json",
+  "actual_live_receipt": "reports/searchable-bank/20261114/live-observation-20261114T163600Z.json",
   "active_main_build": {
     "source": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
     "run": 43613385963,
     "job": 132503111842,
-    "status_last_observed": "official_counterpart_synchronization_in_progress",
-    "final_result": "not_observed"
-  }
+    "status_last_observed": "full_corpus_rebuild_in_progress_at_163247Z",
+    "final_result": "not_observed",
+    "remote_source_has_advanced": true
+  },
+  "queued_current_main_build": {
+    "source": "f2ac3dee3636e9113190a7689494041420c4a15b",
+    "run": 43616104169,
+    "status_last_observed": "pending_at_163247Z"
+  },
+  "prior_committed_evidence_head": "30d324ad035ccca333dfff8fbd721caea53cecde",
+  "prior_committed_evidence_tree": "d0c9a631e53d98a58987994f6bcac6efb83ce751",
+  "manifest_scope": "Preserved CI archives and final delivery checkpoint files; the manifest itself is excluded from its own hash inventory."
 }
