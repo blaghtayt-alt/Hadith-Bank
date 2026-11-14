@@ -4,7 +4,7 @@
   "source_commit": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
   "integration_commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
   "destination_branch": "evidence/searchable-bank-20261114",
-  "expected_head": "842d6010456a232b450344c053f30206c92025ca",
+  "expected_head": "3ca872704964ab9869b56380a0e7b977f50c7f71",
   "source_runtime_artifact": {
     "id": 14121151711,
     "run": 43608019736,
@@ -21,8 +21,8 @@
       "bytes": 6725930,
       "sha256": "1c65eee874b9c47402d981c4c945198c0121c1cc5d4ec67c6b45847c9602dad5",
       "expected_git_blob": "f36c3c63e869eda1bfbdba1842480a93c325c581",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "f36c3c63e869eda1bfbdba1842480a93c325c581"
     },
     {
       "local_path": ".work/searchable-bank-corpus-acceptance-43608019736.json",
@@ -30,8 +30,8 @@
       "bytes": 24056,
       "sha256": "1c7a5e92562d96780d9d828a07c857d6802ff24078bc96e1881e14e6190ab810",
       "expected_git_blob": "36274f10eff811a9467cc497206a07fd8986dd21",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "36274f10eff811a9467cc497206a07fd8986dd21"
     },
     {
       "local_path": ".work/ci-run43608019736/publication-receipt.json",
@@ -39,8 +39,8 @@
       "bytes": 6643,
       "sha256": "1c350dc2c88c04d0c58af42f4d80fab220d7baeaa61f72bf6f3fc968c004c657",
       "expected_git_blob": "7f91a1c3faa5d6caa030911207c912a815a90f6b",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "7f91a1c3faa5d6caa030911207c912a815a90f6b"
     },
     {
       "local_path": ".work/ci-run43608019736/artifact-manifest.json",
@@ -48,8 +48,8 @@
       "bytes": 2930,
       "sha256": "e38f3c404f9f9ae63e20bbe4fde6c1edd2ce68cd9183c25977bc5e42b3ca4e44",
       "expected_git_blob": "ed0c7d0ba0a96ec826cc57138e7bb0136c79367d",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "ed0c7d0ba0a96ec826cc57138e7bb0136c79367d"
     },
     {
       "local_path": ".work/ci-run43608019736-fawaz/artifact.zip",
@@ -57,8 +57,8 @@
       "bytes": 32265,
       "sha256": "8756f0ddf5d4df8eb1c9133386febc44dbde4a8c9f9793da5950e05c1b63ff85",
       "expected_git_blob": "e5b339c13e2880459f3aefc1d543f4e58d38226b",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "e5b339c13e2880459f3aefc1d543f4e58d38226b"
     },
     {
       "local_path": ".work/ci-run43608019736-fawaz/receipt.json",
@@ -66,8 +66,8 @@
       "bytes": 888,
       "sha256": "9c042bd69714a1dcf4f8d1a910110b8095d3ead409c4b46e377fd2a3a6e16d7e",
       "expected_git_blob": "778dbd1e7148df0f9c87e6dcf34b1fdd359a8313",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "778dbd1e7148df0f9c87e6dcf34b1fdd359a8313"
     },
     {
       "local_path": ".work/searchable-bank-live/observed-20261114T160623Z.json",
@@ -75,8 +75,55 @@
       "bytes": 1780,
       "sha256": "2f8734d656e6936e81a8173a7a49cd629445838e95bbcf4911ad0408b6b8ba1d",
       "expected_git_blob": "1189dedacd8712fe21f6da612e3463b596fa2367",
-      "upload_status": "pending",
-      "blob_sha": null
+      "upload_status": "uploaded",
+      "blob_sha": "1189dedacd8712fe21f6da612e3463b596fa2367"
+    },
+    {
+      "local_path": ".work/searchable-bank-final-report.md",
+      "path": "reports/searchable-bank/20261114/delivery-acceptance.md",
+      "bytes": 18421,
+      "sha256": "559b719520bbe169bd34b38938fd998b9d270dbe46665de0c8b4da4f1b93e1e3",
+      "expected_git_blob": "fb8b9bb079cc4e584b66b8aa3f8eddfb43e58ae7",
+      "upload_status": "uploaded",
+      "blob_sha": "fb8b9bb079cc4e584b66b8aa3f8eddfb43e58ae7"
+    },
+    {
+      "local_path": ".work/searchable-bank-delivery-state.json",
+      "path": "reports/searchable-bank/20261114/delivery-state.json",
+      "bytes": 3616,
+      "sha256": "8b0628d0e168419acfad922881a422991aa71e1c27e4c74377e70b446918f1f3",
+      "expected_git_blob": "662483fd81ceb75de9db8a509f89c252d0867347",
+      "upload_status": "uploaded",
+      "blob_sha": "662483fd81ceb75de9db8a509f89c252d0867347"
+    },
+    {
+      "local_path": ".work/searchable-bank-main-1a9c-scope-check.json.gz",
+      "path": "reports/searchable-bank/20261114/main-1a9c-scope-check.json.gz",
+      "bytes": 19741,
+      "sha256": "da0954b5e4bb3c887a8979d6f811ce1af7e8cff95ce8a9877b064b3277b789ed",
+      "expected_git_blob": "a0e3d6d39a1bde29ad1abfb923887567eb8a8570",
+      "upload_status": "uploaded",
+      "blob_sha": "a0e3d6d39a1bde29ad1abfb923887567eb8a8570"
+    },
+    {
+      "local_path": ".work/searchable-bank-main-9cd0-scope-check.json.gz",
+      "path": "reports/searchable-bank/20261114/main-9cd0-scope-check.json.gz",
+      "bytes": 20077,
+      "sha256": "fb9d19e23d9ba493f6ae7bba4089f58d5f58edd9029ba207badc744709cf5b4a",
+      "expected_git_blob": "6968e3644cb9e8c72d3866af91c4059196fd4af4",
+      "upload_status": "uploaded",
+      "blob_sha": "6968e3644cb9e8c72d3866af91c4059196fd4af4"
     }
-  ]
+  ],
+  "evidence_upload_stage": "complete",
+  "completed_file_count": 11,
+  "remaining_files": [],
+  "actual_live_receipt": "reports/searchable-bank/20261114/live-observation-20261114T160623Z.json",
+  "active_main_build": {
+    "source": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
+    "run": 43613385963,
+    "job": 132503111842,
+    "status_last_observed": "official_counterpart_synchronization_in_progress",
+    "final_result": "not_observed"
+  }
 }

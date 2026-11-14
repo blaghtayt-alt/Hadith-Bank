@@ -1,52 +1,88 @@
 {
-  "updated_at": "2026-11-14T15:19:07.724970+00:00",
-  "feature_head": "5ef914fae31d94a5f9acc06884a47dbad78c3789",
-  "application_head": "4277317cee8255047d7ceb900ad93a12c03cc769",
-  "pull_request": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/16",
-  "validation_run": 43602603900,
-  "validation_job": 132470390081,
-  "synthetic_merge": "ff5a1c6996ee82253cf5c4c34f4eea93e5177a37",
-  "test_base": "7d34b6228b5246fda79eb7fef3959c4e7a49df24",
-  "software": "passed",
-  "early_reader_chromium_fixtures": "passed",
-  "early_discovery_chromium_fixtures": "passed",
-  "saved_source_reviews": "passed",
-  "current_corpus": "passed",
-  "production_browser": "passed",
-  "baseline_candidate_performance": "passed",
-  "integration": "merged",
-  "new_ui_deployment": "pending",
-  "new_ui_live_verification": "pending",
-  "live_observation_file": "live-before-integration-20261114T1401.json",
-  "previous_corpus_acceptance": "corpus-validation-43598229312.json",
-  "previous_corpus_scope": "f07 + main95 synthetic merge only; subsequent browser gate failed and its page-return correction is now confirmed by early Chromium fixtures",
-  "source_and_import_paths_modified_by_feature": false,
-  "integration_commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
-  "main_before_integration": "4d466c80bc78d21b4c8b596677c0ec78f5c61b24",
-  "main_build_run": 43608019736,
-  "main_build_state": "in_progress",
-  "candidate_acceptance_directory": "pr-acceptance-43602603900",
-  "measured_performance_limit": "Cold Bukhari 1 transferred8.54% more bytes because of initial index, although time fell19.6%; measured wording/topic cold time and bytes improved, all candidate warm transfers0.",
-  "provisional_report": "delivery-acceptance.md",
-  "queue_predecessor": {
-    "run": 43605440177,
-    "head": "4d466c80bc78d21b4c8b596677c0ec78f5c61b24",
-    "last_observed_step": "Rebuild and validate all registered material"
+  "schema": "hadith-bank-delivery-state-v2",
+  "updated_at": "2026-11-14T16:12:57.577054+00:00",
+  "phase": "implemented_validated_integrated_publication_deferred",
+  "integration": {
+    "commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
+    "feature_head": "5ef914fae31d94a5f9acc06884a47dbad78c3789",
+    "application_head": "4277317cee8255047d7ceb900ad93a12c03cc769",
+    "pull_request": 16,
+    "owned_changed_paths": 27,
+    "source_registry_release_paths_changed_by_feature": false
   },
-  "latest_main_observed": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
-  "integrated_main_run": 43608019736,
-  "new_main_scope_check": ".work/searchable-bank-main-9ea5-scope-check.json",
-  "superseded_main_run": 43606134903,
-  "main_build_job": 132491079685,
-  "phase": "integrated_main_build_running",
-  "queue_predecessor_outcome": {
-    "run": 43605440177,
-    "conclusion": "cancelled",
-    "completed_at": "2026-11-14T15:18:21Z",
-    "duration_seconds": 2715,
-    "existing_timeout_minutes": 45,
-    "generated_sync": "skipped",
+  "accepted_pr": {
+    "run": 43602603900,
+    "source_commit": "ff5a1c6996ee82253cf5c4c34f4eea93e5177a37",
+    "full_acceptance": "passed",
+    "cold_warm_baseline_comparison": "passed"
+  },
+  "accepted_integrated_build": {
+    "run": 43608019736,
+    "job": 132491079685,
+    "source_commit": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
+    "source_occurrences": 109772,
+    "datasets": 252,
+    "canonical_objects_compared": 109772,
+    "python_tests_passed": 1063,
+    "lazy_store_node_tests_passed": 48,
+    "discovery_node_tests_passed": 22,
+    "software": "passed",
+    "full_corpus": "passed",
+    "staged_production_browser": "passed",
+    "source_stream_sha256": "aafde0add2ad1f77ed7c5f79edf518fbfe3dc212ad117625ec8602bb9deb8e39",
+    "html_sha256": "d221fc56e30f767fcd4da57a9229bedf30ebfa20c08930f379d308a67c068a48",
+    "evidence_directory": "integrated-43608019736"
+  },
+  "current_main": {
+    "commit": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
+    "contains_integration": true,
+    "latest_delta_paths": 531,
+    "latest_delta_additions": 481,
+    "latest_delta_modifications": 50,
+    "latest_delta_deletions": 0,
+    "latest_delta_owned_overlap": [],
+    "latest_delta_scope": "DeenHindi importer and source-status only",
+    "run": 43613385963,
+    "job": 132503111842,
+    "observed_stage": "applying saved website reviews",
+    "final_result": "not_observed"
+  },
+  "publication": {
+    "new_ui_published": false,
+    "website_upload": "skipped",
+    "deployment_job": 132503111427,
     "deployment": "skipped",
-    "cancel_requested_by_this_session": false
-  }
+    "guard": {
+      "status": "superseded",
+      "publish": false,
+      "expected_start": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
+      "generated_commit": "34a79043de67bab00a87516e22044a9d86060e86",
+      "remote_commit": "9cd0c75a75f4194a6f9aad4705c5df4fd3edad1e",
+      "build_request": "submitted"
+    },
+    "automatic_current_head_retry": "submitted_and_running",
+    "no_jobs_cancelled_by_this_session": true
+  },
+  "actual_live": {
+    "observed_at": "2026-11-14T16:06:18.694312+00:00",
+    "source_commit": "5a6cb8e999941615414e7ae66051aff5935e08a8",
+    "source_occurrences": 109211,
+    "html_bytes": 1350084,
+    "html_sha256": "da1e5f4827fa8df243e83c97ccc8e0c8401cce9d58586170a0fced8304163fd1",
+    "new_compact_discovery_present": false,
+    "receipt": "live-observation-20261114T160623Z.json"
+  },
+  "live_acceptance": {
+    "new_ui_bytes_index_source_data": "open_no_new_deployment",
+    "new_ui_desktop_mobile_searches": "open_no_new_deployment",
+    "new_ui_cold_warm_benchmark": "open_no_new_deployment",
+    "independent_verifier": "prepared_syntax_checked_not_run_for_new_ui"
+  },
+  "evidence_branch": "evidence/searchable-bank-20261114",
+  "remaining": [
+    "Current source revision must stay current through full validation and publication guard.",
+    "Require actual Pages deployment success; a successful superseded build is not publication.",
+    "Run and verify exact-revision live HTML/index/data checks, actual browser journeys and complete cold/warm measurements.",
+    "Keep subsequent importer and held/excluded source states intact."
+  ]
 }
