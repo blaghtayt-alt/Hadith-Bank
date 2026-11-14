@@ -4,7 +4,7 @@
 
 [Read this edition online](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/muslim/deenhindi-web-20261112-part-002/)
 
-Edition: `deenhindi-web-20261112-part-002` · 987 source occurrences.
+Edition: `deenhindi-web-20261112-part-002` · 1048 source occurrences.
 
 [Book index](../README.md) · [Language index](../../README.md) · [All languages](../../../README.md)
 
@@ -49,4 +49,6 @@ Each page contains up to 25 records. Source texts, versions and review flags rem
 - [Narrations 901–925](page-0037.md)
 - [Narrations 926–950](page-0038.md)
 - [Narrations 951–975](page-0039.md)
-- [Narrations 976–987](page-0040.md)
+- [Narrations 976–1000](page-0040.md)
+- [Narrations 1001–1025](page-0041.md)
+- [Narrations 1026–1048](page-0042.md)
