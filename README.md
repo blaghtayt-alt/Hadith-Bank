@@ -1,6 +1,6 @@
 # Hadith Bank — multilingual hadith texts and source books
 
-**Sunni hadith texts, translations and source books in Arabic, Bengali, Chinese, English, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese.** Search a quotation, browse a collection or source edition, and download the original Word or PDF where it is available. Each record keeps its own source reference, translation origin and provenance.
+**Sunni hadith texts, translations and source books in Arabic, Bengali, Chinese, English, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese.** Search a quotation, browse a collection or source edition, and download preserved source files or separately identified extracted text where available. Each record keeps its own source reference, translation origin and provenance.
 
 ## Read, search and find a book
 
@@ -123,9 +123,13 @@ Older saved reports also cover **Portuguese Sahih al-Bukhari volume I** (`pt_buk
 
 Current priorities are to finish the bounded Hindi queue and language-field reviews, reconcile the remaining Uzbek source gap, prepare these book-specific adapters after their required review work, and resolve evidence-supported Arabic/English counterparts. Source uncertainties and original wording remain explicit throughout.
 
-## Download original books
+<a id="download-original-books"></a>
 
-Open the [book catalog](catalog/BOOKS.md), a book’s online edition page, or **Browse available materials → Download books and source materials** in the interactive reader. Choose the available **Word (.doc)**, **Word (.docx)** or **PDF** download. Applicable narration pages also link to their preserved source file.
+## Download original sources and extracted text
+
+Open the [book catalog](catalog/BOOKS.md) for separate **Extracted text**, **Original source (PDF)** and **Other source formats** columns. **Extracted text (Word)** identifies a preserved extracted or corrected Word document; any generated PDF stays in the extracted-text column. **Original source (PDF)** links the exact preserved source-input PDF for that edition or volume. **Supplied source (Word .doc/.docx)** retains an actual Word input under Other source formats. Where no exact original PDF is linked, the table says **Original PDF unverified**.
+
+A book’s online edition page, **Browse available materials → Download books and source materials** in the interactive reader, and applicable narration pages also link to the preserved source inputs.
 
 Examples:
 
@@ -135,7 +139,7 @@ Examples:
 - Persian books: original `.docx` files linked from the [book catalog](catalog/BOOKS.md) and preserved in their [material folders](materials/).
 - Japanese and Vietnamese PDF sources: preserved in the [Japanese package](attachments/attachments-ja-muslim-c859ce57c211ea1b/) and [Vietnamese package](attachments/attachments-vi-920394517894aea9/).
 
-Downloads keep the supplied file format and original bytes. A Word source is not presented as a PDF unless that PDF is actually preserved. The hosted reader loads its searchable data from local site shards; original-book downloads use GitHub. A full downloaded repository retains the local source files and reader data. See [offline use](#read-and-search-offline) for the complete required files. Availability does not grant a new redistribution license; source-specific reuse conditions and unassessed rights remain recorded.
+Preserved source downloads keep the supplied file format and original bytes. The Persian DOCX inputs are supplied Word sources, not generated Word exports. A publisher PDF candidate is not substituted for an unverified edition, and a converted or corrected PDF is not labeled as an original. Extracted downloads retain their recorded corrections, attribution and review limits; their notes do not establish a new source review. “Not linked” does not mean that extraction never occurred. The hosted reader loads its searchable data from local site shards; original-book downloads use GitHub. A full downloaded repository retains the local source files and reader data. See [offline use](#read-and-search-offline) for the complete required files. Availability does not grant a new redistribution license; source-specific reuse conditions and unassessed rights remain recorded.
 
 ## Source text, attribution and review
 

@@ -80,7 +80,9 @@ class DiscoveryIntegrationTests(unittest.TestCase):
         self.assertEqual(result['source_editions'], 1)
         self.assertIn('合成資料', directory)
         self.assertIn('/browse/zh-CN/malik/source-a/', directory)
-        self.assertIn('Download Word (.docx)', directory)
+        self.assertIn('Supplied source (Word .docx)', directory)
+        self.assertIn('Extracted text | Original source (PDF) | Other source formats', directory)
+        self.assertIn('Original PDF unverified — Word source supplied', directory)
         self.assertIn('/raw/main/materials/synthetic/', directory)
         self.assertIn('selected quotations', directory)
 
