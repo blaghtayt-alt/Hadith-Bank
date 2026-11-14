@@ -64,6 +64,19 @@ def payload():
     return build_discovery_payload(records, {'record_count': len(records), 'records_sha256': 'b' * 64})
 
 
+def broader_payload():
+    records = [record('TEST-broader-positive', text='TEST actions are judged by intentions.'),
+               record('TEST-broader-negative', text='TEST Do not base actions on intentions alone.'),
+               record('TEST-broader-one-word', text='TEST actions are described here.'),
+               record('TEST-broader-metadata', text='TEST intentions appear here.', title='TEST actions'),
+               record('TEST-broader-ar-positive', language='ar', text='TEST تجريب عمل'),
+               record('TEST-broader-ar-negative', language='ar', text='TEST لا تجريب عمل'),
+               record('TEST-broader-separate-readings', text='TEST actions are judged by intentions.',
+                      language_versions=[{'id': 'TEST-other-reading', 'language': 'en', 'text': 'TEST Never invent source words.',
+                                          'scope': 'source_entry', 'source': {'name': 'TEST alternative'}}])]
+    return build_discovery_payload(records, {'record_count': len(records), 'records_sha256': 'c' * 64})
+
+
 class BankDiscoveryTests(unittest.TestCase):
     def test_source_preservation_and_determinism(self):
         records = fixtures(); original = copy.deepcopy(records)
@@ -169,6 +182,25 @@ class BankDiscoveryTests(unittest.TestCase):
         other = copy.deepcopy(items[3]); other['id'] += '-other'; other['source']['sha256'] = 'f' * 64
         combined = build_discovery_payload([items[3], other], {})
         self.assertNotEqual(combined['rows'][0]['topics'][0]['value'], combined['rows'][1]['topics'][0]['value'])
+
+    def test_friendly_edition_prefers_accepted_work_name_over_entry_title(self):
+        item = record('TEST-narration-heading')
+        item['source']['name'] = 'TEST Individual narration title'
+        material = {'dataset_id': item['source_id'], 'source_name': 'TEST Accepted source edition'}
+        row = build_discovery_payload([item], {'materials': [material]})['rows'][0]
+        self.assertEqual(row['sourceName'], 'TEST Accepted source edition')
+        self.assertIn('TEST Accepted source edition', row['editionLabel'])
+        self.assertEqual(item['source']['name'], 'TEST Individual narration title')
+        item['source']['work_title'] = 'TEST Exact supplied work title'
+        self.assertEqual(expected_discovery_row(item, 0, material)['sourceName'], 'TEST Accepted source edition')
+        self.assertEqual(expected_discovery_row(item, 0)['sourceName'], 'TEST Exact supplied work title')
+        self.assertEqual(item['source']['work_title'], 'TEST Exact supplied work title')
+        item['edition'] = 'legacy-embedded-ae2c075-v1'
+        self.assertNotIn(item['edition'], expected_discovery_row(item, 0, material)['editionLabel'])
+        item['source']['edition'] = 'Second edition, 1987'
+        self.assertIn('Second edition, 1987', expected_discovery_row(item, 0, material)['editionLabel'])
+        material['source_name'] = 'TEST Named Work — Volume 2'
+        self.assertIn('Volume 2', expected_discovery_row(item, 0, material)['editionLabel'])
 
     def test_posting_structure_validator_checks_real_wire_and_rejects_corruption(self):
         data = payload()
@@ -284,6 +316,8 @@ class BankDiscoveryTests(unittest.TestCase):
 if __name__ == '__main__':
     if '--fixture' in sys.argv:
         print(json.dumps(payload(), ensure_ascii=False, separators=(',', ':')))
+    elif '--broader-fixture' in sys.argv:
+        print(json.dumps(broader_payload(), ensure_ascii=False, separators=(',', ':')))
     elif '--sharded-fixture' in sys.argv:
         import bank_discovery
         bank_discovery.MAX_POSTING_PART_BYTES = 256

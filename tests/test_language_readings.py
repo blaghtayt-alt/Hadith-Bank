@@ -509,6 +509,43 @@ process.stdout.write(JSON.stringify({unscoped,selected,rejected,staleScope,secon
         self.assertEqual(actual['uniqueURL'], 'https://example.invalid/bank/?occurrence=TEST-unique-id')
         self.assertEqual(actual['records'], [first, second, unique])
 
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for browser-history restoration')
+    def test_history_restores_encoded_search_mode_preference_and_source_scope(self):
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        helper = 'function restoreLinkedSearch(' + template.split('function restoreLinkedSearch(', 1)[1].split('function homeQuery(', 1)[0]
+        event = 'window.addEventListener("popstate",' + template.split('window.addEventListener("popstate",', 1)[1].split('const updateNetworkStatus=', 1)[0]
+        program = r"""
+const fields={query:{value:'later topic search'},'preferred-language':{value:'en',options:[{value:''},{value:'en'},{value:'ja'}]},
+ 'language-filter':{value:'en',options:[{value:''},{value:'en'},{value:'ja'}]},
+ 'book-filter':{value:'TEST-English-book',options:[{value:''},{value:'TEST-English-book'}]},
+ 'source-filter':{value:'TEST-English-source',options:[{value:''},{value:'TEST-English-source'}]}};
+const $=id=>fields[id],state={},radios={};let mode='topic',hintMode=null,handler,applied;
+for(const value of ['reference','wording','topic'])radios[value]={set checked(checked){if(checked)mode=value;}};
+const document={querySelector:selector=>radios[selector.match(/value="([^"]+)"/)[1]]};
+const syncMaterialFilters=()=>{const language=fields['language-filter'].value;fields['book-filter'].options=['',...(language==='ja'?['TEST-Japanese-book']:['TEST-English-book'])].map(value=>({value}));fields['source-filter'].options=['',...(fields['book-filter'].value==='TEST-Japanese-book'?['TEST-Japanese-source']:['TEST-English-source'])].map(value=>({value}));};
+const updateSearchHint=()=>{hintMode=mode;},applyFilters=()=>{applied={mode,hintMode,exact:state.exactOccurrence,showExactResults:state.showExactResults,values:Object.fromEntries(Object.entries(fields).map(([key,field])=>[key,field.value]))};};
+const window={location:{search:''},addEventListener:(name,callback)=>{if(name==='popstate')handler=callback;}};
+""" + helper + event + r"""
+window.location.search='?q=Bukhari+1&mode=reference&preferred=ja&language=ja&collection=TEST-Japanese-book&edition=TEST-Japanese-source';handler();const restored=applied;
+window.location.search='?q=TEST+words&mode=unsupported&preferred=invalid&language=invalid&collection=invalid&edition=invalid';handler();const rejected=applied;
+window.location.search='?occurrence=TEST-id&mode=wording&preferred=en&occurrence-source=TEST-source&occurrence-language=en&occurrence-edition=TEST-edition&occurrence-collection=TEST-book';handler();
+process.stdout.write(JSON.stringify({restored,rejected,exact:applied,exactURL:window.location.search}));
+"""
+        run = subprocess.run([shutil.which('node'), '-e', program], text=True, capture_output=True, check=True)
+        actual = json.loads(run.stdout)
+        self.assertEqual(actual['restored']['mode'], 'reference')
+        self.assertEqual(actual['restored']['hintMode'], 'reference')
+        self.assertEqual(actual['restored']['values'], {
+            'query': 'Bukhari 1', 'preferred-language': 'ja', 'language-filter': 'ja',
+            'book-filter': 'TEST-Japanese-book', 'source-filter': 'TEST-Japanese-source'})
+        self.assertTrue(actual['restored']['showExactResults'])
+        self.assertEqual(actual['rejected']['mode'], 'wording')
+        self.assertEqual(actual['rejected']['values'], {
+            'query': 'TEST words', 'preferred-language': '', 'language-filter': '', 'book-filter': '', 'source-filter': ''})
+        self.assertEqual(actual['exact']['exact'], 'TEST-id')
+        self.assertFalse(actual['exact']['showExactResults'])
+        self.assertIn('occurrence-source=TEST-source', actual['exactURL'])
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for supplied-version availability parity')
     def test_supplied_arabic_and_english_count_as_available_text(self):
         from counterpart_coverage import availability_for

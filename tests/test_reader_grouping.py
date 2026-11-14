@@ -245,7 +245,7 @@ class TestNode {
  focus(){}scrollIntoView(){}
 }
 const Node=TestNode,fields={};
-for(const id of ['results','results-heading','result-count','page-meta','previous','next','discovery-results','narration-workspace','workspace-heading','workspace-status','workspace-content','workspace-versions','shared-reading-tools'])fields[id]=new TestNode('div');
+for(const id of ['results','results-heading','result-count','page-meta','previous','next','discovery-results','narration-workspace','workspace-heading','workspace-status','workspace-content','workspace-versions','shared-reading-tools','search-suggestions'])fields[id]=new TestNode('div');
 for(const id of ['query','language-filter','book-filter','source-filter','origin-filter','counterpart-filter','source-book-filter','chapter-filter','source-topic-filter','narrator-filter','type-filter','grade-filter','preferred-language'])fields[id]=new TestNode('input');
 fields['language-filter'].value='ja';fields['preferred-language'].value='ja';fields['show-arabic']={checked:false};fields['show-english']={checked:false};
 const roots=[...Object.values(fields)],toolbar=new TestNode('div'),workspaceTop=new TestNode('div'),pagination=new TestNode('nav');
@@ -271,7 +271,16 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
  compare.value='0';await compare.events.change();captured.push(capture($('workspace-comparison-content').querySelector('.source-version')));
  compare.value='2';await compare.events.change();captured.push(capture($('workspace-comparison-content').querySelector('.source-version')));
  const comparisonCount=walk($('workspace-comparison-content')).filter(node=>node.className==='source-version').length;
- process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,records,exported:compactSelection.map(index=>records[index])}));
+ const workspaceHydrated=[...hydrated];fields.query.value='anchor intended wording';
+ const broader=discoveryEngine.search({query:fields.query.value,mode:'wording',preferredLanguage:'ja'});
+ state.discoveryResults=broader.results;state.matchingOccurrences=broader.matchedOccurrences;state.broaderWording=broader.broaderWording;renderSuggestions(broader);await render();
+ const broaderCard=fields.results.querySelector('.compact-result'),preferredPreview=broaderCard.querySelector('.result-excerpt').textContent;
+ await broaderCard.querySelector('.show-matching-wording').events.click();
+ const matching=broaderCard.querySelector('.matching-wording'),quoted=discoveryEngine.search({query:'"anchor intended wording"',mode:'wording'});
+ const broaderView={note:fields['search-suggestions'].textContent,terms:broaderCard.querySelector('.broader-wording-terms').textContent,
+  counts:fields['result-count'].textContent,preferredPreview,matchingText:matching.querySelector('.result-excerpt').textContent,
+  matchingSource:matching.querySelector('.reading-source').href,matchingHydrated:hydrated.slice(workspaceHydrated.length),quotedResults:quoted.results.length,quotedBroader:quoted.broaderWording};
+ process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated:workspaceHydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,broaderView,records,exported:compactSelection.map(index=>records[index])}));
 })().catch(error=>{process.stderr.write(error.stack);process.exitCode=1;});
 """
         actual = self.run_js(program)
@@ -301,6 +310,18 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
         self.assertEqual(actual['exported'], self.records[:3])
         self.assertIn('2 results', actual['counts'])
         self.assertIn('3 matching source occurrences', actual['counts'])
+        broader = actual['broaderView']
+        self.assertIn('Broader wording matches', broader['note'])
+        self.assertIn('not an exact phrase', broader['note'])
+        self.assertIn('Found: anchor, wording', broader['terms'])
+        self.assertIn('Not found: intended', broader['terms'])
+        self.assertIn('Broader wording matches', broader['counts'])
+        self.assertEqual(broader['preferredPreview'], self.records[1]['text_translation'])
+        self.assertEqual(broader['matchingText'], self.records[0]['text_translation'])
+        self.assertEqual(broader['matchingSource'], self.records[0]['source']['record_url'])
+        self.assertEqual(broader['matchingHydrated'], [0], 'Matching wording must hydrate its English source, not the Japanese preview member')
+        self.assertEqual(broader['quotedResults'], 0)
+        self.assertIsNone(broader['quotedBroader'])
         self.assertEqual(actual['records'], self.records)
 
     def test_standalone_reference_is_recognized_without_reinterpreting_quoted_words(self):

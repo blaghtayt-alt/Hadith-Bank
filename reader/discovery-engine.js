@@ -12,6 +12,8 @@
   const ARABIC_MARKS = /[\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06ed\u08d3-\u08ff]/g;
   const WORD = /[\p{L}\p{N}\p{M}]/u, LETTER = /\p{L}/u, MARK = /\p{M}/u;
   const MAP = {"أ":"ا","إ":"ا","آ":"ا","ٱ":"ا","ى":"ي","ی":"ي","ک":"ك"};
+  const GRAMMATICAL_WORDS = new Set("a an the and or as at by for from in into of on to with is are was were be been being am it its this that these those there their he she they we you i his her our your have has had do does did can could will would should".split(" "));
+  const NEGATIONS = new Set(["not","no","without","never","neither","nor","cannot","لا","لم","لن","ليس","ليست","ليسوا","غير","بدون","دون","ما"]);
   const digit = ch => String((ch.codePointAt(0) - (ch >= "۰" ? 0x6f0 : 0x660)));
   const isCJK = ch => {const n=ch.codePointAt(0);return n>=0x3040&&n<=0x30ff||n>=0x3400&&n<=0x9fff||n>=0xf900&&n<=0xfaff||n>=0x20000&&n<=0x2fa1f;};
   const object = value => !!value && typeof value === "object" && !Array.isArray(value);
@@ -323,6 +325,33 @@
         if(preferred&&row.languages.some(code=>sameLanguage(code,preferred)))score+=0.25;
         ranked.push({ordinal,score,matchKind:exact?.includes(ordinal)?"exact-occurrence":parsed.pairs.length?"exact-reference":phrase?"exact-phrase":mode==="topic"?"editorial-topic":wordingMatches?"wording":metadataMatches?"source-metadata":"browse"});
       }
+      let broaderWording=null;
+      if(!ranked.length&&exact===undefined&&mode==="wording"&&!/["“”«»]/u.test(query)&&!/^['‘][\s\S]+['’]$/u.test(query)&&!parseReference(query).pairs.length) {
+        const required=new Set(unique.filter(term=>NEGATIONS.has(term)));
+        for(const match of normalize(query).matchAll(/\b(?:do|does|did|is|are|was|were|ca|could|wo|would|should|has|have|had|must)n['’]t\b/gu))for(const term of tokenize(match[0]))required.add(term);
+        const meaningful=unique.filter(term=>!GRAMMATICAL_WORDS.has(term)||required.has(term)),content=meaningful.filter(term=>!required.has(term));
+        if(content.length>=2) {
+          const union=new Set();for(const term of content)for(const [ordinal,item] of maps.get(term)||[])if(item.mask&1&&item.positions.length)union.add(ordinal);
+          for(const ordinal of union) {
+            const row=rows[ordinal];if(!filterRow(row,filters))continue;
+            let best=null;
+            for(const segment of row.searchSegments||[]) {
+              const inSegment=term=>{const positions=maps.get(term)?.get(ordinal)?.positions;if(!positions?.length)return false;const index=lowerBound(positions,segment.start);return index<positions.length&&positions[index]<segment.start+segment.length;};
+              if([...required].some(term=>!inSegment(term)))continue;
+              const matched=meaningful.filter(inSegment),matchedContent=matched.filter(term=>!required.has(term));
+              if(matchedContent.length<2)continue;
+              let score=5000*matchedContent.length/content.length;
+              for(const term of matched){const item=maps.get(term).get(ordinal),df=payload.postings[terms.get(term)][0],idf=Math.log(1+(rows.length+1)/(df+1));let weight=9+Math.min(3,Math.log2(1+item.positions.length));if(item.mask&2)weight+=5;if(item.mask&4)weight+=6;if(item.mask&8)weight+=5;if(item.mask&16)weight+=3;score+=weight*idf;}
+              if(preferred&&row.languages.some(code=>sameLanguage(code,preferred)))score+=0.25;
+              if(!best||score>best.score){const term=matchedContent[0],positions=maps.get(term).get(ordinal).positions,position=positions[lowerBound(positions,segment.start)];
+                best={ordinal,score,matchKind:"broader-wording",matchedTerms:matched,missingTerms:meaningful.filter(term=>!matched.includes(term)),
+                  matchLocation:{field:"quotation",language:segment.language,readingId:segment.readingId,term,editorialExpansion:false,tokenPosition:position-segment.start,globalTokenPosition:position}};}
+            }
+            if(best)ranked.push(best);
+          }
+          if(ranked.length)broaderWording={label:"Broader wording matches",explanation:"No source occurrence matched every query word. These results share at least two meaningful query words in one preserved reading; missing words are shown. This is broader keyword retrieval, not an exact phrase or a claim of equivalent meaning.",queryTerms:meaningful,ignoredTerms:unique.filter(term=>!meaningful.includes(term)),requiredTerms:[...required]};
+        }
+      }
       ranked.sort((a,b)=>b.score-a.score||a.ordinal-b.ordinal);
       const matchedOccurrences=ranked.map(item=>item.ordinal),matchesByGroup=new Map(),results=[];
       for(const hit of ranked) {
@@ -337,14 +366,14 @@
         result.matchReference=rows[result.matchedOrdinal].reference;
         if(exact===undefined&&preferred){const selected=result.members.find(ordinal=>filterRow(rows[ordinal],filters)&&rows[ordinal].languages.some(code=>sameLanguage(code,preferred)));if(selected!==undefined)result.ordinal=selected;}
         const row=rows[result.ordinal],context={preferred,query:parsed.text};resultContexts.set(result,context);fillResultPreview(result,context);
-        let location=null;const matchedRow=rows[result.matchedOrdinal];
-        for(const token of expanded){const position=maps.get(token)?.get(result.matchedOrdinal)?.positions[0];if(position===undefined)continue;
+        let location=result.matchLocation||null;const matchedRow=rows[result.matchedOrdinal];
+        if(!location)for(const token of expanded){const position=maps.get(token)?.get(result.matchedOrdinal)?.positions[0];if(position===undefined)continue;
           const segment=matchedRow.searchSegments?.find(item=>position>=item.start&&position<item.start+item.length);
           if(segment){location={field:"quotation",language:segment.language,readingId:segment.readingId,term:token,editorialExpansion:!unique.includes(token),tokenPosition:position-segment.start,globalTokenPosition:position};break;}}
         result.matchLocation=location||{field:result.matchKind==="exact-reference"?"reference":result.matchKind==="exact-occurrence"?"occurrence-id":"metadata",language:null};
       }
       return {results,matchedOccurrences,matchingOccurrenceCount:matchedOccurrences.length,facets:payload.facets||{},
-              suggestions:suggestedQueries(query,mode),query,mode,
+              suggestions:suggestedQueries(query,mode),query,mode,broaderWording,
               editorialExpansion:mode==="topic"?{label:payload.editorial?.label||"Editorial keyword search",terms:expanded,topics:relevantTopics.map(topic=>topic.label)}:null,
               complete:true,sourceRecordCount:rows.length};
     }

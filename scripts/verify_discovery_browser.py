@@ -246,6 +246,22 @@ async def desktop_checks(browser, fixture, base, args, report):
         require(await family.locator(':scope > .result-excerpt').get_attribute('lang') == 'ja',
                 'Opening matching English wording must preserve the Japanese preview')
         report['checks'].append('preferred_family_preview_and_matched_other_language_keep_separate_exact_sources')
+        await run_search(page, 'actions performed intentions', args.timeout_ms, 'wording')
+        await ready(page, args.timeout_ms)
+        require(len(await result_rows(page)) == 2,
+                'Remembered wording without an all-word result must expose actual broader quotation matches')
+        broader = page.locator('#search-suggestions .broader-wording-note')
+        require(await broader.count() == 1 and 'Broader wording matches' in await broader.inner_text(),
+                'Relaxed all-word matching must be explained before its results')
+        matched_terms = await page.locator('#results .broader-wording-terms').all_text_contents()
+        require(len(matched_terms) == 2 and all('actions' in text and 'intentions' in text and
+                                               'performed' in text for text in matched_terms),
+                'Each broader result must distinguish stored matching words from missing query words')
+        await run_search(page, '"actions performed intentions"', args.timeout_ms, 'wording')
+        await wait_results(page, [], args.timeout_ms)
+        require(await page.locator('#search-suggestions .broader-wording-note').count() == 0,
+                'Quoted phrases must remain exact and must not be silently broadened')
+        report['checks'].append('remembered_wording_broadens_transparently_only_when_unquoted_all_word_matches_are_absent')
         await run_search(page, 'اعمال', args.timeout_ms, 'wording')
         await ready(page, args.timeout_ms)
         plain_ids = [item['id'] for item in await result_rows(page)]
@@ -310,7 +326,9 @@ async def desktop_checks(browser, fixture, base, args, report):
         await page.locator('#narrator-filter').select_option('TEST Narrator')
         await page.locator('#type-filter').select_option('companion_report')
         await page.locator('#grade-filter').select_option(label='TEST Grade — TEST Authority')
-        await page.locator('#source-topic-filter').select_option('TEST-source-category')
+        supplied_topic = next(topic for topic in fixture['payload']['rows'][4]['topics']
+                              if topic.get('sourceTopicId') == 'TEST-source-category')
+        await page.locator('#source-topic-filter').select_option(supplied_topic['value'])
         await wait_results(page, ['TEST-facets'], args.timeout_ms)
         require(not any('Unattributed Assessment' in value for value in
                         await page.locator('#grade-filter option').all_text_contents()),
@@ -409,6 +427,28 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
         report['checks'].append(evidence_prefix.replace('-', '_') +
                                 '_actual_mobile_layout_keyboard_focus_RTL_and_accessibility_tree')
         report['accessibility_scope'] = 'Actual Chromium keyboard, DOM/ARIA and accessibility-tree checks; no human screenreader session claimed.'
+        if evidence_prefix == 'discovery-production':
+            await run_search(page, 'actions depend on intentions', args.timeout_ms, 'wording')
+            await ready(page, args.timeout_ms)
+            results = await result_rows(page)
+            require(bool(results), 'The production remembered-wording journey must produce actual source results')
+            broader_count = await page.locator('#results .broader-wording-terms').count()
+            notice = page.locator('#search-suggestions .broader-wording-note')
+            require((broader_count > 0) == (await notice.count() == 1),
+                    'Production broader wording results and their explanatory notice must agree')
+            count_text = await page.locator('#result-count').inner_text()
+            if broader_count:
+                require('Broader wording matches' in count_text,
+                        'Production relaxed wording search must identify its broadened result count')
+            report['actual_site']['remembered_wording'] = {
+                'query': 'actions depend on intentions', 'visible_result_count': len(results),
+                'count_text': count_text, 'broader_wording': bool(broader_count),
+                'notice': await notice.inner_text() if await notice.count() else None,
+                'first_occurrence_ids': [result['id'] for result in results[:5]],
+            }
+            await page.screenshot(path=str(args.evidence_dir / 'discovery-production-mobile-wording.png'),
+                                  full_page=True)
+            report['checks'].append('production_remembered_wording_returns_sources_with_broader_notice_when_needed')
     finally:
         await context.close()
 

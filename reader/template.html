@@ -241,7 +241,7 @@ try {
   const retry=document.createElement("button");retry.type="button";retry.textContent="Reload and retry";retry.addEventListener("click",()=>window.location.reload());$("results").append(retry);
   return;
 }
-const state = { page:0, matches:[], matchingOccurrences:[], discoveryResults:[], selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0,homeTab:"search",browseAll:false,showExactResults:false,openOrdinal:null,workspaceController:null,returnFocus:null };
+const state = { page:0, matches:[], matchingOccurrences:[], discoveryResults:[], broaderWording:null, selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0,homeTab:"search",browseAll:false,showExactResults:false,openOrdinal:null,workspaceController:null,returnFocus:null };
 const occurrenceOrdinals=readerGroups.ordinals;
 function occurrenceIndexes(id){if(discoveryEngine?.getOrdinals)return discoveryEngine.getOrdinals(id);return records.flatMap((record,index)=>record.id===id?[index]:[]);}
 function scopedOccurrenceIndexes(id){const indexes=occurrenceIndexes(id);const params=new URLSearchParams(window.location.search),fields=[["language","occurrence-language"],["book_key","occurrence-collection"],["edition","occurrence-edition"],["source_id","occurrence-source"]];if(!fields.every(([,key])=>params.has(key)))return indexes;return indexes.filter(index=>fields.every(([field,key])=>records[index][field]===params.get(key)));}
@@ -1075,6 +1075,15 @@ function fallbackDiscoveryResult(index){
 function updateDiscoveryURL(){
   try{const url=new URL(window.location.href);for(const [key,value] of [["q",$("query").value.trim()],["mode",discoveryMode()],["preferred",$("preferred-language").value],["language",$("language-filter").value],["collection",$("book-filter").value],["edition",$("source-filter").value]]){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}if(!state.exactOccurrence)for(const key of ["occurrence","occurrence-language","occurrence-collection","occurrence-edition","occurrence-source"])url.searchParams.delete(key);history.replaceState(null,"",url);}catch(_){}
 }
+function restoreLinkedSearch(params){
+  $("query").value=params.get("q")||"";
+  const requestedMode=params.get("mode"),mode=["reference","wording","topic"].includes(requestedMode)?requestedMode:"wording",choice=document.querySelector('input[name="search-mode"][value="'+mode+'"]');if(choice)choice.checked=true;
+  const selectKnown=(id,value)=>{const field=$(id);field.value=[...field.options].some(option=>option.value===value)?value:"";};
+  selectKnown("preferred-language",params.get("preferred")||"");selectKnown("language-filter",params.get("language")||"");
+  $("book-filter").value="";$("source-filter").value="";syncMaterialFilters();
+  selectKnown("book-filter",params.get("collection")||"");syncMaterialFilters();
+  selectKnown("source-filter",params.get("edition")||"");syncMaterialFilters();updateSearchHint();
+}
 function homeQuery(query,mode){clearExactOccurrence();state.showExactResults=false;$("query").value=query;const choice=document.querySelector('input[name="search-mode"][value="'+mode+'"]');if(choice)choice.checked=true;updateSearchHint();applyFilters();$("query").focus();}
 function renderHome(){
   state.openOrdinal=null;document.querySelector(".results-toolbar").append($("shared-reading-tools"));$("narration-workspace").hidden=true;$("discovery-results").hidden=false;
@@ -1152,7 +1161,12 @@ function compactResult(result){
   if(result.excerptKind==="source-preview"&&$("query").value.trim()){
     const location=result.matchLocation;
     item.append(element("p","excerpt-fallback",location?.field==="quotation"?"Source preview. Match in "+languageLabel(location.language)+(result.matchReference&&result.matchReference!==result.reference?" · "+result.matchReference:"")+"; the matching wording may be in another preserved reading or later in its text."+(location.editorialExpansion?" Matched through the editorial search term: "+location.term+".":""):"Source preview. The search matched supplied reference or source metadata; open the source to inspect its exact readings."));
-    appendMatchingWordAction(item,result);
+  }
+  if($("query").value.trim() && (result.excerptKind==="source-preview" || result.excerptTruncated))appendMatchingWordAction(item,result);
+  if(result.matchKind==="broader-wording"){
+    const broader=element("div","broader-wording-terms");broader.append(element("p",null,"Broader wording match — query terms in the matched "+languageLabel(result.matchLocation?.language||result.language)+" source reading:"));
+    for(const [label,terms] of [["Found",result.matchedTerms],["Not found",result.missingTerms]])if(Array.isArray(terms)&&terms.length){const line=element("p",null,label+": ");terms.forEach((term,index)=>{if(index)line.append(document.createTextNode(", "));const word=element("bdi",null,term);word.dir="auto";line.append(word);});broader.append(line);}
+    item.append(broader);
   }
   if(/commentary|context/.test(result.matchKind||""))item.append(element("p","excerpt-fallback","The search matched commentary or source context. The excerpt above remains the narration text; open its notes to inspect the match."));
   const preference=$("preferred-language").value;if(preference&&result.language&&result.language!==preference&&!result.language.startsWith(preference+"-"))item.append(element("p","excerpt-fallback",languageLabel(preference)+" excerpt is not stored for this result; showing "+languageLabel(result.language)+"."));
@@ -1177,6 +1191,7 @@ function compactResult(result){
 function renderSuggestions(response){
   const target=$("search-suggestions");target.replaceChildren();const suggestions=Array.isArray(response?.suggestions)?response.suggestions:[];
   if(response?.recognizedReference)target.append(element("p","recognized-reference","Recognized a collection reference: "+response.query+". Searching cited collection numbers; local and provider numbers remain distinct. Put the query in quotation marks to search it as wording."));
+  if(response?.broaderWording){const note=element("div","broader-wording-note");note.append(element("strong",null,"Broader wording matches"),element("p",null,response.broaderWording.explanation||"No stored reading matched every query word. These broader results contain some of the entered words; inspect the found and missing query terms below."),element("p",null,"This is a navigation aid. The displayed source readings remain unchanged; no replacement narration or translation has been composed."));target.append(note);}
   if(response?.editorialExpansion){const expansion=response.editorialExpansion,terms=typeof expansion==="string"?[expansion]:Array.isArray(expansion)?expansion:expansion.terms||[];const label=terms.map(item=>typeof item==="string"?item:item.label||item.term||item.query||"").filter(Boolean).join(", ");if(label)target.append(element("p","suggestion-note","Editorial search terms: "+label+". These are navigation aids, not source wording or a religious ruling."));}
   if(suggestions.length){target.append(element("p","suggestion-note","Broader or spelling suggestions — choose to search separately:"));for(const suggestion of suggestions){const query=typeof suggestion==="string"?suggestion:suggestion.query||suggestion.term||suggestion.value;if(!query)continue;const label=typeof suggestion==="string"?suggestion:suggestion.label||query,button=element("button","suggestion-button",label);button.type="button";button.addEventListener("click",()=>homeQuery(query,suggestion.mode||discoveryMode()));target.append(button);}}
   target.hidden=!target.childNodes.length;
@@ -1191,7 +1206,7 @@ async function render(request=beginView()){
     else for(const result of state.discoveryResults.slice(start,end)){if(!isCurrentView(request))return;fragment.append(compactResult(result));}
     if(!isCurrentView(request))return;
     $("results").replaceChildren(fragment);$("results").setAttribute("aria-busy","false");updateActiveFilters();
-    $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" results · "+nf.format(state.matchingOccurrences.length)+" matching source occurrences":"0 matching source occurrences";
+    $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" results · "+nf.format(state.matchingOccurrences.length)+" matching source occurrences"+(state.broaderWording?" · Broader wording matches":""):"0 matching source occurrences";
     $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"";$("previous").disabled=state.page===0;$("next").disabled=!total||state.page===max;updateSelection();
   }catch(error){failedView(error,request);}
 }
@@ -1224,6 +1239,7 @@ async function openNarrationWorkspace(index,result=null,{updateURL=true}={}){
 async function applyFilters(){
   const request=beginView();if(state.workspaceController)state.workspaceController.abort();
   try{
+    state.broaderWording=null;renderSuggestions(null);
     const entered=$("query").value.trim(),queryIndexes=occurrenceIndexes(entered),exactQuery=queryIndexes.length?entered:null,filters=discoveryFilters(),include=$("include-commentary").checked;
     updateActiveFilters();updateDiscoveryURL();
     if(state.exactOccurrence){const indexes=scopedOccurrenceIndexes(state.exactOccurrence);if(indexes.length===1){await openNarrationWorkspace(indexes[0],null,{updateURL:false});return;}if(indexes.length>1){const response=discoveryEngine?discoveryEngine.search({query:state.exactOccurrence,mode:"all",preferredLanguage:$("preferred-language").value,group:false}):null;state.discoveryResults=response?.results||indexes.map(fallbackDiscoveryResult);state.matchingOccurrences=indexes;state.matches=indexes;state.page=0;await render(request);$("result-count").textContent="This ID appears in "+indexes.length+" separate source occurrences. Choose the source edition below; no identity has been inferred.";return;}state.discoveryResults=[];state.matchingOccurrences=[];state.matches=[];await render(request);$("result-count").textContent="This occurrence is not part of the current published snapshot.";return;}
@@ -1235,7 +1251,7 @@ async function applyFilters(){
       const mode=discoveryRequestMode(entered,discoveryMode());
       pendingView("Searching the compact multilingual index…");await new Promise(resolve=>setTimeout(resolve,0));if(!isCurrentView(request))return;
       if(discoveryEngine.prepare)await discoveryEngine.prepare({query:entered,mode},{signal:request.controller.signal});if(!isCurrentView(request))return;
-      response=discoveryEngine.search({query:entered,mode,preferredLanguage:$("preferred-language").value,filters,group:!exactQuery});response.recognizedReference=mode!==discoveryMode();state.discoveryResults=response.results;state.matchingOccurrences=response.matchedOccurrences;state.matches=response.results.map(result=>result.ordinal);renderSuggestions(response);
+      response=discoveryEngine.search({query:entered,mode,preferredLanguage:$("preferred-language").value,filters,group:!exactQuery});response.recognizedReference=mode!==discoveryMode();state.broaderWording=response.broaderWording||null;state.discoveryResults=response.results;state.matchingOccurrences=response.matchedOccurrences;state.matches=response.results.map(result=>result.ordinal);renderSuggestions(response);
     }else{
       const query=splitCitationQuery(fold(entered,false)),terms=query.text?query.text.split(/\s+/):[],candidates=[];
       records.forEach((record,index)=>{if(exactQuery&&record.id!==exactQuery)return;if(filters.language&&!availableLanguageCodes(record).includes(filters.language)||filters.book&&record.book_key!==filters.book||filters.source&&editionKey(record)!==filters.source||filters.origin&&originCategory(record)!==filters.origin||!matchesCounterpartAvailability(record,filters.availability))return;if(query.pairs.every(pair=>hostedStore?record._reader.citation_pairs.includes(pair):citationPairKeys[index].has(pair)))candidates.push(index);});
@@ -1305,7 +1321,7 @@ $("show-arabic").addEventListener("change",()=>document.querySelectorAll('.langu
 $("show-english").addEventListener("change",()=>document.querySelectorAll('.language-reading[data-language="en"]').forEach(node=>node.open=$("show-english").checked));
 $("reset").addEventListener("click",()=>{clearTimeout(state.timer);clearExactOccurrence();state.browseAll=false;state.showExactResults=false;state.openOrdinal=null;$("query").value="";["language-filter","book-filter","source-filter","source-book-filter","chapter-filter","source-topic-filter","narrator-filter","type-filter","grade-filter","origin-filter","counterpart-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;syncMaterialFilters();applyFilters();});
 $("back-to-results").addEventListener("click",async()=>{const previous=state.openOrdinal;if(state.workspaceController)state.workspaceController.abort();state.openOrdinal=null;clearExactOccurrence();state.showExactResults=true;await applyFilters();const target=document.querySelector("#result-"+previous+" .open-narration")||$("results-heading");target.focus({preventScroll:true});target.scrollIntoView({block:"nearest"});});
-window.addEventListener("popstate",()=>{const params=new URLSearchParams(window.location.search);state.exactOccurrence=params.get("occurrence")||null;state.showExactResults=!state.exactOccurrence;state.openOrdinal=null;$("query").value=params.get("q")||"";applyFilters();});
+window.addEventListener("popstate",()=>{const params=new URLSearchParams(window.location.search);state.exactOccurrence=params.get("occurrence")||null;state.showExactResults=!state.exactOccurrence;state.openOrdinal=null;restoreLinkedSearch(params);applyFilters();});
 const updateNetworkStatus=()=>{const notice=$("network-status");notice.hidden=navigator.onLine!==false;if(!notice.hidden)notice.textContent="Connection unavailable. Already loaded searches may still work; uncached index parts and source texts need a connection. A complete standalone reader is required for dependable offline reading.";};
 window.addEventListener("online",updateNetworkStatus);window.addEventListener("offline",updateNetworkStatus);updateNetworkStatus();
 function go(delta){state.page+=delta;render();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});}

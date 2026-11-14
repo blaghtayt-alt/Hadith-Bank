@@ -384,7 +384,10 @@ def _navigation(record, readings):
 def _edition(record, material):
     source = record.get('source') or {}
     language, book, edition = record['language'], record['book_key'], record['edition']
-    title = source.get('work_title') or source.get('name') or material.get('source_name') or book_label(book, language)
+    # The catalog names the registered edition/bundle. In preserved legacy
+    # bundles, work_title can name an individual embedded teaching document;
+    # it remains exact provenance, but must not label the entire edition.
+    title = material.get('source_name') or source.get('work_title') or source.get('name') or book_label(book, language)
     title = title if isinstance(title, str) and title.strip() else book_label(book, language)
     translator = record.get('translator') or {}
     translator_name = _scalar(translator.get('name')) if isinstance(translator, dict) else None
@@ -395,7 +398,9 @@ def _edition(record, material):
                                extraction_scope.get('source_edition_key_before_partitioning'))
     if declared_edition:
         source_edition = declared_edition
-    supplied_edition = source_edition or (edition if not _TECHNICAL.search(edition) else None)
+    # record.edition is the preserved technical identity, not a display label.
+    # Only an explicitly supplied source/publication edition can add a caption.
+    supplied_edition = source_edition
     if supplied_edition and (_TECHNICAL.search(supplied_edition) or re.search(r'(?:^|-)web-\d{8}', supplied_edition)):
         supplied_edition = None
     pieces = [title, LANGUAGE_LABELS.get(language, language)]

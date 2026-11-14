@@ -432,6 +432,11 @@ details[open] > summary .disclosure-chevron { transform: rotate(180deg); }
 .search-submit:hover:not(:disabled) { background: var(--green); color: white; }
 .search-suggestions { margin-top: 12px; border-inline-start: 2px solid var(--gold-7); padding-inline-start: 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .suggestion-note, .recognized-reference { flex-basis: 100%; color: var(--muted); font-size: 12px; margin: 0 0 3px; }
+.broader-wording-note { flex-basis: 100%; border: 1px solid var(--gold-7); background: #fffcf3; color: var(--ink); border-radius: 5px; padding: 12px 14px; font-size: 12px; }
+.broader-wording-note > strong { font-size: 13px; }
+.broader-wording-note > p { margin: 6px 0 0; }
+.broader-wording-terms { margin: 9px 0; padding: 8px 10px; border-inline-start: 2px solid var(--gold-7); background: #fffcf3; font-size: 11px; color: var(--ink); }
+.broader-wording-terms > p { margin: 3px 0; }
 .suggestion-button { min-height: 36px; padding: 5px 10px; font-size: 12px; }
 #network-status { color: var(--amber); background: var(--amber-bg); padding: 8px 12px; border-radius: 4px; }
 .discovery-home { background: var(--white); border: 1px solid var(--line); padding: 21px; border-radius: var(--radius); }

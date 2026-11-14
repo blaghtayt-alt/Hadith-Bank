@@ -21,6 +21,30 @@ test("quoted phrases require exact consecutive words and outrank scattered wordi
   assert.equal(loose.results[0].ordinal,0);assert.ok(loose.matchedOccurrences.includes(2));
 });
 
+test("remembered wording gets explicit partial quotation matches only after exact words fail",()=>{
+  const data=JSON.parse(execFileSync("python",[path.join(__dirname,"test_bank_discovery.py"),"--broader-fixture"],{encoding:"utf8"}));
+  const e=engineAPI.create(data),result=e.search({query:"actions depend on intentions",mode:"wording"});
+  assert.ok(result.broaderWording);assert.deepEqual(result.broaderWording.ignoredTerms,["on"]);
+  assert.deepEqual([...result.matchedOccurrences].sort((a,b)=>a-b),[0,1,6]);
+  for(const hit of result.results){assert.equal(hit.matchKind,"broader-wording");assert.deepEqual(hit.matchedTerms,["actions","intentions"]);assert.deepEqual(hit.missingTerms,["depend"]);assert.equal(hit.matchLocation.term,"actions");assert.equal(hit.matchLocation.field,"quotation");}
+  for(const [query,mode] of [['"actions depend on intentions"',"wording"],["actions depend on intentions","reference"],["Bukhari 1 actions depend on intentions","wording"],["actions missingword","wording"]]){
+    const strict=e.search({query,mode});assert.equal(strict.broaderWording,null);assert.equal(strict.results.length,0);
+  }
+  assert.equal(e.search({query:"actions intentions",mode:"wording"}).broaderWording,null);
+  assert.equal(e.search({query:"TEST-broader-positive",mode:"wording"}).results[0].matchKind,"exact-occurrence");
+});
+
+test("broader wording retains English Arabic and cross-reading negation boundaries",()=>{
+  const data=JSON.parse(execFileSync("python",[path.join(__dirname,"test_bank_discovery.py"),"--broader-fixture"],{encoding:"utf8"}));
+  const e=engineAPI.create(data),negative=e.search({query:"not actions depend on intentions",mode:"wording"});
+  assert.deepEqual(negative.matchedOccurrences,[1]);assert.deepEqual(negative.broaderWording.requiredTerms,["not"]);
+  assert.equal(e.search({query:"never actions depend on intentions",mode:"wording"}).results.length,0);
+  const arabic=e.search({query:"لا تجريب لفظ عمل",mode:"wording"});
+  assert.deepEqual(arabic.matchedOccurrences,[5]);assert.deepEqual(arabic.broaderWording.requiredTerms,["لا"]);
+  assert.equal(e.search({query:"without actions depend on intentions",mode:"wording"}).results.length,0);
+  assert.equal(e.search({query:"don't actions depend on intentions",mode:"wording"}).results.length,0);
+});
+
 test("full quotation indexing finds late words outside every short preview",()=>{
   const result=engine.search({query:"needleword",mode:"wording"});
   assert.deepEqual(result.matchedOccurrences,[6]);assert.equal(result.results[0].excerptKind,"source-preview");
