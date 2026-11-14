@@ -77,3 +77,35 @@ open its required Unix socket in this execution environment; actual interactive
 baseline checks use the available cloud browser, and exact network/performance
 measurements will run in the existing permitted Actions browser runtime. No
 browser security setting or validation gate is disabled.
+
+## Full-corpus findings before browser acceptance
+
+PR #16 reconciles main `4f8b169d5a9662e6e3e6b4e6a60f2a2a82951861` in
+normal two-parent merge `a6356931c721c502645fa7f51b6ac86e8a84e2ed`. Its
+505 importer-path changes and the 23 initial UI/search paths had no overlap.
+
+The measured 108,502-occurrence index used a 7,962,272-byte navigation transfer,
+160 selectively requested posting parts and 424 page-preview parts. Bukhari 1
+retained all 26 matching source occurrences as 15 evidence-bound presentation
+results; it needed no word-posting part and 503,562 bytes of preview parts.
+These are local artifact byte measurements, not internet timing. Later friendly
+caption refinements require final Actions artifact measurements.
+
+Full-corpus tests exposed the old all-word limitation for remembered wording.
+The corrected unquoted-wording path offers explicitly labelled broader results
+only after strict matching yields none; it requires at least two meaningful
+query words and every query negation within one actual stored reading. Found
+and missing terms and the matched language are visible. Reference/ID searches
+and quoted phrases remain strict. The example “actions depend on intentions”
+then finds 12 broader source results; its quoted form remains zero.
+
+The old published site already occupied 934,787,115 bytes. To accommodate the
+new index without raising the 950 MB gate or removing stable pages/source
+content, static source metadata now uses compact, safely escaped JSON with
+identical decoded values. Redundant optional social/page metadata is omitted
+while ordinary titles, descriptions, canonical links and structured source
+identities remain. Lossless reader-part gzip compression is strengthened.
+Measured metadata savings were 44,345,309 bytes; duplicate social tags accounted
+for 27,239,241 bytes on the 38,782 existing narration pages. Recompressing the
+old reader stores saved another 4,932,686 bytes. Final staged-site size remains
+an enforced Actions gate, not an inferred publication result.

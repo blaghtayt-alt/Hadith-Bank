@@ -972,7 +972,7 @@ def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_S
         if not pending:
             return
         plain = bytes(pending)
-        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        compressed = gzip.compress(plain, compresslevel=9, mtime=0)
         if len(compressed) > max_shard_bytes:
             raise ValueError('Compressed reader shard exceeds its bound')
         digest = hashlib.sha256(compressed).hexdigest()
@@ -1026,7 +1026,7 @@ class _ReaderStore:
         if not self.pending:
             return
         plain = bytes(self.pending)
-        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        compressed = gzip.compress(plain, compresslevel=9, mtime=0)
         if len(compressed) > self.limit:
             raise ValueError('Compressed reader shard exceeds its bound: ' + self.relative)
         digest = hashlib.sha256(compressed).hexdigest()
