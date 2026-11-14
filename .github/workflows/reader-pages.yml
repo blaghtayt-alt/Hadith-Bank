@@ -73,14 +73,17 @@ jobs:
         run: python scripts/refresh_bank.py --root . --site-output _site
         env:
           HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+          HADITH_SITE_FINAL_SIZE_REPORT: .work/site-size-final.json
       - name: Preserve complete site-size evidence even if publication budget fails
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
         with:
           name: site-size-inventory-${{ github.job }}
-          path: .work/site-size-histogram.json
+          path: |
+            .work/site-size-histogram.json
+            .work/site-size-final.json
           include-hidden-files: true
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
@@ -187,14 +190,17 @@ jobs:
         run: python scripts/refresh_bank.py --root . --site-output _site
         env:
           HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+          HADITH_SITE_FINAL_SIZE_REPORT: .work/site-size-final.json
       - name: Preserve complete site-size evidence even if publication budget fails
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
         with:
           name: site-size-inventory-${{ github.job }}
-          path: .work/site-size-histogram.json
+          path: |
+            .work/site-size-histogram.json
+            .work/site-size-final.json
           include-hidden-files: true
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 7
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json

@@ -9,6 +9,7 @@ import argparse
 from collections import Counter, defaultdict
 import hashlib
 import html
+from html.parser import HTMLParser
 import json
 import math
 import os
@@ -298,6 +299,8 @@ class Writer:
         self.pages = []
         self.bytes = 0
         self.files = 0
+        self.static_dom_verified = 0
+        self.static_body_bytes_saved = 0
 
     def write(self, relative, content):
         path = local(self.output, relative)
@@ -447,7 +450,11 @@ def render_record(writer, record, downloads, sources):
             'isPartOf': {'@type': 'CreativeWork', 'name': source_title(record), 'url': canonical_url(edition_path, writer.site)}}
     if source_url:
         work['citation'] = source_url
-    writer.page(path, record_title(record), record_description(record), compact_static_record_markup(''.join(body)), language,
+    original_body = ''.join(body)
+    compacted_body = compact_static_record_markup(original_body)
+    writer.static_dom_verified += 1
+    writer.static_body_bytes_saved += len(original_body.encode('utf-8')) - len(compacted_body.encode('utf-8'))
+    writer.page(path, record_title(record), record_description(record), compacted_body, language,
                 {'@type': 'WebPage', 'mainEntity': work})
 
 
@@ -574,27 +581,155 @@ def write_sitemaps(writer, pages, page_size=SITEMAP_PAGE_SIZE):
 
 
 
-# Compact only HTML static record bodies, not source files, structured-data,
-# reader transport or arbitrary scripts. Decoded text/tags/attributes are equal.
-_STATIC_TAG = re.compile(r'(<[A-Za-z/][^<>]*>)')
-_STATIC_ATTR = re.compile(r'(?<=\s)(class|target)="([A-Za-z_][A-Za-z0-9_.:-]*)"')
+# Static narration bodies only: no reader, source files, search index or script.
+# Scan quoted HTML attributes safely, and preserve all parsed DOM/text values.
+_TAG_NAME = re.compile(r'[A-Za-z][A-Za-z0-9:-]*')
+_ATTR_NAME = re.compile(r'[A-Za-z_:][A-Za-z0-9_.:-]*')
+_SAFE_UNQUOTED = re.compile(r'[A-Za-z_][A-Za-z0-9_.:-]*\Z')
+_RAWTEXT_ELEMENTS = frozenset((
+    'script', 'style', 'textarea', 'title', 'xmp', 'iframe',
+    'noembed', 'noframes', 'plaintext', 'noscript',
+))
+
+
+class _MarkupEvents(HTMLParser):
+    """Canonical events for strict paired text, attributes, hrefs and structure."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.events = []
+
+    def handle_starttag(self, tag, attrs):
+        self.events.append(('start', tag, tuple(attrs)))
+
+    def handle_startendtag(self, tag, attrs):
+        self.events.append(('empty', tag, tuple(attrs)))
+
+    def handle_endtag(self, tag):
+        self.events.append(('end', tag))
+
+    def handle_data(self, data):
+        if data:
+            if self.events and self.events[-1][0] == 'data':
+                self.events[-1] = ('data', self.events[-1][1] + data)
+            else:
+                self.events.append(('data', data))
+
+    def handle_comment(self, data):
+        self.events.append(('comment', data))
+
+    def handle_decl(self, decl):
+        self.events.append(('decl', decl))
+
+    def unknown_decl(self, data):
+        self.events.append(('unknown', data))
+
+    def handle_pi(self, data):
+        self.events.append(('pi', data))
+
+
+def _markup_events(markup):
+    parser = _MarkupEvents()
+    parser.feed(markup)
+    parser.close()
+    return parser.events
+
+
+def _compact_safe_attributes(tag, name_end, closing=False):
+    """Only remove quotes from fully parsed safe class/target attributes."""
+    if closing:
+        return tag
+    edits, position, length = [], name_end, len(tag)
+    while position < length - 1:
+        if tag[position].isspace():
+            position += 1
+            continue
+        if tag[position] == '/' and tag[position + 1:position + 2] == '>':
+            break
+        match = _ATTR_NAME.match(tag, position)
+        if not match:
+            return tag
+        attribute = match.group().lower()
+        position = match.end()
+        while position < length - 1 and tag[position].isspace():
+            position += 1
+        if tag[position:position + 1] != '=':
+            continue
+        position += 1
+        while position < length - 1 and tag[position].isspace():
+            position += 1
+        if position >= length - 1:
+            return tag
+        if tag[position] in ('"', "'"):
+            quote = tag[position]
+            quote_start = position
+            position += 1
+            value_start = position
+            while position < length - 1 and tag[position] != quote:
+                position += 1
+            if position >= length - 1:
+                return tag
+            value = tag[value_start:position]
+            if quote == '"' and attribute in ('class', 'target') and _SAFE_UNQUOTED.fullmatch(value):
+                edits.append((quote_start, position + 1, value))
+            position += 1
+        else:
+            while position < length - 1 and not tag[position].isspace() and tag[position] != '>':
+                position += 1
+    for begin, end, replacement in reversed(edits):
+        tag = tag[:begin] + replacement + tag[end:]
+    return tag
 
 
 def compact_static_record_markup(markup):
-    parts = _STATIC_TAG.split(markup)
-    for index, part in enumerate(parts):
-        if index % 2:
-            parts[index] = _STATIC_ATTR.sub(r'\1=\2', part)
-        else:
-            # Only text nodes: never unescape attributes, ampersands or angles.
-            parts[index] = part.replace('&quot;', '"').replace('&#x27;', "'")
-    return ''.join(parts)
+    """Byte compaction with fail-closed grammar and paired DOM assertion.
+
+    Any unsupported comments/raw-text tags or malformed markup leave the whole
+    body unchanged. Every changed record is verified before site publication.
+    """
+    chunks, position = [], 0
+    while position < len(markup):
+        start = markup.find('<', position)
+        if start < 0:
+            chunks.append(markup[position:].replace('&quot;', '"').replace('&#x27;', "'"))
+            break
+        if start + 1 >= len(markup):
+            return markup
+        closing = markup[start + 1:start + 2] == '/'
+        name = _TAG_NAME.match(markup, start + 1 + int(closing))
+        if not name or name.group().lower() in _RAWTEXT_ELEMENTS:
+            return markup
+        if markup[name.end():name.end() + 1] not in (' ', '\r', '\n', '\t', '/', '>'):
+            return markup
+        quote, end = None, None
+        for index in range(name.end(), len(markup)):
+            character = markup[index]
+            if quote:
+                if character == quote:
+                    quote = None
+            elif character in ('"', "'"):
+                quote = character
+            elif character == '<':
+                return markup
+            elif character == '>':
+                end = index + 1
+                break
+        if end is None:
+            return markup
+        chunks.append(markup[position:start].replace('&quot;', '"').replace('&#x27;', "'"))
+        chunks.append(_compact_safe_attributes(markup[start:end], name.end() - start, closing))
+        position = end
+    result = ''.join(chunks)
+    if _markup_events(result) != _markup_events(markup):
+        raise ValueError('Static-record DOM, source text, links or metadata changed during compaction')
+    return result
 
 
 def site_size_inventory(output):
     """Hash and size every staged file before the budget gate and cleanup."""
     entries, areas, extensions, bands = [], Counter(), Counter(), Counter()
     for path in output.rglob('*'):
+        if path.is_symlink():
+            raise ValueError('Staged website contains an unsafe symlink: ' + str(path))
         if not path.is_file():
             continue
         relative = path.relative_to(output).as_posix()
@@ -630,32 +765,59 @@ def site_size_inventory(output):
     }
 
 
-def write_site_size_inventory(root, output, site_report):
-    relative = os.environ.get('HADITH_SITE_SIZE_REPORT')
-    if not relative:
-        return
-    target = (root / relative).absolute()
-    if not target.is_relative_to(root) or any(part.is_symlink() for part in
-                                              [target, *target.parents] if part != root):
-        raise ValueError('Unsafe site size inventory output')
+def _diagnostic_destination(root, output, variable):
+    supplied = os.environ.get(variable)
+    if not supplied:
+        return None
+    relative = Path(supplied)
+    if relative.is_absolute() or '..' in relative.parts or relative in (Path('.'), Path('')):
+        raise ValueError('Unsafe site-size inventory destination')
+    root, staged = Path(root).resolve(), Path(output).resolve()
+    raw = root / relative
+    destination = raw.resolve(strict=False)
+    if destination == root or not destination.is_relative_to(root) or destination.is_relative_to(staged):
+        raise ValueError('Site-size inventory must be inside root, outside staged site')
+    for part in (raw, *raw.parents):
+        if part.is_symlink():
+            raise ValueError('Site-size inventory path must not traverse symlinks')
+        if part == root:
+            break
+    return destination
+
+
+def write_site_size_inventory(root, output, site_report, *, final=False):
+    variable = 'HADITH_SITE_FINAL_SIZE_REPORT' if final else 'HADITH_SITE_SIZE_REPORT'
+    destination = _diagnostic_destination(root, output, variable)
+    if destination is None and not final:
+        return None
     snapshot = site_size_inventory(output)
     snapshot.update({
+        'scope': ('complete staged site including discovery-info, build-info and markers'
+                  if final else 'before discovery-info, build-info and marker writes'),
         'source_records_sha256': site_report['source_records_sha256'],
+        'source_commit': site_report.get('source_commit'),
         'site_budget_bytes': MAX_SITE_BYTES,
-        'projected_site_bytes_including_discovery_info': site_report['site_bytes'],
-        'projected_headroom_bytes': MAX_SITE_BYTES - site_report['site_bytes'],
         'publication_gate_unchanged': True,
     })
-    target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print('SITE_SIZE_PREPUBLICATION ' + json.dumps({
-        'projected_bytes': snapshot['projected_site_bytes_including_discovery_info'],
-        'headroom_bytes': snapshot['projected_headroom_bytes'],
-        'file_count': snapshot['file_count'],
-        'largest_areas': list(snapshot['areas_by_bytes'].items())[:12],
-        'diagnostics': str(target),
-    }, separators=(',', ':')), flush=True)
-
+    if final:
+        snapshot['final_site_bytes'] = snapshot['measured_site_bytes']
+        snapshot['final_headroom_bytes'] = MAX_SITE_BYTES - snapshot['final_site_bytes']
+    else:
+        snapshot['projected_site_bytes_including_discovery_info'] = site_report['site_bytes']
+        snapshot['projected_headroom_bytes'] = MAX_SITE_BYTES - site_report['site_bytes']
+    if destination is not None:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n',
+                               encoding='utf-8')
+    print('SITE_SIZE_' + ('FINAL' if final else 'PREPUBLICATION') + ' ' +
+          json.dumps({'bytes': snapshot['measured_site_bytes'],
+                      'headroom_bytes': MAX_SITE_BYTES - snapshot['measured_site_bytes'],
+                      'file_count': snapshot['file_count'],
+                      'manifest_sha256': snapshot['file_manifest_sha256'],
+                      'largest_areas': list(snapshot['areas_by_bytes'].items())[:12],
+                      'diagnostics': str(destination) if destination else None},
+                     separators=(',', ':')), flush=True)
+    return snapshot
 
 
 def build(root, output, site=None, records=None, catalog=None):
@@ -697,6 +859,8 @@ def build(root, output, site=None, records=None, catalog=None):
             static_record_count += 1
     from build_fawaz_source_views import render as render_fawaz_source_views
     source_views = render_fawaz_source_views(writer, seen_ids)
+    if writer.static_dom_verified != static_record_count:
+        raise ValueError('Not all static record pages had paired DOM checks')
     writer.page('404.html', 'Page not found | Hadith Bank', 'Find a language, book or source text in Hadith Bank.',
                 '<h1>Page not found</h1><p>This address is not part of the published bank. '
                 '<a href="' + esc(canonical_url('browse/index.html', settings)) + '">Browse languages and books</a> '
@@ -709,6 +873,8 @@ def build(root, output, site=None, records=None, catalog=None):
               'generated_files': writer.files + 1, 'generated_bytes': writer.bytes,
               'site_bytes': site_bytes, 'source_records_sha256': catalog['search']['records_sha256'],
               'source_texts_unchanged': True, 'independent_qc_performed': False,
+              'static_record_pages_dom_verified': writer.static_dom_verified,
+              'static_record_body_bytes_saved': writer.static_body_bytes_saved,
               'complete_source_views': source_views,
               **index_info, **sitemap_info}
     # Include the report itself in byte/file totals. The integer-length fixed

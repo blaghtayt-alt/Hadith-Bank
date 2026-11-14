@@ -14,6 +14,7 @@ import xml.etree.ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_discovery as discovery
+import refresh_bank as refresh
 
 
 SITE = {'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
@@ -218,6 +219,61 @@ class DiscoveryTests(unittest.TestCase):
         page = Parsed((self.output / discovery.record_path(source)).read_text())
         self.assertIn(source['text_translation'], page.values)
         self.assertEqual([tag for tag, _ in page.tags if tag == 'script'], ['script'])
+
+    def test_quote_aware_tag_parser_preserves_raw_attribute_values(self):
+        html = ('<a title="x > &quot; y" class="badge" '
+                'href="https://example.test/?q=a&gt;b&amp;v=1" target="_blank">'
+                'Quoted "source" &#x27;attribution&#x27;</a>')
+        compact = discovery.compact_static_record_markup(html)
+        self.assertEqual(discovery._markup_events(html), discovery._markup_events(compact))
+        self.assertIn('title="x > &quot; y"', compact)
+        self.assertIn('href="https://example.test/?q=a&gt;b&amp;v=1"', compact)
+        self.assertLess(len(compact.encode('utf-8')), len(html.encode('utf-8')))
+        for unsupported in ('<script>let x = "< > &quot;";</script>',
+                            '<div class="badge"><!-- unsupported -->Test</div>'):
+            self.assertEqual(discovery.compact_static_record_markup(unsupported), unsupported)
+
+    def test_diagnostic_paths_reject_traversal_absolute_stage_and_symlink(self):
+        site = self.root / 'staged-site'
+        site.mkdir()
+        outside = self.base / 'outside'
+        outside.mkdir()
+        (self.root / 'link-to-outside').symlink_to(outside, target_is_directory=True)
+        for unsafe in ('../outside.json', '/tmp/outside.json', 'staged-site/report.json',
+                       'link-to-outside/report.json'):
+            with self.subTest(destination=unsafe), patch.dict(os.environ, {'HADITH_SITE_SIZE_REPORT': unsafe}):
+                with self.assertRaisesRegex(ValueError, 'inventory|symlink'):
+                    discovery.write_site_size_inventory(self.root, site, {
+                        'source_records_sha256': 'a' * 64, 'site_bytes': 0,
+                    })
+        self.assertFalse((outside / 'report.json').exists())
+        self.assertFalse((site / 'report.json').exists())
+
+    def test_complete_final_site_inventory_and_budget_enforcement(self):
+        _, discovery_report = self.build([record()])
+        (self.output / '.hadith-bank-generated-site').write_text('Test marker')
+        (self.output / 'build-info.json').write_text('{"source_commit":"test"}')
+        final = '.work/site-size-final.json'
+        with patch.dict(os.environ, {'HADITH_SITE_FINAL_SIZE_REPORT': final}):
+            report = refresh.verify_final_site_size(self.root, self.output, {
+                'source_commit': 'a' * 40, 'discovery': discovery_report,
+            })
+        evidence = json.loads((self.root / final).read_text())
+        actual_bytes = sum(path.stat().st_size for path in self.output.rglob('*') if path.is_file())
+        self.assertEqual(report['final_site_bytes'], actual_bytes)
+        self.assertEqual(evidence['final_site_bytes'], actual_bytes)
+        self.assertEqual(report['site_budget_bytes'], 950_000_000)
+        self.assertEqual(report['final_headroom_bytes'], 950_000_000 - actual_bytes)
+        self.assertIn('build-info.json', [item['path'] for item in report['files']])
+        self.assertIn('discovery-info.json', [item['path'] for item in report['files']])
+        for item in report['files']:
+            self.assertEqual(item['sha256'],
+                             hashlib.sha256((self.output / item['path']).read_bytes()).hexdigest())
+        with patch.object(refresh, 'MAX_SITE_BYTES', actual_bytes):
+            with self.assertRaisesRegex(ValueError, 'Final published site exceeds'):
+                refresh.verify_final_site_size(self.root, self.output, {
+                    'source_commit': 'a' * 40, 'discovery': discovery_report,
+                })
 
     def test_site_size_inventory_is_complete_and_outside_site(self):
         destination = '.work/site-size-histogram.json'
