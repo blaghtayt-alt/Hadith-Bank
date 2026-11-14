@@ -473,6 +473,42 @@ process.stdout.write(JSON.stringify({exact,missing,all,link,historyURL:history.u
         self.assertEqual(actual['link'], 'https://example.invalid/bank/index.html?occurrence=TEST%3A1')
         self.assertEqual(actual['historyURL'], 'https://example.invalid/index.html?keep=yes')
 
+    @unittest.skipUnless(shutil.which('node'), 'Node is required for full-identity deep-link routing')
+    def test_duplicate_ids_require_a_source_choice_and_full_identity_links(self):
+        first, second, unique = fixture(1), fixture(2), fixture(3)
+        first.update(id='TEST-shared-id', source_id='TEST-source-A', edition='TEST-edition-A')
+        second.update(id='TEST-shared-id', source_id='TEST-source-B', edition='TEST-edition-B')
+        unique.update(id='TEST-unique-id', source_id='TEST-source-C')
+        template = (Path(reader.__file__).resolve().parents[1] / 'reader/template.html').read_text()
+        helpers = 'function occurrenceIndexes(' + template.split('function occurrenceIndexes(', 1)[1].split('function clearExactOccurrence(', 1)[0]
+        program = r"""
+const records=JSON.parse(require('fs').readFileSync(0,'utf8'));
+const discoveryEngine={getOrdinals:id=>records.flatMap((record,index)=>record.id===id?[index]:[])};
+const window={location:new URL('https://example.invalid/bank/?occurrence=TEST-shared-id')};
+""" + helpers + r"""
+const unscoped=scopedOccurrenceIndexes('TEST-shared-id');
+const secondURL=setOccurrenceURL(new URL(window.location),1);window.location=secondURL;
+const selected=scopedOccurrenceIndexes('TEST-shared-id');
+const wrong=new URL(secondURL);wrong.searchParams.set('occurrence-source','TEST-unknown');window.location=wrong;
+const rejected=scopedOccurrenceIndexes('TEST-shared-id');
+const uniqueURL=setOccurrenceURL(new URL(secondURL),2);
+window.location=new URL(uniqueURL);window.location.searchParams.set('occurrence-language',records[2].language);
+window.location.searchParams.set('occurrence-collection',records[2].book_key);window.location.searchParams.set('occurrence-edition',records[2].edition);window.location.searchParams.set('occurrence-source','TEST-previous-source');
+const staleScope=scopedOccurrenceIndexes('TEST-unique-id');
+process.stdout.write(JSON.stringify({unscoped,selected,rejected,staleScope,secondURL:secondURL.href,uniqueURL:uniqueURL.href,records}));
+"""
+        run = subprocess.run([shutil.which('node'), '-e', program], input=json.dumps([first, second, unique]),
+                             text=True, capture_output=True, check=True)
+        actual = json.loads(run.stdout)
+        self.assertEqual(actual['unscoped'], [0, 1])
+        self.assertEqual(actual['selected'], [1])
+        self.assertEqual(actual['rejected'], [])
+        self.assertEqual(actual['staleScope'], [])
+        self.assertIn('occurrence-source=TEST-source-B', actual['secondURL'])
+        self.assertIn('occurrence-edition=TEST-edition-B', actual['secondURL'])
+        self.assertEqual(actual['uniqueURL'], 'https://example.invalid/bank/?occurrence=TEST-unique-id')
+        self.assertEqual(actual['records'], [first, second, unique])
+
     @unittest.skipUnless(shutil.which('node'), 'Node is required for supplied-version availability parity')
     def test_supplied_arabic_and_english_count_as_available_text(self):
         from counterpart_coverage import availability_for

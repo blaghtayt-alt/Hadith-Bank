@@ -12,6 +12,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from counterpart_review import source_binding
+from bank_discovery import build_discovery_payload
 from reader_grouping import SCHEMA, load_reader_groups, validate_group_documents
 from test_reader import fixture, READER_SNAPSHOT_JS, READER_FILTER_HARNESS_JS
 
@@ -172,7 +173,10 @@ class ReaderGroupingUITests(unittest.TestCase):
 
     def run_js(self, program):
         result = subprocess.run([shutil.which('node'), '-e', program],
-                                input=json.dumps({'records': self.records, 'mapping': mapping(self.records)}),
+                                input=json.dumps({'records': self.records, 'mapping': mapping(self.records),
+                                                  'discovery': build_discovery_payload(self.records, {
+                                                      'record_count': len(self.records), 'records_sha256': '0' * 64,
+                                                      'reader_groups': mapping(self.records)})}),
                                 text=True, capture_output=True, timeout=30)
         self.assertEqual(result.returncode, 0, result.stderr)
         return json.loads(result.stdout)
@@ -209,8 +213,9 @@ const readerGroups=createReaderGroupIndex(records,input.mapping);
         self.assertEqual(actual['page'], [1, 0, 2])
         self.assertEqual(actual['records'], self.records)
 
-    def test_grouped_dom_has_one_card_full_source_versions_and_lossless_selection(self):
-        # Real card/render constructors with a small DOM harness, not a browser-layout claim.
+    def test_compact_group_then_lazy_versions_preserve_sources_and_selection(self):
+        # Execute the real compact renderer and on-demand workspace against a
+        # small DOM implementation. Browser layout/accessibility has its own gate.
         for index in (1, 2):
             self.records[index]['source_scoped_content'] = {
                 'segments': [{'source_segment_id': 'TEST-scope-' + str(index), 'story': 'main',
@@ -219,65 +224,178 @@ const readerGroups=createReaderGroupIndex(records,input.mapping);
                               'source_ambiguity_ids': []}],
                 'footnotes': [], 'uncertainties': {}}
         constructors = 'function meta(' + self.template.split('function meta(', 1)[1].split('function updateSelection(', 1)[0]
-        renderer = 'async function render(' + self.template.split('async function render(', 1)[1].split('async function applyFilters(', 1)[0]
-        program = '''
+        discovery = 'const discoveryMode=' + self.template.split('const discoveryMode=', 1)[1].split('async function applyFilters(', 1)[0]
+        identity = 'function occurrenceIndexes(' + self.template.split('function occurrenceIndexes(', 1)[1].split('function clearExactOccurrence(', 1)[0]
+        program = r"""
 const input=JSON.parse(require('fs').readFileSync(0,'utf8')),records=input.records,names={},snapshot={book_titles:{}};
+const discoveryEngine=require('./reader/discovery-engine.js').create(input.discovery);
+const walk=node=>[node,...(node.childNodes||[]).flatMap(walk)];
+const matches=(node,selector)=>selector.startsWith('#')?node.id===selector.slice(1):selector.startsWith('.')?(node.className||'').split(/\s+/).includes(selector.slice(1)):node.tag===selector;
 class TestNode {
- constructor(tag){this.tag=tag;this.childNodes=[];this.dataset={};this.events={};this.open=false;}
- append(...nodes){this.childNodes.push(...nodes);}setAttribute(key,value){this[key]=value;}
- addEventListener(key,handler){this.events[key]=handler;}replaceChildren(...nodes){this.childNodes=nodes;}
- querySelector(){return null;}
+ constructor(tag){this.tag=tag;this.childNodes=[];this.dataset={};this.events={};this.open=false;this.value='';this._text='';this.className='';}
+ append(...nodes){for(const node of nodes){if(node&&typeof node==='object'){if(node.parentNode)node.parentNode.childNodes=node.parentNode.childNodes.filter(old=>old!==node);node.parentNode=this;}this.childNodes.push(node);}}
+ setAttribute(key,value){this[key]=value;}getAttribute(key){return this[key]??null;}
+ addEventListener(key,handler){this.events[key]=handler;}replaceChildren(...nodes){for(const old of this.childNodes)if(old&&typeof old==='object')old.parentNode=null;this.childNodes=[];this.append(...nodes);}
+ querySelector(selector){return walk(this).slice(1).find(node=>matches(node,selector))||null;}
+ querySelectorAll(selector){return walk(this).slice(1).filter(node=>matches(node,selector));}
+ get classList(){return {add:(name)=>this.className=[...new Set(this.className.split(/\s+/).filter(Boolean).concat(name))].join(' ')};}
+ get options(){return this.childNodes.filter(node=>node.tag==='option');}
+ get selectedOptions(){return this.options.filter(node=>node.value===this.value);}
+ set textContent(text){this._text=String(text);this.childNodes=[];}get textContent(){return this._text+this.childNodes.map(node=>typeof node==='string'?node:node.textContent||'').join('');}
+ focus(){}scrollIntoView(){}
 }
-const Node=TestNode,document={createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment')};
-const fields={'language-filter':{value:'ja'},'origin-filter':{value:''},'show-arabic':{checked:false},'show-english':{checked:false},results:new TestNode('div'),'result-count':{},'page-meta':{},previous:{},next:{}};
-const $=id=>fields[id],icon=()=>new TestNode('svg'),site={repository_url:'https://github.com/TEST/TEST',source_ref:'main',live_url:''},offline=false,window={location:{protocol:'https:'}};
+const Node=TestNode,fields={};
+for(const id of ['results','results-heading','result-count','page-meta','previous','next','discovery-results','narration-workspace','workspace-heading','workspace-status','workspace-content','workspace-versions','shared-reading-tools'])fields[id]=new TestNode('div');
+for(const id of ['query','language-filter','book-filter','source-filter','origin-filter','counterpart-filter','source-book-filter','chapter-filter','source-topic-filter','narrator-filter','type-filter','grade-filter','preferred-language'])fields[id]=new TestNode('input');
+fields['language-filter'].value='ja';fields['preferred-language'].value='ja';fields['show-arabic']={checked:false};fields['show-english']={checked:false};
+const roots=[...Object.values(fields)],toolbar=new TestNode('div'),workspaceTop=new TestNode('div'),pagination=new TestNode('nav');
+const document={createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment'),querySelector(selector){if(selector==='.results-toolbar')return toolbar;if(selector==='.workspace-top')return workspaceTop;if(selector==='.pagination')return pagination;return roots.flatMap(walk).find(node=>matches(node,selector))||null;}};
+const $=id=>fields[id]||roots.flatMap(walk).find(node=>node.id===id),icon=()=>new TestNode('svg'),site={repository_url:'https://github.com/TEST/TEST',source_ref:'main',live_url:'https://example.invalid/bank/'},offline=false,window={location:new URL('https://example.invalid/bank/')},navigator={onLine:true};
+const history={pushState(_a,_b,url){window.location=new URL(url);},replaceState(_a,_b,url){window.location=new URL(url);}};
 const sourceDownloadsByPath=new Map(),nf=new Intl.NumberFormat('en'),PAGE_SIZE=25;
-let hydrated=[];const hostedStore={getRecords:async ordinals=>{hydrated=ordinals;return ordinals.map(index=>records[index]);}};
-''' + self.helpers + '''
-const readerGroups=createReaderGroupIndex(records,input.mapping),state={page:0,matches:[1,3],matchingOccurrences:[1,2,3],selected:new Set()};
-const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),isCurrentView=()=>true,pendingView=()=>{},updateActiveFilters=()=>{},failedView=error=>{throw error;};
-''' + constructors + renderer + '''
+const hydrated=[],hostedStore={getRecord:async ordinal=>{hydrated.push(ordinal);return records[ordinal];}};
+""" + self.helpers + r"""
+const readerGroups=createReaderGroupIndex(records,input.mapping),occurrenceOrdinals=readerGroups.ordinals;
+const result=discoveryEngine.search({query:'',preferredLanguage:'ja',filters:{language:'ja'}});
+const state={page:0,matches:result.results.map(item=>item.ordinal),discoveryResults:result.results,matchingOccurrences:result.matchedOccurrences,selected:new Set(),openOrdinal:null};
+const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),isCurrentView=()=>true,pendingView=()=>{},updateActiveFilters=()=>{},cancelView=()=>{},failedView=error=>{throw error;};
+""" + identity + constructors + discovery + r"""
 (async()=>{
- await render();const walk=node=>[node,...(node.childNodes || []).flatMap(walk)],all=walk(fields.results);
- const cards=all.filter(node=>node.className==='record-card'),versions=all.filter(node=>node.className==='source-version');
- const first=cards[0],firstNodes=walk(first),checkbox=firstNodes.find(node=>node.tag==='input');checkbox.checked=true;checkbox.events.change();
- const sourceText=firstNodes.filter(node=>node.className==='narration').map(node=>node.textContent);
- const scopedByOccurrence=Object.fromEntries([first,...versions].map(card=>{
-  const panel=card.childNodes.find(node=>(node.childNodes || []).some(child=>child.className==='source-scoped-content'));
-  return [card.dataset.occurrenceId,panel?walk(panel).map(node=>node.textContent || '').join('\\n'):''];
- }));
- process.stdout.write(JSON.stringify({cardCount:cards.length,versions:versions.length,representative:first.dataset.occurrenceId,
-  group:first.dataset.groupId,sourceText,scopedByOccurrence,badges:firstNodes.filter(node=>(node.className || '').startsWith('reading-origin')).map(node=>node.textContent),
-  text:firstNodes.map(node=>node.textContent || '').join('\\n'),links:firstNodes.filter(node=>node.tag==='a').map(node=>node.href),
-  selected:[...state.selected].sort(),hydrated,counts:fields['result-count'].textContent,records}));
+ await render();const compact=walk(fields.results).filter(node=>node.className==='compact-result');
+ const initialHydrated=[...hydrated],first=compact[0],checkbox=walk(first).find(node=>node.tag==='input');checkbox.checked=true;checkbox.events.change();
+ const compactSelection=[...state.selected].sort(),initialCounts=fields['result-count'].textContent;
+ await openNarrationWorkspace(1,result.results.find(item=>item.members.includes(1)),{updateURL:false});
+ const firstHydrated=[...hydrated],full=walk(fields['workspace-content']).find(node=>node.className==='record-card'),evidence=$('workspace-evidence').textContent;
+ const capture=(card)=>({id:card.dataset.occurrenceId,sourceText:walk(card).filter(node=>node.className==='narration').map(node=>node.textContent),text:card.textContent,links:walk(card).filter(node=>node.tag==='a').map(node=>node.href),badges:walk(card).filter(node=>(node.className||'').startsWith('reading-origin')).map(node=>node.textContent)});
+ const captured=[capture(full)],compare=fields['workspace-content'].querySelector('#compare-source-version');
+ compare.value='0';await compare.events.change();captured.push(capture($('workspace-comparison-content').querySelector('.source-version')));
+ compare.value='2';await compare.events.change();captured.push(capture($('workspace-comparison-content').querySelector('.source-version')));
+ const comparisonCount=walk($('workspace-comparison-content')).filter(node=>node.className==='source-version').length;
+ process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,records,exported:compactSelection.map(index=>records[index])}));
 })().catch(error=>{process.stderr.write(error.stack);process.exitCode=1;});
-'''
+"""
         actual = self.run_js(program)
-        self.assertEqual(actual['cardCount'], 2)
-        self.assertEqual(actual['versions'], 2)
-        self.assertEqual(actual['representative'], 'TEST-occurrence-1')
-        self.assertEqual(actual['group'], 'TEST-occurrence-0')
+        self.assertEqual(actual['compactCount'], 2)
+        self.assertEqual(actual['initialHydrated'], [], 'Compact results must not hydrate full source records')
+        self.assertEqual(actual['firstHydrated'], [1], 'Opening one family loads only its selected source')
+        self.assertEqual(actual['hydrated'], [1, 0, 2])
+        self.assertEqual(actual['comparisonCount'], 1, 'Changing the comparison replaces that view, not its source data')
+        by_id = {row['id']: row for row in actual['captured']}
         for row in self.records[:3]:
-            self.assertIn(row['text_translation'], actual['sourceText'])
-            self.assertIn(row['footnotes'][0]['text'], actual['text'])
-            self.assertIn(row['references']['items'][0]['source_citation'], actual['text'])
-            self.assertIn(row['source']['record_url'], actual['links'])
-            self.assertIn('PDF page ' + str(row['page']['pdf'][0]), actual['text'])
-        self.assertIn('AI translation', actual['badges'])
-        self.assertIn('Human translation', actual['badges'])
-        self.assertIn('TEST scoped passage 1', actual['scopedByOccurrence']['TEST-occurrence-1'])
-        self.assertNotIn('TEST scoped passage 2', actual['scopedByOccurrence']['TEST-occurrence-1'])
-        self.assertIn('TEST scoped passage 2', actual['scopedByOccurrence']['TEST-occurrence-2'])
-        self.assertNotIn('TEST scoped passage 1', actual['scopedByOccurrence']['TEST-occurrence-2'])
-        self.assertEqual(actual['scopedByOccurrence']['TEST-occurrence-0'], '')
-        self.assertIn('Source comparison', actual['text'])
-        self.assertIn('TEST review does not establish complete chain equality.', actual['text'])
-        self.assertIn('Human review\nNo', actual['text'])
-        self.assertEqual(actual['selected'], [0, 1, 2])
-        self.assertEqual(actual['hydrated'], [1, 0, 2, 3])
-        self.assertIn('2 matching reading cards', actual['counts'])
+            view = by_id[row['id']]
+            self.assertIn(row['text_translation'], view['sourceText'])
+            self.assertIn(row['footnotes'][0]['text'], view['text'])
+            self.assertIn(row['references']['items'][0]['source_citation'], view['text'])
+            self.assertIn(row['source']['record_url'], view['links'])
+            self.assertIn('PDF page ' + str(row['page']['pdf'][0]), view['text'])
+        self.assertIn('AI translation', by_id['TEST-occurrence-1']['badges'])
+        self.assertIn('Human translation', by_id['TEST-occurrence-2']['badges'])
+        self.assertIn('TEST scoped passage 1', by_id['TEST-occurrence-1']['text'])
+        self.assertNotIn('TEST scoped passage 2', by_id['TEST-occurrence-1']['text'])
+        self.assertIn('TEST scoped passage 2', by_id['TEST-occurrence-2']['text'])
+        self.assertNotIn('TEST scoped passage 1', by_id['TEST-occurrence-2']['text'])
+        self.assertNotIn('TEST scoped passage', by_id['TEST-occurrence-0']['text'])
+        self.assertIn('TEST review does not establish complete chain equality.', actual['evidence'])
+        self.assertIn('"human_review": false', actual['evidence'])
+        self.assertEqual(actual['compactSelection'], [0, 1, 2])
+        self.assertEqual(actual['exported'], self.records[:3])
+        self.assertIn('2 results', actual['counts'])
         self.assertIn('3 matching source occurrences', actual['counts'])
         self.assertEqual(actual['records'], self.records)
+
+    def test_standalone_reference_is_recognized_without_reinterpreting_quoted_words(self):
+        self.records[3]['references'] = {'items': []}
+        self.records[3]['number'] = {'in_book': '1', 'source_entry_id': '1'}
+        self.records[3]['title'] = 'TEST local Muslim 1 label'
+        helper = 'function discoveryRequestMode(' + self.template.split(
+            'function discoveryRequestMode(', 1)[1].split('const discoveryFilters=', 1)[0]
+        actual = self.run_js(r"""
+const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+const discoveryEngine=require('./reader/discovery-engine.js').create(input.discovery);
+""" + helper + r"""
+const cases=[['Bukhari 1','wording'],['Muslim 1','wording'],['صحيح البخاري ١','wording'],
+ ['"Bukhari 1"','wording'],['“Bukhari 1”','wording'],['Bukhari 1 intentions','wording'],
+ ['edition 1','wording'],['provider 1','wording'],['Bukhari 1','topic']];
+const modes=cases.map(([query,mode])=>discoveryRequestMode(query,mode));
+const results=discoveryEngine.search({query:'Muslim 1',mode:discoveryRequestMode('Muslim 1'),group:false});
+process.stdout.write(JSON.stringify({modes,matches:results.matchedOccurrences,records:input.records}));
+""")
+        self.assertEqual(actual['modes'], ['reference', 'reference', 'reference',
+                                         'wording', 'wording', 'wording', 'wording', 'wording', 'topic'])
+        self.assertEqual(actual['matches'], [0, 1, 2], 'Local/provider number 1 must not become a canonical citation')
+        self.assertEqual(actual['records'], self.records)
+
+    def test_matching_excerpt_binds_exact_source_reading_and_preserves_original_unicode(self):
+        self.records[0]['text_translation'] = ('TEST opening context. ' * 30
+            + '🧪 TEST needle late & <script>literal</script> source wording.' + ' TEST following text.' * 20)
+        self.records[0]['language_versions'] = [
+            {'id': 'TEST-arabic', 'language': 'ar', 'text': 'نَصّ تَجْرِيبِيّ: إنَّما الصَّلَاة. 🧪',
+             'source': {'name': 'TEST Arabic source', 'record_url': 'https://example.invalid/arabic'},
+             'scope': 'source_entry', 'match_status': 'same_source_record'},
+            {'id': 'TEST-context', 'language': 'en', 'text': 'TEST needle late context only.',
+             'source': {'name': 'TEST contextual source'}, 'scope': 'source_context'},
+        ]
+        helper = 'function matchingSourceExcerpt(' + self.template.split(
+            'function matchingSourceExcerpt(', 1)[1].split('function appendMatchingWordAction(', 1)[0]
+        actual = self.run_js(r"""
+const input=JSON.parse(require('fs').readFileSync(0,'utf8')),records=input.records,names={},snapshot={book_titles:{}},hostedStore=null;
+const discoveryEngine=require('./reader/discovery-engine.js').create(input.discovery);
+""" + self.helpers + helper + r"""
+const hit=discoveryEngine.search({query:'needle late',mode:'wording',preferredLanguage:'ja'}).results[0];
+const extracted=matchingSourceExcerpt(records[hit.matchedOrdinal],hit,'needle late');
+const selectedMember=matchingSourceExcerpt(records[hit.ordinal],hit,'needle late');
+const arabic={matchLocation:{field:'quotation',language:'ar',readingId:'TEST-arabic',term:'الصلاة'}};
+const normalized=matchingSourceExcerpt(records[0],arabic,'انما'),expanded=matchingSourceExcerpt(records[0],arabic,'prayer');
+const context=matchingSourceExcerpt(records[0],{matchLocation:{field:'quotation',language:'en',readingId:'TEST-context'}},'needle late');
+const wrongLanguage=matchingSourceExcerpt(records[0],{matchLocation:{field:'quotation',language:'ja',readingId:'source-translation'}},'needle late');
+const metadata=matchingSourceExcerpt(records[0],{matchLocation:{field:'metadata',language:'en',readingId:'source-translation'}},'needle late');
+const duplicate=JSON.parse(JSON.stringify(records[0]));duplicate.language_versions.push({...duplicate.language_versions[0]});
+const ambiguous=matchingSourceExcerpt(duplicate,arabic,'انما');
+process.stdout.write(JSON.stringify({hit:{ordinal:hit.ordinal,matchedOrdinal:hit.matchedOrdinal,excerptKind:hit.excerptKind},extracted,selectedMember,normalized,expanded,context,wrongLanguage,metadata,ambiguous,records}));
+""")
+        self.assertEqual(actual['hit'], {'ordinal': 1, 'matchedOrdinal': 0, 'excerptKind': 'source-preview'})
+        excerpt = actual['extracted']
+        self.assertEqual(excerpt['reading']['id'], 'source-translation')
+        self.assertEqual(excerpt['reading']['language'], 'en')
+        self.assertEqual(excerpt['reading']['source']['record_url'], self.records[0]['source']['record_url'])
+        self.assertIn('needle late', excerpt['text'])
+        self.assertIn('<script>literal</script>', excerpt['text'])
+        self.assertIn(excerpt['text'], self.records[0]['text_translation'])
+        self.assertGreater(excerpt['start'], 180, 'Late matches must be read from the actual complete source')
+        exact_arabic = self.records[0]['language_versions'][0]['text']
+        self.assertEqual(actual['normalized']['text'], exact_arabic)
+        self.assertEqual(actual['expanded']['text'], exact_arabic)
+        for key in ('selectedMember', 'context', 'wrongLanguage', 'metadata', 'ambiguous'):
+            self.assertIsNone(actual[key], key + ' must not borrow or infer a different source reading')
+        self.assertEqual(actual['records'], self.records)
+
+    def test_collection_choices_disambiguate_labels_without_merging_source_keys(self):
+        helper = 'function collectionChoiceLabels(' + self.template.split(
+            'function collectionChoiceLabels(', 1)[1].split('function fillFilter(', 1)[0]
+        actual = self.run_js(r"""
+const input=JSON.parse(require('fs').readFileSync(0,'utf8'));
+const languageLabel=code=>({fa:'Persian',uz:'Uzbek',vi:'Vietnamese',en:'English'}[code]||code);
+""" + helper + r"""
+const samples=[
+ {book_key:'riyadh-al-salihin',language:'fa',languages:['fa','ar','en']},
+ {book_key:'riyad-as-salihin',language:'uz',languages:['uz','ar','en']},
+ {book_key:'riyad-as-salihin',language:'vi'},
+ {book_key:'TEST-distinct-B',language:'en'},{book_key:'TEST-distinct-A',language:'en'},
+ {book_key:'TEST-unique',language:'fa'}];
+const labels=new Map([['riyadh-al-salihin','Riyadh al-Salihin'],['riyad-as-salihin','Riyadh al-Salihin'],
+ ['TEST-distinct-B','TEST collection'],['TEST-distinct-A','TEST collection'],['TEST-unique','TEST unique collection']]);
+const before=JSON.stringify(samples),display=collectionChoiceLabels(samples,labels),reversed=collectionChoiceLabels([...samples].reverse(),new Map([...labels].reverse()));
+process.stdout.write(JSON.stringify({display:Object.fromEntries(display),reversed:Object.fromEntries(reversed),labels:Object.fromEntries(labels),unchanged:before===JSON.stringify(samples),count:display.size}));
+""")
+        self.assertEqual(actual['display']['riyadh-al-salihin'], 'Riyadh al-Salihin · Persian sources')
+        self.assertEqual(actual['display']['riyad-as-salihin'], 'Riyadh al-Salihin · Uzbek / Vietnamese sources')
+        self.assertEqual(actual['display']['TEST-distinct-A'], 'TEST collection · English sources · Source group 1')
+        self.assertEqual(actual['display']['TEST-distinct-B'], 'TEST collection · English sources · Source group 2')
+        self.assertEqual(actual['display']['TEST-unique'], 'TEST unique collection')
+        self.assertEqual(actual['display'], actual['reversed'], 'Presentation names must be independent of source ordering')
+        self.assertEqual(actual['count'], 5)
+        self.assertEqual(actual['labels']['riyadh-al-salihin'], actual['labels']['riyad-as-salihin'])
+        self.assertTrue(actual['unchanged'])
 
 
 if __name__ == '__main__':
