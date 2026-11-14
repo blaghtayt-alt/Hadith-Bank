@@ -1,6 +1,23 @@
 {
-  "block_reason": null,
-  "blocked": false,
+  "block_reason": {
+    "at": "2026-11-14T23:34:28.564819+00:00",
+    "automatic_retry_allowed": false,
+    "reason": "HTTP 200 verification page received; no retry or bypass: https://deenhindi.com/robots.txt",
+    "snapshot": {
+      "bytes": 12056,
+      "compression": null,
+      "content_type": "text/html",
+      "final_url": "https://deenhindi.com/robots.txt",
+      "path": "imports/web-deenhindi-20261112/raw/cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87.txt",
+      "retrieved_at": "2026-11-14T23:34:28.562279+00:00",
+      "sha256": "cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87",
+      "status": 200,
+      "stored_bytes": 12056,
+      "stored_sha256": "cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87",
+      "url": "https://deenhindi.com/robots.txt"
+    }
+  },
+  "blocked": true,
   "by_collection": {
     "abudawud": {
       "classification_pending": 409,
@@ -222,9 +239,9 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "d15920668e46e8841bfe6ba7722c1108a63ffef7f34285719da95044a9bcf87d",
-      "size_bytes": 1357126,
-      "uncompressed_sha256": "74d35991dae3ff86644188311c51a96c4a3e21db9e17eb72d6c6d9ee7201c631"
+      "sha256": "12d84f318fce1ea9a79b4155f443b62d19b687e27fcc016c45bc459f173b2ce5",
+      "size_bytes": 1356766,
+      "uncompressed_sha256": "9e7fcd219024b57e00ee624591b0824fe139a23acc55e504681670e1d460757f"
     },
     "registered_occurrences": 3465,
     "selected_language_fields": 3961,
@@ -421,7 +438,7 @@
   "pending_fetch_count": 4611,
   "registered_hadith_count": 28335,
   "remaining_count": 4611,
-  "requires_attention": false,
+  "requires_attention": true,
   "resolved_historical_error_identities_count": 1000,
   "reviewed_error_attempt_outcomes": {
     "succeeded": 1000
@@ -10254,11 +10271,11 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "d15920668e46e8841bfe6ba7722c1108a63ffef7f34285719da95044a9bcf87d",
-      "size_bytes": 1357126,
-      "uncompressed_sha256": "74d35991dae3ff86644188311c51a96c4a3e21db9e17eb72d6c6d9ee7201c631"
+      "sha256": "12d84f318fce1ea9a79b4155f443b62d19b687e27fcc016c45bc459f173b2ce5",
+      "size_bytes": 1356766,
+      "uncompressed_sha256": "9e7fcd219024b57e00ee624591b0824fe139a23acc55e504681670e1d460757f"
     }
   ],
   "unresolved_historical_error_identities_count": 0,
-  "updated_at": "2026-11-14T23:17:23.744351+00:00"
+  "updated_at": "2026-11-14T23:35:07.203898+00:00"
 }

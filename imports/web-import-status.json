@@ -3,26 +3,26 @@
   "enabled": true,
   "fetch_queues_done": false,
   "fetched_entries": 41011,
-  "has_fetch_work": true,
+  "has_fetch_work": false,
   "held_entries": 3274,
   "non_narration_source_entries": 176,
   "note": "Counts describe preserved source entries, not unique canonical hadiths. Queue completion still requires reconciliation of held entries, source omissions and embedded quotations.",
   "registered_occurrences": 37563,
   "requires_attention": true,
-  "schedule_pause_reason": null,
-  "schedule_should_pause": false,
+  "schedule_pause_reason": "inspection_required",
+  "schedule_should_pause": true,
   "schema": "hadith-bank-web-import-status-v1",
   "source_status": [
     {
-      "blocked": false,
+      "blocked": true,
       "enabled": true,
       "errors": 0,
       "excluded_by_owner": false,
       "fetch_queue_done": false,
       "fetched_entries": 31779,
-      "has_fetch_work": true,
+      "has_fetch_work": false,
       "held_entries": 3274,
-      "last_source_update": "2026-11-14T23:17:23.744351+00:00",
+      "last_source_update": "2026-11-14T23:35:07.203898+00:00",
       "non_narration_source_entries": 170,
       "observed_inventory_count": 36390,
       "pending_requests": 4611,
@@ -32,7 +32,13 @@
       "reviewed_error_retry_pending_count": 0,
       "source": "deenhindi",
       "source_progress": "imports/web-deenhindi-20261112/progress.json",
-      "state": "pending"
+      "state": "blocked",
+      "worker_stop": {
+        "exit_code": 2,
+        "log": ".work/web-import-batch/deenhindi.log",
+        "reason": "Inspect the saved log/checkpoint, fix the cause, then explicitly remove this worker stop.",
+        "source": "deenhindi"
+      }
     },
     {
       "access_block": null,
