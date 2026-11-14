@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-11-14T11:26:04.233968+00:00",
+  "attempts": [
+    {
+      "runtime": "Playwright bundled Chromium",
+      "status": "blocked",
+      "reason": "Bundled headless executable does not exist"
+    },
+    {
+      "runtime": "/usr/bin/chromium via Playwright default launch",
+      "status": "blocked",
+      "reason": "FATAL process_singleton_posix.cc socket() failed: Operation not permitted"
+    }
+  ],
+  "software_test_status": "not run",
+  "browser_test_status": "cloud fallback pending"
+}
