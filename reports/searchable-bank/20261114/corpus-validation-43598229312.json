@@ -1,0 +1,271 @@
+{
+  "schema": "hadith-bank-corpus-acceptance-summary-v1",
+  "prepared_at_utc": "2026-11-14T13:55:03.652444+00:00",
+  "status": "full_corpus_validation_and_staging_passed_later_browser_gate_failed",
+  "binding": {
+    "workflow_run": 43598229312,
+    "workflow_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43598229312",
+    "feature_head": "f07d5bebfdbe333e05159fa8b710495eab4ae249",
+    "source_checkout": "31ffceec394cc6cb5c22fd72affaa1d4e08a4cf4",
+    "source_commit_url": "https://github.com/blaghtayt-alt/Hadith-Bank/commit/31ffceec394cc6cb5c22fd72affaa1d4e08a4cf4",
+    "artifact_id": 14116308332,
+    "artifact_zip_bytes": 4874398,
+    "artifact_zip_sha256": "021757f644d366abc809f91410eeb44cb6cb1c0a4762286ee137d7e165441659",
+    "artifact_archive_verification": "Downloaded and size/SHA-256 verified by parent; this task reads the extracted reports.",
+    "portable_checked_at_utc": "2026-11-14T13:49:33.716788+00:00",
+    "reports": {
+      "reports/portable-validation.json": {
+        "bytes": 13405101,
+        "sha256": "242dfe08067059da892856f8cdfa8e6f8b49a2952da09da16158b93e52811aab"
+      },
+      "reports/site-build.json": {
+        "bytes": 834632,
+        "sha256": "fc4406eaf31ff643c58bc8d632a5695841d5a08486bd54e025798284c54bdf01"
+      }
+    }
+  },
+  "source": {
+    "record_count": 109041,
+    "source_dataset_count": 252,
+    "language_count": 11,
+    "by_language": {
+      "ar": 32267,
+      "bn": 44,
+      "en": 3684,
+      "fa": 14382,
+      "fil": 2354,
+      "hi": 27389,
+      "ja": 3520,
+      "ur": 231,
+      "uz": 9780,
+      "vi": 4555,
+      "zh-CN": 10835
+    },
+    "ordered_source_stream_sha256": "47790d86cf8913ae160976c52bba38f208d4b45ecf779dde0001199846cac39f",
+    "reader_detail_stream_sha256": "47790d86cf8913ae160976c52bba38f208d4b45ecf779dde0001199846cac39f",
+    "ordered_occurrence_ids_sha256": "daeb823efde46170f403d8cdb770efc728fa687868c25ae19f45c738cddd0e7e",
+    "indexed_exact_quotation_fields_sha256": "d8ff52d231e6b77b8ed0c95fa51c516d3277186a1226c291137a0d0e0d6af6fa",
+    "current_translation_origins": {
+      "ai": 2,
+      "human": 107874,
+      "unknown": 1165
+    }
+  },
+  "full_object_validation": {
+    "status": "passed",
+    "scope": "public_source_snapshots",
+    "coverage": {
+      "canonical_occurrences_compared": 109041,
+      "projection_objects_compared": 109041,
+      "exact_arabic_and_translation_codepoints_compared": 83931411,
+      "canonical_record_files_hashed": 252,
+      "source_and_legacy_files_hashed": 54189,
+      "ordered_search_shards_hashed": 1269,
+      "canonical_record_digest_checks": 109041,
+      "complete_public_projection_objects_reconstructed": 109041,
+      "pdf_page_images_reviewed": 0,
+      "source_glyph_or_linguistic_reviews_performed": 0
+    },
+    "reader_complete_objects_compared": 109041,
+    "source_files_hashed_inventory_count": 54189,
+    "reader_data_shards_verified": 1495,
+    "source_files_modified": false,
+    "discovery_source_text_modified": false,
+    "failures": [],
+    "baseline_git": {
+      "performed": false,
+      "reason": "No local Git baseline requested"
+    },
+    "validator_sha256": "35e020b89bc1320c85280bfb885e23ec2718952536d4681143ab9baeb5095a1e",
+    "independent_pro_qc_performed": false
+  },
+  "public_scope": {
+    "enforced": true,
+    "authorized_dataset_count": 252,
+    "public_snapshot_hashes_pinned": true,
+    "unregistered_attachment_paths_and_extra_text_excluded": true,
+    "registered_material_manifests_verified": 202,
+    "unregistered_source_documents_absent": true,
+    "source_review_and_rights_statuses_preserved": true
+  },
+  "excluded_source_views": {
+    "provider_occurrences": 36464,
+    "original_source_pages": 238,
+    "reader_occurrences": 36226,
+    "pages": 606,
+    "index_path": "source-editions/fawaz/index.html",
+    "original_texts_verified": true,
+    "included_in_narration_search": false
+  },
+  "family_grouping": {
+    "source_bound_families_verified": 2475,
+    "source_occurrences_within_families": 8555,
+    "presentation_result_count": 102961,
+    "singleton_source_occurrences": 100486,
+    "presentation_reduction": 6080,
+    "legacy_explicit_reader_groups": 57,
+    "note": "These are accepted-evidence presentation families, not an exhaustive unique-hadith count or a new scholarly merge."
+  },
+  "editions": {
+    "registered_dataset_count": 252,
+    "verified_registered_material_manifests": 202,
+    "static_page_edition_count": 252,
+    "friendly_discovery_edition_group_count": null,
+    "note": "Neither report exposes the distinct friendly discovery edition-group count. Static edition_count=252 is not a grouping count; do not substitute the older local-profile count."
+  },
+  "index": {
+    "descriptor": {
+      "path": "hadith-bank-reader-data/discovery/discovery-fee0e611e41d15d11b51a829406425d24b0c99af479d361edfff568d09288a8e.json.gz",
+      "schema": "hadith-bank-discovery-v1",
+      "encoding": "gzip-json",
+      "sha256": "fee0e611e41d15d11b51a829406425d24b0c99af479d361edfff568d09288a8e",
+      "bytes": 7974555,
+      "uncompressed_sha256": "73bed1cae3eb78ede713174ddbf41f80b8d1ca113f16420a692ddaba9d050d6e",
+      "uncompressed_bytes": 79691951,
+      "record_count": 109041,
+      "records_sha256": "47790d86cf8913ae160976c52bba38f208d4b45ecf779dde0001199846cac39f",
+      "total_bytes": 99898927,
+      "delivery": "query-postings-and-page-previews"
+    },
+    "statistics": {
+      "terms": 356910,
+      "postings": 24332530,
+      "reading_families": 102961,
+      "grouped_occurrences": 8555
+    },
+    "parts_total": 586,
+    "part_summary_by_schema": {
+      "hadith-bank-discovery-v1-postings": {
+        "parts": 160,
+        "compressed_bytes": 68041094,
+        "uncompressed_bytes": 157375253,
+        "largest_compressed_part_bytes": 578843,
+        "largest_uncompressed_part_bytes": 1048763
+      },
+      "hadith-bank-discovery-v1-previews": {
+        "parts": 426,
+        "compressed_bytes": 23883278,
+        "uncompressed_bytes": 180313740,
+        "largest_compressed_part_bytes": 101283,
+        "largest_uncompressed_part_bytes": 664587
+      }
+    },
+    "all_part_descriptors_match_source_count_and_hash": true,
+    "part_paths_unique": true,
+    "core_plus_parts_equals_total_bytes": true,
+    "note": "Descriptor inventory arithmetic was checked here; the report records original build validation. This task did not download or independently rehash all index part files."
+  },
+  "reader_transport": {
+    "html_sha256": "249ab6f39b13277917dfe0b970e78756018a414947442febbcde2f7c6113f4c2",
+    "html_bytes": 1799364,
+    "self_contained": false,
+    "embedded_encoding": "gzip-jsonl-lazy-v2",
+    "source_data_shard_count": 1495,
+    "source_data_shard_compressed_bytes": 290020547,
+    "reader_store_metrics": {
+      "directory": {
+        "record_count": 109041,
+        "shard_count": 19,
+        "compressed_bytes": 1627131,
+        "uncompressed_bytes": 37627776,
+        "max_row_bytes": 467
+      },
+      "search": {
+        "record_count": 109041,
+        "shard_count": 345,
+        "compressed_bytes": 77018182,
+        "uncompressed_bytes": 715581501,
+        "max_row_bytes": 215760
+      },
+      "annotations": {
+        "record_count": 109041,
+        "shard_count": 91,
+        "compressed_bytes": 25756463,
+        "uncompressed_bytes": 188998485,
+        "max_row_bytes": 128046
+      },
+      "details": {
+        "record_count": 109041,
+        "shard_count": 1040,
+        "compressed_bytes": 185618771,
+        "uncompressed_bytes": 2163471395,
+        "max_row_bytes": 257373
+      }
+    },
+    "hosted_transport_equals_validated_root_transport": true,
+    "external_script_or_stylesheet_dependencies": false
+  },
+  "site": {
+    "report_status": "passed",
+    "reported_site_bytes": 940795087,
+    "enforced_size_limit_bytes": 950000000,
+    "reported_headroom_bytes": 9204913,
+    "reported_site_size_gate_passed": true,
+    "stable_narration_pages": 38782,
+    "shared_reader_occurrences": 70259,
+    "indexable_pages": 40189,
+    "generated_files": 40801,
+    "generated_bytes": 528135958,
+    "post_counter_metadata_bytes": {
+      "build-info.json": 834632,
+      "generated_marker": 37,
+      ".nojekyll": 0
+    },
+    "derived_final_staged_bytes": 941629756,
+    "derived_final_headroom_bytes": 8370244,
+    "size_scope": "The enforced report counter includes discovery-info.json but is taken before stage_site writes build-info.json and the generated marker. The final total shown is an inference from that code order and the identical serialized site-build/build-info object, not a filesystem inventory of the archived _site."
+  },
+  "counterpart_candidate_preparation": {
+    "schema": "hadith-bank-counterpart-review-queue-v1",
+    "status": "candidates_only",
+    "inspected_occurrences": 109041,
+    "occurrences_without_candidate": 34808,
+    "arabic_missing_occurrences": 13766,
+    "english_missing_occurrences": 36233,
+    "already_linked_occurrences": 72786,
+    "candidate_occurrences": 1447,
+    "queued_occurrences": 36255,
+    "candidate_targets": 1041,
+    "available_candidate_targets": 10753,
+    "accepted_by_this_preparation": 0,
+    "queue_bytes": 10929397,
+    "target_bytes": 573571,
+    "manifest": "reports/counterpart-review/manifest.json"
+  },
+  "browser_and_publication": {
+    "discovery_fixture": {
+      "status": "passed",
+      "checks_passed": 18,
+      "path": ".work/discovery-fixture-smoke.json"
+    },
+    "legacy_browser": {
+      "status": "failed",
+      "checks_passed": [
+        "search_home_loads_no_full_source_or_annotation_stores",
+        "workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object"
+      ],
+      "error": "AssertionError: Selection result not found: TEST-occurrence-026",
+      "path": ".work/reader-browser-smoke.json",
+      "diagnosis_from_parent": "Page 2 to workspace to Back resets the result page; UI owner is fixing."
+    },
+    "production_discovery": "skipped after legacy browser failure; no pass claimed",
+    "matched_baseline_candidate_benchmark": "skipped after legacy browser failure; no pass claimed",
+    "production_report_present": false,
+    "benchmark_report_present": false,
+    "integration": "not established by these artifacts",
+    "deployment": "not established by these artifacts",
+    "live_verification": "not run for this unpublished candidate"
+  },
+  "limits": [
+    "Comparisons establish equality with preserved canonical records, not source-page transcription accuracy.",
+    "No translation, narration-authenticity, rights or independent Pro QC was performed.",
+    "Reader payload equality is checked; visual browser behavior and remote URLs are not tested.",
+    "Historical broken links inside verbatim legacy documents are outside the generated-navigation check.",
+    "Full source-object equality and stable hashes are tied to this exact checkout and current accepted source snapshot; baseline_git.performed=false does not establish raw-tree equality across commits.",
+    "Counts describe source occurrences and include concurrent authorized imports. Do not compare the current 109,041 total with old live/local counts as if a presentation change added narrations.",
+    "The accepted-quotation fingerprint includes full accepted stored readings and counterpart quotations; excluded/pending/mismatched context is preserved through full-object comparison rather than indexed as narration.",
+    "The portable and site reports pass, but the workflow as a whole did not pass. A later browser failure prevents production/benchmark acceptance and publication.",
+    "The earlier f07 Fawaz replay audit remains separately scoped: 36,464 provider IDs, prior accepted quotations unchanged, and 238 resolved exclusions. Candidate counterpart preparation accepted zero new alignments.",
+    "No performance result follows from compressed artifact sizes alone. Cold/warm browser timing and transfer comparisons remain outstanding."
+  ]
+}

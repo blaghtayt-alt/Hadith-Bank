@@ -1,0 +1,24 @@
+{
+  "schema": "hadith-bank-reader-browser-smoke-v1",
+  "status": "failed",
+  "checks": [
+    "search_home_loads_no_full_source_or_annotation_stores",
+    "workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object"
+  ],
+  "fixture": {
+    "record_count": 60,
+    "encoding": "gzip-jsonl-lazy-v2",
+    "detail_parts": 419,
+    "detail_bytes": 27205427,
+    "canonical_bytes_match_reader_bytes": false
+  },
+  "browser": "151.0.7922.34",
+  "startup": {
+    "cards": 0,
+    "detail_parts_requested": 0,
+    "detail_parts_total": 419,
+    "source_text_search_parts_requested": 0
+  },
+  "error": "AssertionError: Selection result not found: TEST-occurrence-026",
+  "elapsed_seconds": 5.366
+}
