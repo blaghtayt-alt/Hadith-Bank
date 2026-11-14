@@ -9,12 +9,13 @@ const digest = bytes => createHash("sha256").update(bytes).digest("hex");
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const jsonl = rows => Buffer.from(rows.map(row => JSON.stringify(row) + "\n").join(""));
 
-function fixture({count=6, detailBytes=91, rowsPerPart=2, padding=0}={}) {
+function fixture({count=6, detailBytes=91, rowsPerPart=2, padding=0,recordChanges=[]}={}) {
   const records=Array.from({length:count},(_,i)=>({
     id:"id-"+i, language:"en", book_key:"muslim", edition:"test-edition", source_id:"source-test",
     text_translation:["alpha العربية 東京","gamma فارسی ۱۲۳","alpha beta","delta ٤٥","epsilon","alpha beta"][i%6]+" "+"x".repeat(padding),
     notes:[{exact:"Original context "+i,uncertain:null}], unknown:null, false_value:false,
   }));
+  recordChanges.forEach((changes,index)=>Object.assign(records[index],changes));
   const primary=records.map((record,i)=>["alpha العربية 東京","gamma فارسی 123","alpha beta","delta 45","epsilon","alpha beta"][i%6]);
   const annotation=records.map((record,i)=>["beta commentary","alpha notes","","independent context","delta","endnote"][i%6]);
   let offset=0;
@@ -112,6 +113,34 @@ test("opening one occurrence loads only its verified directory part and exact de
   assert.deepEqual(await store.getDirectoryEntry(13),f.directory[13]);
   assert.ok(Object.isFrozen(await store.getDirectoryEntry(13)));
   assert.deepEqual(await store.loadDirectory(),f.directory);
+});
+
+test("same raw ID in different editions remains separately addressable in one directory part",async()=>{
+  const f=fixture({recordChanges:[{id:"TEST-shared-id",edition:"edition-A"},{id:"TEST-shared-id",edition:"edition-B"}]});
+  const {store}=create(f);
+  assert.deepEqual(await store.getRecord(0),f.records[0]);
+  assert.deepEqual(await store.getRecord(1),f.records[1]);
+  const rows=await store.loadDirectory();
+  assert.equal(rows[0].id,rows[1].id);assert.notEqual(rows[0].edition,rows[1].edition);
+  assert.deepEqual(rows,f.directory);
+});
+
+test("duplicate full identity still rejects selective and complete directory loads",async()=>{
+  for(const rowsPerPart of [1,2]){
+    const f=fixture({rowsPerPart,recordChanges:[{id:"TEST-identical-id"},{id:"TEST-identical-id"}]});
+    const {store,events}=create(f);
+    if(rowsPerPart===2)await assert.rejects(store.getRecord(0),/duplicate directory occurrence identity/);
+    await assert.rejects(store.loadDirectory(),/duplicate directory occurrence identity/);
+    assert.ok(events.every(event=>!event.complete));
+  }
+});
+
+test("same raw ID cannot bypass full detail identity binding across editions",async()=>{
+  const f=fixture({detailBytes:10000,recordChanges:[{id:"TEST-shared-id",edition:"edition-A"},{id:"TEST-shared-id",edition:"edition-B"}]});
+  mutatePart(f,"details",0,bytes=>{const rows=bytes.toString().trimEnd().split("\n").map(JSON.parse);rows[1].edition="edition-A";return jsonl(rows);});
+  const {store}=create(f);
+  assert.deepEqual(await store.getRecord(0),f.records[0]);
+  await assert.rejects(store.getRecord(1),/detail record identity mismatch/);
 });
 
 test("selective directory loading rejects corrupt hashes and noncontiguous locators",async()=>{
@@ -214,7 +243,7 @@ test("directory rejects bad hashes, lengths, UTF-8, metadata and incomplete cove
     "invalid UTF-8":f=>mutatePart(f,"directory",0,bytes=>{const changed=Buffer.from(bytes);changed[20]=255;return changed;}),
     "missing newline":f=>mutatePart(f,"directory",0,bytes=>bytes.subarray(0,-1)),
     "null identifier":f=>mutateDirectory(f,rows=>{rows[0].source_id=null;}),
-    "duplicate ID":f=>mutateDirectory(f,rows=>{rows[1].id=rows[0].id;}),
+    "duplicate full identity":f=>mutateDirectory(f,rows=>{rows[1].id=rows[0].id;}),
     "unknown origin":f=>mutateDirectory(f,rows=>{rows[0]._reader.origin="original";}),
     "language metadata":f=>mutateDirectory(f,rows=>{rows[0]._reader.languages=[false];}),
     "availability metadata":f=>mutateDirectory(f,rows=>{rows[0]._reader.availability.arabic="available";}),
