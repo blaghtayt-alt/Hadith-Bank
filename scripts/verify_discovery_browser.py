@@ -6,15 +6,20 @@ intake. The script checks source-preserving presentation, not source authenticit
 """
 import argparse
 import asyncio
+from datetime import datetime, timezone
+import gzip
 import hashlib
 import json
 from pathlib import Path
+import re
 import tempfile
 import time
 import traceback
-from urllib.parse import parse_qs, urlencode, urlsplit
+from urllib.parse import parse_qs, urlencode, urljoin, urlsplit
+from urllib.request import Request, urlopen
 
 import build_reader
+from bank_discovery import expand_discovery_payload
 from verify_reader_browser import (require, local_server, wait_home, run_search,
                                    wait_results, open_record, wait_workspace,
                                    lazy_audit, discovery_payload, script_payload)
@@ -495,7 +500,20 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
     evidence = observe_failures(page)
     try:
         report['current_step'] = evidence_prefix + '.mobile_home'
-        await page.goto(base, wait_until='domcontentloaded', timeout=args.timeout_ms)
+        response = await page.goto(base, wait_until='domcontentloaded', timeout=args.timeout_ms)
+        if getattr(args, 'production_url', None):
+            require(response is not None and response.status == 200,
+                    'Live browser navigation must return HTTP 200')
+            html = await response.body()
+            snapshot = script_payload(html.decode('utf-8'), 'hadith-snapshot')
+            binding = {'url': response.url, 'status': response.status,
+                       'html_bytes': len(html), 'html_sha256': hashlib.sha256(html).hexdigest(),
+                       'http_date': response.headers.get('date'),
+                       'build_commit': (snapshot.get('site') or {}).get('build_commit')}
+            report['actual_site']['browser_navigation'] = binding
+            require(binding['html_sha256'] == args.expected_reader_sha256 and
+                    binding['build_commit'] == args.expected_source_commit,
+                    'Live browser navigation changed from the expected published revision')
         await wait_home(page, args.timeout_ms)
         require(await page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),
                 'Mobile home must not have horizontal overflow')
@@ -633,6 +651,124 @@ async def verify_actual_corpus(browser, args, report):
                             evidence_prefix='discovery-production')
 
 
+def fetch_live_bytes(url, timeout, maximum_bytes):
+    """Read a bounded HTTPS response without changing the publication URL."""
+    request = Request(url, headers={'Accept-Encoding': 'identity', 'Cache-Control': 'no-cache',
+                                    'User-Agent': 'Hadith-Bank-publication-verification/1'})
+    with urlopen(request, timeout=timeout) as response:
+        require(urlsplit(response.url).scheme == 'https', 'Live verification must remain on HTTPS')
+        require(response.status == 200, 'Live verification requires HTTP 200')
+        raw = response.read(maximum_bytes + 1)
+        require(len(raw) <= maximum_bytes, 'Live response exceeds its allowed byte count')
+        binding = {'url': response.url, 'status': response.status, 'bytes': len(raw),
+                   'sha256': hashlib.sha256(raw).hexdigest(), 'http_date': response.headers.get('Date'),
+                   'content_type': response.headers.get('Content-Type'),
+                   'observed_at': datetime.now(timezone.utc).isoformat()}
+        return raw, binding
+
+
+async def wait_for_live_publication(args, report):
+    deadline = time.monotonic() + 120
+    evidence = {'url': args.production_url, 'expected_source_commit': args.expected_source_commit,
+                'expected_reader_sha256': args.expected_reader_sha256, 'wait_limit_seconds': 120,
+                'attempts': []}
+    report['live_publication'] = evidence
+    report['current_step'] = 'production.wait_for_expected_live_publication'
+    while time.monotonic() < deadline:
+        remaining = deadline - time.monotonic()
+        observation = {}
+        try:
+            html, binding = await asyncio.wait_for(asyncio.to_thread(
+                fetch_live_bytes, args.production_url, min(15, remaining), 16 * 1024 * 1024),
+                timeout=remaining)
+            observation.update(binding)
+            snapshot = script_payload(html.decode('utf-8'), 'hadith-snapshot')
+            observation['build_commit'] = (snapshot.get('site') or {}).get('build_commit')
+            observation['matches_expected_publication'] = (
+                binding['sha256'] == args.expected_reader_sha256 and
+                observation['build_commit'] == args.expected_source_commit)
+            evidence['attempts'].append(observation)
+            if observation['matches_expected_publication']:
+                evidence['status'] = 'expected_html_observed'
+                return html, snapshot, binding
+        except Exception as error:
+            observation['error'] = type(error).__name__ + ': ' + str(error)[:1000]
+            evidence['attempts'].append(observation)
+        remaining = deadline - time.monotonic()
+        if remaining > 0:
+            await asyncio.sleep(min(5, remaining))
+    evidence['status'] = 'expected_html_not_observed'
+    raise AssertionError('Expected live HTML SHA-256 and source commit were not both observed within 120 seconds')
+
+
+def live_discovery_url(base, snapshot):
+    part = snapshot.get('discovery')
+    require(isinstance(part, dict), 'Live reader must bind its compact discovery index')
+    require(part.get('record_count') == snapshot.get('record_count') and
+            part.get('records_sha256') == snapshot.get('records_sha256') and
+            re.fullmatch(r'[0-9a-f]{64}', snapshot.get('records_sha256') or '') is not None and
+            type(snapshot.get('record_count')) is int and snapshot['record_count'] > 0,
+            'Live compact index descriptor belongs to a different or invalid source snapshot')
+    path = part.get('path')
+    require(isinstance(path, str) and path and not path.startswith('/') and
+            re.search(r'[\\%:?#\x00-\x1f\x7f]', path) is None and
+            all(segment not in ('', '.', '..') for segment in path.split('/')),
+            'Live compact index must use a safe local publication path')
+    require(part.get('encoding') == 'gzip-json' and
+            type(part.get('bytes')) is int and 0 < part['bytes'] <= 128 * 1024 * 1024 and
+            type(part.get('uncompressed_bytes')) is int and
+            0 < part['uncompressed_bytes'] <= 512 * 1024 * 1024 and
+            all(re.fullmatch(r'[0-9a-f]{64}', part.get(key) or '') is not None
+                for key in ('sha256', 'uncompressed_sha256')),
+            'Live compact index descriptor has invalid encoding, sizes or hashes')
+    return urljoin(base, path)
+
+
+def validate_live_discovery(raw, snapshot):
+    part = snapshot['discovery']
+    require(len(raw) == part['bytes'] and hashlib.sha256(raw).hexdigest() == part['sha256'],
+            'Live compact index compressed bytes/hash mismatch')
+    plain = gzip.decompress(raw)
+    require(len(plain) == part['uncompressed_bytes'] and
+            hashlib.sha256(plain).hexdigest() == part['uncompressed_sha256'],
+            'Live compact index decoded bytes/hash mismatch')
+    payload = expand_discovery_payload(json.loads(plain))
+    require(payload.get('schema') == part.get('schema') and
+            payload.get('record_count') == snapshot['record_count'] and
+            len(payload.get('rows', [])) == snapshot['record_count'] and
+            payload.get('records_sha256') == snapshot['records_sha256'],
+            'Live compact index payload belongs to a different source snapshot')
+    digest = hashlib.sha256()
+    for row in payload['rows']:
+        digest.update((row['id'] + '\n').encode('utf-8'))
+    require(digest.hexdigest() == payload.get('occurrence_ids_sha256'),
+            'Live compact index occurrence ID sequence is inconsistent')
+    return {'schema': payload['schema'], 'record_count': payload['record_count'],
+            'records_sha256': payload['records_sha256'],
+            'occurrence_ids_sha256': payload['occurrence_ids_sha256'],
+            'uncompressed_bytes': len(plain), 'uncompressed_sha256': hashlib.sha256(plain).hexdigest()}
+
+
+async def verify_live_corpus(browser, args, report):
+    html, snapshot, binding = await wait_for_live_publication(args, report)
+    report['actual_site'] = {
+        'url': binding['url'], 'html_bytes': len(html), 'html_sha256': binding['sha256'],
+        'http': binding,
+        'snapshot_identity': {key: snapshot.get(key) for key in
+            ('site', 'record_count', 'records_sha256', 'discovery')},
+    }
+    report['current_step'] = 'production.verify_live_discovery_bytes'
+    index_url = live_discovery_url(binding['url'], snapshot)
+    raw, index_binding = await asyncio.wait_for(asyncio.to_thread(
+        fetch_live_bytes, index_url, min(30, args.timeout_ms / 1000), snapshot['discovery']['bytes']),
+        timeout=args.timeout_ms / 1000)
+    report['actual_site']['discovery_http'] = index_binding
+    report['actual_site']['discovery_validation'] = validate_live_discovery(raw, snapshot)
+    report['checks'].append('live_expected_html_commit_and_discovery_bytes_source_binding_verified')
+    await mobile_checks(browser, None, args.production_url, args, report,
+                        evidence_prefix='discovery-production')
+
+
 async def run(args, fixture, report):
     from playwright.async_api import async_playwright
     async with async_playwright() as playwright:
@@ -642,18 +778,20 @@ async def run(args, fixture, report):
         browser = await playwright.chromium.launch(**options)
         try:
             report['browser'] = browser.version
-            if not args.production_only:
+            if not args.production_only and not args.production_url:
                 with local_server(fixture['site']) as base:
                     await desktop_checks(browser, fixture, base, args, report)
                     await transport_failure_checks(browser, fixture, base, args, report)
                     await mobile_checks(browser, fixture, base, args, report)
             if args.site_root:
                 await verify_actual_corpus(browser, args, report)
+            if args.production_url:
+                await verify_live_corpus(browser, args, report)
         finally:
             await browser.close()
 
 
-def main():
+def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-only', action='store_true')
     parser.add_argument('--production-only', action='store_true',
@@ -661,21 +799,43 @@ def main():
     parser.add_argument('--chromium-executable', type=Path)
     parser.add_argument('--site-root', type=Path,
                         help='Also check the actual built site at a mobile viewport, preserving its source/build binding.')
+    parser.add_argument('--production-url', help='Verify the expected public HTTPS publication and its actual mobile journeys.')
+    parser.add_argument('--expected-source-commit', help='Required 40-character source commit for --production-url.')
+    parser.add_argument('--expected-reader-sha256', help='Required 64-character HTML SHA-256 for --production-url.')
     parser.add_argument('--timeout-ms', type=int, default=60000)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--evidence-dir', type=Path, default=Path('.work/discovery-browser-images'))
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.production_url:
+        url = urlsplit(args.production_url)
+        if url.scheme != 'https' or not url.netloc or url.username or url.password or url.query or url.fragment:
+            parser.error('--production-url must be a public HTTPS page URL without credentials, query or fragment')
+        if args.site_root or args.build_only or args.production_only:
+            parser.error('--production-url cannot be combined with --site-root, --build-only or --production-only')
+        for field, length in (('expected_source_commit', 40), ('expected_reader_sha256', 64)):
+            if not re.fullmatch(r'[0-9a-fA-F]{' + str(length) + '}', getattr(args, field) or ''):
+                parser.error('--' + field.replace('_', '-') + ' must contain exactly ' + str(length) + ' hexadecimal characters')
+            setattr(args, field, getattr(args, field).lower())
+    elif args.expected_source_commit or args.expected_reader_sha256:
+        parser.error('--expected-source-commit and --expected-reader-sha256 require --production-url')
     if args.production_only and not args.site_root:
         parser.error('--production-only requires --site-root')
     if args.production_only and args.build_only:
         parser.error('--production-only cannot be combined with --build-only')
+    if args.timeout_ms <= 0:
+        parser.error('--timeout-ms must be positive')
+    return args
+
+
+def main():
+    args = parse_args()
     args.evidence_dir.mkdir(parents=True, exist_ok=True)
-    scope = ('production_only' if args.production_only else
+    scope = ('live_production' if args.production_url else 'production_only' if args.production_only else
              'fixtures_and_production' if args.site_root else 'fixtures')
     report = {'schema': 'hadith-bank-discovery-browser-v1', 'status': 'running', 'scope': scope, 'checks': []}
     started = time.monotonic()
     try:
-        if args.production_only:
+        if args.production_only or args.production_url:
             asyncio.run(run(args, None, report))
             report['status'] = 'passed'
         else:

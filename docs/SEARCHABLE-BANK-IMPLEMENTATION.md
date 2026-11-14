@@ -206,3 +206,33 @@ unchanged, with an additional engine regression using the same fixture and its
 actual evidenced parent/chapter metadata.
 All 22 focused Node engine tests pass after this one-condition correction; the
 48 lazy-store tests remain passed. The full Actions gates still apply.
+
+The complete actual Chromium discovery fixture suite subsequently passed in
+run `43597000472` for feature `41f00591f215c907e3734b49410bd4a5962bc660`.
+That run also passed software tests and saved Fawaz source preservation before
+advancing to saved website-review application. This is not yet the complete
+corpus, performance or publication result.
+
+## Publication verification gate
+
+The deployment workflow now records the exact validated staged HTML hash before
+its existing expected-head publication transaction. Only after an actual Pages
+deployment succeeds, it verifies the public HTTPS HTML against that hash and
+the build source commit, checks the live discovery index's compressed/decoded
+bytes, count, source binding and occurrence-ID sequence, and runs the production
+mobile/keyboard/RTL/accessibility-tree journeys against the live URL. The
+browser's own navigation response is independently checked against the expected
+HTML and commit, not inferred from an earlier HTTP request.
+
+It then measures completed cold and warm live searches in actual desktop
+Chromium, retaining CDP bytes and startup cost. Every query must still use the
+exact expected HTML/source revision. These absolute live observations supplement
+the PR's matched-host baseline/candidate comparison; they are not substituted
+for it. Stale publication receives a bounded 120-second retry and cannot count
+as success. The existing current-main and source-preservation guards remain.
+
+Ten persistent live-verification regression tests pass for old/new CLI modes,
+wrong/stale HTML hashes and commits, compressed/decoded corruption,
+checksum-consistent source count/hash/ID mismatches and bounded retry behavior.
+All eight existing publication-race tests and workflow syntax checks pass.
+Actual new live-mode success remains pending publication.
