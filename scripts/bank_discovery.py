@@ -815,7 +815,7 @@ def write_discovery_artifact(payload, directory, relative_prefix=''):
 
     def publish(part, prefix, extra=None):
         raw = serialize_discovery(part)
-        compressed = gzip.compress(raw, compresslevel=6, mtime=0)
+        compressed = gzip.compress(raw, compresslevel=9, mtime=0)
         if len(compressed) > MAX_COMPRESSED_BYTES:
             raise ValueError('Discovery part exceeds transfer size limit')
         digest = hashlib.sha256(compressed).hexdigest()

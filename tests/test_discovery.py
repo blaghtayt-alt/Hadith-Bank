@@ -1,5 +1,6 @@
 """Discovery regression checks: literal source text, stable routes and crawl graph."""
 import copy
+import gzip
 import hashlib
 from html.parser import HTMLParser
 import json
@@ -179,7 +180,10 @@ class DiscoveryTests(unittest.TestCase):
         locations = []
         for element in sitemap.findall('s:sitemap/s:loc', namespace):
             filename = element.text.removeprefix(SITE['live_url'])
-            locations.extend(node.text for node in ET.parse(self.output / filename).getroot().findall('s:url/s:loc', namespace))
+            raw = (self.output / filename).read_bytes()
+            self.assertTrue(filename.endswith('.xml.gz'))
+            decoded = gzip.decompress(raw)
+            locations.extend(node.text for node in ET.fromstring(decoded).findall('s:url/s:loc', namespace))
         self.assertTrue(all(discovery.canonical_url(discovery.record_path(item), SITE) in locations for item in items))
         self.assertNotIn(SITE['live_url'] + '404.html', locations)
         self.assertFalse((self.output / 'robots.txt').exists())
@@ -363,11 +367,47 @@ class DiscoveryTests(unittest.TestCase):
         for path in separate.rglob('*.xml'):
             ET.parse(path)
             self.assertNotIn('lastmod', path.read_text())
+        for path in separate.rglob('*.xml.gz'):
+            decoded = gzip.decompress(path.read_bytes())
+            ET.fromstring(decoded)
+            self.assertNotIn('lastmod', decoded.decode('utf-8'))
+            self.assertEqual(gzip.compress(decoded, compresslevel=9, mtime=0), path.read_bytes())
+        self.assertEqual(len(list(separate.glob('sitemap-*.xml.gz'))), 2)
+        self.assertEqual(report['sitemap_uncompressed_bytes'] - report['sitemap_stored_bytes'],
+                         report['sitemap_lossless_bytes_saved'])
         not_found = Parsed((self.output / '404.html').read_text())
         self.assertIn(('meta', {'name': 'robots', 'content': 'noindex,follow'}), not_found.tags)
         for tag, attrs in not_found.tags:
             if tag in ('a', 'link') and attrs.get('href') and not attrs['href'].startswith('#'):
                 self.assertTrue(attrs['href'].startswith('https://'), attrs)
+
+    def test_lossless_sitemap_byte_identity_unchanged_urls_and_hashes(self):
+        records = [record('TEST-1'), record('TEST-2', 'fa'), record('TEST-3', 'ja')]
+        _, report = self.build(records)
+        root = ET.parse(self.output / 'sitemap.xml').getroot()
+        namespace = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+        paths = [node.text.removeprefix(SITE['live_url']) for node in
+                 root.findall('s:sitemap/s:loc', namespace)]
+        self.assertEqual(len(paths), report['sitemap_count'])
+        self.assertTrue(all(path.endswith('.xml.gz') for path in paths))
+        uncompressed = 0
+        stored = 0
+        urls = set()
+        for index, relative in enumerate(paths):
+            compressed = (self.output / relative).read_bytes()
+            xml = gzip.decompress(compressed)
+            self.assertEqual(hashlib.sha256(xml).hexdigest(),
+                             report['sitemap_original_xml_sha256'][index])
+            self.assertEqual(gzip.compress(xml, compresslevel=9, mtime=0), compressed)
+            uncompressed += len(xml)
+            stored += len(compressed)
+            urls.update(item.text for item in ET.fromstring(xml).findall('s:url/s:loc', namespace))
+        self.assertEqual(uncompressed, report['sitemap_uncompressed_bytes'])
+        self.assertEqual(stored, report['sitemap_stored_bytes'])
+        self.assertEqual(len(urls), report['sitemap_url_count'])
+        for record_ in records:
+            self.assertIn(discovery.canonical_url(discovery.record_path(record_), SITE), urls)
+        self.assertIn(SITE['live_url'], urls)
 
     def test_ocr_badges_current_origin_policy_and_site_size_limit(self):
         item = record()

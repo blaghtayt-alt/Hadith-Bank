@@ -7,6 +7,7 @@ Only records in the checked search stream become public narration pages.
 """
 import argparse
 from collections import Counter, defaultdict
+import gzip
 import hashlib
 import html
 from html.parser import HTMLParser
@@ -561,23 +562,39 @@ def write_sitemaps(writer, pages, page_size=SITEMAP_PAGE_SIZE):
         raise ValueError('Sitemap page size must be between 1 and 50000')
     urls = sorted({canonical_url(path, writer.site) for path in ['index.html', *pages]})
     sitemap_paths = []
+    original_xml_sha256 = []
+    uncompressed_total = stored_total = 0
     for offset in range(0, len(urls), page_size):
         document = ET.Element('urlset', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
         for url in urls[offset:offset + page_size]:
             ET.SubElement(ET.SubElement(document, 'url'), 'loc').text = url
         # Keep sitemap files at the project root: their normal directory scope
         # then covers both browse/ and hadith/ without Search Console exceptions.
-        path = 'sitemap-' + str(len(sitemap_paths) + 1).zfill(4) + '.xml'
+        path = 'sitemap-' + str(len(sitemap_paths) + 1).zfill(4) + '.xml.gz'
         raw = ET.tostring(document, encoding='utf-8', xml_declaration=True) + b'\n'
         if len(raw) > 50_000_000:
             raise ValueError('Sitemap exceeds the 50 MB uncompressed limit')
-        writer.write(path, raw)
+        # Google and Bing accept gzipped sitemap XML. Keep sitemap.xml (the
+        # stable entry point) uncompressed and preserve the decompressed URL
+        # inventory, canonical paths and XML bytes exactly.
+        compressed = gzip.compress(raw, compresslevel=9, mtime=0)
+        if gzip.decompress(compressed) != raw:
+            raise ValueError('Compressed sitemap changed its exact source URL XML')
+        writer.write(path, compressed)
         sitemap_paths.append(path)
+        original_xml_sha256.append(hashlib.sha256(raw).hexdigest())
+        uncompressed_total += len(raw)
+        stored_total += len(compressed)
     document = ET.Element('sitemapindex', xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
     for path in sitemap_paths:
         ET.SubElement(ET.SubElement(document, 'sitemap'), 'loc').text = canonical_url(path, writer.site)
     writer.write('sitemap.xml', ET.tostring(document, encoding='utf-8', xml_declaration=True) + b'\n')
-    return {'sitemap_count': len(sitemap_paths), 'sitemap_url_count': len(urls), 'sitemap': canonical_url('sitemap.xml', writer.site)}
+    return {'sitemap_count': len(sitemap_paths), 'sitemap_url_count': len(urls),
+            'sitemap': canonical_url('sitemap.xml', writer.site),
+            'sitemap_original_xml_sha256': original_xml_sha256,
+            'sitemap_uncompressed_bytes': uncompressed_total,
+            'sitemap_stored_bytes': stored_total,
+            'sitemap_lossless_bytes_saved': uncompressed_total - stored_total}
 
 
 
