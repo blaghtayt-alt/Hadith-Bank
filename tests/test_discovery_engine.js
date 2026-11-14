@@ -14,6 +14,28 @@ test("exact reference ranks and groups accepted translations without number coll
   assert.equal(engine.search({query:"Bukhari 1-2",mode:"reference"}).results.length,0);
 });
 
+test("resetting a Reference journey browses filtered source headings with an empty query",async()=>{
+  const script="import json,sys;sys.path.insert(0,sys.argv[1]);from verify_discovery_browser import records_fixture;from bank_discovery import build_discovery_payload;rows=records_fixture();print(json.dumps(build_discovery_payload(rows,{'record_count':len(rows)}),ensure_ascii=False))";
+  const data=JSON.parse(execFileSync("python",["-c",script,path.join(__dirname,"../scripts")],{encoding:"utf8",maxBuffer:8*1024*1024}));
+  const e=engineAPI.create(data),filters={book:"bukhari",sourceBook:"TEST Book",chapter:"TEST Chapter"};
+  assert.ok(e.search({query:"Bukhari 1",mode:"reference"}).results.length);
+  for(const query of [""," \t\n "]){
+    const expected=e.search({query,mode:"all",filters});
+    assert.deepEqual(expected.results.map(hit=>hit.row.id),["TEST-facets"]);
+    for(const mode of ["reference","wording","topic"]){
+      await e.prepare({query,mode});const result=e.search({query,mode,filters});
+      assert.deepEqual(result.matchedOccurrences,expected.matchedOccurrences);
+      assert.deepEqual(result.results.map(hit=>hit.row.id),["TEST-facets"]);
+      if(mode==="reference")assert.equal(result.results[0].matchKind,"browse");
+      assert.equal(result.broaderWording,null);
+    }
+  }
+  for(const query of ["not a reference","١","Bukhari 1-2"]){
+    const result=e.search({query,mode:"reference",filters});
+    assert.equal(result.results.length,0);assert.equal(result.broaderWording,null);
+  }
+});
+
 test("quoted phrases require exact consecutive words and outrank scattered wording",()=>{
   const exact=engine.search({query:'"actions depend on intentions"',mode:"wording"});
   assert.deepEqual(exact.matchedOccurrences,[0]);assert.equal(exact.results[0].matchKind,"exact-phrase");

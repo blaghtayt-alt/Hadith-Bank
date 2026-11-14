@@ -298,7 +298,7 @@
       const maps=new Map(mapTerms.map(term=>[term,posting(term)]));
       let candidates;
       if(exact!==undefined)candidates=[...exact];
-      else if(mode==="reference"&&!parsed.pairs.length)candidates=[];
+      else if(query&&mode==="reference"&&!parsed.pairs.length)candidates=[];
       else if(parsed.pairs.length){candidates=[...(referenceIndex[parsed.pairs[0]]||[])];for(const pair of parsed.pairs.slice(1)){const set=new Set(referenceIndex[pair]||[]);candidates=candidates.filter(value=>set.has(value));}}
       else if(expanded.length&&mode==="topic")candidates=[...new Set([...maps.values()].flatMap(map=>[...map.keys()]))];
       else if(unique.length){const smallest=[...unique].sort((a,b)=>maps.get(a).size-maps.get(b).size)[0];candidates=[...maps.get(smallest).keys()];}

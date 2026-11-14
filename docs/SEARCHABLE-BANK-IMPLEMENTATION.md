@@ -1,5 +1,9 @@
 # Searchable Bank implementation checkpoint
 
+This file records the implementation and validation history. Pending states
+below describe their recorded checkpoints. Current integration and publication
+evidence is maintained in [PR #16](https://github.com/blaghtayt-alt/Hadith-Bank/pull/16).
+
 ## Ownership and scope
 
 Branch: `feat/searchable-bank-20261114`.
@@ -11,7 +15,7 @@ Live HTML: 1,341,817 bytes, SHA-256 `99f272f1a303ef1c7818a3a1900124c3bed10627337
 Live source stream: 107,693 occurrences; SHA-256 `bf1af61a17f28f66c2368f09282db3dedde685fa3fa6431a0dcbd4d24950cec1`.
 Counts describe published source occurrences, not a unique-hadith audit.
 
-This branch owns reader presentation, navigation/search indexing, reader generation integration, focused software/browser tests, and this implementation evidence. It does not own source intake, material registrations, release manifests, review decisions, source PDFs, or README recovery. Deen Hindi intake and separate Hindi release/PDF-recovery work must coexist. No jobs are cancelled and no main history is replaced.
+This branch owns reader presentation, navigation/search indexing, reader generation integration, focused software/browser tests, and this implementation evidence. It does not own source intake, material registrations, release manifests, review decisions, source PDFs, or README recovery. Deen Hindi intake and separate Hindi release/PDF-recovery work must coexist. Other workers' jobs are not cancelled and main history is not replaced. The existing PR concurrency policy may supersede this branch's own older validation run when its revision changes.
 
 ## Authorized requirements
 
@@ -191,3 +195,14 @@ invent a published edition name. The run's verified evidence archive
 `56c58dc02590e44ee12d22b668bbd7b7b420528c77ab742f4317803988e86aff`.
 Its unchanged pre-existing portable/site reports remain excluded from new
 build evidence because the corpus stage was skipped.
+
+A read-only audit of the remaining real fixture assertions reproduced a second
+interaction defect in the engine: after choosing Reference, clearing the query
+and browsing a collection/book/chapter returned zero results. The reference
+rejection guard must apply only to nonempty queries. Empty and whitespace-only
+queries now browse the same filtered source set in every journey; nonempty
+invalid references remain strict. The existing browser facet assertion is kept
+unchanged, with an additional engine regression using the same fixture and its
+actual evidenced parent/chapter metadata.
+All 22 focused Node engine tests pass after this one-condition correction; the
+48 lazy-store tests remain passed. The full Actions gates still apply.
