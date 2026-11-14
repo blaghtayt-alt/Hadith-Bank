@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T15:04:42.106613+00:00",
+  "updated_at": "2026-11-14T15:19:07.724970+00:00",
   "feature_head": "5ef914fae31d94a5f9acc06884a47dbad78c3789",
   "application_head": "4277317cee8255047d7ceb900ad93a12c03cc769",
   "pull_request": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/16",
@@ -24,7 +24,7 @@
   "integration_commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
   "main_before_integration": "4d466c80bc78d21b4c8b596677c0ec78f5c61b24",
   "main_build_run": 43608019736,
-  "main_build_state": "pending_in_existing_queue",
+  "main_build_state": "in_progress",
   "candidate_acceptance_directory": "pr-acceptance-43602603900",
   "measured_performance_limit": "Cold Bukhari 1 transferred8.54% more bytes because of initial index, although time fell19.6%; measured wording/topic cold time and bytes improved, all candidate warm transfers0.",
   "provisional_report": "delivery-acceptance.md",
@@ -36,5 +36,17 @@
   "latest_main_observed": "9ea5cbae4a6704a0c98254adcd3bb7a4318148f1",
   "integrated_main_run": 43608019736,
   "new_main_scope_check": ".work/searchable-bank-main-9ea5-scope-check.json",
-  "superseded_main_run": 43606134903
+  "superseded_main_run": 43606134903,
+  "main_build_job": 132491079685,
+  "phase": "integrated_main_build_running",
+  "queue_predecessor_outcome": {
+    "run": 43605440177,
+    "conclusion": "cancelled",
+    "completed_at": "2026-11-14T15:18:21Z",
+    "duration_seconds": 2715,
+    "existing_timeout_minutes": 45,
+    "generated_sync": "skipped",
+    "deployment": "skipped",
+    "cancel_requested_by_this_session": false
+  }
 }
