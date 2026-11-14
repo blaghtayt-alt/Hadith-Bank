@@ -11,6 +11,7 @@ import json
 from pathlib import Path
 import tempfile
 import time
+import traceback
 from urllib.parse import urlencode, urlsplit
 
 import build_reader
@@ -134,15 +135,71 @@ async def ready(page, timeout):
       && !document.querySelector('#results .error')""", timeout=timeout)
 
 
+def observe_failures(page):
+    """Keep only bounded diagnostics; do not copy quotation/source bodies."""
+    evidence = {'page_errors': [], 'request_failures': [], 'http_errors': [], 'recent_requests': []}
+
+    def add(key, value):
+        evidence[key].append(value)
+        del evidence[key][:-40]
+
+    page.on('pageerror', lambda error: add('page_errors', str(error)[:1200]))
+    page.on('request', lambda request: add('recent_requests', urlsplit(request.url).path))
+    page.on('requestfailed', lambda request: add('request_failures',
+            {'path': urlsplit(request.url).path, 'error': str(request.failure)[:600]}))
+    page.on('response', lambda response: add('http_errors',
+            {'path': urlsplit(response.url).path, 'status': response.status}) if response.status >= 400 else None)
+    return evidence
+
+
+async def capture_failure(page, args, report, label, evidence):
+    diagnostic = {'label': label, 'step': report.get('current_step'), **evidence}
+    report.setdefault('failure_diagnostics', []).append(diagnostic)
+    try:
+        diagnostic['page'] = await asyncio.wait_for(page.evaluate("""() => ({
+          url:location.href, view:document.body.dataset.discoveryView,
+          query:document.getElementById('query')?.value,
+          mode:document.querySelector('[name="search-mode"]:checked')?.value,
+          result_count:document.getElementById('result-count')?.textContent,
+          results_busy:document.getElementById('results')?.getAttribute('aria-busy'),
+          result_ids:[...document.querySelectorAll('#results > .compact-result')].slice(0,10)
+            .map(node=>({id:node.dataset.occurrenceId,source:node.dataset.sourceId,edition:node.dataset.edition})),
+          workspace_hidden:document.getElementById('narration-workspace')?.hidden,
+          workspace_busy:document.getElementById('workspace-content')?.getAttribute('aria-busy'),
+          workspace_status:document.getElementById('workspace-status')?.textContent,
+          workspace_version:document.getElementById('workspace-version')?.value,
+          workspace_ids:[...document.querySelectorAll('#workspace-content .record-card,#workspace-content .source-version')]
+            .slice(0,12).map(node=>node.dataset.occurrenceId),
+          comparison_busy:document.getElementById('workspace-comparison-content')?.getAttribute('aria-busy'),
+          errors:[...document.querySelectorAll('.error')].slice(0,8).map(node=>node.textContent.slice(0,1600)),
+          focused:{tag:document.activeElement?.tagName,id:document.activeElement?.id,
+            name:document.activeElement?.getAttribute('aria-label')}
+        })"""), timeout=10)
+    except Exception as error:
+        diagnostic['state_capture_error'] = type(error).__name__ + ': ' + str(error)[:600]
+    try:
+        path = args.evidence_dir / (label + '-failure.png')
+        await page.screenshot(path=str(path), timeout=10000)
+        diagnostic['screenshot'] = str(path)
+    except Exception as error:
+        diagnostic['screenshot_error'] = type(error).__name__ + ': ' + str(error)[:600]
+
+
 async def desktop_checks(browser, fixture, base, args, report):
     context = await browser.new_context(viewport={'width': 1366, 'height': 900}, accept_downloads=True, locale='en-US')
     page = await context.new_page()
     errors, requests = [], []
     page.on('pageerror', lambda error: errors.append(str(error)[:500]))
     page.on('request', lambda request: requests.append(urlsplit(request.url).path))
+    evidence = observe_failures(page)
     try:
+        report['current_step'] = 'desktop.home'
         await page.goto(base, wait_until='domcontentloaded', timeout=args.timeout_ms)
         await wait_home(page, args.timeout_ms)
+        require(await page.locator('body').get_attribute('data-discovery-view') == 'home',
+                'Home must retain its full discovery view')
+        home_hero = await page.locator('.hero').bounding_box()
+        require(home_hero and home_hero['height'] > 1, 'Home must retain its visible introduction')
         require(not any('/details/' in path for path in requests), 'Home must not request details')
         await page.keyboard.press('Control+k')
         require(await page.locator('#query').evaluate('(node)=>document.activeElement===node'),
@@ -177,27 +234,42 @@ async def desktop_checks(browser, fixture, base, args, report):
                 'Preferred language must select the matching stored source reading')
         require(selected['excerpt'] in fixture['records'][0]['text_translation'],
                 'Preferred excerpt must be exact source text')
+        await page.evaluate('window.scrollTo(0,0)')
+        result_box = await page.locator('#results > .compact-result').first.bounding_box()
+        result_hero = await page.locator('.hero').bounding_box()
+        require(await page.locator('body').get_attribute('data-discovery-view') == 'results' and
+                result_hero and result_hero['height'] <= 1,
+                'Compact results must use the compact screen introduction')
+        require(result_box and 0 <= result_box['y'] < 600,
+                'The first desktop result must occupy a useful part of the initial viewport')
         await page.screenshot(path=str(args.evidence_dir / 'discovery-desktop-results.png'))
         report['checks'].append('reference_number_collision_evidence_family_and_multilingual_preference')
 
         # Open the explicit preferred-language result by its stable source ID.
+        report['current_step'] = 'desktop.open_preferred_family_TEST-provider-ja'
         await open_record(page, 'TEST-provider-ja', args.timeout_ms)
+        require(await page.locator('body').get_attribute('data-discovery-view') == 'workspace',
+                'Opening a narration must switch to the workspace view')
         require(await page.locator('#workspace-version option').count() == 2,
                 'Family workspace must enumerate both preserved versions')
         require(await page.locator('#workspace-content > .record-card').count() == 1,
                 'Workspace must hydrate one selected version at a time')
         require(await page.locator('#workspace-evidence').count() == 1,
                 'Family workspace must explain the grouping evidence')
+        report['current_step'] = 'desktop.grouping_evidence'
         await page.locator('#workspace-evidence > summary').click()
-        evidence = json.loads(await page.locator('#workspace-evidence pre').text_content())
-        require(evidence['basis'] == 'accepted_provider_identity_and_source_binding',
+        group_evidence = json.loads(await page.locator('#workspace-evidence pre').text_content())
+        require(group_evidence['basis'] == 'accepted_provider_identity_and_source_binding',
                 'Grouping must retain its actual source evidence basis')
         require(all(item.get('providerId') == '100' and item.get('arabicSha256')
-                    for item in evidence['memberRelations']),
+                    for item in group_evidence['memberRelations']),
                 'Provider identity evidence must bind the exact source Arabic')
+        report['current_step'] = 'desktop.audit_TEST-provider-ja'
         await lazy_audit(page, fixture['records'][0], args.timeout_ms)
+        report['current_step'] = 'desktop.switch_source_TEST-provider-en'
         await page.locator('#workspace-version').select_option('1')
         await wait_workspace(page, 'TEST-provider-en', args.timeout_ms)
+        report['current_step'] = 'desktop.audit_TEST-provider-en'
         await lazy_audit(page, fixture['records'][1], args.timeout_ms)
         arabic = page.locator('#workspace-content .language-reading[data-language="ar"] p.narration')
         require(await arabic.text_content() == fixture['records'][1]['text_arabic'],
@@ -208,6 +280,7 @@ async def desktop_checks(browser, fixture, base, args, report):
                 fixture['records'][1]['source']['record_url'], 'Source link must preserve its own locator')
         require(await page.locator('#workspace-comparison-content .source-version').count() == 0,
                 'Comparison must remain empty until a second source is explicitly chosen')
+        report['current_step'] = 'desktop.compare_source_TEST-provider-ja'
         await page.locator('#compare-source-version').select_option('0')
         await page.wait_for_function("""() => {
           const content=document.getElementById('workspace-comparison-content');
@@ -225,8 +298,14 @@ async def desktop_checks(browser, fixture, base, args, report):
         await page.screenshot(path=str(args.evidence_dir / 'discovery-desktop-workspace.png'))
         report['checks'].append('workspace_lazy_source_versions_comparison_evidence_exact_bytes_source_links_and_RTL')
 
+        report['current_step'] = 'desktop.return_home_and_wording_journeys'
         await page.locator('#back-to-results').click()
         await page.locator('#reset').click()
+        await wait_home(page, args.timeout_ms)
+        restored_hero = await page.locator('.hero').bounding_box()
+        require(await page.locator('body').get_attribute('data-discovery-view') == 'home' and
+                restored_hero and restored_hero['height'] > 1,
+                'Resetting to home must restore the introduction')
         await run_search(page, '"actions depend on intentions"', args.timeout_ms, 'wording')
         await ready(page, args.timeout_ms)
         require(len(await result_rows(page)) == 2, 'Quoted wording must search exact phrase positions')
@@ -275,6 +354,7 @@ async def desktop_checks(browser, fixture, base, args, report):
                 'Completed no-result state must be explicit')
         report['checks'].append('phrase_Arabic_normalization_and_completed_no_results')
 
+        report['current_step'] = 'desktop.topic_and_spelling_journeys'
         for topic in ('anger', 'parents', 'prayer', 'salah'):
             await run_search(page, topic, args.timeout_ms, 'topic')
             await wait_results(page, ['TEST-facets'], args.timeout_ms)
@@ -289,6 +369,7 @@ async def desktop_checks(browser, fixture, base, args, report):
         await wait_results(page, ['TEST-facets'], args.timeout_ms)
         report['checks'].append('topic_synonyms_limited_transliteration_and_opt_in_spelling_are_transparent')
 
+        report['current_step'] = 'desktop.unique_occurrence_and_back'
         await run_search(page, 'TEST-provider-variant', args.timeout_ms, 'reference')
         await wait_workspace(page, 'TEST-provider-variant', args.timeout_ms)
         await page.locator('#back-to-results').click()
@@ -297,6 +378,7 @@ async def desktop_checks(browser, fixture, base, args, report):
                 'Back from a unique-ID search must return to results without reopening the workspace')
         report['checks'].append('unique_occurrence_search_back_navigation_returns_to_results')
 
+        report['current_step'] = 'desktop.ambiguous_occurrence_and_scoped_deep_link'
         await run_search(page, 'TEST-shared-id', args.timeout_ms, 'reference')
         await wait_results(page, ['TEST-shared-id', 'TEST-shared-id'], args.timeout_ms)
         require(await page.locator('#narration-workspace').is_hidden(),
@@ -316,6 +398,7 @@ async def desktop_checks(browser, fixture, base, args, report):
         await page.locator('#back-to-results').click()
         report['checks'].append('ambiguous_occurrence_ID_preserves_edition_choices_and_bound_deep_link')
 
+        report['current_step'] = 'desktop.source_facets'
         await page.locator('#reset').click()
         await page.locator('#book-filter').select_option('bukhari')
         await page.locator('#source-book-filter').select_option('TEST Book')
@@ -343,6 +426,7 @@ async def desktop_checks(browser, fixture, base, args, report):
                 'Friendly edition labels must not expose technical chunk/hash names')
         report['checks'].append('technical_chunks_share_only_evidence_bound_friendly_edition_facet')
 
+        report['current_step'] = 'desktop.counterpart_availability'
         await page.locator('#reset').click()
         await run_search(page, 'TESTexternalonly', args.timeout_ms)
         await wait_results(page, ['TEST-external-en'], args.timeout_ms)
@@ -361,6 +445,7 @@ async def desktop_checks(browser, fixture, base, args, report):
 
         # Source data is deliberately uncached; losing connectivity must not
         # erase index results or manufacture an empty stored quotation.
+        report['current_step'] = 'desktop.offline_detail_and_retry'
         await context.set_offline(True)
         await page.locator('#results .open-narration').click()
         await page.locator('#workspace-content .error').wait_for(state='visible', timeout=args.timeout_ms)
@@ -370,6 +455,7 @@ async def desktop_checks(browser, fixture, base, args, report):
         await page.get_by_role('button', name='Retry this source').click()
         await wait_workspace(page, 'TEST-facets', args.timeout_ms)
         report['checks'].append('offline_missing_detail_preserves_results_and_retry_recovers_exact_source')
+        report['current_step'] = 'desktop.matching_late_source_passage'
         await page.locator('#back-to-results').click()
         await wait_results(page, ['TEST-facets'], args.timeout_ms)
         await page.locator('#results .show-matching-wording').click()
@@ -383,6 +469,9 @@ async def desktop_checks(browser, fixture, base, args, report):
                 'Beyond-preview passage must retain its own source link')
         report['checks'].append('beyond_preview_matching_passage_is_exact_source_text_with_own_citation')
         require(not errors, 'Browser page errors: ' + '; '.join(errors[:3]))
+    except Exception:
+        await capture_failure(page, args, report, 'discovery-desktop', evidence)
+        raise
     finally:
         await context.close()
 
@@ -391,11 +480,14 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
     context = await browser.new_context(viewport={'width': 390, 'height': 844}, is_mobile=True,
                                         has_touch=True, device_scale_factor=1, locale='en-US')
     page = await context.new_page()
+    evidence = observe_failures(page)
     try:
+        report['current_step'] = evidence_prefix + '.mobile_home'
         await page.goto(base, wait_until='domcontentloaded', timeout=args.timeout_ms)
         await wait_home(page, args.timeout_ms)
         require(await page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'),
                 'Mobile home must not have horizontal overflow')
+        report['current_step'] = evidence_prefix + '.mobile_default_reference'
         await run_search(page, 'Bukhari 1', args.timeout_ms)
         await ready(page, args.timeout_ms)
         require(await page.locator('.recognized-reference').count() == 1,
@@ -404,6 +496,7 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
                 'Mobile compact results must not overflow horizontally')
         await page.screenshot(path=str(args.evidence_dir / (evidence_prefix + '-mobile-results.png')), full_page=True)
         identifier = (await result_rows(page))[0]['id']
+        report['current_step'] = evidence_prefix + '.mobile_workspace_' + identifier
         await page.locator('.open-narration').first.focus()
         await page.keyboard.press('Enter')
         await wait_workspace(page, identifier, args.timeout_ms)
@@ -428,6 +521,7 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
                                 '_actual_mobile_layout_keyboard_focus_RTL_and_accessibility_tree')
         report['accessibility_scope'] = 'Actual Chromium keyboard, DOM/ARIA and accessibility-tree checks; no human screenreader session claimed.'
         if evidence_prefix == 'discovery-production':
+            report['current_step'] = 'production.remembered_wording'
             await run_search(page, 'actions depend on intentions', args.timeout_ms, 'wording')
             await ready(page, args.timeout_ms)
             results = await result_rows(page)
@@ -449,6 +543,9 @@ async def mobile_checks(browser, fixture, base, args, report, evidence_prefix='d
             await page.screenshot(path=str(args.evidence_dir / 'discovery-production-mobile-wording.png'),
                                   full_page=True)
             report['checks'].append('production_remembered_wording_returns_sources_with_broader_notice_when_needed')
+    except Exception:
+        await capture_failure(page, args, report, evidence_prefix + '-mobile', evidence)
+        raise
     finally:
         await context.close()
 
@@ -457,7 +554,9 @@ async def transport_failure_checks(browser, fixture, base, args, report):
     """Tamper only browser responses, never the generated/source files."""
     context = await browser.new_context()
     page = await context.new_page()
+    evidence = observe_failures(page)
     try:
+        report['current_step'] = 'transport.corrupt_navigation_and_reload'
         descriptor = fixture['snapshot']['discovery']
         index_url = base + descriptor['path']
         corrupt = bytearray((fixture['site'] / descriptor['path']).read_bytes())
@@ -478,6 +577,7 @@ async def transport_failure_checks(browser, fixture, base, args, report):
         await wait_home(page, args.timeout_ms)
         report['checks'].append('corrupt_navigation_index_rejected_and_reload_recovers_verified_home')
 
+        report['current_step'] = 'transport.corrupt_query_part_and_retry'
         terms = fixture['payload']['terms']
         term_index = terms.index('testdeepword')
         part_index = fixture['payload']['postings'][term_index][1]
@@ -500,6 +600,9 @@ async def transport_failure_checks(browser, fixture, base, args, report):
         await page.get_by_role('button', name='Try again', exact=True).click()
         await wait_results(page, ['TEST-facets'], args.timeout_ms)
         report['checks'].append('corrupt_query_part_rejected_without_false_zero_and_retry_recovers_results')
+    except Exception:
+        await capture_failure(page, args, report, 'discovery-transport', evidence)
+        raise
     finally:
         await context.close()
 
@@ -578,6 +681,7 @@ def main():
     except Exception as error:
         report['status'] = 'failed'
         report['error'] = type(error).__name__ + ': ' + str(error)[:1800]
+        report['traceback'] = traceback.format_exc(limit=16)[-14000:]
     report['elapsed_seconds'] = round(time.monotonic() - started, 3)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')

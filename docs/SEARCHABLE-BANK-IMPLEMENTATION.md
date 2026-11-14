@@ -118,3 +118,57 @@ bytes and SHA-256 are checked before publication. All ten focused reuse tests
 and four existing staging-integration tests pass; standalone-to-hosted builds
 still follow their original path. Actual Chromium fixture checks now run before
 the expensive corpus build, with the real-corpus checks retained afterward.
+
+## First actual Chromium findings
+
+Actions run `43594697977` checked out synthetic merge
+`2f0ded91b727b992453476a494d6927289492424`, combining feature
+`694aaa667e7a7521fa36ef200da286864c7f821a` and current source main
+`a5ffb77d730d5706ca7ef94582e222c46d49a8ca`. All 1,053 Python tests and both
+Node suites passed. Actual Chromium passed the home keyboard/live-region,
+default-field reference recognition, numbering-collision, evidence-family and
+preferred-language checks, then failed when opening the workspace.
+
+Diagnosis reproduced against the actual fixture and lazy transport: directory
+validation still rejected repeated short occurrence IDs even when the complete
+source identities belonged to distinct editions. Because an entire directory
+part is verified before use, that collision also blocked an unrelated source in
+the same part. The corrective change must validate complete identities and keep
+true duplicate-identity, corruption, span and source-binding checks intact.
+
+The failed-run archive `14113908683` is 4,148,743 bytes with SHA-256
+`b59dec5f38d9ee7961ab0d809d3de2096316f6baf605a5657cabe1fae46c84e0`.
+Its fixture JSON and desktop home/result screenshots are actual new evidence;
+its pre-existing portable/site reports are not new build evidence because that
+stage was skipped. Screenshot inspection also identified the need to condense
+the home introduction while showing results or a workspace.
+
+An independent live refetch at 2026-11-14T12:31:18Z still returned the original
+1,341,817-byte HTML, SHA-256
+`99f272f1a303ef1c7818a3a1900124c3bed1062733777fdd5b24638275bb22b0`,
+bound to `a9b041be744c59932ccd79c2f92df23c78978923` and 107,693 source
+occurrences. This is the baseline, not publication of the new feature.
+
+The complete-identity correction is in
+`7fde4516c6fce0707177644e81885ddfdcfc8bff`. All 48 lazy-store tests pass,
+including distinct editions with a shared raw ID, true duplicate-identity
+rejection, and rejection of a correctly named ID with the wrong edition's
+detail. The exact failing 11-record fixture also passes selective and complete
+directory retrieval in Node. This is a transport reproduction, not a new
+Chromium pass.
+
+`43df8e547d81e304fb7d64714bea2ba4693ae7d2` restores the full introduction on
+home and removes it from visual flow during search and reading. Fourteen
+focused UI tests pass, including home/results/workspace/return transitions;
+actual updated viewport geometry remains a browser gate. The 541 paths changed
+between source main `4f8b169d5a9662e6e3e6b4e6a60f2a2a82951861` and
+`a5ffb77d730d5706ca7ef94582e222c46d49a8ca` have no overlap with the 26
+scoped feature paths.
+
+After those fixes, all 1,053 Python tests passed locally in 60.796 seconds at
+2026-11-14T12:37:26Z. The browser verifier now records the exact failing phase,
+traceback, bounded rendered/error/focus state, request failures and a screenshot
+before closing a failed page. Existing assertions remain; viewport checks now
+require the first desktop result above y600 and verify that the full home hero
+is restored. Five focused verifier-planning tests, syntax and fixture generation
+pass. The next actual Chromium run is still required.
