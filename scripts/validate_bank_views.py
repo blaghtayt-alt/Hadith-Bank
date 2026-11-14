@@ -548,10 +548,123 @@ def reader_shard_records(path, manifest, metrics=None):
             yield record
 
 
+def read_discovery_part(root, descriptor, summary, schema):
+    from bank_discovery import MAX_INDEX_BYTES, MAX_COMPRESSED_BYTES
+    require(isinstance(descriptor, dict) and descriptor.get('schema') == schema and
+            descriptor.get('encoding') == 'gzip-json', 'Invalid discovery descriptor')
+    require(descriptor.get('record_count') == summary.get('record_count') and
+            descriptor.get('records_sha256') == summary.get('records_sha256'),
+            'Discovery descriptor differs from reader snapshot')
+    path = local(root, descriptor.get('path'))
+    size, decoded_size = descriptor.get('bytes'), descriptor.get('uncompressed_bytes')
+    require(type(size) is int and 0 < size <= MAX_COMPRESSED_BYTES and
+            type(decoded_size) is int and 0 < decoded_size <= MAX_INDEX_BYTES,
+            'Discovery descriptor exceeds size limits')
+    require(path.stat().st_size == size and file_hash(path) == descriptor.get('sha256'),
+            'Discovery artifact bytes or SHA-256 mismatch')
+    with gzip.open(path, 'rb') as stream:
+        raw = stream.read(decoded_size + 1)
+    require(len(raw) == decoded_size and hashlib.sha256(raw).hexdigest() == descriptor.get('uncompressed_sha256'),
+            'Decoded discovery artifact bytes or SHA-256 mismatch')
+    part = parse_json(raw)
+    require(isinstance(part, dict) and part.get('schema') == schema and
+            part.get('record_count') == summary.get('record_count') and
+            part.get('records_sha256') == summary.get('records_sha256'),
+            'Discovery part differs from source snapshot')
+    return part
+
+
+def read_discovery_payload(root, summary):
+    """Read the derived index with the same exact source/snapshot binding."""
+    from bank_discovery import SCHEMA, expand_discovery_payload, validate_discovery_posting
+    descriptor = summary.get('discovery')
+    payload = summary.get('discovery_payload')
+    require(not (descriptor is not None and payload is not None),
+            'Reader has ambiguous discovery payloads')
+    if descriptor is not None:
+        payload = read_discovery_part(root, descriptor, summary, SCHEMA)
+    if payload is None:
+        return None
+    payload = expand_discovery_payload(payload)
+    require(isinstance(payload, dict) and payload.get('schema') == SCHEMA and
+            payload.get('record_count') == summary.get('record_count') and
+            payload.get('records_sha256') == summary.get('records_sha256') and
+            isinstance(payload.get('rows'), list) and
+            len(payload['rows']) == summary.get('record_count'),
+            'Discovery index differs from reader source snapshot')
+    terms, postings = payload.get('terms'), payload.get('postings')
+    require(isinstance(terms, list) and all(isinstance(term, str) and term for term in terms) and
+            terms == sorted(set(terms)) and isinstance(postings, list) and len(postings) == len(terms),
+            'Invalid discovery vocabulary')
+    require(all(isinstance(entry, list) and len(entry) == 2 and type(entry[0]) is int and
+                0 < entry[0] <= payload['record_count'] for entry in postings),
+            'Invalid discovery posting descriptor')
+    if payload.get('delivery') == 'query-postings-and-page-previews':
+        parts = payload.get('postings_shards', []) + payload.get('preview_shards', [])
+        require(descriptor is not None and descriptor.get('parts') == parts and
+                len({part.get('path') for part in parts}) == len(parts),
+                'Discovery part manifest differs from published navigation')
+        first = 0
+        for index, entry in enumerate(payload['postings_shards']):
+            part = read_discovery_part(root, entry, summary, SCHEMA + '-postings')
+            postings = part.get('postings')
+            require(entry.get('first_term') == first and part.get('first_term') == first and
+                    isinstance(postings, list) and len(postings) == entry.get('term_count') and bool(postings),
+                    'Discovery postings are not contiguous')
+            for local_index, value in enumerate(postings):
+                require(first + local_index < len(payload['postings']) and
+                        isinstance(value, str) and payload['postings'][first + local_index][1] == index,
+                        'Discovery posting points to the wrong part')
+                try:
+                    validate_discovery_posting(value, payload['record_count'],
+                                               payload['postings'][first + local_index][0])
+                except (ValueError, TypeError) as error:
+                    raise ValidationError('Invalid discovery posting encoding') from error
+            first += len(postings)
+        require(first == len(payload['terms']) == len(payload['postings']),
+                'Discovery vocabulary/posting coverage differs')
+    else:
+        require(len(payload.get('terms', [])) == len(payload.get('postings', [])),
+                'Discovery vocabulary/posting coverage differs')
+        for frequency, encoded in payload.get('postings', []):
+            validate_discovery_posting(encoded, payload['record_count'], frequency)
+    return payload
+
+
+def discovery_previews(root, summary, payload):
+    from bank_discovery import SCHEMA
+    if 'preview_shards' not in payload:
+        yield from (row.get('readings') for row in payload['rows'])
+        return
+    first = 0
+    for entry in payload['preview_shards']:
+        part = read_discovery_part(root, entry, summary, SCHEMA + '-previews')
+        values = part.get('previews')
+        require(entry.get('first_ordinal') == first and part.get('first_ordinal') == first and
+                isinstance(values, list) and len(values) == entry.get('row_count') and bool(values),
+                'Discovery source previews are not contiguous')
+        yield from values
+        first += len(values)
+    require(first == payload['record_count'], 'Discovery previews omit source occurrences')
+
+
 def verify_reader(root, relative, projected_hashes, search, catalog=None):
     from reader_grouping import empty_reader_groups, load_reader_groups
+    from bank_discovery import (quotation_fingerprint_bytes, _provider_family, _families,
+                                expected_discovery_row, expected_discovery_segments,
+                                load_discovery_material_metadata, _facet_items)
     path = local(root, relative)
     source = path.read_text(encoding='utf-8')
+    snapshot = re.search(r'<script\b[^>]*\bid="hadith-snapshot"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
+    require(snapshot is not None, 'Missing reader snapshot')
+    summary = parse_json(snapshot.group(1))
+    discovery = read_discovery_payload(path.parent, summary)
+    previews = discovery_previews(path.parent, summary, discovery) if discovery is not None else None
+    discovery_ids, discovery_text = hashlib.sha256(), hashlib.sha256()
+    discovery_candidates, discovery_identities = {}, []
+    discovery_materials = {item['dataset_id']: item for item in
+                           load_discovery_material_metadata(root, (catalog or {}).get('materials', []))}
+    discovery_editions, discovery_references = {}, {}
     payload = re.search(r'<script\b[^>]*\bid="hadith-records"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
     require(payload is not None, 'Missing embedded reader payload')
     encoding = payload.group(0).split('>', 1)[0]
@@ -579,6 +692,31 @@ def verify_reader(root, relative, projected_hashes, search, catalog=None):
             identifier, expected_hash = projected_hashes[compared]
             require(isinstance(record, dict) and record.get('id') == identifier and object_hash(record) == expected_hash,
                     'Reader differs from source projection: ' + identifier)
+            if discovery is not None:
+                row = discovery['rows'][compared]
+                require(isinstance(row, dict) and row.get('ordinal') == compared and
+                        all(row.get(key) == record.get(key) for key in READER_ID_FIELDS),
+                        'Discovery occurrence identity/order differs from exact source')
+                expected_row = expected_discovery_row(record, compared,
+                                                      discovery_materials.get(record['source_id']))
+                reading_previews = next(previews, None)
+                require(reading_previews == expected_row['readings'],
+                        'Discovery previews differ from exact source wording or reading metadata')
+                for key, value in expected_row.items():
+                    if key not in ('readings', 'editionLabel'):
+                        require(row.get(key) == value,
+                                'Discovery source metadata differs: ' + key)
+                require(row.get('searchSegments') == expected_discovery_segments(record),
+                        'Discovery matched-reading locator differs from exact source')
+                discovery_editions.setdefault(expected_row['baseEditionLabel'], set()).add(expected_row['editionGroup'])
+                for pair in expected_row['references']:
+                    discovery_references.setdefault(pair, []).append(compared)
+                discovery_ids.update((identifier + '\n').encode('utf-8'))
+                discovery_text.update(quotation_fingerprint_bytes(record))
+                candidate = _provider_family(record)
+                if candidate:
+                    discovery_candidates[compared] = candidate
+                discovery_identities.append({'id': identifier, 'ordinal': compared})
             compared += 1
             yield record
     expected_groups = load_reader_groups(root, checked_records(), catalog)
@@ -587,13 +725,37 @@ def verify_reader(root, relative, projected_hashes, search, catalog=None):
         shard_count = sum(value['shard_count'] for value in reader_metrics['reader_store_metrics'].values())
     elif sharded:
         shard_count = len(manifest['shards'])
-    snapshot = re.search(r'<script\b[^>]*\bid="hadith-snapshot"[^>]*>(.*?)</script\s*>', source, re.S | re.I)
-    require(snapshot is not None, 'Missing reader snapshot')
-    summary = parse_json(snapshot.group(1))
     require(summary.get('record_count') == compared and summary.get('records_sha256') == search['records_sha256'],
             'Reader snapshot differs from search catalog')
     require(summary.get('reader_groups', empty_reader_groups(compared)) == expected_groups,
             'Reader grouping snapshot differs from authorized exact-record evidence')
+    if discovery is not None:
+        require(next(previews, None) is None, 'Discovery has excess source previews')
+        require(discovery.get('occurrence_ids_sha256') == discovery_ids.hexdigest() and
+                discovery.get('indexed_quotation_fields_sha256') == discovery_text.hexdigest(),
+                'Discovery IDs or quotation fields differ from exact reader source')
+        expected_families = _families(discovery_identities, discovery_candidates, expected_groups)
+        require(discovery.get('groups') == expected_families,
+                'Discovery families differ from accepted source-bound identity evidence')
+        require(all(actual.get('groupId') == expected.get('groupId')
+                    for actual, expected in zip(discovery['rows'], discovery_identities)),
+                'Discovery family membership differs from accepted evidence')
+        editions = {label: {key: index + 1 for index, key in enumerate(sorted(keys))}
+                    for label, keys in discovery_editions.items() if len(keys) > 1}
+        for row in discovery['rows']:
+            label = row['baseEditionLabel']
+            if label in editions:
+                label += ' · Source edition ' + str(editions[label][row['editionGroup']])
+            require(row['editionLabel'] == label, 'Discovery edition label differs from source evidence')
+        require(discovery.get('reference_index') == discovery_references,
+                'Discovery canonical reference index differs from source references')
+        require(discovery.get('facets') == _facet_items(discovery['rows']),
+                'Discovery facets differ from source navigation metadata')
+        reader_metrics['discovery'] = {
+            'record_count': compared, 'occurrence_ids_sha256': discovery_ids.hexdigest(),
+            'indexed_quotation_fields_sha256': discovery_text.hexdigest(),
+            'family_count': compared - sum(len(item['members']) - 1 for item in expected_families),
+            'source_text_modified': False, 'source_bound_families_verified': len(expected_families)}
     if lazy:
         delivery = summary.get('data_delivery')
         require(isinstance(delivery, dict) and delivery.get('jsonl_sha256') == manifest['jsonl_sha256'],

@@ -35,7 +35,7 @@ def reader_build_metrics(result):
     fields = ('html_bytes', 'embedded_encoding', 'self_contained', 'shard_count',
               'shard_bytes', 'detail_shard_count', 'directory_bytes',
               'max_projection_row_bytes', 'max_detail_record_bytes',
-              'reader_store_metrics')
+              'reader_store_metrics', 'discovery_statistics', 'discovery_artifact')
     return {key: result[key] for key in fields if key in result}
 
 
