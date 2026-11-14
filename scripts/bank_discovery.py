@@ -178,6 +178,24 @@ def load_discovery_material_metadata(root, materials):
             if not path.is_file():
                 raise ValueError('Registered discovery material manifest is missing: ' + relative)
             manifest = json.loads(path.read_text(encoding='utf-8'))
+            if manifest.get('adapter') == 'pdf-intake-package-v1':
+                # The existing registry already verifies the complete package
+                # and projects its collections. This manifest is only a package
+                # pointer: its ID is not a source ID and it has no edition/chunk
+                # identity to import. Check the accepted pointer scope, and keep
+                # the catalog metadata without inventing partition evidence.
+                prefix = manifest.get('package_root')
+                paths = [item.get(key) for key in ('source_file', 'canonical_records_path', 'source_metadata_path')]
+                if (item.get('adapter') != 'pdf-intake-package-v1' or
+                        not isinstance(prefix, str) or not re.fullmatch(r'attachments/[A-Za-z0-9][A-Za-z0-9._-]*', prefix) or
+                        prefix != item.get('intake_root') or
+                        not all(isinstance(value, str) and value.startswith(prefix + '/') and
+                                not any(part in ('', '.', '..') for part in value.split('/')) and '\\' not in value for value in paths) or
+                        (manifest.get('publication') or {}).get('authorized') is not True or
+                        (item.get('publication') or {}).get('authorized') is not True):
+                    raise ValueError('Discovery intake pointer differs from accepted catalog: ' + relative)
+                result.append(item)
+                continue
             if (manifest.get('source_id', manifest.get('id')) != item.get('dataset_id') or
                     manifest.get('language') != item.get('language') or manifest.get('book') != item.get('book_key') or
                     manifest.get('edition') != item.get('edition') or

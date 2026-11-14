@@ -222,6 +222,22 @@ class BankDiscoveryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'differs from accepted catalog'):
                 load_discovery_material_metadata(folder, [material])
 
+    def test_pdf_intake_pointer_is_scoped_without_inventing_chunk_evidence(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'materials/TEST/manifest.json'; path.parent.mkdir(parents=True)
+            prefix = 'attachments/TEST-package'
+            manifest = {'id': 'TEST-package', 'adapter': 'pdf-intake-package-v1', 'package_root': prefix,
+                        'publication': {'authorized': True}, 'storage_shard': {'untrusted': True}}
+            path.write_text(json.dumps(manifest))
+            material = {'dataset_id': 'TEST-actual-source', 'adapter': 'pdf-intake-package-v1',
+                        'manifest_path': 'materials/TEST/manifest.json', 'intake_root': prefix,
+                        'publication': {'authorized': True}, 'source_file': prefix + '/source.pdf',
+                        'canonical_records_path': prefix + '/records.json', 'source_metadata_path': prefix + '/source.json'}
+            self.assertEqual(load_discovery_material_metadata(folder, [material]), [material])
+            material['source_file'] = 'attachments/another/source.pdf'
+            with self.assertRaisesRegex(ValueError, 'intake pointer differs'):
+                load_discovery_material_metadata(folder, [material])
+
     def test_descriptor_verifies_exact_gzip_bytes_and_safe_path(self):
         with tempfile.TemporaryDirectory() as folder:
             data = payload()
