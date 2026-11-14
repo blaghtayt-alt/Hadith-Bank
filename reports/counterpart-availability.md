@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**107,693 source occurrences**: Arabic text 84,767; English text 67,431; English source links 4,029.
+**109,211 source occurrences**: Arabic text 86,086; English text 68,946; English source links 4,032.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -15,7 +15,7 @@ Text and external-only links are counted separately. An English source link requ
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 26,041 | 20,341 | 24,397 | 1,267 | 222 | 377 |
+| hi | 27,559 | 21,660 | 25,912 | 1,270 | 222 | 377 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ur | 231 | 0 | 0 | 12 | 223 | 219 |
 | uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
@@ -72,18 +72,19 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
 | deenhindi-abudawud | hi | 2,078 | 1,394 | 2,061 | 16 | 1 | 1 |
-| deenhindi-abudawud-part-002 | hi | 1,593 | 1,206 | 1,500 | 93 | 0 | 0 |
+| deenhindi-abudawud-part-002 | hi | 1,898 | 1,440 | 1,805 | 93 | 0 | 0 |
 | deenhindi-bukhari | hi | 1,819 | 1,529 | 1,753 | 66 | 0 | 0 |
-| deenhindi-bukhari-part-002 | hi | 1,752 | 1,430 | 1,524 | 228 | 0 | 0 |
+| deenhindi-bukhari-part-002 | hi | 1,793 | 1,466 | 1,565 | 228 | 0 | 0 |
+| deenhindi-bukhari-part-003 | hi | 180 | 171 | 178 | 2 | 0 | 0 |
 | deenhindi-ibnmajah | hi | 2,251 | 1,752 | 2,068 | 183 | 2 | 0 |
-| deenhindi-ibnmajah-part-002 | hi | 1,400 | 1,168 | 1,325 | 73 | 2 | 2 |
+| deenhindi-ibnmajah-part-002 | hi | 1,748 | 1,492 | 1,673 | 73 | 2 | 2 |
 | deenhindi-malik | hi | 1,836 | 920 | 1,788 | 29 | 8 | 19 |
 | deenhindi-muslim | hi | 2,053 | 1,427 | 1,869 | 80 | 104 | 104 |
-| deenhindi-muslim-part-002 | hi | 1,381 | 1,133 | 1,168 | 205 | 8 | 8 |
+| deenhindi-muslim-part-002 | hi | 1,669 | 1,391 | 1,455 | 206 | 8 | 8 |
 | deenhindi-nasai | hi | 2,208 | 1,624 | 2,160 | 44 | 4 | 4 |
-| deenhindi-nasai-part-002 | hi | 1,454 | 1,131 | 1,341 | 113 | 0 | 0 |
+| deenhindi-nasai-part-002 | hi | 1,719 | 1,336 | 1,606 | 113 | 0 | 0 |
 | deenhindi-tirmidhi | hi | 2,044 | 1,605 | 1,948 | 41 | 55 | 55 |
-| deenhindi-tirmidhi-part-002 | hi | 1,588 | 1,470 | 1,488 | 96 | 6 | 4 |
+| deenhindi-tirmidhi-part-002 | hi | 1,679 | 1,561 | 1,579 | 96 | 6 | 4 |
 | fa-faiz-al-bari-v1 | fa | 412 | 337 | 29 | 0 | 75 | 383 |
 | fa-faiz-al-bari-v2 | fa | 451 | 381 | 38 | 0 | 70 | 413 |
 | fa-faiz-al-bari-v3 | fa | 504 | 431 | 26 | 0 | 73 | 478 |
