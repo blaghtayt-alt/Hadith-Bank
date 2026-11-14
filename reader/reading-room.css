@@ -560,3 +560,12 @@ body[data-text-size="large"] .comparison-readings .narration.arabic { font-size:
 #workspace-comparison-content { margin-top: 14px; }
 .workspace-top > .reading-tools { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; margin-bottom: 6px; }
 @media print { .workspace-comparison > label,.workspace-comparison > select { display:none; } }
+
+/* Keep the complete introduction on home; give active discovery its viewport. */
+@media screen {
+  body:is([data-discovery-view="results"],[data-discovery-view="workspace"]) .hero {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+  }
+  body:is([data-discovery-view="results"],[data-discovery-view="workspace"]) .search-panel { margin-top: 20px; }
+}

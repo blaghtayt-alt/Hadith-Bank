@@ -249,7 +249,7 @@ for(const id of ['results','results-heading','result-count','page-meta','previou
 for(const id of ['query','language-filter','book-filter','source-filter','origin-filter','counterpart-filter','source-book-filter','chapter-filter','source-topic-filter','narrator-filter','type-filter','grade-filter','preferred-language'])fields[id]=new TestNode('input');
 fields['language-filter'].value='ja';fields['preferred-language'].value='ja';fields['show-arabic']={checked:false};fields['show-english']={checked:false};
 const roots=[...Object.values(fields)],toolbar=new TestNode('div'),workspaceTop=new TestNode('div'),pagination=new TestNode('nav');
-const document={createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment'),querySelector(selector){if(selector==='.results-toolbar')return toolbar;if(selector==='.workspace-top')return workspaceTop;if(selector==='.pagination')return pagination;return roots.flatMap(walk).find(node=>matches(node,selector))||null;}};
+const document={body:new TestNode('body'),createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment'),querySelector(selector){if(selector==='.results-toolbar')return toolbar;if(selector==='.workspace-top')return workspaceTop;if(selector==='.pagination')return pagination;return roots.flatMap(walk).find(node=>matches(node,selector))||null;}};
 const $=id=>fields[id]||roots.flatMap(walk).find(node=>node.id===id),icon=()=>new TestNode('svg'),site={repository_url:'https://github.com/TEST/TEST',source_ref:'main',live_url:'https://example.invalid/bank/'},offline=false,window={location:new URL('https://example.invalid/bank/')},navigator={onLine:true};
 const history={pushState(_a,_b,url){window.location=new URL(url);},replaceState(_a,_b,url){window.location=new URL(url);}};
 const sourceDownloadsByPath=new Map(),nf=new Intl.NumberFormat('en'),PAGE_SIZE=25;
@@ -261,10 +261,12 @@ const state={page:0,matches:result.results.map(item=>item.ordinal),discoveryResu
 const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),isCurrentView=()=>true,pendingView=()=>{},updateActiveFilters=()=>{},cancelView=()=>{},failedView=error=>{throw error;};
 """ + identity + constructors + discovery + r"""
 (async()=>{
- await render();const compact=walk(fields.results).filter(node=>node.className==='compact-result');
+ const viewTransitions=[];renderHome();viewTransitions.push(document.body.dataset.discoveryView);
+ await render();viewTransitions.push(document.body.dataset.discoveryView);const compact=walk(fields.results).filter(node=>node.className==='compact-result');
  const initialHydrated=[...hydrated],first=compact[0],checkbox=walk(first).find(node=>node.tag==='input');checkbox.checked=true;checkbox.events.change();
  const compactSelection=[...state.selected].sort(),initialCounts=fields['result-count'].textContent;
  await openNarrationWorkspace(1,result.results.find(item=>item.members.includes(1)),{updateURL:false});
+ viewTransitions.push(document.body.dataset.discoveryView);
  const firstHydrated=[...hydrated],full=walk(fields['workspace-content']).find(node=>node.className==='record-card'),evidence=$('workspace-evidence').textContent;
  const capture=(card)=>({id:card.dataset.occurrenceId,sourceText:walk(card).filter(node=>node.className==='narration').map(node=>node.textContent),text:card.textContent,links:walk(card).filter(node=>node.tag==='a').map(node=>node.href),badges:walk(card).filter(node=>(node.className||'').startsWith('reading-origin')).map(node=>node.textContent)});
  const captured=[capture(full)],compare=fields['workspace-content'].querySelector('#compare-source-version');
@@ -273,18 +275,20 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
  const comparisonCount=walk($('workspace-comparison-content')).filter(node=>node.className==='source-version').length;
  const workspaceHydrated=[...hydrated];fields.query.value='anchor intended wording';
  const broader=discoveryEngine.search({query:fields.query.value,mode:'wording',preferredLanguage:'ja'});
- state.discoveryResults=broader.results;state.matchingOccurrences=broader.matchedOccurrences;state.broaderWording=broader.broaderWording;renderSuggestions(broader);await render();
+ state.discoveryResults=broader.results;state.matchingOccurrences=broader.matchedOccurrences;state.broaderWording=broader.broaderWording;renderSuggestions(broader);await render();viewTransitions.push(document.body.dataset.discoveryView);
  const broaderCard=fields.results.querySelector('.compact-result'),preferredPreview=broaderCard.querySelector('.result-excerpt').textContent;
  await broaderCard.querySelector('.show-matching-wording').events.click();
  const matching=broaderCard.querySelector('.matching-wording'),quoted=discoveryEngine.search({query:'"anchor intended wording"',mode:'wording'});
  const broaderView={note:fields['search-suggestions'].textContent,terms:broaderCard.querySelector('.broader-wording-terms').textContent,
   counts:fields['result-count'].textContent,preferredPreview,matchingText:matching.querySelector('.result-excerpt').textContent,
   matchingSource:matching.querySelector('.reading-source').href,matchingHydrated:hydrated.slice(workspaceHydrated.length),quotedResults:quoted.results.length,quotedBroader:quoted.broaderWording};
- process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated:workspaceHydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,broaderView,records,exported:compactSelection.map(index=>records[index])}));
+ renderHome();viewTransitions.push(document.body.dataset.discoveryView);
+ process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated:workspaceHydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,broaderView,viewTransitions,records,exported:compactSelection.map(index=>records[index])}));
 })().catch(error=>{process.stderr.write(error.stack);process.exitCode=1;});
 """
         actual = self.run_js(program)
         self.assertEqual(actual['compactCount'], 2)
+        self.assertEqual(actual['viewTransitions'], ['home', 'results', 'workspace', 'results', 'home'])
         self.assertEqual(actual['initialHydrated'], [], 'Compact results must not hydrate full source records')
         self.assertEqual(actual['firstHydrated'], [1], 'Opening one family loads only its selected source')
         self.assertEqual(actual['hydrated'], [1, 0, 2])
