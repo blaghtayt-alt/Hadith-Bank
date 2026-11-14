@@ -504,38 +504,45 @@ async def transport_failure_checks(browser, fixture, base, args, report):
         await context.close()
 
 
+async def verify_actual_corpus(browser, args, report):
+    actual_site = args.site_root.resolve()
+    html = (actual_site / 'index.html').read_bytes()
+    snapshot = script_payload(html.decode('utf-8'), 'hadith-snapshot')
+    report['actual_site'] = {
+        'html_bytes': len(html), 'html_sha256': hashlib.sha256(html).hexdigest(),
+        'snapshot_identity': {key: snapshot.get(key) for key in
+            ('site', 'record_count', 'records_sha256', 'discovery')},
+    }
+    with local_server(actual_site) as actual_base:
+        await mobile_checks(browser, None, actual_base, args, report,
+                            evidence_prefix='discovery-production')
+
+
 async def run(args, fixture, report):
     from playwright.async_api import async_playwright
-    with local_server(fixture['site']) as base:
-        async with async_playwright() as playwright:
-            options = {'headless': True}
-            if args.chromium_executable:
-                options['executable_path'] = str(args.chromium_executable.resolve())
-            browser = await playwright.chromium.launch(**options)
-            try:
-                report['browser'] = browser.version
-                await desktop_checks(browser, fixture, base, args, report)
-                await transport_failure_checks(browser, fixture, base, args, report)
-                await mobile_checks(browser, fixture, base, args, report)
-                if args.site_root:
-                    actual_site = args.site_root.resolve()
-                    html = (actual_site / 'index.html').read_bytes()
-                    snapshot = script_payload(html.decode('utf-8'), 'hadith-snapshot')
-                    report['actual_site'] = {
-                        'html_bytes': len(html), 'html_sha256': hashlib.sha256(html).hexdigest(),
-                        'snapshot_identity': {key: snapshot.get(key) for key in
-                            ('site', 'record_count', 'records_sha256', 'discovery')},
-                    }
-                    with local_server(actual_site) as actual_base:
-                        await mobile_checks(browser, None, actual_base, args, report,
-                                            evidence_prefix='discovery-production')
-            finally:
-                await browser.close()
+    async with async_playwright() as playwright:
+        options = {'headless': True}
+        if args.chromium_executable:
+            options['executable_path'] = str(args.chromium_executable.resolve())
+        browser = await playwright.chromium.launch(**options)
+        try:
+            report['browser'] = browser.version
+            if not args.production_only:
+                with local_server(fixture['site']) as base:
+                    await desktop_checks(browser, fixture, base, args, report)
+                    await transport_failure_checks(browser, fixture, base, args, report)
+                    await mobile_checks(browser, fixture, base, args, report)
+            if args.site_root:
+                await verify_actual_corpus(browser, args, report)
+        finally:
+            await browser.close()
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--build-only', action='store_true')
+    parser.add_argument('--production-only', action='store_true',
+                        help='Run only actual-corpus mobile/journey checks; requires --site-root.')
     parser.add_argument('--chromium-executable', type=Path)
     parser.add_argument('--site-root', type=Path,
                         help='Also check the actual built site at a mobile viewport, preserving its source/build binding.')
@@ -543,21 +550,31 @@ def main():
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--evidence-dir', type=Path, default=Path('.work/discovery-browser-images'))
     args = parser.parse_args()
+    if args.production_only and not args.site_root:
+        parser.error('--production-only requires --site-root')
+    if args.production_only and args.build_only:
+        parser.error('--production-only cannot be combined with --build-only')
     args.evidence_dir.mkdir(parents=True, exist_ok=True)
-    report = {'schema': 'hadith-bank-discovery-browser-v1', 'status': 'running', 'checks': []}
+    scope = ('production_only' if args.production_only else
+             'fixtures_and_production' if args.site_root else 'fixtures')
+    report = {'schema': 'hadith-bank-discovery-browser-v1', 'status': 'running', 'scope': scope, 'checks': []}
     started = time.monotonic()
     try:
-        with tempfile.TemporaryDirectory(prefix='hadith-discovery-browser-') as temporary:
-            fixture = build_fixture(Path(temporary))
-            report['fixture'] = {'record_count': len(fixture['records']),
-                                 'source_sha256': fixture['source_sha256'],
-                                 'occurrence_ids_sha256': fixture['payload']['occurrence_ids_sha256'],
-                                 'presentation_families': fixture['payload']['statistics']['reading_families']}
-            if args.build_only:
-                report['status'] = 'fixture_build_passed_browser_not_run'
-            else:
-                asyncio.run(run(args, fixture, report))
-                report['status'] = 'passed'
+        if args.production_only:
+            asyncio.run(run(args, None, report))
+            report['status'] = 'passed'
+        else:
+            with tempfile.TemporaryDirectory(prefix='hadith-discovery-browser-') as temporary:
+                fixture = build_fixture(Path(temporary))
+                report['fixture'] = {'record_count': len(fixture['records']),
+                                     'source_sha256': fixture['source_sha256'],
+                                     'occurrence_ids_sha256': fixture['payload']['occurrence_ids_sha256'],
+                                     'presentation_families': fixture['payload']['statistics']['reading_families']}
+                if args.build_only:
+                    report['status'] = 'fixture_build_passed_browser_not_run'
+                else:
+                    asyncio.run(run(args, fixture, report))
+                    report['status'] = 'passed'
     except Exception as error:
         report['status'] = 'failed'
         report['error'] = type(error).__name__ + ': ' + str(error)[:1800]

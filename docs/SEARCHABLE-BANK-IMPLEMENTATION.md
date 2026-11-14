@@ -109,3 +109,12 @@ Measured metadata savings were 44,345,309 bytes; duplicate social tags accounted
 for 27,239,241 bytes on the 38,782 existing narration pages. Recompressing the
 old reader stores saved another 4,932,686 bytes. Final staged-site size remains
 an enforced Actions gate, not an inferred publication result.
+
+The complete local suite subsequently passed 1,043 Python tests and all 66 Node
+tests after the wording/packaging corrections. A further staging optimization
+reuses the exact already-validated sharded reader instead of generating its
+index twice: HTML/source/site/manifest bindings and every copied data part's
+bytes and SHA-256 are checked before publication. All ten focused reuse tests
+and four existing staging-integration tests pass; standalone-to-hosted builds
+still follow their original path. Actual Chromium fixture checks now run before
+the expensive corpus build, with the real-corpus checks retained afterward.
