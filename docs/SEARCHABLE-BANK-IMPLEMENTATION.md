@@ -236,3 +236,53 @@ wrong/stale HTML hashes and commits, compressed/decoded corruption,
 checksum-consistent source count/hash/ID mismatches and bounded retry behavior.
 All eight existing publication-race tests and workflow syntax checks pass.
 Actual new live-mode success remains pending publication.
+
+## Full-corpus validation and page-return regression
+
+Run `43598229312` tested feature head
+`f07d5bebfdbe333e05159fa8b710495eab4ae249` in actual checkout
+`31ffceec394cc6cb5c22fd72affaa1d4e08a4cf4`, the synthetic merge with
+main `95f845f0a38d1248edfb212eedef6149bc036a41`. Its full-corpus rebuild
+passed at 13:51:30 UTC on 14 November, after 31 minutes 55 seconds. Fresh
+portable/site reports agree on 109,041 occurrences across 252 datasets and
+source stream SHA-256
+`47790d86cf8913ae160976c52bba38f208d4b45ecf779dde0001199846cac39f`.
+All 109,041 complete public projection and reader objects were compared.
+The validated index has 2,475 evidence-bound groups covering 8,555 source
+occurrences, with 102,961 presentation results. These are presentation
+counts, not a unique-hadith or independent authenticity audit.
+
+The compressed core is 7,974,555 bytes; all index files total 99,898,927 bytes.
+The recorded staged-site counter is 940,795,087 bytes and passes the existing
+950,000,000-byte gate. That counter precedes final build-info/marker writes;
+it is not asserted to be the exact sum of final deployed files.
+
+The following bounded-reader browser check failed in its controlled fixture,
+before its actual-site checks: opening occurrence 26 from result page 2 and
+returning from the workspace incorrectly reset the results to page 1. The
+selection/export assertion correctly caught the missing occurrence. The later
+production discovery and benchmark steps were skipped. Therefore this run
+proves full-source/index validation, but not complete browser acceptance or
+publication. Runtime artifact `14116308332` is 4,874,398 bytes, SHA-256
+`021757f644d366abc809f91410eeb44cb6cb1c0a4762286ee137d7e165441659`.
+
+The delivery workflow now also runs the existing bounded-reader fixture entry
+point before the expensive corpus rebuild and captures its separate report.
+The full post-build reader checks remain required. PR/main job time budgets
+are extended to 90 minutes: the observed failed run already took 43 minutes
+12 seconds, before successful remaining browser/benchmark gates, and main
+also performs its existing counterpart synchronization. Source validation,
+site-size limits, publication guards and concurrent-import behavior are not
+relaxed. A subsequent revision must pass the page-return regression and all
+remaining acceptance gates before integration/publication is claimed.
+
+The scoped correction stores results-page/focus metadata in history state,
+bound to the exact source snapshot, page size and active query/filter/language
+context. Workspace Back and browser Back/Forward restore only a matching
+context; ordinary query/filter changes reset to page 1, and rendered pages are
+clamped to actual result counts. The original family result remains the focus
+target when a different source version is opened. Focused real-handler tests
+passed (98 tests), including changed contexts, empty results and selections.
+The actual browser regression now checks page/focus/selection preservation on
+pages 1–3 and the page-2 Back/Forward round trip. This local result is not yet
+an actual Chromium pass for the correction.
