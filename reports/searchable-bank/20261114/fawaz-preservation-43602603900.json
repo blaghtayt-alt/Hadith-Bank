@@ -1,0 +1,87 @@
+{
+  "schema": "hadith-bank-fawaz-acceptance-comparison-v1",
+  "prepared_at_utc": "2026-11-14T14:12:16.541244+00:00",
+  "current_run": 43602603900,
+  "current_feature_head_prefix": "5ef914fa",
+  "previous_run": 43598229312,
+  "artifact": {
+    "id": 14117103480,
+    "archive_bytes": 32266,
+    "archive_sha256": "de0cfbfef256b224732554cb0aad867135a19fe37a5e2a7142c56dfc506a584e",
+    "archive_verification": "Downloaded and size/SHA-256 verified by parent; reports read from supplied extraction.",
+    "path": ".work/ci-run43602603900-fawaz/evidence/run-6n3qvzq1"
+  },
+  "status": "passed_complete_no_material_change_from_previous_provider_audit",
+  "material_differences": [],
+  "report_comparison": {
+    "baseline_audit_byte_identical": true,
+    "candidate_audit_byte_identical": true,
+    "status_only_changed_fields": [
+      "job_dir"
+    ],
+    "nonmaterial_event_changes": "Available-disk measurements and per-run job directory; no source/count/classification difference."
+  },
+  "pinned_inputs": {
+    "provider_source_revision": "df57907be35291c91ad6a6691180e22ca9920784",
+    "preservation_baseline_source_commit": "ca5f3f18e682376ce2c91e5f97f4b0d7e24eb4c6",
+    "preservation_snapshot_sha256": "124b0de03e30c037e80a40935daca70ca7fdda2448f1be15e56d5b9dda0efc4e",
+    "restored_baseline_bytes": 788434574,
+    "individual_input_hash_scope": "The passing compare_snapshot contract verifies original per-input sha256, stored_sha256 and source_path against this pinned preservation snapshot. Individual input hash values are not enumerated in these artifact reports and are not inferred here."
+  },
+  "report_hashes": {
+    "baseline-audit.json": {
+      "bytes": 1986,
+      "sha256": "f0c0d585fee15bb15905d5079f520b0c9a9b6c38f384519f099a4d2d771ba6d0"
+    },
+    "candidate-audit.json": {
+      "bytes": 1504105,
+      "sha256": "bc609b16641e283654d0d10af1f70b1433db4e9a25320d32d13953a6acbba2e7"
+    },
+    "status.json": {
+      "bytes": 378,
+      "sha256": "334947f47299e9abf538145bceb1ad9455ab9d0dfe9dc7a12d8487d39ad7ce18"
+    }
+  },
+  "preservation": {
+    "missing_previous_provider_ids": [],
+    "new_provider_ids": [],
+    "previous_registered_now_held_count": 0,
+    "previous_registered_language_changes_count": 0,
+    "previous_registered": 29911,
+    "previous_held": 6553,
+    "previous_held_now_registered": 6315,
+    "previous_held_still_held": 238
+  },
+  "current_counts": {
+    "provider_occurrences": 36464,
+    "registered_occurrences": 36226,
+    "held_occurrences": 238,
+    "source_edition_rows": 145718,
+    "nonempty_source_text_fields": 141377,
+    "held_all_source_texts_empty": 169,
+    "held_with_nonempty_source_text": 69,
+    "verified_language_readings": 141180
+  },
+  "held_dispositions": {
+    "recovered_reviewed_occurrences": 6,
+    "resolved_commentary_occurrences": 67,
+    "resolved_excluded_occurrences": 238,
+    "resolved_source_gap_occurrences": 171,
+    "reviewed_cohort_occurrences": 244,
+    "scope": "Completed semantic dispositions for formerly held IDs; source gaps remain explicit and already-registered sibling-language queues are separate.",
+    "status": "passed",
+    "unresolved_held_occurrences": 0,
+    "verified_original_source_fields": 895
+  },
+  "reviewed_projection": {
+    "newly_registered_occurrences": 6315,
+    "positive_provider_ids": 6315,
+    "supplemental_decisions": 13351,
+    "verified_projected_readings": 13304
+  },
+  "limits": [
+    "This fresh step verifies provider source fidelity, saved-review projections and held-state accounting only. The full-corpus build, production browser acceptance, baseline/candidate benchmark and deployment/live verification are separate gates and are not claimed passed.",
+    "Saved positive-review admission totals are a replay relative to the historical provider baseline, not new admissions made by the UI/search implementation or a net total-bank change.",
+    "No independent authenticity/translation assessment; source gaps and commentary exclusions remain explicit."
+  ]
+}
