@@ -24,6 +24,7 @@ import time
 from urllib.parse import urlencode, urlsplit
 
 import build_reader
+from bank_discovery import expand_discovery_payload
 
 
 def require(condition, message):
@@ -59,6 +60,10 @@ def fixture_records():
         })
     records[7]['text_translation'] += ' TESTprimaryanchor'
     records[7]['footnotes'] = [{'text': 'TESTannotationneedle', 'original_null': None}]
+    # Opening these three records exceeds the 8 MiB decoded transport cache.
+    # Compact results must not hydrate them; explicit reading/export still must.
+    for index in (0, 25, 59):
+        records[index]['unknown_original_field']['payload'] = 'TEST opaque source bytes ' * 150000
     # A complete occurrence ID containing recognizable citation syntax must take
     # priority over canonical citation parsing. This remains a TEST identifier.
     records[42]['id'] = 'TEST source occurrence Abu Dawud 4555'
@@ -146,21 +151,66 @@ async def wait_results(page, identifiers, timeout):
           const results=document.getElementById("results");
           if(!results || results.getAttribute("aria-busy")!=="false" ||
              results.querySelector(".error"))return false;
-          const ids=[...results.querySelectorAll(":scope > .record-card")]
+          const ids=[...results.querySelectorAll(":scope > .compact-result, :scope > .record-card")]
             .map(card=>card.dataset.occurrenceId);
           const count=document.getElementById("result-count").textContent;
           return JSON.stringify(ids)===JSON.stringify(expected) &&
-            count.includes("matching source occurrences");
+            /source occurrences/.test(count);
         }""", arg=identifiers, timeout=timeout)
 
 
 async def card_ids(page):
-    return await page.locator('#results > .record-card').evaluate_all(
+    return await page.locator('#results > .compact-result, #results > .record-card').evaluate_all(
         'cards => cards.map(card=>card.dataset.occurrenceId)')
 
 
+async def wait_home(page, timeout):
+    await page.wait_for_function("""() => {
+      const home=document.getElementById('discovery-home');
+      const results=document.getElementById('results');
+      return home && !home.hidden && results?.getAttribute('aria-busy')==='false'
+        && !results.querySelector('.error') && document.getElementById('browse-all');
+    }""", timeout=timeout)
+
+
+async def run_search(page, query, timeout, journey='wording'):
+    await page.locator('input[name="search-mode"][value="' + journey + '"]').check()
+    await page.locator('#query').fill(query)
+    await page.locator('#run-search').click()
+
+
+async def wait_workspace(page, identifier, timeout):
+    await page.wait_for_function("""identifier => {
+      const workspace=document.getElementById('narration-workspace');
+      const content=document.getElementById('workspace-content');
+      return workspace && !workspace.hidden && content?.getAttribute('aria-busy')==='false'
+        && content.querySelector('.record-card')?.dataset.occurrenceId===identifier;
+    }""", arg=identifier, timeout=timeout)
+
+
+async def open_record(page, identifier, timeout):
+    result = page.locator('#results > .compact-result').filter(
+        has=page.locator('.open-narration'))
+    # IDs may contain punctuation and quotes; do not interpolate them into CSS.
+    for item in await result.all():
+        if await item.get_attribute('data-occurrence-id') == identifier:
+            await item.locator('.open-narration').click()
+            await wait_workspace(page, identifier, timeout)
+            return
+    raise AssertionError('Compact result not found: ' + identifier)
+
+
+async def select_result(page, identifier):
+    await page.locator('#results > .compact-result').first.wait_for(state='visible')
+    for item in await page.locator('#results > .compact-result').all():
+        if await item.get_attribute('data-occurrence-id') == identifier:
+            await item.locator('.record-select input').check()
+            return
+    raise AssertionError('Selection result not found: ' + identifier)
+
+
 async def lazy_audit(page, expected_record, timeout):
-    card = page.locator('#results .record-card').first
+    card = page.locator('#workspace-content > .record-card').first
     audit = card.locator('details').filter(
         has=page.locator('summary', has_text=re.compile(r'^Record details & provenance$')))
     require(await audit.count() == 1, 'Expected one record audit disclosure')
@@ -182,36 +232,48 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
     page.on('request', lambda request: requests.append(urlsplit(request.url).path.lstrip('/')))
     try:
         await page.goto(base + 'index.html', wait_until='domcontentloaded', timeout=timeout)
+        await wait_home(page, timeout)
+        require(await page.locator('#results > .record-card, #results > .compact-result').count() == 0,
+                'Search home must not display an unsolicited long list')
+        require(not any(path.startswith(('data/details/', 'data/search/', 'data/annotations/')) for path in requests),
+                'Search home must not fetch full text, source search stores or annotation stores')
+        report['startup'] = {'cards': 0, 'detail_parts_requested': 0,
+                             'detail_parts_total': len(manifest['details']['shards']),
+                             'source_text_search_parts_requested': 0}
+        report['checks'].append('search_home_loads_no_full_source_or_annotation_stores')
+
+        await page.locator('#browse-all').click()
         await wait_results(page, identifiers[:25], timeout)
         require((await page.locator('#page-meta').text_content()) == 'Page 1 of 3',
-                'Ordinary startup must show page 1 of 3')
-        initial = set(requests)
-        expected_parts = detail_paths(manifest, fixture['directory'], range(25))
-        actual_parts = {path for path in initial if path.startswith('data/details/')}
-        require(actual_parts == expected_parts, 'Startup must hydrate only detail chunks intersecting the first page')
-        require(len(actual_parts) < len(manifest['details']['shards']),
-                'Startup must not fetch every full-detail chunk')
-        require(not any(path.startswith(('data/search/', 'data/annotations/')) for path in initial),
-                'Empty-query startup must not fetch primary or commentary search data')
-        report['startup'] = {'cards': 25, 'detail_parts_requested': len(actual_parts),
-                             'detail_parts_total': len(manifest['details']['shards']),
-                             'text_search_parts_requested': 0}
-        report['checks'].append('ordinary_startup_selective_detail_requests')
+                'Deliberate browse must show page 1 of 3')
+        require(not any(path.startswith('data/details/') for path in requests),
+                'Compact browse results must not hydrate full records')
+        require(await page.locator('#results .language-readings, #results pre.audit-text').count() == 0,
+                'Compact browse must not create full language or audit panels')
+        await open_record(page, identifiers[0], timeout)
+        actual_parts = {path for path in requests if path.startswith('data/details/')}
+        expected_parts = detail_paths(manifest, fixture['directory'], [0])
+        require(actual_parts == expected_parts,
+                'Opening a narration must hydrate only its intersecting detail chunks')
         await lazy_audit(page, records[0], timeout)
-        report['checks'].append('full_audit_serialized_only_when_opened')
-
-        await page.get_by_role('checkbox', name='Select ' + identifiers[0], exact=True).check()
+        report['checks'].append('workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object')
+        await page.locator('#back-to-results').click()
+        await select_result(page, identifiers[0])
         await page.locator('#next').click()
         await wait_results(page, identifiers[25:50], timeout)
-        await page.get_by_role('checkbox', name='Select ' + identifiers[25], exact=True).check()
+        await open_record(page, identifiers[25], timeout)
+        await page.locator('#back-to-results').click()
+        await select_result(page, identifiers[25])
         await page.locator('#next').click()
         await wait_results(page, identifiers[50:60], timeout)
-        await page.get_by_role('checkbox', name='Select ' + identifiers[59], exact=True).check()
-        report['checks'].append('paging_preserves_original_order_and_selection')
+        await open_record(page, identifiers[59], timeout)
+        await page.locator('#back-to-results').click()
+        await select_result(page, identifiers[59])
+        report['checks'].append('compact_paging_and_lazy_reading_preserve_selection')
 
-        await page.locator('#query').fill('TESTprimaryanchor')
+        await run_search(page, 'TESTprimaryanchor', timeout)
         await wait_results(page, [identifiers[7]], timeout)
-        await page.locator('#query').fill('TESTprimaryanchor TESTannotationneedle')
+        await run_search(page, 'TESTprimaryanchor TESTannotationneedle', timeout)
         await wait_results(page, [], timeout)
         await page.locator('#include-commentary').check()
         await wait_results(page, [identifiers[7]], timeout)
@@ -231,26 +293,29 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
         after_download_requests = Counter(requests)
         require(any(after_download_requests[path] > before_download_requests[path]
                     for path in detail_paths(manifest, fixture['directory'], [0])),
-                'Selection after paging must rehydrate evicted original details')
+                'Selection after explicit reading must rehydrate evicted original details')
         report['selected_json_records'] = len(selected)
-        report['checks'].append('selected_json_exact_objects_after_paging_and_filters')
+        report['checks'].append('selected_json_exact_objects_after_lazy_reading_cache_eviction_and_filters')
 
         await page.locator('#include-commentary').uncheck()
-        await page.locator('#query').fill('Bukhari 12')
+        await run_search(page, 'Bukhari 12', timeout, 'reference')
         await wait_results(page, [identifiers[11]], timeout)
-        await page.locator('#query').fill(identifiers[42])
-        await wait_results(page, [identifiers[42]], timeout)
+        await run_search(page, identifiers[42], timeout, 'reference')
+        await wait_workspace(page, identifiers[42], timeout)
+        await page.locator('#back-to-results').click()
+        await page.locator('#narration-workspace').wait_for(state='hidden', timeout=timeout)
         report['checks'].append('canonical_citation_and_exact_id_priority')
 
         deep = await context.new_page()
         await deep.goto(base + 'index.html?' + urlencode({'occurrence': identifiers[42]}),
                         wait_until='domcontentloaded', timeout=timeout)
-        await wait_results(deep, [identifiers[42]], timeout)
+        await wait_workspace(deep, identifiers[42], timeout)
+        await lazy_audit(deep, records[42], timeout)
         await deep.close()
-        report['checks'].append('exact_occurrence_deep_link')
+        report['checks'].append('exact_occurrence_deep_link_opens_exact_source_workspace')
 
-        # A separate page has no parsed primary-key cache. Hold its first search
-        # response, enter a new exact ID, then release the old response.
+        # Annotation search remains an explicit asynchronous full-source scan.
+        # Superseding it must not overwrite a newer compact exact-ID result.
         stale = await context.new_page()
         started, release, finished = asyncio.Event(), asyncio.Event(), asyncio.Event()
         first_request = True
@@ -266,43 +331,42 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
             try:
                 await route.continue_()
             except Exception:
-                # Aborting the superseded operation may already close this route.
-                # Current-view assertions below still must pass.
                 pass
             finally:
                 finished.set()
 
-        await stale.route('**/data/search/*.jsonl.gz', delayed_search)
+        await stale.route('**/data/annotations/*.jsonl.gz', delayed_search)
         try:
             await stale.goto(base + 'index.html', wait_until='domcontentloaded', timeout=timeout)
-            await wait_results(stale, identifiers[:25], timeout)
-            await stale.locator('#query').fill('TESTprimaryanchor')
+            await wait_home(stale, timeout)
+            await stale.locator('#include-commentary').check()
+            await run_search(stale, 'TESTannotationneedle', timeout)
             await asyncio.wait_for(started.wait(), timeout=timeout / 1000)
-            await stale.locator('#query').fill(identifiers[42])
-            await wait_results(stale, [identifiers[42]], timeout)
+            await run_search(stale, identifiers[42], timeout, 'reference')
+            await wait_workspace(stale, identifiers[42], timeout)
             release.set()
             await asyncio.wait_for(finished.wait(), timeout=timeout / 1000)
-            # The fixture has one primary-key shard; give its released completion
-            # task time to run so an unguarded stale render would be observable.
             await stale.wait_for_timeout(300)
-            await wait_results(stale, [identifiers[42]], timeout)
+            await wait_workspace(stale, identifiers[42], timeout)
         finally:
             release.set()
             await stale.close()
-        report['checks'].append('slow_search_superseded_without_stale_results')
+        report['checks'].append('slow_annotation_search_superseded_without_stale_results')
 
         standalone = await context.new_page()
         standalone_requests = []
         standalone.on('request', lambda request: standalone_requests.append(request.url))
         await standalone.goto((fixture['site'] / 'standalone.html').as_uri(),
                               wait_until='domcontentloaded', timeout=timeout)
-        await wait_results(standalone, identifiers[:25], timeout)
-        await standalone.locator('#query').fill('TESTprimaryanchor')
+        await wait_home(standalone, timeout)
+        await run_search(standalone, 'TESTprimaryanchor', timeout)
         await wait_results(standalone, [identifiers[7]], timeout)
+        await open_record(standalone, identifiers[7], timeout)
+        await lazy_audit(standalone, records[7], timeout)
         require(not any(urlsplit(url).scheme in ('http', 'https') for url in standalone_requests),
                 'Standalone file must perform no HTTP fetches')
         await standalone.close()
-        report['checks'].append('standalone_file_offline_startup_and_search')
+        report['checks'].append('standalone_file_offline_home_search_and_exact_source_reading')
         require(not errors, 'Browser page errors: ' + '; '.join(errors[:3]))
     finally:
         await context.close()
@@ -373,42 +437,64 @@ def actual_group_plan(directory, manifest, snapshot):
             'records': bounded_group_records(directory, manifest, chosen)}
 
 
-def grouped_filter_preview(directory, manifest, groups, rows, predicate):
-    anchor_for = {member: group['anchor_id'] for group in groups for member in group['member_ids']}
-    seen, first, occurrences = set(), [], 0
-    for _, row in directory_rows(directory, manifest):
-        if not predicate(row):
+def discovery_payload(directory, snapshot):
+    if snapshot.get('discovery_payload'):
+        return snapshot['discovery_payload']
+    part = snapshot.get('discovery')
+    require(isinstance(part, dict), 'Actual reader must bind its compact discovery index')
+    raw = build_reader.local(directory, part['path']).read_bytes()
+    require(len(raw) == part['bytes'] and hashlib.sha256(raw).hexdigest() == part['sha256'],
+            'Actual compact index compressed bytes/hash mismatch')
+    plain = gzip.decompress(raw)
+    require(len(plain) == part['uncompressed_bytes'] and
+            hashlib.sha256(plain).hexdigest() == part['uncompressed_sha256'],
+            'Actual compact index decoded bytes/hash mismatch')
+    payload = expand_discovery_payload(json.loads(plain))
+    require(payload['record_count'] == snapshot['record_count'] and
+            payload['records_sha256'] == snapshot['records_sha256'],
+            'Actual compact index belongs to a different source snapshot')
+    digest = hashlib.sha256()
+    for row in payload['rows']:
+        digest.update((row['id'] + '\n').encode('utf-8'))
+    require(digest.hexdigest() == payload['occurrence_ids_sha256'],
+            'Actual compact index occurrence ID sequence is inconsistent')
+    return payload
+
+
+def grouped_filter_preview(payload, predicate, preferred='en'):
+    rows = payload['rows']
+    matches = [row for row in rows if predicate(row)]
+    preferred_match = lambda row: preferred and any(code == preferred or code.startswith(preferred + '-')
+                                                   for code in row['languages'])
+    matches.sort(key=lambda row: (not preferred_match(row), row['ordinal']))
+    seen, first = set(), []
+    for row in matches:
+        family = row['groupId'] or 'occurrence:' + str(row['ordinal'])
+        if family in seen:
             continue
-        occurrences += 1
-        anchor = anchor_for.get(row['id'], row['id'])
-        if anchor in seen:
-            continue
-        seen.add(anchor)
-        representative = anchor if anchor in rows and predicate(rows[anchor]) else row['id']
+        seen.add(family)
         if len(first) < 25:
-            first.append(representative)
-    return {'first_page': first, 'reading_cards': len(seen), 'source_occurrences': occurrences}
+            first.append(row['id'])
+    return {'first_page': first, 'reading_families': len(seen), 'source_occurrences': len(matches)}
 
 
-async def actual_group_checks(page, directory, manifest, snapshot, base, timeout, report):
+async def actual_group_checks(page, directory, manifest, snapshot, base, timeout, report, payload):
     plan = actual_group_plan(directory, manifest, snapshot)
     if plan is None:
-        report['actual_site']['grouping'] = {'status': 'not_applicable', 'groups': 0}
+        report['actual_site']['grouping'] = {'status': 'not_applicable', 'accepted_reader_groups': 0}
         return
     member, group, rows = plan['member'], plan['group'], plan['rows']
-    selected, groups = rows[member], snapshot['reader_groups']['groups']
+    selected = next(row for row in payload['rows'] if row['id'] == member)
+    preferred = await page.locator('#preferred-language').input_value()
     require((await page.locator('#total-count').text_content()).replace(',', '') == str(manifest['record_count']),
             'Actual reader must retain its complete source-occurrence count')
-    require(str(snapshot['reader_groups']['grouped_reading_count']) ==
-            (await page.locator('#reader-group-count').text_content()).split(' reading cards')[0].replace(',', ''),
-            'Actual reader must display its separate grouped reading count')
     cases = [
-        ('source', {'source': selected['source_id']}, lambda row: row['source_id'] == selected['source_id']),
+        ('source', {'source': selected['editionGroup']}, lambda row: row['editionGroup'] == selected['editionGroup']),
         ('book', {'book': selected['book_key']}, lambda row: row['book_key'] == selected['book_key']),
-        ('language', {'source': selected['source_id'], 'language': selected['language']},
-         lambda row: row['source_id'] == selected['source_id'] and selected['language'] in row['_reader']['languages']),
-        ('origin', {'source': selected['source_id'], 'origin': selected['_reader']['origin']},
-         lambda row: row['source_id'] == selected['source_id'] and row['_reader']['origin'] == selected['_reader']['origin']),
+        ('language', {'source': selected['editionGroup'], 'language': selected['language']},
+         lambda row: row['editionGroup'] == selected['editionGroup'] and selected['language'] in row['languages']),
+        ('origin', {'source': selected['editionGroup'], 'origin': selected['origin']},
+         lambda row: row['editionGroup'] == selected['editionGroup'] and row['origin'] == selected['origin']),
     ]
     filters = {}
     for name, selection, predicate in cases:
@@ -416,39 +502,35 @@ async def actual_group_checks(page, directory, manifest, snapshot, base, timeout
         for field in ('language', 'book', 'source', 'origin'):
             if field in selection:
                 await page.locator('#' + field + '-filter').select_option(selection[field])
-        expected = grouped_filter_preview(directory, manifest, groups, rows, predicate)
+        expected = grouped_filter_preview(payload, predicate, preferred)
         await wait_results(page, expected['first_page'], timeout)
         counts = (await page.locator('#result-count').text_content()).replace(',', '')
-        require(str(expected['reading_cards']) + ' matching reading cards' in counts and
+        require(str(expected['reading_families']) + ' results' in counts and
                 str(expected['source_occurrences']) + ' matching source occurrences' in counts,
-                'Actual grouped filter counts differ: ' + name)
+                'Actual family-filter counts differ: ' + name)
         filters[name] = {key: value for key, value in expected.items() if key != 'first_page'}
-    report['checks'].append('actual_group_source_book_language_origin_filters_keep_matching_representatives')
+    report['checks'].append('actual_family_source_book_language_origin_filters_keep_matching_representatives')
 
     await page.goto(base + 'index.html?' + urlencode({'occurrence': member}),
                     wait_until='domcontentloaded', timeout=timeout)
-    await wait_results(page, [member], timeout)
-    card = page.locator('#results > .record-card')
-    require(await card.get_attribute('data-group-id') == group['anchor_id'],
-            'Actual new occurrence deep link lost its existing group identity')
-    if selected['_reader']['origin'] == 'ai':
-        require(await card.locator(':scope > .language-readings .reading-origin.ai').count() > 0,
-                'Actual AI source representative lacks its own AI translation badge')
+    await wait_workspace(page, member, timeout)
+    require(await page.locator('#workspace-version option').count() == len(group['member_ids']),
+            'Actual accepted comparison group must retain all source versions')
     comparison = next(item for item in group['comparisons'] if item['source_occurrence_id'] == member)
-    await card.locator(':scope > .source-comparison > summary').click()
-    evidence = await card.locator(':scope > .source-comparison').inner_text()
-    require(comparison['review']['evidence'] in evidence and
-            all(value in evidence for value in comparison['review'].get('qualifications', [])),
-            'Actual source-comparison evidence or qualifications changed')
-    require(member in evidence and group['anchor_id'] in evidence and
-            ('Yes' if comparison['review']['human_review'] else 'No') in evidence,
-            'Actual source-comparison identities or human-review status absent')
-    await card.locator(':scope > .source-versions > summary').click()
-    panels = [card, *await card.locator('.source-version').all()]
-    require(len(panels) == len(group['member_ids']), 'Actual grouped source panels are incomplete')
+    await page.locator('#workspace-evidence > summary').click()
+    evidence = json.loads(await page.locator('#workspace-evidence pre').text_content())
+    require(evidence.get('basis') == 'accepted_reader_group' and comparison in evidence.get('comparisons', []),
+            'Actual comparison evidence or its qualifications changed')
+    require(comparison['review']['evidence'] and 'human_review' in comparison['review'],
+            'Actual comparison must preserve recorded human-review status')
+    ordinals = {row['id']: row['ordinal'] for row in payload['rows'] if row['id'] in group['member_ids']}
     from language_display import language_readings
-    for panel in panels:
-        identifier = await panel.get_attribute('data-occurrence-id')
+    for identifier in group['member_ids']:
+        await page.locator('#workspace-version').select_option(str(ordinals[identifier]))
+        await wait_workspace(page, identifier, timeout)
+        panel = page.locator('#workspace-content > .record-card')
+        require(await panel.get_attribute('data-occurrence-id') == identifier,
+                'Source version selector opened a different occurrence')
         original = plan['records'][identifier]
         visible = await panel.locator(':scope > .language-readings p.narration').all_text_contents()
         for reading in language_readings(original):
@@ -457,17 +539,13 @@ async def actual_group_checks(page, directory, manifest, snapshot, base, timeout
             for part in reading.get('quotation_parts') or [{'text': reading['text']}]:
                 for passage in part.get('passages') or [part]:
                     require(passage['text'] in visible, 'Actual source-version quotation bytes changed: ' + identifier)
-        # The parent has a nested other-source disclosure; restrict by its direct summary.
-        audit = panel.locator(':scope > details').filter(
-            has=page.locator(':scope > summary', has_text=re.compile(r'^Record details & provenance$')))
-        require(await audit.count() == 1, 'Expected one direct audit for each grouped source')
-        await audit.locator(':scope > summary').click()
-        await audit.locator('pre.audit-text').wait_for(state='attached', timeout=timeout)
-        require(json.loads(await audit.locator('pre.audit-text').text_content()) == original,
-                'Actual grouped audit lost source text, footnotes, provenance or locators')
-    report['checks'].append('actual_new_ID_group_shows_qualified_comparison_and_exact_other_source_text')
+        if identifier == member and selected['origin'] == 'ai':
+            require(await panel.locator(':scope > .language-readings .reading-origin.ai').count() > 0,
+                    'Actual AI source representative lacks its own AI translation badge')
+        await lazy_audit(page, original, timeout)
+    report['checks'].append('actual_new_ID_workspace_preserves_qualified_comparison_and_exact_lazy_versions')
     report['checks'].append('actual_group_source_audits_preserve_complete_original_objects')
-    await card.locator(':scope > .card-top .record-select input').check()
+    await page.locator('#workspace-content > .record-card > .card-top .record-select input').check()
     async with page.expect_download(timeout=timeout) as event:
         await page.locator('#download').click()
     download = await event.value
@@ -478,17 +556,17 @@ async def actual_group_checks(page, directory, manifest, snapshot, base, timeout
         require(len(exported) == len(group['member_ids']) and
                 {record['id'] for record in exported} == set(group['member_ids']) and
                 all(record == plan['records'][record['id']] for record in exported),
-                'Actual grouped JSON export changed or omitted a distinct source occurrence')
+                'Actual accepted-group JSON export changed or omitted a distinct source occurrence')
         export_hash = hashlib.sha256(target.read_bytes()).hexdigest()
-    report['checks'].append('actual_group_selection_exports_all_exact_member_records')
+    report['checks'].append('actual_accepted_group_selection_exports_all_exact_member_records')
     report['actual_site']['grouping'] = {
-        'status': 'passed', 'groups': len(groups),
-        'grouped_reading_count': snapshot['reader_groups']['grouped_reading_count'],
+        'status': 'passed', 'accepted_reader_groups': len(snapshot['reader_groups']['groups']),
+        'presentation_families': payload['statistics']['reading_families'],
         'sample_member': member, 'sample_anchor': group['anchor_id'],
-        'sample_origin': selected['_reader']['origin'], 'sample_relation': comparison['relation'],
+        'sample_origin': selected['origin'], 'sample_relation': comparison['relation'],
         'source_member_count': len(group['member_ids']), 'filters': filters,
         'selected_json_sha256': export_hash,
-        'detail_scope': 'Only the selected group, up to8 records and8MiB; other checks stream compact directory metadata.',
+        'detail_scope': 'Only the selected accepted group, up to8 records and8MiB; other checks inspect compact metadata.',
     }
 
 
@@ -498,6 +576,7 @@ async def actual_site_checks(browser, directory, timeout, report):
     snapshot = script_payload(document, 'hadith-snapshot')
     require(manifest.get('schema') == 'hadith-bank-reader-lazy-v2', 'Actual site must use lazy v2')
     require(manifest['record_count'] == snapshot['record_count'] > 0, 'Actual site count must match snapshot')
+    payload = discovery_payload(directory, snapshot)
     with local_server(directory) as base:
         context = await browser.new_context(accept_downloads=True)
         page = await context.new_page()
@@ -506,31 +585,28 @@ async def actual_site_checks(browser, directory, timeout, report):
         page.on('pageerror', lambda error: errors.append(str(error)[:500]))
         try:
             await page.goto(base + 'index.html', wait_until='domcontentloaded', timeout=timeout)
-            reading_count = (snapshot.get('reader_groups') or {}).get('grouped_reading_count', manifest['record_count'])
-            wanted = min(25, reading_count)
-            await page.wait_for_function(
-                """count => document.getElementById("results")?.getAttribute("aria-busy")==="false" &&
-                  !document.querySelector("#results .error") &&
-                  document.querySelectorAll("#results > .record-card").length===count""",
-                arg=wanted, timeout=timeout)
-            ids = await card_ids(page)
+            await wait_home(page, timeout)
+            require(await page.locator('#results > .record-card, #results > .compact-result').count() == 0,
+                    'Actual home must wait for a search or navigation choice')
             all_detail_paths = {item['path'] for item in manifest['details']['shards']}
-            detail_requests = set(requests) & all_detail_paths
+            require(not set(requests) & all_detail_paths, 'Actual home eagerly fetched full source records')
             require(not any(path in {part['path'] for name in ('search', 'annotations')
                                      for part in manifest[name]['shards']} for path in requests),
-                    'Actual empty-query startup must not load text-search stores')
-            if manifest['record_count'] > 25 and len(all_detail_paths) > 1:
-                require(len(detail_requests) < len(all_detail_paths), 'Actual startup eagerly fetched all details')
-            await page.goto(base + 'index.html?' + urlencode({'occurrence': ids[0]}),
+                    'Actual home must not load source-text or commentary scan stores')
+            identifier = payload['rows'][0]['id']
+            await page.goto(base + 'index.html?' + urlencode({'occurrence': identifier}),
                             wait_until='domcontentloaded', timeout=timeout)
-            await wait_results(page, [ids[0]], timeout)
+            await wait_workspace(page, identifier, timeout)
             report['actual_site'] = {'record_count': manifest['record_count'],
-                                     'grouped_reading_count': reading_count,
-                                     'initial_cards': wanted, 'exact_occurrence_verified': ids[0],
-                                     'startup_detail_parts_requested': len(detail_requests),
-                                     'detail_parts_total': len(all_detail_paths)}
-            report['checks'].append('actual_site_startup_and_exact_deep_link')
-            await actual_group_checks(page, directory, manifest, snapshot, base, timeout, report)
+                                     'presentation_families': payload['statistics']['reading_families'],
+                                     'initial_cards': 0, 'exact_occurrence_verified': identifier,
+                                     'startup_detail_parts_requested': 0,
+                                     'detail_parts_total': len(all_detail_paths),
+                                     'discovery_bytes': snapshot['discovery']['bytes'],
+                                     'discovery_uncompressed_bytes': snapshot['discovery']['uncompressed_bytes'],
+                                     'discovery_sha256': snapshot['discovery']['sha256']}
+            report['checks'].append('actual_site_search_home_and_exact_workspace_deep_link')
+            await actual_group_checks(page, directory, manifest, snapshot, base, timeout, report, payload)
             require(not errors, 'Actual site page errors: ' + '; '.join(errors[:3]))
         finally:
             await context.close()

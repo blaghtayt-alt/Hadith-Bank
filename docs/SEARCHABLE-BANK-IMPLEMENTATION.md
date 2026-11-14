@@ -40,8 +40,39 @@ verification remains available and unchanged. All 45 lazy-store tests passed,
 including selective-request, corrupted-hash, discontinuous-span, cancellation,
 Unicode reconstruction, source-identity, cache and export regressions.
 
-Search/index/UI implementation, full-corpus preservation checks, browser tests,
-benchmarks, integration and publication remain pending. Local Chromium cannot
+The source-bound multilingual index, query-only postings and page-preview
+delivery, evidence families, source facets and friendly edition grouping are
+implemented in `055d310754a2faea9f8bb796790ee4e401c45a5e`.
+Generation and source-binding validation are implemented in
+`9bb4de57e44ffc82ebc3bb1d41213ecbe09e1989`. Their gates compare every derived
+identity, exact preview and source-language/provenance field, rebuild family
+evidence, check reference/facet coverage, and verify all compressed part hashes
+and posting structure. This is source-preservation verification, not an
+independent religious or translation review or a proof of exhaustive recall.
+
+The complete local Python suite passed 1,038 tests in 59.652 seconds on
+2026-11-14T11:53:31Z. Later focused UI/adapter fixes are tested separately and
+will pass the full suite again in Actions. The current refreshed input from
+initial main contains 108,502 source occurrences in 252 registered datasets,
+2,151,071,356 source-view bytes, and source-stream SHA-256
+`29a3831017a5c4dd717ce7494bcbc84e8277fa565ca07e3b0caf4da218d2a611`.
+Its larger count reflects imports newer than the original live baseline.
+
+A local complete reader build was killed with exit 137 while the existing
+loader was materializing the source corpus, before an output was produced.
+A bounded streaming pass separately verified all 1,263 source shards, counts
+and aggregate hash at roughly 130 MiB peak RSS; full reader publication and
+actual browser gates will run in the repository's Actions environment.
+
+Compact search/topic/library journeys, preferred-language result cards, exact
+on-demand matching wording, source-version comparisons, scoped deep links and
+friendly distinct collection labels are implemented in
+`527c927745b1f462b985cf606fa81a9abb83a28a`. Its 97 focused UI/search regression
+tests and final inline JavaScript syntax check passed.
+
+Full-corpus
+index measurements, actual browser tests, integration and publication remain
+pending. Local Chromium cannot
 open its required Unix socket in this execution environment; actual interactive
 baseline checks use the available cloud browser, and exact network/performance
 measurements will run in the existing permitted Actions browser runtime. No

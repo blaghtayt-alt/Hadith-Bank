@@ -225,6 +225,14 @@ async def benchmark_target(browser, name, url, args, report):
                    json.dumps(run.get("snapshot_identity"), sort_keys=True))
                   for run in target["runs"]}
     target["same_snapshot_for_all_queries"] = len(identities) == 1
+    target["all_queries_completed"] = (
+        len(target["runs"]) == len(QUERIES) and target["same_snapshot_for_all_queries"] and
+        all(not run.get("execution_error") and not run.get("page_errors") and
+            run.get("startup", {}).get("status") == "complete" and
+            len(run["measurements"]) == 2 and
+            {item["warmth"] for item in run["measurements"]} == {"cold", "warm"} and
+            all(item["status"] == "complete" for item in run["measurements"])
+            for run in target["runs"]))
 
 
 async def run(args, report, candidate_url, baseline_url=None):
@@ -254,6 +262,8 @@ def main():
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--chromium-executable", type=Path)
     parser.add_argument("--timeout-ms", type=int, default=120000)
+    parser.add_argument("--require-candidate-complete", action="store_true",
+                        help="Fail if any candidate startup, cold/warm query or snapshot consistency check is incomplete.")
     args = parser.parse_args()
     if args.site_root and args.candidate_url:
         parser.error("Use either --site-root or --candidate-url")
@@ -261,6 +271,8 @@ def main():
         parser.error("Use either --baseline-site-root or --baseline-url")
     if not (args.baseline_url or args.baseline_site_root or args.candidate_url or args.site_root):
         parser.error("Supply at least one target")
+    if args.require_candidate_complete and not (args.candidate_url or args.site_root):
+        parser.error("--require-candidate-complete needs a candidate target")
     if not 1000 <= args.timeout_ms <= 300000:
         parser.error("timeout-ms must be between 1000 and 300000")
     report = {"schema": "hadith-bank-browser-search-benchmark-v1", "started_utc": now(),
@@ -286,13 +298,18 @@ def main():
         report["status"] = "observed"
         if any(run.get("execution_error") for target in report["targets"] for run in target["runs"]):
             report["status"] = "observed_with_execution_errors"
+        candidates = [target for target in report["targets"] if target["name"] == "candidate"]
+        report["candidate_complete"] = bool(candidates) and all(
+            target.get("all_queries_completed", False) for target in candidates)
+        if args.require_candidate_complete and not report["candidate_complete"]:
+            report["status"] = "candidate_incomplete"
     except Exception as error:
         report["status"] = "blocked"
         report["error"] = type(error).__name__ + ": " + str(error)[:1500]
     report["finished_utc"] = now()
     save(args.report, report)
     print(json.dumps({"status": report["status"], "report": str(args.report)}, ensure_ascii=False))
-    return 1 if report["status"] == "blocked" else 0
+    return 1 if report["status"] in ("blocked", "candidate_incomplete") else 0
 
 
 if __name__ == "__main__":

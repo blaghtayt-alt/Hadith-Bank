@@ -38,6 +38,7 @@ jobs:
         run: |
           python -m unittest discover -s tests
           node --test tests/test_lazy_store.js
+          node --test tests/test_discovery_engine.js
       - name: Install reader browser test runtime
         run: |
           python -m pip install --disable-pip-version-check playwright==1.62.0
@@ -66,6 +67,22 @@ jobs:
         run: python scripts/refresh_bank.py --root . --site-output _site
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
+      - name: Verify searchable bank journeys and accessibility in Chromium
+        run: python scripts/verify_discovery_browser.py --site-root _site --report .work/discovery-browser-smoke.json
+      - name: Stage pinned pre-change search baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .work/discovery-baseline
+          git archive 3569d453cddc398275597e994c4d182b1e3a5539 \
+            hadith-bank-reader.html hadith-bank-reader-data | tar -x -C .work/discovery-baseline
+          cp .work/discovery-baseline/hadith-bank-reader.html .work/discovery-baseline/index.html
+      - name: Measure cold and warm search on pinned baseline and candidate
+        timeout-minutes: 20
+        run: >-
+          python scripts/benchmark_discovery_browser.py
+          --baseline-site-root .work/discovery-baseline --site-root _site
+          --report .work/discovery-benchmark.json --timeout-ms 120000 --require-candidate-complete
       - name: Save reader runtime evidence
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
@@ -73,6 +90,9 @@ jobs:
           name: reader-runtime-${{ github.job }}
           path: |
             .work/reader-browser-smoke.json
+            .work/discovery-browser-smoke.json
+            .work/discovery-browser-images/
+            .work/discovery-benchmark.json
             reports/portable-validation.json
             reports/site-build.json
           include-hidden-files: true
@@ -103,6 +123,7 @@ jobs:
         run: |
           python -m unittest discover -s tests
           node --test tests/test_lazy_store.js
+          node --test tests/test_discovery_engine.js
       - name: Install reader browser test runtime
         run: |
           python -m pip install --disable-pip-version-check playwright==1.62.0
@@ -142,6 +163,8 @@ jobs:
         run: python scripts/refresh_bank.py --root . --site-output _site
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
+      - name: Verify searchable bank journeys and accessibility in Chromium
+        run: python scripts/verify_discovery_browser.py --site-root _site --report .work/discovery-browser-smoke.json
       - name: Save reader runtime evidence
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7.0.2
@@ -149,6 +172,8 @@ jobs:
           name: reader-runtime-${{ github.job }}
           path: |
             .work/reader-browser-smoke.json
+            .work/discovery-browser-smoke.json
+            .work/discovery-browser-images/
             reports/portable-validation.json
             reports/site-build.json
           include-hidden-files: true
