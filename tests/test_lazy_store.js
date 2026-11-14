@@ -103,6 +103,25 @@ test("empty directory validates its exact SHA-256 and makes no requests",async()
   assert.deepEqual(await store.getRecords([]),[]);
 });
 
+test("opening one occurrence loads only its verified directory part and exact details",async()=>{
+  const f=fixture({count:18,rowsPerPart:2}),{store,stats}=create(f);
+  assert.deepEqual(await store.getRecord(13),f.records[13]);
+  const directoryRequests=paths(stats).filter(path=>path.includes("/directory/"));
+  assert.deepEqual(directoryRequests,["/bank/reader-data/directory/part-6.jsonl.gz"]);
+  assert.ok(!paths(stats).some(path=>path.includes("/search/")||path.includes("/annotations/")));
+  assert.deepEqual(await store.getDirectoryEntry(13),f.directory[13]);
+  assert.ok(Object.isFrozen(await store.getDirectoryEntry(13)));
+  assert.deepEqual(await store.loadDirectory(),f.directory);
+});
+
+test("selective directory loading rejects corrupt hashes and noncontiguous locators",async()=>{
+  const f=fixture(),{store}=create(f);
+  f.assets.set(new URL(f.manifest.directory.shards[1].path,BASE).href,Buffer.from("corrupt"));
+  await assert.rejects(store.getRecord(2),/length|digest|SHA/);
+  const changed=fixture();mutateDirectory(changed,rows=>{rows[3]._reader.detail[0]++;});
+  await assert.rejects(create(changed).store.getRecord(2),/span/);
+});
+
 test("full record reconstructs cross-part UTF-8 exactly and fetches only intersecting chunks",async()=>{
   const f=fixture({detailBytes:3}),{store,stats}=create(f,{}, {cacheBytes:0});
   await store.loadDirectory();stats.calls.length=0;

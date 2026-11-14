@@ -34,4 +34,15 @@ This branch owns reader presentation, navigation/search indexing, reader generat
 
 ## Current stage
 
-Scope checkpoint only. Implementation, tests, benchmarks, integration and publication remain pending.
+Selective detail retrieval is implemented: opening one occurrence loads only its
+verified directory part plus the required exact detail chunks. Full-directory
+verification remains available and unchanged. All 45 lazy-store tests passed,
+including selective-request, corrupted-hash, discontinuous-span, cancellation,
+Unicode reconstruction, source-identity, cache and export regressions.
+
+Search/index/UI implementation, full-corpus preservation checks, browser tests,
+benchmarks, integration and publication remain pending. Local Chromium cannot
+open its required Unix socket in this execution environment; actual interactive
+baseline checks use the available cloud browser, and exact network/performance
+measurements will run in the existing permitted Actions browser runtime. No
+browser security setting or validation gate is disabled.
