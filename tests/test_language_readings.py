@@ -523,6 +523,7 @@ const $=id=>fields[id],state={},radios={};let mode='topic',hintMode=null,handler
 for(const value of ['reference','wording','topic'])radios[value]={set checked(checked){if(checked)mode=value;}};
 const document={querySelector:selector=>radios[selector.match(/value="([^"]+)"/)[1]]};
 const syncMaterialFilters=()=>{const language=fields['language-filter'].value;fields['book-filter'].options=['',...(language==='ja'?['TEST-Japanese-book']:['TEST-English-book'])].map(value=>({value}));fields['source-filter'].options=['',...(fields['book-filter'].value==='TEST-Japanese-book'?['TEST-Japanese-source']:['TEST-English-source'])].map(value=>({value}));};
+const focusResultsAfterReturn=()=>{};
 const updateSearchHint=()=>{hintMode=mode;},applyFilters=()=>{applied={mode,hintMode,exact:state.exactOccurrence,showExactResults:state.showExactResults,values:Object.fromEntries(Object.entries(fields).map(([key,field])=>[key,field.value]))};};
 const window={location:{search:''},addEventListener:(name,callback)=>{if(name==='popstate')handler=callback;}};
 """ + helper + event + r"""

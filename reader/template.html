@@ -241,7 +241,7 @@ try {
   const retry=document.createElement("button");retry.type="button";retry.textContent="Reload and retry";retry.addEventListener("click",()=>window.location.reload());$("results").append(retry);
   return;
 }
-const state = { page:0, matches:[], matchingOccurrences:[], discoveryResults:[], broaderWording:null, selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0,homeTab:"search",browseAll:false,showExactResults:false,openOrdinal:null,workspaceController:null,returnFocus:null };
+const state = { page:0, matches:[], matchingOccurrences:[], discoveryResults:[], broaderWording:null, selected:new Set(), expanded:new Set(), timer:null, exactOccurrence:new URLSearchParams(window.location.search).get("occurrence") || null, viewGeneration:0, viewController:null, downloading:false, downloadController:null, downloadProgress:0,homeTab:"search",browseAll:false,showExactResults:false,openOrdinal:null,workspaceController:null,returnFocus:null,resultNavigation:null,workspaceReturn:null,restoreResults:null };
 const occurrenceOrdinals=readerGroups.ordinals;
 function occurrenceIndexes(id){if(discoveryEngine?.getOrdinals)return discoveryEngine.getOrdinals(id);return records.flatMap((record,index)=>record.id===id?[index]:[]);}
 function scopedOccurrenceIndexes(id){const indexes=occurrenceIndexes(id);const params=new URLSearchParams(window.location.search),fields=[["language","occurrence-language"],["book_key","occurrence-collection"],["edition","occurrence-edition"],["source_id","occurrence-source"]];if(!fields.every(([,key])=>params.has(key)))return indexes;return indexes.filter(index=>fields.every(([field,key])=>records[index][field]===params.get(key)));}
@@ -249,7 +249,7 @@ function setOccurrenceURL(url,index){const record=records[index];url.searchParam
 function clearExactOccurrence(){
   if(!state.exactOccurrence)return;
   state.exactOccurrence=null;
-  try{const url=new URL(window.location.href);for(const key of ["occurrence","occurrence-language","occurrence-collection","occurrence-edition","occurrence-source"])url.searchParams.delete(key);history.replaceState(null,"",url);}catch(_){}
+  try{const url=new URL(window.location.href);for(const key of ["occurrence","occurrence-language","occurrence-collection","occurrence-edition","occurrence-source"])url.searchParams.delete(key);history.replaceState(history.state,"",url);}catch(_){}
 }
 const names = snapshot.language_names || {};
 const nf = new Intl.NumberFormat("en");
@@ -1065,6 +1065,17 @@ function discoveryRequestMode(query,selected="wording"){
   return parsed.pairs.length===1 && !parsed.text.trim()?"reference":selected;
 }
 const discoveryFilters=()=>({language:$("language-filter").value,book:$("book-filter").value,source:$("source-filter").value,origin:$("origin-filter").value,availability:$("counterpart-filter").value,sourceBook:$("source-book-filter").value,topic:$("source-topic-filter").value,chapter:$("chapter-filter").value,narrator:$("narrator-filter").value,reportType:$("type-filter").value,grade:$("grade-filter").value});
+function resultNavigationKey(){return JSON.stringify([snapshot.records_sha256||null,PAGE_SIZE,$("query").value.trim(),discoveryMode(),$("preferred-language").value,discoveryFilters(),!!$("include-commentary").checked,!!state.browseAll]);}
+function validResultNavigation(saved){return !!saved && saved.context===resultNavigationKey() && Number.isSafeInteger(saved.page) && saved.page>=0;}
+function rememberResultPage(focusOrdinal){
+  const context=resultNavigationKey(),previous=state.resultNavigation?.context===context?state.resultNavigation:null;
+  const saved={context,page:state.page,focusOrdinal:Number.isSafeInteger(focusOrdinal)?focusOrdinal:previous?.focusOrdinal??null,browseAll:!!state.browseAll};state.resultNavigation=saved;
+  try{history.replaceState({...history.state,hadithBankResults:saved},"",window.location.href);}catch(_){}return saved;
+}
+function focusResultsAfterReturn(saved){
+  if(!validResultNavigation(saved) || document.body.dataset.discoveryView==="workspace" || $("results").getAttribute("aria-busy")==="true")return;
+  const target=Number.isSafeInteger(saved.focusOrdinal)?document.querySelector("#result-"+saved.focusOrdinal+" .open-narration"):null,focus=target||$("results-heading");focus.focus({preventScroll:true});focus.scrollIntoView({block:"nearest"});
+}
 const discoveryFamilyMembers=new Map();
 if(discoveryEngine)for(const row of discoveryEngine.rows){const key=row.groupId || "occurrence:"+row.ordinal;if(!discoveryFamilyMembers.has(key))discoveryFamilyMembers.set(key,[]);discoveryFamilyMembers.get(key).push(row.ordinal);}
 const discoveryFamilyEvidence=new Map((discoveryEngine?.groups||[]).map(group=>[group.id,group.evidence]));
@@ -1075,7 +1086,7 @@ function fallbackDiscoveryResult(index){
   return {ordinal:index,members:readerGroupMembers(index,readerGroups),matchedMembers:[index],excerpt:(reading?.text||record.title||"").slice(0,260),language:reading?.language||record.language,reference:bookLabel(record.book_key)+" · "+numberLabel(record),row:{id:record.id,sourceName:sourceLabel(record),editionLabel:editionLabel(record),language:record.language,languages:availableLanguageCodes(record),narrators:[],availability:counterpartAvailability(record),origin:originCategory(record),review:[],reportType:record.record_type},groupEvidence:null};
 }
 function updateDiscoveryURL(){
-  try{const url=new URL(window.location.href);for(const [key,value] of [["q",$("query").value.trim()],["mode",discoveryMode()],["preferred",$("preferred-language").value],["language",$("language-filter").value],["collection",$("book-filter").value],["edition",$("source-filter").value]]){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}if(!state.exactOccurrence)for(const key of ["occurrence","occurrence-language","occurrence-collection","occurrence-edition","occurrence-source"])url.searchParams.delete(key);history.replaceState(null,"",url);}catch(_){}
+  try{const url=new URL(window.location.href);for(const [key,value] of [["q",$("query").value.trim()],["mode",discoveryMode()],["preferred",$("preferred-language").value],["language",$("language-filter").value],["collection",$("book-filter").value],["edition",$("source-filter").value]]){if(value)url.searchParams.set(key,value);else url.searchParams.delete(key);}if(!state.exactOccurrence)for(const key of ["occurrence","occurrence-language","occurrence-collection","occurrence-edition","occurrence-source"])url.searchParams.delete(key);history.replaceState(history.state,"",url);}catch(_){}
 }
 function restoreLinkedSearch(params){
   $("query").value=params.get("q")||"";
@@ -1089,6 +1100,7 @@ function restoreLinkedSearch(params){
 function homeQuery(query,mode){clearExactOccurrence();state.showExactResults=false;$("query").value=query;const choice=document.querySelector('input[name="search-mode"][value="'+mode+'"]');if(choice)choice.checked=true;updateSearchHint();applyFilters();$("query").focus();}
 function renderHome(){
   document.body.dataset.discoveryView="home";
+  state.page=0;state.resultNavigation=null;state.workspaceReturn=null;try{history.replaceState({...history.state,hadithBankResults:null},"",window.location.href);}catch(_){}
   state.openOrdinal=null;document.querySelector(".results-toolbar").append($("shared-reading-tools"));$("narration-workspace").hidden=true;$("discovery-results").hidden=false;
   const home=element("div","discovery-home");home.id="discovery-home";
   const nav=element("nav","home-navigation");nav.setAttribute("aria-label","Explore the bank");
@@ -1210,18 +1222,22 @@ async function render(request=beginView()){
     if(!isCurrentView(request))return;
     $("results").replaceChildren(fragment);$("results").setAttribute("aria-busy","false");updateActiveFilters();
     $("result-count").textContent=total?nf.format(start+1)+"–"+nf.format(end)+" of "+nf.format(total)+" results · "+nf.format(state.matchingOccurrences.length)+" matching source occurrences"+(state.broaderWording?" · Broader wording matches":""):"0 matching source occurrences";
-    $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"";$("previous").disabled=state.page===0;$("next").disabled=!total||state.page===max;updateSelection();
+    $("page-meta").textContent=total?"Page "+nf.format(state.page+1)+" of "+nf.format(max+1):"";$("previous").disabled=state.page===0;$("next").disabled=!total||state.page===max;updateSelection();rememberResultPage();
   }catch(error){failedView(error,request);}
 }
 async function openNarrationWorkspace(index,result=null,{updateURL=true}={}){
   if(!Number.isSafeInteger(index)||!records[index])return;
+  const context=resultNavigationKey();
+  if(document.body.dataset.discoveryView==="results" && validResultNavigation(state.resultNavigation)){
+    const representative=state.discoveryResults.find(item=>item.ordinal===index || item.members?.includes(index));state.workspaceReturn=rememberResultPage(representative?.ordinal??index);
+  }else state.workspaceReturn=validResultNavigation(state.resultNavigation)?state.resultNavigation:{context,page:0,focusOrdinal:index,browseAll:!!state.browseAll};
   document.body.dataset.discoveryView="workspace";
   cancelView();
   if(state.workspaceController)state.workspaceController.abort();const controller=new AbortController();state.workspaceController=controller;state.openOrdinal=index;
   const row=discoveryEngine?.getRow(index),members=result?.members||discoveryFamilyMembers.get(row?.groupId||"occurrence:"+index)||readerGroupMembers(index,readerGroups);
   state.exactOccurrence=records[index].id;document.querySelector(".workspace-top").append($("shared-reading-tools"));$("discovery-results").hidden=true;$("narration-workspace").hidden=false;$("workspace-status").textContent="Opening the selected source text…";$("workspace-content").replaceChildren();$("workspace-content").setAttribute("aria-busy","true");$("workspace-versions").replaceChildren();
   $("workspace-heading").textContent=row?.reference||"Opening narration workspace…";$("workspace-heading").focus({preventScroll:true});$("narration-workspace").scrollIntoView({block:"start"});
-  if(updateURL){try{const url=setOccurrenceURL(new URL(window.location.href),index);history.pushState(null,"",url);}catch(_){}}
+  if(updateURL){try{const url=setOccurrenceURL(new URL(window.location.href),index);history.pushState({...history.state,hadithBankResults:state.workspaceReturn},"",url);}catch(_){}}
   const versions=element("div","workspace-source-choice"),label=element("label",null,"Source version"),select=element("select");select.id="workspace-version";label.htmlFor=select.id;
   for(const member of members){const source=discoveryEngine?.getRow(member),record=records[member],option=element("option",null,languageLabel(record.language)+" · "+(source?.editionLabel||editionLabel(record))+" · "+(source?.sourceNumber||source?.reference||numberLabel(record)));option.value=String(member);select.append(option);}select.value=String(index);select.addEventListener("change",()=>openNarrationWorkspace(Number(select.value),{...result,members}));versions.append(label,select);$("workspace-versions").append(versions);
   if(members.length>1){$("workspace-versions").append(element("p","discovery-note",nf.format(members.length)+" preserved source versions. Selecting a version opens its exact readings, references, source notes and provenance; it does not replace another version."));const evidence=result?.groupEvidence||row?.groupEvidence||discoveryFamilyEvidence.get(row?.groupId);if(evidence){const disclosure=detail("Why these sources are grouped",element("pre","audit-text",JSON.stringify(evidence,null,2)));disclosure.id="workspace-evidence";$("workspace-versions").append(disclosure);}}
@@ -1241,12 +1257,13 @@ async function openNarrationWorkspace(index,result=null,{updateURL=true}={}){
   }catch(error){if(controller.signal.aborted)return;const failure=element("div","error"),retry=element("button",null,"Retry this source");retry.type="button";retry.addEventListener("click",()=>openNarrationWorkspace(index,result,{updateURL:false}));failure.append(element("p",null,(navigator.onLine===false?"You are offline. ":"")+(error.message||"This source could not be opened.")),retry);$("workspace-content").replaceChildren(failure);$("workspace-content").setAttribute("aria-busy","false");$("workspace-status").textContent="Source text could not be loaded. Your results and selections are preserved.";}
 }
 async function applyFilters(){
-  const request=beginView();if(state.workspaceController)state.workspaceController.abort();
+  const request=beginView(),restoration=state.restoreResults;state.restoreResults=null;if(state.workspaceController)state.workspaceController.abort();
   try{
     state.broaderWording=null;renderSuggestions(null);
     const entered=$("query").value.trim(),queryIndexes=occurrenceIndexes(entered),exactQuery=queryIndexes.length?entered:null,filters=discoveryFilters(),include=$("include-commentary").checked;
+    const restored=restoration&&validResultNavigation(restoration)?restoration:null;if(restored)state.resultNavigation=restored;
     updateActiveFilters();updateDiscoveryURL();
-    if(state.exactOccurrence){const indexes=scopedOccurrenceIndexes(state.exactOccurrence);if(indexes.length===1){await openNarrationWorkspace(indexes[0],null,{updateURL:false});return;}if(indexes.length>1){const response=discoveryEngine?discoveryEngine.search({query:state.exactOccurrence,mode:"all",preferredLanguage:$("preferred-language").value,group:false}):null;state.discoveryResults=response?.results||indexes.map(fallbackDiscoveryResult);state.matchingOccurrences=indexes;state.matches=indexes;state.page=0;await render(request);$("result-count").textContent="This ID appears in "+indexes.length+" separate source occurrences. Choose the source edition below; no identity has been inferred.";return;}state.discoveryResults=[];state.matchingOccurrences=[];state.matches=[];await render(request);$("result-count").textContent="This occurrence is not part of the current published snapshot.";return;}
+    if(state.exactOccurrence){const indexes=scopedOccurrenceIndexes(state.exactOccurrence);if(indexes.length===1){await openNarrationWorkspace(indexes[0],null,{updateURL:false});return;}if(indexes.length>1){const response=discoveryEngine?discoveryEngine.search({query:state.exactOccurrence,mode:"all",preferredLanguage:$("preferred-language").value,group:false}):null;state.discoveryResults=response?.results||indexes.map(fallbackDiscoveryResult);state.matchingOccurrences=indexes;state.matches=indexes;state.page=restored?.page||0;state.resultNavigation=restored;await render(request);$("result-count").textContent="This ID appears in "+indexes.length+" separate source occurrences. Choose the source edition below; no identity has been inferred.";return;}state.discoveryResults=[];state.matchingOccurrences=[];state.matches=[];await render(request);$("result-count").textContent="This occurrence is not part of the current published snapshot.";return;}
     state.openOrdinal=null;
     if(!entered&&!Object.values(filters).some(Boolean)&&!include&&!state.browseAll){renderSuggestions(null);renderHome();return;}
     if(exactQuery&&queryIndexes.length===1&&!state.showExactResults){await openNarrationWorkspace(queryIndexes[0]);return;}
@@ -1263,7 +1280,7 @@ async function applyFilters(){
       const matches=terms.length?(hostedStore?await hostedStore.search(candidates,terms,include,{signal:request.controller.signal}):candidates.filter(index=>terms.every(term=>(searchKeys[index]+(include?"\n"+commentaryKeys[index]:"")).includes(term)))):candidates;
       state.matchingOccurrences=matches;state.matches=groupReaderMatches(matches,typeof readerGroups!=="undefined"?readerGroups:null);state.discoveryResults=state.matches.map(fallbackDiscoveryResult);renderSuggestions(null);
     }
-    if(!isCurrentView(request))return;state.page=0;await render(request);
+    if(!isCurrentView(request))return;state.page=restored?.page||0;state.resultNavigation=restored;await render(request);
     if(exactQuery&&queryIndexes.length>1)$("result-count").textContent+=" · This ID is shared by distinct source occurrences; choose an edition.";
     if(include&&discoveryEngine&&entered){
       const query=splitCitationQuery(fold(entered,false)),terms=query.text?query.text.split(/\s+/):[];
@@ -1324,8 +1341,8 @@ $("all-language-materials").addEventListener("click",()=>chooseCollection(""));
 $("show-arabic").addEventListener("change",()=>document.querySelectorAll('.language-reading[data-language="ar"]').forEach(node=>node.open=$("show-arabic").checked));
 $("show-english").addEventListener("change",()=>document.querySelectorAll('.language-reading[data-language="en"]').forEach(node=>node.open=$("show-english").checked));
 $("reset").addEventListener("click",()=>{clearTimeout(state.timer);clearExactOccurrence();state.browseAll=false;state.showExactResults=false;state.openOrdinal=null;$("query").value="";["language-filter","book-filter","source-filter","source-book-filter","chapter-filter","source-topic-filter","narrator-filter","type-filter","grade-filter","origin-filter","counterpart-filter"].forEach(id=>$(id).value="");$("include-commentary").checked=false;syncMaterialFilters();applyFilters();});
-$("back-to-results").addEventListener("click",async()=>{const previous=state.openOrdinal;if(state.workspaceController)state.workspaceController.abort();state.openOrdinal=null;clearExactOccurrence();state.showExactResults=true;await applyFilters();const target=document.querySelector("#result-"+previous+" .open-narration")||$("results-heading");target.focus({preventScroll:true});target.scrollIntoView({block:"nearest"});});
-window.addEventListener("popstate",()=>{const params=new URLSearchParams(window.location.search);state.exactOccurrence=params.get("occurrence")||null;state.showExactResults=!state.exactOccurrence;state.openOrdinal=null;restoreLinkedSearch(params);applyFilters();});
+$("back-to-results").addEventListener("click",async()=>{const saved=state.workspaceReturn;if(state.workspaceController)state.workspaceController.abort();state.openOrdinal=null;clearExactOccurrence();state.showExactResults=true;state.restoreResults=saved;await applyFilters();focusResultsAfterReturn(saved);});
+window.addEventListener("popstate",async event=>{const params=new URLSearchParams(window.location.search),saved=event?.state?.hadithBankResults;state.exactOccurrence=params.get("occurrence")||null;state.showExactResults=!state.exactOccurrence;state.openOrdinal=null;state.browseAll=saved?.browseAll===true;restoreLinkedSearch(params);state.restoreResults=saved;await applyFilters();if(!state.exactOccurrence)focusResultsAfterReturn(saved);});
 const updateNetworkStatus=()=>{const notice=$("network-status");notice.hidden=navigator.onLine!==false;if(!notice.hidden)notice.textContent="Connection unavailable. Already loaded searches may still work; uncached index parts and source texts need a connection. A complete standalone reader is required for dependable offline reading.";};
 window.addEventListener("online",updateNetworkStatus);window.addEventListener("offline",updateNetworkStatus);updateNetworkStatus();
 function go(delta){state.page+=delta;render();$("results-heading").scrollIntoView({block:"start"});$("results-heading").focus({preventScroll:true});}

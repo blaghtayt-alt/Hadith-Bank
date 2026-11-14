@@ -226,6 +226,9 @@ const readerGroups=createReaderGroupIndex(records,input.mapping);
         constructors = 'function meta(' + self.template.split('function meta(', 1)[1].split('function updateSelection(', 1)[0]
         discovery = 'const discoveryMode=' + self.template.split('const discoveryMode=', 1)[1].split('async function applyFilters(', 1)[0]
         identity = 'function occurrenceIndexes(' + self.template.split('function occurrenceIndexes(', 1)[1].split('function clearExactOccurrence(', 1)[0]
+        application = 'async function applyFilters(){' + self.template.split('async function applyFilters(){', 1)[1].split('function updateSearchHint(){', 1)[0]
+        clear = 'function clearExactOccurrence(){' + self.template.split('function clearExactOccurrence(){', 1)[1].split('const names =', 1)[0]
+        navigation_events = '$("back-to-results").addEventListener' + self.template.split('$("back-to-results").addEventListener', 1)[1].split('const updateNetworkStatus=', 1)[0]
         program = r"""
 const input=JSON.parse(require('fs').readFileSync(0,'utf8')),records=input.records,names={},snapshot={book_titles:{}};
 const discoveryEngine=require('./reader/discovery-engine.js').create(input.discovery);
@@ -242,24 +245,25 @@ class TestNode {
  get options(){return this.childNodes.filter(node=>node.tag==='option');}
  get selectedOptions(){return this.options.filter(node=>node.value===this.value);}
  set textContent(text){this._text=String(text);this.childNodes=[];}get textContent(){return this._text+this.childNodes.map(node=>typeof node==='string'?node:node.textContent||'').join('');}
- focus(){}scrollIntoView(){}
+ focus(){document.activeElement=this;}scrollIntoView(){}
 }
 const Node=TestNode,fields={};
-for(const id of ['results','results-heading','result-count','page-meta','previous','next','discovery-results','narration-workspace','workspace-heading','workspace-status','workspace-content','workspace-versions','shared-reading-tools','search-suggestions'])fields[id]=new TestNode('div');
+for(const id of ['results','results-heading','result-count','page-meta','previous','next','discovery-results','narration-workspace','workspace-heading','workspace-status','workspace-content','workspace-versions','shared-reading-tools','search-suggestions','back-to-results','search-hint'])fields[id]=new TestNode('div');
 for(const id of ['query','language-filter','book-filter','source-filter','origin-filter','counterpart-filter','source-book-filter','chapter-filter','source-topic-filter','narrator-filter','type-filter','grade-filter','preferred-language'])fields[id]=new TestNode('input');
-fields['language-filter'].value='ja';fields['preferred-language'].value='ja';fields['show-arabic']={checked:false};fields['show-english']={checked:false};
+fields['language-filter'].value='ja';fields['preferred-language'].value='ja';fields['show-arabic']={checked:false};fields['show-english']={checked:false};fields['include-commentary']={checked:false};
+for(const id of ['language-filter','preferred-language','book-filter','source-filter'])for(const value of (['language-filter','preferred-language'].includes(id)?['','en','ja']:[''])){const option=new TestNode('option');option.value=value;fields[id].append(option);}
 const roots=[...Object.values(fields)],toolbar=new TestNode('div'),workspaceTop=new TestNode('div'),pagination=new TestNode('nav');
-const document={body:new TestNode('body'),createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment'),querySelector(selector){if(selector==='.results-toolbar')return toolbar;if(selector==='.workspace-top')return workspaceTop;if(selector==='.pagination')return pagination;return roots.flatMap(walk).find(node=>matches(node,selector))||null;}};
-const $=id=>fields[id]||roots.flatMap(walk).find(node=>node.id===id),icon=()=>new TestNode('svg'),site={repository_url:'https://github.com/TEST/TEST',source_ref:'main',live_url:'https://example.invalid/bank/'},offline=false,window={location:new URL('https://example.invalid/bank/')},navigator={onLine:true};
-const history={pushState(_a,_b,url){window.location=new URL(url);},replaceState(_a,_b,url){window.location=new URL(url);}};
-const sourceDownloadsByPath=new Map(),nf=new Intl.NumberFormat('en'),PAGE_SIZE=25;
+const document={body:new TestNode('body'),createElement:tag=>new TestNode(tag),createTextNode:text=>Object.assign(new TestNode('#text'),{textContent:text}),createDocumentFragment:()=>new TestNode('fragment'),querySelector(selector){if(selector==='.results-toolbar')return toolbar;if(selector==='.workspace-top')return workspaceTop;if(selector==='.pagination')return pagination;const nested=selector.match(/^(#[^ ]+) (\.[^ ]+)$/);if(nested)return roots.flatMap(walk).find(node=>matches(node,nested[1]))?.querySelector(nested[2])||null;return roots.flatMap(walk).find(node=>matches(node,selector))||null;}};
+const $=id=>fields[id]||roots.flatMap(walk).find(node=>node.id===id),icon=()=>new TestNode('svg'),site={repository_url:'https://github.com/TEST/TEST',source_ref:'main',live_url:'https://example.invalid/bank/'},offline=false,window={location:new URL('https://example.invalid/bank/'),events:{},addEventListener(name,callback){this.events[name]=callback;}},navigator={onLine:true};
+const history={state:null,pushState(next,_b,url){this.state=next;window.location=new URL(url);},replaceState(next,_b,url){this.state=next;window.location=new URL(url);}};
+const sourceDownloadsByPath=new Map(),nf=new Intl.NumberFormat('en');let PAGE_SIZE=25;
 const hydrated=[],hostedStore={getRecord:async ordinal=>{hydrated.push(ordinal);return records[ordinal];}};
 """ + self.helpers + r"""
 const readerGroups=createReaderGroupIndex(records,input.mapping),occurrenceOrdinals=readerGroups.ordinals;
 const result=discoveryEngine.search({query:'',preferredLanguage:'ja',filters:{language:'ja'}});
 const state={page:0,matches:result.results.map(item=>item.ordinal),discoveryResults:result.results,matchingOccurrences:result.matchedOccurrences,selected:new Set(),openOrdinal:null};
-const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),isCurrentView=()=>true,pendingView=()=>{},updateActiveFilters=()=>{},cancelView=()=>{},failedView=error=>{throw error;};
-""" + identity + constructors + discovery + r"""
+const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),isCurrentView=()=>true,pendingView=()=>{},updateActiveFilters=()=>{},cancelView=()=>{},syncMaterialFilters=()=>{},updateSearchHint=()=>{},failedView=error=>{throw error;};
+""" + identity + clear + constructors + discovery + application + navigation_events + r"""
 (async()=>{
  const viewTransitions=[];renderHome();viewTransitions.push(document.body.dataset.discoveryView);
  await render();viewTransitions.push(document.body.dataset.discoveryView);const compact=walk(fields.results).filter(node=>node.className==='compact-result');
@@ -282,8 +286,27 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
  const broaderView={note:fields['search-suggestions'].textContent,terms:broaderCard.querySelector('.broader-wording-terms').textContent,
   counts:fields['result-count'].textContent,preferredPreview,matchingText:matching.querySelector('.result-excerpt').textContent,
   matchingSource:matching.querySelector('.reading-source').href,matchingHydrated:hydrated.slice(workspaceHydrated.length),quotedResults:quoted.results.length,quotedBroader:quoted.broaderWording};
+ PAGE_SIZE=1;fields.query.value='';state.exactOccurrence=null;await applyFilters();state.page=1;await render();
+ const beforeNavigationSelection=[...state.selected].sort(),resultsURL=window.location.href;
+ await openNarrationWorkspace(3,state.discoveryResults[1]);const resultHistory={hadithBankResults:state.workspaceReturn},workspaceHistory=history.state,workspaceURL=window.location.href;
+ await fields['back-to-results'].events.click();
+ const backPage={page:state.page,ids:walk(fields.results).filter(node=>node.className==='compact-result').map(node=>node.dataset.occurrenceId),focus:document.activeElement===document.querySelector('#result-3 .open-narration')};
+ window.location=new URL(resultsURL);history.state=resultHistory;await window.events.popstate({state:resultHistory});
+ const historyBack={page:state.page,focus:document.activeElement===document.querySelector('#result-3 .open-narration')};
+ window.location=new URL(workspaceURL);history.state=workspaceHistory;await window.events.popstate({state:workspaceHistory});
+ const historyForward={page:state.page,openOrdinal:state.openOrdinal,view:document.body.dataset.discoveryView};
+ await fields['back-to-results'].events.click();const forwardBackPage=state.page;
+ state.page=0;await render();await openNarrationWorkspace(1,state.discoveryResults[0]);await openNarrationWorkspace(0,{members:[0,1,2]});
+ const familyFocusOrdinal=state.workspaceReturn.focusOrdinal;await fields['back-to-results'].events.click();
+ const familyFocus=document.activeElement===document.querySelector('#result-1 .open-narration');
+ state.page=1;await render();const savedPage=state.resultNavigation;fields.query.value='TEST';await applyFilters();const changedQueryPage=state.page;
+ fields.query.value='';await applyFilters();state.page=1;await render();fields['origin-filter'].value='ai';state.restoreResults=savedPage;await applyFilters();const changedFilterPage=state.page;
+ fields['origin-filter'].value='';await applyFilters();state.restoreResults={...state.resultNavigation,page:999};await applyFilters();const clampedPage=state.page;
+ const wrongSize=state.resultNavigation;PAGE_SIZE=25;state.restoreResults=wrongSize;await applyFilters();const changedSizePage=state.page;
+ const beforeEmpty=state.resultNavigation;fields.query.value='TESTnoSuchResult';state.restoreResults=beforeEmpty;await applyFilters();const emptyPage=state.page;
+ const paginationView={backPage,historyBack,historyForward,forwardBackPage,familyFocusOrdinal,familyFocus,changedQueryPage,changedFilterPage,clampedPage,changedSizePage,emptyPage,beforeNavigationSelection,afterNavigationSelection:[...state.selected].sort()};
  renderHome();viewTransitions.push(document.body.dataset.discoveryView);
- process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated:workspaceHydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,broaderView,viewTransitions,records,exported:compactSelection.map(index=>records[index])}));
+ process.stdout.write(JSON.stringify({compactCount:compact.length,initialHydrated,firstHydrated,hydrated:workspaceHydrated,compactSelection,captured,evidence,comparisonCount,counts:initialCounts,broaderView,paginationView,viewTransitions,records,exported:compactSelection.map(index=>records[index])}));
 })().catch(error=>{process.stderr.write(error.stack);process.exitCode=1;});
 """
         actual = self.run_js(program)
@@ -326,6 +349,19 @@ const updateSelection=()=>{},beginView=()=>({controller:new AbortController()}),
         self.assertEqual(broader['matchingHydrated'], [0], 'Matching wording must hydrate its English source, not the Japanese preview member')
         self.assertEqual(broader['quotedResults'], 0)
         self.assertIsNone(broader['quotedBroader'])
+        pagination = actual['paginationView']
+        self.assertEqual(pagination['backPage'], {'page': 1, 'ids': ['TEST-occurrence-3'], 'focus': True})
+        self.assertEqual(pagination['historyBack'], {'page': 1, 'focus': True})
+        self.assertEqual(pagination['historyForward'], {'page': 1, 'openOrdinal': 3, 'view': 'workspace'})
+        self.assertEqual(pagination['forwardBackPage'], 1)
+        self.assertEqual(pagination['familyFocusOrdinal'], 1)
+        self.assertTrue(pagination['familyFocus'], 'Changing source versions must retain the original compact family focus target')
+        self.assertEqual(pagination['changedQueryPage'], 0)
+        self.assertEqual(pagination['changedFilterPage'], 0)
+        self.assertEqual(pagination['clampedPage'], 1)
+        self.assertEqual(pagination['changedSizePage'], 0)
+        self.assertEqual(pagination['emptyPage'], 0)
+        self.assertEqual(pagination['beforeNavigationSelection'], pagination['afterNavigationSelection'])
         self.assertEqual(actual['records'], self.records)
 
     def test_standalone_reference_is_recognized_without_reinterpreting_quoted_words(self):

@@ -21,6 +21,7 @@ import sys
 import tempfile
 import threading
 import time
+import traceback
 from urllib.parse import urlencode, urlsplit
 
 import build_reader
@@ -209,6 +210,18 @@ async def select_result(page, identifier):
     raise AssertionError('Selection result not found: ' + identifier)
 
 
+async def wait_returned_page(page, identifiers, opened, number, pages, timeout):
+    await wait_results(page, identifiers, timeout)
+    require(await page.locator('#page-meta').text_content() == f'Page {number} of {pages}',
+            'Returning from a workspace must retain the previous compact result page')
+    await page.wait_for_function("""identifier => {
+      const active=document.activeElement;
+      return document.getElementById('narration-workspace')?.hidden &&
+        active?.classList.contains('open-narration') &&
+        active.closest('.compact-result')?.dataset.occurrenceId===identifier;
+    }""", arg=opened, timeout=timeout)
+
+
 async def lazy_audit(page, expected_record, timeout):
     card = page.locator('#workspace-content > .record-card').first
     audit = card.locator('details').filter(
@@ -231,6 +244,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
     requests = []
     page.on('request', lambda request: requests.append(urlsplit(request.url).path.lstrip('/')))
     try:
+        report['current_step'] = 'reader_fixture.home'
         await page.goto(base + 'index.html', wait_until='domcontentloaded', timeout=timeout)
         await wait_home(page, timeout)
         require(await page.locator('#results > .record-card, #results > .compact-result').count() == 0,
@@ -257,20 +271,40 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
                 'Opening a narration must hydrate only its intersecting detail chunks')
         await lazy_audit(page, records[0], timeout)
         report['checks'].append('workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object')
+        report['current_step'] = 'reader_fixture.return_to_page_1'
         await page.locator('#back-to-results').click()
+        await wait_returned_page(page, identifiers[:25], identifiers[0], 1, 3, timeout)
         await select_result(page, identifiers[0])
         await page.locator('#next').click()
         await wait_results(page, identifiers[25:50], timeout)
         await open_record(page, identifiers[25], timeout)
+        report['current_step'] = 'reader_fixture.return_to_page_2'
         await page.locator('#back-to-results').click()
+        await wait_returned_page(page, identifiers[25:50], identifiers[25], 2, 3, timeout)
         await select_result(page, identifiers[25])
+        report['current_step'] = 'reader_fixture.page_2_browser_history_round_trip'
+        await open_record(page, identifiers[25], timeout)
+        await page.go_back(wait_until='domcontentloaded', timeout=timeout)
+        await wait_returned_page(page, identifiers[25:50], identifiers[25], 2, 3, timeout)
+        await page.go_forward(wait_until='domcontentloaded', timeout=timeout)
+        await wait_workspace(page, identifiers[25], timeout)
+        await page.locator('#back-to-results').click()
+        await wait_returned_page(page, identifiers[25:50], identifiers[25], 2, 3, timeout)
+        selected_page_two = await page.locator('#results > .compact-result').evaluate_all(
+            'cards=>cards.filter(card=>card.querySelector(".record-select input")?.checked).map(card=>card.dataset.occurrenceId)')
+        require(selected_page_two == [identifiers[25]],
+                'Workspace and browser history must retain the selected source on its original result page')
+        report['checks'].append('workspace_back_and_browser_history_restore_result_page_focus_and_selection')
         await page.locator('#next').click()
         await wait_results(page, identifiers[50:60], timeout)
         await open_record(page, identifiers[59], timeout)
+        report['current_step'] = 'reader_fixture.return_to_page_3'
         await page.locator('#back-to-results').click()
+        await wait_returned_page(page, identifiers[50:60], identifiers[59], 3, 3, timeout)
         await select_result(page, identifiers[59])
         report['checks'].append('compact_paging_and_lazy_reading_preserve_selection')
 
+        report['current_step'] = 'reader_fixture.primary_and_commentary_search'
         await run_search(page, 'TESTprimaryanchor', timeout)
         await wait_results(page, [identifiers[7]], timeout)
         await run_search(page, 'TESTprimaryanchor TESTannotationneedle', timeout)
@@ -279,6 +313,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
         await wait_results(page, [identifiers[7]], timeout)
         report['checks'].append('primary_and_commentary_terms_match_only_with_opt_in')
 
+        report['current_step'] = 'reader_fixture.exact_selected_export_after_eviction'
         before_download_requests = Counter(requests)
         async with page.expect_download(timeout=timeout) as download_event:
             await page.locator('#download').click()
@@ -297,6 +332,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
         report['selected_json_records'] = len(selected)
         report['checks'].append('selected_json_exact_objects_after_lazy_reading_cache_eviction_and_filters')
 
+        report['current_step'] = 'reader_fixture.reference_and_exact_id'
         await page.locator('#include-commentary').uncheck()
         await run_search(page, 'Bukhari 12', timeout, 'reference')
         await wait_results(page, [identifiers[11]], timeout)
@@ -306,6 +342,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
         await page.locator('#narration-workspace').wait_for(state='hidden', timeout=timeout)
         report['checks'].append('canonical_citation_and_exact_id_priority')
 
+        report['current_step'] = 'reader_fixture.exact_id_deep_link'
         deep = await context.new_page()
         await deep.goto(base + 'index.html?' + urlencode({'occurrence': identifiers[42]}),
                         wait_until='domcontentloaded', timeout=timeout)
@@ -316,6 +353,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
 
         # Annotation search remains an explicit asynchronous full-source scan.
         # Superseding it must not overwrite a newer compact exact-ID result.
+        report['current_step'] = 'reader_fixture.stale_annotation_cancellation'
         stale = await context.new_page()
         started, release, finished = asyncio.Event(), asyncio.Event(), asyncio.Event()
         first_request = True
@@ -353,6 +391,7 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
             await stale.close()
         report['checks'].append('slow_annotation_search_superseded_without_stale_results')
 
+        report['current_step'] = 'reader_fixture.standalone_offline'
         standalone = await context.new_page()
         standalone_requests = []
         standalone.on('request', lambda request: standalone_requests.append(request.url))
@@ -368,6 +407,25 @@ async def fixture_browser_checks(browser, fixture, base, timeout, report):
         await standalone.close()
         report['checks'].append('standalone_file_offline_home_search_and_exact_source_reading')
         require(not errors, 'Browser page errors: ' + '; '.join(errors[:3]))
+    except Exception:
+        report['fixture_failure'] = {'step': report.get('current_step'), 'page_errors': errors[-10:],
+                                     'recent_requests': requests[-30:]}
+        try:
+            report['fixture_failure']['page'] = await asyncio.wait_for(page.evaluate("""() => ({
+              url:location.href, view:document.body.dataset.discoveryView,
+              query:document.getElementById('query')?.value,
+              page:document.getElementById('page-meta')?.textContent,
+              result_count:document.getElementById('result-count')?.textContent,
+              results_busy:document.getElementById('results')?.getAttribute('aria-busy'),
+              ids:[...document.querySelectorAll('#results > .compact-result')].map(card=>card.dataset.occurrenceId),
+              workspace_hidden:document.getElementById('narration-workspace')?.hidden,
+              workspace_status:document.getElementById('workspace-status')?.textContent,
+              focused:document.activeElement?.closest('.compact-result')?.dataset.occurrenceId,
+              errors:[...document.querySelectorAll('.error')].slice(0,5).map(node=>node.textContent.slice(0,1200))
+            })"""), timeout=10)
+        except Exception as error:
+            report['fixture_failure']['capture_error'] = type(error).__name__ + ': ' + str(error)[:500]
+        raise
     finally:
         await context.close()
 
@@ -661,6 +719,7 @@ def main():
     except Exception as error:
         report['status'] = 'failed'
         report['error'] = type(error).__name__ + ': ' + str(error)[:2000]
+        report['traceback'] = traceback.format_exc(limit=14)[-12000:]
         exit_code = 1
     report['elapsed_seconds'] = round(time.monotonic() - started, 3)
     output = json.dumps(report, ensure_ascii=False, indent=2) + '\n'
