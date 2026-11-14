@@ -27,7 +27,7 @@ import import_deenhindi as importer
 
 REPOSITORY = 'blaghtayt-alt/Hadith-Bank'
 PLAN_PATH = 'catalog/deenhindi-artifact-recovery.json'
-RECOVERY_ID = 'run-43400779530-artifact-14026408835'
+RECOVERY_ID = 'run-43574149247-artifact-14107716139'
 RECOVERY_DIR = importer.IMPORT + '/recoveries/' + RECOVERY_ID
 RECEIPT_PATH = RECOVERY_DIR + '/receipt.json'
 INDEX_PATH = RECOVERY_DIR + '/verified-archive-index.json.gz'
@@ -35,12 +35,12 @@ WORK = '.work/deenhindi-artifact-recovery'
 DELTA = WORK + '/delta'
 HELD = WORK + '/held'
 PIN = {
-    'repository': REPOSITORY, 'run_id': 43400779530, 'artifact_id': 14026408835,
-    'artifact_name': 'web-import-recovery-43400779530-1',
-    'archive_bytes': 674433448,
-    'archive_sha256': '286f14110e2de2c64e01c079ba23b5c2b4a8a0de574244d869f00fa7edbc341f',
-    'archive_imported_entries': 13283, 'minimum_common_entries': 12775,
-    'maximum_missing_entries': 508,
+    'repository': REPOSITORY, 'run_id': 43574149247, 'artifact_id': 14107716139,
+    'artifact_name': 'web-import-recovery-43574149247-1',
+    'archive_bytes': 1297849990,
+    'archive_sha256': '9184c82bd0ed3fb874ed0f48c58b0cd981f38f5c3eac93f0abad6609590dee44',
+    'archive_imported_entries': 25621, 'minimum_common_entries': 25178,
+    'maximum_missing_entries': 443,
 }
 MAX_ARCHIVE_UNCOMPRESSED = 2 * 1024**3
 MAX_MEMBERS = 250000
