@@ -53,6 +53,19 @@ class Parsed(HTMLParser):
 
 
 class DiscoveryTests(unittest.TestCase):
+    def test_compact_metadata_retains_exact_values_without_creating_markup(self):
+        value = {'source': 'TEST "quoted" and apostrophe\'s text',
+                 'text': 'TEST </pre><script>unsafe()</script> & العربية 日本語\nline two',
+                 'source_id': 'TEST:1', 'nested': [None, True, {'path': 'TEST\\source'}]}
+        original = copy.deepcopy(value)
+        markup = discovery.data_details('TEST source metadata', value)
+        parsed = Parsed(markup)
+        self.assertNotIn('script', [tag for tag, _attrs in parsed.tags])
+        self.assertEqual(json.loads(parsed.values[-1]), original)
+        self.assertEqual(value, original)
+        legacy = discovery.esc(json.dumps(value, ensure_ascii=False, indent=2))
+        self.assertLess(len(discovery.metadata_json(value).encode()), len(legacy.encode()))
+
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory()
         self.base = Path(self.directory.name)

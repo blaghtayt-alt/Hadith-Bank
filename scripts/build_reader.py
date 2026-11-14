@@ -972,7 +972,7 @@ def write_reader_shards(records, output, directory, max_shard_bytes=MAX_READER_S
         if not pending:
             return
         plain = bytes(pending)
-        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        compressed = gzip.compress(plain, compresslevel=9, mtime=0)
         if len(compressed) > max_shard_bytes:
             raise ValueError('Compressed reader shard exceeds its bound')
         digest = hashlib.sha256(compressed).hexdigest()
@@ -1026,7 +1026,7 @@ class _ReaderStore:
         if not self.pending:
             return
         plain = bytes(self.pending)
-        compressed = gzip.compress(plain, compresslevel=6, mtime=0)
+        compressed = gzip.compress(plain, compresslevel=9, mtime=0)
         if len(compressed) > self.limit:
             raise ValueError('Compressed reader shard exceeds its bound: ' + self.relative)
         digest = hashlib.sha256(compressed).hexdigest()
@@ -1112,6 +1112,25 @@ def _prune_reader_parts(root, relative, previous, current):
             continue
         if target.is_file() and hashlib.sha256(target.read_bytes()).hexdigest() == part.get('sha256'):
             target.unlink()
+
+
+def _prune_discovery_parts(root, relative, previous, current):
+    """Remove only obsolete content-addressed parts from the previous snapshot.
+
+    Call after the reader publication transaction succeeds. Unlisted files,
+    source data, shared current parts and unexpected paths are never removed.
+    """
+    def paths(descriptor):
+        if not isinstance(descriptor, dict):
+            return set()
+        parts = descriptor.get('parts')
+        parts = parts if isinstance(parts, list) else []
+        return {part['path'] for part in [descriptor, *parts]
+                if isinstance(part, dict) and isinstance(part.get('path'), str)}
+    pattern = re.escape(relative) + r'/discovery/discovery(?:-postings|-previews)?-[0-9a-f]{64}\.json\.gz'
+    for old_path in paths(previous) - paths(current):
+        if re.fullmatch(pattern, old_path):
+            local(root, old_path).unlink(missing_ok=True)
 
 
 def _atomic_reader_bytes(path, data):
@@ -1349,6 +1368,8 @@ def write_lazy_reader_shards(records, output, directory, max_shard_bytes=MAX_REA
 def build(root, output, markdown_output=None, compress=True, site=None,
           data_directory=None, max_embedded_bytes=None, max_shard_bytes=MAX_READER_SHARD_BYTES):
     from reader_grouping import load_reader_groups
+    from bank_discovery import (build_discovery_payload, write_discovery_artifact,
+                                load_discovery_material_metadata)
     root = Path(root).resolve()
     output = Path(output).absolute()
     records, catalog, info = load_records(root)
@@ -1362,8 +1383,9 @@ def build(root, output, markdown_output=None, compress=True, site=None,
     context_pages = load_context_pages(root)
     metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
                 'reader_groups': reader_groups,
-                'materials': [{key: value for key, value in material.items() if key != 'supporting_files'}
-                              for material in catalog.get('materials', [])],
+                'materials': load_discovery_material_metadata(root,
+                    [{key: value for key, value in material.items() if key != 'supporting_files'}
+                     for material in catalog.get('materials', [])]),
                 'language_names': LANGUAGE_NAMES, 'book_titles': title_metadata(),
                 'site': site_metadata(catalog, site),
                 'review_display_policy': review_display_metadata(root),
@@ -1404,22 +1426,49 @@ def build(root, output, markdown_output=None, compress=True, site=None,
         # detail stream is a compact serialization of those exact objects and
         # can legitimately have different JSON whitespace and a different hash.
         metadata['data_delivery']['jsonl_sha256'] = manifest['jsonl_sha256']
+    # Search metadata is a disposable view of this same verified stream. The
+    # original payload, source IDs, quotations and exclusion decisions remain
+    # untouched, and full details retain their existing exact-byte transport.
+    discovery_payload = build_discovery_payload(records, metadata)
+    previous_discovery = None
+    if output.is_file():
+        old_document = output.read_text(encoding='utf-8')
+        old_snapshot = re.search(r'<script\b[^>]*\bid="hadith-snapshot"[^>]*>(.*?)</script\s*>',
+                                 old_document, re.S)
+        if old_snapshot:
+            try:
+                previous_discovery = parse_json(old_snapshot.group(1)).get('discovery')
+            except (ValueError, AttributeError):
+                pass
+    if manifest is not None:
+        metadata['discovery'] = write_discovery_artifact(
+            discovery_payload, directory / 'discovery', relative + '/discovery')
+    else:
+        metadata['discovery_payload'] = discovery_payload
+    discovery_statistics = discovery_payload['statistics']
     lazy_store = (template_path.parent / 'lazy-store.js').read_text(encoding='utf-8') if '__HADITH_LAZY_STORE_JS__' in template else ''
+    discovery_engine = (template_path.parent / 'discovery-engine.js').read_text(encoding='utf-8')
     replacements = {'__HADITH_RECORDS_JSON__': payload,
                     '__HADITH_ENCODING__': encoding,
                     '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
                     '__HADITH_UI_STYLES__': ui_styles, '__HADITH_UI_ICONS__': ui_icons,
                     '__HADITH_LAZY_STORE_JS__': lazy_store,
+                    '__HADITH_DISCOVERY_ENGINE_JS__': discovery_engine,
                     '__HADITH_DISCOVERY_HEAD__': discovery_head(records, metadata['site']),
                     '__HADITH_DISCOVERY_NAV__': discovery_navigation(records, metadata['site'])}
     document = render_template(template, replacements)
     _publish_reader_document(output, document, manifest_path, manifest)
     if manifest is not None:
         _prune_reader_parts(output.parent, relative, previous_manifest, manifest)
+        # Only prune the previously published generated index, after the new
+        # HTML/manifest transaction succeeds. Never touch source or other files.
+        _prune_discovery_parts(output.parent, relative, previous_discovery, metadata['discovery'])
     result = {**info, 'html_output': str(output), 'html_bytes': output.stat().st_size,
               'grouped_reading_count': reader_groups['grouped_reading_count'],
               'reviewed_reading_groups': len(reader_groups['groups']),
               'source_text_modified': False,
+              'discovery_statistics': discovery_statistics,
+              'discovery_artifact': metadata.get('discovery'),
               'network_dependencies': ['same-origin reader data shards'] if manifest is not None else [],
               'embedded_encoding': encoding, 'self_contained': manifest is None}
     if manifest is not None:

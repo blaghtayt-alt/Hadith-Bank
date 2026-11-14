@@ -10,6 +10,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import build_reader
+from bank_discovery import build_discovery_payload
 import verify_reader_browser as browser
 from test_reader_grouping import records_fixture, mapping
 
@@ -27,6 +28,7 @@ class BrowserGroupPlanningTests(unittest.TestCase):
         self.manifest = build_reader.write_lazy_reader_shards(
             self.records, self.root / 'index.html', self.root / 'data', 16384)
         self.snapshot = {'record_count': len(self.records), 'reader_groups': mapping(self.records)}
+        self.discovery = build_discovery_payload(self.records, self.snapshot)
 
     def test_plan_prefers_new_ai_member_and_preserves_exact_group_objects(self):
         before = copy.deepcopy(self.records)
@@ -38,21 +40,28 @@ class BrowserGroupPlanningTests(unittest.TestCase):
         self.assertNotIn(self.records[3]['id'], plan['records'])
 
     def test_source_book_language_and_ai_previews_keep_matching_representatives(self):
-        plan = browser.actual_group_plan(self.root, self.manifest, self.snapshot)
         cases = [
             (lambda row: row['source_id'] == 'TEST-new', [1], 2),
             (lambda row: row['book_key'] == 'TEST-new-book', [1], 2),
-            (lambda row: 'ja' in row['_reader']['languages'], [1, 3], 3),
-            (lambda row: row['source_id'] == 'TEST-new' and row['_reader']['origin'] == 'ai', [1], 1),
-            (lambda row: row['source_id'] == 'TEST-new' and row['_reader']['origin'] == 'human', [2], 1),
+            (lambda row: 'ja' in row['languages'], [1, 3], 3),
+            (lambda row: row['source_id'] == 'TEST-new' and row['origin'] == 'ai', [1], 1),
+            (lambda row: row['source_id'] == 'TEST-new' and row['origin'] == 'human', [2], 1),
         ]
         for predicate, positions, occurrence_count in cases:
             with self.subTest(positions=positions, occurrences=occurrence_count):
-                actual = browser.grouped_filter_preview(self.root, self.manifest,
-                    self.snapshot['reader_groups']['groups'], plan['rows'], predicate)
+                actual = browser.grouped_filter_preview(self.discovery, predicate)
                 self.assertEqual(actual['first_page'], [self.records[index]['id'] for index in positions])
-                self.assertEqual(actual['reading_cards'], len(positions))
+                self.assertEqual(actual['reading_families'], len(positions))
                 self.assertEqual(actual['source_occurrences'], occurrence_count)
+
+    def test_preferred_language_changes_family_representative_without_losing_occurrences(self):
+        english = browser.grouped_filter_preview(self.discovery, lambda row: True, 'en')
+        japanese = browser.grouped_filter_preview(self.discovery, lambda row: True, 'ja')
+        self.assertEqual(english['first_page'], [self.records[index]['id'] for index in (0, 3)])
+        self.assertEqual(japanese['first_page'], [self.records[index]['id'] for index in (1, 3)])
+        for value in (english, japanese):
+            self.assertEqual(value['reading_families'], 2)
+            self.assertEqual(value['source_occurrences'], 4)
 
     def test_unreferenced_detail_parts_are_not_read_and_corrupt_referenced_parts_fail(self):
         plan = browser.actual_group_plan(self.root, self.manifest, self.snapshot)

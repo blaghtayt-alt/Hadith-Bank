@@ -89,6 +89,16 @@ def esc(value):
     return html.escape(text(value), quote=True)
 
 
+def metadata_json(value):
+    """Compact JSON in a text node, retaining every exact source value.
+
+    Quotes need escaping in attributes, not in preformatted text. Ampersands
+    and angle brackets remain escaped so supplied markup stays inert text.
+    """
+    return html.escape(json.dumps(value, ensure_ascii=False, separators=(',', ':'),
+                                  allow_nan=False), quote=False)
+
+
 def language_name(code):
     english = LANGUAGE_NAMES.get(code, code)
     native = NATIVE_LANGUAGE_NAMES.get(code)
@@ -269,7 +279,7 @@ def render_language_reading(reading):
 def data_details(title, value):
     if not value:
         return ''
-    return detail(title, '<pre dir="auto">' + esc(json.dumps(value, ensure_ascii=False, indent=2)) + '</pre>')
+    return detail(title, '<pre dir="auto">' + metadata_json(value) + '</pre>')
 
 
 def download_links(items, site):
@@ -306,24 +316,26 @@ class Writer:
                  'inLanguage': language}
         if schema:
             graph.update(schema)
+            if 'mainEntity' in schema:
+                # The page title/description already have ordinary HTML tags;
+                # the source work below retains its own name and identity.
+                # Avoid repeating long quotations in optional page-level JSON.
+                graph.pop('name', None)
+                graph.pop('description', None)
         robots = '' if indexable else '<meta name="robots" content="noindex,follow">\n'
         content = ('<!doctype html>\n<html lang="' + esc(language) + '">\n<head>\n'
                    '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n'
                    '<title>' + esc(title) + '</title>\n<meta name="description" content="' + esc(description) + '">\n'
                    '<link rel="canonical" href="' + esc(canonical) + '">\n' + robots +
-                   '<meta property="og:type" content="website">\n<meta property="og:title" content="' + esc(title) + '">\n'
-                   '<meta property="og:description" content="' + esc(description) + '">\n'
-                   '<meta property="og:url" content="' + esc(canonical) + '">\n'
                    '<link rel="stylesheet" href="' + href('assets/discovery.css') + '">\n'
                    '<script type="application/ld+json">' + script_json(graph) + '</script>\n'
                    '</head>\n<body><a class="skip" href="#content">Skip to text</a>\n'
                    '<header><a class="brand" href="' + href('browse/index.html') + '">Hadith Bank</a>'
                    '<nav aria-label="Main navigation"><a href="' + href('hadith-bank-reader.html') + '">Search all texts</a>'
-                   '<a href="' + href('browse/index.html') + '">Languages and books</a>'
-                   '<a href="' + esc(self.site['repository_url']) + '">GitHub repository</a></nav></header>\n'
+                   '<a href="' + href('browse/index.html') + '">Languages and books</a></nav></header>\n'
                    '<main id="content">' + body + '</main>\n'
-                   '<footer><p>Hadith Bank preserves source occurrences, translations, editions and attribution. '
-                   'Availability is not independent certification of transcription, translation or authenticity.</p>'
+                   '<footer><p>Source texts, versions and attribution are preserved. '
+                   'Availability does not certify transcription, translation or authenticity.</p>'
                    '<nav aria-label="Source navigation"><a href="' + esc(self.site['repository_url']) + '">Repository and original files</a>'
                    '<a href="' + esc(self.site['repository_url'] + '/blob/main/catalog/materials.json') + '">Source data catalog</a>'
                    '<a href="' + href('sitemap.xml') + '">Sitemap</a></nav></footer></body></html>\n')
@@ -408,7 +420,7 @@ def render_record(writer, record, downloads, sources):
         if commentary.get(field):
             notes.append(literal(commentary[field], code))
     if record.get('footnotes'):
-        notes.append('<pre dir="auto">' + esc(json.dumps(record['footnotes'], ensure_ascii=False, indent=2)) + '</pre>')
+        notes.append('<pre dir="auto">' + metadata_json(record['footnotes']) + '</pre>')
     if notes:
         body.append(detail('Commentary and footnotes supplied by the source', ''.join(notes)))
     for label, key in (('Source numbering details', 'number'),
@@ -424,9 +436,8 @@ def render_record(writer, record, downloads, sources):
         if url:
             original_links.append('<p><a href="' + esc(url) + '">' + label + '</a></p>')
     original_links.append('<p>Occurrence ID: <code>' + esc(record['id']) + '</code></p>')
-    original_links.append('<pre dir="auto">' + esc(json.dumps({'record_locator': locator,
-        'original_sha256': source.get('sha256'), 'source_notes': (record.get('review') or {}).get('issues', [])},
-        ensure_ascii=False, indent=2)) + '</pre>')
+    original_links.append('<pre dir="auto">' + metadata_json({'record_locator': locator,
+        'original_sha256': source.get('sha256'), 'source_notes': (record.get('review') or {}).get('issues', [])}) + '</pre>')
     body.append(detail('Source locators and source notes', ''.join(original_links)))
     canonical = canonical_url(path, writer.site)
     work = {'@type': 'CreativeWork', '@id': canonical + '#occurrence', 'url': canonical,

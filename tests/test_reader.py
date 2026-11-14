@@ -20,13 +20,29 @@ from review_display_policy import extraction_metadata, needs_ocr_review, review_
 
 # These helper snippets exercise the full-record/offline path. Hosted lazy-store
 # behavior has separate runtime and browser tests.
-READER_SNAPSHOT_JS = 'const hostedStore=null;const snapshot=' + json.dumps({'book_titles': title_metadata()}, ensure_ascii=False) + ';\n'
+READER_SNAPSHOT_JS = 'const hostedStore=null;const discoveryEngine=null;const snapshot=' + json.dumps({'book_titles': title_metadata()}, ensure_ascii=False) + ';\n'
 
 READER_FILTER_HARNESS_JS = '''
+// The no-index compatibility path is exercised deliberately through Browse all.
+// Search-first startup and real indexed views have separate DOM/browser tests.
+state.browseAll=true;
 const occurrenceOrdinals=new Map(records.map((record,index)=>[record.id,index]));
+const occurrenceIndexes=id=>records.flatMap((record,index)=>record.id===id?[index]:[]);
+const scopedOccurrenceIndexes=occurrenceIndexes;
+for(const id of ['counterpart-filter','source-book-filter','chapter-filter','source-topic-filter','narrator-filter','type-filter','grade-filter','preferred-language']){
+ if(!fields[id])fields[id]={value:''};
+}
+if(!fields['result-count'])fields['result-count']={};
+const discoveryFilters=()=>({language:fields['language-filter'].value,book:fields['book-filter'].value,
+ source:fields['source-filter'].value,origin:fields['origin-filter'].value,availability:fields['counterpart-filter'].value,
+ chapter:fields['chapter-filter'].value,narrator:fields['narrator-filter'].value,
+ reportType:fields['type-filter'].value,grade:fields['grade-filter'].value});
+const discoveryMode=()=>"all";
 const beginView=()=>({controller:new AbortController()});
 const isCurrentView=request=>!request.controller.signal.aborted;
-const updateActiveFilters=()=>{};
+const updateActiveFilters=()=>{},updateDiscoveryURL=()=>{},renderSuggestions=()=>{};
+const fallbackDiscoveryResult=index=>({ordinal:index,members:typeof readerGroups==='undefined'?[index]:readerGroupMembers(index,readerGroups)});
+const openNarrationWorkspace=async index=>{state.openedOrdinal=index;state.matches=[index];state.matchingOccurrences=[index];};
 const failedView=error=>{throw error;};
 '''
 

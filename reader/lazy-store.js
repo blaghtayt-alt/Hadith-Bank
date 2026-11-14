@@ -280,9 +280,12 @@
       }
       if(count!==part.count)throw error("JSONL row count mismatch");
     }
-    function validateDirectoryRow(row,offset,ids) {
+    function validateDirectoryRow(row,offset,identities) {
       if(!object(row) || IDENTITIES.some(key=>!identifier(row[key])) || !languageCode.test(row.language))throw error("invalid directory identity");
-      if(ids.has(row.id))throw error("duplicate directory occurrence ID");ids.add(row.id);
+      // Preserved providers can reuse an ID in distinct source editions. The
+      // exact five-field identity is also the binding checked by getRecord.
+      const identity=JSON.stringify(IDENTITIES.map(key=>row[key]));
+      if(identities.has(identity))throw error("duplicate directory occurrence identity");identities.add(identity);
       const data=row._reader;
       if(!object(data) || !Array.isArray(data.languages) || !data.languages.length || data.languages.some(code=>typeof code!=="string" || !languageCode.test(code)) || new Set(data.languages).size!==data.languages.length || !["human","ai","unknown"].includes(data.origin))throw error("invalid directory language or origin metadata");
       if(!object(data.availability) || ["arabic","english"].some(key=>!["text","external_link","missing"].includes(data.availability[key])) || typeof data.ocr_pending!=="boolean" || !Array.isArray(data.citation_pairs) || data.citation_pairs.some(pair=>!identifier(pair)) || new Set(data.citation_pairs).size!==data.citation_pairs.length)throw error("invalid directory filtering metadata");
@@ -294,14 +297,14 @@
       if(!directoryFlight) {
         let created;
         created=shared(async taskSignal=>{
-          const rows=[],ids=new Set(),sha=new Sha256();let offset=0;
+          const rows=[],identities=new Set(),sha=new Sha256();let offset=0;
           const parts=manifest.directory.shards;
           progress({phase:"directory",loaded:0,total:manifest.record_count,part:0,parts:parts.length,complete:false});
           for(let index=0;index<parts.length;index++) {
             const part=parts[index],bytes=await requestPart(part,"directory",taskSignal);checkAbort(taskSignal);sha.update(bytes);
             parseRows(bytes,part,(row,local)=>{
               if(rows.length!==part.first_ordinal+local)throw error("directory row ordinal mismatch");
-              rows.push(validateDirectoryRow(row,offset,ids));offset+=row._reader.detail[1];
+              rows.push(validateDirectoryRow(row,offset,identities));offset+=row._reader.detail[1];
             });
             progress({phase:"directory",loaded:rows.length,total:manifest.record_count,part:index+1,parts:parts.length,complete:false});
           }
@@ -316,10 +319,35 @@
       return subscribe(directoryFlight,signal);
     }
     const validateOrdinal=ordinal=>{if(!integer(ordinal) || ordinal>=manifest.record_count)throw error("invalid occurrence ordinal");return ordinal;};
+    async function getDirectoryEntry(ordinal,{signal}={}) {
+      validateOrdinal(ordinal);checkAbort(signal);
+      if(directory)return directory[ordinal];
+      // A verified part carries its own ordinal range. Opening one narration
+      // must not download every other directory part. Full-directory callers
+      // still verify the complete stream digest and byte coverage above.
+      const part=manifest.directory.shards.find(item=>ordinal>=item.first_ordinal && ordinal<=item.last_ordinal);
+      if(!part)throw error("directory part is missing for occurrence");
+      const bytes=await requestPart(part,"directory",signal);checkAbort(signal);
+      const identities=new Set();let offset=null,selected=null;
+      parseRows(bytes,part,(row,local)=>{
+        if(offset===null) {
+          const span=object(row) && object(row._reader) && row._reader.detail;
+          if(!Array.isArray(span) || !integer(span[0]) || part.first_ordinal===0 && span[0]!==0)
+            throw error("invalid directory part starting span");
+          offset=span[0];
+        }
+        const checked=validateDirectoryRow(row,offset,identities);
+        if(part.first_ordinal+local===ordinal)selected=checked;
+        offset+=checked._reader.detail[1];
+      });
+      if(!selected || part.last_ordinal===manifest.record_count-1 && offset!==detailBytes)
+        throw error("directory part detail coverage mismatch");
+      checkAbort(signal);return selected;
+    }
     async function getRecord(ordinal,{signal}={}) {
       validateOrdinal(ordinal);checkAbort(signal);
-      const rows=await loadDirectory({signal});checkAbort(signal);
-      const row=rows[ordinal],[offset,length]=row._reader.detail, size=manifest.details.plain_part_bytes;
+      const row=await getDirectoryEntry(ordinal,{signal});checkAbort(signal);
+      const [offset,length]=row._reader.detail, size=manifest.details.plain_part_bytes;
       const bytes=new Uint8Array(length), last=Math.floor((offset+length-1)/size);let written=0;
       for(let index=Math.floor(offset/size);index<=last;index++) {
         const part=manifest.details.shards[index],decoded=await requestPart(part,"details",signal);checkAbort(signal);
@@ -385,7 +413,7 @@
         checkAbort(task.signal);return matches;
       } finally {if(currentSearch===task)currentSearch=null;task.dispose();}
     }
-    return Object.freeze({loadDirectory,getRecord,getRecords,search,cacheStats:()=>({bytes:cacheBytes,entries:cache.size,limitBytes:cacheLimit,activeRequests:active,queuedRequests:queue.length,maxActiveRequests:peak,requestCount:requests,inFlight:inFlight.size})});
+    return Object.freeze({loadDirectory,getDirectoryEntry,getRecord,getRecords,search,cacheStats:()=>({bytes:cacheBytes,entries:cache.size,limitBytes:cacheLimit,activeRequests:active,queuedRequests:queue.length,maxActiveRequests:peak,requestCount:requests,inFlight:inFlight.size})});
   }
   return Object.freeze({create});
 });
