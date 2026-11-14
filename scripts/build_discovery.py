@@ -11,6 +11,7 @@ import hashlib
 import html
 import json
 import math
+import os
 from pathlib import Path, PurePosixPath
 import posixpath
 import re
@@ -446,7 +447,7 @@ def render_record(writer, record, downloads, sources):
             'isPartOf': {'@type': 'CreativeWork', 'name': source_title(record), 'url': canonical_url(edition_path, writer.site)}}
     if source_url:
         work['citation'] = source_url
-    writer.page(path, record_title(record), record_description(record), ''.join(body), language,
+    writer.page(path, record_title(record), record_description(record), compact_static_record_markup(''.join(body)), language,
                 {'@type': 'WebPage', 'mainEntity': work})
 
 
@@ -572,6 +573,91 @@ def write_sitemaps(writer, pages, page_size=SITEMAP_PAGE_SIZE):
     return {'sitemap_count': len(sitemap_paths), 'sitemap_url_count': len(urls), 'sitemap': canonical_url('sitemap.xml', writer.site)}
 
 
+
+# Compact only HTML static record bodies, not source files, structured-data,
+# reader transport or arbitrary scripts. Decoded text/tags/attributes are equal.
+_STATIC_TAG = re.compile(r'(<[A-Za-z/][^<>]*>)')
+_STATIC_ATTR = re.compile(r'(?<=\s)(class|target)="([A-Za-z_][A-Za-z0-9_.:-]*)"')
+
+
+def compact_static_record_markup(markup):
+    parts = _STATIC_TAG.split(markup)
+    for index, part in enumerate(parts):
+        if index % 2:
+            parts[index] = _STATIC_ATTR.sub(r'\1=\2', part)
+        else:
+            # Only text nodes: never unescape attributes, ampersands or angles.
+            parts[index] = part.replace('&quot;', '"').replace('&#x27;', "'")
+    return ''.join(parts)
+
+
+def site_size_inventory(output):
+    """Hash and size every staged file before the budget gate and cleanup."""
+    entries, areas, extensions, bands = [], Counter(), Counter(), Counter()
+    for path in output.rglob('*'):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(output).as_posix()
+        size = path.stat().st_size
+        digest = hashlib.sha256()
+        with path.open('rb') as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b''):
+                digest.update(chunk)
+        entries.append({'path': relative, 'bytes': size, 'sha256': digest.hexdigest()})
+        components = relative.split('/')
+        area = '/'.join(components[:2]) if components[0] in (
+            'hadith', 'browse', 'source-editions', 'source-context',
+            'hadith-bank-reader-data', 'reader-data') else components[0]
+        areas[area] += size
+        extensions[path.suffix.lower() or '(none)'] += size
+        band = ('<4KiB' if size < 4096 else '4-16KiB' if size < 16384 else
+                '16-64KiB' if size < 65536 else '64-256KiB' if size < 262144
+                else '256KiB-1MiB' if size < 1048576 else '>=1MiB')
+        bands[band] += 1
+    entries.sort(key=lambda row: row['path'])
+    manifest = json.dumps(entries, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    return {
+        'schema': 'hadith-bank-prepublication-site-file-inventory-v1',
+        'scope': 'all staged files before discovery-info and build-info writes',
+        'file_count': len(entries),
+        'measured_site_bytes': sum(row['bytes'] for row in entries),
+        'file_manifest_sha256': hashlib.sha256(manifest).hexdigest(),
+        'areas_by_bytes': dict(sorted(areas.items(), key=lambda pair: (-pair[1], pair[0]))),
+        'extensions_by_bytes': dict(sorted(extensions.items())),
+        'file_count_by_size_band': dict(sorted(bands.items())),
+        'largest_files': sorted(entries, key=lambda row: (-row['bytes'], row['path']))[:25],
+        'files': entries,
+    }
+
+
+def write_site_size_inventory(root, output, site_report):
+    relative = os.environ.get('HADITH_SITE_SIZE_REPORT')
+    if not relative:
+        return
+    target = (root / relative).absolute()
+    if not target.is_relative_to(root) or any(part.is_symlink() for part in
+                                              [target, *target.parents] if part != root):
+        raise ValueError('Unsafe site size inventory output')
+    snapshot = site_size_inventory(output)
+    snapshot.update({
+        'source_records_sha256': site_report['source_records_sha256'],
+        'site_budget_bytes': MAX_SITE_BYTES,
+        'projected_site_bytes_including_discovery_info': site_report['site_bytes'],
+        'projected_headroom_bytes': MAX_SITE_BYTES - site_report['site_bytes'],
+        'publication_gate_unchanged': True,
+    })
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    print('SITE_SIZE_PREPUBLICATION ' + json.dumps({
+        'projected_bytes': snapshot['projected_site_bytes_including_discovery_info'],
+        'headroom_bytes': snapshot['projected_headroom_bytes'],
+        'file_count': snapshot['file_count'],
+        'largest_areas': list(snapshot['areas_by_bytes'].items())[:12],
+        'diagnostics': str(target),
+    }, separators=(',', ':')), flush=True)
+
+
+
 def build(root, output, site=None, records=None, catalog=None):
     """Build into a fresh staged site. Optional inputs must come from load_records.
 
@@ -636,6 +722,7 @@ def build(root, output, site=None, records=None, catalog=None):
         report['generated_bytes'], report['site_bytes'] = totals
     else:
         raise ValueError('Could not finalize discovery size report')
+    write_site_size_inventory(root, output, report)
     if report['site_bytes'] >= MAX_SITE_BYTES:
         raise ValueError('Published site exceeds the conservative 950 MB GitHub Pages size budget: ' + str(report['site_bytes']))
     writer.write('discovery-info.json', report_text)

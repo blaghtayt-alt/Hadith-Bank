@@ -3,6 +3,7 @@ import copy
 import hashlib
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -195,6 +196,45 @@ class DiscoveryTests(unittest.TestCase):
         (self.root / 'materials/fixture/原本.pdf').write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
             discovery.build(self.root, bad_output, SITE)
+
+    def test_compact_static_markup_keeps_dom_and_literal_source_wording(self):
+        original = ('<details class="language-reading" lang="ar" dir="rtl">'
+                    '<summary>Source "report" &#x27;one&#x27;</summary>'
+                    '<div class="text quotation">TEST "quoted" &#x27;quoted&#x27; '
+                    '&amp; &lt;unsafe&gt; class="not-a-tag"</div>'
+                    '<a href="https://example.test/?a=1&amp;b=2" target="_blank">'
+                    'Original link</a></details>')
+        smaller = discovery.compact_static_record_markup(original)
+        a, b = Parsed(original), Parsed(smaller)
+        self.assertEqual(a.tags, b.tags)
+        self.assertEqual(a.values, b.values)
+        self.assertLess(len(smaller.encode('utf-8')), len(original.encode('utf-8')))
+        self.assertIn('href="https://example.test/?a=1&amp;b=2"', smaller)
+        self.assertIn('&lt;unsafe&gt;', smaller)
+        self.assertIn('class="not-a-tag"', smaller)
+        source = record()
+        source['text_translation'] = "TEST quoted: \"double\" and 'single' <script>inert()</script>"
+        self.build([source])
+        page = Parsed((self.output / discovery.record_path(source)).read_text())
+        self.assertIn(source['text_translation'], page.values)
+        self.assertEqual([tag for tag, _ in page.tags if tag == 'script'], ['script'])
+
+    def test_site_size_inventory_is_complete_and_outside_site(self):
+        destination = '.work/site-size-histogram.json'
+        with patch.dict(os.environ, {'HADITH_SITE_SIZE_REPORT': destination}):
+            _, report = self.build([record()])
+        path = self.root / destination
+        snapshot = json.loads(path.read_text(encoding='utf-8'))
+        self.assertEqual(snapshot['schema'], 'hadith-bank-prepublication-site-file-inventory-v1')
+        self.assertEqual(snapshot['site_budget_bytes'], discovery.MAX_SITE_BYTES)
+        self.assertEqual(snapshot['projected_site_bytes_including_discovery_info'], report['site_bytes'])
+        self.assertEqual(snapshot['measured_site_bytes'], sum(item['bytes'] for item in snapshot['files']))
+        self.assertEqual(snapshot['file_count'], len(snapshot['files']))
+        for item in snapshot['files']:
+            self.assertEqual(hashlib.sha256((self.output / item['path']).read_bytes()).hexdigest(),
+                             item['sha256'])
+        self.assertFalse((self.output / destination).exists())
+        self.assertTrue((self.output / 'discovery-info.json').exists())
 
     def test_script_injection_and_raw_html_stay_literal(self):
         item = record()

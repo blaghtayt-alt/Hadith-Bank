@@ -71,6 +71,17 @@ jobs:
           retention-days: 7
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+        env:
+          HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+      - name: Preserve complete site-size evidence even if publication budget fails
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: site-size-inventory-${{ github.job }}
+          path: .work/site-size-histogram.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
@@ -174,6 +185,17 @@ jobs:
           fi
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+        env:
+          HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+      - name: Preserve complete site-size evidence even if publication budget fails
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: site-size-inventory-${{ github.job }}
+          path: .work/site-size-histogram.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
