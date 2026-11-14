@@ -172,3 +172,22 @@ before closing a failed page. Existing assertions remain; viewport checks now
 require the first desktop result above y600 and verify that the full home hero
 is restored. Five focused verifier-planning tests, syntax and fixture generation
 pass. The next actual Chromium run is still required.
+
+Run `43595830933` then tested merge
+`44f69a5b7481e73dce980ee63ebea4d0f95e75a0` (feature `7a62dfd3` plus source
+main `a5ffb77d`). Actual Chromium passed nine check groups, including the
+previously blocked workspace, exact source/version comparisons, source links,
+RTL, separate preferred/matching languages, transparent broader wording,
+phrases, Arabic normalization, no-results, topic/spelling aids and unique-ID
+Back navigation. It stopped at a stale test expectation that required raw
+edition IDs in friendly captions. The actual screenshot and index show distinct
+`Source edition 5`/`Source edition 6` captions; source identities remain A/B.
+
+The verifier correction now checks the exact distinct friendly captions, both
+original edition/source attributes, every qualified link identity field, and the
+existing full-object/deep-link audit. It does not weaken the ambiguity gate or
+invent a published edition name. The run's verified evidence archive
+`14114044840` has 4,372,762 bytes and SHA-256
+`56c58dc02590e44ee12d22b668bbd7b7b420528c77ab742f4317803988e86aff`.
+Its unchanged pre-existing portable/site reports remain excluded from new
+build evidence because the corpus stage was skipped.

@@ -12,7 +12,7 @@ from pathlib import Path
 import tempfile
 import time
 import traceback
-from urllib.parse import urlencode, urlsplit
+from urllib.parse import parse_qs, urlencode, urlsplit
 
 import build_reader
 from verify_reader_browser import (require, local_server, wait_home, run_search,
@@ -384,9 +384,21 @@ async def desktop_checks(browser, fixture, base, args, report):
         require(await page.locator('#narration-workspace').is_hidden(),
                 'Ambiguous source ID must not silently open one edition')
         source_choices = await page.locator('#results .compact-source').all_text_contents()
-        require(any('TEST edition A' in text for text in source_choices) and
-                any('TEST edition B' in text for text in source_choices),
-                'Ambiguous ID choices must distinguish the preserved editions')
+        expected_captions = [row['editionLabel'] for row in fixture['payload']['rows'][9:11]]
+        require(source_choices == expected_captions and len(set(source_choices)) == 2,
+                'Ambiguous ID choices must display distinct friendly captions for the preserved editions')
+        choices = page.locator('#results > .compact-result')
+        for index, original in enumerate(fixture['records'][9:11]):
+            choice = choices.nth(index)
+            require(await choice.get_attribute('data-edition') == original['edition'] and
+                    await choice.get_attribute('data-source-id') == original['source_id'],
+                    'Friendly labels must retain each distinct edition and source identity')
+            link = parse_qs(urlsplit(await choice.locator('.open-narration').get_attribute('href')).query)
+            require(all(link.get(key) == [original[field]] for key, field in
+                        [('occurrence', 'id'), ('occurrence-language', 'language'),
+                         ('occurrence-collection', 'book_key'), ('occurrence-edition', 'edition'),
+                         ('occurrence-source', 'source_id')]),
+                    'Ambiguous source links must bind the complete preserved occurrence identity')
         await open_record(page, 'TEST-shared-id', args.timeout_ms)
         await lazy_audit(page, fixture['records'][9], args.timeout_ms)
         selected_url = page.url
