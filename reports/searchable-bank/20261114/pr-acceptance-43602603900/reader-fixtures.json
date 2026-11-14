@@ -1,0 +1,33 @@
+{
+  "schema": "hadith-bank-reader-browser-smoke-v1",
+  "status": "passed",
+  "checks": [
+    "search_home_loads_no_full_source_or_annotation_stores",
+    "workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object",
+    "workspace_back_and_browser_history_restore_result_page_focus_and_selection",
+    "compact_paging_and_lazy_reading_preserve_selection",
+    "primary_and_commentary_terms_match_only_with_opt_in",
+    "selected_json_exact_objects_after_lazy_reading_cache_eviction_and_filters",
+    "canonical_citation_and_exact_id_priority",
+    "exact_occurrence_deep_link_opens_exact_source_workspace",
+    "slow_annotation_search_superseded_without_stale_results",
+    "standalone_file_offline_home_search_and_exact_source_reading"
+  ],
+  "fixture": {
+    "record_count": 60,
+    "encoding": "gzip-jsonl-lazy-v2",
+    "detail_parts": 419,
+    "detail_bytes": 27205427,
+    "canonical_bytes_match_reader_bytes": false
+  },
+  "browser": "151.0.7922.34",
+  "current_step": "reader_fixture.standalone_offline",
+  "startup": {
+    "cards": 0,
+    "detail_parts_requested": 0,
+    "detail_parts_total": 419,
+    "source_text_search_parts_requested": 0
+  },
+  "selected_json_records": 3,
+  "elapsed_seconds": 9.892
+}

@@ -1,0 +1,372 @@
+{
+  "schema": "hadith-bank-corpus-acceptance-summary-v1",
+  "prepared_at_utc": "2026-11-14T14:38:18.080911+00:00",
+  "status": "candidate_corpus_staging_browser_and_complete_benchmark_accepted_main_and_live_not_claimed",
+  "binding": {
+    "workflow_run": 43602603900,
+    "workflow_url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43602603900",
+    "feature_head_prefix": "5ef914fa",
+    "source_checkout": "ff5a1c6996ee82253cf5c4c34f4eea93e5177a37",
+    "source_commit_url": "https://github.com/blaghtayt-alt/Hadith-Bank/commit/ff5a1c6996ee82253cf5c4c34f4eea93e5177a37",
+    "artifact_archive_bytes": 7019061,
+    "artifact_archive_sha256": "2d3a811a692b3c969c04251e468bebabc75fc4a54fa8a7e2977fd2a1b38d0cf5",
+    "archive_verification": "Parent verified download size/hash; this task reads extracted reports.",
+    "portable_checked_at_utc": "2026-11-14T14:32:03.041030+00:00",
+    "reports": {
+      "reports/portable-validation.json": {
+        "bytes": 13586093,
+        "sha256": "80582a337e2df3681ee6b6a9bfb8ecf873684e559042737971c67c0129778f9e"
+      },
+      "reports/site-build.json": {
+        "bytes": 838862,
+        "sha256": "56478e2ada1205413f26439ffecb3d26321223156f694e570d1a2bef17d7427a"
+      }
+    }
+  },
+  "source": {
+    "record_count": 109406,
+    "source_dataset_count": 252,
+    "language_count": 11,
+    "by_language": {
+      "ar": 32267,
+      "bn": 44,
+      "en": 3684,
+      "fa": 14382,
+      "fil": 2354,
+      "hi": 27754,
+      "ja": 3520,
+      "ur": 231,
+      "uz": 9780,
+      "vi": 4555,
+      "zh-CN": 10835
+    },
+    "ordered_source_stream_sha256": "0d3fb7b7645ccefc4c60623814fe612ba6f6cf6957dc1559c8103d0d97dc4b6d",
+    "reader_detail_stream_sha256": "0d3fb7b7645ccefc4c60623814fe612ba6f6cf6957dc1559c8103d0d97dc4b6d",
+    "ordered_occurrence_ids_sha256": "38edd4552085fc8409c23b8b863dfea1eaadd586429cf0b72d624deaa75d0f91",
+    "indexed_exact_quotation_fields_sha256": "251a818a8e69dfc8cefe8e4be8e2063f5111e8e6337285fcb3be20f8c7ba31db",
+    "current_translation_origins": {
+      "ai": 2,
+      "human": 108239,
+      "unknown": 1165
+    }
+  },
+  "full_object_validation": {
+    "status": "passed",
+    "scope": "public_source_snapshots",
+    "coverage": {
+      "canonical_occurrences_compared": 109406,
+      "projection_objects_compared": 109406,
+      "exact_arabic_and_translation_codepoints_compared": 84303437,
+      "canonical_record_files_hashed": 252,
+      "source_and_legacy_files_hashed": 54919,
+      "ordered_search_shards_hashed": 1273,
+      "canonical_record_digest_checks": 109406,
+      "complete_public_projection_objects_reconstructed": 109406,
+      "pdf_page_images_reviewed": 0,
+      "source_glyph_or_linguistic_reviews_performed": 0
+    },
+    "reader_complete_objects_compared": 109406,
+    "source_file_inventory_count": 54919,
+    "reader_data_shards_verified": 1502,
+    "source_files_modified": false,
+    "discovery_source_text_modified": false,
+    "failures": [],
+    "baseline_git": {
+      "performed": false,
+      "reason": "No local Git baseline requested"
+    },
+    "validator_sha256": "35e020b89bc1320c85280bfb885e23ec2718952536d4681143ab9baeb5095a1e",
+    "independent_pro_qc_performed": false
+  },
+  "public_scope": {
+    "enforced": true,
+    "authorized_dataset_count": 252,
+    "public_snapshot_hashes_pinned": true,
+    "unregistered_attachment_paths_and_extra_text_excluded": true,
+    "registered_material_manifests_verified": 202,
+    "unregistered_source_documents_absent": true,
+    "source_review_and_rights_statuses_preserved": true
+  },
+  "excluded_source_views": {
+    "provider_occurrences": 36464,
+    "original_source_pages": 238,
+    "reader_occurrences": 36226,
+    "pages": 606,
+    "index_path": "source-editions/fawaz/index.html",
+    "original_texts_verified": true,
+    "included_in_narration_search": false
+  },
+  "family_grouping": {
+    "source_bound_families_verified": 2475,
+    "source_occurrences_within_families": 8555,
+    "presentation_result_count": 103326,
+    "singleton_source_occurrences": 100851,
+    "presentation_reduction": 6080,
+    "legacy_explicit_reader_groups": 57,
+    "scope": "Accepted-evidence presentation families, not exhaustive unique-hadith counting or new scholarly identity decisions."
+  },
+  "editions": {
+    "registered_datasets": 252,
+    "verified_registered_manifests": 202,
+    "static_page_edition_count": 252,
+    "friendly_discovery_edition_group_count": null,
+    "scope": "The distinct friendly discovery edition-group count is not reported; static edition_count is dataset-level."
+  },
+  "index": {
+    "descriptor": {
+      "path": "hadith-bank-reader-data/discovery/discovery-d71b9314074a6f1c42134205bc1fa0d82e19c9cb18a089271200214864ed589e.json.gz",
+      "schema": "hadith-bank-discovery-v1",
+      "encoding": "gzip-json",
+      "sha256": "d71b9314074a6f1c42134205bc1fa0d82e19c9cb18a089271200214864ed589e",
+      "bytes": 7998782,
+      "uncompressed_sha256": "df533f85171efc159ed3ec388a0b56b3fe6bd6a72c9aba4b3822dcc6c33e0520",
+      "uncompressed_bytes": 79935103,
+      "record_count": 109406,
+      "records_sha256": "0d3fb7b7645ccefc4c60623814fe612ba6f6cf6957dc1559c8103d0d97dc4b6d",
+      "total_bytes": 100440209,
+      "delivery": "query-postings-and-page-previews"
+    },
+    "statistics": {
+      "terms": 357281,
+      "postings": 24444610,
+      "reading_families": 103326,
+      "grouped_occurrences": 8555
+    },
+    "part_count": 589,
+    "part_summary_by_schema": {
+      "hadith-bank-discovery-v1-postings": {
+        "parts": 161,
+        "compressed_bytes": 68437287,
+        "uncompressed_bytes": 158180934,
+        "largest_compressed_part_bytes": 578224,
+        "largest_uncompressed_part_bytes": 1048761
+      },
+      "hadith-bank-discovery-v1-previews": {
+        "parts": 428,
+        "compressed_bytes": 24004140,
+        "uncompressed_bytes": 181163967,
+        "largest_compressed_part_bytes": 102693,
+        "largest_uncompressed_part_bytes": 663492
+      }
+    },
+    "descriptor_source_count_hash_paths_and_byte_totals_consistent": true,
+    "scope": "Report metadata and inventory arithmetic checked here; no complete index-part redownload performed by this summary task."
+  },
+  "reader_transport": {
+    "html_sha256": "408afa16b07377a8b6d47cf21a7ab3133c441b9b7861d35b665e9c86eb076811",
+    "html_bytes": 1805106,
+    "self_contained": false,
+    "embedded_encoding": "gzip-jsonl-lazy-v2",
+    "source_data_shard_count": 1502,
+    "source_data_shard_compressed_bytes": 291287915,
+    "reader_store_metrics": {
+      "directory": {
+        "record_count": 109406,
+        "shard_count": 19,
+        "compressed_bytes": 1632659,
+        "uncompressed_bytes": 37757599,
+        "max_row_bytes": 467
+      },
+      "search": {
+        "record_count": 109406,
+        "shard_count": 347,
+        "compressed_bytes": 77411501,
+        "uncompressed_bytes": 718841616,
+        "max_row_bytes": 215760
+      },
+      "annotations": {
+        "record_count": 109406,
+        "shard_count": 92,
+        "compressed_bytes": 25845698,
+        "uncompressed_bytes": 189424900,
+        "max_row_bytes": 128046
+      },
+      "details": {
+        "record_count": 109406,
+        "shard_count": 1044,
+        "compressed_bytes": 186398057,
+        "uncompressed_bytes": 2171747005,
+        "max_row_bytes": 257373
+      }
+    },
+    "hosted_equals_validated_root_transport": true,
+    "external_script_or_stylesheet_dependencies": false
+  },
+  "site": {
+    "status": "passed",
+    "reported_site_bytes": 942693162,
+    "enforced_size_limit_bytes": 950000000,
+    "reported_headroom_bytes": 7306838,
+    "reported_size_gate_passed": true,
+    "stable_narration_pages": 38782,
+    "shared_reader_occurrences": 70624,
+    "indexable_pages": 40193,
+    "generated_files": 40805,
+    "generated_bytes": 528211778,
+    "post_counter_metadata_bytes": {
+      "build-info.json": 838862,
+      "generated_marker": 37,
+      ".nojekyll": 0
+    },
+    "derived_final_staged_bytes": 943532061,
+    "derived_final_headroom_bytes": 6467939,
+    "size_scope": "The report counter includes discovery-info.json but precedes final build-info/marker writes. The derived final total follows code order and identical serialized site-build/build-info; it is not an archived _site filesystem inventory."
+  },
+  "counterpart_candidate_preparation": {
+    "schema": "hadith-bank-counterpart-review-queue-v1",
+    "status": "candidates_only",
+    "inspected_occurrences": 109406,
+    "occurrences_without_candidate": 34810,
+    "arabic_missing_occurrences": 13766,
+    "english_missing_occurrences": 36233,
+    "already_linked_occurrences": 73151,
+    "candidate_occurrences": 1445,
+    "queued_occurrences": 36255,
+    "candidate_targets": 1041,
+    "available_candidate_targets": 10753,
+    "accepted_by_this_preparation": 0,
+    "queue_bytes": 10929295,
+    "target_bytes": 573571,
+    "manifest": "reports/counterpart-review/manifest.json"
+  },
+  "comparison_to_f07": {
+    "run": 43598229312,
+    "source_checkout": "31ffceec394cc6cb5c22fd72affaa1d4e08a4cf4",
+    "previous_record_count": 109041,
+    "current_record_count": 109406,
+    "source_occurrence_delta": 365,
+    "dataset_count_changes": {
+      "deenhindi-abudawud-part-002": {
+        "previous": 1860,
+        "current": 1941,
+        "delta": 81
+      },
+      "deenhindi-bukhari-part-003": {
+        "previous": 154,
+        "current": 211,
+        "delta": 57
+      },
+      "deenhindi-ibnmajah-part-002": {
+        "previous": 1707,
+        "current": 1794,
+        "delta": 87
+      },
+      "deenhindi-muslim-part-002": {
+        "previous": 1638,
+        "current": 1702,
+        "delta": 64
+      },
+      "deenhindi-nasai-part-002": {
+        "previous": 1685,
+        "current": 1761,
+        "delta": 76
+      }
+    },
+    "only_changed_language": "hi",
+    "hindi_occurrences_previous": 27389,
+    "hindi_occurrences_current": 27754,
+    "dataset_count_unchanged": true,
+    "public_scope_unchanged": true,
+    "verified_family_count_unchanged": true,
+    "grouped_occurrence_count_unchanged": true,
+    "held_source_views_unchanged": true,
+    "verified_source_file_inventory": {
+      "added": 730,
+      "removed": 0,
+      "changed": 29,
+      "all_additions_and_changes_confined_to_deenhindi_paths": true,
+      "added_prefix_counts": {
+        "imports/web-deenhindi-20261112": 730
+      },
+      "changed_paths": [
+        "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
+        "materials/deenhindi-abudawud-part-002/records.jsonl",
+        "materials/deenhindi-abudawud-part-002/source-index.json",
+        "materials/deenhindi-abudawud/records.jsonl",
+        "materials/deenhindi-abudawud/source-index.json",
+        "materials/deenhindi-bukhari-part-002/records.jsonl",
+        "materials/deenhindi-bukhari-part-002/source-index.json",
+        "materials/deenhindi-bukhari-part-003/records.jsonl",
+        "materials/deenhindi-bukhari-part-003/source-index.json",
+        "materials/deenhindi-bukhari/records.jsonl",
+        "materials/deenhindi-bukhari/source-index.json",
+        "materials/deenhindi-ibnmajah-part-002/records.jsonl",
+        "materials/deenhindi-ibnmajah-part-002/source-index.json",
+        "materials/deenhindi-ibnmajah/records.jsonl",
+        "materials/deenhindi-ibnmajah/source-index.json",
+        "materials/deenhindi-malik/records.jsonl",
+        "materials/deenhindi-malik/source-index.json",
+        "materials/deenhindi-muslim-part-002/records.jsonl",
+        "materials/deenhindi-muslim-part-002/source-index.json",
+        "materials/deenhindi-muslim/records.jsonl",
+        "materials/deenhindi-muslim/source-index.json",
+        "materials/deenhindi-nasai-part-002/records.jsonl",
+        "materials/deenhindi-nasai-part-002/source-index.json",
+        "materials/deenhindi-nasai/records.jsonl",
+        "materials/deenhindi-nasai/source-index.json",
+        "materials/deenhindi-tirmidhi-part-002/records.jsonl",
+        "materials/deenhindi-tirmidhi-part-002/source-index.json",
+        "materials/deenhindi-tirmidhi/records.jsonl",
+        "materials/deenhindi-tirmidhi/source-index.json"
+      ]
+    },
+    "site_bytes_delta": 1898075,
+    "index_total_compressed_bytes_delta": 541282,
+    "interpretation": "The reported +365 occurs entirely in five DeenHindi datasets in a newer importer snapshot. Changed corpus/ID/quotation fingerprints must not be called UI-induced source rewriting. This report comparison does not establish a complete cross-commit Git-tree or per-old-occurrence text comparison."
+  },
+  "browser_and_benchmark_acceptance": {
+    "reader_browser": {
+      "status": "passed",
+      "checks_passed": 15
+    },
+    "discovery_fixture": {
+      "status": "passed",
+      "checks_passed": 18
+    },
+    "production_corpus_browser": {
+      "status": "passed",
+      "scope": "production_only",
+      "checks_passed": 2,
+      "html_and_source_binding_matches_reports": true
+    },
+    "benchmark": {
+      "status": "observed",
+      "candidate_complete": true,
+      "targets": [
+        {
+          "name": "baseline",
+          "query_count": 4,
+          "all_queries_completed": true,
+          "same_snapshot_for_all_queries": true
+        },
+        {
+          "name": "candidate",
+          "query_count": 4,
+          "all_queries_completed": true,
+          "same_snapshot_for_all_queries": true
+        }
+      ],
+      "candidate_every_query_html_source_count_hash_matches_reports": true,
+      "environment_comparison": "Both snapshots served locally on the same browser host; source/build bindings remain separate."
+    },
+    "scope": "These browser and benchmark results use staged files served in Actions. They are not evidence of a new public Pages deployment."
+  },
+  "publication": {
+    "integrated_main_commit": null,
+    "deployment_run": null,
+    "live_build_commit": null,
+    "status": "safe_merge_and_deployment_live_verification_pending"
+  },
+  "limits": [
+    "Comparisons establish equality with preserved canonical records, not source-page transcription accuracy.",
+    "No translation, narration-authenticity, rights or independent Pro QC was performed.",
+    "Reader payload equality is checked; visual browser behavior and remote URLs are not tested.",
+    "Historical broken links inside verbatim legacy documents are outside the generated-navigation check.",
+    "baseline_git.performed=false: equality is established against this checkout accepted source objects, not a complete cross-commit raw-tree comparison.",
+    "Source occurrences and presentation-family counts are not counts of independently authenticated unique hadith.",
+    "External source URLs, human screenreader use and independent translation/authenticity review are not covered by corpus-object equality.",
+    "Current candidate accepted zero new counterpart alignments; saved provider review replay remains separately scoped.",
+    "Measured browser performance is available in the complete benchmark artifact; compressed sizes alone are not latency evidence. Baseline and candidate have separately bound source snapshots.",
+    "No main integration or new live deployment is claimed by this candidate acceptance summary."
+  ]
+}

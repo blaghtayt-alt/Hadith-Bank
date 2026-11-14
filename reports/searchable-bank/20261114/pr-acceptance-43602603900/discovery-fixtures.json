@@ -1,0 +1,35 @@
+{
+  "schema": "hadith-bank-discovery-browser-v1",
+  "status": "passed",
+  "scope": "fixtures",
+  "checks": [
+    "desktop_search_home_keyboard_shortcut_and_live_region_semantics",
+    "default_search_field_recognizes_unambiguous_exact_reference",
+    "reference_number_collision_evidence_family_and_multilingual_preference",
+    "workspace_lazy_source_versions_comparison_evidence_exact_bytes_source_links_and_RTL",
+    "preferred_family_preview_and_matched_other_language_keep_separate_exact_sources",
+    "remembered_wording_broadens_transparently_only_when_unquoted_all_word_matches_are_absent",
+    "phrase_Arabic_normalization_and_completed_no_results",
+    "topic_synonyms_limited_transliteration_and_opt_in_spelling_are_transparent",
+    "unique_occurrence_search_back_navigation_returns_to_results",
+    "ambiguous_occurrence_ID_preserves_edition_choices_and_bound_deep_link",
+    "evidenced_collection_parent_chapter_source_category_narrator_type_and_named_authority_grade_facets",
+    "technical_chunks_share_only_evidence_bound_friendly_edition_facet",
+    "external_link_missing_text_and_beyond_preview_match_are_distinct",
+    "offline_missing_detail_preserves_results_and_retry_recovers_exact_source",
+    "beyond_preview_matching_passage_is_exact_source_text_with_own_citation",
+    "corrupt_navigation_index_rejected_and_reload_recovers_verified_home",
+    "corrupt_query_part_rejected_without_false_zero_and_retry_recovers_results",
+    "discovery_fixture_actual_mobile_layout_keyboard_focus_RTL_and_accessibility_tree"
+  ],
+  "fixture": {
+    "record_count": 11,
+    "source_sha256": "c5d2a7131c4b06f951988d026e8953880eb835a6829e6998e3b6754bdcb46030",
+    "occurrence_ids_sha256": "1fa31db427504f707c886b262dfa565d21d15e3d54c585efcd26af80eab10f13",
+    "presentation_families": 10
+  },
+  "browser": "151.0.7922.34",
+  "current_step": "discovery-fixture.mobile_workspace_TEST-provider-en",
+  "accessibility_scope": "Actual Chromium keyboard, DOM/ARIA and accessibility-tree checks; no human screenreader session claimed.",
+  "elapsed_seconds": 5.044
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "hadith-bank-reader-browser-smoke-v1",
+  "status": "passed",
+  "checks": [
+    "search_home_loads_no_full_source_or_annotation_stores",
+    "workspace_hydrates_only_requested_source_and_lazy_audit_preserves_exact_object",
+    "workspace_back_and_browser_history_restore_result_page_focus_and_selection",
+    "compact_paging_and_lazy_reading_preserve_selection",
+    "primary_and_commentary_terms_match_only_with_opt_in",
+    "selected_json_exact_objects_after_lazy_reading_cache_eviction_and_filters",
+    "canonical_citation_and_exact_id_priority",
+    "exact_occurrence_deep_link_opens_exact_source_workspace",
+    "slow_annotation_search_superseded_without_stale_results",
+    "standalone_file_offline_home_search_and_exact_source_reading",
+    "actual_site_search_home_and_exact_workspace_deep_link",
+    "actual_family_source_book_language_origin_filters_keep_matching_representatives",
+    "actual_new_ID_workspace_preserves_qualified_comparison_and_exact_lazy_versions",
+    "actual_group_source_audits_preserve_complete_original_objects",
+    "actual_accepted_group_selection_exports_all_exact_member_records"
+  ],
+  "fixture": {
+    "record_count": 60,
+    "encoding": "gzip-jsonl-lazy-v2",
+    "detail_parts": 419,
+    "detail_bytes": 27205427,
+    "canonical_bytes_match_reader_bytes": false
+  },
+  "browser": "151.0.7922.34",
+  "current_step": "reader_fixture.standalone_offline",
+  "startup": {
+    "cards": 0,
+    "detail_parts_requested": 0,
+    "detail_parts_total": 419,
+    "source_text_search_parts_requested": 0
+  },
+  "selected_json_records": 3,
+  "actual_site": {
+    "record_count": 109406,
+    "presentation_families": 103326,
+    "initial_cards": 0,
+    "exact_occurrence_verified": "hadeethenc:entry:2758:translation:ja:revision:56eb334b0e237553",
+    "startup_detail_parts_requested": 0,
+    "detail_parts_total": 1044,
+    "discovery_bytes": 7998782,
+    "discovery_uncompressed_bytes": 79935103,
+    "discovery_sha256": "d71b9314074a6f1c42134205bc1fa0d82e19c9cb18a089271200214864ed589e",
+    "grouping": {
+      "status": "passed",
+      "accepted_reader_groups": 57,
+      "presentation_families": 103326,
+      "sample_member": "JA_KETAB_ELFADAEL_09a7f220e7bc_occ_note_047",
+      "sample_anchor": "fawaz:df57907be352:muslim:4517",
+      "sample_origin": "ai",
+      "sample_relation": "same_narration_core",
+      "source_member_count": 2,
+      "filters": {
+        "source": {
+          "reading_families": 57,
+          "source_occurrences": 57
+        },
+        "book": {
+          "reading_families": 57,
+          "source_occurrences": 57
+        },
+        "language": {
+          "reading_families": 57,
+          "source_occurrences": 57
+        },
+        "origin": {
+          "reading_families": 2,
+          "source_occurrences": 2
+        }
+      },
+      "selected_json_sha256": "d0248296b893037d1b632bea01ebf5ff3e51f3ae219fc75f0066da1d3532f1f4",
+      "detail_scope": "Only the selected accepted group, up to8 records and8MiB; other checks inspect compact metadata."
+    }
+  },
+  "elapsed_seconds": 20.825
+}

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14 14:14:12 UTC",
+  "updated_at": "2026-11-14T14:46:03.511329+00:00",
   "feature_head": "5ef914fae31d94a5f9acc06884a47dbad78c3789",
   "application_head": "4277317cee8255047d7ceb900ad93a12c03cc769",
   "pull_request": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/16",
@@ -11,14 +11,20 @@
   "early_reader_chromium_fixtures": "passed",
   "early_discovery_chromium_fixtures": "passed",
   "saved_source_reviews": "passed",
-  "current_corpus": "running",
-  "production_browser": "pending",
-  "baseline_candidate_performance": "pending",
-  "integration": "pending",
+  "current_corpus": "passed",
+  "production_browser": "passed",
+  "baseline_candidate_performance": "passed",
+  "integration": "merged",
   "new_ui_deployment": "pending",
   "new_ui_live_verification": "pending",
   "live_observation_file": "live-before-integration-20261114T1401.json",
   "previous_corpus_acceptance": "corpus-validation-43598229312.json",
   "previous_corpus_scope": "f07 + main95 synthetic merge only; subsequent browser gate failed and its page-return correction is now confirmed by early Chromium fixtures",
-  "source_and_import_paths_modified_by_feature": false
+  "source_and_import_paths_modified_by_feature": false,
+  "integration_commit": "90a24f97f086494000e921e7bec4c8cce14e57ea",
+  "main_before_integration": "4d466c80bc78d21b4c8b596677c0ec78f5c61b24",
+  "main_build_run": 43606134903,
+  "main_build_state": "pending_in_existing_queue",
+  "candidate_acceptance_directory": "pr-acceptance-43602603900",
+  "measured_performance_limit": "Cold Bukhari 1 transferred8.54% more bytes because of initial index, although time fell19.6%; measured wording/topic cold time and bytes improved, all candidate warm transfers0."
 }

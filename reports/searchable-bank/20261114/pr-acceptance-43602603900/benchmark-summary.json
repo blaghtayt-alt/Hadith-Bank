@@ -1,0 +1,896 @@
+{
+  "source_report": ".work/ci-run43602603900/evidence/.work/discovery-benchmark.json",
+  "source_report_sha256": "9d281e30723a227cbe1c18f3ea78a761d9fadef24496024a0146a6003897b39c",
+  "candidate_complete": true,
+  "environment": "Both snapshots served locally on the same browser host; source/build bindings remain separate.",
+  "browser": {
+    "name": "Chromium",
+    "version": "151.0.7922.34",
+    "viewport": {
+      "width": 1366,
+      "height": 900
+    }
+  },
+  "targets": [
+    {
+      "name": "baseline",
+      "same_snapshot_for_all_queries": true,
+      "all_queries_completed": true,
+      "html": {
+        "url": "http://127.0.0.1:42397/",
+        "status": 200,
+        "bytes": 1341817,
+        "sha256": "99f272f1a303ef1c7818a3a1900124c3bed1062733777fdd5b24638275bb22b0"
+      },
+      "source_commit": "a9b041be744c59932ccd79c2f92df23c78978923",
+      "record_count": 107693,
+      "records_sha256": "bf1af61a17f28f66c2368f09282db3dedde685fa3fa6431a0dcbd4d24950cec1",
+      "discovery_root": {
+        "bytes": null,
+        "sha256": null,
+        "uncompressed_bytes": null,
+        "record_count": null,
+        "total_bytes": null
+      },
+      "runs": [
+        {
+          "query": "Bukhari 1",
+          "journey": "reference",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2041.003
+          },
+          "startup_network": {
+            "request_count": 20,
+            "completed_request_count": 20,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 3327964,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1342008
+              },
+              "directory": {
+                "requests": 18,
+                "bytes": 1658945
+              },
+              "details": {
+                "requests": 1,
+                "bytes": 327011
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 692.034,
+              "journey_elapsed_ms": 2733.037,
+              "journey_bytes": 9463409,
+              "result": "1–25 of 26 matching reading cards · 26 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4560:translation:ja:revision:2799bd8fa80980da",
+                "hadeethenc:entry:4560:translation:tl:revision:b2b13e1ea845233d",
+                "hadeethenc:entry:66511:translation:tl:revision:d03fc2ce107d628e",
+                "hadeethenc:entry:4560:translation:vi:revision:1b10980c6c43e07f",
+                "hadeethenc:entry:66511:translation:vi:revision:186d87f002479fda"
+              ],
+              "network": {
+                "request_count": 22,
+                "completed_request_count": 22,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 6135445,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "details": {
+                    "requests": 22,
+                    "bytes": 6135445
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 584.341,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–25 of 26 matching reading cards · 26 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4560:translation:ja:revision:2799bd8fa80980da",
+                "hadeethenc:entry:4560:translation:tl:revision:b2b13e1ea845233d",
+                "hadeethenc:entry:66511:translation:tl:revision:d03fc2ce107d628e",
+                "hadeethenc:entry:4560:translation:vi:revision:1b10980c6c43e07f",
+                "hadeethenc:entry:66511:translation:vi:revision:186d87f002479fda"
+              ],
+              "network": {
+                "request_count": 23,
+                "completed_request_count": 23,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 0,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 23,
+                "service_worker_responses": 0,
+                "categories": {
+                  "details": {
+                    "requests": 23,
+                    "bytes": 0
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "query": "actions depend on intentions",
+          "journey": "wording",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 1992.964
+          },
+          "startup_network": {
+            "request_count": 20,
+            "completed_request_count": 20,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 3327964,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1342008
+              },
+              "directory": {
+                "requests": 18,
+                "bytes": 1658945
+              },
+              "details": {
+                "requests": 1,
+                "bytes": 327011
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 9493.738,
+              "journey_elapsed_ms": 11486.702,
+              "journey_bytes": 81168750,
+              "result": "1–9 of 9 matching reading cards · 9 matching source occurrences",
+              "first_ids": [
+                "deenhindi-abudawud:2201",
+                "deenhindi-nasai:75",
+                "deenhindi-nasai:3437",
+                "deenhindi-nasai:3794",
+                "fawaz:df57907be352:abudawud:2201"
+              ],
+              "network": {
+                "request_count": 348,
+                "completed_request_count": 348,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 77840786,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  },
+                  "details": {
+                    "requests": 9,
+                    "bytes": 1508549
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 9161.243,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–9 of 9 matching reading cards · 9 matching source occurrences",
+              "first_ids": [
+                "deenhindi-abudawud:2201",
+                "deenhindi-nasai:75",
+                "deenhindi-nasai:3437",
+                "deenhindi-nasai:3794",
+                "fawaz:df57907be352:abudawud:2201"
+              ],
+              "network": {
+                "request_count": 348,
+                "completed_request_count": 348,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 77840786,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  },
+                  "details": {
+                    "requests": 9,
+                    "bytes": 1508549
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "query": "anger",
+          "journey": "topic",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2018.272
+          },
+          "startup_network": {
+            "request_count": 20,
+            "completed_request_count": 20,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 3327964,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1342008
+              },
+              "directory": {
+                "requests": 18,
+                "bytes": 1658945
+              },
+              "details": {
+                "requests": 1,
+                "bytes": 327011
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 10205.487,
+              "journey_elapsed_ms": 12223.759,
+              "journey_bytes": 86343874,
+              "result": "1–25 of 413 matching reading cards · 413 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4704:translation:ja:revision:de77815407db300f",
+                "hadeethenc:entry:65077:translation:ja:revision:4cc403f46a7caac1",
+                "hadeethenc:entry:2988:translation:tl:revision:2ed386e10fde4810",
+                "hadeethenc:entry:4704:translation:tl:revision:5eea608f332388dd",
+                "hadeethenc:entry:4961:translation:tl:revision:9ae730396b48d2f9"
+              ],
+              "network": {
+                "request_count": 358,
+                "completed_request_count": 358,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 83015910,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  },
+                  "details": {
+                    "requests": 19,
+                    "bytes": 6683673
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 9325.608,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–25 of 413 matching reading cards · 413 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4704:translation:ja:revision:de77815407db300f",
+                "hadeethenc:entry:65077:translation:ja:revision:4cc403f46a7caac1",
+                "hadeethenc:entry:2988:translation:tl:revision:2ed386e10fde4810",
+                "hadeethenc:entry:4704:translation:tl:revision:5eea608f332388dd",
+                "hadeethenc:entry:4961:translation:tl:revision:9ae730396b48d2f9"
+              ],
+              "network": {
+                "request_count": 358,
+                "completed_request_count": 358,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 83015910,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  },
+                  "details": {
+                    "requests": 19,
+                    "bytes": 6683673
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "query": "controlling anger",
+          "journey": "topic",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2015.934
+          },
+          "startup_network": {
+            "request_count": 20,
+            "completed_request_count": 20,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 3327964,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1342008
+              },
+              "directory": {
+                "requests": 18,
+                "bytes": 1658945
+              },
+              "details": {
+                "requests": 1,
+                "bytes": 327011
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 9884.055,
+              "journey_elapsed_ms": 11899.989,
+              "journey_bytes": 79660201,
+              "result": "0 matching source occurrences",
+              "first_ids": [],
+              "network": {
+                "request_count": 339,
+                "completed_request_count": 339,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 76332237,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 8994.975,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "0 matching source occurrences",
+              "first_ids": [],
+              "network": {
+                "request_count": 339,
+                "completed_request_count": 339,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 76332237,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "search": {
+                    "requests": 339,
+                    "bytes": 76332237
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "same_snapshot_for_all_queries": true,
+      "all_queries_completed": true,
+      "html": {
+        "url": "http://127.0.0.1:43365/",
+        "status": 200,
+        "bytes": 1805106,
+        "sha256": "408afa16b07377a8b6d47cf21a7ab3133c441b9b7861d35b665e9c86eb076811"
+      },
+      "source_commit": "ff5a1c6996ee82253cf5c4c34f4eea93e5177a37",
+      "record_count": 109406,
+      "records_sha256": "0d3fb7b7645ccefc4c60623814fe612ba6f6cf6957dc1559c8103d0d97dc4b6d",
+      "discovery_root": {
+        "bytes": 7998782,
+        "sha256": "d71b9314074a6f1c42134205bc1fa0d82e19c9cb18a089271200214864ed589e",
+        "uncompressed_bytes": 79935103,
+        "record_count": 109406,
+        "total_bytes": 100440209
+      },
+      "runs": [
+        {
+          "query": "Bukhari 1",
+          "journey": "reference",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2046.913
+          },
+          "startup_network": {
+            "request_count": 2,
+            "completed_request_count": 2,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 9804277,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1805297
+              },
+              "discovery_navigation": {
+                "requests": 1,
+                "bytes": 7998980
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 150.389,
+              "journey_elapsed_ms": 2197.302,
+              "journey_bytes": 10271875,
+              "result": "1–15 of 15 results · 26 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4560:translation:ja:revision:2799bd8fa80980da",
+                "hadeethenc:entry:66511:translation:tl:revision:d03fc2ce107d628e",
+                "deenhindi-bukhari:1",
+                "fa-muslim-mundhiri-tarshabi-v2-p01056",
+                "fawaz:df57907be352:nawawi:1"
+              ],
+              "network": {
+                "request_count": 9,
+                "completed_request_count": 9,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 467598,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "discovery_previews": {
+                    "requests": 9,
+                    "bytes": 467598
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 88.779,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–15 of 15 results · 26 matching source occurrences",
+              "first_ids": [
+                "hadeethenc:entry:4560:translation:ja:revision:2799bd8fa80980da",
+                "hadeethenc:entry:66511:translation:tl:revision:d03fc2ce107d628e",
+                "deenhindi-bukhari:1",
+                "fa-muslim-mundhiri-tarshabi-v2-p01056",
+                "fawaz:df57907be352:nawawi:1"
+              ],
+              "network": {
+                "request_count": 0,
+                "completed_request_count": 0,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 0,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {}
+              }
+            }
+          ]
+        },
+        {
+          "query": "actions depend on intentions",
+          "journey": "wording",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2084.289
+          },
+          "startup_network": {
+            "request_count": 2,
+            "completed_request_count": 2,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 9804277,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1805297
+              },
+              "discovery_navigation": {
+                "requests": 1,
+                "bytes": 7998980
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 215.712,
+              "journey_elapsed_ms": 2300.001,
+              "journey_bytes": 12024402,
+              "result": "1–12 of 12 results · 12 matching source occurrences · Broader wording matches",
+              "first_ids": [
+                "deenhindi-bukhari:2529",
+                "fawaz:df57907be352:bukhari:2529",
+                "fawaz:df57907be352:bukhari:6689",
+                "fawaz:df57907be352:bukhari:6493",
+                "deenhindi-abudawud:2201"
+              ],
+              "network": {
+                "request_count": 16,
+                "completed_request_count": 16,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 2220125,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "discovery_postings": {
+                    "requests": 4,
+                    "bytes": 1333194
+                  },
+                  "discovery_previews": {
+                    "requests": 12,
+                    "bytes": 886931
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 90.503,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–12 of 12 results · 12 matching source occurrences · Broader wording matches",
+              "first_ids": [
+                "deenhindi-bukhari:2529",
+                "fawaz:df57907be352:bukhari:2529",
+                "fawaz:df57907be352:bukhari:6689",
+                "fawaz:df57907be352:bukhari:6493",
+                "deenhindi-abudawud:2201"
+              ],
+              "network": {
+                "request_count": 0,
+                "completed_request_count": 0,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 0,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {}
+              }
+            }
+          ]
+        },
+        {
+          "query": "anger",
+          "journey": "topic",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2079.749
+          },
+          "startup_network": {
+            "request_count": 2,
+            "completed_request_count": 2,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 9804277,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1805297
+              },
+              "discovery_navigation": {
+                "requests": 1,
+                "bytes": 7998980
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 275.928,
+              "journey_elapsed_ms": 2355.677,
+              "journey_bytes": 13725163,
+              "result": "1–25 of 994 results · 1,086 matching source occurrences",
+              "first_ids": [
+                "fawaz:df57907be352:abudawud:4784",
+                "fawaz:df57907be352:abudawud:4782",
+                "fawaz:df57907be352:bukhari:7291",
+                "deenhindi-tirmidhi:2191",
+                "fawaz:df57907be352:tirmidhi:2191"
+              ],
+              "network": {
+                "request_count": 26,
+                "completed_request_count": 26,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 3920886,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "discovery_postings": {
+                    "requests": 5,
+                    "bytes": 2419735
+                  },
+                  "discovery_previews": {
+                    "requests": 21,
+                    "bytes": 1501151
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 99.255,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–25 of 994 results · 1,086 matching source occurrences",
+              "first_ids": [
+                "fawaz:df57907be352:abudawud:4784",
+                "fawaz:df57907be352:abudawud:4782",
+                "fawaz:df57907be352:bukhari:7291",
+                "deenhindi-tirmidhi:2191",
+                "fawaz:df57907be352:tirmidhi:2191"
+              ],
+              "network": {
+                "request_count": 0,
+                "completed_request_count": 0,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 0,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {}
+              }
+            }
+          ]
+        },
+        {
+          "query": "controlling anger",
+          "journey": "topic",
+          "startup": {
+            "status": "complete",
+            "elapsed_ms": 2043.036
+          },
+          "startup_network": {
+            "request_count": 2,
+            "completed_request_count": 2,
+            "pending_request_count": 0,
+            "failed_or_cancelled_count": 0,
+            "completed_encoded_data_bytes": 9804277,
+            "pending_received_encoded_bytes": 0,
+            "disk_cached_responses": 0,
+            "service_worker_responses": 0,
+            "categories": {
+              "html": {
+                "requests": 1,
+                "bytes": 1805297
+              },
+              "discovery_navigation": {
+                "requests": 1,
+                "bytes": 7998980
+              }
+            }
+          },
+          "measurements": [
+            {
+              "warmth": "cold",
+              "elapsed_ms": 283.555,
+              "journey_elapsed_ms": 2326.591,
+              "journey_bytes": 14067551,
+              "result": "1–25 of 1,000 results · 1,092 matching source occurrences",
+              "first_ids": [
+                "fawaz:df57907be352:abudawud:4784",
+                "fawaz:df57907be352:abudawud:4782",
+                "fawaz:df57907be352:bukhari:7291",
+                "deenhindi-tirmidhi:2191",
+                "fawaz:df57907be352:tirmidhi:2191"
+              ],
+              "network": {
+                "request_count": 27,
+                "completed_request_count": 27,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 4263274,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {
+                  "discovery_postings": {
+                    "requests": 6,
+                    "bytes": 2762123
+                  },
+                  "discovery_previews": {
+                    "requests": 21,
+                    "bytes": 1501151
+                  }
+                }
+              }
+            },
+            {
+              "warmth": "warm",
+              "elapsed_ms": 79.256,
+              "journey_elapsed_ms": null,
+              "journey_bytes": null,
+              "result": "1–25 of 1,000 results · 1,092 matching source occurrences",
+              "first_ids": [
+                "fawaz:df57907be352:abudawud:4784",
+                "fawaz:df57907be352:abudawud:4782",
+                "fawaz:df57907be352:bukhari:7291",
+                "deenhindi-tirmidhi:2191",
+                "fawaz:df57907be352:tirmidhi:2191"
+              ],
+              "network": {
+                "request_count": 0,
+                "completed_request_count": 0,
+                "pending_request_count": 0,
+                "failed_or_cancelled_count": 0,
+                "completed_encoded_data_bytes": 0,
+                "pending_received_encoded_bytes": 0,
+                "disk_cached_responses": 0,
+                "service_worker_responses": 0,
+                "categories": {}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "query": "Bukhari 1",
+      "baseline_startup_ms": 2041.003,
+      "candidate_startup_ms": 2046.913,
+      "baseline_cold_journey_ms": 2733.037,
+      "candidate_cold_journey_ms": 2197.302,
+      "baseline_cold_journey_bytes": 9463409,
+      "candidate_cold_journey_bytes": 10271875,
+      "cold_journey_time_reduction_pct": 19.6,
+      "cold_journey_bytes_reduction_pct": -8.54,
+      "baseline_warm_ms": 584.341,
+      "candidate_warm_ms": 88.779,
+      "baseline_warm_bytes": 0,
+      "candidate_warm_bytes": 0,
+      "baseline_result": "1–25 of 26 matching reading cards · 26 matching source occurrences",
+      "candidate_result": "1–15 of 15 results · 26 matching source occurrences"
+    },
+    {
+      "query": "actions depend on intentions",
+      "baseline_startup_ms": 1992.964,
+      "candidate_startup_ms": 2084.289,
+      "baseline_cold_journey_ms": 11486.702,
+      "candidate_cold_journey_ms": 2300.001,
+      "baseline_cold_journey_bytes": 81168750,
+      "candidate_cold_journey_bytes": 12024402,
+      "cold_journey_time_reduction_pct": 79.98,
+      "cold_journey_bytes_reduction_pct": 85.19,
+      "baseline_warm_ms": 9161.243,
+      "candidate_warm_ms": 90.503,
+      "baseline_warm_bytes": 77840786,
+      "candidate_warm_bytes": 0,
+      "baseline_result": "1–9 of 9 matching reading cards · 9 matching source occurrences",
+      "candidate_result": "1–12 of 12 results · 12 matching source occurrences · Broader wording matches"
+    },
+    {
+      "query": "anger",
+      "baseline_startup_ms": 2018.272,
+      "candidate_startup_ms": 2079.749,
+      "baseline_cold_journey_ms": 12223.759,
+      "candidate_cold_journey_ms": 2355.677,
+      "baseline_cold_journey_bytes": 86343874,
+      "candidate_cold_journey_bytes": 13725163,
+      "cold_journey_time_reduction_pct": 80.73,
+      "cold_journey_bytes_reduction_pct": 84.1,
+      "baseline_warm_ms": 9325.608,
+      "candidate_warm_ms": 99.255,
+      "baseline_warm_bytes": 83015910,
+      "candidate_warm_bytes": 0,
+      "baseline_result": "1–25 of 413 matching reading cards · 413 matching source occurrences",
+      "candidate_result": "1–25 of 994 results · 1,086 matching source occurrences"
+    },
+    {
+      "query": "controlling anger",
+      "baseline_startup_ms": 2015.934,
+      "candidate_startup_ms": 2043.036,
+      "baseline_cold_journey_ms": 11899.989,
+      "candidate_cold_journey_ms": 2326.591,
+      "baseline_cold_journey_bytes": 79660201,
+      "candidate_cold_journey_bytes": 14067551,
+      "cold_journey_time_reduction_pct": 80.45,
+      "cold_journey_bytes_reduction_pct": 82.34,
+      "baseline_warm_ms": 8994.975,
+      "candidate_warm_ms": 79.256,
+      "baseline_warm_bytes": 76332237,
+      "candidate_warm_bytes": 0,
+      "baseline_result": "0 matching source occurrences",
+      "candidate_result": "1–25 of 1,000 results · 1,092 matching source occurrences"
+    }
+  ],
+  "limitations": [
+    "One sample per query and warmth; this is observed timing, not a statistical latency distribution.",
+    "Both snapshots served locally without network or CPU throttling; public mobile-network timings require the separate live run.",
+    "The baseline is the historical a9 source snapshot (107693 occurrences), while the candidate uses a later preserved/imported snapshot (109406 occurrences); this is not an isolated same-corpus code experiment.",
+    "Candidate exact-reference/wording/topic journeys intentionally have changed grouping and relevance semantics. Counts must not be treated as accuracy scores or unique-hadith counts.",
+    "Candidate startup transfers more bytes than baseline; Bukhari 1 total cold journey transfers more bytes despite lower elapsed time.",
+    "No browser or source data was changed while producing this summary."
+  ],
+  "completion_verification": {
+    "query_measurements": 16,
+    "startup_measurements": 8,
+    "all_complete": true,
+    "pending_requests": 0,
+    "failed_or_cancelled_requests": 0,
+    "page_errors": 0,
+    "all_http_responses_200": true,
+    "each_target_single_HTML_and_source_binding": true
+  },
+  "source_growth": {
+    "baseline_occurrences": 107693,
+    "candidate_occurrences": 109406,
+    "difference": 1713,
+    "percent": 1.591,
+    "interpretation": "Concurrent preserved imports/review publication differ between snapshots; not a source-deletion or unique-hadith comparison."
+  },
+  "semantic_notes": [
+    "Bukhari 1 retains26 matching occurrences as15 evidence-bound presentation results, versus26 baseline cards.",
+    "Remembered wording changes from9 baseline mixed-field matches to12 explicitly labelled broader wording source matches; not an exact-phrase success claim.",
+    "Anger and controlling anger use the candidate topic journey with visible editorial expansion; baseline all-word matching returns413 and0 occurrences, while candidate returns1086 and1092 occurrences respectively.",
+    "Candidate grouping totals109406 occurrences into103326 presentation families; this is not a unique-hadith audit.",
+    "All candidate startup/query measurements request no source detail, source-text search, directory or commentary scan stores. Candidate query transfers are only4–6 posting parts where needed and9–21 preview parts."
+  ]
+}
