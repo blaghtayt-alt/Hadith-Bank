@@ -90,6 +90,10 @@ jobs:
           python scripts/verify_sitemap_delivery.py --site-root _site
           --expected-source-commit "$GITHUB_SHA"
           --report .work/sitemap-staged-verify.json
+      - name: Verify static HTML5 no-JavaScript DOM equivalence in Chromium
+        run: >-
+          python scripts/verify_static_dom_browser.py --site-root _site
+          --report .work/static-dom-browser.json
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
@@ -115,6 +119,7 @@ jobs:
           name: reader-runtime-${{ github.job }}
           path: |
             .work/sitemap-staged-verify.json
+            .work/static-dom-browser.json
             .work/reader-browser-smoke.json
             .work/reader-fixture-smoke.json
             .work/discovery-fixture-smoke.json
@@ -213,6 +218,10 @@ jobs:
           python scripts/verify_sitemap_delivery.py --site-root _site
           --expected-source-commit "$GITHUB_SHA"
           --report .work/sitemap-staged-verify.json
+      - name: Verify static HTML5 no-JavaScript DOM equivalence in Chromium
+        run: >-
+          python scripts/verify_static_dom_browser.py --site-root _site
+          --report .work/static-dom-browser.json
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
@@ -224,6 +233,7 @@ jobs:
           name: reader-runtime-${{ github.job }}
           path: |
             .work/sitemap-staged-verify.json
+            .work/static-dom-browser.json
             .work/reader-browser-smoke.json
             .work/reader-fixture-smoke.json
             .work/discovery-fixture-smoke.json
