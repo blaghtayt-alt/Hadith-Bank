@@ -5,4 +5,5 @@
 [Language index](../README.md) · [All languages](../../README.md)
 
 - [deenhindi-web-20261112](deenhindi-web-20261112/README.md) — 2208 source occurrences
-- [deenhindi-web-20261112-part-002](deenhindi-web-20261112-part-002/README.md) — 1719 source occurrences
+- [deenhindi-web-20261112-part-002](deenhindi-web-20261112-part-002/README.md) — 2200 source occurrences
+- [deenhindi-web-20261112-part-003](deenhindi-web-20261112-part-003/README.md) — 430 source occurrences
