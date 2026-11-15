@@ -432,7 +432,7 @@ def write_entry_points(output, catalog):
                        if item['release_status'] == 'published_unreviewed_source_import')
     private_count = catalog['record_count'] - public_count
     lines = [
-        '# Hadith Bank — all materials', '',
+        '# Global Hadith Library — all materials', '',
         '**' + format(catalog['record_count'], ',') + ' source records · ' + str(len(catalog['by_language'])) +
         ' languages · ' + str(len(catalog['materials'])) + ' source datasets**', '',
         '[Open the offline reader](hadith-bank-reader.html) · [Browse by language](browse/README.md) · '
@@ -707,7 +707,7 @@ def build(bank_root, output, attachments=None):
     legacy = json.loads((output / 'reports/IMPORT-STATUS.json').read_text(encoding='utf-8'))
     legacy_index = json.loads((output / 'organized/INDEX.json').read_text(encoding='utf-8'))
     catalog = {
-        'schema': 'hadith-bank-materials-v1', 'title': 'Hadith Bank',
+        'schema': 'hadith-bank-materials-v1', 'title': 'Global Hadith Library',
         'scope': 'private_combined_sources' if attachments else 'public_source_snapshots',
         'record_count': len(ids), 'count_unit': 'source narration/entry occurrences across editions; not unique canonical Hadith',
         'by_language': dict(sorted(language_counts.items())), 'translation_origins': dict(origin_counts),

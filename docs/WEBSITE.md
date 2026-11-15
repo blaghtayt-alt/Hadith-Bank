@@ -1,10 +1,10 @@
 # Website and automatic updates
 
-**Search and interactive reader:** [Hadith Bank](https://blaghtayt-alt.github.io/Hadith-Bank/)
+**Search and interactive reader:** [Global Hadith Library](https://blaghtayt-alt.github.io/Hadith-Bank/)
 
 **Static reading pages:** [Languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/)
 
-**Workflow:** [Update Hadith Bank website](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
+**Workflow:** [Update Global Hadith Library website](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
 The website is generated from the accepted canonical data in this repository. It offers every language found in the successfully registered corpus. The current hosted interactive reader loads checksum-verified companion files from this same website as needed. Its HTML alone does not contain the corpus. Reading and search do not call a live external Hadith service. The builder separately supports an embedded standalone artifact; its availability is distinct from the hosted reader. Individual reading pages provide the same source texts in ordinary HTML, with language, book and edition navigation and links to the repository and original documents.
 
@@ -83,7 +83,7 @@ Open the workflow link above and inspect the latest run for the commit that adde
 
 The website keeps its last successful deployment when a build fails. The reader’s build information identifies its source revision; compare it with the expected commit. A successful build followed by a failed deployment is a Pages configuration/deployment problem, not proof that the new narrations were lost.
 
-For a manual rebuild, open **Actions → Update Hadith Bank website → Run workflow**, choose `main`, and run it. Manual runs on other branches do not publish.
+For a manual rebuild, open **Actions → Update Global Hadith Library website → Run workflow**, choose `main`, and run it. Manual runs on other branches do not publish.
 
 ## Repository setup
 

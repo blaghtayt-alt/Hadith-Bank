@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build an offline Hadith Bank reader and optional paginated Markdown views.
+"""Build an offline Global Hadith Library reader and optional paginated Markdown views.
 
 Input: catalog/materials.json, whose search object declares records_path,
 records_sha256 and count. If the whole JSONL file is absent, ordered search.shards
@@ -668,7 +668,7 @@ def build_markdown(records, output, info, catalog=None, bank_root=None):
                               '<br>' + escaped(item.get('location_note')) + '</p>', '']
         save('materials/private.md', '\n'.join(private_lines))
     save('README.md', '\n'.join([
-        '# Hadith Bank — readable records', '',
+        '# Global Hadith Library — readable records', '',
         '[Browse books online](' + download_site['live_url'].rstrip('/') + '/browse/) · [Book and source-edition directory](../catalog/BOOKS.md)', '',
         str(len(records)) + ' source occurrences, organized by language, book and source edition.', '',
         'Open a language, then a book and edition. Every page shows up to 25 narrations with their source, '
@@ -912,7 +912,7 @@ def discovery_head(records, site):
     description = ('Search hadith texts and source books in ' + ', '.join(names) +
                    '. Read source references and available Arabic/English counterparts; download preserved Word and PDF books.')
     canonical = site['live_url'].rstrip('/') + '/'
-    title = 'Hadith Bank — Multilingual Hadith Texts and Source Books'
+    title = 'Global Hadith Library — Multilingual Hadith Texts and Source Books'
     return ('<title>' + escaped(title) + '</title>\n'
             '<meta name="description" content="' + escaped(description) + '">\n'
             '<link rel="canonical" href="' + escaped(canonical) + '">\n'
@@ -1382,7 +1382,7 @@ def build(root, output, markdown_output=None, compress=True, site=None,
         raise ValueError('Reader output must not use symlinks')
     from source_context_pages import load_context_pages
     context_pages = load_context_pages(root)
-    metadata = {**info, 'title': catalog.get('title') or 'Hadith Bank',
+    metadata = {**info, 'title': catalog.get('title') or 'Global Hadith Library',
                 'reader_groups': reader_groups,
                 'materials': load_discovery_material_metadata(root,
                     [{key: value for key, value in material.items() if key != 'supporting_files'}
