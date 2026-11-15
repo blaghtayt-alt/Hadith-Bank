@@ -237,6 +237,42 @@ class DiscoveryTests(unittest.TestCase):
                             '<div class="badge"><!-- unsupported -->Test</div>'):
             self.assertEqual(discovery.compact_static_record_markup(unsupported), unsupported)
 
+    def test_optional_source_definitions_are_same_semantic_dom_and_values(self):
+        original = ('<section class="panel"><dl>'
+                    '<dt>Source language</dt><dd dir="auto">العربية &amp; 中文</dd>'
+                    '<dt>Publisher</dt><dd dir="auto"><a href="https://example.test/?a=1&amp;b=2">TEST author</a></dd>'
+                    '<dt>Qualifier</dt><dd dir="auto"><bdi>Human</bdi> and Unknown are distinct</dd>'
+                    '</dl></section>')
+        candidate = discovery.compact_source_definition_end_tags(original)
+        self.assertLess(len(candidate.encode('utf-8')), len(original.encode('utf-8')))
+        self.assertEqual(discovery._definition_list_dom_events(
+            original[original.index('<dl>'):original.index('</dl>') + 5]),
+            discovery._definition_list_dom_events(
+            candidate[candidate.index('<dl>'):candidate.index('</dl>') + 5]))
+        self.assertIn('العربية &amp; 中文', candidate)
+        self.assertIn('href="https://example.test/?a=1&amp;b=2"', candidate)
+        self.assertIn('dir="auto"', candidate)
+        self.assertIn('Human</bdi> and Unknown', candidate)
+        # Noncanonical arbitrary markup is conservatively left intact.
+        unexpected = '<dl><dt>TEST</dt><dd class="unexpected">No change</dd></dl>'
+        self.assertEqual(discovery.compact_source_definition_end_tags(unexpected), unexpected)
+
+    def test_full_static_record_source_definitions_no_javascript_or_text_loss(self):
+        item = record()
+        original = copy.deepcopy(item)
+        self.build([item])
+        page = (self.output / discovery.record_path(item)).read_text()
+        parsed = Parsed(page)
+        self.assertIn(item['text_translation'], parsed.values)
+        self.assertIn(item['text_arabic'], parsed.values)
+        self.assertEqual(item['text_translation'], original['text_translation'])
+        self.assertIn('Source and translation', page)
+        self.assertIn('Source Translator', page)
+        self.assertIn('Occurrence ID:', page)
+        self.assertGreater(page.count('<dt>'), 4)
+        self.assertNotIn('</dt><dd dir="auto">', page)
+        self.assertEqual([tag for tag, _ in parsed.tags if tag == 'script'], ['script'])
+
     def test_diagnostic_paths_reject_traversal_absolute_stage_and_symlink(self):
         site = self.root / 'staged-site'
         site.mkdir()

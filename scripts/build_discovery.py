@@ -453,6 +453,7 @@ def render_record(writer, record, downloads, sources):
         work['citation'] = source_url
     original_body = ''.join(body)
     compacted_body = compact_static_record_markup(original_body)
+    compacted_body = compact_source_definition_end_tags(compacted_body)
     writer.static_dom_verified += 1
     writer.static_body_bytes_saved += len(original_body.encode('utf-8')) - len(compacted_body.encode('utf-8'))
     writer.page(path, record_title(record), record_description(record), compacted_body, language,
@@ -739,6 +740,61 @@ def compact_static_record_markup(markup):
     if _markup_events(result) != _markup_events(markup):
         raise ValueError('Static-record DOM, source text, links or metadata changed during compaction')
     return result
+
+
+def _definition_list_dom_events(markup):
+    """HTML5 dt/dd implicit-end-tag semantics, scoped to one generated <dl>."""
+    events = _markup_events(markup)
+    output, stack = [], []
+    void = {'br', 'img', 'hr', 'input', 'meta', 'link'}
+    for event in events:
+        kind = event[0]
+        if kind == 'start':
+            tag = event[1]
+            if tag in ('dt', 'dd') and stack and stack[-1] in ('dt', 'dd'):
+                output.append(('end', stack.pop()))
+            output.append(event)
+            if tag not in void:
+                stack.append(tag)
+        elif kind == 'end':
+            tag = event[1]
+            if tag == 'dl' and stack and stack[-1] in ('dt', 'dd'):
+                output.append(('end', stack.pop()))
+            if not stack or stack[-1] != tag:
+                return None
+            stack.pop()
+            output.append(event)
+        else:
+            output.append(event)
+    return output if not stack else None
+
+
+def compact_source_definition_end_tags(markup):
+    """Omit only HTML5-optional dt/dd closing tags in our generated source <dl>.
+
+    All source values, links, attributes and reading/provenance labels remain
+    inline and directly accessible without JavaScript. A per-record normalized
+    DOM event check fails closed on any unexpected markup.
+    """
+    start = markup.find('<dl>')
+    if start < 0:
+        return markup
+    end = markup.find('</dl>', start)
+    if end < 0 or markup.find('<dl>', start + 4, end) >= 0:
+        return markup
+    end += len('</dl>')
+    original = markup[start:end]
+    expected_pairs = original.count('<dt>')
+    if (not expected_pairs or expected_pairs != original.count('</dt>')
+            or expected_pairs != original.count('<dd dir="auto">')
+            or expected_pairs != original.count('</dd>')):
+        return markup
+    shorter = (original.replace('</dt><dd dir="auto">', '<dd dir="auto">')
+               .replace('</dd><dt>', '<dt>')
+               .replace('</dd></dl>', '</dl>'))
+    if _definition_list_dom_events(shorter) != _definition_list_dom_events(original):
+        raise ValueError('Definition list optional tags changed source/provenance DOM')
+    return markup[:start] + shorter + markup[end:]
 
 
 def site_size_inventory(output):
