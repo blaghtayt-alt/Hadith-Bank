@@ -52,7 +52,7 @@ Every reading retains its Japanese PDF/page and source-record locator. Printed s
 
 Candidate Arabic and English are preserved in the research evidence. The explicit material counterpart hold prevents their automatic or reviewed promotion to accepted language counterparts. This import does not generate a new translation or fill missing language panels with guessed text.
 
-The canonical records include a Japanese `language_versions` entry with its own source, references and comments, plus the existing compatibility fields. They use the multilingual-panel framework merged in [PR #6](https://github.com/blaghtayt-alt/Hadith-Bank/pull/6). The shared build generates the reader and search; the importer supplies canonical sources and never manually edits generated HTML.
+The canonical records include a Japanese `language_versions` entry with its own source, references and comments, plus the existing compatibility fields. They use the multilingual-panel framework merged in [PR #6](https://github.com/blaghtayt-alt/Global-Hadith-Library/pull/6). The shared build generates the reader and search; the importer supplies canonical sources and never manually edits generated HTML.
 
 ## Exact archive preservation and reproduction
 

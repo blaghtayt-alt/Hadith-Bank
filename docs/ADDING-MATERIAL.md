@@ -101,7 +101,7 @@ Open `_site/index.html` to inspect the complete updated reader. Search for an ex
 
 Commit the material folder through Git, or use GitHub's **Add file → Upload files** for a suitable-size folder. Keep `manifest.json`, the records and the original source together in the same change. If using a pull request, merge it into `main` after the validation job succeeds.
 
-The **[Update Hadith Bank website](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)** run then rebuilds and publishes the site. It also synchronizes generated bank catalogs, search shards, reading pages and the HTML in the repository. The [website URL](https://blaghtayt-alt.github.io/Hadith-Bank/) remains unchanged.
+The **[Update Hadith Bank website](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml)** run then rebuilds and publishes the site. It also synchronizes generated bank catalogs, search shards, reading pages and the HTML in the repository. The [website URL](https://blaghtayt-alt.github.io/Global-Hadith-Library/) remains unchanged.
 
 You can commit just the canonical material folder; the workflow produces the derived files. Do not manually edit `search/`, `browse/`, generated catalog entries or the embedded HTML to add a narration. Such changes would be replaced by the next canonical-data build.
 

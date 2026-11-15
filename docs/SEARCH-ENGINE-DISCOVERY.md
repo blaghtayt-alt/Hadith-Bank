@@ -2,17 +2,17 @@
 
 Hadith Bank publishes ordinary HTML reading pages so that a person can reach a particular source quotation or book from a search result. The interactive reader remains available for filtering and offline search.
 
-**Browse:** [Languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/)
+**Browse:** [Languages and books](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/)
 
 **Book titles and downloads:** [Generated book catalog](../catalog/BOOKS.md)
 
-**Sitemap:** [sitemap.xml](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml)
+**Sitemap:** [sitemap.xml](https://blaghtayt-alt.github.io/Global-Hadith-Library/sitemap.xml)
 
 ## What the build generates
 
 `scripts/refresh_bank.py` runs `scripts/build_discovery.py` against the accepted, checksum-verified search corpus. It generates these paths in the `_site/` deployment artifact:
 
-| Website path, under `/Hadith-Bank/` | Content |
+| Website path, under `/Global-Hadith-Library/` | Content |
 | --- | --- |
 | `browse/` | Accepted languages and links to their books |
 | `browse/<language>/` | Collections available in that language |
@@ -43,7 +43,7 @@ The sitemap contains absolute canonical website URLs. The build splits the URL l
 
 The public entry point stays **`sitemap.xml`**. Its children are now genuine gzip-compressed XML at `sitemap-0001.xml.gz`, `sitemap-0002.xml.gz`, and any later numbered shards. The uncompressed XML bytes and complete canonical URL inventory are preserved; only the child transfer/storage representation changes. Google [documents compressed sitemap children inside XML sitemap indexes](https://developers.google.com/search/docs/crawling-indexing/sitemaps/large-sitemaps), and [Bing supports gzip XML sitemaps](https://blogs.bing.com/webmaster/2025/7/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search/).
 
-Previously published child paths such as `sitemap-0001.xml` are **not** redirected by GitHub Pages. A static HTML redirect is not valid XML, and shipping duplicate full-size XML children would defeat the site-size repair. If an individual uncompressed child URL was previously submitted in Google Search Console or Bing Webmaster Tools, remove that obsolete individual submission and submit or refresh only **`https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml`**. Existing submitted-child history is not accessible to this repository; do not claim it was automatically migrated. No occurrence page, book URL or original-download URL is changed by the sitemap format.
+Previously published child paths such as `sitemap-0001.xml` are **not** redirected by GitHub Pages. A static HTML redirect is not valid XML, and shipping duplicate full-size XML children would defeat the site-size repair. If an individual uncompressed child URL was previously submitted in Google Search Console or Bing Webmaster Tools, remove that obsolete individual submission and submit or refresh only **`https://blaghtayt-alt.github.io/Global-Hadith-Library/sitemap.xml`**. Existing submitted-child history is not accessible to this repository; do not claim it was automatically migrated. No occurrence page, book URL or original-download URL is changed by the sitemap format.
 
 The workflow verifies the entire compressed URL list, each decompressed XML SHA-256, all staged canonical HTML targets, and the exact source revision. After a successful Pages deployment it refetches **the real public gzip responses** and checks the same source-bound hashes. Passing staging tests or a green but skipped deployment is not evidence of public crawler compatibility. Check actual Search Console/Bing processing separately after publication.
 
@@ -55,9 +55,9 @@ The Markdown book catalog is committed with generated repository catalogs. The i
 
 Publishing the sitemap makes it available; it does not by itself verify a Search Console property or submit the sitemap to Google.
 
-1. In [Google Search Console](https://search.google.com/search-console/), add or open the URL-prefix property **`https://blaghtayt-alt.github.io/Hadith-Bank/`**.
+1. In [Google Search Console](https://search.google.com/search-console/), add or open the URL-prefix property **`https://blaghtayt-alt.github.io/Global-Hadith-Library/`**.
 2. Complete an ownership-verification method offered for that property. Preserve any required verification file or tag through future site builds.
-3. Open **Sitemaps** and submit **`sitemap.xml`**, whose full URL is **`https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml`**.
+3. Open **Sitemaps** and submit **`sitemap.xml`**, whose full URL is **`https://blaghtayt-alt.github.io/Global-Hadith-Library/sitemap.xml`**.
 4. Use **URL Inspection** on a book page and an individual narration page to examine Google’s indexing status. The sitemap handles the larger set of URLs; repeated requests for the same page do not speed up crawling.
 
 Google states that crawling can take days to weeks, and a crawl request does not guarantee inclusion. Search rankings and snippets are determined by the search engine. See [requesting a recrawl](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
@@ -68,7 +68,7 @@ This is a GitHub **project** site. The robots file that can govern it is at the 
 
 `https://blaghtayt-alt.github.io/robots.txt`
 
-A file at `/Hadith-Bank/robots.txt` would be inside a subdirectory and would not serve as that host’s authoritative robots file. This repository does not claim to control the account-root site. Its crawlable links and published sitemap provide discovery paths; crawling is allowed by default unless an applicable rule blocks it. See Google’s [robots.txt location rules](https://developers.google.com/crawling/docs/robots-txt/create-robots-txt).
+A file at `/Global-Hadith-Library/robots.txt` would be inside a subdirectory and would not serve as that host’s authoritative robots file. This repository does not claim to control the account-root site. Its crawlable links and published sitemap provide discovery paths; crawling is allowed by default unless an applicable rule blocks it. See Google’s [robots.txt location rules](https://developers.google.com/crawling/docs/robots-txt/create-robots-txt).
 
 If the account-root site is managed separately, its owner can reference the project’s sitemap there. That is a separate host-level change, not a requirement to create misleading project-level robots rules.
 

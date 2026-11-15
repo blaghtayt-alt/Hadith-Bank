@@ -374,7 +374,7 @@ jobs:
           EXPECTED_READER_SHA256: ${{ needs.build.outputs.reader_sha256 }}
         run: >-
           python scripts/verify_discovery_browser.py
-          --production-url https://blaghtayt-alt.github.io/Hadith-Bank/
+          --production-url https://blaghtayt-alt.github.io/Global-Hadith-Library/
           --expected-source-commit "$GITHUB_SHA"
           --expected-reader-sha256 "$EXPECTED_READER_SHA256"
           --report .work/discovery-live-smoke.json
@@ -383,7 +383,7 @@ jobs:
         if: steps.deployment.outcome == 'success'
         run: >-
           python scripts/verify_sitemap_delivery.py
-          --production-url https://blaghtayt-alt.github.io/Hadith-Bank/
+          --production-url https://blaghtayt-alt.github.io/Global-Hadith-Library/
           --expected-source-commit "$GITHUB_SHA"
           --report .work/sitemap-live-verify.json
       - name: Measure cold and warm searches on the published revision
@@ -393,7 +393,7 @@ jobs:
           EXPECTED_READER_SHA256: ${{ needs.build.outputs.reader_sha256 }}
         run: |
           python scripts/benchmark_discovery_browser.py \
-            --candidate-url https://blaghtayt-alt.github.io/Hadith-Bank/ \
+            --candidate-url https://blaghtayt-alt.github.io/Global-Hadith-Library/ \
             --report .work/discovery-live-benchmark.json --timeout-ms 120000 \
             --require-candidate-complete
           python - <<'PY'

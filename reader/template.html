@@ -17,9 +17,9 @@ __HADITH_UI_ICONS__
   <div class="shell topline">
     <a class="brand" href="#top" aria-label="Global Hadith Library, top of page"><span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-reader"></use></svg></span><span id="brand-title">Global Hadith Library</span></a>
     <nav class="site-nav" aria-label="Global Hadith Library navigation">
-      <a id="live-reader-link" class="nav-current" href="https://blaghtayt-alt.github.io/Hadith-Bank/">Read &amp; explore</a>
-      <a id="repository-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Sources<svg class="icon" aria-hidden="true"><use href="#icon-external-link"></use></svg></a>
-      <a id="add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a>
+      <a id="live-reader-link" class="nav-current" href="https://blaghtayt-alt.github.io/Global-Hadith-Library/">Read &amp; explore</a>
+      <a id="repository-link" href="https://github.com/blaghtayt-alt/Global-Hadith-Library" target="_blank" rel="noopener noreferrer">Sources<svg class="icon" aria-hidden="true"><use href="#icon-external-link"></use></svg></a>
+      <a id="add-material-link" href="https://github.com/blaghtayt-alt/Global-Hadith-Library/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a>
       <a id="offline-download" class="reader-download" href="hadith-bank-reader.html" download="hadith-bank-reader.html"><svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg><span>Download offline reader</span></a>
     </nav>
   </div>
@@ -82,7 +82,7 @@ __HADITH_UI_ICONS__
     </div>
   </div>
 </main>
-<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Global Hadith Library</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each result displays a source occurrence or an evidence-linked presentation family. Every source edition, occurrence ID and translation version remains preserved. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Global Hadith Library</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Global-Hadith-Library" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Global-Hadith-Library/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each result displays a source occurrence or an evidence-linked presentation family. Every source edition, occurrence ID and translation version remains preserved. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
 <noscript><div class="no-js">Open “Browse languages and source books” above to read the online pages without JavaScript. The interactive reader needs JavaScript. A standalone download includes its records; a hosted edition loads its data from this site.</div></noscript>
 <script id="hadith-records" type="application/octet-stream" data-encoding="__HADITH_ENCODING__">__HADITH_RECORDS_JSON__</script>
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
@@ -758,7 +758,7 @@ if(snapshot.counterparts && Number.isInteger(snapshot.counterparts.total)){
   $("counterpart-summary").hidden=false;
   $("counterpart-summary").textContent="Arabic text available for "+nf.format(arabicText || 0)+" source occurrences · English text for "+nf.format(englishText || 0)+(englishLinks?" · English source links for "+nf.format(englishLinks):"")+". Open either language on a narration to see its source and reference.";
 }
-const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Hadith-Bank",live_url:"https://blaghtayt-alt.github.io/Hadith-Bank/",source_ref:"main"};
+const site=snapshot.site || {repository_url:"https://github.com/blaghtayt-alt/Global-Hadith-Library",live_url:"https://blaghtayt-alt.github.io/Global-Hadith-Library/",source_ref:"main"};
 const availabilityReport=snapshot.counterparts && snapshot.counterparts.availability;
 if(availabilityReport && availabilityReport.totals){
   const totals=availabilityReport.totals;

@@ -1,10 +1,10 @@
 # Website and automatic updates
 
-**Search and interactive reader:** [Global Hadith Library](https://blaghtayt-alt.github.io/Hadith-Bank/)
+**Search and interactive reader:** [Global Hadith Library](https://blaghtayt-alt.github.io/Global-Hadith-Library/)
 
-**Static reading pages:** [Languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/)
+**Static reading pages:** [Languages and books](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/)
 
-**Workflow:** [Update Global Hadith Library website](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
+**Workflow:** [Update Global Hadith Library website](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml)
 
 The website is generated from the accepted canonical data in this repository. It offers every language found in the successfully registered corpus. The current hosted interactive reader loads checksum-verified companion files from this same website as needed. Its HTML alone does not contain the corpus. Reading and search do not call a live external Hadith service. The builder separately supports an embedded standalone artifact; its availability is distinct from the hosted reader. Individual reading pages provide the same source texts in ordinary HTML, with language, book and edition navigation and links to the repository and original documents.
 
@@ -29,11 +29,11 @@ Generated commits use GitHub’s built-in workflow token and a `[skip ci]` messa
 
 | Entry point | Purpose and updates |
 | --- | --- |
-| [Main website](https://blaghtayt-alt.github.io/Hadith-Bank/) | Interactive search and filters; updates after a successful build/deployment from `main`. |
-| [Language and book indexes](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) | Ordinary HTML links to source editions and individual occurrences; regenerated with the same accepted corpus. |
+| [Main website](https://blaghtayt-alt.github.io/Global-Hadith-Library/) | Interactive search and filters; updates after a successful build/deployment from `main`. |
+| [Language and book indexes](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/) | Ordinary HTML links to source editions and individual occurrences; regenerated with the same accepted corpus. |
 | `hadith/<language>/<book>/<edition>/<stable-id-hash>.html` on the website | Individual source text, provenance and available source downloads. The URL derives from the stable occurrence ID. |
 | [Book catalog](../catalog/BOOKS.md) | Human-readable source-edition titles and reading/download links in GitHub. |
-| [Sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) | Machine-readable discovery of canonical reading URLs; regenerated on each successful build. |
+| [Sitemap](https://blaghtayt-alt.github.io/Global-Hadith-Library/sitemap.xml) | Machine-readable discovery of canonical reading URLs; regenerated on each successful build. |
 | Hosted `hadith-bank-reader.html` | Requires the matching companion data files; downloading the HTML alone is insufficient for offline use. |
 | **Download offline reader**, when configured | Links to a separately configured standalone artifact. The control is hidden when no standalone URL is supplied. |
 | Explicitly generated standalone reader | Embeds its saved text snapshot; rebuild it to include later additions. |

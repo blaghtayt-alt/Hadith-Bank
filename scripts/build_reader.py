@@ -47,8 +47,8 @@ LANGUAGE_NAMES = {
     'vi': 'Vietnamese', 'zh': 'Chinese', 'zh-CN': 'Chinese (Simplified)',
 }
 DEFAULT_SITE = {
-    'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
-    'live_url': 'https://blaghtayt-alt.github.io/Hadith-Bank/',
+    'repository_url': 'https://github.com/blaghtayt-alt/Global-Hadith-Library',
+    'live_url': 'https://blaghtayt-alt.github.io/Global-Hadith-Library/',
     'source_ref': 'main',
 }
 SHA256 = re.compile(r'[0-9a-fA-F]{64}\Z')

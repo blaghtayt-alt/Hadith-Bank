@@ -18,8 +18,8 @@ import build_discovery as discovery
 import refresh_bank as refresh
 
 
-SITE = {'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
-        'live_url': 'https://blaghtayt-alt.github.io/Hadith-Bank/',
+SITE = {'repository_url': 'https://github.com/blaghtayt-alt/Global-Hadith-Library',
+        'live_url': 'https://blaghtayt-alt.github.io/Global-Hadith-Library/',
         'source_ref': 'a' * 40}
 
 
@@ -277,7 +277,7 @@ class DiscoveryTests(unittest.TestCase):
     def test_full_static_shell_compaction_preserves_schema_links_and_rtl(self):
         source = ('<!doctype html>\n<html lang="fa-IR"><head>'
                   '<meta charset="utf-8"><title>TEST Arabic "title" &amp; source</title>'
-                  '<link rel="canonical" href="https://example.test/Hadith-Bank/hadith/one.html">'
+                  '<link rel="canonical" href="https://example.test/Global-Hadith-Library/hadith/one.html">'
                   '<script type="application/ld+json">{"source":"TEST","quote":"\\u003c"}</script>'
                   '</head><body><main id="content"><div lang="ar" dir="rtl">'
                   '<a href="../../browse/one.html" target="_blank">قراءة &amp; source</a>'

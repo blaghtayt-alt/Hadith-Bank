@@ -2,7 +2,7 @@
 
 This file records the implementation and validation history. Pending states
 below describe their recorded checkpoints. Current integration and publication
-evidence is maintained in [PR #16](https://github.com/blaghtayt-alt/Hadith-Bank/pull/16).
+evidence is maintained in [PR #16](https://github.com/blaghtayt-alt/Global-Hadith-Library/pull/16).
 
 ## Ownership and scope
 
