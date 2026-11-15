@@ -143,7 +143,8 @@ class DiscoveryTests(unittest.TestCase):
         self.assertIn('5472-3775-(6)', chinese_markup)
         self.assertIn('Source numbering details', chinese_markup)
         persian_markup = (self.output / discovery.record_path(persian)).read_text()
-        self.assertIn('lang="fa" dir="rtl"', persian_markup)
+        self.assertTrue(any(tag == 'div' and attrs.get('lang') == 'fa' and attrs.get('dir') == 'rtl'
+                            for tag, attrs in Parsed(persian_markup).tags))
         self.assertIn('AI-generated', persian_markup)
         self.assertIn('Hadith excerpt', persian_markup)
         self.assertIn('Companion report', (self.output / discovery.record_path(japanese)).read_text())
@@ -384,7 +385,7 @@ class DiscoveryTests(unittest.TestCase):
         self.assertTrue(second_page.is_file())
         self.assertEqual(first['record_pages'], second['record_pages'])
         self.assertEqual(first['sitemap_url_count'], first['indexable_pages'] + 1)
-        self.assertIn('aria-current="page">2', second_page.read_text())
+        self.assertRegex(second_page.read_text(), r'<strong aria-current=(?:"page"|page)>2</strong>')
         first_page = (self.output / 'browse/zh-CN/abu-dawud/source-2026/index.html').read_text()
         self.assertIn(discovery.record_path(one).split('/')[-1], first_page)
         self.assertIn(discovery.record_path(two).split('/')[-1], first_page)
