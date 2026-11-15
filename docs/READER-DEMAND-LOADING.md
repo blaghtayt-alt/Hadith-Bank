@@ -69,6 +69,8 @@ concurrent source imports. Large generated outputs are rebuilt in Actions.
 Only source code and compact evidence are transferred by the assistant.
 Standalone embedded readers and the legacy v1 loader remain supported.
 
+Compact discovery-index requests now make at most three attempts for HTTP 429, 502, 503 and 504, or a transient transport TypeError, with cancellable 250 ms and 800 ms pauses. The first request keeps the existing cache behavior; subsequent attempts force a cache refresh for the same content-addressed path. Persistent errors report the final HTTP status and attempt count rather than returning zero results. HTTP 404, redirects, invalid paths or source hashes, and gzip/SHA mismatches remain hard failures, without a fabricated fallback. The whole index transfer still has the original 60-second timeout. The independent lazy detail/directory transport is not changed by this fix.
+
 ## Verification
 
 The focused suites exercise real producer/runtime search parity, complete

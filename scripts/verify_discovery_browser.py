@@ -607,6 +607,94 @@ async def transport_failure_checks(browser, fixture, base, args, report):
         await wait_home(page, args.timeout_ms)
         report['checks'].append('corrupt_navigation_index_rejected_and_reload_recovers_verified_home')
 
+        report['current_step'] = 'transport.transient_503_compact_index'
+        transient_requests = []
+
+        async def transient_index(route):
+            transient_requests.append(route.request.url)
+            if len(transient_requests) <= 2:
+                await route.fulfill(status=503, content_type='text/plain',
+                                    body='TEST transient service failure')
+            else:
+                await route.continue_()
+
+        await page.route(index_url, transient_index)
+        await page.reload(wait_until='domcontentloaded', timeout=args.timeout_ms)
+        await wait_home(page, args.timeout_ms)
+        require(len(transient_requests) == 3,
+                'Transient 503 must retry exactly twice before loading the verified index')
+        require(await page.locator('#results .error').count() == 0,
+                'Recovered compact index must not leave a stale error')
+        await page.unroute(index_url, transient_index)
+        report['checks'].append('transient_503_twice_then_verified_index_loads_without_manual_reload')
+
+        report['current_step'] = 'transport.persistent_503_ends_in_explicit_error'
+        persistent_requests = []
+
+        async def persistent_index(route):
+            persistent_requests.append(route.request.url)
+            await route.fulfill(status=503, content_type='text/plain',
+                                body='TEST persistently unavailable service')
+
+        await page.route(index_url, persistent_index)
+        await page.reload(wait_until='domcontentloaded', timeout=args.timeout_ms)
+        await page.locator('#results .error').wait_for(state='visible', timeout=args.timeout_ms)
+        failure_text = await page.locator('#results .error').inner_text()
+        require('503' in failure_text and '3 attempts' in failure_text,
+                'Persistent HTTP 503 must report the status and bounded retry count')
+        require(len(persistent_requests) == 3,
+                'Persistent 503 must stop after three attempts')
+        require(await page.locator('#results .compact-result').count() == 0,
+                'Persistent 503 must not be shown as zero verified narrations')
+        await page.unroute(index_url, persistent_index)
+        await page.get_by_role('button', name='Reload and retry').click()
+        await wait_home(page, args.timeout_ms)
+        report['checks'].append('persistent_503_bounded_failure_and_manual_reload_recovers')
+
+        report['current_step'] = 'transport.nonretryable_404'
+        missing_requests = []
+
+        async def missing_index(route):
+            missing_requests.append(route.request.url)
+            await route.fulfill(status=404, body='TEST missing index')
+
+        await page.route(index_url, missing_index)
+        await page.reload(wait_until='domcontentloaded', timeout=args.timeout_ms)
+        await page.locator('#results .error').wait_for(state='visible', timeout=args.timeout_ms)
+        require('404' in await page.locator('#results .error').inner_text(),
+                'Missing index must retain HTTP 404 rather than suggesting a transient service failure')
+        require(len(missing_requests) == 1, 'Missing index must not be retried as a 503')
+        await page.unroute(index_url, missing_index)
+        await page.get_by_role('button', name='Reload and retry').click()
+        await wait_home(page, args.timeout_ms)
+        report['checks'].append('missing_404_not_retried_and_reload_recovers')
+
+        report['current_step'] = 'transport.mobile_503_cold_then_warm_load'
+        mobile_context = await browser.new_context(viewport={'width': 390, 'height': 844},
+                                                   device_scale_factor=2, is_mobile=True, has_touch=True)
+        try:
+            mobile_page = await mobile_context.new_page()
+            mobile_requests = []
+
+            async def mobile_transient(route):
+                mobile_requests.append(route.request.url)
+                if len(mobile_requests) == 1:
+                    await route.fulfill(status=503, content_type='text/plain', body='TEST transient 503')
+                else:
+                    await route.continue_()
+
+            await mobile_page.route(index_url, mobile_transient)
+            await mobile_page.goto(base, wait_until='domcontentloaded', timeout=args.timeout_ms)
+            await wait_home(mobile_page, args.timeout_ms)
+            require(len(mobile_requests) == 2,
+                    'Cold mobile startup should recover from one 503 in two requests')
+            await mobile_page.unroute(index_url, mobile_transient)
+            await mobile_page.reload(wait_until='domcontentloaded', timeout=args.timeout_ms)
+            await wait_home(mobile_page, args.timeout_ms)
+            report['checks'].append('mobile_cold_503_auto_recovery_then_warm_reload_verified')
+        finally:
+            await mobile_context.close()
+
         report['current_step'] = 'transport.corrupt_query_part_and_retry'
         terms = fixture['payload']['terms']
         term_index = terms.index('testdeepword')
