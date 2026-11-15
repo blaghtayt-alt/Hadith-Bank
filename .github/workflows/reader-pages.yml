@@ -71,6 +71,29 @@ jobs:
           retention-days: 7
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+        env:
+          HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+          HADITH_SITE_FINAL_SIZE_REPORT: .work/site-size-final.json
+      - name: Preserve complete site-size evidence even if publication budget fails
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: site-size-inventory-${{ github.job }}
+          path: |
+            .work/site-size-histogram.json
+            .work/site-size-final.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Verify staged sitemap gzip bytes and all canonical URLs
+        run: >-
+          python scripts/verify_sitemap_delivery.py --site-root _site
+          --expected-source-commit "$GITHUB_SHA"
+          --report .work/sitemap-staged-verify.json
+      - name: Verify static HTML5 no-JavaScript DOM equivalence in Chromium
+        run: >-
+          python scripts/verify_static_dom_browser.py --site-root _site
+          --report .work/static-dom-browser.json
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
@@ -95,6 +118,8 @@ jobs:
         with:
           name: reader-runtime-${{ github.job }}
           path: |
+            .work/sitemap-staged-verify.json
+            .work/static-dom-browser.json
             .work/reader-browser-smoke.json
             .work/reader-fixture-smoke.json
             .work/discovery-fixture-smoke.json
@@ -174,6 +199,29 @@ jobs:
           fi
       - name: Rebuild and validate all registered material
         run: python scripts/refresh_bank.py --root . --site-output _site
+        env:
+          HADITH_SITE_SIZE_REPORT: .work/site-size-histogram.json
+          HADITH_SITE_FINAL_SIZE_REPORT: .work/site-size-final.json
+      - name: Preserve complete site-size evidence even if publication budget fails
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: site-size-inventory-${{ github.job }}
+          path: |
+            .work/site-size-histogram.json
+            .work/site-size-final.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7
+      - name: Verify staged sitemap gzip bytes and all canonical URLs
+        run: >-
+          python scripts/verify_sitemap_delivery.py --site-root _site
+          --expected-source-commit "$GITHUB_SHA"
+          --report .work/sitemap-staged-verify.json
+      - name: Verify static HTML5 no-JavaScript DOM equivalence in Chromium
+        run: >-
+          python scripts/verify_static_dom_browser.py --site-root _site
+          --report .work/static-dom-browser.json
       - name: Verify bounded reader in Chromium
         run: python scripts/verify_reader_browser.py --site-root _site --report .work/reader-browser-smoke.json
       - name: Verify searchable bank journeys and accessibility in Chromium
@@ -184,6 +232,8 @@ jobs:
         with:
           name: reader-runtime-${{ github.job }}
           path: |
+            .work/sitemap-staged-verify.json
+            .work/static-dom-browser.json
             .work/reader-browser-smoke.json
             .work/reader-fixture-smoke.json
             .work/discovery-fixture-smoke.json
@@ -329,6 +379,13 @@ jobs:
           --expected-reader-sha256 "$EXPECTED_READER_SHA256"
           --report .work/discovery-live-smoke.json
           --evidence-dir .work/discovery-live-images
+      - name: Verify actual hosted gzip sitemap bytes and source revision
+        if: steps.deployment.outcome == 'success'
+        run: >-
+          python scripts/verify_sitemap_delivery.py
+          --production-url https://blaghtayt-alt.github.io/Hadith-Bank/
+          --expected-source-commit "$GITHUB_SHA"
+          --report .work/sitemap-live-verify.json
       - name: Measure cold and warm searches on the published revision
         if: steps.deployment.outcome == 'success'
         timeout-minutes: 10
@@ -361,6 +418,7 @@ jobs:
           name: reader-live-verification
           path: |
             .work/discovery-live-smoke.json
+            .work/sitemap-live-verify.json
             .work/discovery-live-benchmark.json
             .work/discovery-live-images/
           include-hidden-files: true

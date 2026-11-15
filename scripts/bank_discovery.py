@@ -11,6 +11,7 @@ import base64
 from collections import Counter, defaultdict
 from functools import lru_cache
 import gzip
+from gzip_wire import smallest_gzip
 import hashlib
 import json
 from pathlib import Path
@@ -815,7 +816,7 @@ def write_discovery_artifact(payload, directory, relative_prefix=''):
 
     def publish(part, prefix, extra=None):
         raw = serialize_discovery(part)
-        compressed = gzip.compress(raw, compresslevel=6, mtime=0)
+        compressed = smallest_gzip(raw)
         if len(compressed) > MAX_COMPRESSED_BYTES:
             raise ValueError('Discovery part exceeds transfer size limit')
         digest = hashlib.sha256(compressed).hexdigest()

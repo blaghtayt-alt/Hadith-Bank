@@ -1,8 +1,10 @@
 """Discovery regression checks: literal source text, stable routes and crawl graph."""
 import copy
+import gzip
 import hashlib
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -13,6 +15,7 @@ import xml.etree.ElementTree as ET
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_discovery as discovery
+import refresh_bank as refresh
 
 
 SITE = {'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
@@ -140,7 +143,8 @@ class DiscoveryTests(unittest.TestCase):
         self.assertIn('5472-3775-(6)', chinese_markup)
         self.assertIn('Source numbering details', chinese_markup)
         persian_markup = (self.output / discovery.record_path(persian)).read_text()
-        self.assertIn('lang="fa" dir="rtl"', persian_markup)
+        self.assertTrue(any(tag == 'div' and attrs.get('lang') == 'fa' and attrs.get('dir') == 'rtl'
+                            for tag, attrs in Parsed(persian_markup).tags))
         self.assertIn('AI-generated', persian_markup)
         self.assertIn('Hadith excerpt', persian_markup)
         self.assertIn('Companion report', (self.output / discovery.record_path(japanese)).read_text())
@@ -177,7 +181,10 @@ class DiscoveryTests(unittest.TestCase):
         locations = []
         for element in sitemap.findall('s:sitemap/s:loc', namespace):
             filename = element.text.removeprefix(SITE['live_url'])
-            locations.extend(node.text for node in ET.parse(self.output / filename).getroot().findall('s:url/s:loc', namespace))
+            raw = (self.output / filename).read_bytes()
+            self.assertTrue(filename.endswith('.xml.gz'))
+            decoded = gzip.decompress(raw)
+            locations.extend(node.text for node in ET.fromstring(decoded).findall('s:url/s:loc', namespace))
         self.assertTrue(all(discovery.canonical_url(discovery.record_path(item), SITE) in locations for item in items))
         self.assertNotIn(SITE['live_url'] + '404.html', locations)
         self.assertFalse((self.output / 'robots.txt').exists())
@@ -195,6 +202,158 @@ class DiscoveryTests(unittest.TestCase):
         (self.root / 'materials/fixture/原本.pdf').write_bytes(b'changed')
         with self.assertRaisesRegex(ValueError, 'checksum mismatch'):
             discovery.build(self.root, bad_output, SITE)
+
+    def test_compact_static_markup_keeps_dom_and_literal_source_wording(self):
+        original = ('<details class="language-reading" lang="ar" dir="rtl">'
+                    '<summary>Source "report" &#x27;one&#x27;</summary>'
+                    '<div class="text quotation">TEST "quoted" &#x27;quoted&#x27; '
+                    '&amp; &lt;unsafe&gt; class="not-a-tag"</div>'
+                    '<a href="https://example.test/?a=1&amp;b=2" target="_blank">'
+                    'Original link</a></details>')
+        smaller = discovery.compact_static_record_markup(original)
+        a, b = Parsed(original), Parsed(smaller)
+        self.assertEqual(a.tags, b.tags)
+        self.assertEqual(a.values, b.values)
+        self.assertLess(len(smaller.encode('utf-8')), len(original.encode('utf-8')))
+        self.assertIn('href="https://example.test/?a=1&amp;b=2"', smaller)
+        self.assertIn('&lt;unsafe&gt;', smaller)
+        self.assertIn('class="not-a-tag"', smaller)
+        source = record()
+        source['text_translation'] = "TEST quoted: \"double\" and 'single' <script>inert()</script>"
+        self.build([source])
+        page = Parsed((self.output / discovery.record_path(source)).read_text())
+        self.assertIn(source['text_translation'], page.values)
+        self.assertEqual([tag for tag, _ in page.tags if tag == 'script'], ['script'])
+
+    def test_quote_aware_tag_parser_preserves_raw_attribute_values(self):
+        html = ('<a title="x > &quot; y" class="badge" '
+                'href="https://example.test/?q=a&gt;b&amp;v=1" target="_blank">'
+                'Quoted "source" &#x27;attribution&#x27;</a>')
+        compact = discovery.compact_static_record_markup(html)
+        self.assertEqual(discovery._markup_events(html), discovery._markup_events(compact))
+        self.assertIn('title="x > &quot; y"', compact)
+        self.assertIn('href="https://example.test/?q=a&gt;b&amp;v=1"', compact)
+        self.assertLess(len(compact.encode('utf-8')), len(html.encode('utf-8')))
+        for unsupported in ('<script>let x = "< > &quot;";</script>',
+                            '<div class="badge"><!-- unsupported -->Test</div>'):
+            self.assertEqual(discovery.compact_static_record_markup(unsupported), unsupported)
+
+    def test_optional_source_definitions_are_same_semantic_dom_and_values(self):
+        original = ('<section class="panel"><dl>'
+                    '<dt>Source language</dt><dd dir="auto">العربية &amp; 中文</dd>'
+                    '<dt>Publisher</dt><dd dir="auto"><a href="https://example.test/?a=1&amp;b=2">TEST author</a></dd>'
+                    '<dt>Qualifier</dt><dd dir="auto"><bdi>Human</bdi> and Unknown are distinct</dd>'
+                    '</dl></section>')
+        candidate = discovery.compact_source_definition_end_tags(original)
+        self.assertLess(len(candidate.encode('utf-8')), len(original.encode('utf-8')))
+        self.assertEqual(discovery._definition_list_dom_events(
+            original[original.index('<dl>'):original.index('</dl>') + 5]),
+            discovery._definition_list_dom_events(
+            candidate[candidate.index('<dl>'):candidate.index('</dl>') + 5]))
+        self.assertIn('العربية &amp; 中文', candidate)
+        self.assertIn('href="https://example.test/?a=1&amp;b=2"', candidate)
+        self.assertIn('dir="auto"', candidate)
+        self.assertIn('Human</bdi> and Unknown', candidate)
+        # Noncanonical arbitrary markup is conservatively left intact.
+        unexpected = '<dl><dt>TEST</dt><dd class="unexpected">No change</dd></dl>'
+        self.assertEqual(discovery.compact_source_definition_end_tags(unexpected), unexpected)
+
+    def test_full_static_record_source_definitions_no_javascript_or_text_loss(self):
+        item = record()
+        original = copy.deepcopy(item)
+        self.build([item])
+        page = (self.output / discovery.record_path(item)).read_text()
+        parsed = Parsed(page)
+        self.assertIn(item['text_translation'], parsed.values)
+        self.assertIn(item['text_arabic'], parsed.values)
+        self.assertEqual(item['text_translation'], original['text_translation'])
+        self.assertIn('Source and translation', page)
+        self.assertIn('Source Translator', page)
+        self.assertIn('Occurrence ID:', page)
+        self.assertGreater(page.count('<dt>'), 4)
+        self.assertNotIn('</dt><dd dir="auto">', page)
+        self.assertEqual([tag for tag, _ in parsed.tags if tag == 'script'], ['script'])
+
+    def test_full_static_shell_compaction_preserves_schema_links_and_rtl(self):
+        source = ('<!doctype html>\n<html lang="fa-IR"><head>'
+                  '<meta charset="utf-8"><title>TEST Arabic "title" &amp; source</title>'
+                  '<link rel="canonical" href="https://example.test/Hadith-Bank/hadith/one.html">'
+                  '<script type="application/ld+json">{"source":"TEST","quote":"\\u003c"}</script>'
+                  '</head><body><main id="content"><div lang="ar" dir="rtl">'
+                  '<a href="../../browse/one.html" target="_blank">قراءة &amp; source</a>'
+                  '<a href="https://example.test/?k=1&amp;v=2">Source</a>'
+                  '</div></main></body></html>')
+        result = discovery.compact_static_page_shell(source)
+        self.assertLess(len(result.encode()), len(source.encode()))
+        self.assertEqual(discovery._markup_events(result), discovery._markup_events(source))
+        self.assertIn('{"source":"TEST","quote":"\\u003c"}', result)
+        self.assertIn('<title>TEST Arabic "title" &amp; source</title>', result)
+        self.assertIn('href="https://example.test/?k=1&amp;v=2"', result)
+        self.assertIn('dir=rtl', result)
+        self.assertIn('lang=ar', result)
+        self.assertIn('href=../../browse/one.html', result)
+        self.assertEqual(discovery.compact_static_page_shell(
+            '<script>TEST arbitrary script content</script>'),
+            '<script>TEST arbitrary script content</script>')
+
+    def test_diagnostic_paths_reject_traversal_absolute_stage_and_symlink(self):
+        site = self.root / 'staged-site'
+        site.mkdir()
+        outside = self.base / 'outside'
+        outside.mkdir()
+        (self.root / 'link-to-outside').symlink_to(outside, target_is_directory=True)
+        for unsafe in ('../outside.json', '/tmp/outside.json', 'staged-site/report.json',
+                       'link-to-outside/report.json'):
+            with self.subTest(destination=unsafe), patch.dict(os.environ, {'HADITH_SITE_SIZE_REPORT': unsafe}):
+                with self.assertRaisesRegex(ValueError, 'inventory|symlink'):
+                    discovery.write_site_size_inventory(self.root, site, {
+                        'source_records_sha256': 'a' * 64, 'site_bytes': 0,
+                    })
+        self.assertFalse((outside / 'report.json').exists())
+        self.assertFalse((site / 'report.json').exists())
+
+    def test_complete_final_site_inventory_and_budget_enforcement(self):
+        _, discovery_report = self.build([record()])
+        (self.output / '.hadith-bank-generated-site').write_text('Test marker')
+        (self.output / 'build-info.json').write_text('{"source_commit":"test"}')
+        final = '.work/site-size-final.json'
+        with patch.dict(os.environ, {'HADITH_SITE_FINAL_SIZE_REPORT': final}):
+            report = refresh.verify_final_site_size(self.root, self.output, {
+                'source_commit': 'a' * 40, 'discovery': discovery_report,
+            })
+        evidence = json.loads((self.root / final).read_text())
+        actual_bytes = sum(path.stat().st_size for path in self.output.rglob('*') if path.is_file())
+        self.assertEqual(report['final_site_bytes'], actual_bytes)
+        self.assertEqual(evidence['final_site_bytes'], actual_bytes)
+        self.assertEqual(report['site_budget_bytes'], 950_000_000)
+        self.assertEqual(report['final_headroom_bytes'], 950_000_000 - actual_bytes)
+        self.assertIn('build-info.json', [item['path'] for item in report['files']])
+        self.assertIn('discovery-info.json', [item['path'] for item in report['files']])
+        for item in report['files']:
+            self.assertEqual(item['sha256'],
+                             hashlib.sha256((self.output / item['path']).read_bytes()).hexdigest())
+        with patch.object(refresh, 'MAX_SITE_BYTES', actual_bytes):
+            with self.assertRaisesRegex(ValueError, 'Final published site exceeds'):
+                refresh.verify_final_site_size(self.root, self.output, {
+                    'source_commit': 'a' * 40, 'discovery': discovery_report,
+                })
+
+    def test_site_size_inventory_is_complete_and_outside_site(self):
+        destination = '.work/site-size-histogram.json'
+        with patch.dict(os.environ, {'HADITH_SITE_SIZE_REPORT': destination}):
+            _, report = self.build([record()])
+        path = self.root / destination
+        snapshot = json.loads(path.read_text(encoding='utf-8'))
+        self.assertEqual(snapshot['schema'], 'hadith-bank-prepublication-site-file-inventory-v1')
+        self.assertEqual(snapshot['site_budget_bytes'], discovery.MAX_SITE_BYTES)
+        self.assertEqual(snapshot['projected_site_bytes_including_discovery_info'], report['site_bytes'])
+        self.assertEqual(snapshot['measured_site_bytes'], sum(item['bytes'] for item in snapshot['files']))
+        self.assertEqual(snapshot['file_count'], len(snapshot['files']))
+        for item in snapshot['files']:
+            self.assertEqual(hashlib.sha256((self.output / item['path']).read_bytes()).hexdigest(),
+                             item['sha256'])
+        self.assertFalse((self.output / destination).exists())
+        self.assertTrue((self.output / 'discovery-info.json').exists())
 
     def test_script_injection_and_raw_html_stay_literal(self):
         item = record()
@@ -226,7 +385,7 @@ class DiscoveryTests(unittest.TestCase):
         self.assertTrue(second_page.is_file())
         self.assertEqual(first['record_pages'], second['record_pages'])
         self.assertEqual(first['sitemap_url_count'], first['indexable_pages'] + 1)
-        self.assertIn('aria-current="page">2', second_page.read_text())
+        self.assertRegex(second_page.read_text(), r'<strong aria-current=(?:"page"|page)>2</strong>')
         first_page = (self.output / 'browse/zh-CN/abu-dawud/source-2026/index.html').read_text()
         self.assertIn(discovery.record_path(one).split('/')[-1], first_page)
         self.assertIn(discovery.record_path(two).split('/')[-1], first_page)
@@ -267,11 +426,47 @@ class DiscoveryTests(unittest.TestCase):
         for path in separate.rglob('*.xml'):
             ET.parse(path)
             self.assertNotIn('lastmod', path.read_text())
+        for path in separate.rglob('*.xml.gz'):
+            decoded = gzip.decompress(path.read_bytes())
+            ET.fromstring(decoded)
+            self.assertNotIn('lastmod', decoded.decode('utf-8'))
+            self.assertEqual(gzip.compress(decoded, compresslevel=9, mtime=0), path.read_bytes())
+        self.assertEqual(len(list(separate.glob('sitemap-*.xml.gz'))), 2)
+        self.assertEqual(report['sitemap_uncompressed_bytes'] - report['sitemap_stored_bytes'],
+                         report['sitemap_lossless_bytes_saved'])
         not_found = Parsed((self.output / '404.html').read_text())
         self.assertIn(('meta', {'name': 'robots', 'content': 'noindex,follow'}), not_found.tags)
         for tag, attrs in not_found.tags:
             if tag in ('a', 'link') and attrs.get('href') and not attrs['href'].startswith('#'):
                 self.assertTrue(attrs['href'].startswith('https://'), attrs)
+
+    def test_lossless_sitemap_byte_identity_unchanged_urls_and_hashes(self):
+        records = [record('TEST-1'), record('TEST-2', 'fa'), record('TEST-3', 'ja')]
+        _, report = self.build(records)
+        root = ET.parse(self.output / 'sitemap.xml').getroot()
+        namespace = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+        paths = [node.text.removeprefix(SITE['live_url']) for node in
+                 root.findall('s:sitemap/s:loc', namespace)]
+        self.assertEqual(len(paths), report['sitemap_count'])
+        self.assertTrue(all(path.endswith('.xml.gz') for path in paths))
+        uncompressed = 0
+        stored = 0
+        urls = set()
+        for index, relative in enumerate(paths):
+            compressed = (self.output / relative).read_bytes()
+            xml = gzip.decompress(compressed)
+            self.assertEqual(hashlib.sha256(xml).hexdigest(),
+                             report['sitemap_original_xml_sha256'][index])
+            self.assertEqual(gzip.compress(xml, compresslevel=9, mtime=0), compressed)
+            uncompressed += len(xml)
+            stored += len(compressed)
+            urls.update(item.text for item in ET.fromstring(xml).findall('s:url/s:loc', namespace))
+        self.assertEqual(uncompressed, report['sitemap_uncompressed_bytes'])
+        self.assertEqual(stored, report['sitemap_stored_bytes'])
+        self.assertEqual(len(urls), report['sitemap_url_count'])
+        for record_ in records:
+            self.assertIn(discovery.canonical_url(discovery.record_path(record_), SITE), urls)
+        self.assertIn(SITE['live_url'], urls)
 
     def test_ocr_badges_current_origin_policy_and_site_size_limit(self):
         item = record()

@@ -53,7 +53,8 @@ class RefreshReaderReuseTests(unittest.TestCase):
         return output
 
     def stage(self, info=None):
-        with patch('refresh_bank.build_discovery', return_value={'pages': 1}):
+        with patch('refresh_bank.build_discovery', return_value={
+                'pages': 1, 'source_records_sha256': self.catalog['search']['records_sha256']}):
             return refresh_bank.stage_site(self.root, '_site', self.info if info is None else info)
 
     def replace_script(self, identifier, value):
