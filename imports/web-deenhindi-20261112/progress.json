@@ -1,20 +1,37 @@
 {
-  "block_reason": null,
-  "blocked": false,
+  "block_reason": {
+    "at": "2026-11-14T23:34:28.564819+00:00",
+    "automatic_retry_allowed": false,
+    "reason": "HTTP 200 verification page received; no retry or bypass: https://deenhindi.com/robots.txt",
+    "snapshot": {
+      "bytes": 12056,
+      "compression": null,
+      "content_type": "text/html",
+      "final_url": "https://deenhindi.com/robots.txt",
+      "path": "imports/web-deenhindi-20261112/raw/cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87.txt",
+      "retrieved_at": "2026-11-14T23:34:28.562279+00:00",
+      "sha256": "cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87",
+      "status": 200,
+      "stored_bytes": 12056,
+      "stored_sha256": "cf24e6ad4bd79a8e372a201d686fd1e247a6964267668262da54beff8cb7fb87",
+      "url": "https://deenhindi.com/robots.txt"
+    }
+  },
+  "blocked": true,
   "by_collection": {
     "abudawud": {
-      "classification_pending": 380,
-      "fetched": 5128,
+      "classification_pending": 409,
+      "fetched": 5274,
       "inventory": 5274,
       "non_narration_source_entries": 12,
-      "registered_hadith": 4736
+      "registered_hadith": 4853
     },
     "bukhari": {
-      "classification_pending": 881,
-      "fetched": 5178,
+      "classification_pending": 984,
+      "fetched": 5453,
       "inventory": 7589,
       "non_narration_source_entries": 3,
-      "registered_hadith": 4294
+      "registered_hadith": 4466
     },
     "ibnmajah": {
       "classification_pending": 255,
@@ -31,18 +48,18 @@
       "registered_hadith": 1836
     },
     "muslim": {
-      "classification_pending": 733,
-      "fetched": 5164,
+      "classification_pending": 810,
+      "fetched": 5438,
       "inventory": 7563,
       "non_narration_source_entries": 96,
-      "registered_hadith": 4335
+      "registered_hadith": 4532
     },
     "nasai": {
-      "classification_pending": 488,
-      "fetched": 5143,
+      "classification_pending": 564,
+      "fetched": 5415,
       "inventory": 5765,
       "non_narration_source_entries": 13,
-      "registered_hadith": 4642
+      "registered_hadith": 4838
     },
     "tirmidhi": {
       "classification_pending": 252,
@@ -53,7 +70,7 @@
     }
   },
   "certified_release_eligible": false,
-  "classification_pending_count": 2989,
+  "classification_pending_count": 3274,
   "done": false,
   "errors_count": 0,
   "exact_field_review_reuse": {
@@ -222,13 +239,13 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "581a07a4fc27fb16490d747faf48f955130bab502a5ef39b4a54a01dc9cbb016",
-      "size_bytes": 1328840,
-      "uncompressed_sha256": "a92118c2f392e050666f2f09d7693a709c66e874d1362b7874957058c915c297"
+      "sha256": "12d84f318fce1ea9a79b4155f443b62d19b687e27fcc016c45bc459f173b2ce5",
+      "size_bytes": 1356766,
+      "uncompressed_sha256": "9e7fcd219024b57e00ee624591b0824fe139a23acc55e504681670e1d460757f"
     },
-    "registered_occurrences": 3387,
-    "selected_language_fields": 3882,
-    "source_context_dependent_fields_not_reused": 99,
+    "registered_occurrences": 3465,
+    "selected_language_fields": 3961,
+    "source_context_dependent_fields_not_reused": 109,
     "supporting_input_copies": [
       {
         "original_input_path": "catalog/deenhindi-review-reuse-plan.json",
@@ -415,13 +432,13 @@
     ]
   },
   "historical_error_identities_count": 1000,
-  "imported_count": 30812,
+  "imported_count": 31779,
   "inventory_count": 36390,
   "non_narration_source_entries": 170,
-  "pending_fetch_count": 5578,
-  "registered_hadith_count": 27653,
-  "remaining_count": 5578,
-  "requires_attention": false,
+  "pending_fetch_count": 4611,
+  "registered_hadith_count": 28335,
+  "remaining_count": 4611,
+  "requires_attention": true,
   "resolved_historical_error_identities_count": 1000,
   "reviewed_error_attempt_outcomes": {
     "succeeded": 1000
@@ -10254,11 +10271,11 @@
       "method": "identical_complete_same_language_prior_boundary_review_v1",
       "path": "imports/web-deenhindi-20261112/review-reuse/exact-field-decisions.json.gz",
       "role": "exact_same_language_prior_boundary_review_decisions",
-      "sha256": "581a07a4fc27fb16490d747faf48f955130bab502a5ef39b4a54a01dc9cbb016",
-      "size_bytes": 1328840,
-      "uncompressed_sha256": "a92118c2f392e050666f2f09d7693a709c66e874d1362b7874957058c915c297"
+      "sha256": "12d84f318fce1ea9a79b4155f443b62d19b687e27fcc016c45bc459f173b2ce5",
+      "size_bytes": 1356766,
+      "uncompressed_sha256": "9e7fcd219024b57e00ee624591b0824fe139a23acc55e504681670e1d460757f"
     }
   ],
   "unresolved_historical_error_identities_count": 0,
-  "updated_at": "2026-11-14T21:05:59.208875+00:00"
+  "updated_at": "2026-11-14T23:35:07.203898+00:00"
 }

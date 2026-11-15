@@ -39,6 +39,14 @@ Structured data describes only facts shown on the page. It does not add unsuppor
 
 The sitemap contains absolute canonical website URLs. The build splits the URL lists at no more than 40,000 entries per file, below Google’s limit of 50,000 URLs or 50 MB uncompressed per sitemap. It omits `lastmod` when a trustworthy content-change date is unavailable, rather than claiming every unchanged record was modified at build time. See [Google’s sitemap documentation](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 
+### Compressed children, stable entry point, and migration
+
+The public entry point stays **`sitemap.xml`**. Its children are now genuine gzip-compressed XML at `sitemap-0001.xml.gz`, `sitemap-0002.xml.gz`, and any later numbered shards. The uncompressed XML bytes and complete canonical URL inventory are preserved; only the child transfer/storage representation changes. Google [documents compressed sitemap children inside XML sitemap indexes](https://developers.google.com/search/docs/crawling-indexing/sitemaps/large-sitemaps), and [Bing supports gzip XML sitemaps](https://blogs.bing.com/webmaster/2025/7/Keeping-Content-Discoverable-with-Sitemaps-in-AI-Powered-Search/).
+
+Previously published child paths such as `sitemap-0001.xml` are **not** redirected by GitHub Pages. A static HTML redirect is not valid XML, and shipping duplicate full-size XML children would defeat the site-size repair. If an individual uncompressed child URL was previously submitted in Google Search Console or Bing Webmaster Tools, remove that obsolete individual submission and submit or refresh only **`https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml`**. Existing submitted-child history is not accessible to this repository; do not claim it was automatically migrated. No occurrence page, book URL or original-download URL is changed by the sitemap format.
+
+The workflow verifies the entire compressed URL list, each decompressed XML SHA-256, all staged canonical HTML targets, and the exact source revision. After a successful Pages deployment it refetches **the real public gzip responses** and checks the same source-bound hashes. Passing staging tests or a green but skipped deployment is not evidence of public crawler compatibility. Check actual Search Console/Bing processing separately after publication.
+
 Static reading pages are lightweight and share styling; they do not each embed the entire search dataset. Source-book binaries remain in GitHub. The build checks the hosted output size against [GitHub Pages’ published-site limit](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
 
 The Markdown book catalog is committed with generated repository catalogs. The individual HTML pages and sitemap are deployed from `_site/`, so new imports regenerate the site without adding thousands of manually maintained files to the repository.
