@@ -4,8 +4,8 @@ The owner authorized public inclusion of this Chinese final delivery and its ori
 
 ## Read and download
 
-- [Chinese Hisn reading pages](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/)
-- [Original Chinese PDF](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf)
+- [Chinese Hisn reading pages](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/zh-CN/hisn-al-muslim/)
+- [Original Chinese PDF](https://github.com/blaghtayt-alt/Global-Hadith-Library/raw/main/materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf)
 - [Final JSON](../imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.json), [JSONL](../imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.jsonl) and [CSV](../imports/chinese-hisn-final-20261110/zh_hisn_final_corrected.csv)
 - [Page data](../imports/chinese-hisn-final-20261110/zh_hisn_final_pages.jsonl) and [source metadata](../imports/chinese-hisn-final-20261110/zh_hisn_final_metadata.json)
 - [Final evaluation report](../imports/chinese-hisn-final-20261110/FINAL_EVALUATION_REPORT_JA.txt) and [delivery receipt](../imports/chinese-hisn-final-20261110/zh_hisn_final_delivery_receipt.json)

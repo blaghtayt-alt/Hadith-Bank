@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from build_discovery import Writer, write_sitemaps
 from verify_sitemap_delivery import verify
 
-SITE = {'live_url': 'https://example.test/Hadith-Bank/',
+SITE = {'live_url': 'https://example.test/Global-Hadith-Library/',
         'repository_url': 'https://github.com/example/Hadith-Bank',
         'source_ref': 'a' * 40}
 

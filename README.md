@@ -4,27 +4,27 @@
 
 ## Read, search and find a book
 
-### [Search Global Hadith Library](https://blaghtayt-alt.github.io/Hadith-Bank/)
+### [Search Global Hadith Library](https://blaghtayt-alt.github.io/Global-Hadith-Library/)
 
-[![Website build](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
+[![Website build](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml)
 
-[Browse languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Source-edition descriptions](docs/SOURCE-EDITION-STATUS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared) · [Detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md)
+[Browse languages and books](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Source-edition descriptions](docs/SOURCE-EDITION-STATUS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared) · [Detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md)
 
 | Language | Read online | Read in this repository |
 | --- | --- | --- |
-| Bengali — বাংলা | [বাংলা হাদিস](https://blaghtayt-alt.github.io/Hadith-Bank/browse/bn/) | [Bengali records](browse/bn/README.md) |
-| Chinese — 中文 | [中文圣训](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/) | [Chinese records](browse/zh-CN/README.md) |
-| Filipino / Tagalog | [Hadith sa Filipino](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/) | [Filipino records](browse/fil/README.md) |
-| Hindi — हिन्दी | [हिन्दी हदीस](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/) | [Hindi records](browse/hi/README.md) |
-| Japanese — 日本語 | [日本語のハディース](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/) | [Japanese records](browse/ja/README.md) |
-| Persian — فارسی | [احادیث فارسی](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/) | [Persian records](browse/fa/README.md) |
-| Urdu — اردو | [اردو احادیث](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ur/) | [Urdu records](browse/ur/README.md) |
-| Uzbek — O‘zbekcha | [O‘zbekcha hadislar](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/) | [Uzbek records](browse/uz/README.md) |
-| Vietnamese — Tiếng Việt | [Hadith tiếng Việt](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/) | [Vietnamese records](browse/vi/README.md) |
-| Arabic — العربية | [الأحاديث العربية](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ar/) | [Arabic records](browse/ar/README.md) |
-| English | [Hadith in English](https://blaghtayt-alt.github.io/Hadith-Bank/browse/en/) | [English records](browse/en/README.md) |
+| Bengali — বাংলা | [বাংলা হাদিস](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/bn/) | [Bengali records](browse/bn/README.md) |
+| Chinese — 中文 | [中文圣训](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/zh-CN/) | [Chinese records](browse/zh-CN/README.md) |
+| Filipino / Tagalog | [Hadith sa Filipino](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fil/) | [Filipino records](browse/fil/README.md) |
+| Hindi — हिन्दी | [हिन्दी हदीस](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/hi/) | [Hindi records](browse/hi/README.md) |
+| Japanese — 日本語 | [日本語のハディース](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/ja/) | [Japanese records](browse/ja/README.md) |
+| Persian — فارسی | [احادیث فارسی](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fa/) | [Persian records](browse/fa/README.md) |
+| Urdu — اردو | [اردو احادیث](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/ur/) | [Urdu records](browse/ur/README.md) |
+| Uzbek — O‘zbekcha | [O‘zbekcha hadislar](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/uz/) | [Uzbek records](browse/uz/README.md) |
+| Vietnamese — Tiếng Việt | [Hadith tiếng Việt](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/vi/) | [Vietnamese records](browse/vi/README.md) |
+| Arabic — العربية | [الأحاديث العربية](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/ar/) | [Arabic records](browse/ar/README.md) |
+| English | [Hadith in English](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/en/) | [English records](browse/en/README.md) |
 
-**The nine focus languages appear first; Arabic and English remain fully supported as reference/search languages.** The [generated language index](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) and [material catalog](catalog/materials.json) show the latest built corpus. New languages appear automatically when their owner-authorized registrations pass the build checks. Language-index counts use each occurrence’s primary registration language; multilingual records can also contain Arabic, English, Urdu, Bengali and other supplied readings in their language panels. A primary-language bucket is not the total coverage of that language.
+**The nine focus languages appear first; Arabic and English remain fully supported as reference/search languages.** The [generated language index](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/) and [material catalog](catalog/materials.json) show the latest built corpus. New languages appear automatically when their owner-authorized registrations pass the build checks. Language-index counts use each occurrence’s primary registration language; multilingual records can also contain Arabic, English, Urdu, Bengali and other supplied readings in their language panels. A primary-language bucket is not the total coverage of that language.
 
 The interactive reader searches narration text and supplied references, with language, collection, source-edition and translation-origin filters. Arabic and English counterparts are available where a supported source match exists. Their coverage is recorded separately; an available counterpart does not imply a complete Arabic or English edition of every book.
 
@@ -34,7 +34,7 @@ The [12 November Arabic/English continuation audit](reports/counterpart-continua
 
 Every registered book enters the same language-linking workflow. The build refreshes a [source-bound candidate review queue](reports/counterpart-review/manifest.json) for missing counterparts. See [Arabic/English integration and future Chinese Abū Dāwūd additions](docs/LANGUAGE-COUNTERPARTS.md) for preparing and compiling new reviewed mappings. Future installments and editions retain separate source files, numbering and occurrence identities.
 
-The established corpus retains separate HTML reading pages with text available before JavaScript runs. New large web editions use stable occurrence links into the multilingual reader and the same language, book and edition indexes. The [sitemap](https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml) is rebuilt with the corpus. See [search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) for the design and indexing setup.
+The established corpus retains separate HTML reading pages with text available before JavaScript runs. New large web editions use stable occurrence links into the multilingual reader and the same language, book and edition indexes. The [sitemap](https://blaghtayt-alt.github.io/Global-Hadith-Library/sitemap.xml) is rebuilt with the corpus. See [search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) for the design and indexing setup.
 
 Deen Hindi, Hadis.islom.uz and the selected Hadis.uz Tirmidhi source use resumable queues, language-specific references and collapsible comments. **Rivoyat is excluded by the owner and its intake is disabled.** See the [multilingual import framework](docs/MULTILINGUAL-WEB-IMPORTS.md), [Hadis.uz scope](docs/HADISUZ-IMPORT.md) and [current repository intake status](imports/web-import-status.json). Started intake does not establish complete source coverage.
 
@@ -44,7 +44,7 @@ Deen Hindi, Hadis.islom.uz and the selected Hadis.uz Tirmidhi source use resumab
 
 ### Generated corpus snapshot
 
-**Current committed generated snapshot (15 November 2026).** The [source-bound build report](https://github.com/blaghtayt-alt/Hadith-Bank/blob/bc0ef56b2358e20f425e961f0bac6511f30fed20/reports/site-build.json) at generated revision `bc0ef56b` identifies source revision `9d8db54e0d8a452b967a469c43851780b23245ea`:
+**Current committed generated snapshot (15 November 2026).** The [source-bound build report](https://github.com/blaghtayt-alt/Global-Hadith-Library/blob/bc0ef56b2358e20f425e961f0bac6511f30fed20/reports/site-build.json) at generated revision `bc0ef56b` identifies source revision `9d8db54e0d8a452b967a469c43851780b23245ea`:
 
 | Metric | Current generated scope |
 | --- | ---: |
@@ -55,9 +55,9 @@ Deen Hindi, Hadis.islom.uz and the selected Hadis.uz Tirmidhi source use resumab
 | Occurrences containing stored Arabic text | **89,005** |
 | Occurrences containing stored English text | **72,283** |
 
-These distinguish **primary-language registration** from actual `language_versions`; neither number is unique hadith coverage. See the [255-row source-family/edition guide](docs/SOURCE-EDITION-STATUS.md), [count and revision ledger](docs/DOCUMENTATION-EVIDENCE-2026-11-15.md), and [stored-text versus link-only counterpart report](reports/counterpart-availability.md). A [15 November workflow](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43678731786) reported successful Pages publication, but **the current live site revision could not be independently bound to those bytes** at audit time.
+These distinguish **primary-language registration** from actual `language_versions`; neither number is unique hadith coverage. See the [255-row source-family/edition guide](docs/SOURCE-EDITION-STATUS.md), [count and revision ledger](docs/DOCUMENTATION-EVIDENCE-2026-11-15.md), and [stored-text versus link-only counterpart report](reports/counterpart-availability.md). A [15 November workflow](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43678731786) reported successful Pages publication, but **the current live site revision could not be independently bound to those bytes** at audit time.
 
-**Earlier, historical 14 November audit (preserved, not today's total).** The [committed build report at the audited revision](https://github.com/blaghtayt-alt/Hadith-Bank/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/reports/site-build.json) contains:
+**Earlier, historical 14 November audit (preserved, not today's total).** The [committed build report at the audited revision](https://github.com/blaghtayt-alt/Global-Hadith-Library/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/reports/site-build.json) contains:
 
 | Measure | Recorded scope |
 | --- | ---: |
@@ -66,7 +66,7 @@ These distinguish **primary-language registration** from actual `language_versio
 | Source datasets / editions in that build | **251** |
 | Build’s source revision | `3e574b9e7e4dd7cf8bc23232249004a18692c61c` |
 
-The corresponding [website workflow](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43467374230) completed its build and Pages deployment on 14 November at 02:18 JST. Later source registrations are separate from that deployed build. Use the [latest build report](reports/site-build.json), [generated reading counts](browse/README.md) and [workflow history](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml) for subsequent revisions.
+The corresponding [website workflow](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43467374230) completed its build and Pages deployment on 14 November at 02:18 JST. Later source registrations are separate from that deployed build. Use the [latest build report](reports/site-build.json), [generated reading counts](browse/README.md) and [workflow history](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml) for subsequent revisions.
 
 These counts describe preserved **source occurrences**, not unique canonical hadiths, every language field, or independently authenticated narrations. A reviewed reader group can show several source versions together while retaining their individual records and provenance.
 
@@ -86,7 +86,7 @@ Fawaz covers Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah and Malik in
 
 ### Website acquisition and review queues
 
-This table is pinned to [saved repository revision `0d2fa4e`](https://github.com/blaghtayt-alt/Hadith-Bank/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/imports/web-import-status.json). Check the [current status file](imports/web-import-status.json) for later batches.
+This table is pinned to [saved repository revision `0d2fa4e`](https://github.com/blaghtayt-alt/Global-Hadith-Library/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/imports/web-import-status.json). Check the [current status file](imports/web-import-status.json) for later batches.
 
 | Source | Saved source entries | Registered occurrences | Awaiting classification | Preserved source-only | Remaining acquisition / coverage |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -102,16 +102,16 @@ The following are **examples** of source-specific editions, **not claims of comp
 
 | Source title or collection | Language and scope | Read |
 | --- | --- | --- |
-| HadeethEnc | Japanese, Filipino, Vietnamese, Chinese, Uzbek and Hindi source snapshots | [All languages](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) |
-| Sahih Muslim | Japanese supplied volume-one PDF, including source variants and shortened references | [Japanese Sahih Muslim](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/muslim/) |
-| Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud and 200 Golden Hadith | Supplied Vietnamese booklets | [Vietnamese books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/) |
-| 艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd | Partial Chinese edition | [Chinese Sunan Abi Dawud](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/abu-dawud/) |
-| 穆宛塔圣训集 — Muwatta of Imam Malik | Chinese edition of the al-Shaybani recension | [Chinese Muwatta](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/malik/) |
-| 穆斯林的堡垒 — Hisn al-Muslim | Chinese source quotations; source transcription passed, canonical details remain under review | [Chinese Hisn al-Muslim](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/hisn-al-muslim/) |
-| فیض الباری — مختصر صحیح البخاری — Faiz al-Bari | Six supplied Persian volumes | [Persian Bukhari sources](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/bukhari/) |
-| مختصر صحیح مسلم — Mukhtasar Sahih Muslim | Two supplied Persian volumes, al-Mundhiri / Tarshabi edition | [Persian Muslim sources](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/muslim/) |
-| ترجمه فارسی ریاض الصالحین — Riyadh al-Salihin | Persian translation credited to Abd Allah Khamush Heravi | [Persian Riyadh al-Salihin](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/riyadh-al-salihin/) |
-| ترغیب و ترهیب صحیح و ضعیف — Al-Targhib wa-l-Tarhib | Three supplied Persian volumes, Musa Bazmandegan edition | [Persian Targhib and Tarhib](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/targhib-wa-tarhib/) |
+| HadeethEnc | Japanese, Filipino, Vietnamese, Chinese, Uzbek and Hindi source snapshots | [All languages](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/) |
+| Sahih Muslim | Japanese supplied volume-one PDF, including source variants and shortened references | [Japanese Sahih Muslim](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/ja/muslim/) |
+| Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud and 200 Golden Hadith | Supplied Vietnamese booklets | [Vietnamese books](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/vi/) |
+| 艾布·达吾德圣训集（部分译本） — Sunan Abī Dāwūd | Partial Chinese edition | [Chinese Sunan Abi Dawud](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/zh-CN/abu-dawud/) |
+| 穆宛塔圣训集 — Muwatta of Imam Malik | Chinese edition of the al-Shaybani recension | [Chinese Muwatta](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/zh-CN/malik/) |
+| 穆斯林的堡垒 — Hisn al-Muslim | Chinese source quotations; source transcription passed, canonical details remain under review | [Chinese Hisn al-Muslim](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/zh-CN/hisn-al-muslim/) |
+| فیض الباری — مختصر صحیح البخاری — Faiz al-Bari | Six supplied Persian volumes | [Persian Bukhari sources](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fa/bukhari/) |
+| مختصر صحیح مسلم — Mukhtasar Sahih Muslim | Two supplied Persian volumes, al-Mundhiri / Tarshabi edition | [Persian Muslim sources](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fa/muslim/) |
+| ترجمه فارسی ریاض الصالحین — Riyadh al-Salihin | Persian translation credited to Abd Allah Khamush Heravi | [Persian Riyadh al-Salihin](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fa/riyadh-al-salihin/) |
+| ترغیب و ترهیب صحیح و ضعیف — Al-Targhib wa-l-Tarhib | Three supplied Persian volumes, Musa Bazmandegan edition | [Persian Targhib and Tarhib](https://blaghtayt-alt.github.io/Global-Hadith-Library/browse/fa/targhib-wa-tarhib/) |
 
 The bank also contains individually extracted quotations from older lessons, articles and Qur’an-study materials. Their supplied references include collections such as Sahih al-Bukhari, Sahih Muslim, Jami al-Tirmidhi, Sunan Ibn Majah, Musnad Ahmad, Al-Adab al-Mufrad and Hisn al-Muslim. A collection appearing in an index can represent selected quotations or a partial source edition. It does not establish that the complete book is available in that language.
 
@@ -148,9 +148,9 @@ A book’s online edition page, **Browse available materials → Download books 
 
 Examples:
 
-- 穆宛塔圣训集 — Muwatta: [original Chinese Word document (.docx)](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx).
-- 艾布达吾德圣训 — Sunan Abī Dāwūd: [original Chinese Word document (.doc)](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc).
-- 穆斯林的堡垒 — Hisn al-Muslim: [original Chinese PDF](https://github.com/blaghtayt-alt/Hadith-Bank/raw/main/materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf), with [preserved final data and evaluation](docs/CHINESE-HISN.md).
+- 穆宛塔圣训集 — Muwatta: [original Chinese Word document (.docx)](https://github.com/blaghtayt-alt/Global-Hadith-Library/raw/main/materials/zh-muwatta-shaybani-yu-2000-docx/穆宛塔圣训集_Muwatta_Chinese.docx).
+- 艾布达吾德圣训 — Sunan Abī Dāwūd: [original Chinese Word document (.doc)](https://github.com/blaghtayt-alt/Global-Hadith-Library/raw/main/materials/zh-abu-dawud-yu-2002-doc/艾布达吾德圣训_Sunan_Abi_Dawud.doc).
+- 穆斯林的堡垒 — Hisn al-Muslim: [original Chinese PDF](https://github.com/blaghtayt-alt/Global-Hadith-Library/raw/main/materials/zh-cn-hisn-muslim-1a09ee75/zh-hisn.pdf), with [preserved final data and evaluation](docs/CHINESE-HISN.md).
 - Persian books: original `.docx` files linked from the [book catalog](catalog/BOOKS.md) and preserved in their [material folders](materials/).
 - Japanese and Vietnamese PDF sources: preserved in the [Japanese package](attachments/attachments-ja-muslim-c859ce57c211ea1b/) and [Vietnamese package](attachments/attachments-vi-920394517894aea9/).
 
@@ -184,7 +184,7 @@ The same build updates the language and book indexes, individual HTML pages, boo
 
 **The hosted site updates after a successful build and deployment of `main`.** A saved offline copy remains a snapshot. Refresh the complete reader/data copy or rebuild a standalone export to receive later additions.
 
-[Full import instructions](docs/ADDING-MATERIAL.md) · [Automatic publication](docs/WEBSITE.md) · [Search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) · [Build/deployment status](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
+[Full import instructions](docs/ADDING-MATERIAL.md) · [Automatic publication](docs/WEBSITE.md) · [Search-engine discovery](docs/SEARCH-ENGINE-DISCOVERY.md) · [Build/deployment status](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/workflows/reader-pages.yml)
 
 ## Repository and website organization
 

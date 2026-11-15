@@ -41,8 +41,8 @@ class FawazSourceViewsTests(unittest.TestCase):
         self.root = Path(self.temporary.name) / 'bank'
         self.output = Path(self.temporary.name) / 'site'
         self.root.mkdir()
-        self.site = {'repository_url': 'https://github.com/blaghtayt-alt/Hadith-Bank',
-                     'live_url': 'https://blaghtayt-alt.github.io/Hadith-Bank/', 'source_ref': 'a' * 40}
+        self.site = {'repository_url': 'https://github.com/blaghtayt-alt/Global-Hadith-Library',
+                     'live_url': 'https://blaghtayt-alt.github.io/Global-Hadith-Library/', 'source_ref': 'a' * 40}
         self.reader_ids = {'fawaz:' + bulk.REVISION[:12] + ':bukhari:1'}
         self.state = {'inputs': {}}
         catalog = {'bukhari': {'name': 'Sahih al Bukhari', 'collection': []}}

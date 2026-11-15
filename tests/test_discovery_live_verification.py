@@ -21,7 +21,7 @@ import verify_discovery_browser as browser
 
 class LiveVerificationCliTests(unittest.TestCase):
     base = ['--report', 'TEST-report.json']
-    live = ['--production-url', 'https://example.org/Hadith-Bank/',
+    live = ['--production-url', 'https://example.org/Global-Hadith-Library/',
             '--expected-source-commit', 'a' * 40, '--expected-reader-sha256', 'b' * 64]
 
     def test_existing_fixture_and_local_production_modes_remain_available(self):
@@ -69,7 +69,7 @@ class LiveDiscoveryBindingTests(unittest.TestCase):
         fixture = browser.build_fixture(Path(cls.temporary.name))
         cls.snapshot = fixture['snapshot']
         cls.raw = (fixture['site'] / cls.snapshot['discovery']['path']).read_bytes()
-        cls.base_url = 'https://example.org/Hadith-Bank/'
+        cls.base_url = 'https://example.org/Global-Hadith-Library/'
 
     def test_real_fixture_navigation_retains_bytes_source_count_and_id_sequence(self):
         self.assertTrue(browser.live_discovery_url(self.base_url, self.snapshot).startswith(
@@ -129,7 +129,7 @@ class LivePublicationRetryTests(unittest.TestCase):
             'site': {'build_commit': commit}}) + '</script>').encode('utf-8')
 
     def run_wait(self, responses, expected_sha=None):
-        args = SimpleNamespace(production_url='https://example.org/Hadith-Bank/',
+        args = SimpleNamespace(production_url='https://example.org/Global-Hadith-Library/',
                                expected_source_commit=self.commit,
                                expected_reader_sha256=expected_sha or hashlib.sha256(self.html(self.commit)).hexdigest())
         pending = list(responses)
