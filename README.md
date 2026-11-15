@@ -1,6 +1,6 @@
-# Hadith Bank — multilingual hadith texts and source books
+# Hadith Bank — source-preserving hadith texts across languages
 
-**Sunni hadith texts, translations and source books in Arabic, Bengali, Chinese, English, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese.** Search a quotation, browse a collection or source edition, and download preserved source files or separately identified extracted text where available. Each record keeps its own source reference, translation origin and provenance.
+**Focused on hadith and related source editions beyond Arabic and English:** Bengali, Chinese, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese. **Arabic and English remain fully available** as source books, reference readings, searchable text and optional counterparts. The bank preserves each recorded source edition, exact wording and translation-origin evidence; its counts do not certify complete books, unique narrations, authenticity or independent source review.
 
 ## Read, search and find a book
 
@@ -8,23 +8,23 @@
 
 [![Website build](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
-[Browse languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared) · [Detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md)
+[Browse languages and books](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) · [Book titles, editions and downloads](catalog/BOOKS.md) · [Source-edition descriptions](docs/SOURCE-EDITION-STATUS.md) · [Current counts](browse/README.md) · [Source catalog](catalog/README.md) · [Reader and offline use](#read-and-search-offline) · [Books being prepared](#books-being-prepared) · [Detailed active-books audit](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md)
 
 | Language | Read online | Read in this repository |
 | --- | --- | --- |
-| Arabic — العربية | [الأحاديث العربية](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ar/) | [Arabic records](browse/ar/README.md) |
 | Bengali — বাংলা | [বাংলা হাদিস](https://blaghtayt-alt.github.io/Hadith-Bank/browse/bn/) | [Bengali records](browse/bn/README.md) |
-| English | [Hadith in English](https://blaghtayt-alt.github.io/Hadith-Bank/browse/en/) | [English records](browse/en/README.md) |
-| Japanese — 日本語 | [日本語のハディース](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/) | [Japanese records](browse/ja/README.md) |
 | Chinese — 中文 | [中文圣训](https://blaghtayt-alt.github.io/Hadith-Bank/browse/zh-CN/) | [Chinese records](browse/zh-CN/README.md) |
-| Persian — فارسی | [احادیث فارسی](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/) | [Persian records](browse/fa/README.md) |
 | Filipino / Tagalog | [Hadith sa Filipino](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fil/) | [Filipino records](browse/fil/README.md) |
-| Vietnamese — Tiếng Việt | [Hadith tiếng Việt](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/) | [Vietnamese records](browse/vi/README.md) |
+| Hindi — हिन्दी | [हिन्दी हदीस](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/) | [Hindi records](browse/hi/README.md) |
+| Japanese — 日本語 | [日本語のハディース](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ja/) | [Japanese records](browse/ja/README.md) |
+| Persian — فارسی | [احادیث فارسی](https://blaghtayt-alt.github.io/Hadith-Bank/browse/fa/) | [Persian records](browse/fa/README.md) |
 | Urdu — اردو | [اردو احادیث](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ur/) | [Urdu records](browse/ur/README.md) |
 | Uzbek — O‘zbekcha | [O‘zbekcha hadislar](https://blaghtayt-alt.github.io/Hadith-Bank/browse/uz/) | [Uzbek records](browse/uz/README.md) |
-| Hindi — हिन्दी | [हिन्दी हदीस](https://blaghtayt-alt.github.io/Hadith-Bank/browse/hi/) | [Hindi records](browse/hi/README.md) |
+| Vietnamese — Tiếng Việt | [Hadith tiếng Việt](https://blaghtayt-alt.github.io/Hadith-Bank/browse/vi/) | [Vietnamese records](browse/vi/README.md) |
+| Arabic — العربية | [الأحاديث العربية](https://blaghtayt-alt.github.io/Hadith-Bank/browse/ar/) | [Arabic records](browse/ar/README.md) |
+| English | [Hadith in English](https://blaghtayt-alt.github.io/Hadith-Bank/browse/en/) | [English records](browse/en/README.md) |
 
-The [generated language index](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) and [material catalog](catalog/materials.json) show the latest built corpus. New languages appear automatically when their owner-authorized registrations pass the build checks. Language-index counts use each occurrence’s primary registration language; multilingual records can also contain Arabic, English, Urdu, Bengali and other supplied readings in their language panels. A primary-language bucket is not the total coverage of that language.
+**The nine focus languages appear first; Arabic and English remain fully supported as reference/search languages.** The [generated language index](https://blaghtayt-alt.github.io/Hadith-Bank/browse/) and [material catalog](catalog/materials.json) show the latest built corpus. New languages appear automatically when their owner-authorized registrations pass the build checks. Language-index counts use each occurrence’s primary registration language; multilingual records can also contain Arabic, English, Urdu, Bengali and other supplied readings in their language panels. A primary-language bucket is not the total coverage of that language.
 
 The interactive reader searches narration text and supplied references, with language, collection, source-edition and translation-origin filters. Arabic and English counterparts are available where a supported source match exists. Their coverage is recorded separately; an available counterpart does not imply a complete Arabic or English edition of every book.
 
@@ -44,7 +44,20 @@ Deen Hindi, Hadis.islom.uz and the selected Hadis.uz Tirmidhi source use resumab
 
 ### Generated corpus snapshot
 
-The [committed build report at the audited revision](https://github.com/blaghtayt-alt/Hadith-Bank/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/reports/site-build.json) contains:
+**Current committed generated snapshot (15 November 2026).** The [source-bound build report](https://github.com/blaghtayt-alt/Hadith-Bank/blob/bc0ef56b2358e20f425e961f0bac6511f30fed20/reports/site-build.json) at generated revision `bc0ef56b` identifies source revision `9d8db54e0d8a452b967a469c43851780b23245ea`:
+
+| Metric | Current generated scope |
+| --- | ---: |
+| Registered source occurrences | **112,571** |
+| Source edition / storage-part datasets | **255** |
+| Primary registration languages | **11** |
+| Primary occurrences in nine non-Arabic/non-English focus languages | **76,620** |
+| Occurrences containing stored Arabic text | **89,005** |
+| Occurrences containing stored English text | **72,283** |
+
+These distinguish **primary-language registration** from actual `language_versions`; neither number is unique hadith coverage. See the [255-row source-family/edition guide](docs/SOURCE-EDITION-STATUS.md), [count and revision ledger](docs/DOCUMENTATION-EVIDENCE-2026-11-15.md), and [stored-text versus link-only counterpart report](reports/counterpart-availability.md). A [15 November workflow](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43678731786) reported successful Pages publication, but **the current live site revision could not be independently bound to those bytes** at audit time.
+
+**Earlier, historical 14 November audit (preserved, not today's total).** The [committed build report at the audited revision](https://github.com/blaghtayt-alt/Hadith-Bank/blob/0d2fa4ebacd15e1faa70ec865694ad4dc7f7c31a/reports/site-build.json) contains:
 
 | Measure | Recorded scope |
 | --- | ---: |
@@ -59,6 +72,8 @@ These counts describe preserved **source occurrences**, not unique canonical had
 
 ### Recent registered editions and recovery
 
+The following detailed rows preserve **14 November progress and source-specific qualifications**. Some later registered additions occupy more storage parts than this historical checkpoint describes. The current complete census is in the [source-edition guide](docs/SOURCE-EDITION-STATUS.md).
+
 | Addition | Registered scope | Evidence and qualifications |
 | --- | --- | --- |
 | **諸々の徳（ハディース集）② — Kitab al-Fadael**, Japanese | **57 new source occurrences** from the 25-page source; Japanese generated total **3,463 → 3,520** | All 57 have reviewed links to existing reader groups, adding **zero ungrouped reader cards**. Original/corrected text and all source IDs remain distinct. Two revised/restored readings explicitly retain AI-assisted translation labels. [Source, corrections and grouping](docs/JAPANESE-FADAEL-QC.md) |
@@ -67,7 +82,7 @@ These counts describe preserved **source occurrences**, not unique canonical had
 | **Hisnul Muslim — KUTANG-TANGGULAN NG MUSLIM**, Filipino | **298 reader occurrences** from **323 preserved source records** | Active owner-authorized import. Non-narration material and five unresolved-attribution records remain separate; earlier review history is preserved. [Filipino source and status](docs/FILIPINO-HISN.md) |
 | **Fawaz Arabic / English / Urdu / Bengali editions** | **31 of 31 edition files**, **8 collections**, **36,226 registered provider occurrences** | All **36,464 provider identities** are accounted for. The former 244-case cohort became six additional registrations and **238 resolved source-only records**; unresolved source dispositions are **0**. Review of individual sibling-language fields remains separate. [Progress](imports/web-fawaz-20261112/progress.json) · [Import scope](docs/FAWAZ-BULK-IMPORT.md) |
 
-Fawaz covers Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah and Malik in the four configured languages, plus Nawawi in Arabic, English and Bengali. Its pinned catalog supplies **no Urdu Nawawi or Hindi edition**. The 238 source-only records comprise **67 commentary/discussion items and 171 source gaps**; they remain preserved with their dispositions. “All edition files acquired” and “all source identities classified” do not certify every translation, language boundary, chain or grade. Separate sibling-language semantic review remains; its current remaining-field count was not revalidated in this audit. The older 6,112-field figure belongs to a historical review cohort and is not presented as a current total.
+Fawaz covers Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah and Malik in the four configured languages, plus Nawawi in Arabic, English and Bengali. Its pinned catalog supplies **no Urdu Nawawi or Hindi edition**. The independently checked complete pinned upstream catalog lists **74 edition entries in nine languages**, including **44 non-Arabic/non-English entries** (French 9, Indonesian 7, Russian 3, Turkish 8, Tamil 2, Bengali 8, Urdu 7). Those 44 are **upstream entries, not 44 new or missing Bank imports**; some Bengali/Urdu are already acquired. The Bank's 31 selected edition files occupy **43 material partitions** containing multilingual `language_versions`. [Pinned upstream catalog](https://github.com/fawazahmed0/hadith-api/blob/df57907be35291c91ad6a6691180e22ca9920784/editions.json). The 238 source-only records comprise **67 commentary/discussion items and 171 source gaps**; they remain preserved with their dispositions. “All edition files acquired” and “all source identities classified” do not certify every translation, language boundary, chain or grade. Separate sibling-language semantic review remains; its current remaining-field count was not revalidated in this audit. The older 6,112-field figure belongs to a historical review cohort and is not presented as a current total.
 
 ### Website acquisition and review queues
 
@@ -83,7 +98,7 @@ Hadis.islom.uz’s registration count includes **8,620 accepted primary entries 
 
 ## Books and source collections
 
-The following are examples of preserved source editions. The automatically generated [book catalog](catalog/BOOKS.md) lists all current editions, their actual source titles, reading links and available downloads.
+The following are **examples** of source-specific editions, **not claims of complete books**. The [255-row catalog](catalog/BOOKS.md) lists current recorded titles, edition/part IDs and downloads; the [exhaustive source-family and edition descriptions](docs/SOURCE-EDITION-STATUS.md) distinguish full versus abridged works, volume-only editions, source PDFs and Word inputs, quotation extracts, unknown credits, acquired/registered/generated/live states and exact review limits.
 
 | Source title or collection | Language and scope | Read |
 | --- | --- | --- |
@@ -121,7 +136,7 @@ Eight further Hindi, Bengali and Urdu books appear in an older tracker: Hindi 30
 
 Older saved reports also cover **Portuguese Sahih al-Bukhari volume I** (`pt_bukhari_v1`, 9 November) and **Portuguese Riyadh al-Salihin, SBMRJ** (`pro_qc_v2`, 11 November). Bukhari I reports scoped image review of 914 pages and 2,970 source report rows, with character-review limits. Riyadh retains 821 pages and 1,869 occurrences with source fidelity PARTIAL and Bank readiness FAIL. Their [separate backlog evidence](reports/ACTIVE-BOOKS-AUDIT-2026-11-14.md#older-portuguese-backlog) does not establish recent continuation or publication; no Portuguese source-specific registration was found at the audited revision. Completion of Bukhari volumes II/III is not claimed.
 
-Current priorities are to finish the bounded Hindi queue and language-field reviews, reconcile the remaining Uzbek source gap, prepare these book-specific adapters after their required review work, and resolve evidence-supported Arabic/English counterparts. Source uncertainties and original wording remain explicit throughout.
+**At the 14 November audit, listed priorities** included bounded Hindi-source review, language-field review, the Uzbek source gap, future adapters and supported Arabic/English counterparts. Those projects continue under separate owners; this documentation-only refresh does not perform or certify their later stages. Source uncertainties and original wording remain explicit throughout.
 
 <a id="download-original-books"></a>
 
@@ -147,7 +162,7 @@ This is a standalone bank. Canonical JSON/JSONL records, original sources, page 
 
 Arabic, translation, collection and number, narrator/isnad, translator, source locators, tags, commentary, footnotes, references and grading remain separate fields. Missing original Arabic and unsupported metadata remain null or unknown. Source-text anomalies and different publisher versions are preserved and qualified, rather than silently corrected or merged.
 
-The reader uses **Human**, **AI** and **Unknown** translation-origin labels. Under the owner’s current rule, **all newly added books and separately acquired English counterparts are Human unless their own source explicitly states otherwise**. **Unknown is reserved for copied old-bank resources**, including quotations extracted from old Iman/Qur’an-study material. An explicit source declaration of AI translation is retained and displayed as AI. OCR, AI extraction, AI review and an unnamed translator do not make a new book’s translation Unknown. The [source-origin policy](catalog/provenance-policy.json) and each material’s provenance retain the current decision separately from historical source flags. Arabic originals do not receive a translation-origin label.
+The reader uses **Human**, **AI** and **Unknown** translation-origin labels. Under the owner’s current rule, **all newly added books and separately acquired English counterparts are Human unless their own source explicitly states otherwise**. **Unknown is reserved for copied old-bank resources**, including quotations extracted from old Iman/Qur’an-study material. An explicit source declaration of AI translation is retained and displayed as AI. OCR, AI extraction, AI review and an unnamed translator do not make a new book’s translation Unknown. The [source-origin policy](catalog/provenance-policy.json) and each material’s provenance retain the current decision separately from historical source flags. Arabic originals do not receive a translation-origin label. **A Human display label does not independently prove a particular named human translator**, and a source organization or API provider must not be credited as an individual translator. Known source-specific credits and explicit unknowns remain distinct from classification.
 
 **QC labels apply to evidenced OCR materials, subject to recorded source-specific owner display decisions.** Website imports, native PDF text and structured quotation extractions do not receive generic pending-QC badges. Historical review fields and genuine source-alignment or attribution qualifications remain available. Public availability, a Human label or a linked Arabic/English counterpart does not certify transcription, translation, canonical identity or scholarly authenticity.
 
@@ -193,7 +208,7 @@ The workflow builds `_site/` as the deployment artifact. Its individual HTML pag
 
 ## Read and search offline
 
-**The current hosted `hadith-bank-reader.html` is a reader shell, not a complete one-file corpus.** Keep it together with the matching `hadith-bank-reader-data/` directory. From a downloaded repository, serve that local copy:
+**The current generated `hadith-bank-reader.html` is a reader shell, not a complete one-file corpus.** Keep it together with the matching `hadith-bank-reader-data/` directory. From a downloaded repository, serve that local copy:
 
 ```bash
 python -m http.server 8000 --bind 127.0.0.1
