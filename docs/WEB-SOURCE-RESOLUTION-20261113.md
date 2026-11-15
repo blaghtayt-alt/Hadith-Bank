@@ -69,11 +69,11 @@ The original **Fawaz 244** and **Hadis.islom.uz 11** disposition work remains se
 
 # Current checkpoint: another 85 held parents resolved; 64f4 acquisition fully audited
 
-This entry records the next independently compared review cohort against the published review baseline [`7a3462e`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/7a3462ef5513e3c116ead9a496420e8b9f484841). Every byte of the previous 121,575-byte status document is retained below and archived with this publication. Earlier entries describe their own dated checkpoints and should not be read as the current saved export.
+This entry records the next independently compared review cohort against the published review baseline [`7a3462e`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/7a3462ef5513e3c116ead9a496420e8b9f484841). Every byte of the previous 121,575-byte status document is retained below and archived with this publication. Earlier entries describe their own dated checkpoints and should not be read as the current saved export.
 
 ## Reviewed 85-parent cohort
 
-The 85 held parents were saved at [`17cd396`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/17cd396eb858a29162505d545aad556ac73ce9ce). Four independent comparisons are complete, and the combined native review loader verifies84 registrations and one resolved source-context parent, `deenhindi-nasai:2636`. All five of that parent's own fields were read before its source-context decision; they contain transmission pointers rather than a supplied finite report.
+The 85 held parents were saved at [`17cd396`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/17cd396eb858a29162505d545aad556ac73ce9ce). Four independent comparisons are complete, and the combined native review loader verifies84 registrations and one resolved source-context parent, `deenhindi-nasai:2636`. All five of that parent's own fields were read before its source-context decision; they contain transmission pointers rather than a supplied finite report.
 
 | Review group | Parents | Registered | Source context | Complete own fields read |
 |---|---:|---:|---:|---:|
@@ -91,7 +91,7 @@ The publication adds four active ledgers: 45 existing ledgers / 3,576 manual IDs
 
 ## Actual saved acquisition and unconsumed review projection
 
-The complete audit of [`64f4ed5`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/64f4ed50ed6026855237a5d547a86dd03e73f804) verifies these actual saved counts:
+The complete audit of [`64f4ed5`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/64f4ed50ed6026855237a5d547a86dd03e73f804) verifies these actual saved counts:
 
 | Saved state at 64f4 | Count |
 |---|---:|
@@ -109,9 +109,9 @@ The saved 64f4 worker ran before the published 86-parent review and this 85-pare
 
 ## Continuation and reader status
 
-Acquisition run[`43480836830`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43480836830) successfully saved 64f4, requested its ordinary reader and exported evidence. Its continuation step then failed with HTTP 422 because the target workflow 415715399 was disabled. The log does not establish who disabled it or why. The workflow was not enabled, dispatched or bypassed; the source plan, cadence and stop guards are unchanged. The 17,820 unfetched entries remain outstanding. See the [exact continuation receipt](../reports/web-source-resolution-20261113/acquisition-run43480836830-disabled-continuation-receipt.json).
+Acquisition run[`43480836830`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43480836830) successfully saved 64f4, requested its ordinary reader and exported evidence. Its continuation step then failed with HTTP 422 because the target workflow 415715399 was disabled. The log does not establish who disabled it or why. The workflow was not enabled, dispatched or bypassed; the source plan, cadence and stop guards are unchanged. The 17,820 unfetched entries remain outstanding. See the [exact continuation receipt](../reports/web-source-resolution-20261113/acquisition-run43480836830-disabled-continuation-receipt.json).
 
-The completed reader for b7f21, run[`43486700136`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43486700136), passed 978 Python, 43 Node and 14 Chromium checks with 101,989 source records. Its supersession guard observed 7a3462e, so upload and deployment were skipped. That successful run is not a deployment receipt. The ordinary 7a3462e successor reader was observed in progress during preparation; this publication makes no new live-site claim. The last separately verified deployment receipt remains the earlier 3e574 source checkpoint, with no direct CDN recheck claimed here.
+The completed reader for b7f21, run[`43486700136`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43486700136), passed 978 Python, 43 Node and 14 Chromium checks with 101,989 source records. Its supersession guard observed 7a3462e, so upload and deployment were skipped. That successful run is not a deployment receipt. The ordinary 7a3462e successor reader was observed in progress during preparation; this publication makes no new live-site claim. The last separately verified deployment receipt remains the earlier 3e574 source checkpoint, with no direct CDN recheck claimed here.
 
 ## Original requested cohorts and remaining scope
 
@@ -223,7 +223,7 @@ The latest frozen acquisition receipt included in that published history is for 
 
 ### Reader build succeeded; publication was correctly superseded
 
-Reader [run 43472157744](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43472157744), built from the older `d369026` source, passed 978 Python tests, 43 Node tests, the saved-source export and shared-build gates, and 14 Chromium checks. It built 101,127 source records across 251 datasets and 101,070 grouped readings. The [completed reader receipt](../reports/web-source-resolution-20261113/reader-d369026-success-superseded-receipt.json) binds the complete job log, build output and exact publication guard.
+Reader [run 43472157744](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43472157744), built from the older `d369026` source, passed 978 Python tests, 43 Node tests, the saved-source export and shared-build gates, and 14 Chromium checks. It built 101,127 source records across 251 datasets and 101,070 grouped readings. The [completed reader receipt](../reports/web-source-resolution-20261113/reader-d369026-success-superseded-receipt.json) binds the complete job log, build output and exact publication guard.
 
 That guard observed newer main commit `d2462d2` and marked the build superseded. The run skipped the website upload and Pages deployment, and submitted the ordinary successor request. Its generated candidate remained unpushed. This is a successful build and browser check, with no deployment of that candidate. The earlier verified `3e574b9`/`a3f9427` Pages deployment retains its separate historical scope; neither receipt proves deployment of the phase19 or phase20 decisions.
 
@@ -291,7 +291,7 @@ The [phase18 independent GitHub read-back](../reports/web-source-resolution-2026
 
 ### Successful reader deployment is bound to its actual source
 
-Reader [run 43467374230](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43467374230), built from `3e574b9e7e4dd7cf8bc23232249004a18692c61c`, passed **978 Python tests, 43 Node tests and 14 Chromium checks**, along with its source/export/build gates. It built 101,040 records across 251 datasets, saved generated-reader commit `a3f9427d7bd235d27318a9470910c182b806a26c`, uploaded the Pages artifact and received an actual successful GitHub Pages deployment at `2026-11-13T17:18:25.5877974Z`.
+Reader [run 43467374230](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43467374230), built from `3e574b9e7e4dd7cf8bc23232249004a18692c61c`, passed **978 Python tests, 43 Node tests and 14 Chromium checks**, along with its source/export/build gates. It built 101,040 records across 251 datasets, saved generated-reader commit `a3f9427d7bd235d27318a9470910c182b806a26c`, uploaded the Pages artifact and received an actual successful GitHub Pages deployment at `2026-11-13T17:18:25.5877974Z`.
 
 The [completed deployment receipt](../reports/web-source-resolution-20261113/reader-3e574-successful-pages-deployment-receipt.json) preserves the run, artifact, guard and deployment evidence. The reviewer did not make a separate post-deployment CDN request. This successful deployment predates the phase18 and phase19 review publications, so it does not demonstrate deployment of their newer decisions. Historical superseded builds below retain their original, separate status.
 
@@ -347,11 +347,11 @@ The preceding phase17 extension actually read 50 Hindi/Urdu fields on 25 existin
 
 ### Reader validation is recorded at its actual head
 
-The completed reader run [43456458994](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43456458994), built from `e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`, passed **959 Python tests, 43 Node tests, the full export/build checks and all ten Chromium checks**. Its build contained 100,097 records across 250 datasets. The observed log duration was about 34 minutes 46 seconds under the published 45-minute build cap.
+The completed reader run [43456458994](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43456458994), built from `e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`, passed **959 Python tests, 43 Node tests, the full export/build checks and all ten Chromium checks**. Its build contained 100,097 records across 250 datasets. The observed log duration was about 34 minutes 46 seconds under the published 45-minute build cap.
 
 That result is bounded to the recorded build. Its publication guard observed the newer `d0a863b` main head, reported the build superseded, and skipped upload and deployment. It is therefore evidence of successful software, export, build and browser validation, not evidence that the present review package or current main was deployed. The complete hash-bound reader receipt is retained at `reports/web-source-resolution-20261113/reader-e3f88-phase15-success-superseded-receipt.json`.
 
-The subsequent completed [run 43462389218](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43462389218), built from `d0a863b0966c7eb1ae1d5c36202de282caf77cab`, also passed its full gates: **978 Python tests, 43 Node tests and 14 browser checks**, with 100,653 records across 251 datasets. Its actual guard then observed `3e574b9`, so upload and deployment were again skipped. This second exact-head result is recorded separately in `reports/web-source-resolution-20261113/reader-d0a863-phase16-success-superseded-receipt.json`. Neither completed build demonstrates deployment of the current phase18 decisions.
+The subsequent completed [run 43462389218](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43462389218), built from `d0a863b0966c7eb1ae1d5c36202de282caf77cab`, also passed its full gates: **978 Python tests, 43 Node tests and 14 browser checks**, with 100,653 records across 251 datasets. Its actual guard then observed `3e574b9`, so upload and deployment were again skipped. This second exact-head result is recorded separately in `reports/web-source-resolution-20261113/reader-d0a863-phase16-success-superseded-receipt.json`. Neither completed build demonstrates deployment of the current phase18 decisions.
 
 ### Evidence and preservation boundaries
 
@@ -376,9 +376,9 @@ The selection is the first 25 numerically ordered Bukhari source IDs with both
 Hindi and Urdu still pending in the published original-cohort queue. Decimal
 source numbers remain distinct IDs. The original source packet and prior active
 ledger are pinned to
-[`e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d).
+[`e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d).
 The documented publication baseline is
-[`d0a863b0966c7eb1ae1d5c36202de282caf77cab`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/d0a863b0966c7eb1ae1d5c36202de282caf77cab),
+[`d0a863b0966c7eb1ae1d5c36202de282caf77cab`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/d0a863b0966c7eb1ae1d5c36202de282caf77cab),
 which preserves the later bd4a source save and the concurrent PR15 merge.
 
 | Actual new field coverage | Hindi | Urdu | Total |
@@ -569,7 +569,7 @@ canonical identity or independent authenticity certification is asserted.
 ### What this resolves at the fixed5589 source checkpoint
 
 The preceding 117 decisions were published in
-[`e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d)
+[`e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/e3f88ac8a1ee34034c42c1778ff0c85d24b2a40d)
 as 112 registered and five source-only. This checkpoint adds 96 registered and
 four source-only, so **all 217 held rows from the saved 5589 export now have
 review decisions: 208 registered and nine source-only**.
@@ -587,9 +587,9 @@ claim that the finite Deen Hindi acquisition queue is complete.
 ### Later verified acquisition checkpoint bd4a
 
 The ordinary source workflow then completed run
-[`43450869489`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43450869489)
+[`43450869489`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43450869489)
 and saved
-[`bd4a75695d3c695e98bf8efa5ce07764ac5e2633`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/bd4a75695d3c695e98bf8efa5ce07764ac5e2633)
+[`bd4a75695d3c695e98bf8efa5ce07764ac5e2633`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/bd4a75695d3c695e98bf8efa5ce07764ac5e2633)
 on top of the concurrent PR15 merge. Its exact saved export records **16,664
 fetched, 16,321 registered, 151 source-only, 192 held and 19,726 ordinary unfetched
 occurrences**, with zero current errors and no access block.
@@ -651,7 +651,7 @@ one of the 273 published file bodies. The receipt is preserved in
 [phase15 independent read-back](../reports/web-source-resolution-20261113/phase15-independent-readback/readback-receipt.json).
 
 The later concurrent
-[`4b61373da1cd6205270f0c87d7c502ee5b36db26`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/4b61373da1cd6205270f0c87d7c502ee5b36db26)
+[`4b61373da1cd6205270f0c87d7c502ee5b36db26`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/4b61373da1cd6205270f0c87d7c502ee5b36db26)
 is the PR15 merge titled “Japanese Fadael QC import and reviewed reading
 groups”, with phase15's e3f88ac as its first parent. It is not a Deen Hindi
 acquisition checkpoint: its Deen progress remains byte-identical to 5589. This
@@ -670,7 +670,7 @@ inside the existing artifact size caps without changing source request budgets.
 ### Completed reader validation and actual deployment
 
 The exact 5589 reader run
-[`43452352104`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43452352104)
+[`43452352104`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43452352104)
 completed successfully: **957 Python tests, 43 Node tests, the full 99,985-record /
 250-dataset build and all ten Chromium checks** passed. The complete job log is
 bound by its byte count and hash in the
@@ -778,7 +778,7 @@ Evidence:
 ### Acquisition advanced while these reviews were completed
 
 The ordinary source workflow saved another checkpoint at
-[`5589a3ffc3b43c3324ae26f2b6c4d33152834456`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/5589a3ffc3b43c3324ae26f2b6c4d33152834456).
+[`5589a3ffc3b43c3324ae26f2b6c4d33152834456`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/5589a3ffc3b43c3324ae26f2b6c4d33152834456).
 Run `43443662972` completed successfully. Its exact progress and bounded source
 artifact show **497 additional fetched occurrences: 397 registered and 100 newly
 held**, with no new source-only occurrences. All 217 current held rows are
@@ -874,7 +874,7 @@ below remain as dated evidence and must not be read as the latest counts.
 ## Historical phase13 status — 93 new holds, 114 Urdu fields and Hadisuz323
 
 The preceding review was published at
-[`5749ec389f1925f4d5e05a34d64c39acbc1f90f4`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/5749ec389f1925f4d5e05a34d64c39acbc1f90f4).
+[`5749ec389f1925f4d5e05a34d64c39acbc1f90f4`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/5749ec389f1925f4d5e05a34d64c39acbc1f90f4).
 Its 113 payload files and 19 changed Git trees were verified before the leased
 branch update. An independent read-back then reopened six complete active
 files, including all four delivered Deen ledgers, the priority queue and this
@@ -885,8 +885,8 @@ independent read-back receipts are included in this checkpoint.
 ### Actual saved acquisition and recovery of all historical errors
 
 The successful source run
-[`43430909086`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43430909086)
-saved [`c2ab74d74821e244d8a83620f0e8e68dda694b16`](https://github.com/blaghtayt-alt/Global-Hadith-Library/commit/c2ab74d74821e244d8a83620f0e8e68dda694b16).
+[`43430909086`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430909086)
+saved [`c2ab74d74821e244d8a83620f0e8e68dda694b16`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/c2ab74d74821e244d8a83620f0e8e68dda694b16).
 Its progress, updated at **13:42:22 UTC on 13 November 2026**, records
 **15,215 fetched, 14,870 registered, 138 resolved source-only and 207 held
 occurrences**, with **21,175 ordinary pending pages and zero acquisition
@@ -1047,7 +1047,7 @@ Their publication and read-back receipts are included with this checkpoint.
 ### Audited acquisition snapshot supporting this review
 
 The next acquisition run,
-[`43424153693`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43424153693),
+[`43424153693`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43424153693),
 completed successfully and saved
 `cdb66dbcf9ee781fe232219724d05033a0fcab13`, whose parent is the preceding review
 publication. Its saved progress, updated at **13:02:34 UTC on 13 November 2026**,
@@ -1069,7 +1069,7 @@ than a projection from staged reviews.
 
 ### Successor saved while this publication was prepared
 
-A later source run, [`43430909086`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43430909086),
+A later source run, [`43430909086`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430909086),
 completed successfully and saved `c2ab74d74821e244d8a83620f0e8e68dda694b16` as
 a direct child of `cdb66d`. Its pinned progress file, updated at **13:42:22 UTC**,
 records **15,215 fetched, 14,870 registered, 138 resolved source-only and 207
@@ -1172,11 +1172,11 @@ source-only decisions. These figures do not imply completion of Deen Hindi
 acquisition or unrelated unread language siblings.
 
 Reader run
-[`43426990809`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43426990809)
+[`43426990809`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43426990809)
 at `695fe9e` completed **957 Python tests, 43 Node tests**, the source exports,
 counterpart synchronization, a complete **98,205-record** registry/reader
 refresh and real Chromium checks. The next exact review build,
-[`43430022703`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43430022703)
+[`43430022703`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43430022703)
 at `863222d`, likewise passed the **957/43 tests**, completed the
 **98,289-record** refresh and passed the Chromium checks. Its actual saved
 review export changed by **+84 registered, -93 held and +9 source-only**,
@@ -1184,7 +1184,7 @@ matching the preceding 93-entry decisions.
 
 Both builds were superseded by newer main commits, so their upload and
 deployment steps were skipped. The `cdb66d` successor run
-[`43433338096`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43433338096)
+[`43433338096`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43433338096)
 actually started at **13:24:13 UTC** and is a separate in-progress observation.
 **No new deployment is claimed by this checkpoint.** Validation, publication of
 review files, saved acquisition and live-site deployment are recorded
@@ -1274,7 +1274,7 @@ remain unchanged; no independent Pro certification or new authenticity grade
 is asserted.
 
 Reader run
-[`43423042995`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43423042995)
+[`43423042995`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43423042995)
 at `ab76f729e7148d9c4c8b0759451f5fca0272ff3e` completed its software tests,
 source exports, counterpart synchronization, complete registry/reader rebuild
 and real Chromium checks successfully. Its website upload and deployment were
@@ -1364,7 +1364,7 @@ its existing pacing, preservation, access-stop and checkpoint rules. Executing
 requests are not counted as saved downloads.
 
 The repaired reader has now completed the full GitHub validation run
-[`43415568550`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43415568550)
+[`43415568550`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43415568550)
 at exact commit `817b1d071f59bb5a10c8921858811279c6faf776`: **950 Python tests,
 43 Node tests, Fawaz and saved-website exports, counterpart synchronization,
 full shared rebuild/registry validation and real Chromium verification passed**.
@@ -1373,7 +1373,7 @@ link checks. Upload and deployment were intentionally skipped because main
 had advanced. This is verified validation, **not a new deployment receipt**.
 
 A second completed validation run,
-[`43419487540`](https://github.com/blaghtayt-alt/Global-Hadith-Library/actions/runs/43419487540),
+[`43419487540`](https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/43419487540),
 validated exact acquisition commit `659f21c8a5bbedd3f85aa4c579f4e3b1f215dfc9`.
 It passed **957 Python tests, 43 Node tests, all source exports, counterpart
 synchronization, shared registry rebuild and ten real Chromium checks**, with

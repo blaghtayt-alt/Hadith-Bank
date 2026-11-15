@@ -14,6 +14,17 @@ OLD_PAGES = "https://blaghtayt-alt.github.io/Hadith-Bank/"
 NEW_GITHUB = "https://github.com/blaghtayt-alt/Global-Hadith-Library"
 NEW_PAGES = "https://blaghtayt-alt.github.io/Global-Hadith-Library/"
 
+# Dated evidence documents keep their original URLs as historical provenance.
+# Repository redirects must be verified after rename, not rewritten as if those
+# later URLs had been live at the original observation date.
+HISTORICAL_ARCHIVES = (
+    "docs/DOCUMENTATION-EVIDENCE-2026-11-15.md",
+    "docs/SOURCE-EDITION-STATUS.md",
+    "docs/JAPANESE-RESEARCH-V3.md",
+    "docs/SEARCHABLE-BANK-IMPLEMENTATION.md",
+    "docs/WEB-SOURCE-RESOLUTION-20261113.md",
+)
+
 ACTIVE_PATHS = (
     "README.md",
     ".github/workflows/reader-pages.yml",
@@ -25,11 +36,6 @@ ACTIVE_PATHS = (
     "docs/SEARCH-ENGINE-DISCOVERY.md",
     "docs/ADDING-MATERIAL.md",
     "docs/CHINESE-HISN.md",
-    "docs/SOURCE-EDITION-STATUS.md",
-    "docs/DOCUMENTATION-EVIDENCE-2026-11-15.md",
-    "docs/JAPANESE-RESEARCH-V3.md",
-    "docs/SEARCHABLE-BANK-IMPLEMENTATION.md",
-    "docs/WEB-SOURCE-RESOLUTION-20261113.md",
 )
 
 
