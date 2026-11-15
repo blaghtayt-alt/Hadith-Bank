@@ -273,6 +273,28 @@ class DiscoveryTests(unittest.TestCase):
         self.assertNotIn('</dt><dd dir="auto">', page)
         self.assertEqual([tag for tag, _ in parsed.tags if tag == 'script'], ['script'])
 
+    def test_full_static_shell_compaction_preserves_schema_links_and_rtl(self):
+        source = ('<!doctype html>\n<html lang="fa-IR"><head>'
+                  '<meta charset="utf-8"><title>TEST Arabic "title" &amp; source</title>'
+                  '<link rel="canonical" href="https://example.test/Hadith-Bank/hadith/one.html">'
+                  '<script type="application/ld+json">{"source":"TEST","quote":"\\u003c"}</script>'
+                  '</head><body><main id="content"><div lang="ar" dir="rtl">'
+                  '<a href="../../browse/one.html" target="_blank">قراءة &amp; source</a>'
+                  '<a href="https://example.test/?k=1&amp;v=2">Source</a>'
+                  '</div></main></body></html>')
+        result = discovery.compact_static_page_shell(source)
+        self.assertLess(len(result.encode()), len(source.encode()))
+        self.assertEqual(discovery._markup_events(result), discovery._markup_events(source))
+        self.assertIn('{"source":"TEST","quote":"\\u003c"}', result)
+        self.assertIn('<title>TEST Arabic "title" &amp; source</title>', result)
+        self.assertIn('href="https://example.test/?k=1&amp;v=2"', result)
+        self.assertIn('dir=rtl', result)
+        self.assertIn('lang=ar', result)
+        self.assertIn('href=../../browse/one.html', result)
+        self.assertEqual(discovery.compact_static_page_shell(
+            '<script>TEST arbitrary script content</script>'),
+            '<script>TEST arbitrary script content</script>')
+
     def test_diagnostic_paths_reject_traversal_absolute_stage_and_symlink(self):
         site = self.root / 'staged-site'
         site.mkdir()

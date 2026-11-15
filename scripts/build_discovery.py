@@ -344,7 +344,7 @@ class Writer:
                    '<nav aria-label="Source navigation"><a href="' + esc(self.site['repository_url']) + '">Repository and original files</a>'
                    '<a href="' + esc(self.site['repository_url'] + '/blob/main/catalog/materials.json') + '">Source data catalog</a>'
                    '<a href="' + href('sitemap.xml') + '">Sitemap</a></nav></footer></body></html>\n')
-        self.write(relative, content)
+        self.write(relative, compact_static_page_shell(content))
         if indexable:
             self.pages.append(relative)
 
@@ -603,7 +603,7 @@ def write_sitemaps(writer, pages, page_size=SITEMAP_PAGE_SIZE):
 # Scan quoted HTML attributes safely, and preserve all parsed DOM/text values.
 _TAG_NAME = re.compile(r'[A-Za-z][A-Za-z0-9:-]*')
 _ATTR_NAME = re.compile(r'[A-Za-z_:][A-Za-z0-9_.:-]*')
-_SAFE_UNQUOTED = re.compile(r'[A-Za-z_][A-Za-z0-9_.:-]*\Z')
+_SAFE_UNQUOTED = re.compile(r"""[^\s"'`=<>]+\Z""")
 _RAWTEXT_ELEMENTS = frozenset((
     'script', 'style', 'textarea', 'title', 'xmp', 'iframe',
     'noembed', 'noframes', 'plaintext', 'noscript',
@@ -687,7 +687,10 @@ def _compact_safe_attributes(tag, name_end, closing=False):
             if position >= length - 1:
                 return tag
             value = tag[value_start:position]
-            if quote == '"' and attribute in ('class', 'target') and _SAFE_UNQUOTED.fullmatch(value):
+            if (quote == '"' and attribute in (
+                    'class', 'target', 'href', 'lang', 'dir', 'id', 'rel', 'role',
+                    'charset', 'name', 'type', 'property', 'tabindex',
+                    'aria-current') and _SAFE_UNQUOTED.fullmatch(value)):
                 edits.append((quote_start, position + 1, value))
             position += 1
         else:
@@ -795,6 +798,35 @@ def compact_source_definition_end_tags(markup):
     if _definition_list_dom_events(shorter) != _definition_list_dom_events(original):
         raise ValueError('Definition list optional tags changed source/provenance DOM')
     return markup[:start] + shorter + markup[end:]
+
+
+def compact_static_page_shell(markup):
+    """Losslessly compact generated HTML outside the JSON-LD script/title.
+
+    Never alter source text inside the structured-data script or title. Only
+    short, provably HTML-unquoted-safe attributes and text-node entities may
+    change, with strict whole-document parsed-event equality.
+    """
+    doctype = '<!doctype html>\n'
+    open_title, close_title = '<title>', '</title>'
+    open_script, close_script = '<script type="application/ld+json">', '</script>'
+    if (not markup.startswith(doctype) or markup.count(open_title) != 1 or
+            markup.count(close_title) != 1 or markup.count(open_script) != 1 or
+            markup.count(close_script) < 1):
+        return markup
+    prefix, _, rest = markup[len(doctype):].partition(open_title)
+    title, _, rest = rest.partition(close_title)
+    before_script, _, rest = rest.partition(open_script)
+    encoded_schema, _, tail = rest.partition(close_script)
+    if not encoded_schema:
+        return markup
+    candidate = (doctype + compact_static_record_markup(prefix) + open_title +
+                 title + close_title + compact_static_record_markup(before_script) +
+                 open_script + encoded_schema + close_script +
+                 compact_static_record_markup(tail))
+    if _markup_events(candidate) != _markup_events(markup):
+        raise ValueError('Generated static HTML shell changed DOM, URLs or schema')
+    return candidate
 
 
 def site_size_inventory(output):
