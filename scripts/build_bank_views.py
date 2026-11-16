@@ -667,6 +667,10 @@ def build(bank_root, output, attachments=None):
         registry['scope'] = 'public_repository_source_registration'
         write_json(registry_path, registry)
     counterpart_summary = enrich_records(output, [item for group in projection_groups for item in group])
+    # Private reviewed provider-entry overlay: validate external pins BEFORE replacing
+    # any search/reader stream; fail closed on drift/missing evidence.
+    from ru_bukhari_001_persistent_overlay import apply_ru_bukhari_001_overlay
+    apply_ru_bukhari_001_overlay(output, projection_groups)
     search_root = output / 'search'
     if search_root.exists():
         # Only this generator's reproducible projections are replaced.

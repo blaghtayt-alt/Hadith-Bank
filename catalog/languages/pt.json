@@ -3,7 +3,7 @@
   "language": "pt",
   "name": "Portuguese",
   "scope": "public_source_snapshots",
-  "record_count": 6,
+  "record_count": 8,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -105,6 +105,96 @@
         "translator": {
           "name": "Juma Momade Anli",
           "evidence": "Source title pages PDF1and3; independent sourceQC confirms exact named credit."
+        },
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "pt-riyadh-sbmrj-a9980317",
+      "language": "pt",
+      "book_key": "riyadh",
+      "edition": "sbmrj-samir-el-hayek-undated-a9980317",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+      "source_sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+      "canonical_records_path": "materials/pt-riyadh-sbmrj-a9980317/records.json",
+      "canonical_records_sha256": "d0b49d0e1ebe307fc214350419c1093291992a36787941f5bb67092541eb6dbc",
+      "source_descriptor": {
+        "path": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+        "sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+        "name": "O Jardim dos Virtuosos",
+        "format": "pdf",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/current-scoped-review.json",
+          "sha256": "982ff3bc46390c625b561da205305b38491d7b02c359244baea3dfb7a263e3e0",
+          "size_bytes": 1525
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/held-record-scope.json",
+          "sha256": "d6726b62e4215647fecbc56343eb52ef3914b6798990972f3b33d405e83f7d3b",
+          "size_bytes": 222
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-final-adapter-review.zip",
+          "sha256": "6c4118427de0110161c95b8c5a3c4d1f3e617a2ab4acbc4bc0dcb41dd3d96c38",
+          "size_bytes": 1088362
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-source-review.zip",
+          "sha256": "4472aeb0896b4f7a6c391e553f32248bc4bd4713e48285f87dcc6ef159078c90",
+          "size_bytes": 1635009
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/source-span-map.json",
+          "sha256": "754b53a25d2a3bd9e5732ea787dc877d509600dc938eaa060a32064b462a35f7",
+          "size_bytes": 2052
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "No canonical narration AND variant identity approved; provider or printed tokens remain source metadata."
+      },
+      "source_name": "O Jardim dos Virtuosos",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "basis": "Preserve historical unknown process; current owner new-book Human policy applies separately.",
+        "translator": {
+          "name": "Prof. Samir El Hayek"
         },
         "label": "Unknown",
         "human_involvement": "not_established",

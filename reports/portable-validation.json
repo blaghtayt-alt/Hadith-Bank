@@ -4,12 +4,12 @@
   "scope": "public_source_snapshots",
   "current_translation_origins": {
     "ai": 2,
-    "human": 113454,
+    "human": 113603,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-16T14:36:03.245685+00:00",
-  "record_count": 114621,
-  "source_dataset_count": 261,
+  "checked_at_utc": "2026-11-16T17:25:24.563076+00:00",
+  "record_count": 114770,
+  "source_dataset_count": 263,
   "by_language": {
     "ar": 32267,
     "bn": 44,
@@ -20,7 +20,8 @@
     "fil": 2354,
     "hi": 32957,
     "ja": 3520,
-    "pt": 6,
+    "ms": 147,
+    "pt": 8,
     "ur": 231,
     "uz": 9780,
     "vi": 4555,
@@ -223,7 +224,9 @@
     "legacy-zh-CN-muslim": 45,
     "legacy-zh-CN-tirmidhi": 1,
     "legacy-zh-CN-unclassified": 16,
+    "ms-hadeethenc-v1-2-0-50095a98": 147,
     "pt-bukhari-anli-v3-2024-1b5ef269": 6,
+    "pt-riyadh-sbmrj-a9980317": 2,
     "quran-excerpts-fa-abu-dawud": 2,
     "quran-excerpts-fa-adab-al-mufrad": 1,
     "quran-excerpts-fa-ahmad": 2,
@@ -290,14 +293,14 @@
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 114621,
-    "projection_objects_compared": 114621,
-    "exact_arabic_and_translation_codepoints_compared": 88411796,
-    "canonical_record_files_hashed": 261,
-    "source_and_legacy_files_hashed": 61308,
-    "ordered_search_shards_hashed": 1330,
-    "canonical_record_digest_checks": 114621,
-    "complete_public_projection_objects_reconstructed": 114621,
+    "canonical_occurrences_compared": 114770,
+    "projection_objects_compared": 114770,
+    "exact_arabic_and_translation_codepoints_compared": 88489816,
+    "canonical_record_files_hashed": 263,
+    "source_and_legacy_files_hashed": 61321,
+    "ordered_search_shards_hashed": 1333,
+    "canonical_record_digest_checks": 114770,
+    "complete_public_projection_objects_reconstructed": 114770,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -305278,6 +305281,36 @@
       "sha256": "384d52cccc46a2af3b0d836d58a0008c4c4144f1ff20daade8839e3fc6ad3810"
     },
     {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx",
+      "bytes": 208874,
+      "sha256": "50095a987d9486d986d01f31c758dceff4b8d349bc6f1f54bdfaf7f860374f03"
+    },
+    {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/current-scoped-review.json",
+      "bytes": 1855,
+      "sha256": "dce9b49adc99db0efd302246b1bbee6b998d30907a13b0e80efa6a50adb3a193"
+    },
+    {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/publisher-header.json",
+      "bytes": 1111,
+      "sha256": "f0368b2718674b5e7063ac886183783eeeae80a1ef89f8ddd8d8b6212862bb5a"
+    },
+    {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/records-before-workbook-metadata-v001.json",
+      "bytes": 506912,
+      "sha256": "27364ed9f9c06ea467e19b67dd3364e00251d64534b22545f3e4bd26413fa4a8"
+    },
+    {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/source-cell-bindings.json",
+      "bytes": 108833,
+      "sha256": "cc201428a7484d40ae3a2770181bd42b35991a5c454ed31ca5bd91fea9ac38d7"
+    },
+    {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/records.json",
+      "bytes": 616986,
+      "sha256": "f6a81b741058811264b56a290b38d76be0667bcd07b1c8854165030fb09bc629"
+    },
+    {
       "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/source.pdf",
       "bytes": 6321982,
       "sha256": "1b5ef269f948b88d897755cfeb4af64ee085d009f7b4ff389691b9c0f6a7e347"
@@ -305336,6 +305369,41 @@
       "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/records.json",
       "bytes": 32298,
       "sha256": "a4c590a2ba99b4e08372d94c4d6f9b17173a820c45d65bd21a9d76c36ca24c2b"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+      "bytes": 13846949,
+      "sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/current-scoped-review.json",
+      "bytes": 1525,
+      "sha256": "982ff3bc46390c625b561da205305b38491d7b02c359244baea3dfb7a263e3e0"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/held-record-scope.json",
+      "bytes": 222,
+      "sha256": "d6726b62e4215647fecbc56343eb52ef3914b6798990972f3b33d405e83f7d3b"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-final-adapter-review.zip",
+      "bytes": 1088362,
+      "sha256": "6c4118427de0110161c95b8c5a3c4d1f3e617a2ab4acbc4bc0dcb41dd3d96c38"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-source-review.zip",
+      "bytes": 1635009,
+      "sha256": "4472aeb0896b4f7a6c391e553f32248bc4bd4713e48285f87dcc6ef159078c90"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/source-span-map.json",
+      "bytes": 2052,
+      "sha256": "754b53a25d2a3bd9e5732ea787dc877d509600dc938eaa060a32064b462a35f7"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/records.json",
+      "bytes": 7490,
+      "sha256": "d0b49d0e1ebe307fc214350419c1093291992a36787941f5bb67092541eb6dbc"
     },
     {
       "path": "materials/quran-excerpts-fa-abu-dawud/source-bundle.json",
@@ -306843,43 +306911,43 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
+  "search_stream_sha256": "08e2d004c2328b2ba46b401306fba77abc6e50a07ba5919a79f2349e6de97212",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "9c10d191c42f43b94147336aca6ccc826e803448629a971ea91f5af3296dbd73",
-    "bytes": 1862774,
-    "embedded_objects_compared": 114621,
+    "sha256": "7d1d0cd3ece87bba17b57d1fb6ed40b70ccf457b8006485f164d6034e6239853",
+    "bytes": 1868433,
+    "embedded_objects_compared": 114770,
     "data_shards_verified": 1564,
     "reviewed_reading_groups": 57,
-    "grouped_reading_count": 114564,
+    "grouped_reading_count": 114713,
     "external_script_or_stylesheet_dependencies": false,
     "reader_store_metrics": {
       "directory": {
-        "record_count": 114621,
+        "record_count": 114770,
         "shard_count": 20,
-        "compressed_bytes": 1607528,
-        "uncompressed_bytes": 39531154,
+        "compressed_bytes": 1609614,
+        "uncompressed_bytes": 39582313,
         "max_row_bytes": 467
       },
       "search": {
-        "record_count": 114621,
+        "record_count": 114770,
         "shard_count": 362,
-        "compressed_bytes": 81347114,
-        "uncompressed_bytes": 750901489,
+        "compressed_bytes": 81380050,
+        "uncompressed_bytes": 751129949,
         "max_row_bytes": 215760
       },
       "annotations": {
-        "record_count": 114621,
+        "record_count": 114770,
         "shard_count": 95,
-        "compressed_bytes": 26798391,
-        "uncompressed_bytes": 195538373,
+        "compressed_bytes": 26800523,
+        "uncompressed_bytes": 195572697,
         "max_row_bytes": 128046
       },
       "details": {
-        "record_count": 114621,
+        "record_count": 114770,
         "shard_count": 1087,
-        "compressed_bytes": 194097353,
-        "uncompressed_bytes": 2260127359,
+        "compressed_bytes": 194149685,
+        "uncompressed_bytes": 2260900700,
         "max_row_bytes": 257373
       }
     },
@@ -306889,21 +306957,21 @@
       "annotations": 128046
     },
     "max_detail_record_bytes": 257373,
-    "directory_bytes": 39531154,
-    "detail_stream_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
+    "directory_bytes": 39582313,
+    "detail_stream_sha256": "08e2d004c2328b2ba46b401306fba77abc6e50a07ba5919a79f2349e6de97212",
     "discovery": {
-      "record_count": 114621,
-      "occurrence_ids_sha256": "dbca9049bf60f30af744a85a036f7fc7fb3386c197597d187d02dc23ccd9e1e8",
-      "indexed_quotation_fields_sha256": "b8f06d16d223881ea0df4e84bbf3136c8c2dd10a4c5dd0dbd4e3456de2cfa417",
-      "family_count": 108541,
+      "record_count": 114770,
+      "occurrence_ids_sha256": "335c37ece3adbf08c2fd0a5f1a6c54fcf4b720904bcb71b3052c0376b4e96c24",
+      "indexed_quotation_fields_sha256": "3ef6326a62cf523ec4aa2607cdf2b18dbd94b5107f0e13dd460dd33d38f8aca1",
+      "family_count": 108690,
       "source_text_modified": false,
       "source_bound_families_verified": 2475
     }
   },
   "navigation": {
-    "markdown_files_checked": 5356,
-    "local_targets_checked": 274091,
-    "external_links_not_requested": 1310983,
+    "markdown_files_checked": 5368,
+    "local_targets_checked": 274450,
+    "external_links_not_requested": 1311441,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -306912,10 +306980,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 261,
+    "authorized_dataset_count": 263,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 211,
+    "registered_material_manifests_verified": 213,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

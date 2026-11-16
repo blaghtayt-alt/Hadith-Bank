@@ -219,10 +219,11 @@
       "name": "Portuguese",
       "catalog": "catalog/languages/pt.json",
       "materials_catalog": "catalog/languages/pt.json",
-      "record_count": 6,
-      "source_dataset_count": 1,
+      "record_count": 8,
+      "source_dataset_count": 2,
       "books": [
-        "bukhari"
+        "bukhari",
+        "riyadh"
       ],
       "readingIndex": "browse/pt/README.md"
     },
@@ -307,6 +308,18 @@
         "unclassified"
       ],
       "readingIndex": "browse/fa/README.md"
+    },
+    {
+      "language": "ms",
+      "name": "ms",
+      "catalog": "catalog/languages/ms.json",
+      "materials_catalog": "catalog/languages/ms.json",
+      "record_count": 147,
+      "source_dataset_count": 1,
+      "books": [
+        "hadeethenc"
+      ],
+      "readingIndex": "browse/ms/README.md"
     }
   ],
   "organizedIndex": "organized/INDEX.json",
@@ -3239,6 +3252,26 @@
       }
     },
     {
+      "id": "ms-hadeethenc-v1-2-0-50095a98",
+      "kind": "records-v1",
+      "materialManifest": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+      "count": 147,
+      "status": "published_pending_review",
+      "publicTextPublished": true,
+      "independentProQC": "pending",
+      "sourceReviewHistoryPreserved": true,
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      }
+    },
+    {
       "id": "pt-bukhari-anli-v3-2024-1b5ef269",
       "kind": "records-v1",
       "materialManifest": "materials/pt-bukhari-anli-v3-2024-1b5ef269/manifest.json",
@@ -3254,6 +3287,26 @@
         "decision": "owner_requested_public_pending_review",
         "decision_date_japan": "2026-11-16",
         "manifest_path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      }
+    },
+    {
+      "id": "pt-riyadh-sbmrj-a9980317",
+      "kind": "records-v1",
+      "materialManifest": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+      "count": 2,
+      "status": "published_pending_review",
+      "publicTextPublished": true,
+      "independentProQC": "pending",
+      "sourceReviewHistoryPreserved": true,
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
         "independent_qc_asserted": false,
         "rights_clearance_asserted": false
       }
@@ -4560,10 +4613,10 @@
     }
   ],
   "scope": "public_source_snapshots",
-  "recordCount": 114621,
-  "languageCount": 14,
+  "recordCount": 114770,
+  "languageCount": 15,
   "countUnit": "source narration/entry occurrences across editions; not unique canonical Hadith",
-  "sourceDatasetCount": 261,
+  "sourceDatasetCount": 263,
   "sourceDatasets": [
     {
       "dataset_id": "hadeethenc-ja-sqlite-a81da9af28f854f6",
@@ -628677,6 +628730,88 @@
       }
     },
     {
+      "dataset_id": "ms-hadeethenc-v1-2-0-50095a98",
+      "language": "ms",
+      "book_key": "hadeethenc",
+      "edition": "hadeethenc-ms-workbook-v1.2.0-2026-05-25",
+      "count": 147,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx",
+      "source_sha256": "50095a987d9486d986d01f31c758dceff4b8d349bc6f1f54bdfaf7f860374f03",
+      "canonical_records_path": "materials/ms-hadeethenc-v1-2-0-50095a98/records.json",
+      "canonical_records_sha256": "f6a81b741058811264b56a290b38d76be0667bcd07b1c8854165030fb09bc629",
+      "source_descriptor": {
+        "path": "materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx",
+        "sha256": "50095a987d9486d986d01f31c758dceff4b8d349bc6f1f54bdfaf7f860374f03",
+        "name": "HadeethEnc.com",
+        "format": "xlsx",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/current-scoped-review.json",
+          "sha256": "dce9b49adc99db0efd302246b1bbee6b998d30907a13b0e80efa6a50adb3a193",
+          "size_bytes": 1855
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/publisher-header.json",
+          "sha256": "f0368b2718674b5e7063ac886183783eeeae80a1ef89f8ddd8d8b6212862bb5a",
+          "size_bytes": 1111
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/records-before-workbook-metadata-v001.json",
+          "sha256": "27364ed9f9c06ea467e19b67dd3364e00251d64534b22545f3e4bd26413fa4a8",
+          "size_bytes": 506912
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/source-cell-bindings.json",
+          "sha256": "cc201428a7484d40ae3a2770181bd42b35991a5c454ed31ca5bd91fea9ac38d7",
+          "size_bytes": 108833
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "No canonical narration AND variant identity approved; provider or printed tokens remain source metadata."
+      },
+      "source_name": "HadeethEnc.com",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "basis": "No new process investigation; preserve unknown historical process. Current explicit HadeethEnc.com Human policy applies separately.",
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_source_confirmation",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "pt-bukhari-anli-v3-2024-1b5ef269",
       "language": "pt",
       "book_key": "bukhari",
@@ -628775,6 +628910,96 @@
         "translator": {
           "name": "Juma Momade Anli",
           "evidence": "Source title pages PDF1and3; independent sourceQC confirms exact named credit."
+        },
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "pt-riyadh-sbmrj-a9980317",
+      "language": "pt",
+      "book_key": "riyadh",
+      "edition": "sbmrj-samir-el-hayek-undated-a9980317",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+      "source_sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+      "canonical_records_path": "materials/pt-riyadh-sbmrj-a9980317/records.json",
+      "canonical_records_sha256": "d0b49d0e1ebe307fc214350419c1093291992a36787941f5bb67092541eb6dbc",
+      "source_descriptor": {
+        "path": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+        "sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+        "name": "O Jardim dos Virtuosos",
+        "format": "pdf",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/current-scoped-review.json",
+          "sha256": "982ff3bc46390c625b561da205305b38491d7b02c359244baea3dfb7a263e3e0",
+          "size_bytes": 1525
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/held-record-scope.json",
+          "sha256": "d6726b62e4215647fecbc56343eb52ef3914b6798990972f3b33d405e83f7d3b",
+          "size_bytes": 222
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-final-adapter-review.zip",
+          "sha256": "6c4118427de0110161c95b8c5a3c4d1f3e617a2ab4acbc4bc0dcb41dd3d96c38",
+          "size_bytes": 1088362
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-source-review.zip",
+          "sha256": "4472aeb0896b4f7a6c391e553f32248bc4bd4713e48285f87dcc6ef159078c90",
+          "size_bytes": 1635009
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/source-span-map.json",
+          "sha256": "754b53a25d2a3bd9e5732ea787dc877d509600dc938eaa060a32064b462a35f7",
+          "size_bytes": 2052
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "No canonical narration AND variant identity approved; provider or printed tokens remain source metadata."
+      },
+      "source_name": "O Jardim dos Virtuosos",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "basis": "Preserve historical unknown process; current owner new-book Human policy applies separately.",
+        "translator": {
+          "name": "Prof. Samir El Hayek"
         },
         "label": "Unknown",
         "human_involvement": "not_established",
