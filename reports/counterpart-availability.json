@@ -2,20 +2,20 @@
   "schema": "hadith-bank-counterpart-availability-v1",
   "count_unit": "preserved source occurrence",
   "totals": {
-    "total": 112571,
+    "total": 114621,
     "arabic_text": 89005,
     "arabic_link": 9796,
     "arabic_available": 98801,
     "english_text": 72283,
     "english_link": 4051,
     "english_available": 76334,
-    "missing_arabic": 13770,
-    "missing_english": 36237,
+    "missing_arabic": 15820,
+    "missing_english": 38287,
     "both_text": 63649,
     "both_available": 76312,
     "arabic_only": 22489,
     "english_only": 22,
-    "neither_available": 13748
+    "neither_available": 15798
   },
   "by_language": {
     "ar": {
@@ -49,6 +49,38 @@
       "arabic_only": 0,
       "english_only": 0,
       "neither_available": 40
+    },
+    "bs": {
+      "total": 3,
+      "arabic_text": 0,
+      "arabic_link": 0,
+      "arabic_available": 0,
+      "english_text": 0,
+      "english_link": 0,
+      "english_available": 0,
+      "missing_arabic": 3,
+      "missing_english": 3,
+      "both_text": 0,
+      "both_available": 0,
+      "arabic_only": 0,
+      "english_only": 0,
+      "neither_available": 3
+    },
+    "de": {
+      "total": 3,
+      "arabic_text": 0,
+      "arabic_link": 0,
+      "arabic_available": 0,
+      "english_text": 0,
+      "english_link": 0,
+      "english_available": 0,
+      "missing_arabic": 3,
+      "missing_english": 3,
+      "both_text": 0,
+      "both_available": 0,
+      "arabic_only": 0,
+      "english_only": 0,
+      "neither_available": 3
     },
     "en": {
       "total": 3684,
@@ -99,20 +131,20 @@
       "neither_available": 78
     },
     "hi": {
-      "total": 30919,
+      "total": 32957,
       "arabic_text": 24579,
       "arabic_link": 6114,
       "arabic_available": 30693,
       "english_text": 29249,
       "english_link": 1289,
       "english_available": 30538,
-      "missing_arabic": 226,
-      "missing_english": 381,
+      "missing_arabic": 2264,
+      "missing_english": 2419,
       "both_text": 24299,
       "both_available": 30534,
       "arabic_only": 159,
       "english_only": 4,
-      "neither_available": 222
+      "neither_available": 2260
     },
     "ja": {
       "total": 3520,
@@ -129,6 +161,22 @@
       "arabic_only": 39,
       "english_only": 0,
       "neither_available": 3154
+    },
+    "pt": {
+      "total": 6,
+      "arabic_text": 0,
+      "arabic_link": 0,
+      "arabic_available": 0,
+      "english_text": 0,
+      "english_link": 0,
+      "english_available": 0,
+      "missing_arabic": 6,
+      "missing_english": 6,
+      "both_text": 0,
+      "both_available": 0,
+      "arabic_only": 0,
+      "english_only": 0,
+      "neither_available": 6
     },
     "ur": {
       "total": 231,
@@ -196,6 +244,29 @@
     }
   },
   "by_source": {
+    "bs-tirmidhi-karalic-v1-1999-8b62165c": {
+      "source_id": "bs-tirmidhi-karalic-v1-1999-8b62165c",
+      "language": "bs",
+      "book_key": "tirmidhi",
+      "edition": "bs-karalic-first-edition-volume-1-1999",
+      "source_name": "Tirmizijin Džami'-Sunen / Tirmizijina zbirka hadisa",
+      "counts": {
+        "total": 3,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 3,
+        "missing_english": 3,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 3
+      }
+    },
     "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd": {
       "source_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
       "language": "vi",
@@ -1229,6 +1300,29 @@
         "arabic_only": 0,
         "english_only": 0,
         "neither_available": 73
+      }
+    },
+    "de-suleyman-mobile-7bcee562": {
+      "source_id": "de-suleyman-mobile-7bcee562",
+      "language": "de",
+      "book_key": "nawawi",
+      "edition": "suleyman-mobile-7bcee562",
+      "source_name": "Fassung der Vierzig An-Nawawiyyah (Aḥādīth) und den zusätzlichen acht Aḥādīth von Ibn Rajab",
+      "counts": {
+        "total": 3,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 3,
+        "missing_english": 3,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 3
       }
     },
     "deenhindi-abudawud": {
@@ -3071,6 +3165,75 @@
         "neither_available": 606
       }
     },
+    "hi-mukhtasar-v1-4785913c": {
+      "source_id": "hi-mukhtasar-v1-4785913c",
+      "language": "hi",
+      "book_key": "bukhari",
+      "edition": "hindi-mukhtasar-v1-4785913c",
+      "source_name": "Hindi Mukhtasar Sahih Bukhari — Volume 1",
+      "counts": {
+        "total": 680,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 680,
+        "missing_english": 680,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 680
+      }
+    },
+    "hi-mukhtasar-v2-d99bfae5": {
+      "source_id": "hi-mukhtasar-v2-d99bfae5",
+      "language": "hi",
+      "book_key": "bukhari",
+      "edition": "hindi-mukhtasar-v2-d99bfae5",
+      "source_name": "Hindi Mukhtasar Sahih Bukhari — Volume 2",
+      "counts": {
+        "total": 732,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 732,
+        "missing_english": 732,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 732
+      }
+    },
+    "hi-mukhtasar-v3-1cd9232b": {
+      "source_id": "hi-mukhtasar-v3-1cd9232b",
+      "language": "hi",
+      "book_key": "bukhari",
+      "edition": "hindi-mukhtasar-v3-1cd9232b",
+      "source_name": "Hindi Mukhtasar Sahih Bukhari — Volume 3",
+      "counts": {
+        "total": 626,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 626,
+        "missing_english": 626,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 626
+      }
+    },
     "islom-book-17-uz-web": {
       "source_id": "islom-book-17-uz-web",
       "language": "uz",
@@ -4587,6 +4750,29 @@
         "arabic_only": 0,
         "english_only": 0,
         "neither_available": 8
+      }
+    },
+    "pt-bukhari-anli-v3-2024-1b5ef269": {
+      "source_id": "pt-bukhari-anli-v3-2024-1b5ef269",
+      "language": "pt",
+      "book_key": "bukhari",
+      "edition": "anli-volume3-first-2024-1445h",
+      "source_name": "TRADUÇÃO DOS SIGNIFICADOS DO SAHIH AL BUKHARI",
+      "counts": {
+        "total": 6,
+        "arabic_text": 0,
+        "arabic_link": 0,
+        "arabic_available": 0,
+        "english_text": 0,
+        "english_link": 0,
+        "english_available": 0,
+        "missing_arabic": 6,
+        "missing_english": 6,
+        "both_text": 0,
+        "both_available": 0,
+        "arabic_only": 0,
+        "english_only": 0,
+        "neither_available": 6
       }
     },
     "quran-excerpts-fa-abu-dawud": {

@@ -1,0 +1,129 @@
+{
+  "schema": "hadith-bank-language-materials-v1",
+  "language": "bs",
+  "name": "bs",
+  "scope": "public_source_snapshots",
+  "record_count": 3,
+  "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
+  "datasets": [
+    {
+      "dataset_id": "bs-tirmidhi-karalic-v1-1999-8b62165c",
+      "language": "bs",
+      "book_key": "tirmidhi",
+      "edition": "bs-karalic-first-edition-volume-1-1999",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/source.pdf",
+      "source_sha256": "8b62165c8b1f79fbeb70e0e24afc751c45fadc24dcaee18ae7ec255926221bc2",
+      "canonical_records_path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/records.json",
+      "canonical_records_sha256": "a838c90f33f7b84cc0bab29d16d720844b4ee8c76e113371358fe0cdd3e1ec8a",
+      "source_descriptor": {
+        "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/source.pdf",
+        "sha256": "8b62165c8b1f79fbeb70e0e24afc751c45fadc24dcaee18ae7ec255926221bc2",
+        "name": "Tirmizijin Džami'-Sunen / Tirmizijina zbirka hadisa",
+        "format": "pdf",
+        "url": "https://www.islamland.com/uploads/books/53fb0782-dff0-490a-ad4d-1141b8adb1fd-bs_Sunen_Tirmizi_crno_bijelo_1.pdf",
+        "translator": "Prof. Mahmut Karalić",
+        "edition_year": 1999,
+        "volume": 1,
+        "pdf_pages": 528
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/current-scoped-review.json",
+          "sha256": "d5706f4f511dac6da78af9e8b1d79a078499975c99508ea226fb643c1b105421",
+          "size_bytes": 2926
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-origin-enum-and-title-delta.zip",
+          "sha256": "282f76a2e2a099f2e9437f5412b4ab6b3a6145244fb1a3f3a92f55dbfb55056b",
+          "size_bytes": 320322
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-original-source-review.zip",
+          "sha256": "a7dfcd05d7cc44764121d06e6a3bacb7fb82759805f84961711798e48cc6b110",
+          "size_bytes": 1068360
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-source2-spelling-delta.zip",
+          "sha256": "12f27d2f8f0a14c07597d9600107da2a3cdae2b96a7065a65a0c1dce521442b7",
+          "size_bytes": 313000
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-three-final-adapter.zip",
+          "sha256": "5d04149128f46fc45c432978cf1e02159f78c28668459a00bbf89dfc3a39f46c",
+          "size_bytes": 636891
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/origin-enum-delta-v003.json",
+          "sha256": "4516ced9211cfef80931cc18261d4fa89a1163f0f6240144cb94a194194f2e7b",
+          "size_bytes": 1407
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/records-before-origin-enum-v002.json",
+          "sha256": "3a3102e3d5263e5c58ac9df995c94d45c9979a1c1cae26d41f9585bf8f76b478",
+          "size_bytes": 14473
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/source-body-bindings.json",
+          "sha256": "343261e3519f8af99ba6bd990fae293015fa50cbaff2fa07c0c37600d8765783",
+          "size_bytes": 2403
+        },
+        {
+          "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/spelling-delta-accepted-result.json",
+          "sha256": "489a799c7049f46d3be54f0397bf98e9ba9aa2ae0aeefab35202c66df792471e",
+          "size_bytes": 10784
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "Independent narrationANDvariantidentity unapproved. No source-number-only merge."
+      },
+      "source_name": "Tirmizijin Džami'-Sunen / Tirmizijina zbirka hadisa",
+      "translation_provenance": {
+        "origin": "human_translator_credited",
+        "ai_translation": false,
+        "translator": {
+          "name": "Prof. Mahmut Karalić",
+          "evidence": "Existing independent source review: named translator and volume1edition checked on original physical pages2–3."
+        },
+        "basis": "Human (named translator in original source)",
+        "historical_source_process_flags": "Original candidate ai_translation:false and namedHumantranslation claim retained; no production-history inference added.",
+        "label": "Source attribution supplied",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    }
+  ],
+  "legacy_materials": [],
+  "reading_index": "browse/bs/README.md",
+  "related_snapshots": "catalog/related-snapshots.json"
+}

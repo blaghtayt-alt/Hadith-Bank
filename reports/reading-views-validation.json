@@ -1,8 +1,8 @@
 {
   "schema": "hadith-bank-reading-views-validation-v1",
   "status": "passed",
-  "records_compared": 112571,
-  "unique_occurrence_ids": 112571,
+  "records_compared": 114621,
+  "unique_occurrence_ids": 114621,
   "source_record_files": [
     {
       "path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
@@ -39,6 +39,20 @@
       "sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9",
       "records": 2314,
       "arabic_and_translation_equal": true
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/records.json",
+      "sha256": "a838c90f33f7b84cc0bab29d16d720844b4ee8c76e113371358fe0cdd3e1ec8a",
+      "records": 3,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/manifest.json"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/records.json",
+      "sha256": "def2c3569b7b1d93e6b3fbd7f4687d2f43431f87eee3c1a6c876bd704f668732",
+      "records": 3,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/de-suleyman-mobile-7bcee562/manifest.json"
     },
     {
       "path": "materials/deenhindi-abudawud/records.jsonl",
@@ -559,6 +573,27 @@
       "publication_manifest": "materials/hadisuz-tirmidhi-uz-web/manifest.json"
     },
     {
+      "path": "materials/hi-mukhtasar-v1-4785913c/records.json",
+      "sha256": "efb2b4289536fc587faef02f55289900b89a7afb4db194e685af49581ffe3275",
+      "records": 680,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/hi-mukhtasar-v1-4785913c/manifest.json"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/records.json",
+      "sha256": "b5a9f38c73b5986269410d637f07762297ee0ffe1e324023a8c4fd5d473e73bd",
+      "records": 732,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/hi-mukhtasar-v2-d99bfae5/manifest.json"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/records.json",
+      "sha256": "c3ec5180ed2c317691aeb80215948da3dff6fa2f62a6a381e514a0c42107e57d",
+      "records": 626,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/hi-mukhtasar-v3-1cd9232b/manifest.json"
+    },
+    {
       "path": "materials/islom-book-17-uz-web/records.jsonl",
       "sha256": "fdea3fefabf327565a89dbc6f5a10f0bb43436ec8f2445c53ca51047696f0871",
       "records": 304,
@@ -1019,6 +1054,13 @@
       "records": 16,
       "arabic_and_translation_equal": true,
       "publication_manifest": "materials/legacy-zh-CN-unclassified/manifest.json"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/records.json",
+      "sha256": "a4c590a2ba99b4e08372d94c4d6f9b17173a820c45d65bd21a9d76c36ca24c2b",
+      "records": 6,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/pt-bukhari-anli-v3-2024-1b5ef269/manifest.json"
     },
     {
       "path": "materials/quran-excerpts-fa-abu-dawud/records.json",
@@ -1784,23 +1826,23 @@
       "publication_manifest": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json"
     }
   ],
-  "source_assets_hashed": 255,
+  "source_assets_hashed": 261,
   "canonical_sources_unchanged": true,
   "text_normalization": "none in stored/display values",
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "unknown": 72640,
-    "human_translator_credited": 30639,
+    "human_translator_credited": 30642,
+    "unknown": 74687,
     "ai_translation": 2,
     "legacy_source_history": 867
   },
-  "search_sha256": "7ffad228681f43dadfeed49e89eee031d5e6d3c26f55905d26f396ae281a1270",
+  "search_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
   "current_translation_origins": {
     "ai": 2,
-    "human": 111404,
+    "human": 113454,
     "unknown": 1165
   },
-  "shards": 1305,
+  "shards": 1330,
   "review_status_promoted": false,
   "provenance_note": "Translation process evidence is scoped separately from exact-record AI-origin and bank QC."
 }

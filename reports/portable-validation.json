@@ -4,26 +4,30 @@
   "scope": "public_source_snapshots",
   "current_translation_origins": {
     "ai": 2,
-    "human": 111404,
+    "human": 113454,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-15T14:53:45.443201+00:00",
-  "record_count": 112571,
-  "source_dataset_count": 255,
+  "checked_at_utc": "2026-11-16T14:36:03.245685+00:00",
+  "record_count": 114621,
+  "source_dataset_count": 261,
   "by_language": {
     "ar": 32267,
     "bn": 44,
+    "bs": 3,
+    "de": 3,
     "en": 3684,
     "fa": 14382,
     "fil": 2354,
-    "hi": 30919,
+    "hi": 32957,
     "ja": 3520,
+    "pt": 6,
     "ur": 231,
     "uz": 9780,
     "vi": 4555,
     "zh-CN": 10835
   },
   "by_dataset": {
+    "bs-tirmidhi-karalic-v1-1999-8b62165c": 3,
     "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd": 200,
     "chanlyislam:vi:abu-dawud:pdf-03e704068cea5733": 140,
     "chanlyislam:vi:abu-dawud:pdf-0a15d0d1891beb6b": 145,
@@ -69,6 +73,7 @@
     "chanlyislam:vi:muslim:pdf-e6f1e921a7497618": 62,
     "chanlyislam:vi:muslim:pdf-ebc95d437900d31b": 85,
     "chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1": 73,
+    "de-suleyman-mobile-7bcee562": 3,
     "deenhindi-abudawud": 2078,
     "deenhindi-abudawud-part-002": 2121,
     "deenhindi-abudawud-part-003": 654,
@@ -149,6 +154,9 @@
     "hadeethenc-vi-sqlite-3fb9e549494ff0f6": 1203,
     "hadeethenc-zh-sqlite-a22a0e545c70b320": 2256,
     "hadisuz-tirmidhi-uz-web": 606,
+    "hi-mukhtasar-v1-4785913c": 680,
+    "hi-mukhtasar-v2-d99bfae5": 732,
+    "hi-mukhtasar-v3-1cd9232b": 626,
     "islom-book-17-uz-web": 304,
     "islom-book-22-uz-web": 100,
     "islom-book-23-uz-web": 1504,
@@ -215,6 +223,7 @@
     "legacy-zh-CN-muslim": 45,
     "legacy-zh-CN-tirmidhi": 1,
     "legacy-zh-CN-unclassified": 16,
+    "pt-bukhari-anli-v3-2024-1b5ef269": 6,
     "quran-excerpts-fa-abu-dawud": 2,
     "quran-excerpts-fa-adab-al-mufrad": 1,
     "quran-excerpts-fa-ahmad": 2,
@@ -281,14 +290,14 @@
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 112571,
-    "projection_objects_compared": 112571,
-    "exact_arabic_and_translation_codepoints_compared": 87490661,
-    "canonical_record_files_hashed": 255,
-    "source_and_legacy_files_hashed": 61255,
-    "ordered_search_shards_hashed": 1305,
-    "canonical_record_digest_checks": 112571,
-    "complete_public_projection_objects_reconstructed": 112571,
+    "canonical_occurrences_compared": 114621,
+    "projection_objects_compared": 114621,
+    "exact_arabic_and_translation_codepoints_compared": 88411796,
+    "canonical_record_files_hashed": 261,
+    "source_and_legacy_files_hashed": 61308,
+    "ordered_search_shards_hashed": 1330,
+    "canonical_record_digest_checks": 114621,
+    "complete_public_projection_objects_reconstructed": 114621,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -352,6 +361,106 @@
       "path": "languages/hi/books/hadeethenc/editions/sqlite-3b74b6c4da6dc883/records.jsonl",
       "bytes": 51721418,
       "sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/source.pdf",
+      "bytes": 21099408,
+      "sha256": "8b62165c8b1f79fbeb70e0e24afc751c45fadc24dcaee18ae7ec255926221bc2"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/current-scoped-review.json",
+      "bytes": 2926,
+      "sha256": "d5706f4f511dac6da78af9e8b1d79a078499975c99508ea226fb643c1b105421"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-origin-enum-and-title-delta.zip",
+      "bytes": 320322,
+      "sha256": "282f76a2e2a099f2e9437f5412b4ab6b3a6145244fb1a3f3a92f55dbfb55056b"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-original-source-review.zip",
+      "bytes": 1068360,
+      "sha256": "a7dfcd05d7cc44764121d06e6a3bacb7fb82759805f84961711798e48cc6b110"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-source2-spelling-delta.zip",
+      "bytes": 313000,
+      "sha256": "12f27d2f8f0a14c07597d9600107da2a3cdae2b96a7065a65a0c1dce521442b7"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/independent-three-final-adapter.zip",
+      "bytes": 636891,
+      "sha256": "5d04149128f46fc45c432978cf1e02159f78c28668459a00bbf89dfc3a39f46c"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/origin-enum-delta-v003.json",
+      "bytes": 1407,
+      "sha256": "4516ced9211cfef80931cc18261d4fa89a1163f0f6240144cb94a194194f2e7b"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/records-before-origin-enum-v002.json",
+      "bytes": 14473,
+      "sha256": "3a3102e3d5263e5c58ac9df995c94d45c9979a1c1cae26d41f9585bf8f76b478"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/source-body-bindings.json",
+      "bytes": 2403,
+      "sha256": "343261e3519f8af99ba6bd990fae293015fa50cbaff2fa07c0c37600d8765783"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/evidence/spelling-delta-accepted-result.json",
+      "bytes": 10784,
+      "sha256": "489a799c7049f46d3be54f0397bf98e9ba9aa2ae0aeefab35202c66df792471e"
+    },
+    {
+      "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/records.json",
+      "bytes": 14533,
+      "sha256": "a838c90f33f7b84cc0bab29d16d720844b4ee8c76e113371358fe0cdd3e1ec8a"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/source.pdf",
+      "bytes": 933533,
+      "sha256": "7bcee56271a39c090d2cb1311f31b2fd3b2337f8d8a2b7eca4bbaa9f87926961"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/document_metadata.json",
+      "bytes": 1538,
+      "sha256": "5a0122ebedac3e2b4cbb990c135f6ee1fb6bea93f97347ddce182f11dab722b1"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/current-scoped-review.json",
+      "bytes": 2629,
+      "sha256": "9b3c1d7ba66653c68edd31120dcdd2cf13bbbef28299f6868a099ba5564b2f8d"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-executable-adapter-review.zip",
+      "bytes": 140184,
+      "sha256": "41fdbd09c899cc9a7085acf6b03b1aa03e5dcc9e8045347f2de13778c6688e78"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-final-adapter-review.zip",
+      "bytes": 872627,
+      "sha256": "c62dbbcfe3f2cae9b31877bb43426aa58f4eda78ad072d92120a2e039d27399c"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-source-review.zip",
+      "bytes": 99580,
+      "sha256": "769598a660b88f29737eedfc4a38b2ab5657bf60060efc6f850b57b32e1f975f"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/original-de.txt",
+      "bytes": 141225,
+      "sha256": "7e08e2defed73dc1081088c2f49b26bf51f5a08b5306a37de8c75bcc92d29be5"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/evidence/selected-source-spans.json",
+      "bytes": 1738,
+      "sha256": "945b6d2280e2f5649351eedd336de604daf40c4303d28ade64aeabeb9de85a3f"
+    },
+    {
+      "path": "materials/de-suleyman-mobile-7bcee562/records.json",
+      "bytes": 19199,
+      "sha256": "def2c3569b7b1d93e6b3fbd7f4687d2f43431f87eee3c1a6c876bd704f668732"
     },
     {
       "path": "materials/deenhindi-abudawud/source-index.json",
@@ -302309,6 +302418,111 @@
       "sha256": "18e8a1394afa6236cb3a1a9647109c4038a9c2a1cfc9c2698ef5f14cd5440389"
     },
     {
+      "path": "materials/hi-mukhtasar-v1-4785913c/source.pdf",
+      "bytes": 15278898,
+      "sha256": "4785913cafaa60e2e19e3fa0467055fcedd1be08877c2cafad72bdc73057c339"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/evidence/current-scoped-review.json",
+      "bytes": 2299,
+      "sha256": "8b5412254c529b074c68b1faf0ff83276171ebc7a6d1195c325457b2e3e0eabe"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/evidence/independent-control-and-adapter-review.zip",
+      "bytes": 714580,
+      "sha256": "6173c719a137b70f1b172cf4f9d046defd3eaccf49097958856a2c8f63eeb63c"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/evidence/independent-numbering-scope-delta.zip",
+      "bytes": 594338,
+      "sha256": "7ad77559f7840104582e92d9b5a3defa805aa6249fe2b6b040dcf40b7e1b70b0"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/evidence/numbering-scope-delta-v003.json",
+      "bytes": 227447,
+      "sha256": "655229d57d0fc2715f6b9ad962d83c67f061c192879389b866d27c1277b36e1a"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/provenance.json",
+      "bytes": 3153,
+      "sha256": "45ff43dd9b0a034639b661fe437b41b08d16345779149c0df51c6e2a536d6749"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v1-4785913c/records.json",
+      "bytes": 4941500,
+      "sha256": "efb2b4289536fc587faef02f55289900b89a7afb4db194e685af49581ffe3275"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/source.pdf",
+      "bytes": 16891074,
+      "sha256": "d99bfae5390146f120d45e07abaf5006e0df67b9a4ab55ef2091b2a88213f3fb"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/evidence/current-scoped-review.json",
+      "bytes": 2299,
+      "sha256": "508200f9cbdba8a4456c4e70da4dfa6574037bc4dee82916d5d80e7f3ac82120"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/evidence/independent-control-and-adapter-review.zip",
+      "bytes": 714580,
+      "sha256": "6173c719a137b70f1b172cf4f9d046defd3eaccf49097958856a2c8f63eeb63c"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/evidence/independent-numbering-scope-delta.zip",
+      "bytes": 594338,
+      "sha256": "7ad77559f7840104582e92d9b5a3defa805aa6249fe2b6b040dcf40b7e1b70b0"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/evidence/numbering-scope-delta-v003.json",
+      "bytes": 245364,
+      "sha256": "64921531fcf501bcfea066f3739c3ddd3cd55713363ead8c8e9a0719be338c45"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/provenance.json",
+      "bytes": 2607,
+      "sha256": "6b14aa4a6f5cf78efd22e2b033d4fe5d5d548fdbdd195e936ea70897651eec3a"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v2-d99bfae5/records.json",
+      "bytes": 4956619,
+      "sha256": "b5a9f38c73b5986269410d637f07762297ee0ffe1e324023a8c4fd5d473e73bd"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/source.pdf",
+      "bytes": 17365559,
+      "sha256": "1cd9232b8ba489477f26133772a404b36deabe1fc72e4732fb7bb42278947d9a"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/evidence/current-scoped-review.json",
+      "bytes": 2299,
+      "sha256": "17e8f1ae9ba8d7b5043b0ce6ed901bb9c83fdcac16ff3243e7fffd61229156de"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/evidence/independent-control-and-adapter-review.zip",
+      "bytes": 714580,
+      "sha256": "6173c719a137b70f1b172cf4f9d046defd3eaccf49097958856a2c8f63eeb63c"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/evidence/independent-numbering-scope-delta.zip",
+      "bytes": 594338,
+      "sha256": "7ad77559f7840104582e92d9b5a3defa805aa6249fe2b6b040dcf40b7e1b70b0"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/evidence/numbering-scope-delta-v003.json",
+      "bytes": 210076,
+      "sha256": "ea2c5779402a1302b34a118c9a0d002ef26a8e3e535c14b585edb3a981451f97"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/provenance.json",
+      "bytes": 2232,
+      "sha256": "db3fbd9fb58a04dae568619e0130ad031253a4b6d8920fae381326607ce6befe"
+    },
+    {
+      "path": "materials/hi-mukhtasar-v3-1cd9232b/records.json",
+      "bytes": 3938823,
+      "sha256": "c3ec5180ed2c317691aeb80215948da3dff6fa2f62a6a381e514a0c42107e57d"
+    },
+    {
       "path": "materials/islom-book-17-uz-web/source-evidence.json",
       "bytes": 4324,
       "sha256": "232c6346bcc470f0351b8731ce20f2691c96e4c905e8b1ddb0f8e4ebcf6211ba"
@@ -305064,6 +305278,66 @@
       "sha256": "384d52cccc46a2af3b0d836d58a0008c4c4144f1ff20daade8839e3fc6ad3810"
     },
     {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/source.pdf",
+      "bytes": 6321982,
+      "sha256": "1b5ef269f948b88d897755cfeb4af64ee085d009f7b4ff389691b9c0f6a7e347"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/attributed-reading-credit-delta-v002.json",
+      "bytes": 2261,
+      "sha256": "f186214c120652bd0e8ae7e28aa53bce92c490a3714a4b5d0be2a41a4009a1f2"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/current-scoped-review.json",
+      "bytes": 3207,
+      "sha256": "ddb068d2b59f7b274db9c94cbedd23ccb0429e76491beb3dcc47b5683f3d15a0"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/independent-executable-adapter-review.zip",
+      "bytes": 159691,
+      "sha256": "9f63c82360514bd1f9745686a5981854bc3d34a796cb0c762c3f692586f53f0d"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/independent-final-adapter-review.zip",
+      "bytes": 725625,
+      "sha256": "d4f2bd22f13c0a0e7fb1c3ac1a2a57fd3bd73fdc5f977513bee3eae11a0880cf"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/independent-source-review.zip",
+      "bytes": 2172641,
+      "sha256": "b46c6e7d4e43d5ee563fd08361a29e592139717141a71f3ca4375622b9177c49"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/original-document_metadata.json",
+      "bytes": 5259,
+      "sha256": "937d80aa634194db5233497653742aab5afd0b10e7c3eebdaa169cfcfcbc2cba"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/original-issues.json",
+      "bytes": 1189,
+      "sha256": "c5997245727a8ef786fe6d41cbede4bf42204cd065b9468cc21209d237eb5bb5"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/original-records.json",
+      "bytes": 148254,
+      "sha256": "5b6135ced8e259e238e453c2b914456c234af0d37a2f4fcdd722de3e5aa1e73a"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/evidence/records-before-attributed-reading-credit-v001.json",
+      "bytes": 30502,
+      "sha256": "6f31bceb9ee334a8cb669e1ccaf00475a0373bd8555ce6b6a50ba457742377c6"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/span-map.json",
+      "bytes": 36077,
+      "sha256": "c48aa8afef59ebb8b8132dd00eb1aace9f5c0e2c728f625442c5612a099528a4"
+    },
+    {
+      "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/records.json",
+      "bytes": 32298,
+      "sha256": "a4c590a2ba99b4e08372d94c4d6f9b17173a820c45d65bd21a9d76c36ca24c2b"
+    },
+    {
       "path": "materials/quran-excerpts-fa-abu-dawud/source-bundle.json",
       "bytes": 2091593,
       "sha256": "a4736d1b680a4cd7a08072d9fd8f273eb6cb67f2f7c55fc71f914a88bd1e8415"
@@ -306569,43 +306843,43 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "7ffad228681f43dadfeed49e89eee031d5e6d3c26f55905d26f396ae281a1270",
+  "search_stream_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "c54fcc9a0104b5e93ae28f3cffca22f336f65000b6f13132253714b35742e392",
-    "bytes": 1835889,
-    "embedded_objects_compared": 112571,
-    "data_shards_verified": 1554,
+    "sha256": "9c10d191c42f43b94147336aca6ccc826e803448629a971ea91f5af3296dbd73",
+    "bytes": 1862774,
+    "embedded_objects_compared": 114621,
+    "data_shards_verified": 1564,
     "reviewed_reading_groups": 57,
-    "grouped_reading_count": 112514,
+    "grouped_reading_count": 114564,
     "external_script_or_stylesheet_dependencies": false,
     "reader_store_metrics": {
       "directory": {
-        "record_count": 112571,
-        "shard_count": 19,
-        "compressed_bytes": 1579173,
-        "uncompressed_bytes": 38872810,
+        "record_count": 114621,
+        "shard_count": 20,
+        "compressed_bytes": 1607528,
+        "uncompressed_bytes": 39531154,
         "max_row_bytes": 467
       },
       "search": {
-        "record_count": 112571,
-        "shard_count": 361,
-        "compressed_bytes": 80889825,
-        "uncompressed_bytes": 747191540,
+        "record_count": 114621,
+        "shard_count": 362,
+        "compressed_bytes": 81347114,
+        "uncompressed_bytes": 750901489,
         "max_row_bytes": 215760
       },
       "annotations": {
-        "record_count": 112571,
-        "shard_count": 94,
-        "compressed_bytes": 26761813,
-        "uncompressed_bytes": 193634608,
+        "record_count": 114621,
+        "shard_count": 95,
+        "compressed_bytes": 26798391,
+        "uncompressed_bytes": 195538373,
         "max_row_bytes": 128046
       },
       "details": {
-        "record_count": 112571,
-        "shard_count": 1080,
-        "compressed_bytes": 193249506,
-        "uncompressed_bytes": 2245405917,
+        "record_count": 114621,
+        "shard_count": 1087,
+        "compressed_bytes": 194097353,
+        "uncompressed_bytes": 2260127359,
         "max_row_bytes": 257373
       }
     },
@@ -306615,21 +306889,21 @@
       "annotations": 128046
     },
     "max_detail_record_bytes": 257373,
-    "directory_bytes": 38872810,
-    "detail_stream_sha256": "7ffad228681f43dadfeed49e89eee031d5e6d3c26f55905d26f396ae281a1270",
+    "directory_bytes": 39531154,
+    "detail_stream_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
     "discovery": {
-      "record_count": 112571,
-      "occurrence_ids_sha256": "ffb464d373b54e1fde39907f94b4fc1efdf07f97f29e4c39a611fb8c1b6ebea4",
-      "indexed_quotation_fields_sha256": "b49be4fa6e35ab03a17e52dccadebc6a45a9b8e107f3c34134753850bee8c709",
-      "family_count": 106491,
+      "record_count": 114621,
+      "occurrence_ids_sha256": "dbca9049bf60f30af744a85a036f7fc7fb3386c197597d187d02dc23ccd9e1e8",
+      "indexed_quotation_fields_sha256": "b8f06d16d223881ea0df4e84bbf3136c8c2dd10a4c5dd0dbd4e3456de2cfa417",
+      "family_count": 108541,
       "source_text_modified": false,
       "source_bound_families_verified": 2475
     }
   },
   "navigation": {
-    "markdown_files_checked": 5257,
-    "local_targets_checked": 269355,
-    "external_links_not_requested": 1302762,
+    "markdown_files_checked": 5356,
+    "local_targets_checked": 274091,
+    "external_links_not_requested": 1310983,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -306638,10 +306912,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 255,
+    "authorized_dataset_count": 261,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 205,
+    "registered_material_manifests_verified": 211,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

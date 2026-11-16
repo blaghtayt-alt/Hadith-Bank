@@ -1,0 +1,121 @@
+{
+  "schema": "hadith-bank-language-materials-v1",
+  "language": "de",
+  "name": "de",
+  "scope": "public_source_snapshots",
+  "record_count": 3,
+  "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
+  "datasets": [
+    {
+      "dataset_id": "de-suleyman-mobile-7bcee562",
+      "language": "de",
+      "book_key": "nawawi",
+      "edition": "suleyman-mobile-7bcee562",
+      "count": 3,
+      "release_status": "source_review_pending",
+      "source_file": "materials/de-suleyman-mobile-7bcee562/source.pdf",
+      "source_sha256": "7bcee56271a39c090d2cb1311f31b2fd3b2337f8d8a2b7eca4bbaa9f87926961",
+      "canonical_records_path": "materials/de-suleyman-mobile-7bcee562/records.json",
+      "canonical_records_sha256": "def2c3569b7b1d93e6b3fbd7f4687d2f43431f87eee3c1a6c876bd704f668732",
+      "source_descriptor": {
+        "path": "materials/de-suleyman-mobile-7bcee562/source.pdf",
+        "sha256": "7bcee56271a39c090d2cb1311f31b2fd3b2337f8d8a2b7eca4bbaa9f87926961",
+        "name": "Fassung der Vierzig An-Nawawiyyah (Aḥādīth) und den zusätzlichen acht Aḥādīth von Ibn Rajab",
+        "format": "pdf",
+        "url": "https://reader.islamhouse.com/storage/downloads/pdf-mobile/de_2828850.pdf",
+        "translator_credit_as_printed": "Abū Suleyman",
+        "reviser_credit_as_printed": "Muḥammad S. Al-Almany",
+        "edition_date": null,
+        "translation_preface_date": "2017-07-02",
+        "pdf_creation_metadata": "2020-12-08 UTC; not publication date",
+        "pdf_pages": 120
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/de-suleyman-mobile-7bcee562/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/de-suleyman-mobile-7bcee562/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/document_metadata.json",
+          "sha256": "5a0122ebedac3e2b4cbb990c135f6ee1fb6bea93f97347ddce182f11dab722b1",
+          "size_bytes": 1538
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/current-scoped-review.json",
+          "sha256": "9b3c1d7ba66653c68edd31120dcdd2cf13bbbef28299f6868a099ba5564b2f8d",
+          "size_bytes": 2629
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-executable-adapter-review.zip",
+          "sha256": "41fdbd09c899cc9a7085acf6b03b1aa03e5dcc9e8045347f2de13778c6688e78",
+          "size_bytes": 140184
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-final-adapter-review.zip",
+          "sha256": "c62dbbcfe3f2cae9b31877bb43426aa58f4eda78ad072d92120a2e039d27399c",
+          "size_bytes": 872627
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/independent-source-review.zip",
+          "sha256": "769598a660b88f29737eedfc4a38b2ab5657bf60060efc6f850b57b32e1f975f",
+          "size_bytes": 99580
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/original-de.txt",
+          "sha256": "7e08e2defed73dc1081088c2f49b26bf51f5a08b5306a37de8c75bcc92d29be5",
+          "size_bytes": 141225
+        },
+        {
+          "path": "materials/de-suleyman-mobile-7bcee562/evidence/selected-source-spans.json",
+          "sha256": "945b6d2280e2f5649351eedd336de604daf40c4303d28ade64aeabeb9de85a3f",
+          "size_bytes": 1738
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "NarrationANDvariantidentity notindependentlyapproved; localNawawi/sourcecollectionreferencesdonotgrantcanonicalidentity."
+      },
+      "source_name": "Fassung der Vierzig An-Nawawiyyah (Aḥādīth) und den zusätzlichen acht Aḥādīth von Ibn Rajab",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "original_source_assessment": "Historical named translation/revision evidenced, complete production history not established.",
+        "basis": "Source page13 credit;2017preface and2020PDFmetadata are separate. Existing current owner Human display policy applies at registration.",
+        "translator": {
+          "name": "Abū Suleyman",
+          "evidence": "Physical PDF page13 credits; independently checked in existing source review."
+        },
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    }
+  ],
+  "legacy_materials": [],
+  "reading_index": "browse/de/README.md",
+  "related_snapshots": "catalog/related-snapshots.json"
+}

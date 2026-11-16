@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**112,571 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
+**114,621 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -12,11 +12,14 @@ Text and external-only links are counted separately. An English source link requ
 |---|---:|---:|---:|---:|---:|---:|
 | ar | 32,267 | 32,267 | 32,185 | 69 | 0 | 13 |
 | bn | 44 | 0 | 0 | 4 | 40 | 40 |
+| bs | 3 | 0 | 0 | 0 | 3 | 3 |
+| de | 3 | 0 | 0 | 0 | 3 | 3 |
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 30,919 | 24,579 | 29,249 | 1,289 | 226 | 381 |
+| hi | 32,957 | 24,579 | 29,249 | 1,289 | 2,264 | 2,419 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
+| pt | 6 | 0 | 0 | 0 | 6 | 6 |
 | ur | 231 | 0 | 0 | 12 | 223 | 219 |
 | uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
@@ -26,6 +29,7 @@ Text and external-only links are counted separately. An English source link requ
 
 | Source edition | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---|---:|---:|---:|---:|---:|---:|
+| bs-tirmidhi-karalic-v1-1999-8b62165c | bs | 3 | 0 | 0 | 0 | 3 | 3 |
 | chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd | vi | 200 | 85 | 84 | 0 | 115 | 116 |
 | chanlyislam:vi:abu-dawud:pdf-03e704068cea5733 | vi | 140 | 0 | 0 | 0 | 140 | 140 |
 | chanlyislam:vi:abu-dawud:pdf-0a15d0d1891beb6b | vi | 145 | 0 | 0 | 0 | 145 | 145 |
@@ -71,6 +75,7 @@ Text and external-only links are counted separately. An English source link requ
 | chanlyislam:vi:muslim:pdf-e6f1e921a7497618 | vi | 62 | 0 | 0 | 0 | 62 | 62 |
 | chanlyislam:vi:muslim:pdf-ebc95d437900d31b | vi | 85 | 0 | 0 | 0 | 85 | 85 |
 | chanlyislam:vi:muslim:pdf-ffab02a08fcdf0a1 | vi | 73 | 0 | 0 | 0 | 73 | 73 |
+| de-suleyman-mobile-7bcee562 | de | 3 | 0 | 0 | 0 | 3 | 3 |
 | deenhindi-abudawud | hi | 2,078 | 1,394 | 2,061 | 16 | 1 | 1 |
 | deenhindi-abudawud-part-002 | hi | 2,121 | 1,618 | 2,027 | 94 | 0 | 0 |
 | deenhindi-abudawud-part-003 | hi | 654 | 540 | 653 | 1 | 0 | 0 |
@@ -151,6 +156,9 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
 | hadisuz-tirmidhi-uz-web | uz | 606 | 0 | 0 | 0 | 606 | 606 |
+| hi-mukhtasar-v1-4785913c | hi | 680 | 0 | 0 | 0 | 680 | 680 |
+| hi-mukhtasar-v2-d99bfae5 | hi | 732 | 0 | 0 | 0 | 732 | 732 |
+| hi-mukhtasar-v3-1cd9232b | hi | 626 | 0 | 0 | 0 | 626 | 626 |
 | islom-book-17-uz-web | uz | 304 | 302 | 0 | 0 | 2 | 304 |
 | islom-book-22-uz-web | uz | 100 | 99 | 0 | 0 | 1 | 100 |
 | islom-book-23-uz-web | uz | 1,504 | 1,405 | 0 | 0 | 99 | 1,504 |
@@ -217,6 +225,7 @@ Text and external-only links are counted separately. An English source link requ
 | legacy-zh-CN-muslim | zh-CN | 45 | 45 | 22 | 0 | 0 | 23 |
 | legacy-zh-CN-tirmidhi | zh-CN | 1 | 1 | 0 | 0 | 0 | 1 |
 | legacy-zh-CN-unclassified | zh-CN | 16 | 8 | 8 | 0 | 8 | 8 |
+| pt-bukhari-anli-v3-2024-1b5ef269 | pt | 6 | 0 | 0 | 0 | 6 | 6 |
 | quran-excerpts-fa-abu-dawud | fa | 2 | 1 | 0 | 0 | 1 | 2 |
 | quran-excerpts-fa-adab-al-mufrad | fa | 1 | 1 | 0 | 0 | 0 | 1 |
 | quran-excerpts-fa-ahmad | fa | 2 | 0 | 0 | 0 | 2 | 2 |
