@@ -1,0 +1,82 @@
+[
+  {
+    "name": "edited_body_detected",
+    "status": "EXPECTED_REJECTION",
+    "error": "Material checksum mismatch: materials/bs-abu-dawud-karalic-2012-v1-source-subset/records.jsonl"
+  },
+  {
+    "name": "wrong_pdf_hash_detected",
+    "status": "EXPECTED_REJECTION",
+    "error": "Material checksum mismatch: materials/bs-abu-dawud-karalic-2012-v1-source-subset/abu-dawud-v1.pdf"
+  },
+  {
+    "name": "explicit_hidden_row_rejected",
+    "status": "EXPECTED_REJECTION",
+    "error": "Record explicitly withheld from Hadith HTML/search (show_in_html_hadith=false): bs-abu-dawud-karalic-2012-v1-source-0001. Preserve held records as source/evidence outside the registered reader subset; do not remove the hold to make a build pass."
+  },
+  {
+    "name": "duplicate_id_rejected",
+    "status": "EXPECTED_REJECTION",
+    "error": "Duplicate material occurrence id: bs-abu-dawud-karalic-2012-v1-source-0001"
+  },
+  {
+    "name": "counterpart_optout_bypass_rejected",
+    "status": "EXPECTED_REJECTION",
+    "error": "Invalid material counterpart policy: materials/bs-abu-dawud-karalic-2012-v1-source-subset/manifest.json"
+  },
+  {
+    "name": "authorization_required_by_native_registry",
+    "status": "EXPECTED_REJECTION",
+    "error": "Material needs explicit publication.authorized=true: materials/bs-abu-dawud-karalic-2012-v1-source-subset/manifest.json"
+  },
+  {
+    "name": "wrong_body",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "unapproved source body"
+  },
+  {
+    "name": "wrong_page",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "wrong PDF page"
+  },
+  {
+    "name": "canonical_promotion",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "unapproved canonical"
+  },
+  {
+    "name": "counterpart_injection",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "unapproved counterparts"
+  },
+  {
+    "name": "arabic_injection",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "new Arabic reading"
+  },
+  {
+    "name": "role_promoted_to_hadith",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "unapproved source kind"
+  },
+  {
+    "name": "wrong_translator",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "incorrect translator"
+  },
+  {
+    "name": "premature_rights_claim",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "premature rights claim"
+  },
+  {
+    "name": "hold_case_52_inclusion",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "excluded source number"
+  },
+  {
+    "name": "fabricated_id",
+    "status": "EXPECTED_REJECTION_BY_INDEPENDENT_QC_GATE",
+    "error": "source id mismatch"
+  }
+]
