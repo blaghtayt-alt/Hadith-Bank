@@ -2,7 +2,7 @@
 "use strict";
 
 // Derive disposable reader indexes from the exact browser functions.  Only the
-// explicitly delimited pure declarations below are evaluated, never the page.
+// pure source-uncertainty module and delimited declarations are evaluated, never the page.
 const fs = require("node:fs");
 const path = require("node:path");
 const readline = require("node:readline");
@@ -35,7 +35,9 @@ function projectionSource(template) {
 }
 
 function createProjector(template) {
-  const factory = new Function(projectionSource(template) + `
+  const uncertaintySource = fs.readFileSync(
+    path.join(__dirname, "..", "reader", "source-uncertainty.js"), "utf8");
+  const factory = new Function(uncertaintySource + "\n" + projectionSource(template) + `
     return function project(record, detail) {
       if (!record || typeof record !== "object" || Array.isArray(record)) {
         throw new Error("Reader projection requires a record object");

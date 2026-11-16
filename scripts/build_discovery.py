@@ -33,6 +33,8 @@ from current_provenance import classification
 from book_titles import book_label as collection_label
 from review_display_policy import review_badges, text_direction
 from language_display import language_readings, reading_direction
+from source_uncertainty_notes import source_parts_html
+from source_glyphs import escaped_source_glyph_prose
 
 
 PAGE_SIZE = 100
@@ -85,6 +87,12 @@ ul.records{padding:0;list-style:none}ul.records>li{padding:.85rem 0;border-botto
 .pagination{margin:1rem 0;display:flex;gap:.65rem;flex-wrap:wrap}.pagination a,.pagination strong{padding:.15rem .45rem}
 footer{border-top:1px solid var(--line);margin-top:2rem}.skip{position:absolute;left:-10000px}.skip:focus{left:1rem;top:1rem;background:white}
 @media(max-width:600px){body{font-size:17px}header,main,footer{padding:1rem}dl{grid-template-columns:1fr;gap:.2rem}dd{margin-bottom:.6rem}}
+.text .source-glyph{display:inline-block;height:min(1.55em,31px);width:auto;vertical-align:-.42em;margin-inline:.07em;mix-blend-mode:multiply}
+body[data-theme="dark"] .text .source-glyph{filter:invert(1);mix-blend-mode:screen}
+.source-reading{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;margin:1.3rem 0;padding:1rem;border-inline-start:4px solid #bd9345;background:#fffef9}
+.source-reading .source-quote{white-space:pre-wrap;border:0;padding:0;background:none;display:inline;font-size:inherit;margin:0}
+.source-reading .source-gap,.source-reading .source-uncertainty,.source-reading .source-unreviewed{display:inline-block;white-space:normal;font:600 .78rem/1.5 system-ui,sans-serif;border-radius:.3rem;padding:.1rem .35rem;margin-inline:.17rem;vertical-align:middle;overflow-wrap:anywhere}
+.source-gap,.source-unreviewed{background:#f7e9cc;color:#6c4715}.source-uncertainty{background:#f1f4ef;color:#244a39;border:1px solid #bdcabc}
 '''.strip() + '\n'
 
 
@@ -209,7 +217,7 @@ def reading_translator(reading):
                  and value.strip() and value.strip().lower() not in unnamed), None)
 
 
-def render_language_reading(reading):
+def render_language_reading(reading, source_record=None):
     """Each reading retains its own quotation, references and source notes."""
     language = reading['language']
     source = reading.get('source') or {}
@@ -222,14 +230,27 @@ def render_language_reading(reading):
     if reading.get('qualification'):
         body.append('<p class="notice">' + esc(reading['qualification']) + '</p>')
     if reading.get('text'):
-        for part in reading.get('quotation_parts') or [{'text': reading['text']}]:
-            if part.get('label'):
-                body.append('<p class="notice">' + esc(part['label']) + '</p>')
-            for passage in part.get('passages') or [part]:
-                if passage.get('gap_before'):
-                    body.append('<p class="notice">Intervening source text is retained under Comments.</p>')
-                body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
-                            reading_direction(reading) + '">' + esc(passage['text']) + '</div>')
+        if 'source_uncertainty_parts' in reading:
+            body.append(source_parts_html(reading['source_uncertainty_parts'], language=language,
+                                          direction=reading_direction(reading)))
+        else:
+            glyphs = (source_record.get('source_glyphs') if source_record and reading.get('primary') and
+                      reading['language'] == source_record.get('language') and
+                      reading['text'] == source_record.get('text_translation') and
+                      reading.get('role') in ('source_translation', 'supplied') else None)
+            glyph_offset = 0
+            for part in reading.get('quotation_parts') or [{'text': reading['text']}]:
+                if part.get('label'):
+                    body.append('<p class="notice">' + esc(part['label']) + '</p>')
+                for passage in part.get('passages') or [part]:
+                    if passage.get('gap_before'):
+                        body.append('<p class="notice">Intervening source text is retained under Comments.</p>')
+                    passage_markup = (escaped_source_glyph_prose(passage['text'], glyphs, glyph_offset,
+                                                                  reading_direction(reading), wrap=False)
+                                      if glyphs else esc(passage['text']))
+                    body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
+                                reading_direction(reading) + '">' + passage_markup + '</div>')
+                    glyph_offset += len(passage['text'])
     if reading.get('citation'):
         body.append('<p class="reading-citation" dir="auto">' + esc(reading['citation']) + '</p>')
     body.append('<p class="reading-source">' + ('<a href="' + esc(url) +
@@ -430,7 +451,6 @@ def download_links(items, site):
         esc(item['label']) + '</a> — ' + esc(item['source_name']) + '</li>'
         for item in sorted(items, key=lambda item: item['path'])) + '</ul>'
 
-
 def compact_occurrence_schema(graph, canonical):
     """Omit two redundant current-page URLs from generated occurrence JSON-LD.
 
@@ -574,7 +594,7 @@ def render_record(writer, record, downloads, sources):
         body.extend('<p class="notice">' + esc(badge['label']) + '</p>' for badge in review_badges(record))
     readings = language_readings(record)
     if readings:
-        body.extend(render_language_reading(reading) for reading in readings)
+        body.extend(render_language_reading(reading, record) for reading in readings)
     else:
         body.append('<p>Text is not supplied in this source projection; the source locator is preserved below.</p>')
     if counterpart_alignment_notes(record):

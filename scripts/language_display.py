@@ -8,6 +8,7 @@ from counterpart_display import (counterpart_source_data, counterpart_citation,
                                  counterpart_qualification, counterpart_translation_origin)
 from book_titles import book_label
 from language_versions import quotation_parts, quotation_qualification
+from source_uncertainty_notes import validated_parts, checked_source_identity
 
 
 LANGUAGE_LABELS = {
@@ -149,7 +150,20 @@ def language_readings(record):
     priority = lambda view: (0 if view['language'].split('-')[0] == 'ar' else
                              1 if view['language'].split('-')[0] == 'en' else
                              2 if view['primary'] else 3)
-    return sorted(views, key=priority)
+    views = sorted(views, key=priority)
+    if 'source_uncertainty_projection' in record:
+        # Only the same, primary, source-bound text may carry this opt-in.
+        # Do not attach notes to a similarly worded but independent version.
+        matches = [view for view in views if view['primary'] and
+                   view['language'] == language and view['text'] == original and
+                   view['role'] in ('supplied', 'source_translation')]
+        if len(matches) != 1 or matches[0]['quotation_parts']:
+            raise ValueError('Uncertainty projection needs one unsegmented primary source reading')
+        checked_source_identity(record, record['source_uncertainty_projection'])
+        matches[0]['source_uncertainty_parts'] = validated_parts(
+            original, record['source_uncertainty_projection'], record_id=record['id'],
+            glyphs=record.get('source_glyphs'))
+    return views
 
 
 def available_languages(record):

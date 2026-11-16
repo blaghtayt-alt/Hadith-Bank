@@ -23,6 +23,7 @@ from book_titles import book_label
 from citation_search import COLLECTION_ALIASES, normalized as citation_normalized, record_citation_pairs
 from counterpart_identity import provider_identity
 from language_display import language_readings, LANGUAGE_LABELS
+from source_uncertainty_notes import quotation_fragments
 from review_display_policy import needs_ocr_review, review_badges
 
 
@@ -146,6 +147,17 @@ def quotation_fingerprint_bytes(record):
                       separators=(',', ':'), allow_nan=False).encode('utf-8') + b'\n'
 
 
+def narration_index_chunks(reading):
+    """Source text search only: visible quotation fragments, never gap IDs.
+
+    Each unresolved gap becomes an index segment boundary. A phrase match
+    must not leap across missing source words. Legacy readings are unchanged.
+    """
+    if 'source_uncertainty_parts' in reading:
+        return quotation_fragments(reading['source_uncertainty_parts'])
+    return [reading['text']]
+
+
 def expected_discovery_segments(record):
     """Recompute source-bound phrase/preview locators without building postings."""
     result, seen, position = [], set(), 0
@@ -156,10 +168,11 @@ def expected_discovery_segments(record):
                 reading.get('quotation_status') in ('content_mismatch', 'boundary_pending', 'attribution_pending')):
             continue
         seen.add(value)
-        length = len(tokenize(value))
-        result.append({'start': position, 'length': length, 'language': reading['language'],
-                       'readingId': reading.get('id'), 'role': reading.get('role')})
-        position += length + SEGMENT_GAP
+        for chunk in narration_index_chunks(reading):
+            length = len(tokenize(chunk))
+            result.append({'start': position, 'length': length, 'language': reading['language'],
+                           'readingId': reading.get('id'), 'role': reading.get('role')})
+            position += length + SEGMENT_GAP
     return result
 
 
@@ -588,11 +601,34 @@ def expected_discovery_row(record, ordinal, material=None, *, reading_sets=None)
         if code not in previews:
             text = reading['text']
             own_source = reading.get('source') or {}
-            previews[code] = {'language': code, 'text': text[:PREVIEW_CHARACTERS], 'scope': reading.get('scope'),
-                              'role': reading.get('role'), 'truncated': len(text) > PREVIEW_CHARACTERS,
-                              'translationOrigin': reading.get('translation_origin'),
-                              'sourceName': own_source.get('name'),
-                              'sourceURL': own_source.get('record_url') or own_source.get('url')}
+            # Raw gaps remain only in the private detail record / audit JSON.
+            # A compact preview is either source quotation only or withheld
+            # until its exact primary source body is validated in the reader.
+            visible = ('\n'.join(narration_index_chunks(reading)) if
+                       'source_uncertainty_parts' in reading else text)
+            preview = {'language': code, 'text': visible[:PREVIEW_CHARACTERS], 'scope': reading.get('scope'),
+                       'role': reading.get('role'), 'truncated': len(visible) > PREVIEW_CHARACTERS,
+                       'translationOrigin': reading.get('translation_origin'),
+                       'sourceName': own_source.get('name'),
+                       'sourceURL': own_source.get('record_url') or own_source.get('url')}
+            if 'source_uncertainty_parts' in reading:
+                # Preview is withheld by the reader until complete hash-bound
+                # source text is loaded. The internal gap marker is audit-only.
+                preview['sourceUncertainty'] = True
+            # Only the projected, build-time-verified local source glyphs belong
+            # to this preview. Keep canonical PUA and full-record IDs unchanged.
+            # Offsets are in the full primary source reading, not the excerpt.
+            if (reading.get('primary') and reading.get('language') == record['language'] and
+                    reading.get('role') in ('source_translation', 'supplied') and
+                    text == record.get('text_translation') and record.get('source_glyphs')):
+                projected = [g for g in record['source_glyphs']
+                             if g['field'] == 'text_translation' and g['end'] <= len(preview['text'])]
+                if projected:
+                    if any(preview['text'][g['start']:g['end']] != chr(int(g['raw_codepoint'][2:], 16))
+                           for g in projected):
+                        raise ValueError('Discovery preview glyph span differs from verified local matn')
+                    preview['source_glyphs'] = projected
+            previews[code] = preview
     language_states = {}
     for reading in all_readings:
         state = 'missing'
@@ -626,6 +662,8 @@ def expected_discovery_row(record, ordinal, material=None, *, reading_sets=None)
                              for name, code in (('arabic', 'ar'), ('english', 'en'))},
                origin=_origin(record), ocrPending=needs_ocr_review(record), review=review_badges(record),
                **_edition(record, material or {}), **_navigation(record, readings))
+    if 'source_uncertainty_projection' in record:
+        row['sourceUncertainty'] = True
     row['baseEditionLabel'] = row['editionLabel']
     # Source category IDs can be local to a provider/edition. Never equate two
     # taxonomies merely because both call a category "1" or "Prayer".
@@ -686,10 +724,11 @@ def build_discovery_payload(records, snapshot):
             if value in seen_text:
                 continue
             seen_text.add(value)
-            length = index_text(value, TEXT, position)
-            segments.append({'start': position, 'length': length, 'language': reading['language'],
-                             'readingId': reading.get('id'), 'role': reading.get('role')})
-            position += length + SEGMENT_GAP
+            for chunk in narration_index_chunks(reading):
+                length = index_text(chunk, TEXT, position)
+                segments.append({'start': position, 'length': length, 'language': reading['language'],
+                                 'readingId': reading.get('id'), 'role': reading.get('role')})
+                position += length + SEGMENT_GAP
         row['searchSegments'] = segments
         for value in _strings(record.get('title')):
             index_text(value, TITLE)
