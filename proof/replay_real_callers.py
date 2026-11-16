@@ -153,7 +153,7 @@ def main():
                 python_negative.append({'kind':name,'builder':'REJECT','published_manifest':False})
             else:raise AssertionError('actual Python builder accepted '+name)
     phases['negative_controls']={'rejections':negative,'total':len(negative),
-                                 'actual_python_builder_rejections':python_negative} 
+                                 'actual_python_builder_rejections':python_negative}
     ordinary=(FIX/'actual-ordinary-pt6-de3.jsonl').read_bytes()
     input_records=[json.loads(s) for s in ordinary.decode().splitlines()]
     require(len(input_records)==9 and collections.Counter(r['language'] for r in input_records)=={'pt':6,'de':3},'actual ordinary fixture counts')
