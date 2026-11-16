@@ -285,6 +285,143 @@ def data_details(title, value):
     return detail(title, '<pre dir="auto">' + metadata_json(value) + '</pre>')
 
 
+# A shared metadata page is only ever an optional presentation of an exact
+# translation_provenance object. It is not a new source record or approval.
+SHARED_TRANSLATION_PROVENANCE_DIR = 'source-metadata/translation-provenance'
+SHARED_TRANSLATION_PROVENANCE_LABEL = 'Source translation-origin history'
+
+
+def translation_provenance_identity(value):
+    """Identity is the *complete* exact compact JSON serialization, with types.
+
+    The canonical record remains unchanged; this digest is only for a local
+    display asset, not an attestation or a source/counterpart identity.
+    """
+    if not isinstance(value, dict) or not value:
+        return None
+    serialized = json.dumps(value, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+    return hashlib.sha256(serialized.encode('utf-8')).hexdigest(), serialized
+
+
+def shared_translation_provenance_path(digest):
+    if not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest):
+        raise ValueError('Unsafe shared translation-provenance digest')
+    return SHARED_TRANSLATION_PROVENANCE_DIR + '/' + digest + '.html'
+
+
+def shared_translation_provenance_link(record_relative, digest):
+    target = shared_translation_provenance_path(digest)
+    return detail(SHARED_TRANSLATION_PROVENANCE_LABEL,
+                  '<p>Complete exact source translation-origin history: <a href="' +
+                  esc(relative_link(record_relative, target)) + '">Read shared local metadata</a>' +
+                  ' (also available without JavaScript).</p>')
+
+
+def shared_translation_provenance_page(writer, digest, value):
+    identified = translation_provenance_identity(value)
+    if identified is None or identified[0] != digest:
+        raise ValueError('Shared translation-provenance identity mismatch')
+    path = shared_translation_provenance_path(digest)
+    body = ('<h1>Source translation-origin history</h1>'
+            '<p>This is an exact source metadata object shared by occurrences with'
+            ' identical values. It does not join their identities or assert a new'
+            ' translation assessment. Individual source qualifications and attribution'
+            ' remain on their own occurrence pages.</p>'
+            '<p>Full JSON source metadata (types and values preserved), SHA-256 '
+            '<code>' + digest + '</code>:</p>'
+            '<pre id="exact-translation-provenance" dir="auto">' +
+            metadata_json(value) + '</pre>'
+            '<p>To return to the occurrence, use your browser Back command. '
+            '<a href="' + esc(relative_link(path, 'browse/index.html')) +
+            '">Browse the language and book directory</a> instead.</p>')
+    # This is a known local asset, unlike 404.html, which must retain absolute
+    # navigation because it can be displayed at any arbitrary missing URL.
+    writer.page(path, 'Source translation-origin history | Hadith Bank',
+                'Exact shared source translation-origin metadata, with original values and types.',
+                body, indexable=False, local_navigation=True)
+
+
+class _MetadataSizeWriter:
+    """Run the *real* page serializer with an in-memory output for ROI checks."""
+    def __init__(self, writer):
+        self.site = writer.site
+        self.pages = []
+        self.bytes = 0
+
+    def write(self, _relative, content):
+        self.bytes += len(content.encode('utf-8') if isinstance(content, str) else content)
+
+    def page(self, *args, **kwargs):
+        return Writer.page(self, *args, **kwargs)
+
+
+def plan_shared_translation_provenance(writer, records):
+    """Select only exact repeated objects whose *whole-page* savings are positive.
+
+    The final positive-savings gate uses actual rendered source bodies and
+    emitted asset bytes, not merely these conservative preflight estimates.
+    """
+    groups = {}
+    for record in records:
+        if uses_shared_web_reader(record):
+            continue
+        value = record.get('translation_provenance')
+        identified = translation_provenance_identity(value)
+        if identified is None:
+            continue
+        digest, serialized = identified
+        group = groups.setdefault(digest, {'value': value, 'serialized': serialized,
+                                           'count': 0, 'example': record})
+        if group['serialized'] != serialized:
+            raise ValueError('Shared metadata digest collision')
+        group['count'] += 1
+
+    selected = {}
+    for digest, group in sorted(groups.items()):
+        if group['count'] < 2:
+            continue
+        sample_path = record_path(group['example'])
+        old_markup = data_details(SHARED_TRANSLATION_PROVENANCE_LABEL, group['value'])
+        new_markup = shared_translation_provenance_link(sample_path, digest)
+        old_bytes = len(compact_static_record_markup(old_markup).encode('utf-8'))
+        new_bytes = len(compact_static_record_markup(new_markup).encode('utf-8'))
+        size_writer = _MetadataSizeWriter(writer)
+        shared_translation_provenance_page(size_writer, digest, group['value'])
+        # Require a buffer beyond the exact standalone asset bytes. Any
+        # mismatch against actual source-page output fails closed at finalization.
+        potential = (old_bytes - new_bytes) * group['count'] - size_writer.bytes
+        if potential > group['count'] * 64:
+            selected[digest] = {'value': group['value'], 'value_json': group['serialized'], 'count': group['count'],
+                                'estimated_saving': potential, 'asset_bytes': size_writer.bytes,
+                                'used': 0, 'actual_inline_saved': 0}
+    writer.shared_translation_provenance = selected
+    return selected
+
+
+def finalize_shared_translation_provenance(writer):
+    """Reject a non-saving build before its staged output can be published."""
+    selected = getattr(writer, 'shared_translation_provenance', {})
+    total_inline_saved, total_asset_bytes = 0, 0
+    for digest, group in sorted(selected.items()):
+        if group['used'] != group['count']:
+            raise ValueError('Shared metadata occurrence count changed during build')
+        size_before = writer.bytes
+        shared_translation_provenance_page(writer, digest, group['value'])
+        emitted = writer.bytes - size_before
+        if emitted != group['asset_bytes'] or group['actual_inline_saved'] <= emitted:
+            raise ValueError('Shared translation provenance did not save actual staged bytes')
+        total_inline_saved += group['actual_inline_saved']
+        total_asset_bytes += emitted
+    # The new fixed-size report field also costs staged bytes; require enough
+    # margin that the *whole* output still shrinks, not only the source pages.
+    if selected and total_inline_saved - total_asset_bytes <= 1024:
+        raise ValueError('Shared translation provenance did not save enough staged bytes')
+    return {'shared_metadata_pages': len(selected),
+            'actual_inline_provenance_bytes_saved': total_inline_saved,
+            'actual_shared_metadata_asset_bytes': total_asset_bytes,
+            'actual_net_shared_provenance_bytes_saved': total_inline_saved - total_asset_bytes}
+
+
 def download_links(items, site):
     if not items:
         return ''
@@ -344,11 +481,13 @@ class Writer:
         self.bytes += len(raw)
         self.files += 1
 
-    def page(self, relative, title, description, body, language='en', schema=None, indexable=True):
+    def page(self, relative, title, description, body, language='en', schema=None, indexable=True,
+             local_navigation=False):
         canonical = canonical_url(relative, self.site)
         # A 404 document is served at arbitrary paths, so its assets/navigation
         # must not resolve relative to the missing requested address.
-        href = lambda target: esc(relative_link(relative, target) if indexable else canonical_url(target, self.site))
+        href = lambda target: esc(relative_link(relative, target) if (indexable or local_navigation)
+                                  else canonical_url(target, self.site))
         graph = {'@context': 'https://schema.org', '@type': 'CollectionPage',
                  'name': title, 'description': description, 'url': canonical,
                  'inLanguage': language}
@@ -463,11 +602,21 @@ def render_record(writer, record, downloads, sources):
         notes.append('<pre dir="auto">' + metadata_json(record['footnotes']) + '</pre>')
     if notes:
         body.append(detail('Commentary and footnotes supplied by the source', ''.join(notes)))
+    shared_history = None
     for label, key in (('Source numbering details', 'number'),
                        ('Source references', 'references'), ('Source grading', 'grading'),
                        ('Benefits supplied by the source', 'benefits'), ('Narrator and chain', 'narrator'),
                        ('Source translation-origin history', 'translation_provenance')):
-        body.append(data_details(label, record.get(key)))
+        original = data_details(label, record.get(key))
+        if key == 'translation_provenance' and original:
+            identified = translation_provenance_identity(record.get(key))
+            digest = identified[0] if identified is not None else None
+            group = getattr(writer, 'shared_translation_provenance', {}).get(digest)
+            if group is not None and identified[1] == group['value_json']:
+                shared_history = (len(body), original, digest)
+                body.append(shared_translation_provenance_link(path, digest))
+                continue
+        body.append(original)
     locator = source.get('record_locator') or {}
     original_links = []
     for label, relative in (('Canonical source record', locator.get('path')),
@@ -489,6 +638,19 @@ def render_record(writer, record, downloads, sources):
     original_body = ''.join(body)
     compacted_body = compact_static_record_markup(original_body)
     compacted_body = compact_source_definition_end_tags(compacted_body)
+    if shared_history is not None:
+        position, exact_original, digest = shared_history
+        before = list(body)
+        before[position] = exact_original
+        before_markup = compact_source_definition_end_tags(
+            compact_static_record_markup(''.join(before)))
+        actual_reduction = (len(before_markup.encode('utf-8')) -
+                            len(compacted_body.encode('utf-8')))
+        if actual_reduction <= 0:
+            raise ValueError('Shared metadata increased a source page size')
+        group = writer.shared_translation_provenance[digest]
+        group['used'] += 1
+        group['actual_inline_saved'] += actual_reduction
     writer.static_dom_verified += 1
     writer.static_body_bytes_saved += len(original_body.encode('utf-8')) - len(compacted_body.encode('utf-8'))
     writer.page(path, record_title(record), record_description(record), compacted_body, language,
@@ -977,7 +1139,7 @@ def build(root, output, site=None, records=None, catalog=None):
         records, catalog, _ = load_records(root)
     settings = site_metadata(catalog, site)
     output.mkdir(parents=True, exist_ok=True)
-    for name in ('browse', 'hadith', 'sitemaps', 'source-editions'):
+    for name in ('browse', 'hadith', 'sitemaps', 'source-editions', 'source-metadata'):
         if (output / name).exists():
             raise ValueError('Discovery output must be a fresh staged site: ' + name)
     seen_ids, seen_paths = set(), set()
@@ -990,6 +1152,7 @@ def build(root, output, site=None, records=None, catalog=None):
     downloads = {item['path']: item for item in source_downloads(root, records, catalog)}
     sources = {item['dataset_id']: item.get('source_file') for item in catalog.get('materials', [])}
     writer = Writer(root, output, settings)
+    plan_shared_translation_provenance(writer, records)
     writer.write('assets/discovery.css', STYLE)
     index_info = render_indexes(writer, records, downloads, sources)
     static_record_count = 0
@@ -997,6 +1160,7 @@ def build(root, output, site=None, records=None, catalog=None):
         if not uses_shared_web_reader(record):
             render_record(writer, record, downloads, sources)
             static_record_count += 1
+    shared_translation_info = finalize_shared_translation_provenance(writer)
     from build_fawaz_source_views import render as render_fawaz_source_views
     source_views = render_fawaz_source_views(writer, seen_ids)
     if writer.static_dom_verified != static_record_count:
@@ -1016,6 +1180,8 @@ def build(root, output, site=None, records=None, catalog=None):
               'static_record_pages_dom_verified': writer.static_dom_verified,
               'static_record_body_bytes_saved': writer.static_body_bytes_saved,
               'complete_source_views': source_views,
+              **({'shared_translation_provenance': shared_translation_info}
+                 if shared_translation_info['shared_metadata_pages'] else {}),
               **index_info, **sitemap_info}
     # Include the report itself in byte/file totals. The integer-length fixed
     # point converges after its decimal digit lengths stop changing.
