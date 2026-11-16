@@ -17,7 +17,7 @@ import os
 from pathlib import Path, PurePosixPath
 import posixpath
 import re
-from urllib.parse import quote, urlsplit, urlunsplit
+from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
 from build_reader import (
@@ -294,6 +294,39 @@ def download_links(items, site):
         for item in sorted(items, key=lambda item: item['path'])) + '</ul>'
 
 
+def compact_occurrence_schema(graph, canonical):
+    """Omit two redundant current-page URLs from generated occurrence JSON-LD.
+
+    The HTML canonical link and occurrence @id retain the exact document URL.
+    Only its @id uses a relative IRI, whose canonical resolution is checked.
+    Source names, edition URL, identifier, citations and prose remain exact.
+    Optional url strings are omitted, never rewritten as relative literals.
+    """
+    work = graph.get('mainEntity')
+    if (graph.get('@type') != 'WebPage' or not isinstance(work, dict) or
+            graph.get('url') != canonical or work.get('url') != canonical or
+            work.get('@id') != canonical + '#occurrence'):
+        return graph
+    if urljoin(canonical, '#occurrence') != work['@id']:
+        raise ValueError('Occurrence structured-data identity changed')
+    compacted = dict(graph)
+    compacted_work = dict(work)
+    del compacted['url']
+    del compacted_work['url']
+    compacted_work['@id'] = '#occurrence'
+    compacted['mainEntity'] = compacted_work
+    # Restore only the declared optional URL/IRI changes and demand exactness.
+    restored = dict(compacted)
+    restored_work = dict(compacted_work)
+    restored['url'] = canonical
+    restored_work['url'] = canonical
+    restored_work['@id'] = urljoin(canonical, compacted_work['@id'])
+    restored['mainEntity'] = restored_work
+    if restored != graph:
+        raise ValueError('Unexpected source metadata changed in structured data')
+    return compacted
+
+
 class Writer:
     def __init__(self, root, output, site):
         self.root, self.output, self.site = root, output, site
@@ -327,6 +360,8 @@ class Writer:
                 # Avoid repeating long quotations in optional page-level JSON.
                 graph.pop('name', None)
                 graph.pop('description', None)
+        if indexable:
+            graph = compact_occurrence_schema(graph, canonical)
         robots = '' if indexable else '<meta name="robots" content="noindex,follow">\n'
         content = ('<!doctype html>\n<html lang="' + esc(language) + '">\n<head>\n'
                    '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n'
