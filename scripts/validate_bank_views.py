@@ -941,6 +941,11 @@ def validate(root, mode='auto', reader='hadith-bank-reader.html', baseline=None,
         require(legacy.get('translation_origin') == 'unknown' and legacy.get('current_policy') == decision_for(legacy, provenance_policy),
                 'Legacy origin differs from pending owner confirmation: ' + legacy['path'])
     require(len(expected) == count(catalog['record_count'], 'catalog.record_count') and dict(expected_counts) == catalog['by_language'], 'Catalog counts differ from canonical occurrences')
+    # Private reviewed RU-Bukhari1 overlay: keep the independent canonical
+    # projection reconstruction as the trust anchor BEFORE recognizing the
+    # exact additional language version.  Never accept a changed old parent.
+    from ru_bukhari_001_persistent_overlay import bind_validator_expected
+    bind_validator_expected(root, expected, object_hash)
     projected_hashes, by_language, by_dataset, codepoints, current_origins = verify_shards(root, catalog['search'], expected, public)
     require(by_language == catalog['by_language'], 'Projected language totals differ from catalog')
     require(by_dataset == {m['dataset_id']: m['count'] for m in materials}, 'Projected dataset totals differ from catalog')
