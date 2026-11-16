@@ -35,6 +35,8 @@ from counterpart_display import (counterpart_data, counterpart_source_data,
 from citation_search import has_noncanonical_numbering
 from book_titles import book_label as collection_label, title_metadata
 from language_display import language_readings, available_languages, reading_direction
+from source_glyphs import escaped_source_glyph_prose
+from source_uncertainty_notes import validated_parts, source_parts_html, checked_source_identity
 
 
 PAGE_SIZE = 25
@@ -129,6 +131,10 @@ def validate_record(record, location):
     if 'language_versions' in record:
         from language_versions import validate_language_versions
         validate_language_versions(record['language_versions'], location)
+    if 'source_uncertainty_projection' in record:
+        checked_source_identity(record, record['source_uncertainty_projection'])
+        validated_parts(record.get('text_translation'), record['source_uncertainty_projection'],
+                        record_id=record['id'], glyphs=record.get('source_glyphs'))
 
 
 def load_records(root):
@@ -385,14 +391,32 @@ def markdown_record(record, index, bank_root=None, page_directory=None, download
         if reading['qualification']:
             lines += [prose(reading['qualification']), '']
         if reading['text']:
-            for part in reading['quotation_parts'] or [{'text': reading['text']}]:
-                if part.get('label'):
-                    lines += ['<p class="counterpart-note">' + escaped(part['label']) + '</p>', '']
-                for passage in part.get('passages') or [part]:
-                    if passage.get('gap_before'):
-                        lines += ['<p class="counterpart-note">Intervening source text is retained under Comments.</p>', '']
-                    lines += [prose(passage['text'], direction), '']
-        lines += [prose(reading['citation'], direction), '']
+            if 'source_uncertainty_parts' in reading:
+                lines += [source_parts_html(reading['source_uncertainty_parts'],
+                                           language=reading['language'], direction=direction,
+                                           line_breaks=True), '']
+                # This opt-in is a single source reading with inline external
+                # notes. Never include OCR labels in the quotation itself.
+                lines += [prose(reading['citation'], direction), '']
+                # Keep the ordinary credit/references/comments path below.
+                glyphs = None
+            else:
+                glyphs = (record.get('source_glyphs') if reading['primary'] and
+                          reading['language'] == record['language'] and
+                          reading['text'] == record.get('text_translation') and
+                          reading['role'] in ('source_translation', 'supplied') else None)
+                glyph_offset = 0
+                for part in reading['quotation_parts'] or [{'text': reading['text']}]:
+                    if part.get('label'):
+                        lines += ['<p class="counterpart-note">' + escaped(part['label']) + '</p>', '']
+                    for passage in part.get('passages') or [part]:
+                        if passage.get('gap_before'):
+                            lines += ['<p class="counterpart-note">Intervening source text is retained under Comments.</p>', '']
+                        lines += [(escaped_source_glyph_prose(passage['text'], glyphs, glyph_offset, direction)
+                                   if glyphs else prose(passage['text'], direction)), '']
+                        glyph_offset += len(passage['text'])
+        if 'source_uncertainty_parts' not in reading:
+            lines += [prose(reading['citation'], direction), '']
         version_source = reading['source']
         version_url = safe_url(version_source.get('record_url')) or safe_url(version_source.get('url'))
         credit = version_source.get('name') or 'Source not named'
@@ -1449,12 +1473,14 @@ def build(root, output, markdown_output=None, compress=True, site=None,
     discovery_statistics = discovery_payload['statistics']
     lazy_store = (template_path.parent / 'lazy-store.js').read_text(encoding='utf-8') if '__HADITH_LAZY_STORE_JS__' in template else ''
     discovery_engine = (template_path.parent / 'discovery-engine.js').read_text(encoding='utf-8')
+    source_uncertainty_js = (template_path.parent / 'source-uncertainty.js').read_text(encoding='utf-8')
     replacements = {'__HADITH_RECORDS_JSON__': payload,
                     '__HADITH_ENCODING__': encoding,
                     '__HADITH_SNAPSHOT_JSON__': script_json(metadata),
                     '__HADITH_UI_STYLES__': ui_styles, '__HADITH_UI_ICONS__': ui_icons,
                     '__HADITH_LAZY_STORE_JS__': lazy_store,
                     '__HADITH_DISCOVERY_ENGINE_JS__': discovery_engine,
+                    '__HADITH_SOURCE_UNCERTAINTY_JS__': source_uncertainty_js,
                     '__HADITH_DISCOVERY_HEAD__': discovery_head(records, metadata['site']),
                     '__HADITH_DISCOVERY_NAV__': discovery_navigation(records, metadata['site'])}
     document = render_template(template, replacements)

@@ -172,12 +172,24 @@ class ReaderGroupingUITests(unittest.TestCase):
         self.helpers = 'const valueText =' + self.template.split('const valueText =', 1)[1].split('function fillFilter(', 1)[0]
 
     def run_js(self, program):
-        result = subprocess.run([shutil.which('node'), '-e', program],
-                                input=json.dumps({'records': self.records, 'mapping': mapping(self.records),
-                                                  'discovery': build_discovery_payload(self.records, {
-                                                      'record_count': len(self.records), 'records_sha256': '0' * 64,
-                                                      'reader_groups': mapping(self.records)})}),
-                                text=True, capture_output=True, timeout=30)
+        # Use the exact shared module, including its source-bound authority.
+        prelude = (ROOT / 'reader/source-uncertainty.js').read_text(encoding='utf-8') + '\n'
+        # A file in the repository preserves relative require paths and avoids
+        # OS command-line limits as the actual helper grows.
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.js', prefix='.reader-grouping-',
+                                         dir=ROOT, encoding='utf-8', delete=False) as stream:
+            script = Path(stream.name)
+            stream.write(prelude + program)
+        try:
+            result = subprocess.run([shutil.which('node'), str(script)], cwd=ROOT,
+                                    input=json.dumps({'records': self.records, 'mapping': mapping(self.records),
+                                                      'discovery': build_discovery_payload(self.records, {
+                                                          'record_count': len(self.records), 'records_sha256': '0' * 64,
+                                                          'reader_groups': mapping(self.records)})}),
+                                    text=True, capture_output=True, timeout=30)
+        finally:
+            assert script.resolve().parent == ROOT.resolve()
+            script.unlink()
         self.assertEqual(result.returncode, 0, result.stderr)
         return json.loads(result.stdout)
 

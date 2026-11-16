@@ -130,6 +130,174 @@
         }
       }
     },
+    "source_glyphs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "description": "Opt-in, exact raw source-character spans mapped to hash-checked source PNGs; see scripts/source_glyphs.py for strict validation.",
+      "items": {
+        "type": "object",
+        "required": [
+          "field",
+          "start",
+          "end",
+          "raw_codepoint",
+          "file",
+          "sha256",
+          "accessibility"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "const": "text.translation"
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "raw_codepoint": {
+            "type": "string",
+            "pattern": "^U\\+[0-9A-F]{4,6}$"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^assets/[A-Za-z0-9][A-Za-z0-9_.-]*\\.png$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "accessibility": {
+            "type": "object",
+            "required": [
+              "status",
+              "arabic_literal",
+              "source_pdf_page",
+              "source_clip",
+              "source_clip_sha256",
+              "source_pdf_sha256"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "status": {
+                "enum": [
+                  "proposed_pending_independent_qc",
+                  "independent_literal_word_sequence_passed"
+                ]
+              },
+              "arabic_literal": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[\\u0600-\\u06ff \\u200c\\u200d]+$"
+              },
+              "source_pdf_page": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "source_clip": {
+                "type": "string",
+                "pattern": "^evidence/glyph-review/[A-Za-z0-9][A-Za-z0-9_.-]*\\.png$"
+              },
+              "source_clip_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "source_pdf_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "independent_review": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "result_id",
+                  "result_file",
+                  "result_sha256",
+                  "reviewed_candidate_file",
+                  "reviewed_candidate_sha256"
+                ],
+                "properties": {
+                  "result_id": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{1,127}$"
+                  },
+                  "result_file": {
+                    "type": "string",
+                    "pattern": "^evidence/literal-qc/[A-Za-z0-9][A-Za-z0-9_.-]*\\.json$"
+                  },
+                  "result_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "reviewed_candidate_file": {
+                    "type": "string",
+                    "pattern": "^evidence/source-preservation/[A-Za-z0-9][A-Za-z0-9_.-]*\\.json$"
+                  },
+                  "reviewed_candidate_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "independent_literal_word_sequence_passed"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "independent_review"
+                  ]
+                },
+                "else": {
+                  "not": {
+                    "required": [
+                      "independent_review"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "source_uncertainty_projection": {
+      "description": "Optional, source-bound display-only OCR uncertainty for the unchanged primary translation. Source words, raw gaps and review eligibility remain unchanged; the exact warning is generated outside the quotation by the renderer. Incompatible with source_glyphs until a combined projection is independently supported.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "record_id", "text_record_id", "field", "expected_body_sha256", "annotations"],
+      "properties": {
+        "schema": {"const": "source_uncertainty_projection.v1"},
+        "record_id": {"type": "string", "minLength": 1},
+        "text_record_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9:._-]{0,159}$"},
+        "field": {"const": "text.translation"},
+        "expected_body_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "annotations": {
+          "type": "array", "minItems": 1, "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["issue_id", "start", "end", "span_sha256", "kind"],
+            "properties": {
+              "issue_id": {"type": "string", "minLength": 1, "maxLength": 160},
+              "start": {"type": "integer", "minimum": 0},
+              "end": {"type": "integer", "minimum": 1},
+              "span_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+              "kind": {"enum": ["accepted_uncertain_reading", "unfilled_source_gap", "unreviewed_source_gap"]}
+            }
+          }
+        }
+      }
+    },
     "language_versions": {
       "type": "array",
       "items": {

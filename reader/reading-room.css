@@ -569,3 +569,21 @@ body[data-text-size="large"] .comparison-readings .narration.arabic { font-size:
   }
   body:is([data-discovery-view="results"],[data-discovery-view="workspace"]) .search-panel { margin-top: 20px; }
 }
+
+/* Hindi closed-application OCR uncertainty presentation (software repair002).
+   Separate from the existing French glyph trust/formatting and source words. */
+.source-reading { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.95; }
+.source-reading .source-quote { display: inline; white-space: pre-wrap; font-size: inherit; }
+.source-reading .source-gap,
+.source-reading .source-uncertainty,
+.source-reading .source-unreviewed {
+  display: inline-block; vertical-align: baseline; white-space: normal;
+  border-radius: .3rem; padding: .06rem .32rem; margin-inline-start: .12em;
+  font: 600 .75rem/1.55 system-ui, sans-serif; overflow-wrap: anywhere;
+}
+.source-reading .source-uncertainty { color: #254b3b; background: #edf3eb; border: 1px solid #a9beaa; }
+.source-reading .source-gap,
+.source-reading .source-unreviewed { color: #694516; background: #f9edcf; border: 1px solid #dbbf85; }
+.source-reading-tools { margin-top: .9rem; font-size: .78rem; }
+.source-reading-tools .source-copy-quotation:disabled { cursor: not-allowed; opacity: .65; }
+.source-copy-status { margin-inline-start: .5rem; color: var(--muted); }

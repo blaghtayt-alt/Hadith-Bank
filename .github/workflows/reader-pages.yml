@@ -38,7 +38,11 @@ jobs:
           python-version: '3.13'
       - name: Run software tests
         run: |
+          python -m pip install --disable-pip-version-check pytest==8.4.2
           python -m unittest discover -s tests
+          python -m pytest -q tests/test_source_uncertainty_portable_integration.py tests/test_source_uncertainty_portable_routes.py tests/test_source_uncertainty_portable_repair.py tests/test_source_glyphs_portable.py tests/test_books_rebase_real_callers.py tests/test_books_rebase_authority_pins.py
+          node tests/test_source_uncertainty_portable.js
+          node tests/test_source_scoped_panel.js
           node --test tests/test_lazy_store.js
           node --test tests/test_discovery_engine.js
       - name: Install reader browser test runtime
@@ -155,7 +159,11 @@ jobs:
           python-version: '3.13'
       - name: Run software tests
         run: |
+          python -m pip install --disable-pip-version-check pytest==8.4.2
           python -m unittest discover -s tests
+          python -m pytest -q tests/test_source_uncertainty_portable_integration.py tests/test_source_uncertainty_portable_routes.py tests/test_source_uncertainty_portable_repair.py tests/test_source_glyphs_portable.py tests/test_books_rebase_real_callers.py tests/test_books_rebase_authority_pins.py
+          node tests/test_source_uncertainty_portable.js
+          node tests/test_source_scoped_panel.js
           node --test tests/test_lazy_store.js
           node --test tests/test_discovery_engine.js
       - name: Install reader browser test runtime

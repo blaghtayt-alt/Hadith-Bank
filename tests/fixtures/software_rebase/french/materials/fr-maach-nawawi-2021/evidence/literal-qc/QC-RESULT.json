@@ -1,0 +1,168 @@
+{
+  "task_id": "FR-MAACH-H2-ARABIC-A11Y-LITERALS-QC-001",
+  "result_id": "FR-MAACH-H2-ARABIC-A11Y-LITERALS-QC-001-RESULT-001",
+  "status": "SCOPED_TWO_LITERAL_IMAGE_QC_COMPLETE",
+  "summary": {
+    "PASS": 2,
+    "FAIL": 0,
+    "UNRESOLVED": 0
+  },
+  "input_integrity": {
+    "task_id": "FR-MAACH-H2-ARABIC-A11Y-LITERALS-QC-001",
+    "review_result_id": "FR-MAACH-H2-ARABIC-A11Y-LITERALS-QC-001-RESULT-001",
+    "input_zip_name": "FR-MAACH-H2-ARABIC-A11Y-LITERALS-QC-001.zip",
+    "input_zip_bytes": 293163,
+    "input_zip_sha256": "342227392b09d73ccebf2d1ec234188e0eff6d405d9a8a64f1a442925caea50b",
+    "input_zip_crc": "PASS",
+    "input_manifest_entries_verified": 12,
+    "input_manifest_entry_hashes_and_sizes": "12/12 PASS",
+    "input_manifest_sha256": "fd7d8e96ed9404d81b634c4e98be7ed0fc19a40deed8648b7c3d759dbd0ce50f",
+    "source_pdf_sha256": "3d36eb9be1657c0d8fc683d34ddc73db450800ae91b9eefb2746d0ff12c0e90d",
+    "source_pdf_bytes": 286077,
+    "records_json_sha256": "eed4c58abf35b9f4ca88c2291a3d8b9f119b4ceaf14ce152246a7313975e5730",
+    "raw_fr_matn_utf8_sha256": "295cc8a6f976a05309f428368da76730f0838910cee77ce8b9fc846a32b59386",
+    "raw_fr_matn_codepoints": 1965,
+    "raw_pua_offsets_verified": {
+      "U+F074": 7,
+      "U+F072": 110
+    },
+    "asset_png_sha256": {
+      "F074": "cfd1cf9621c0f14103115ae4494f2fb49fd4de525533ba5b98fe93a93f5ad230",
+      "F072": "87ef734b566b609ec0891f6a495d27c5a1bf78238f9e48c9481410993d0d5ae5"
+    },
+    "context_png_sha256": {
+      "F074": "cb534b974f7fa5b118571b1ed7473eeb20b71aa0c0d67da475f8415c89f0bac2",
+      "F072": "b0f1cda0cc897bc531bf243b3b9e1a9682ed7e8176c35a315f6889a5eed3c15d"
+    },
+    "independent_input_receipt": "Verified locally from mounted bytes in this review. Not an external dot acknowledgement.",
+    "external_dot_result_receipt": "NOT_VERIFIED_NO_DOT_ACKNOWLEDGEMENT_IN_THIS_RUN"
+  },
+  "source": {
+    "work_title": "Les 40 hadiths de l’imam An-Nawawi",
+    "human_translator": "Rachid Maach",
+    "source_pdf_physical_page_checked": 7,
+    "exact_original_pdf_sha256": "3d36eb9be1657c0d8fc683d34ddc73db450800ae91b9eefb2746d0ff12c0e90d",
+    "source_type": "Original publisher PDF image + pinned, previously accepted PNG assets"
+  },
+  "verdicts": [
+    {
+      "glyph": "U+F074",
+      "raw_fr_field": "text.translation",
+      "raw_fr_codepoint_start": 7,
+      "raw_fr_codepoint_end_exclusive": 8,
+      "raw_fr_value_confirmed": "U+F074",
+      "proposed_arabic_literal": "رضي الله عنه",
+      "verdict": "PASS",
+      "source_transcription_visible_letter_sequence": [
+        "رضي",
+        "الله",
+        "عنه"
+      ],
+      "source_visual_basis": "Right-side رضي (with dotted ي), upper الله, and left-side عنه are identifiable in the original page rendering; all proposed consonant/letter forms and words match.",
+      "source_image_locators": {
+        "original_pdf": "preserved_input/input/source.pdf",
+        "physical_pdf_page": 7,
+        "pdf_zero_based_page_index": 6,
+        "glyph_rect_pdf_points_x0_y0_x1_y1": [
+          83.784,
+          330.026,
+          92.439,
+          341.022
+        ],
+        "review_crop_rect_pdf_points_x0_y0_x1_y1": [
+          79,
+          326,
+          97,
+          344
+        ],
+        "reviewer_high_res_pdf_render": "evidence/reviewer-rendered/page7_F074_1440dpi.png",
+        "reviewer_render_pixels": [
+          360,
+          360
+        ],
+        "pinned_png": "preserved_input/input/assets/F074.png",
+        "original_context_png": "preserved_input/input/evidence/glyph-review/context-F074.png"
+      },
+      "input_asset_sha256": "cfd1cf9621c0f14103115ae4494f2fb49fd4de525533ba5b98fe93a93f5ad230",
+      "input_context_sha256": "cb534b974f7fa5b118571b1ed7473eeb20b71aa0c0d67da475f8415c89f0bac2",
+      "reviewer_render_sha256": "d35b89f86bf20086f511fb1b3fbcaeaf44c55c24cce80b4889a77e4ef0b1685c",
+      "checked_coverage": "Exactly this source glyph on physical PDF p.7, every legible Arabic word and letter, against the pinned source PNG and contextual clip; no other glyph, entry, book, translation, or browser checked.",
+      "diacritic_policy": "An unvowelled lexical-letter transcription; this PASS does not certify an exhaustive vocalization/diacritic transcription or screen-reader pronunciation.",
+      "proposed_different_reading": null,
+      "mismatch": null
+    },
+    {
+      "glyph": "U+F072",
+      "raw_fr_field": "text.translation",
+      "raw_fr_codepoint_start": 110,
+      "raw_fr_codepoint_end_exclusive": 111,
+      "raw_fr_value_confirmed": "U+F072",
+      "proposed_arabic_literal": "صلى الله عليه وسلم",
+      "verdict": "PASS",
+      "source_transcription_visible_letter_sequence": [
+        "صلى",
+        "الله",
+        "عليه",
+        "وسلم"
+      ],
+      "source_visual_basis": "Upper-right صلى (final ى), upper-left الله, centered عليه, and lower وسلم are identifiable in the original page rendering; all proposed letters and words match.",
+      "source_image_locators": {
+        "original_pdf": "preserved_input/input/source.pdf",
+        "physical_pdf_page": 7,
+        "pdf_zero_based_page_index": 6,
+        "glyph_rect_pdf_points_x0_y0_x1_y1": [
+          292.2,
+          343.586,
+          299.401,
+          354.582
+        ],
+        "review_crop_rect_pdf_points_x0_y0_x1_y1": [
+          288,
+          340,
+          304,
+          358
+        ],
+        "reviewer_high_res_pdf_render": "evidence/reviewer-rendered/page7_F072_1440dpi.png",
+        "reviewer_render_pixels": [
+          320,
+          360
+        ],
+        "pinned_png": "preserved_input/input/assets/F072.png",
+        "original_context_png": "preserved_input/input/evidence/glyph-review/context-F072.png"
+      },
+      "input_asset_sha256": "87ef734b566b609ec0891f6a495d27c5a1bf78238f9e48c9481410993d0d5ae5",
+      "input_context_sha256": "b0f1cda0cc897bc531bf243b3b9e1a9682ed7e8176c35a315f6889a5eed3c15d",
+      "reviewer_render_sha256": "053cc85b6e88f82c963472511b7bf87727c572ae1a5a0d9a12ffd526ec8bbea4",
+      "checked_coverage": "Exactly this source glyph on physical PDF p.7, every legible Arabic word and letter, against the pinned source PNG and contextual clip; no other glyph, entry, book, translation, or browser checked.",
+      "diacritic_policy": "An unvowelled lexical-letter transcription; this PASS does not certify an exhaustive vocalization/diacritic transcription or screen-reader pronunciation.",
+      "proposed_different_reading": null,
+      "mismatch": null
+    }
+  ],
+  "preservation": {
+    "original_source_pdf_preserved_exact_bytes": true,
+    "original_pinned_pngs_preserved_exact_bytes": true,
+    "original_raw_pua_source_record_preserved_exact_bytes": true,
+    "original_input_manifest_and_context_preserved": true,
+    "published_record_or_original_pdf_modified": false,
+    "reviewer_pdf_crops_are_derivative_evidence_not_replacements": true
+  },
+  "boundary": {
+    "review_pass_only": "Letter/word identity of two existing source honorifics as unvowelled accessibility metadata; not Arabic reading of a standalone hadith and not a counterpart link.",
+    "still_outside_review": [
+      "Final adapter QC",
+      "Full reader/browser test",
+      "Ownership/rights decisions",
+      "Overlap and source/counterpart identity gates",
+      "Repository integration",
+      "Publication/release",
+      "Full narration/book certification",
+      "Vocalization/diacritic fidelity and complete accessibility behavior"
+    ],
+    "re_extraction": false,
+    "french_translation_changes": false,
+    "new_arabic_translation_or_narration": false,
+    "repository_writes": false,
+    "publication": false
+  }
+}

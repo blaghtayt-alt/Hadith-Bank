@@ -18,6 +18,8 @@ from build_bank_views import SCHEMA, canonical, digest_file
 from current_provenance import apply_material_policy, apply_policy, classification, decision_for, load_policy
 from review_display_policy import extraction_metadata
 from language_versions import project_language_versions
+from source_glyphs import project_source_glyphs, _FRENCH_H2_LITERAL_AUTHORITY
+from source_uncertainty_notes import validated_parts, checked_source_identity
 
 
 SCHEMA_NAME = 'hadith-bank-material-v1'
@@ -185,7 +187,7 @@ def require_reader_visibility(row):
             'the registered reader subset; do not remove the hold to make a build pass.')
 
 
-def normalized_projection(row, material, position):
+def normalized_projection(row, material, position, bank_root=None):
     require(isinstance(row.get('id'), str) and bool(row['id'].strip()), 'Every material occurrence needs a stable id')
     require_reader_visibility(row)
     text = row.get('text')
@@ -276,6 +278,58 @@ def normalized_projection(row, material, position):
         'isnad': copy.deepcopy(row.get('isnad')), 'ai_translation': ai,
         'canonical_record_sha256': hashlib.sha256(canonical(row)).hexdigest(),
     }
+    if 'source_glyphs' in row:
+        require(bank_root is not None, 'Source glyphs need a verified material bank root')
+        checked_glyphs = project_source_glyphs(row, material, bank_root)
+        if checked_glyphs is not None:
+            result['source_glyphs'] = checked_glyphs
+    glyphs = result.get('source_glyphs')
+    authority = _FRENCH_H2_LITERAL_AUTHORITY
+    # Mapping is optional for other sources; the exact French H2 record-level
+    # independent PASS is NOT optional proof. The glyph projector already
+    # verifies source offsets, PNG bytes and the pinned QC report. Require its
+    # COMPLETE trusted projection, even if the input mapping was removed/null.
+    scoped_pass_claim = (
+        material.get('canonical_records_path') == authority['material_path']
+        and row['id'] == authority['record_id']
+        and result['review'].get('glyph_accessibility_status') ==
+        'independent_literal_words_and_letters_passed_unvowelled_only;_production_accessibility_pending'
+    )
+    complete_trusted_pair = (
+        isinstance(glyphs, list) and len(glyphs) == len(authority['glyphs'])
+        and all(
+            isinstance(glyph, dict)
+            and glyph.get('accessibility_status') == 'independent_literal_word_sequence_passed'
+            and isinstance(glyph.get('independent_literal_review'), dict)
+            and glyph['independent_literal_review'].get('result_id') == authority['result_id']
+            and glyph['independent_literal_review'].get('result_sha256') == authority['result_sha256']
+            and glyph['independent_literal_review'].get('reviewed_candidate_sha256') == authority['predecessor_sha256']
+            and (glyph.get('field'), glyph.get('start'), glyph.get('end'),
+                 glyph.get('raw_codepoint'), glyph.get('source_path'), glyph.get('sha256'),
+                 glyph.get('alt_ar')) ==
+                ('text_translation', expected[1], expected[2], expected[3],
+                 str(PurePosixPath(authority['material_path']).parent / expected[4]),
+                 expected[5], expected[6])
+            for glyph, expected in zip(glyphs, authority['glyphs'])
+        )
+    )
+    if ((glyphs and any(glyph['accessibility_status'] != 'independent_literal_word_sequence_passed'
+                        for glyph in glyphs))
+            or (scoped_pass_claim and not complete_trusted_pair)):
+        # The historic review remains in canonical bytes and in a separate
+        # source-claim field, but may not be displayed as effective approval.
+        claimed = result['review'].get('glyph_accessibility_status')
+        if claimed is not None:
+            result['review']['glyph_accessibility_status_as_source_claim'] = claimed
+        result['review']['glyph_accessibility_status'] = 'proposed_pending_independent_qc'
+    if 'source_uncertainty_projection' in row:
+        # Canonical opt-in has no effect on review, visibility or provenance.
+        # Its expected digest binds the *existing* canonical text, not a newly
+        # synthesized translation or editor note.
+        checked_source_identity(row, row['source_uncertainty_projection'])
+        validated_parts(text['translation'], row['source_uncertainty_projection'],
+                        record_id=row['id'], glyphs=row.get('source_glyphs'))
+        result['source_uncertainty_projection'] = copy.deepcopy(row['source_uncertainty_projection'])
     with_publication(result, material['publication'])
     if 'source_scoped_content' in row:
         scoped = row['source_scoped_content']
@@ -348,9 +402,9 @@ def normalized_projection(row, material, position):
     return result
 
 
-def project_for_material(row, material, position):
+def project_for_material(row, material, position, bank_root=None):
     if material.get('adapter') == 'records-v1':
-        return normalized_projection(row, material, position)
+        return normalized_projection(row, material, position, bank_root)
     require(material.get('adapter') == 'pdf-intake-package-v1', 'Unsupported material adapter')
     require_reader_visibility(row)
     from integrate_private_intakes import project
@@ -477,9 +531,13 @@ def load_public_materials(root, validate_attachment_roots=True):
                 version_default = decision_for({'kind': 'source_language_version'}, provenance_policy, registered_material=True)
                 if version_default is not None:
                     material['language_version_default_policy'] = copy.deepcopy(version_default)
-            projected = [project_for_material(row, material, position) for position, row in enumerate(rows)]
+            projected = [project_for_material(row, material, position, root) for position, row in enumerate(rows)]
             for record in projected:
                 apply_policy(record, provenance_policy, registered_material=True)
+                for glyph in record.get('source_glyphs', []):
+                    # These asset bytes are also embedded in checked detail JSON for offline exports.
+                    result['authorized_files'][glyph['source_path']] = glyph['sha256']
+                    result['authorized_files'][glyph['evidence']['source_clip']] = glyph['evidence']['source_clip_sha256']
                 require(record['id'] not in occurrence_ids, 'Duplicate material occurrence id: ' + record['id'])
                 occurrence_ids.add(record['id'])
                 require(record['source']['original_file'] == material['source_file'] and
