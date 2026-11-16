@@ -1,8 +1,8 @@
 {
   "schema": "hadith-bank-reading-views-validation-v1",
   "status": "passed",
-  "records_compared": 114621,
-  "unique_occurrence_ids": 114621,
+  "records_compared": 114770,
+  "unique_occurrence_ids": 114770,
   "source_record_files": [
     {
       "path": "languages/ja/books/hadeethenc/editions/sqlite-a81da9af28f854f6/records.jsonl",
@@ -1056,11 +1056,25 @@
       "publication_manifest": "materials/legacy-zh-CN-unclassified/manifest.json"
     },
     {
+      "path": "materials/ms-hadeethenc-v1-2-0-50095a98/records.json",
+      "sha256": "f6a81b741058811264b56a290b38d76be0667bcd07b1c8854165030fb09bc629",
+      "records": 147,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json"
+    },
+    {
       "path": "materials/pt-bukhari-anli-v3-2024-1b5ef269/records.json",
       "sha256": "a4c590a2ba99b4e08372d94c4d6f9b17173a820c45d65bd21a9d76c36ca24c2b",
       "records": 6,
       "arabic_and_translation_equal": true,
       "publication_manifest": "materials/pt-bukhari-anli-v3-2024-1b5ef269/manifest.json"
+    },
+    {
+      "path": "materials/pt-riyadh-sbmrj-a9980317/records.json",
+      "sha256": "d0b49d0e1ebe307fc214350419c1093291992a36787941f5bb67092541eb6dbc",
+      "records": 2,
+      "arabic_and_translation_equal": true,
+      "publication_manifest": "materials/pt-riyadh-sbmrj-a9980317/manifest.json"
     },
     {
       "path": "materials/quran-excerpts-fa-abu-dawud/records.json",
@@ -1826,23 +1840,23 @@
       "publication_manifest": "materials/zh-muwatta-shaybani-yu-2000-docx/manifest.json"
     }
   ],
-  "source_assets_hashed": 261,
+  "source_assets_hashed": 263,
   "canonical_sources_unchanged": true,
   "text_normalization": "none in stored/display values",
   "translation_origins": {
     "publisher_human_workflow": 8423,
     "human_translator_credited": 30642,
-    "unknown": 74687,
+    "unknown": 74836,
     "ai_translation": 2,
     "legacy_source_history": 867
   },
-  "search_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
+  "search_sha256": "08e2d004c2328b2ba46b401306fba77abc6e50a07ba5919a79f2349e6de97212",
   "current_translation_origins": {
     "ai": 2,
-    "human": 113454,
+    "human": 113603,
     "unknown": 1165
   },
-  "shards": 1330,
+  "shards": 1333,
   "review_status_promoted": false,
   "provenance_note": "Translation process evidence is scoped separately from exact-record AI-origin and bank QC."
 }

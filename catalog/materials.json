@@ -2,7 +2,7 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 114621,
+  "record_count": 114770,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
     "ar": 32267,
@@ -14,7 +14,8 @@
     "fil": 2354,
     "hi": 32957,
     "ja": 3520,
-    "pt": 6,
+    "ms": 147,
+    "pt": 8,
     "ur": 231,
     "uz": 9780,
     "vi": 4555,
@@ -23,13 +24,13 @@
   "translation_origins": {
     "publisher_human_workflow": 8423,
     "human_translator_credited": 30642,
-    "unknown": 74687,
+    "unknown": 74836,
     "ai_translation": 2,
     "legacy_source_history": 867
   },
   "current_translation_origins": {
     "ai": 2,
-    "human": 113454,
+    "human": 113603,
     "unknown": 1165
   },
   "materials": [
@@ -624145,6 +624146,88 @@
       }
     },
     {
+      "dataset_id": "ms-hadeethenc-v1-2-0-50095a98",
+      "language": "ms",
+      "book_key": "hadeethenc",
+      "edition": "hadeethenc-ms-workbook-v1.2.0-2026-05-25",
+      "count": 147,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx",
+      "source_sha256": "50095a987d9486d986d01f31c758dceff4b8d349bc6f1f54bdfaf7f860374f03",
+      "canonical_records_path": "materials/ms-hadeethenc-v1-2-0-50095a98/records.json",
+      "canonical_records_sha256": "f6a81b741058811264b56a290b38d76be0667bcd07b1c8854165030fb09bc629",
+      "source_descriptor": {
+        "path": "materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx",
+        "sha256": "50095a987d9486d986d01f31c758dceff4b8d349bc6f1f54bdfaf7f860374f03",
+        "name": "HadeethEnc.com",
+        "format": "xlsx",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/ms-hadeethenc-v1-2-0-50095a98/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/current-scoped-review.json",
+          "sha256": "dce9b49adc99db0efd302246b1bbee6b998d30907a13b0e80efa6a50adb3a193",
+          "size_bytes": 1855
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/publisher-header.json",
+          "sha256": "f0368b2718674b5e7063ac886183783eeeae80a1ef89f8ddd8d8b6212862bb5a",
+          "size_bytes": 1111
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/records-before-workbook-metadata-v001.json",
+          "sha256": "27364ed9f9c06ea467e19b67dd3364e00251d64534b22545f3e4bd26413fa4a8",
+          "size_bytes": 506912
+        },
+        {
+          "path": "materials/ms-hadeethenc-v1-2-0-50095a98/evidence/source-cell-bindings.json",
+          "sha256": "cc201428a7484d40ae3a2770181bd42b35991a5c454ed31ca5bd91fea9ac38d7",
+          "size_bytes": 108833
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "No canonical narration AND variant identity approved; provider or printed tokens remain source metadata."
+      },
+      "source_name": "HadeethEnc.com",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "basis": "No new process investigation; preserve unknown historical process. Current explicit HadeethEnc.com Human policy applies separately.",
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_source_confirmation",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_source_confirmation",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "pt-bukhari-anli-v3-2024-1b5ef269",
       "language": "pt",
       "book_key": "bukhari",
@@ -624243,6 +624326,96 @@
         "translator": {
           "name": "Juma Momade Anli",
           "evidence": "Source title pages PDF1and3; independent sourceQC confirms exact named credit."
+        },
+        "label": "Unknown",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "pt-riyadh-sbmrj-a9980317",
+      "language": "pt",
+      "book_key": "riyadh",
+      "edition": "sbmrj-samir-el-hayek-undated-a9980317",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+      "source_sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+      "canonical_records_path": "materials/pt-riyadh-sbmrj-a9980317/records.json",
+      "canonical_records_sha256": "d0b49d0e1ebe307fc214350419c1093291992a36787941f5bb67092541eb6dbc",
+      "source_descriptor": {
+        "path": "materials/pt-riyadh-sbmrj-a9980317/source.pdf",
+        "sha256": "a9980317600c6beb088c73fac3d074b131d0f35ff889241a129fa23df091a3c4",
+        "name": "O Jardim dos Virtuosos",
+        "format": "pdf",
+        "url": null
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-16",
+        "manifest_path": "materials/pt-riyadh-sbmrj-a9980317/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/current-scoped-review.json",
+          "sha256": "982ff3bc46390c625b561da205305b38491d7b02c359244baea3dfb7a263e3e0",
+          "size_bytes": 1525
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/held-record-scope.json",
+          "sha256": "d6726b62e4215647fecbc56343eb52ef3914b6798990972f3b33d405e83f7d3b",
+          "size_bytes": 222
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-final-adapter-review.zip",
+          "sha256": "6c4118427de0110161c95b8c5a3c4d1f3e617a2ab4acbc4bc0dcb41dd3d96c38",
+          "size_bytes": 1088362
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/independent-source-review.zip",
+          "sha256": "4472aeb0896b4f7a6c391e553f32248bc4bd4713e48285f87dcc6ef159078c90",
+          "size_bytes": 1635009
+        },
+        {
+          "path": "materials/pt-riyadh-sbmrj-a9980317/evidence/source-span-map.json",
+          "sha256": "754b53a25d2a3bd9e5732ea787dc877d509600dc938eaa060a32064b462a35f7",
+          "size_bytes": 2052
+        }
+      ],
+      "counterpart_policy": {
+        "mode": "disabled",
+        "reason": "No canonical narration AND variant identity approved; provider or printed tokens remain source metadata."
+      },
+      "source_name": "O Jardim dos Virtuosos",
+      "translation_provenance": {
+        "origin": "unknown",
+        "ai_translation": "unknown",
+        "basis": "Preserve historical unknown process; current owner new-book Human policy applies separately.",
+        "translator": {
+          "name": "Prof. Samir El Hayek"
         },
         "label": "Unknown",
         "human_involvement": "not_established",
@@ -632049,8 +632222,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "cb1cf1477d05de59f4c535aeeefdf100b32d2b5ed96c978a8aa1d04eab282bf2",
-    "count": 114621,
+    "records_sha256": "08e2d004c2328b2ba46b401306fba77abc6e50a07ba5919a79f2349e6de97212",
+    "count": 114770,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -638827,10 +639000,28 @@
         "bytes": 124783
       },
       {
+        "path": "search/ms/hadeethenc/hadeethenc-ms-workbook-v1.2.0-2026-05-25/part-0001.jsonl",
+        "sha256": "9d5d507940d8ba09ee4b1cd33ccaa5416704415999a55d933344ccc2444de972",
+        "count": 100,
+        "bytes": 516884
+      },
+      {
+        "path": "search/ms/hadeethenc/hadeethenc-ms-workbook-v1.2.0-2026-05-25/part-0002.jsonl",
+        "sha256": "536e546e20b7cae1816441fa3b00703771e5f4decab2b1a0fd51b131a24dc580",
+        "count": 47,
+        "bytes": 247050
+      },
+      {
         "path": "search/pt/bukhari/anli-volume3-first-2024-1445h/part-0001.jsonl",
         "sha256": "23220227a9fe005b9d340906dc53df8b49eeaab45aa9ee4dbf6e7fead0f41912",
         "count": 6,
         "bytes": 35635
+      },
+      {
+        "path": "search/pt/riyadh/sbmrj-samir-el-hayek-undated-a9980317/part-0001.jsonl",
+        "sha256": "3e09fbc40974d760a5c7735f7e0b1b8493681b3d0d274ffac7411eb2819f10a5",
+        "count": 2,
+        "bytes": 9407
       },
       {
         "path": "search/fa/abu-dawud/iman-quran-excerpts-ae2c075/part-0001.jsonl",
@@ -640046,7 +640237,7 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 114621,
+    "total": 114770,
     "arabic_available": 80236,
     "english_available": 9584,
     "arabic_external_links": 0,
@@ -640054,7 +640245,7 @@
     "exact_links": 8764,
     "related_version_links": 329,
     "reviewed_parallel_links": 3174,
-    "unresolved": 102354,
+    "unresolved": 102503,
     "with_numbered_references": 7500,
     "by_language": {
       "ar": {
@@ -640106,9 +640297,13 @@
         "unresolved": 3193,
         "reviewed_parallel_links": 18
       },
+      "ms": {
+        "total": 147,
+        "unresolved": 147
+      },
       "pt": {
-        "total": 6,
-        "unresolved": 6
+        "total": 8,
+        "unresolved": 8
       },
       "ur": {
         "total": 231,
@@ -640138,20 +640333,20 @@
     },
     "availability": {
       "totals": {
-        "total": 114621,
+        "total": 114770,
         "arabic_text": 89005,
         "arabic_link": 9796,
         "arabic_available": 98801,
         "english_text": 72283,
         "english_link": 4051,
         "english_available": 76334,
-        "missing_arabic": 15820,
-        "missing_english": 38287,
+        "missing_arabic": 15969,
+        "missing_english": 38436,
         "both_text": 63649,
         "both_available": 76312,
         "arabic_only": 22489,
         "english_only": 22,
-        "neither_available": 15798
+        "neither_available": 15947
       },
       "by_language": {
         "ar": {
@@ -640298,21 +640493,37 @@
           "english_only": 0,
           "neither_available": 3154
         },
-        "pt": {
-          "total": 6,
+        "ms": {
+          "total": 147,
           "arabic_text": 0,
           "arabic_link": 0,
           "arabic_available": 0,
           "english_text": 0,
           "english_link": 0,
           "english_available": 0,
-          "missing_arabic": 6,
-          "missing_english": 6,
+          "missing_arabic": 147,
+          "missing_english": 147,
           "both_text": 0,
           "both_available": 0,
           "arabic_only": 0,
           "english_only": 0,
-          "neither_available": 6
+          "neither_available": 147
+        },
+        "pt": {
+          "total": 8,
+          "arabic_text": 0,
+          "arabic_link": 0,
+          "arabic_available": 0,
+          "english_text": 0,
+          "english_link": 0,
+          "english_available": 0,
+          "missing_arabic": 8,
+          "missing_english": 8,
+          "both_text": 0,
+          "both_available": 0,
+          "arabic_only": 0,
+          "english_only": 0,
+          "neither_available": 8
         },
         "ur": {
           "total": 231,

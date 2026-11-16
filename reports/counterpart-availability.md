@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,621 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
+**114,770 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -19,7 +19,8 @@ Text and external-only links are counted separately. An English source link requ
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
 | hi | 32,957 | 24,579 | 29,249 | 1,289 | 2,264 | 2,419 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
-| pt | 6 | 0 | 0 | 0 | 6 | 6 |
+| ms | 147 | 0 | 0 | 0 | 147 | 147 |
+| pt | 8 | 0 | 0 | 0 | 8 | 8 |
 | ur | 231 | 0 | 0 | 12 | 223 | 219 |
 | uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
@@ -225,7 +226,9 @@ Text and external-only links are counted separately. An English source link requ
 | legacy-zh-CN-muslim | zh-CN | 45 | 45 | 22 | 0 | 0 | 23 |
 | legacy-zh-CN-tirmidhi | zh-CN | 1 | 1 | 0 | 0 | 0 | 1 |
 | legacy-zh-CN-unclassified | zh-CN | 16 | 8 | 8 | 0 | 8 | 8 |
+| ms-hadeethenc-v1-2-0-50095a98 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt-bukhari-anli-v3-2024-1b5ef269 | pt | 6 | 0 | 0 | 0 | 6 | 6 |
+| pt-riyadh-sbmrj-a9980317 | pt | 2 | 0 | 0 | 0 | 2 | 2 |
 | quran-excerpts-fa-abu-dawud | fa | 2 | 1 | 0 | 0 | 1 | 2 |
 | quran-excerpts-fa-adab-al-mufrad | fa | 1 | 1 | 0 | 0 | 0 | 1 |
 | quran-excerpts-fa-ahmad | fa | 2 | 0 | 0 | 0 | 2 | 2 |

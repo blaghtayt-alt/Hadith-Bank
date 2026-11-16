@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **114,621 source occurrences** in 14 languages, plus **83 preserved legacy source files**.
+This public bank contains **114,770 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -161,7 +161,9 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | muslim | `legacy-embedded-ae2c075-v1` | 45 | [Read](../browse/zh-CN/muslim/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-muslim/source-bundle.json) |
 | Chinese | tirmidhi | `legacy-embedded-ae2c075-v1` | 1 | [Read](../browse/zh-CN/tirmidhi/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-tirmidhi/source-bundle.json) |
 | Chinese | unclassified | `legacy-embedded-ae2c075-v1` | 16 | [Read](../browse/zh-CN/unclassified/legacy-embedded-ae2c075-v1/README.md) | [Original file](../materials/legacy-zh-CN-unclassified/source-bundle.json) |
+| ms | hadeethenc | `hadeethenc-ms-workbook-v1.2.0-2026-05-25` | 147 | [Read](../browse/ms/hadeethenc/hadeethenc-ms-workbook-v1.2.0-2026-05-25/README.md) | [Original file](../materials/ms-hadeethenc-v1-2-0-50095a98/source.xlsx) |
 | Portuguese | bukhari | `anli-volume3-first-2024-1445h` | 6 | [Read](../browse/pt/bukhari/anli-volume3-first-2024-1445h/README.md) | [Original file](../materials/pt-bukhari-anli-v3-2024-1b5ef269/source.pdf) |
+| Portuguese | riyadh | `sbmrj-samir-el-hayek-undated-a9980317` | 2 | [Read](../browse/pt/riyadh/sbmrj-samir-el-hayek-undated-a9980317/README.md) | [Original file](../materials/pt-riyadh-sbmrj-a9980317/source.pdf) |
 | Persian | abu-dawud | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fa/abu-dawud/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-abu-dawud/source-bundle.json) |
 | Persian | adab-al-mufrad | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/fa/adab-al-mufrad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-adab-al-mufrad/source-bundle.json) |
 | Persian | ahmad | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/fa/ahmad/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-fa-ahmad/source-bundle.json) |
@@ -277,7 +279,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 113,454 |
+| Human | 113,603 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -288,7 +290,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
 | `human_translator_credited` | 30,642 |
-| `unknown` | 74,687 |
+| `unknown` | 74,836 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |
 
