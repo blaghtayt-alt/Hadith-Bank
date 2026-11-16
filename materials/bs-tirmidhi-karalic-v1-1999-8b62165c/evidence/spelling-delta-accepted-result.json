@@ -1,0 +1,240 @@
+{
+  "task_id": "BS-TIRMIDHI-H2-SPELLING-DELTA-QC-001",
+  "reviewer": "separate independent scoped second review, no source extraction or external semantic review",
+  "reviewed_at_utc": "2026-11-16T08:01:35.854720+00:00",
+  "scope": "Hadith 2 ONLY, source-specific spelling delta BS-TIRMIDHI-HD002-MATN-ORTHO-001; candidates 1 and 3 never reopened",
+  "decision": "PASS_SCOPED_SPELLING_DELTA_FOR_EXACT_PRIVATE_SUCCESSOR",
+  "decision_effect": "The previous one-issue Hadith2 source spelling fidelity HOLD is resolved in exact successor bytes only. No automatic registration, reader upload, or publication; unchanged record release_status and independent_qc fields are historical and must not be silently rewritten.",
+  "input_verification": {
+    "outer_zip": {
+      "bytes": 1078185,
+      "sha256": "4409b8fc59e351f02d5d132cc5042fa98661fd1dc4c0de6dc02d5ac047b5dcd9",
+      "zip_crc": "PASS",
+      "payload_manifest_count": 3,
+      "payload_manifest_result": "PASS_ALL"
+    },
+    "nested_zip": {
+      "bytes": 1077751,
+      "sha256": "4407c6cb8db76ab693f49b47a9df729da4c45a633ea99dccad7b3d6e82a511e4",
+      "zip_crc": "PASS",
+      "payload_manifest_count": 4,
+      "payload_manifest_result": "PASS_ALL"
+    },
+    "previous_independent_qc_zip": {
+      "bytes": 1068360,
+      "sha256": "a7dfcd05d7cc44764121d06e6a3bacb7fb82759805f84961711798e48cc6b110",
+      "zip_crc": "PASS",
+      "manifest_payload_count": 12,
+      "manifest_payload_result": "PASS_ALL",
+      "nested_archive_exact_byte_match": true
+    },
+    "original_producer_packet": {
+      "bytes": 22802659,
+      "sha256": "85dbb16f7169f4ddeb9be22928950c616ffb559429238a1eb122e09cddba5e3d",
+      "zip_crc": "PASS",
+      "manifest_payload_count": 18,
+      "manifest_payload_result": "PASS_ALL"
+    },
+    "original_source_pdf": {
+      "bytes": 21099408,
+      "sha256": "8b62165c8b1f79fbeb70e0e24afc751c45fadc24dcaee18ae7ec255926221bc2",
+      "page_count_meta_only": 528,
+      "source_page_checked": 66,
+      "printed_page_confirmed": 62,
+      "same_bytes_as_producer_packet": true
+    },
+    "audit_receipt_hash_consistency": "PASS: receipt identical to SOURCE-BOUND-DELTA.json after excluding packet info; and both agree with actual byte hashes",
+    "original_jsonl_exact_match_to_frozen_producer_packet": true
+  },
+  "successor_byte_integrity": {
+    "original_jsonl_bytes": 16332,
+    "original_jsonl_sha256": "e2f2171a500ee0ec60b80da0fb986382307d66c72214f964dd05313172ececbe",
+    "successor_jsonl_bytes": 16330,
+    "successor_jsonl_sha256": "531c10a2068d366e0b3d44c6abcd5bc882afaf8918f53e697664b99481a22ed0",
+    "successor_jsonl_byte_difference": "Exactly two UTF-8 ASCII j bytes removed (1 per field); no other byte differences",
+    "row_1_unchanged_sha256": "dd7f5342d547da3b4f90a724acb165120c03d9c7ebb6e53bdac748d5a8499ec8",
+    "row_3_unchanged_sha256": "dec246f85e6fdfb50bb984acbe0b5bacbc8086ff1f94bbbfca263bf707ab8512",
+    "row_2_original_sha256": "fc45276750e7afd7ceb172c269d3b07a2c9458a29a7b407222b73d89f7f6706c",
+    "row_2_successor_sha256": "3115c2509942616fea983e0103fdcd98d1105a32a1fb7e0c433bb8350e386804",
+    "row_2_original_bytes": 5769,
+    "row_2_successor_bytes": 5767,
+    "candidate_id": "bs-tirmidhi-karalic-v01-0002-source-sha-8b62165c8b1f",
+    "candidate_2_record_fields_total": 45,
+    "candidate_2_changed_field_count": 2,
+    "candidate_2_unchanged_field_count": 43,
+    "unchanged_fields": [
+      "ai_translation",
+      "candidate_id",
+      "chain_bosnian_transcription_omitting_footnote_marks",
+      "collection_id",
+      "collection_reference_verified",
+      "display_policy",
+      "external_reference",
+      "footnotes_context_separate",
+      "hold_flags",
+      "independent_qc",
+      "independently_verified_quoted_bosnian_translation",
+      "language",
+      "narrator_attribution_exact",
+      "numbering_warning",
+      "original_pdf_sha256",
+      "original_pdf_url",
+      "page_image_evidence",
+      "pdf_page_end",
+      "pdf_page_start",
+      "physical_pdf_pages_of_hadith_text",
+      "printed_page_numbers_of_hadith_text",
+      "raw_bosnian_transcription_coverage",
+      "reader_arabic_text",
+      "reader_source_printed_internal_number",
+      "reference_verification",
+      "release_status",
+      "source_chapter",
+      "source_edition_id",
+      "source_edition_year",
+      "source_family",
+      "source_footnote_marker_policy",
+      "source_heading_exact",
+      "source_line_breaks_preserved_in_reader",
+      "source_page_image_qc",
+      "source_printed_hadith_number_internal_only",
+      "source_title",
+      "source_translation_method",
+      "tirmidhi_assessment_separate",
+      "transcription_method",
+      "translation_commentary_archive_note",
+      "translation_credit",
+      "translator_variant_or_context_separate",
+      "volume"
+    ],
+    "full_file_exact_replacement_test": "PASS: successor JSONL equals frozen original JSONL after exactly two occurrences of authorized source-bound phrase are replaced",
+    "fields": [
+      {
+        "field": "matn_bosnian_exact_reading",
+        "decision": "PASS_EXACT_ONE_CHARACTER_REMOVAL",
+        "before_span_codepoints": [
+          286,
+          328
+        ],
+        "after_span_codepoints": [
+          286,
+          327
+        ],
+        "before_field_utf8_sha256": "d8e883abe83274a5cdc3a4bc68eeab8a64b5f8a7e31ac356f0e5aae9650e6cf9",
+        "successor_field_utf8_sha256": "871b8222d7039ac3431cfce4782935b3d64cf2242386e0fc9bbf8658c5c60080",
+        "preceding_first_occurrence_preserved": true,
+        "all_other_characters_preserved": true,
+        "from": "uporedo sa vodom ili posljednjom kapi vode",
+        "to": "uporedo sa vodom ili poslednjom kapi vode",
+        "source_physical_pdf_page": 66,
+        "source_printed_page": 62
+      },
+      {
+        "field": "raw_bosnian_transcribed_segment",
+        "decision": "PASS_EXACT_ONE_CHARACTER_REMOVAL",
+        "before_span_codepoints": [
+          591,
+          633
+        ],
+        "after_span_codepoints": [
+          591,
+          632
+        ],
+        "before_field_utf8_sha256": "aa97aeff8893ed9efa14bb0092119536ba92fd626ad5da65096784261cda6e12",
+        "successor_field_utf8_sha256": "0b747fd8be3f491f0b131d255fb36a5e30aa6cdf0e1cf2b99f01e52ee243bcb3",
+        "preceding_first_occurrence_preserved": true,
+        "all_other_characters_preserved": true,
+        "from": "uporedo sa vodom ili posljednjom kapi vode",
+        "to": "uporedo sa vodom ili poslednjom kapi vode",
+        "source_physical_pdf_page": 66,
+        "source_printed_page": 62
+      }
+    ],
+    "additional_unchanged_control_hashes": {
+      "chain_bosnian_transcription_omitting_footnote_marks": "2e7b1bf1decaeaedf1f1bba9dc3c5a7e1b645f76aba5df9cb383e65ac646f931",
+      "narrator_attribution_exact": "7ceb353680c21d92d9f0f8fd6be8020a80c25d5d4f8bf93b1b206f46c9067f3a",
+      "source_heading_exact": "014d4758b51f4120d5afa89d68993472fc0baa413d58b27a1040a0bab3354c6f",
+      "source_edition_id": "f7621c46a81d92555d43af1566de4cde291b1e54eed72309fd950575d78932ce",
+      "release_status": "b352620651ebbe5c922f202bf53892fa44e7793828d0e86805723aff53e9fd1c"
+    },
+    "unchanged_source_controls": {
+      "volume": 1,
+      "source_edition_id": "bs-karalic-first-edition-volume-1-1999",
+      "pdf_page_start": 65,
+      "pdf_page_end": 66,
+      "physical_pdf_pages_of_hadith_text": [
+        65,
+        66
+      ],
+      "printed_page_numbers_of_hadith_text": [
+        61,
+        62
+      ],
+      "source_printed_hadith_number_internal_only": "2",
+      "footnotes_context_separate_preserved": true,
+      "compiler_assessment_preserved": true,
+      "translation_credit_preserved": true,
+      "narrator_and_chain_preserved": true,
+      "hold_flags_preserved": true,
+      "reader_arabic_text": null,
+      "release_status_original_and_successor": "HOLD_PENDING_INDEPENDENT_QC",
+      "historical_independent_qc_original_and_successor": "NOT_YET_PERFORMED",
+      "overlap_and_canonical_reference_not_reverified": true
+    }
+  },
+  "printed_source_evidence": {
+    "authoritative_pdf_sha256": "8b62165c8b1f79fbeb70e0e24afc751c45fadc24dcaee18ae7ec255926221bc2",
+    "physical_pdf_page_1based": 66,
+    "printed_page": 62,
+    "first_occurrence_as_printed": "s vodom ili sa posljednjom kapi vode",
+    "first_occurrence_as_successor": "s vodom ili sa posljednjom kapi vode",
+    "second_occurrence_as_printed": "uporedo sa vodom ili poslednjom kapi vode",
+    "second_occurrence_as_successor": "uporedo sa vodom ili poslednjom kapi vode",
+    "direct_visual_conclusion": "PASS: visually inspected original source ink; printed first uses posljednjom and second uses poslednjom. Printed footer reads 62.",
+    "evidence_images": [
+      {
+        "filename": "evidence/p066-printed62-first-vs-second-source-4x.png",
+        "render": "original PDF, p66, PyMuPDF, 4 pixels per PDF point",
+        "clip_points_xyxy": [
+          27,
+          24,
+          446,
+          195
+        ]
+      },
+      {
+        "filename": "evidence/p066-printed62-footer-3x.png",
+        "render": "original PDF, p66, PyMuPDF, 3 pixels per PDF point",
+        "clip_points_xyxy": [
+          0,
+          587,
+          466.79998779296875,
+          664.5599975585938
+        ]
+      }
+    ],
+    "ocr_caution": "No OCR used as proof; sparse text layer and scan shape cannot establish exact punctuation Unicode. No evidence of an unresolved letter in the two checked spellings."
+  },
+  "rollback": {
+    "immutable_original_jsonl_sha256": "e2f2171a500ee0ec60b80da0fb986382307d66c72214f964dd05313172ececbe",
+    "private_successor_jsonl_sha256": "531c10a2068d366e0b3d44c6abcd5bc882afaf8918f53e697664b99481a22ed0",
+    "inverse_instruction": "For each of the two named fields ONLY, replace the unique second occurrence uporedo sa vodom ili poslednjom kapi vode with uporedo sa vodom ili posljednjom kapi vode; original frozen JSONL remains untouched.",
+    "inverse_byte_equivalence_verified": true
+  },
+  "separate_gates": {
+    "case_1_source_fidelity": "CLOSED_PASS_UNCHANGED",
+    "case_3_source_fidelity": "CLOSED_PASS_UNCHANGED",
+    "case_2_spelling_issue": "PASS_ON_EXACT_SUCCESSOR_ONLY",
+    "historical_source_candidate_qc_flags": "UNCHANGED_ARCHIVED",
+    "candidate_release_status": "UNCHANGED_HOLD_PENDING_INDEPENDENT_QC",
+    "reader_staging": "UNCHANGED_DOES_NOT_INCLUDE_2",
+    "publisher_rights_reuse": "NO_NEW_DECISION",
+    "external_canonical_identity": "NOT_REVIEWED_DISABLED",
+    "counterparts_and_narration_family": "NOT_REVIEWED_DISABLED",
+    "reader_projection_and_page_number_display": "NOT_REVIEWED",
+    "source_specific_registration": "NOT_PERFORMED",
+    "publication": "NOT_PERFORMED",
+    "github_or_code_changes": "NONE",
+    "new_arabic_reading_commentary_or_footnotes": "NONE"
+  }
+}
