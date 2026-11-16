@@ -24,6 +24,6 @@ Open a language, then a book and edition. Every page shows up to 25 narrations w
 
 [Other catalogued materials](materials/README.md) — 83 legacy documents and 12 private datasets listed separately.
 
-Source stream SHA-256: `08e2d004c2328b2ba46b401306fba77abc6e50a07ba5919a79f2349e6de97212`.
+Source stream SHA-256: `4929aa1b06d0dd8794aa92bfda50631ddda03d544fb4988e418da1aeec7054c6`.
 
 These reading views do not change the source review status or certify narration authenticity.
