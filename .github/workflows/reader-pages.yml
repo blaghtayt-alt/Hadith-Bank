@@ -17,9 +17,34 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  integration_gate:
+    name: Classify exact integration event
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    outputs:
+      mode: ${{ steps.classify.outputs.mode }}
+    steps:
+      - name: Check out exact event revision for local diff verification
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+          sparse-checkout: scripts
+      - name: Set up gate Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Classify from verified event and complete local diff
+        id: classify
+        run: python scripts/classify_integration_event.py
+
   validate:
     name: Validate proposed material and reader
-    if: github.event_name == 'pull_request'
+    needs: integration_gate
+    if: needs.integration_gate.result == 'success' && (needs.integration_gate.outputs.mode == 'validate_only' || needs.integration_gate.outputs.mode == 'offline_maintenance')
     runs-on: ubuntu-latest
     # The verified full-corpus rebuild alone takes about 32 minutes. Preserve
     # all browser/performance gates and allow their bounded checks to finish.
@@ -138,7 +163,8 @@ jobs:
 
   build:
     name: Refresh bank and build website
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: integration_gate
+    if: needs.integration_gate.result == 'success' && needs.integration_gate.outputs.mode == 'existing_main_flow' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     permissions:
@@ -319,8 +345,8 @@ jobs:
 
   deploy:
     name: Publish verified website
-    if: needs.build.outputs.publish == 'true'
-    needs: build
+    if: needs.integration_gate.result == 'success' && needs.integration_gate.outputs.mode == 'existing_main_flow' && needs.build.outputs.publish == 'true'
+    needs: [integration_gate, build]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -432,3 +458,4 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
+
