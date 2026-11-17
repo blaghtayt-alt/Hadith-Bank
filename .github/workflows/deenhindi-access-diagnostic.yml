@@ -1,0 +1,249 @@
+name: Deen Hindi isolated access diagnostic
+on:
+  push:
+    branches:
+      - 'diagnostic/deenhindi-evidence-20261117-v7-85e9c102'
+    paths:
+      - '.github/workflows/deenhindi-access-diagnostic.yml'
+permissions: {}
+concurrency:
+  group: deenhindi-isolated-diagnostic
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/diagnostic/deenhindi-evidence-20261117-v7-85e9c102' && github.repository == 'blaghtayt-alt/Hadith-Bank'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Two-request diagnostic only
+        shell: bash
+        run: |
+          python - <<'PYCODE'
+          """Diagnostic only: at most two requests, no redirects, retries or source writes."""
+          import hashlib, html, json, re, time, urllib.request, urllib.error, urllib.parse, math
+          from html.parser import HTMLParser
+          from datetime import datetime, timezone
+          from pathlib import Path
+          UA = 'HadithBankSourceImporter/1.0'
+          ROBOTS = 'https://deenhindi.com/robots.txt'
+          PAGE = 'https://deenhindi.com/hadith/muslim/103'
+          LIMIT = 2_000_000
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *args, **kwargs):
+                  return None
+          
+          def challenge(body):
+              text = body.decode('utf-8', errors='replace')
+              for _ in range(3):
+                  text = html.unescape(text)
+              text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
+              text = text.lower()
+              # Scan raw markup and both tag-joined and tag-spaced normalized text.
+              joined = re.sub(r'<[^>]*>', '', text)
+              spaced = re.sub(r'<[^>]*>', ' ', text)
+              candidates = (text, re.sub(r'\s+', ' ', joined), re.sub(r'\s+', ' ', spaced))
+              return any(marker in candidate for candidate in candidates for marker in ('one moment, please', 'request is being verified', 'verify you are human', 'checking your browser', 'just a moment', 'captcha', 'access denied', '/cdn-cgi/challenge-platform', 'cf-chl-', '_cf_chl_opt', 'challenge-platform'))
+          
+          def robots_policy(text):
+              """Conservative subset: combine ALL applicable groups; any deny wins.
+          
+              Intentionally stricter than RFC allow precedence. Unsupported/malformed
+              directives stop this diagnostic instead of guessing permission.
+              """
+              groups = []
+              agents, rules = [], []
+              for raw in text.splitlines():
+                  line = raw.split('#', 1)[0].strip()
+                  if not line:
+                      continue
+                  if ':' not in line:
+                      raise ValueError('malformed robots directive')
+                  key, value = (v.strip() for v in line.split(':', 1))
+                  key = key.lower()
+                  if key == 'user-agent':
+                      if not value or (value != '*' and not re.fullmatch(r'[A-Za-z0-9_.-]+(?:/[0-9.]+)?', value)):
+                          raise ValueError('unsupported robots agent')
+                      if rules:
+                          groups.append((agents, rules)); agents, rules = [], []
+                      agents.append(value.lower())
+                  elif key == 'sitemap':
+                      continue
+                  else:
+                      if key not in ('allow', 'disallow', 'crawl-delay', 'request-rate') or not agents:
+                          raise ValueError('unsupported robots directive')
+                      rules.append((key, value))
+              if agents:
+                  groups.append((agents, rules))
+              if not groups:
+                  raise ValueError('no robots groups')
+              target = urllib.parse.urlsplit(PAGE).path
+              delay = 1.25
+              applicable = False
+              for agents, rules in groups:
+                  if not any(a == '*' or a in UA.lower() for a in agents):
+                      continue
+                  applicable = True
+                  for key, value in rules:
+                      if key in ('allow', 'disallow'):
+                          if not value:
+                              continue
+                          if not value.startswith('/') or '%' in value or any(ord(c)>127 for c in value):
+                              raise ValueError('unsupported robots path encoding')
+                          end = value.endswith('$')
+                          if '$' in value[:-1]:
+                              raise ValueError('unsupported robots anchor')
+                          pattern = '^' + '.*'.join(re.escape(x) for x in (value[:-1] if end else value).split('*')) + ('$' if end else '')
+                          if key == 'disallow' and re.search(pattern, target):
+                              return False, delay
+                      elif key == 'crawl-delay':
+                          if not re.fullmatch(r'\d+(?:\.\d+)?', value):
+                              raise ValueError('invalid crawl delay')
+                          number = float(value)
+                          if not math.isfinite(number):
+                              raise ValueError('invalid crawl delay')
+                          delay = max(delay, number)
+                      else:
+                          match = re.fullmatch(r'(\d+)\s*/\s*(\d+(?:\.\d+)?)', value)
+                          if not match or int(match[1]) <= 0:
+                              raise ValueError('unsupported request rate')
+                          number = float(match[2]) / int(match[1])
+                          if not math.isfinite(number) or number <= 0:
+                              raise ValueError('invalid request rate')
+                          delay = max(delay, number)
+              if not applicable:
+                  raise ValueError('no applicable robots group; conservative stop')
+              return True, delay
+          
+          class SourceArticle(HTMLParser):
+              """Identify source-specific candidate structure, not visibility or accessibility.
+          
+              Some obvious hidden/inline-style structures are rejected conservatively.
+              This parser does not compute CSS, external stylesheets or layout. Unknown
+              hiding and challenge mechanisms may remain; a candidate never grants
+              visibility, accessibility or importer clearance.
+              """
+              def __init__(self):
+                  super().__init__(convert_charrefs=True)
+                  self.stack = []; self.articles = []; self.active = None
+                  self.heading = 0; self.paragraph = 0
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  bad = tag in ('script','style','noscript','nav','header','footer','template') or 'hidden' in attrs or attrs.get('aria-hidden','').lower() == 'true'
+                  style = re.sub(r'\s+', '', html.unescape(attrs.get('style','')).lower())
+                  bad = bad or bool(style)  # do not guess inline-style visibility
+                  classes = attrs.get('class','').lower()
+                  bad = bad or any(x in classes for x in ('hidden','sr-only','invisible','opacity-0','display-none'))
+                  blocked = bad or any(item[1] for item in self.stack)
+                  if tag not in ('br','hr','img','input','meta','link','wbr','source','area','base','embed','param','track','col'):
+                      self.stack.append((tag, blocked))
+                  if tag == 'article':
+                      if self.active is not None:
+                          self.active['invalid'] = True
+                      else:
+                          self.active = {'parts':[], 'headings':[], 'paragraphs':[], 'invalid':blocked}
+                  if self.active and not blocked:
+                      if tag in ('h1','h2','h3'): self.heading += 1
+                      if tag == 'p': self.paragraph += 1
+              def handle_endtag(self, tag):
+                  if self.active:
+                      if tag in ('h1','h2','h3'): self.heading = max(0,self.heading-1)
+                      if tag == 'p': self.paragraph = max(0,self.paragraph-1)
+                      if tag == 'article':
+                          self.articles.append(self.active); self.active = None
+                  if self.stack and self.stack[-1][0] == tag:
+                      self.stack.pop()
+                  elif any(t == tag for t,_ in self.stack):
+                      if self.active: self.active['invalid'] = True
+                      while self.stack and self.stack[-1][0] != tag: self.stack.pop()
+                      if self.stack: self.stack.pop()
+              def handle_data(self, data):
+                  if self.active and not any(b for _,b in self.stack):
+                      self.active['parts'].append(data)
+                      if self.heading: self.active['headings'].append(data)
+                      if self.paragraph: self.active['paragraphs'].append(data)
+              def verified(self):
+                  if self.active is not None or len(self.articles) != 1:
+                      return False
+                  a = self.articles[0]; text = ' '.join(a['parts']); heads = ' '.join(a['headings']); paras = ' '.join(a['paragraphs'])
+                  return (not a['invalid'] and
+                      bool(re.search(r'Sahih Muslim\s*#\s*103(?![\w.-])', text)) and
+                      bool(re.search(r'Reference\s*:\s*\[Sahih Muslim 103\]', text)) and
+                      'The Book of Faith' in heads and 'Urdu Translation (Nastaliq)' in heads and
+                      len(re.findall(r'[\u0600-\u06ff]', paras)) >= 50 and
+                      'حَدَّثَنِي' in text and 'عَبْدُ' in text)
+          
+          def run(open_url=None, sleep=time.sleep, evidence_dir=None):
+              opener = open_url or urllib.request.build_opener(NoRedirect()).open
+              report = {'diagnostic_only': True, 'import_clearance': False, 'uncertainties': ['HTTP response and candidate structure do not establish browser visibility, usability, absence of unknown challenges, or importer readiness. Persisted stop must remain unchanged.'], 'user_agent': UA, 'requests': [], 'result': 'stopped', 'at': datetime.now(timezone.utc).isoformat()}
+              def fetch(url):
+                  record = {'url': url}
+                  report['requests'].append(record)
+                  req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'text/html,text/plain;q=0.9'})
+                  try:
+                      with opener(req, timeout=20) as response:
+                          body = response.read(LIMIT + 1)
+                          record.update(status=response.status, headers={k: response.headers.get(k, '')[:200] for k in ('Content-Type', 'Content-Length', 'Retry-After')}, bytes_read=len(body), complete=len(body)<=LIMIT, sha256=hashlib.sha256(body).hexdigest())
+                          mime = response.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
+                          expected = ('text/plain',) if url == ROBOTS else ('text/html', 'application/xhtml+xml')
+                          if mime not in expected:
+                              raise ValueError('missing or unexpected MIME type')
+                          if response.status != 200 or response.geturl() != url:
+                              raise ValueError('non-200 or changed destination')
+                          if len(body)>LIMIT:
+                              raise ValueError('response exceeds diagnostic size limit; hash is prefix only')
+                          if evidence_dir is not None and url == PAGE:
+                              target = Path(evidence_dir)
+                              target.mkdir(parents=True, exist_ok=True)
+                              (target / 'public-page-response.txt').write_bytes(body)
+                              record['saved_body'] = 'public-page-response.txt'
+                          if challenge(body):
+                              raise ValueError('verification or access block; no retry')
+                          return body
+                  except urllib.error.HTTPError as e:
+                      record.update(status=e.code, retry_after=str(e.headers.get('Retry-After',''))[:200])
+                      raise ValueError('HTTP error or redirect; no retry') from None
+              try:
+                  robots = fetch(ROBOTS).decode('utf-8', errors='strict')
+                  if '<html' in robots.lower() or not re.search(r'^\s*user-agent\s*:', robots, re.I|re.M):
+                      raise ValueError('robots rules not established')
+                  allowed, delay = robots_policy(robots)
+                  report['page_allowed'] = allowed
+                  if not allowed:
+                      raise ValueError('robots disallows public page')
+                  report['delay_seconds'] = delay
+                  if delay > 30:
+                      raise ValueError('robots delay exceeds bounded diagnostic budget')
+                  sleep(delay)
+                  page = fetch(PAGE).decode('utf-8', errors='replace')
+                  article = SourceArticle(); article.feed(page); article.close()
+                  report['structure_evidence'] = {'article_count': len(article.articles), 'unclosed_article': article.active is not None}
+                  if len(article.articles) == 1:
+                      a = article.articles[0]
+                      text = ' '.join(a['parts']); heads = ' '.join(a['headings']); paras = ' '.join(a['paragraphs'])
+                      report['structure_evidence'].update(invalid_structure=a['invalid'], number_match=bool(re.search(r'Sahih Muslim\s*#\s*103(?![\w.-])',text)), reference_match=bool(re.search(r'Reference\s*:\s*\[Sahih Muslim 103\]',text)), faith_heading='The Book of Faith' in heads, urdu_heading='Urdu Translation (Nastaliq)' in heads, arabic_paragraph_characters=len(re.findall(r'[\u0600-\u06ff]',paras)), arabic_opening='حَدَّثَنِي' in text, arabic_name='عَبْدُ' in text)
+                  if not article.verified():
+                      raise ValueError('expected source identity not established')
+                  report['content_candidate'] = True
+                  report['result'] = 'response_received_content_candidate_unverified'
+              except Exception as e:
+                  report['reason'] = str(e)[:240]
+              return report
+          
+          if __name__ == '__main__':
+              result = run(evidence_dir='diagnostic')
+              Path('diagnostic').mkdir(exist_ok=True)
+              Path('diagnostic/result.json').write_text(json.dumps(result, indent=2)+'\n')
+              print(json.dumps(result, indent=2))
+              raise SystemExit(0 if result['result'] == 'response_received_content_candidate_unverified' else 1)
+          PYCODE
+      - name: Retain bounded public response evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deenhindi-access-diagnostic-${{ github.run_id }}
+          path: diagnostic/
+          retention-days: 7
+          if-no-files-found: error
