@@ -34,8 +34,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  integration_gate:
+    name: Classify exact integration event
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    outputs:
+      mode: ${{ steps.classify.outputs.mode }}
+    steps:
+      - name: Check out exact event revision for local diff verification
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+          sparse-checkout: scripts
+      - name: Set up gate Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Classify from verified event and complete local diff
+        id: classify
+        run: python scripts/classify_integration_event.py
+
   resume:
-    if: github.ref == 'refs/heads/main'
+    needs: integration_gate
+    if: needs.integration_gate.result == 'success' && needs.integration_gate.outputs.mode == 'existing_main_flow' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 75
     permissions:
@@ -370,3 +395,4 @@ jobs:
             materials/deenhindi-*/
             materials/islom-*/
             materials/hadisuz-*/
+

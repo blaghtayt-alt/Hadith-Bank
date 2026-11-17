@@ -17,6 +17,8 @@ import contextlib
 import datetime as dt
 import gzip
 import hashlib
+import html
+import math
 from html.parser import HTMLParser
 import json
 import os
@@ -273,6 +275,121 @@ class BudgetExpired(Exception):
     pass
 
 
+def is_access_challenge(body):
+    text = body.decode('utf-8', errors='replace')
+    for _ in range(3):
+        text = html.unescape(text)
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.S)
+    text = text.lower()
+    # Scan raw markup and both tag-joined and tag-spaced normalized text.
+    joined = re.sub(r'<[^>]*>', '', text)
+    spaced = re.sub(r'<[^>]*>', ' ', text)
+    candidates = (text, re.sub(r'\s+', ' ', joined), re.sub(r'\s+', ' ', spaced))
+    return any(marker in candidate for candidate in candidates for marker in ('one moment, please', 'request is being verified', 'verify you are human', 'checking your browser', 'just a moment', 'captcha', 'access denied', '/cdn-cgi/challenge-platform', 'cf-chl-', '_cf_chl_opt', 'challenge-platform'))
+
+def allowed_source_url(url):
+    """Exact queryless public route grammar; never normalize ambiguous URLs."""
+    if not isinstance(url, str):
+        return False
+    books = '|'.join(re.escape(slug) for slug in BOOKS)
+    identifier = r'[A-Za-z0-9_-]+(?:\.[A-Za-z0-9_-]+)*'
+    route = r'(?:/robots\.txt|/page/about-us|/hadith/(?:' + books + r')(?:/' + identifier + r')?)'
+    return re.fullmatch(re.escape(BASE) + route, url) is not None
+
+
+def robots_policy(text, url):
+    """Conservative subset: combine ALL applicable groups; any deny wins.
+
+    Intentionally stricter than RFC allow precedence. Unsupported/malformed
+    directives stop this importer instead of guessing permission.
+    """
+    if not allowed_source_url(url):
+        raise ValueError("Noncanonical or unsupported public route")
+    groups = []
+    agents, rules = [], []
+    for raw in text.splitlines():
+        line = raw.split('#', 1)[0].strip()
+        if not line:
+            continue
+        if ':' not in line:
+            raise ValueError('malformed robots directive')
+        key, value = (v.strip() for v in line.split(':', 1))
+        key = key.lower()
+        if key == 'user-agent':
+            if not value or (value != '*' and not re.fullmatch(r'[A-Za-z0-9_.-]+(?:/[0-9.]+)?', value)):
+                raise ValueError('unsupported robots agent')
+            if rules:
+                groups.append((agents, rules)); agents, rules = [], []
+            agents.append(value.lower())
+        elif key == 'sitemap':
+            continue
+        else:
+            if key not in ('allow', 'disallow', 'crawl-delay', 'request-rate') or not agents:
+                raise ValueError('unsupported robots directive')
+            rules.append((key, value))
+    if agents:
+        groups.append((agents, rules))
+    if not groups:
+        raise ValueError('no robots groups')
+    target = urllib.parse.urlsplit(url).path
+    delay = 0.0
+    applicable = False
+    for agents, rules in groups:
+        if not any(a == '*' or a in USER_AGENT.lower() for a in agents):
+            continue
+        applicable = True
+        for key, value in rules:
+            if key in ('allow', 'disallow'):
+                if not value:
+                    continue
+                if not value.startswith('/') or '%' in value or any(ord(c)>127 for c in value):
+                    raise ValueError('unsupported robots path encoding')
+                end = value.endswith('$')
+                if '$' in value[:-1]:
+                    raise ValueError('unsupported robots anchor')
+                pattern = '^' + '.*'.join(re.escape(x) for x in (value[:-1] if end else value).split('*')) + ('$' if end else '')
+                if key == 'disallow' and re.search(pattern, target):
+                    return False, delay
+            elif key == 'crawl-delay':
+                if not re.fullmatch(r'\d+(?:\.\d+)?', value):
+                    raise ValueError('invalid crawl delay')
+                number = float(value)
+                if not math.isfinite(number):
+                    raise ValueError('invalid crawl delay')
+                delay = max(delay, number)
+            else:
+                match = re.fullmatch(r'(\d+)\s*/\s*(\d+(?:\.\d+)?)', value)
+                if not match or int(match[1]) <= 0:
+                    raise ValueError('unsupported request rate')
+                number = float(match[2]) / int(match[1])
+                if not math.isfinite(number) or number <= 0:
+                    raise ValueError('invalid request rate')
+                delay = max(delay, number)
+    if not applicable:
+        raise ValueError('no applicable robots group; conservative stop')
+    return True, delay
+
+class NoSourceRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        # Never let urllib send a second request to a redirect target.
+        return None
+
+
+class ConservativeRobots:
+    def __init__(self, text):
+        self.text = text
+        # Validate before any non-robots request, even if queue is empty.
+        robots_policy(text, BASE + '/robots.txt')
+
+    def can_fetch(self, user_agent, url):
+        if user_agent != USER_AGENT or not allowed_source_url(url):
+            return False
+        return robots_policy(self.text, url)[0]
+
+    def delay_for(self, url):
+        return robots_policy(self.text, url)[1]
+
+
 class Fetcher:
     def __init__(self, root, delay, timeout, deadline=None):
         self.root, self.delay, self.timeout = root, delay, timeout
@@ -284,20 +401,29 @@ class Fetcher:
         if self.deadline is not None and time.monotonic() >= self.deadline:
             raise BudgetExpired()
         parsed = urllib.parse.urlsplit(url)
-        if parsed.scheme != "https" or parsed.netloc != "deenhindi.com" or parsed.path.startswith(("/api/", "/_next/", "/admin", "/profile/")):
+        if not allowed_source_url(url):
             raise ValueError("Only observed ordinary public Deen Hindi pages are allowed")
         if self.robot is not None and not self.robot.can_fetch(USER_AGENT, url):
             raise Halt("robots.txt disallows this ordinary public URL: " + url)
+        if self.robot is not None:
+            self.delay = max(self.delay, self.robot.delay_for(url))
         if self.last is not None:
-            time.sleep(max(0, self.delay - (time.monotonic() - self.last)))
+            pause = max(0, self.delay - (time.monotonic() - self.last))
+            if self.deadline is not None and time.monotonic() + pause >= self.deadline:
+                raise BudgetExpired()
+            time.sleep(pause)
         if self.deadline is not None and time.monotonic() >= self.deadline:
             raise BudgetExpired()
         request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,text/plain;q=0.9"})
         try:
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+            with urllib.request.build_opener(NoSourceRedirect()).open(request, timeout=self.timeout) as response:
                 final = response.geturl()
-                if urllib.parse.urlsplit(final).netloc != "deenhindi.com":
-                    raise Halt("Unexpected cross-site redirect: " + final)
+                if final != url:
+                    raise Halt("Unexpected changed response destination; no retry: " + final)
+                if response.status != 200:
+                    raise Halt("Unexpected HTTP status; no retry: " + str(response.status))
+                mime = response.headers.get("Content-Type", "").split(";", 1)[0].strip().lower()
+                expected = ("text/plain",) if parsed.path == "/robots.txt" else ("text/html", "application/xhtml+xml")
                 data = response.read(16 * 1024 * 1024 + 1)
                 if len(data) > 16 * 1024 * 1024:
                     raise ValueError("Response exceeds bounded single-page size")
@@ -305,7 +431,7 @@ class Fetcher:
                             "status": response.status, "content_type": response.headers.get("Content-Type"),
                             "sha256": digest(data), "bytes": len(data)}
         except urllib.error.HTTPError as error:
-            if error.code in (401, 403, 429):
+            if 300 <= error.code < 400 or error.code in (401, 403, 429):
                 raise Halt("HTTP " + str(error.code) + " received; no retry or bypass: " + url) from error
             raise
         finally:
@@ -319,7 +445,9 @@ class Fetcher:
         metadata["compression"] = None if is_text else "gzip"
         metadata["stored_sha256"] = digest(stored)
         metadata["stored_bytes"] = len(stored)
-        if metadata["status"] == 200 and is_soft_verification_page(data):
+        if mime not in expected:
+            raise Halt("Missing or unexpected response MIME type; no retry: " + url, snapshot=metadata)
+        if metadata["status"] == 200 and (is_soft_verification_page(data) or is_access_challenge(data)):
             raise Halt("HTTP 200 verification page received; no retry or bypass: " + url,
                        snapshot=metadata)
         return data, metadata
@@ -798,8 +926,10 @@ def run(args):
     try:
         # Refresh robots once per active batch, and retain every distinct version.
         robots_raw, robots_snapshot = fetcher.get(BASE + "/robots.txt")
-        fetcher.robot = urllib.robotparser.RobotFileParser()
-        fetcher.robot.parse(robots_raw.decode("utf-8").splitlines())
+        try:
+            fetcher.robot = ConservativeRobots(robots_raw.decode("utf-8", errors="strict"))
+        except (ValueError, UnicodeError) as error:
+            raise Halt("Robots rules not established; no retry: " + str(error), snapshot=robots_snapshot) from error
         state["site_evidence"]["robots"] = robots_snapshot
         if "about" not in state["site_evidence"]:
             _, state["site_evidence"]["about"] = fetcher.get(BASE + "/page/about-us")
