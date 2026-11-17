@@ -32,7 +32,10 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           persist-credentials: false
-          sparse-checkout: scripts
+          sparse-checkout: |
+            scripts
+            tests
+            .github/workflows
       - name: Set up gate Python
         uses: actions/setup-python@v7
         with:

@@ -37,7 +37,7 @@ class ClassifierTests(unittest.TestCase):
     def test_complete_requires_literal_true(self):
         for value in [False,None,0,1,'false',[],{}]:self.assertEqual(self.classify(diff_complete=value),'hold')
     def test_other_ordinary_push_preserved(self):
-        for changes in [{'catalog/materials.json':'M'},{'scripts/import_deenhindi.py':'M'}, {'scripts/classify_integration_event.py':'M'}]:self.assertEqual(self.classify(changes=changes),'existing_main_flow')
+        for changes in [{'catalog/materials.json':'M'},{'scripts/import_deenhindi.py':'M'}]:self.assertEqual(self.classify(changes=changes),'existing_main_flow')
     def test_schedule_dispatch_preserved(self):
         for event in ['schedule','workflow_dispatch']:self.assertEqual(self.classify(event=event),'existing_main_flow')
     def test_pr_validate_only(self):self.assertEqual(self.classify(event='pull_request',ref='refs/pull/31/merge'),'validate_only')
@@ -46,6 +46,46 @@ class ClassifierTests(unittest.TestCase):
     def test_bad_shas_hold(self):
         for value in ['0'*40,'x'*40,'a'*39,None,'a'*40+';echo BAD']:self.assertEqual(self.classify(before=value),'hold')
         self.assertEqual(self.classify(after=A),'hold')
+
+
+class RepairRouteTests(unittest.TestCase):
+    def classify(self, **changes):
+        args=dict(event='push',ref='refs/heads/main',before=gate.REPAIR_BEFORE,after=B,changes=dict(gate.REPAIR_CHANGES),diff_complete=True,pins_match=True)
+        args.update(changes);return gate.classify(**args)
+    def test_exact_repair(self):self.assertEqual(self.classify(),'offline_maintenance')
+    def test_repair_base_drift_holds(self):self.assertEqual(self.classify(before='d'*40),'hold')
+    def test_repair_extra_path_holds(self):
+        c=dict(gate.REPAIR_CHANGES);c['imports/stop.json']='M';self.assertEqual(self.classify(changes=c),'hold')
+    def test_repair_missing_path_holds(self):
+        c=dict(gate.REPAIR_CHANGES);c.pop('.github/workflows/reader-pages.yml');self.assertEqual(self.classify(changes=c),'hold')
+    def test_repair_wrong_status_holds(self):
+        c=dict(gate.REPAIR_CHANGES);c['tests/test_integration_gate_sparse_checkout.py']='M';self.assertEqual(self.classify(changes=c),'hold')
+    def test_repair_bad_pin_holds(self):self.assertEqual(self.classify(pins_match=False),'hold')
+    def test_unreviewed_helper_change_holds(self):self.assertEqual(self.classify(changes={'scripts/classify_integration_event.py':'M'}),'hold')
+
+class RepairAdapterTests(unittest.TestCase):
+    def test_actual_partial_clone_repair_pins(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);src=root/'source';src.mkdir();dst=root/'checkout'
+            env=dict(os.environ,GIT_ALLOW_PROTOCOL='file',GIT_TERMINAL_PROMPT='0')
+            def git(where,*args):return subprocess.check_output(['git','-C',str(where),*args],env=env,stderr=subprocess.PIPE)
+            git(src,'init','-q');git(src,'config','user.name','TEST');git(src,'config','user.email','test@example.invalid');git(src,'config','uploadpack.allowFilter','true')
+            for name in set(gate.REPAIR_CHANGES)|set(gate.REVIEWED_HASHES):
+                if gate.REPAIR_CHANGES.get(name)!='A':
+                    p=src/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('OLD '+name)
+            git(src,'add','.');git(src,'commit','-qm','before');before=git(src,'rev-parse','HEAD').decode().strip()
+            for name in gate.REPAIR_CHANGES:
+                p=src/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('NEW '+name)
+            git(src,'add','.');git(src,'commit','-qm','after');after=git(src,'rev-parse','HEAD').decode().strip()
+            pins={p:hashlib.sha256((src/p).read_bytes()).hexdigest() for p in gate.REPAIR_HASHES}
+            prior={p:hashlib.sha256((src/p).read_bytes()).hexdigest() for p in gate.REVIEWED_HASHES}
+            subprocess.check_output(['git','clone','--no-checkout','--filter=blob:none',src.as_uri(),str(dst)],env=env,stderr=subprocess.PIPE)
+            git(dst,'sparse-checkout','set','scripts','tests','.github/workflows');git(dst,'checkout','--detach',after);git(dst,'remote','set-url','origin',str(root/'offline-missing'))
+            payload=dict(before=before,after=after,ref='refs/heads/main',forced=False,deleted=False,created=False)
+            with patch.object(gate,'REPAIR_BEFORE',before),patch.object(gate,'REPAIR_HASHES',pins),patch.object(gate,'REVIEWED_HASHES',prior),patch.dict(os.environ,env):
+                self.assertEqual(gate.decide('push','refs/heads/main',after,payload,dst),'offline_maintenance')
+                with patch.object(gate,'REPAIR_HASHES',{**pins,'.github/workflows/reader-pages.yml':'0'*64}):
+                    self.assertEqual(gate.decide('push','refs/heads/main',after,payload,dst),'hold')
 
 class DiffParsingTests(unittest.TestCase):
     def test_exact_nul_parse(self):self.assertEqual(gate.parse_diff(b'M\0scripts/test.py\0A\0tests/a.py\0'),{'scripts/test.py':'M','tests/a.py':'A'})
