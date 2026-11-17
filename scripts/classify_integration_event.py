@@ -21,6 +21,11 @@ EXPECTED_CHANGES = {
 }
 # Content already independently reviewed and passed PR31's complete validation.
 REVIEWED_HASHES = {'scripts/import_deenhindi.py': '3d7bb891fc4fb699ca5a7fcd6255e4df36fe6efd6def32e2f55e487b54d43b32', 'tests/test_import_deenhindi.py': '8d30ec5a0043f8e65bb070dcf5cf1bce923b14ad2dc780fb39d40b7bf4195410', 'tests/test_deenhindi_reviewed_error_retries.py': 'd3acb9995d53e8fb7f586e7e5c57db821b1de294c58dc5beeec9fcbe41359d0d', 'tests/test_deenhindi_transport_safety.py': '2a007bcbed0bec3c59376eaf9e21e71c89e1d6721a55b328e399e0527fb6acb5'}
+
+REPAIR_BEFORE = '6a8091c16e60da1cb23aa32ca4ef9a2581078b84'
+REPAIR_CHANGES = {'.github/workflows/import-web-hadith.yml': 'M', '.github/workflows/reader-pages.yml': 'M', 'tests/test_classify_integration_event.py': 'M', 'tests/test_integration_gate_sparse_checkout.py': 'A', 'scripts/classify_integration_event.py': 'M'}
+REPAIR_HASHES = {'.github/workflows/import-web-hadith.yml': '2046e2997a8de620a8d3da6a743ef47a8634732f79dffce6e6f66d7b6ba9658a', '.github/workflows/reader-pages.yml': '031e3dcf8efd8aee766e3c9312491aaff0ed2c1a4b35783709d23116621c3c05', 'tests/test_classify_integration_event.py': 'ff4a1f891920adaa3382ad6614a5e704cab05ab1fcb9cb67c1a1b897808ae3d2', 'tests/test_integration_gate_sparse_checkout.py': 'dd62b88b68d6c1b953b58584187a69b5e21a0f8d8f2aa47ab8fa12f32b718553'}
+
 MODES = frozenset(('hold', 'validate_only', 'existing_main_flow', 'offline_maintenance'))
 MAX_DIFF_BYTES = 8 * 1024 * 1024
 MAX_EVENT_BYTES = 32 * 1024 * 1024
@@ -63,6 +68,9 @@ def classify(event, ref, before=None, after=None, changes=None, diff_complete=Fa
     if changes.get('scripts/classify_integration_event.py') == 'A':
         return ('offline_maintenance' if before == EXPECTED_BEFORE and changes == EXPECTED_CHANGES
                 and pins_match is True else 'hold')
+    if changes.get('scripts/classify_integration_event.py') == 'M':
+        return ('offline_maintenance' if before == REPAIR_BEFORE and changes == REPAIR_CHANGES
+                and pins_match is True else 'hold')
     # All other verified ordinary pushes retain the original job routing.
     return 'existing_main_flow'
 
@@ -99,6 +107,9 @@ def decide(event, ref, github_sha, payload, root, runner=git):
         if before == EXPECTED_BEFORE and changes == EXPECTED_CHANGES:
             pins_match = all(hashlib.sha256(runner(root, 'show', after + ':' + path)).hexdigest() == digest
                              for path, digest in REVIEWED_HASHES.items())
+        if before == REPAIR_BEFORE and changes == REPAIR_CHANGES:
+            pins_match = all(hashlib.sha256(runner(root, 'show', after + ':' + path)).hexdigest() == digest
+                             for path, digest in {**REVIEWED_HASHES, **REPAIR_HASHES}.items())
         return classify(event, ref, before, after, changes, True, pins_match)
     except (ValueError, OSError, UnicodeError, subprocess.SubprocessError):
         return 'hold'
