@@ -346,3 +346,61 @@ test("failing response validation aborts its underlying request signal",async()=
   }});
   await assert.rejects(store.loadDirectory(),/content length/);assert.equal(signal.aborted,true);
 });
+
+
+test("transient compact-index HTTP 503 recovers after two bounded retries",async()=>{
+  const calls=[],events=[],controller=new AbortController();
+  const url="https://example.test/bank/data/discovery/content-hash.json.gz";
+  const response=await Lazy.fetchTransient(url,{signal:controller.signal,cache:"force-cache",credentials:"same-origin",redirect:"error"},{
+    fetch:async(request,options)=>{
+      calls.push({request,cache:options.cache,signal:options.signal});
+      return new Response(calls.length<=2?"TEMPORARY":"VERIFIED",{status:calls.length<=2?503:200});
+    },retryDelays:[0,0],onRetry:status=>events.push(status)
+  });
+  assert.equal(response.status,200);assert.equal(await response.text(),"VERIFIED");
+  assert.equal(calls.length,3);assert.deepEqual(calls.map(call=>call.cache),["force-cache","reload","reload"]);
+  assert.ok(calls.every(call=>call.request===url && call.signal===controller.signal));
+  assert.deepEqual(events.map(event=>[event.status,event.attempt,event.nextAttempt,event.attempts]),[[503,1,2,3],[503,2,3,3]]);
+});
+
+test("persistent HTTP 503 stays a failure after exactly three attempts, never an empty result",async()=>{
+  const calls=[],events=[];
+  const response=await Lazy.fetchTransient(BASE,{cache:"force-cache"},{
+    fetch:async(url,options)=>{calls.push(options.cache);return new Response("UNAVAILABLE",{status:503});},
+    retryDelays:[0,0],onRetry:event=>events.push(event)
+  });
+  assert.equal(response.status,503);assert.equal(calls.length,3);
+  assert.deepEqual(calls,["force-cache","reload","reload"]);assert.equal(events.length,2);
+  await response.body.cancel();
+});
+
+test("404, checksum-eligible 200, and redirects do not get hidden by retries",async()=>{
+  for(const status of [200,404,403]){
+    let count=0;
+    const response=await Lazy.fetchTransient(BASE,{},{
+      fetch:async()=>{count++;return new Response("RESULT",{status});},
+      retryDelays:[0,0]
+    });
+    assert.equal(response.status,status);assert.equal(count,1);
+  }
+  let redirectRequests=0;
+  await assert.rejects(Lazy.fetchTransient(BASE,{},{
+    fetch:async()=>{redirectRequests++;return {status:503,redirected:true,url:BASE};},retryDelays:[0,0]
+  }),/redirect/);
+  assert.equal(redirectRequests,1);
+});
+
+test("network TypeError retries but cancellation during backoff prevents further requests",async()=>{
+  let calls=0;
+  const recovered=await Lazy.fetchTransient(BASE,{},{
+    fetch:async()=>{calls++;if(calls===1)throw new TypeError("network failed");return new Response("OK",{status:200});},
+    retryDelays:[0,0]
+  });
+  assert.equal(recovered.status,200);assert.equal(calls,2);
+  calls=0;const controller=new AbortController();
+  await assert.rejects(Lazy.fetchTransient(BASE,{signal:controller.signal},{
+    fetch:async()=>{calls++;return new Response("service error",{status:503});},
+    retryDelays:[100,100],onRetry:()=>controller.abort()
+  }),{name:"AbortError"});
+  assert.equal(calls,1);
+});

@@ -36,6 +36,48 @@
       Promise.resolve(promise).then(value => finish(resolve, value), reason => finish(reject, reason));
     });
   }
+  // Retry only temporary transport failures. Never retry a successful but
+  // checksum-invalid response, a missing file (404), or a mismatched snapshot.
+  const TRANSIENT_HTTP = new Set([429, 502, 503, 504]);
+  const TRANSIENT_BACKOFF_MS = Object.freeze([250, 800]);
+  function cancellablePause(ms, signal) {
+    checkAbort(signal);
+    return new Promise((resolve, reject) => {
+      let timer;
+      const onAbort = () => { clearTimeout(timer); signal.removeEventListener("abort", onAbort); reject(abortReason(signal)); };
+      timer = setTimeout(() => { if (signal) signal.removeEventListener("abort", onAbort); resolve(); }, ms);
+      if (signal) signal.addEventListener("abort", onAbort, {once: true});
+    });
+  }
+  async function fetchTransient(url, init = {}, options = {}) {
+    const fetcher = options.fetch || (typeof root.fetch === "function" && root.fetch.bind(root));
+    const delays = options.retryDelays === undefined ? TRANSIENT_BACKOFF_MS : options.retryDelays;
+    const onRetry = options.onRetry;
+    if (typeof fetcher !== "function" || !Array.isArray(delays) || delays.length > 2 ||
+        delays.some(value => !integer(value) || value > 2000) ||
+        (onRetry !== undefined && typeof onRetry !== "function"))
+      throw error("invalid bounded retry options");
+    const signal = init.signal;
+    for (let index = 0; index <= delays.length; index++) {
+      checkAbort(signal);
+      let response;
+      try {
+        response = await waitFor(fetcher(url, {...init, cache: index === 0 ? (init.cache || "force-cache") : "reload"}), signal);
+      } catch (reason) {
+        if (signal?.aborted || reason?.name !== "TypeError" || index === delays.length) throw reason;
+        onRetry?.({attempt: index + 1, nextAttempt: index + 2, attempts: delays.length + 1, status: null});
+        await cancellablePause(delays[index], signal);
+        continue;
+      }
+      if (!response || response.redirected || (response.url && response.url !== url))
+        throw error("unexpected compact index response URL or redirect");
+      if (!TRANSIENT_HTTP.has(response.status) || index === delays.length) return response;
+      if (response.body?.cancel) await waitFor(response.body.cancel().catch(() => {}), signal);
+      onRetry?.({attempt: index + 1, nextAttempt: index + 2, attempts: delays.length + 1, status: response.status});
+      await cancellablePause(delays[index], signal);
+    }
+  }
+
   function operation(signal) {
     const controller = new AbortController();
     const onAbort = () => controller.abort(abortError());
@@ -415,5 +457,5 @@
     }
     return Object.freeze({loadDirectory,getDirectoryEntry,getRecord,getRecords,search,cacheStats:()=>({bytes:cacheBytes,entries:cache.size,limitBytes:cacheLimit,activeRequests:active,queuedRequests:queue.length,maxActiveRequests:peak,requestCount:requests,inFlight:inFlight.size})});
   }
-  return Object.freeze({create});
+  return Object.freeze({create,fetchTransient});
 });
