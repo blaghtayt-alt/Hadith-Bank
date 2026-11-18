@@ -1,0 +1,194 @@
+{
+  "qc_id": "zakaria-nawawi2-independent-source-fidelity-targeted-2026-11-15",
+  "scope": "Selected Zakaria Maza Vielva Spanish HADIZ-2 only; independent source-fidelity to exact attached PDF; not full book, not translation-wide semantic approval, not release authorization",
+  "decision": "PASS_SOURCE_FIDELITY_ONLY",
+  "input_zip": {
+    "filename": "zakaria-nawawi2-selected-source-qc.zip",
+    "sha256": "65d49ec6a599254956fc09e3b41e99bdbf730ab20cf539553df0e78264037576",
+    "zip_crc_check": "PASS",
+    "manifest_files_verified": 8,
+    "each_entry_hash_and_size": "PASS"
+  },
+  "source_pdf": {
+    "physical_pages": 89,
+    "bytes": 6342716,
+    "sha256": "a2f40956637a0ffbb38595fbd1aecd05c7cb6dfa0436d374e6bfc689ae12bdf2",
+    "printed_title": "LOS CUARENTA HADICES",
+    "author_credit": "Del Imán An-Nawawi",
+    "translator_credit": "Zakaria Maza Vielva",
+    "translator_evidence": "physical PDF2 credit heading Traduccion; title page is image-like and not present in PDF text layer",
+    "imprint_in_page_footer": "www.islamenespanol.org",
+    "external_url": "https://mercy4humanity.org/wp-content/uploads/2023/spanish/LosCuarentaHadices.pdf",
+    "external_pdf_visual_cross_check": "Source URL PDF displayed identical corresponding pages 2,6,7,8; no independent byte-level hash of external URL claimed"
+  },
+  "checked_pages": [
+    {
+      "page": 2,
+      "contents": "Title, author and named translator credit; pass"
+    },
+    {
+      "page": 5,
+      "contents": "Hadith1 Spanish ends, Arabic Hadith2 begins; source boundary verified"
+    },
+    {
+      "page": 6,
+      "contents": "Arabic Hadith2 ends; Spanish HADIZ-2 starts; 8 selected printed Spanish lines including heading and narrator introduction; pass"
+    },
+    {
+      "page": 7,
+      "contents": "22 printed Spanish lines, all 5 continuous narration paragraphs; pass"
+    },
+    {
+      "page": 8,
+      "contents": "14 printed Spanish lines (narration end and Muslim attribution); Arabic Hadith3 starts immediately after; pass"
+    },
+    {
+      "page": 9,
+      "contents": "PDF text layer confirms Spanish HADIZ-3 starts here; boundary only, not examined for translation fidelity"
+    }
+  ],
+  "spanish_span": {
+    "start": "Physical PDF6 printed5, literal heading HADIZ-2.",
+    "end": "Physical PDF8 printed7, literal Lo relató Muslim.",
+    "span_pages": [
+      6,
+      7,
+      8
+    ],
+    "selected_printed_lines_by_page": {
+      "6": 8,
+      "7": 22,
+      "8": 14
+    },
+    "total_selected_printed_lines": 44,
+    "paragraph_segments": 13,
+    "excluded": "PDF headers, printed page numbers, imprint footers, Arabic original (still archived), adjacent Hadith1/3 text"
+  },
+  "checks": [
+    {
+      "name": "input ZIP SHA256",
+      "result": "PASS"
+    },
+    {
+      "name": "input ZIP CRC",
+      "result": "PASS"
+    },
+    {
+      "name": "all eight manifest payload hashes and sizes",
+      "result": "PASS"
+    },
+    {
+      "name": "source 89-page PDF exact hash",
+      "result": "PASS"
+    },
+    {
+      "name": "translator actual rendered page2 evidence",
+      "result": "PASS"
+    },
+    {
+      "name": "HADIZ-2 exact printed boundaries",
+      "result": "PASS"
+    },
+    {
+      "name": "selected Spanish line-by-line, physical pages6-8: 8+22+14 lines",
+      "result": "PASS"
+    },
+    {
+      "name": "narrator intro and full Muslim source attribution",
+      "result": "PASS"
+    },
+    {
+      "name": "source wording and punctuation preserved, display reflow only",
+      "result": "PASS"
+    },
+    {
+      "name": "full original Arabic preserved in immutable source PDF",
+      "result": "PASS"
+    },
+    {
+      "name": "no Garcia edition mixing",
+      "result": "PASS"
+    },
+    {
+      "name": "display is punctuation/letter-identical to printed source (whitespace-normalized)",
+      "result": "PASS"
+    },
+    {
+      "name": "full volume fidelity or Arabic semantic/variant equivalence",
+      "result": "NOT_ASSESSED"
+    },
+    {
+      "name": "repository or website live integration",
+      "result": "NOT_ATTEMPTED"
+    }
+  ],
+  "source_quarks_preserved_no_edit": [
+    {
+      "physical_page": 7,
+      "text": "Sus Angeles",
+      "meaning": "Published source lacks accent on Angeles; not normalized to Ángeles"
+    },
+    {
+      "physical_page": 7,
+      "text": "Imán!’dijo:",
+      "meaning": "Published punctuation joins quotation close and dijo without space; retained"
+    },
+    {
+      "physical_page": 8,
+      "text": "Hora!’Y",
+      "meaning": "Published punctuation joins quotation close and Y without space; retained"
+    },
+    {
+      "physical_page": 8,
+      "text": "Din!’’’",
+      "meaning": "Three right-single-quotation marks appear in PDF extraction and image; retained"
+    },
+    {
+      "physical_page": 8,
+      "text": "harapientos",
+      "meaning": "User-selected published source wording retained; no semantic objection reopened"
+    },
+    {
+      "physical_page": 8,
+      "text": "ha venido a vosotros",
+      "meaning": "Published source wording retained"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "PRINT-001",
+      "type": "original_source_typography",
+      "finding": "Angeles without written accent, Imán!’dijo: and Hora!’Y without spaces, triple closing curly apostrophes after Din!",
+      "source_pages": [
+        7,
+        8
+      ],
+      "disposition": "Retained exactly; not an extraction error; no silent editorial fix",
+      "severity": "NON_BLOCKING_TO_SOURCE_FIDELITY"
+    },
+    {
+      "issue_id": "SCOPE-001",
+      "type": "review_scope",
+      "finding": "No full-book QC, no blanket equivalence to canonical Arabic witnesses, no publication checks",
+      "disposition": "Scope limitation; not a discovered defect in the selected transcript",
+      "severity": "NOT_A_SOURCE_TRANSCRIPTION_HOLD"
+    },
+    {
+      "issue_id": "COORD-001",
+      "type": "downstream_integration",
+      "finding": "Repository rename and owner coordination still pending according to brief",
+      "disposition": "No repo writes or release actions",
+      "severity": "OUT_OF_SCOPE_PENDING"
+    }
+  ],
+  "extraction_error_ledger": [],
+  "source_published_text_changes": [],
+  "previous_Garcia_edition": "Separate historical source, no transcript merged or modified; original Garcia issues unchanged and unreviewed in this QC",
+  "hashes": {
+    "input_zip_sha256": "65d49ec6a599254956fc09e3b41e99bdbf730ab20cf539553df0e78264037576",
+    "pdf_sha256": "a2f40956637a0ffbb38595fbd1aecd05c7cb6dfa0436d374e6bfc689ae12bdf2",
+    "display_sha256": "c29e8359ea1964411c319ee676d30d28d6308d81b771bd2957ffca865a893125",
+    "page_layout_sha256": "2ed2e5ad11f0bdb255eda93350200600543e2c87572c3be248b191ef4c456537",
+    "record_sha256": "fd0d565bdeb3efe6e1e4bd7ac3b42ee1a6970890c09228258a4f1db51c2dbd9e"
+  }
+}
