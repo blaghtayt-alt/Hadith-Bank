@@ -40,6 +40,7 @@ class Response(io.BytesIO):
     def __init__(self, url, data):
         super().__init__(data)
         self.url = url
+        self.headers = {'Content-Type': 'text/plain' if url.endswith('/robots.txt') and not data.lstrip().startswith(b'<') else 'text/html; charset=utf-8'}
 
     def geturl(self):
         return self.url
@@ -51,7 +52,7 @@ class DeenHindiImporterTests(unittest.TestCase):
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         (self.root / 'AGENTS.md').write_text('TEST repository fixture\n', encoding='utf-8')
-        guard = mock.patch.object(importer.urllib.request, 'urlopen',
+        guard = mock.patch.object(importer.urllib.request.OpenerDirector, 'open',
                                   side_effect=AssertionError('Live network is forbidden in these tests'))
         guard.start()
         self.addCleanup(guard.stop)
@@ -178,7 +179,7 @@ class DeenHindiImporterTests(unittest.TestCase):
             return Response(url, body)
 
         classification = {'classification': 'hadith', 'method': 'TEST fixture only', 'evidence': 'TEST'}
-        with mock.patch.object(importer.urllib.request, 'urlopen', side_effect=response), \
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', side_effect=response), \
                 mock.patch.object(importer.time, 'sleep'), \
                 mock.patch.object(importer, 'classify', return_value=classification):
             first = importer.run(self.args())
@@ -208,7 +209,7 @@ class DeenHindiImporterTests(unittest.TestCase):
 
     def test_http_403_is_checkpointed_and_never_automatically_retried(self):
         error = urllib.error.HTTPError(importer.BASE + '/robots.txt', 403, 'TEST block', None, None)
-        with mock.patch.object(importer.urllib.request, 'urlopen', side_effect=error) as request:
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', side_effect=error) as request:
             first = importer.run(self.args())
             second = importer.run(self.args())
         self.assertTrue(first['blocked'])
@@ -240,7 +241,7 @@ class DeenHindiImporterTests(unittest.TestCase):
                 self.fail('The verification stop must prevent later source requests: ' + url)
             return Response(url, body)
 
-        with mock.patch.object(importer.urllib.request, 'urlopen', side_effect=response), \
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', side_effect=response), \
                 mock.patch.object(importer.time, 'sleep'):
             first = importer.run(self.args())
             request_count = len(requested)
@@ -263,7 +264,7 @@ class DeenHindiImporterTests(unittest.TestCase):
         self.assertEqual(importer.checked_bytes(self.root, snapshot), VERIFICATION_PAGE)
         self.assertEqual(second['block_reason'], state['blocked'])
 
-    def test_verification_wording_does_not_block_real_source_payloads(self):
+    def test_verification_gate_stops_even_with_embedded_source_payload(self):
         record = {'id': 'TEST', 'collectionSlug': 'bukhari', 'hadithNumber': '1a',
                   'textArabic': 'TEST Arabic', 'translationHindi': 'TEST हिन्दी'}
         collection = {'slug': 'bukhari', 'name': 'TEST collection',
@@ -274,8 +275,12 @@ class DeenHindiImporterTests(unittest.TestCase):
                 with self.subTest(key=key, verification_wording=bool(prefix)):
                     raw = prefix + object_page(key, value)
                     url = importer.BASE + path
-                    with mock.patch.object(importer.urllib.request, 'urlopen',
+                    with mock.patch.object(importer.urllib.request.OpenerDirector, 'open',
                                            return_value=Response(url, raw)):
+                        if prefix:
+                            with self.assertRaises(importer.Halt):
+                                importer.Fetcher(self.root, 1.25, 30).get(url)
+                            continue
                         fetched, snapshot = importer.Fetcher(self.root, 1.25, 30).get(url)
                     self.assertEqual(fetched, raw)
                     self.assertEqual(importer.checked_bytes(self.root, snapshot), raw)
@@ -286,7 +291,7 @@ class DeenHindiImporterTests(unittest.TestCase):
                     else:
                         self.assertEqual(importer.parse_inventory(fetched, 'bukhari')['identifiers'], ['1a'])
 
-    def test_partial_or_script_only_verification_markers_do_not_stop_fetches(self):
+    def test_partial_or_script_only_verification_markers_stop_conservatively(self):
         title = b'<title>One moment, please...</title>'
         message = b'Please wait while your request is being verified...'
         cases = (b'<html>' + title + b'<p>TEST ordinary page</p></html>',
@@ -295,15 +300,15 @@ class DeenHindiImporterTests(unittest.TestCase):
         url = importer.BASE + '/hadith/bukhari/1a'
         for raw in cases:
             with self.subTest(raw=raw):
-                with mock.patch.object(importer.urllib.request, 'urlopen', return_value=Response(url, raw)):
-                    fetched, snapshot = importer.Fetcher(self.root, 1.25, 30).get(url)
-                self.assertEqual(fetched, raw)
-                self.assertEqual(importer.checked_bytes(self.root, snapshot), raw)
+                with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', return_value=Response(url, raw)):
+                    with self.assertRaises(importer.Halt) as stopped:
+                        importer.Fetcher(self.root, 1.25, 30).get(url)
+                self.assertEqual(importer.checked_bytes(self.root, stopped.exception.snapshot), raw)
 
     def test_verification_with_non_source_flight_payload_still_stops(self):
         raw = VERIFICATION_PAGE + object_page('unrelated', {'label': 'TEST loader'})
         url = importer.BASE + '/hadith/bukhari/1a'
-        with mock.patch.object(importer.urllib.request, 'urlopen', return_value=Response(url, raw)):
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', return_value=Response(url, raw)):
             with self.assertRaises(importer.Halt) as stopped:
                 importer.Fetcher(self.root, 1.25, 30).get(url)
         self.assertEqual(importer.checked_bytes(self.root, stopped.exception.snapshot), raw)
@@ -339,3 +344,4 @@ class DeenHindiImporterTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

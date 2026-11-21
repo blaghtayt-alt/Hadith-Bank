@@ -30,7 +30,7 @@ class ReviewedHistoricalErrorTests(unittest.TestCase):
                       'site_evidence': {'about': {'TEST': 'already retained'}}}
         importer.write_json(self.state_path, self.state)
         self.requested = []
-        network = mock.patch.object(importer.urllib.request, 'urlopen',
+        network = mock.patch.object(importer.urllib.request.OpenerDirector, 'open',
             side_effect=AssertionError('Live network is forbidden'))
         network.start()
         self.addCleanup(network.stop)
@@ -82,7 +82,7 @@ class ReviewedHistoricalErrorTests(unittest.TestCase):
             'translationHindi': 'TEST Hindi'}))
 
     def run_mock(self, response=None, **options):
-        with mock.patch.object(importer.urllib.request, 'urlopen', side_effect=response or self.response):
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open', side_effect=response or self.response):
             return importer.run(self.args(**options))
 
     def record_requests(self):
@@ -231,7 +231,7 @@ class ReviewedHistoricalErrorTests(unittest.TestCase):
         status = worker.source_status(self.root, 'deenhindi')
         self.assertTrue(status['blocked'])
         self.assertFalse(status['has_fetch_work'])
-        with mock.patch.object(importer.urllib.request, 'urlopen') as network:
+        with mock.patch.object(importer.urllib.request.OpenerDirector, 'open') as network:
             summary = importer.run(self.args(retry_errors=True))
         network.assert_not_called()
         self.assertTrue(summary['blocked'])
@@ -289,3 +289,4 @@ class ReviewedHistoricalErrorTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
