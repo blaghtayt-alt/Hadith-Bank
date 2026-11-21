@@ -1,0 +1,58 @@
+{
+  "runs": [
+    {
+      "name": "01_stock_build_bank_views",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/scripts/build_bank_views.py",
+        "--bank-root",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture"
+      ],
+      "cwd": "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture",
+      "exit": 0,
+      "elapsed_sec": 1.292,
+      "stdout_sha256": "48ca1dabe9c1ff8dd4e0bc1e3686c292c14f0d57991b7ed05bc048a22da65055",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": "{\n  \"records\": 98,\n  \"languages\": {\n    \"bs\": 98\n  },\n  \"datasets\": 1,\n  \"private_datasets_listed_separately\": 0,\n  \"legacy_files\": 0,\n  \"search_bytes\": 749304,\n  \"shards\": 1,\n  \"translation_origins\": {\n    \"human_translator_credited\": 98\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "02_stock_build_reader_markdown",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/scripts/build_reader.py",
+        "--root",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture",
+        "--output",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/hadith-bank-reader.html",
+        "--markdown-output",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/browse/bs/abu-dawud-source-subset.md"
+      ],
+      "cwd": "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture",
+      "exit": 0,
+      "elapsed_sec": 1.095,
+      "stdout_sha256": "c8118926ff9ec114644474b34193ea45e884de639cab468a3664b201b98b46e0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": "{\n  \"records_sha256\": \"4eee77e125dc7d68f4448207a97abf4241db6ce7b08992d8dedea81cd4cfeabe\",\n  \"record_count\": 98,\n  \"input_mode\": \"whole_file\",\n  \"input_files_verified\": 1,\n  \"html_output\": \"/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/hadith-bank-reader.html\",\n  \"html_bytes\": 722212,\n  \"grouped_reading_count\": 98,\n  \"reviewed_reading_groups\": 0,\n  \"source_text_modified\": false,\n  \"discovery_statistics\": {\n    \"terms\": 1727,\n    \"postings\": 8787,\n    \"reading_families\": 98,\n    \"grouped_occurrences\": 0\n  },\n  \"discovery_artifact\": null,\n  \"network_dependencies\": [],\n  \"embedded_encoding\": \"gzip-base64\",\n  \"self_contained\": true,\n  \"markdown_pages\": 4,\n  \"markdown_files\": 9,\n  \"markdown_output\": \"/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/browse/bs/abu-dawud-source-subset.md\"\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "03_stock_build_discovery_static",
+      "argv": [
+        "/opt/pyvenv/bin/python",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture/scripts/build_discovery.py",
+        "--root",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture",
+        "--output",
+        "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/independent_static_qa_only"
+      ],
+      "cwd": "/mnt/data/BS_ABUDAWUD_ACCEPTED98_QC_PRIVATE/isolated_qa_fixture",
+      "exit": 0,
+      "elapsed_sec": 1.753,
+      "stdout_sha256": "cc398697474ceb459eaf5abefef65892b50a6fa9be56da14302e17358a9e093c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": "8f4448207a97abf4241db6ce7b08992d8dedea81cd4cfeabe\",\n  \"source_texts_unchanged\": true,\n  \"independent_qc_performed\": false,\n  \"static_record_pages_dom_verified\": 98,\n  \"static_record_body_bytes_saved\": 7290,\n  \"complete_source_views\": {\n    \"provider_occurrences\": 0,\n    \"original_source_pages\": 0,\n    \"pages\": 0\n  },\n  \"shared_translation_provenance\": {\n    \"shared_metadata_pages\": 2,\n    \"actual_inline_provenance_bytes_saved\": 68446,\n    \"actual_shared_metadata_asset_bytes\": 6660,\n    \"actual_net_shared_provenance_bytes_saved\": 61786\n  },\n  \"languages\": {\n    \"bs\": 98\n  },\n  \"language_count\": 1,\n  \"book_language_count\": 1,\n  \"edition_count\": 1,\n  \"sitemap_count\": 1,\n  \"sitemap_url_count\": 103,\n  \"sitemap\": \"https://blaghtayt-alt.github.io/Hadith-Bank/sitemap.xml\",\n  \"sitemap_original_xml_sha256\": [\n    \"92254e98a199262a8a745282cdef25e19925f1fd0f7a4c141fcb9e37817b3484\"\n  ],\n  \"sitemap_uncompressed_bytes\": 14637,\n  \"sitemap_stored_bytes\": 1827,\n  \"sitemap_lossless_bytes_saved\": 12810\n}\n",
+      "stderr_tail": ""
+    }
+  ]
+}
