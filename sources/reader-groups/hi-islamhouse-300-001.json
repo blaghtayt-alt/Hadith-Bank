@@ -1,0 +1,78 @@
+{
+  "schema": "hadith-bank-reader-groups-v1",
+  "new_source_ids": [
+    "hi-islamhouse-hi300-2fc65776"
+  ],
+  "links": [
+    {
+      "source": {
+        "record_id": "hi:islamhouse-hi300-2fc65776:h002",
+        "source_id": "hi-islamhouse-hi300-2fc65776",
+        "language": "hi",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "fe9333c5528dd574ac3eb5afda57873e033f648d349350bf418a13b0ea91739c",
+        "source_file_sha256": "868017ff20865928ff67ba291181a6f91cb200bcb82cde3c09b83866617cfc02",
+        "source_record_sha256": "54829bc232f9d584f302e9adbfa32c25249b86a2f5b053ac6f325a54159bdc8f",
+        "source_locator_sha256": "01d8bca0e829bc88d2ec46babb6b3884ebfa223de58b5455fa454abe617eb040"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:bukhari:5971",
+        "source_id": "fawaz-bukhari-df57907be352-ar-part-003",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "7813c25acaba9bf2d110536186a529fb4d5c6a3c2a9cc352d7e564577c9d7a39",
+        "source_file_sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
+        "source_record_sha256": "f34624419dc2451232f5aea75cd4a92af07b0466bf22d99474be811014f17de2",
+        "source_locator_sha256": "abe1c4014dda4be7c7a528b0e165511b11c9b416531ba498880a4de647641c6f"
+      },
+      "relation": "same_narration_core",
+      "review": {
+        "reviewer": "Books Maestro, AI-assisted Codex source review",
+        "human_review": false,
+        "method": "Review the printed Hindi text, narrator, Arabic quotation boundaries and edition references against the pinned existing Bank entry.",
+        "evidence": "Bank row matches Abu Hurayrah, the visitor, the question and the four replies. Its additional chain report is outside the book excerpt.",
+        "qualifications": [
+          "The Hindi source occurrence keeps its own text, edition, and identifier.",
+          "The Arabic comes from the existing Bank source. Additional wording belongs to that Arabic source.",
+          "Independent Pro QC and full isnad certification remain pending.",
+          "संपादकीय संदर्भ: स्रोत में हदीस २ का हिन्दी पाठ मुद्रित पृष्ठ ३ से ४ तक है। अरबी के लिए बैंक में पहले से उपलब्ध बुखारी ५९७१ देखें। उसके अंत में दर्ज अतिरिक्त रिवायत इस हिन्दी अंश में नहीं है।"
+        ]
+      }
+    },
+    {
+      "source": {
+        "record_id": "hi:islamhouse-hi300-2fc65776:h003",
+        "source_id": "hi-islamhouse-hi300-2fc65776",
+        "language": "hi",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "d9db9909c54e96c12dc6ec31038a1ac4fd5b8ae71039ae45c69b60c0608344b9",
+        "source_file_sha256": "868017ff20865928ff67ba291181a6f91cb200bcb82cde3c09b83866617cfc02",
+        "source_record_sha256": "2edf6cf752897c5d192a18dacd71cf8fade3ab3a487532b127504cb710e40cf7",
+        "source_locator_sha256": "c2e2fc0a9437c15ebca78568c6af9e13c8c96d3d7e5bbe56c31a480131d4d7d4"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:bukhari:6066",
+        "source_id": "fawaz-bukhari-df57907be352-ar-part-004",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "26c5fc66d165ce7a80c69fc1c7f8bb3b05d2c6df9906246a8c58f8d0d03a697b",
+        "source_file_sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
+        "source_record_sha256": "60c7fbda092bf3d7d66c5d3d62ae4b1ed0fea36012f0ce543b4e5a9ff21378ac",
+        "source_locator_sha256": "e3380cfcc9a50a8c424e1f85b7d45a9b630d191d9b266e87cae7339b10db52b4"
+      },
+      "relation": "source_excerpt",
+      "review": {
+        "reviewer": "Books Maestro, AI-assisted Codex source review",
+        "human_review": false,
+        "method": "Review the printed Hindi text, narrator, Arabic quotation boundaries and edition references against the pinned existing Bank entry.",
+        "evidence": "The Abu Hurayrah warning corresponds to the opening part of the registered Bank 6066 report. The extra commands in Bank 6066 are outside the Hindi selection.",
+        "qualifications": [
+          "The Hindi source occurrence keeps its own text, edition, and identifier.",
+          "The Arabic comes from the existing Bank source. Additional wording belongs to that Arabic source.",
+          "Independent Pro QC and full isnad certification remain pending.",
+          "संपादकीय संदर्भ: इस संस्करण में बुखारी ६०६६ के आरंभ का हिन्दी अंश है। बैंक में उपलब्ध अरबी रिवायत में आगे के निर्देश भी हैं। इस हिन्दी अंश में वे शामिल नहीं हैं।"
+        ]
+      }
+    }
+  ]
+}

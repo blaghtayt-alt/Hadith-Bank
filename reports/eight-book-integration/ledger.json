@@ -1,0 +1,51 @@
+{
+  "schema": "hadith-bank-eight-book-integration-v1",
+  "repository": "blaghtayt-alt/Hadith-Bank",
+  "batches": [
+    {
+      "batchId": "hi-islamhouse-300-001",
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "exactEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "materialManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "0c95f476cf1d1db5d7a356c2a958fe35294b9c4ed087915282a56ba2d7775af7",
+        "size_bytes": 1131
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h002",
+        "hi:islamhouse-hi300-2fc65776:h003"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:5971",
+        "fawaz:df57907be352:bukhari:6066"
+      ],
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "0a9d93b7442a29306432a2933db838104de6b47c41fb3d72edc98a92413e08ed",
+        "size_bytes": 5135
+      },
+      "expectedAddedCount": 2,
+      "locallyValidatedCandidateCount": 2,
+      "publicationStatus": "staged_pending_authoritative_build_and_merge",
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h001",
+          "reason": "Unresolved reading and pending whole-Hadith crop placement."
+        },
+        {
+          "id": "h004",
+          "reason": "Unresolved reading and exact Arabic counterpart link."
+        }
+      ],
+      "nextSourceItemToReview": 11,
+      "nextReviewedItemWaitingIntegration": 2,
+      "earliestPendingGap": 1,
+      "uploadedWholeSourcePdf": false,
+      "readerScreenshotCount": 0,
+      "liveRecordsChecked": [],
+      "editorialNotes": "Arabic cross-reference notes are recorded in the reviewed reader links."
+    }
+  ]
+}
