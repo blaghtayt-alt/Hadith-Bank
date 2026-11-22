@@ -898,9 +898,9 @@
       ],
       "branch": "books/hi300-154-cleared-20261123",
       "baseCommit": "e660db744b4222e6cb5805de92f7952f03a7e5c5",
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "merged_awaiting_live_verification",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
@@ -909,21 +909,105 @@
         "expectedEditionCount": 92,
         "exactStaticPages": 92,
         "readerSourceLinks": 92,
-        "exactHindiSearchResultsForNewOccurrence": 1,
-        "siteNotYetDeployed": true
+        "exactHindiSearchResultsForNewOccurrence": 1
       },
       "nextSourceItemToReview": 9,
       "nextReviewedItemWaitingIntegration": 154,
+      "earliestPendingGap": 9,
+      "pr": 41,
+      "mergeCommit": "ef6bddc8db7b8e411fb145db1823e10026fa2cdc",
+      "hostedValidation": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45049959659",
+        "status": "success"
+      },
+      "productionDeployment": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45054058431",
+        "status": "awaiting_exact_live_verification"
+      }
+    },
+    {
+      "batchId": "hi-islamhouse-300-016",
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "sourceEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "version": "v1199",
+        "candidateManifestSHA256": "b8c6ed0c8e20756096039f11c7ef8939f1d12b43d16283799498e893fc07884e",
+        "occurrences": [
+          {
+            "id": "hi:islamhouse-hi300-2fc65776:h189",
+            "physicalPages": [
+              83
+            ],
+            "completeSourceHindiSHA256": "290e3711a2ff0969970cc1e67f02ff3e054ba7324a3759b7aaebcc4e1841d4d9"
+          },
+          {
+            "id": "hi:islamhouse-hi300-2fc65776:h194",
+            "physicalPages": [
+              85
+            ],
+            "completeSourceHindiSHA256": "df65da91fc124f1bf784580a9f1a22b0ccb79658f80220f902d7353c50ea8269"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "0d524edb524c1d96d85766e7067e50395630dd2cb30b1f39c3bbce49efaa431a",
+        "size_bytes": 1134
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "3d4ad6d267bf48c68184063652606f763e1d175c19bdf075b75f2482657a9964",
+        "size_bytes": 185401
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h189",
+        "hi:islamhouse-hi300-2fc65776:h194"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:3046",
+        "fawaz:df57907be352:bukhari:6436"
+      ],
+      "branch": "books/hi300-189-194-cleared-20261123",
+      "baseCommit": "ef6bddc8db7b8e411fb145db1823e10026fa2cdc",
+      "publicationStatus": "staged_for_review",
+      "expectedAddedCount": 2,
+      "actualAddedCount": 0,
+      "readerScreenshotCount": 0,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "hi:islamhouse-hi300-2fc65776:h287",
+          "reason": "Printed honorific and blessing readings remain under review."
+        },
+        {
+          "id": "hi:islamhouse-hi300-2fc65776:h290",
+          "reason": "Independent review of the speaker classification is pending."
+        }
+      ],
+      "liveRecordsChecked": [],
+      "privateValidation": {
+        "expectedEditionCount": 94,
+        "exactStaticPages": 94,
+        "readerSourceLinks": 94,
+        "exactHindiSearchResultsForNewOccurrences": [
+          1,
+          1
+        ],
+        "siteNotYetDeployed": true
+      },
+      "nextSourceItemToReview": 9,
+      "nextReviewedItemWaitingIntegration": 189,
       "earliestPendingGap": 9
     }
   ],
   "integrationResume": {
     "nextSourceItemToReview": 9,
-    "nextReviewedItemWaitingIntegration": 154,
+    "nextReviewedItemWaitingIntegration": 189,
     "earliestPendingGap": 9,
     "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
     "nextUnstagedCleanCandidate": null,
-    "sourceReviewDisposition": "91 publisher Hindi occurrences are verified live. H154 is proposed with its existing Bank Arabic comparison and original Hindi-only citation. Earlier contextual, source-fit and independent requirements remain.",
+    "sourceReviewDisposition": "91 Hindi occurrences verified live. Hadith 154 is merged and awaits live verification. Hadiths 189 and 194 are proposed with their existing Arabic records. Earlier source, meaning and independent-review holds remain.",
     "deferredTextOnlyNotes": [],
     "heldReviewCount": 46,
     "laterNoteCandidateCount": 177
