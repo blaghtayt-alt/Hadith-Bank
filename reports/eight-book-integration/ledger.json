@@ -782,5 +782,29 @@
     "reviewedField": "review.ocr_qc",
     "value": "verified",
     "independentReview": "The independent Pro QC field has not changed. The text, source locators and Arabic references are identical."
+  },
+  "comparisonQualificationRepair": {
+    "predecessor": "4e5bcb6eb7f4e274258e3d40dca1c64b6c6fdcbe",
+    "status": "checked_metadata_only_staged",
+    "fixedOccurrences": [
+      "hi:islamhouse-hi300-2fc65776:h001",
+      "hi:islamhouse-hi300-2fc65776:h004",
+      "hi:islamhouse-hi300-2fc65776:h012",
+      "hi:islamhouse-hi300-2fc65776:h016",
+      "hi:islamhouse-hi300-2fc65776:h022",
+      "hi:islamhouse-hi300-2fc65776:h027",
+      "hi:islamhouse-hi300-2fc65776:h030",
+      "hi:islamhouse-hi300-2fc65776:h031",
+      "hi:islamhouse-hi300-2fc65776:h037",
+      "hi:islamhouse-hi300-2fc65776:h041"
+    ],
+    "priorWrongQualification": "A note specific to Hindi occurrence H002 was copied into ten other source-comparison qualification lists. Only that duplicate qualification was removed from those ten. It remains attached to H002.",
+    "translationsChanged": 0,
+    "arabicOccurrencesChanged": 0,
+    "imagesAdded": 0,
+    "affectedGrouping": {
+      "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+      "sha256": "f60cb63ed38df4e06961b324b0b1203eebcd3b3c65aa4f63f82880ce3f0243ff"
+    }
   }
 }
