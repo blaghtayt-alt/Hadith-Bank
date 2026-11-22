@@ -1018,10 +1018,10 @@ function languageReading(reading,index,position,record){
     }
   }
   else content.append(element("p","counterpart-note",["boundary_pending","content_mismatch","attribution_pending"].includes(reading.quotation_status)?"Open Comments for the preserved source text.":"This language is available at its source link."));
-  const spellingNote=record.review?.source_spelling_note;
-  if(reading.text && reading.primary && ["source_translation","supplied"].includes(reading.role) &&
-      reading.language===record.language && reading.text===record.text_translation &&
-      typeof spellingNote==="string" && spellingNote.trim()){
+  const spellingNote=record?.review?.source_spelling_note;
+  if(typeof spellingNote==="string" && spellingNote.trim() &&
+      reading.text && reading.primary && ["source_translation","supplied"].includes(reading.role) &&
+      reading.language===record.language && reading.text===record.text_translation){
     const note=element("p","counterpart-note source-spelling-note","Editorial source-spelling note: "+spellingNote);
     note.dir="auto";content.append(note);
   }
