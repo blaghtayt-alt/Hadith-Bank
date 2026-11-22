@@ -8,7 +8,7 @@
 - [अल-अदब अल-मुफ़रद — Al-Adab al-Mufrad](adab-al-mufrad/README.md) — 1 source occurrences
 - [मुसनद अह़मद — Musnad Ahmad](ahmad/README.md) — 3 source occurrences
 - [सह़ीह़ बुख़ारी — Sahih al-Bukhari](bukhari/README.md) — 6609 source occurrences
-- [bukhari-muslim-300](bukhari-muslim-300/README.md) — 15 source occurrences
+- [bukhari-muslim-300](bukhari-muslim-300/README.md) — 28 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 2314 source occurrences
 - [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 2 source occurrences
 - [सुनन इब्ने माजह — Sunan Ibn Majah](ibn-majah/README.md) — 4089 source occurrences
