@@ -251,6 +251,14 @@ def render_language_reading(reading, source_record=None):
                     body.append('<div class="text quotation" lang="' + esc(language) + '" dir="' +
                                 reading_direction(reading) + '">' + passage_markup + '</div>')
                     glyph_offset += len(passage['text'])
+    review = source_record.get('review') if isinstance(source_record, dict) else None
+    spelling_note = review.get('source_spelling_note') if isinstance(review, dict) else None
+    if (isinstance(spelling_note, str) and spelling_note.strip() and
+            reading.get('text') and reading.get('primary') and
+            reading.get('role') in ('source_translation', 'supplied') and
+            language == source_record.get('language') and reading['text'] == source_record.get('text_translation')):
+        body.append('<p class="notice source-spelling-note" dir="auto">'
+                    'Editorial source-spelling note: ' + esc(spelling_note) + '</p>')
     if reading.get('citation'):
         body.append('<p class="reading-citation" dir="auto">' + esc(reading['citation']) + '</p>')
     body.append('<p class="reading-source">' + ('<a href="' + esc(url) +
