@@ -835,37 +835,96 @@
       ],
       "branch": "books/hi300-019-025-cleared-20261123",
       "baseCommit": "2e8012ff96fc5150bd490ba25e4b2567fb3ee2da",
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 4,
+      "actualAddedCount": 4,
+      "readerScreenshotCount": 0,
+      "alreadyIntegrated": [],
+      "held": [],
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/122b9ad2030e42aa9a3b290c.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/7949ce679f0905f4b173d736.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/08b7b6d2e3b813b548d814f0.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/0cb737e6e947cdd7a3e3981a.html"
+      ],
+      "nextSourceItemToReview": 9,
+      "nextReviewedItemWaitingIntegration": 19,
+      "earliestPendingGap": 9,
+      "actualMergeCommit": "db6db227db8d427169c14042feee84bfddec9c56",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/40",
+      "draftValidationReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45037663376",
+      "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45042907636",
+      "liveSearchSamples": [
+        {
+          "occurrenceId": "hi:islamhouse-hi300-2fc65776:h023",
+          "url": "https://blaghtayt-alt.github.io/Hadith-Bank/?mode=wording&preferred=hi&q=%E0%A4%9C%E0%A4%BF%E0%A4%B8%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%B0%E0%A5%80+%E0%A4%AA%E0%A4%B0%E0%A4%B5%E0%A5%80+%E0%A4%95%E0%A5%80+%E0%A4%B5%E0%A4%B9+%E0%A4%9C%E0%A4%A8%E0%A5%8D%E0%A4%A8%E0%A4%A4&build=db6db227&occurrence=hi%3Aislamhouse-hi300-2fc65776%3Ah023",
+          "exactResultCount": 1
+        },
+        {
+          "occurrenceId": "hi:islamhouse-hi300-2fc65776:h025",
+          "url": "https://blaghtayt-alt.github.io/Hadith-Bank/?mode=wording&preferred=hi&q=%E0%A4%97%E0%A5%81%E0%A4%AE%E0%A4%B6%E0%A5%81%E0%A4%A6%E0%A4%BE+%E0%A4%8A%E0%A4%82%E0%A4%9F%E0%A4%A8%E0%A5%80+%E0%A4%95%E0%A5%87+%E0%A4%AA%E0%A4%BE+%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A5%87&build=db6db227&occurrence=hi%3Aislamhouse-hi300-2fc65776%3Ah025",
+          "exactResultCount": 1
+        }
+      ]
+    },
+    {
+      "batchId": "hi-islamhouse-300-015",
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "sourceEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "version": "v1199",
+        "candidateManifestSHA256": "b8c6ed0c8e20756096039f11c7ef8939f1d12b43d16283799498e893fc07884e",
+        "originalPhysicalPages": [
+          67
+        ],
+        "completeSourceHindiSHA256": "f467e9a2179e394390fe294900a4f7d330536a820e062824d3337462367445b7"
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "b647428f7bd43a8803c0f2a4a5fb3a3d1c5a9d6da45c5d7efee7b35701e0191f",
+        "size_bytes": 1134
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "5fcfc134303b4450bf0cd67be95524902c0f946f71dacc2c80b3332b20e4d483",
+        "size_bytes": 181216
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h154"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:2957"
+      ],
+      "branch": "books/hi300-154-cleared-20261123",
+      "baseCommit": "e660db744b4222e6cb5805de92f7952f03a7e5c5",
+      "publicationStatus": "staged_for_review",
+      "expectedAddedCount": 1,
       "actualAddedCount": 0,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
       "liveRecordsChecked": [],
+      "privateValidation": {
+        "expectedEditionCount": 92,
+        "exactStaticPages": 92,
+        "readerSourceLinks": 92,
+        "exactHindiSearchResultsForNewOccurrence": 1,
+        "siteNotYetDeployed": true
+      },
       "nextSourceItemToReview": 9,
-      "nextReviewedItemWaitingIntegration": 19,
+      "nextReviewedItemWaitingIntegration": 154,
       "earliestPendingGap": 9
     }
   ],
   "integrationResume": {
     "nextSourceItemToReview": 9,
-    "nextReviewedItemWaitingIntegration": 19,
+    "nextReviewedItemWaitingIntegration": 154,
     "earliestPendingGap": 9,
     "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
     "nextUnstagedCleanCandidate": null,
-    "sourceReviewDisposition": "The preceding 87 occurrences are verified live. Four newly checked publisher Hindi occurrences are proposed with their existing Arabic comparisons. Earlier source-fit holds retain their separate review.",
-    "deferredTextOnlyNotes": [
-      "h001",
-      "h004",
-      "h012",
-      "h016",
-      "h022",
-      "h027",
-      "h030",
-      "h031",
-      "h037",
-      "h041"
-    ],
+    "sourceReviewDisposition": "91 publisher Hindi occurrences are verified live. H154 is proposed with its existing Bank Arabic comparison and original Hindi-only citation. Earlier contextual, source-fit and independent requirements remain.",
+    "deferredTextOnlyNotes": [],
     "heldReviewCount": 46,
     "laterNoteCandidateCount": 177
   },
