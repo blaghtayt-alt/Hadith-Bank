@@ -2,7 +2,7 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 114857,
+  "record_count": 114861,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
     "ar": 32267,
@@ -12,7 +12,7 @@
     "en": 3684,
     "fa": 14382,
     "fil": 2354,
-    "hi": 33044,
+    "hi": 33048,
     "ja": 3520,
     "ms": 147,
     "pt": 8,
@@ -24,13 +24,13 @@
   "translation_origins": {
     "publisher_human_workflow": 8423,
     "human_translator_credited": 30642,
-    "unknown": 74923,
+    "unknown": 74927,
     "ai_translation": 2,
     "legacy_source_history": 867
   },
   "current_translation_origins": {
     "ai": 2,
-    "human": 113690,
+    "human": 113694,
     "unknown": 1165
   },
   "materials": [
@@ -614945,15 +614945,15 @@
       "language": "hi",
       "book_key": "bukhari-muslim-300",
       "edition": "islamhouse-al-zulfi-2fc65776",
-      "count": 87,
+      "count": 91,
       "release_status": "source_review_pending",
       "source_file": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-      "source_sha256": "f3c37915b92c03001866bbe90affe065c5ad2963dd9f97fb0ed726e8f76b94b6",
+      "source_sha256": "53eb74a5203efe8ffe858569ba407e821a003b37fe90b35bd4b3b57b49d28291",
       "canonical_records_path": "materials/hi-islamhouse-hi300-2fc65776/records.json",
-      "canonical_records_sha256": "4a703b5312a39c06041d172964abe4041ff7fb2178d9c83be93e1f02730f6079",
+      "canonical_records_sha256": "680ddf12906a1ba6e78fdf7d654b676ef3c62568f23f2de94c4d52b3d53249fd",
       "source_descriptor": {
         "path": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-        "sha256": "f3c37915b92c03001866bbe90affe065c5ad2963dd9f97fb0ed726e8f76b94b6",
+        "sha256": "53eb74a5203efe8ffe858569ba407e821a003b37fe90b35bd4b3b57b49d28291",
         "name": "बुखारी व मुस्लिम की ३०० हदीस",
         "format": "json",
         "url": "https://islamhouse.com/hi/books/2841061/"
@@ -614975,8 +614975,8 @@
       "supporting_files": [
         {
           "path": "sources/reader-groups/hi-islamhouse-300-001.json",
-          "sha256": "f60cb63ed38df4e06961b324b0b1203eebcd3b3c65aa4f63f82880ce3f0243ff",
-          "size_bytes": 170529
+          "sha256": "fc78bd481258246ce54700f19a4a296522fa21fa0a3d8213c595c5050179ed29",
+          "size_bytes": 178954
         }
       ],
       "source_name": "बुखारी व मुस्लिम की ३०० हदीस",
@@ -615068,10 +615068,38 @@
           "decision_date_japan": "2026-11-11",
           "policy_path": "catalog/provenance-policy.json",
           "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h019": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h023": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h024": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h025": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
         }
       },
       "current_translation_origin_counts": {
-        "human": 87
+        "human": 91
       },
       "current_translation_policy": {
         "classification": "human",
@@ -632362,8 +632390,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "582894e9c5b4e1bc87a25fe08486d9eb8837220f662c64506d16336bdd546299",
-    "count": 114857,
+    "records_sha256": "116d8bce6224707609f1a725b1981b1982e036453eb86975fa5793db0980bffb",
+    "count": 114861,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -637941,9 +637969,9 @@
       },
       {
         "path": "search/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/part-0001.jsonl",
-        "sha256": "149cf10f2123d1b9f6fae2cfab2e58239f4c3e8cc4ebfa0b61c979864d78d578",
-        "count": 87,
-        "bytes": 469990
+        "sha256": "1f5743f42b29c65947d08c56108cf493478926a53e7d1f273fef99f0af5e592e",
+        "count": 91,
+        "bytes": 493355
       },
       {
         "path": "search/hi/bukhari/hindi-mukhtasar-v1-4785913c/part-0001.jsonl",
@@ -640383,7 +640411,7 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 114857,
+    "total": 114861,
     "arabic_available": 80236,
     "english_available": 9584,
     "arabic_external_links": 0,
@@ -640391,7 +640419,7 @@
     "exact_links": 8764,
     "related_version_links": 329,
     "reviewed_parallel_links": 3174,
-    "unresolved": 102590,
+    "unresolved": 102594,
     "with_numbered_references": 7500,
     "by_language": {
       "ar": {
@@ -640431,10 +640459,10 @@
         "unresolved": 356
       },
       "hi": {
-        "total": 33044,
+        "total": 33048,
         "arabic_available": 24579,
         "english_available": 2404,
-        "unresolved": 30640
+        "unresolved": 30644
       },
       "ja": {
         "total": 3520,
@@ -640479,20 +640507,20 @@
     },
     "availability": {
       "totals": {
-        "total": 114857,
+        "total": 114861,
         "arabic_text": 89005,
         "arabic_link": 9796,
         "arabic_available": 98801,
         "english_text": 72283,
         "english_link": 4051,
         "english_available": 76334,
-        "missing_arabic": 16056,
-        "missing_english": 38523,
+        "missing_arabic": 16060,
+        "missing_english": 38527,
         "both_text": 63649,
         "both_available": 76312,
         "arabic_only": 22489,
         "english_only": 22,
-        "neither_available": 16034
+        "neither_available": 16038
       },
       "by_language": {
         "ar": {
@@ -640608,20 +640636,20 @@
           "neither_available": 78
         },
         "hi": {
-          "total": 33044,
+          "total": 33048,
           "arabic_text": 24579,
           "arabic_link": 6114,
           "arabic_available": 30693,
           "english_text": 29249,
           "english_link": 1289,
           "english_available": 30538,
-          "missing_arabic": 2351,
-          "missing_english": 2506,
+          "missing_arabic": 2355,
+          "missing_english": 2510,
           "both_text": 24299,
           "both_available": 30534,
           "arabic_only": 159,
           "english_only": 4,
-          "neither_available": 2347
+          "neither_available": 2351
         },
         "ja": {
           "total": 3520,
