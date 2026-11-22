@@ -27,7 +27,7 @@
       },
       "expectedAddedCount": 2,
       "locallyValidatedCandidateCount": 2,
-      "publicationStatus": "merged_deployment_pending",
+      "publicationStatus": "verified_live",
       "alreadyIntegrated": [],
       "held": [
         {
@@ -39,12 +39,15 @@
           "reason": "Unresolved printed reading. Whole-Hadith source crop and an existing Arabic counterpart are prepared for the deferred noted batch."
         }
       ],
-      "nextSourceItemToReview": 186,
-      "nextReviewedItemWaitingIntegration": 5,
+      "nextSourceItemToReview": null,
+      "nextReviewedItemWaitingIntegration": 6,
       "earliestPendingGap": 1,
       "uploadedWholeSourcePdf": false,
       "readerScreenshotCount": 0,
-      "liveRecordsChecked": [],
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/72a34a4e370e0bf82532097f.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/c6ba0e82b6700f532d072a7d.html"
+      ],
       "editorialNotes": "Arabic cross-reference notes are recorded in the reviewed reader links.",
       "actualAddedCount": 2,
       "branch": "books/hi300-h002-h003-20261122",
@@ -76,12 +79,12 @@
         "fawaz:df57907be352:bukhari:6487",
         "fawaz:df57907be352:bukhari:934"
       ],
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "merged_pending_deployment",
       "expectedAddedCount": 5,
-      "actualAddedCount": 0,
+      "actualAddedCount": 5,
       "readerScreenshotCount": 0,
-      "nextSourceItemToReview": 186,
-      "nextReviewedItemWaitingIntegration": 5,
+      "nextSourceItemToReview": null,
+      "nextReviewedItemWaitingIntegration": 6,
       "earliestPendingGap": 1,
       "groupBindings": {
         "path": "sources/reader-groups/hi-islamhouse-300-001.json",
@@ -106,7 +109,11 @@
           "id": "h004",
           "reason": "Deferred unresolved reading."
         }
-      ]
+      ],
+      "commit": "85899d3be4ed43933daea2c8d7646a96d233c307",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/34",
+      "buildReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44995476257",
+      "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44999278484"
     },
     {
       "batchId": "hi-islamhouse-300-004",
@@ -142,12 +149,12 @@
         "fawaz:df57907be352:muslim:912",
         "fawaz:df57907be352:muslim:6543"
       ],
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "merged_pending_deployment",
       "expectedAddedCount": 8,
-      "actualAddedCount": 0,
+      "actualAddedCount": 8,
       "readerScreenshotCount": 0,
-      "nextSourceItemToReview": 186,
-      "nextReviewedItemWaitingIntegration": 21,
+      "nextSourceItemToReview": null,
+      "nextReviewedItemWaitingIntegration": 6,
       "earliestPendingGap": 1,
       "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
       "sourceCheckpoint": {
@@ -167,14 +174,136 @@
           "id": "h004",
           "reason": "Deferred unresolved reading."
         }
-      ]
+      ],
+      "commit": "85899d3be4ed43933daea2c8d7646a96d233c307",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/34",
+      "buildReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44995476257",
+      "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44999278484"
+    },
+    {
+      "batchId": "hi-islamhouse-300-005",
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "sourceEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "version": "v1199",
+        "candidateManifestSHA256": "b8c6ed0c8e20756096039f11c7ef8939f1d12b43d16283799498e893fc07884e"
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "8cc75112ce2a45461081e5c8dcd0150b3e3c0e61150d43d4037d5b43b8bc1b14",
+        "size_bytes": 1133
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "52ee10d7d6518957e1f53dbf395dbb04d113d661a9e2379ffc868f0546db5460",
+        "size_bytes": 55635
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h017",
+        "hi:islamhouse-hi300-2fc65776:h020",
+        "hi:islamhouse-hi300-2fc65776:h044",
+        "hi:islamhouse-hi300-2fc65776:h045",
+        "hi:islamhouse-hi300-2fc65776:h049",
+        "hi:islamhouse-hi300-2fc65776:h050",
+        "hi:islamhouse-hi300-2fc65776:h053",
+        "hi:islamhouse-hi300-2fc65776:h055",
+        "hi:islamhouse-hi300-2fc65776:h057",
+        "hi:islamhouse-hi300-2fc65776:h059"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:165",
+        "fawaz:df57907be352:bukhari:33",
+        "fawaz:df57907be352:muslim:1824",
+        "fawaz:df57907be352:muslim:172",
+        "fawaz:df57907be352:muslim:1645",
+        "fawaz:df57907be352:muslim:7417",
+        "fawaz:df57907be352:bukhari:6696",
+        "fawaz:df57907be352:bukhari:1182",
+        "fawaz:df57907be352:muslim:826",
+        "fawaz:df57907be352:muslim:6602"
+      ],
+      "publicationStatus": "staged_for_review",
+      "expectedAddedCount": 10,
+      "actualAddedCount": 0,
+      "readerScreenshotCount": 0,
+      "nextSourceItemToReview": null,
+      "nextReviewedItemWaitingIntegration": 6,
+      "earliestPendingGap": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h001",
+          "reason": "Deferred unresolved reading."
+        },
+        {
+          "id": "h004",
+          "reason": "Deferred unresolved reading."
+        }
+      ],
+      "liveRecordsChecked": [],
+      "branch": "books/hi300-next-cleared-13-20261122",
+      "baseCommit": "85899d3be4ed43933daea2c8d7646a96d233c307"
+    },
+    {
+      "batchId": "hi-islamhouse-300-006",
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "sourceEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "version": "v1199",
+        "candidateManifestSHA256": "b8c6ed0c8e20756096039f11c7ef8939f1d12b43d16283799498e893fc07884e"
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "8cc75112ce2a45461081e5c8dcd0150b3e3c0e61150d43d4037d5b43b8bc1b14",
+        "size_bytes": 1133
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "52ee10d7d6518957e1f53dbf395dbb04d113d661a9e2379ffc868f0546db5460",
+        "size_bytes": 55635
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h006",
+        "hi:islamhouse-hi300-2fc65776:h007",
+        "hi:islamhouse-hi300-2fc65776:h008"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:37",
+        "fawaz:df57907be352:bukhari:1773",
+        "fawaz:df57907be352:bukhari:3289"
+      ],
+      "publicationStatus": "staged_for_review",
+      "expectedAddedCount": 3,
+      "actualAddedCount": 0,
+      "readerScreenshotCount": 0,
+      "nextSourceItemToReview": null,
+      "nextReviewedItemWaitingIntegration": 6,
+      "earliestPendingGap": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h001",
+          "reason": "Deferred unresolved reading."
+        },
+        {
+          "id": "h004",
+          "reason": "Deferred unresolved reading."
+        }
+      ],
+      "liveRecordsChecked": [],
+      "branch": "books/hi300-next-cleared-13-20261122",
+      "baseCommit": "85899d3be4ed43933daea2c8d7646a96d233c307"
     }
   ],
   "integrationResume": {
-    "nextSourceItemToReview": 186,
-    "nextReviewedItemWaitingIntegration": 5,
+    "nextSourceItemToReview": null,
+    "nextReviewedItemWaitingIntegration": 6,
     "earliestPendingGap": 1,
-    "readerScreenshotRule": "Whole printed occurrence only when its source reading cannot be resolved."
+    "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
+    "nextUnstagedCleanCandidate": 62,
+    "sourceReviewDisposition": "All 300 numbered occurrences in this exact Hindi edition have a saved first source pass. Unresolved source and required independent cases retain their individual decisions."
   },
   "provenanceMetadataCorrection": {
     "scope": "The exact print edition credits the publishing organization. Origin presentation follows the existing Bank policy. The occurrence IDs, source locators, translation body bytes and Arabic targets stay unchanged."
