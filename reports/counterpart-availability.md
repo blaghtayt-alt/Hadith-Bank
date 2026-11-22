@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,873 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
+**114,876 source occurrences**: Arabic text 89,005; English text 72,283; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -17,7 +17,7 @@ Text and external-only links are counted separately. An English source link requ
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 33,060 | 24,579 | 29,249 | 1,289 | 2,367 | 2,522 |
+| hi | 33,063 | 24,579 | 29,249 | 1,289 | 2,370 | 2,525 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt | 8 | 0 | 0 | 0 | 8 | 8 |
@@ -157,7 +157,7 @@ Text and external-only links are counted separately. An English source link requ
 | hadeethenc-vi-sqlite-3fb9e549494ff0f6 | vi | 1,203 | 1,203 | 1,200 | 0 | 0 | 3 |
 | hadeethenc-zh-sqlite-a22a0e545c70b320 | zh-CN | 2,256 | 2,256 | 2,250 | 0 | 0 | 6 |
 | hadisuz-tirmidhi-uz-web | uz | 606 | 0 | 0 | 0 | 606 | 606 |
-| hi-islamhouse-hi300-2fc65776 | hi | 103 | 0 | 0 | 0 | 103 | 103 |
+| hi-islamhouse-hi300-2fc65776 | hi | 106 | 0 | 0 | 0 | 106 | 106 |
 | hi-mukhtasar-v1-4785913c | hi | 680 | 0 | 0 | 0 | 680 | 680 |
 | hi-mukhtasar-v2-d99bfae5 | hi | 732 | 0 | 0 | 0 | 732 | 732 |
 | hi-mukhtasar-v3-1cd9232b | hi | 626 | 0 | 0 | 0 | 626 | 626 |
