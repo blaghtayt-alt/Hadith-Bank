@@ -1194,13 +1194,18 @@
       ],
       "branch": "books/hi300-249-287-cleared-20261123",
       "baseCommit": "3fad460f02c937a7adce7c2e0d47206544bfae3f",
-      "publicationStatus": "merged_awaiting_live_verification",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 4,
       "actualAddedCount": 4,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
-      "liveRecordsChecked": [],
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/402d47fefc4c3cb1f172abf1.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/5b997e0a967242694e16f8a2.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/e4b01ae41e4c96e28eaded95.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/19a4453731b99fcb87656211.html"
+      ],
       "privateValidation": {
         "expectedEditionCount": 103,
         "exactStaticPages": 103,
@@ -1224,7 +1229,8 @@
       },
       "productionDeployment": {
         "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45073551844",
-        "status": "awaiting_exact_live_verification"
+        "status": "verified_live",
+        "editionCount": 103
       }
     },
     {
@@ -1283,9 +1289,9 @@
       ],
       "branch": "books/hi300-192-193-238-cleared-20261123",
       "baseCommit": "f929b60fc3f27529fb95b0966de97649d0e43dd8",
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "merged_awaiting_live_verification",
       "expectedAddedCount": 3,
-      "actualAddedCount": 0,
+      "actualAddedCount": 3,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
@@ -1302,17 +1308,94 @@
         "siteNotYetDeployed": true
       },
       "nextSourceItemToReview": 9,
-      "nextReviewedItemWaitingIntegration": 192,
+      "nextReviewedItemWaitingIntegration": null,
+      "earliestPendingGap": 9,
+      "pr": 45,
+      "mergeCommit": "471ef256735a241b889dfd67727d419b40d3ce9a",
+      "hostedValidation": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45073760455",
+        "status": "success"
+      },
+      "productionDeployment": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45079855657",
+        "status": "awaiting_exact_live_verification"
+      }
+    },
+    {
+      "book": "300 Hadiths from Sahih al-Bukhari and Sahih Muslim — Hindi",
+      "sourceEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "batchId": "hi-islamhouse-300-020",
+      "sourceCheckpoint": {
+        "version": "v1199",
+        "candidateManifestSHA256": "b8c6ed0c8e20756096039f11c7ef8939f1d12b43d16283799498e893fc07884e",
+        "occurrences": [
+          {
+            "id": "hi:islamhouse-hi300-2fc65776:h168",
+            "physicalPages": [
+              73
+            ],
+            "completeSourceHindiSHA256": "2c9a446e1d589fcd8c88b34b3887a9860ba28d6b3bdefa5aba69ad689e55d9df"
+          },
+          {
+            "id": "hi:islamhouse-hi300-2fc65776:h188",
+            "physicalPages": [
+              82,
+              83
+            ],
+            "completeSourceHindiSHA256": "72fd3e32b4a81630b6f31d39f30644f2a35a3174095b1451a310d95ded44dc7f"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "5167bb66104fc9204526fad5e50bcce11aed2f7c8a68217dfc77e059ce0cc359",
+        "bytes": 1135
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "b4118c36d9d0c1b46fe88f65f0a8ace05a883a2f908ed96263081147be25260e",
+        "bytes": 214774
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h168",
+        "hi:islamhouse-hi300-2fc65776:h188"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:6862",
+        "fawaz:df57907be352:muslim:6989"
+      ],
+      "branch": "books/hi300-168-188-cleared-20261123",
+      "baseCommit": "471ef256735a241b889dfd67727d419b40d3ce9a",
+      "publicationStatus": "staged_for_review",
+      "expectedAddedCount": 2,
+      "actualAddedCount": 0,
+      "readerScreenshotCount": 0,
+      "alreadyIntegrated": [],
+      "held": [],
+      "liveRecordsChecked": [],
+      "privateValidation": {
+        "expectedEditionCount": 108,
+        "exactStaticPages": 108,
+        "readerSourceLinks": 108,
+        "exactHindiSearchResultsForNewOccurrences": [
+          1,
+          1
+        ],
+        "siteNotYetDeployed": true
+      },
+      "nextSourceItemToReview": 9,
+      "nextReviewedItemWaitingIntegration": 168,
       "earliestPendingGap": 9
     }
   ],
   "integrationResume": {
     "nextSourceItemToReview": 9,
-    "nextReviewedItemWaitingIntegration": 192,
+    "nextReviewedItemWaitingIntegration": 168,
     "earliestPendingGap": 9,
     "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
-    "nextUnstagedCleanCandidate": 168,
-    "sourceReviewDisposition": "99 Hindi edition occurrences verified live. Four more merged in PR44 await live verification. Three further Hindi translations are staged with existing Arabic records. Earliest source gap is H009. H168 and H188 have new original-source readback and are pending canonical review.",
+    "nextUnstagedCleanCandidate": null,
+    "sourceReviewDisposition": "103 Hindi edition occurrences verified live. Three more merged in PR45 await exact live verification. Two further Hindi translations are staged with existing Arabic records. Earliest source gap is H009.",
     "deferredTextOnlyNotes": [],
     "heldReviewCount": 46,
     "laterNoteCandidateCount": 177
