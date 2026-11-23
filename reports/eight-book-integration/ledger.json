@@ -1372,13 +1372,16 @@
       ],
       "branch": "books/hi300-168-188-cleared-20261123",
       "baseCommit": "471ef256735a241b889dfd67727d419b40d3ce9a",
-      "publicationStatus": "merged_awaiting_live_verification",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 2,
       "actualAddedCount": 2,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
-      "liveRecordsChecked": [],
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/b78be7140c3b79438c189ecd.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/19b3f1b0e98d6eeb07289ec1.html"
+      ],
       "privateValidation": {
         "expectedEditionCount": 108,
         "exactStaticPages": 108,
@@ -1400,7 +1403,9 @@
       },
       "productionDeployment": {
         "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45085690790",
-        "status": "awaiting_exact_live_verification"
+        "status": "verified_live",
+        "editionCount": 108,
+        "sourceCommit": "938face6a9f6aacdcd50dcc8b57355be34ac612f"
       }
     },
     {
@@ -1439,13 +1444,15 @@
       ],
       "branch": "books/hi300-129-cleared-20261123",
       "baseCommit": "938face6a9f6aacdcd50dcc8b57355be34ac612f",
-      "publicationStatus": "staged_for_review",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "readerScreenshotCount": 0,
       "alreadyIntegrated": [],
       "held": [],
-      "liveRecordsChecked": [],
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/0d097d3559fcc0ad4dc88cb1.html"
+      ],
       "privateValidation": {
         "expectedEditionCount": 109,
         "exactStaticPages": 109,
@@ -1456,17 +1463,29 @@
         "siteNotYetDeployed": true
       },
       "nextSourceItemToReview": 9,
-      "nextReviewedItemWaitingIntegration": 129,
-      "earliestPendingGap": 9
+      "nextReviewedItemWaitingIntegration": null,
+      "earliestPendingGap": 9,
+      "pr": 47,
+      "mergeCommit": "e7ed13e8d55af593998aa35ff971acacb58c8819",
+      "hostedValidation": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45085861527",
+        "status": "success"
+      },
+      "productionDeployment": {
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45092433733",
+        "status": "verified_live",
+        "editionCount": 109,
+        "sourceCommit": "e7ed13e8d55af593998aa35ff971acacb58c8819"
+      }
     }
   ],
   "integrationResume": {
     "nextSourceItemToReview": 9,
-    "nextReviewedItemWaitingIntegration": 129,
+    "nextReviewedItemWaitingIntegration": null,
     "earliestPendingGap": 9,
     "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
     "nextUnstagedCleanCandidate": null,
-    "sourceReviewDisposition": "106 Hindi edition occurrences verified live. Two more merged in PR46 await exact live verification. Hadith 129 is staged with an existing Arabic record. Earliest source gap is H009.",
+    "sourceReviewDisposition": "109 exact Hindi edition occurrences are verified live. All 300 numbered source comparisons are saved. Source review resumes at H009. No unaffected reviewed item is awaiting integration.",
     "deferredTextOnlyNotes": [],
     "heldReviewCount": 46,
     "laterNoteCandidateCount": 177
@@ -1506,5 +1525,14 @@
     "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/39",
     "actualMergeCommit": "23169813fddc94d4802bf303c743e766c75c479b",
     "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45031494742"
+  },
+  "verifiedEditionCounts": {
+    "edition": "islamhouse-al-zulfi-2fc65776",
+    "alreadyPresentBeforeContinuation": 87,
+    "newlyMergedSinceBaseline": 22,
+    "newlyVerifiedLiveSinceBaseline": 22,
+    "inMain": 109,
+    "verifiedLive": 109,
+    "unintegrated": 191
   }
 }
