@@ -1,0 +1,72 @@
+{
+  "schema": "hadith-bank-reader-groups-v1",
+  "new_source_ids": [
+    "bn-islamhouse-qudsi-dbb1b453"
+  ],
+  "links": [
+    {
+      "source": {
+        "record_id": "bn:islamhouse-qudsi-dbb1b453:h013",
+        "source_id": "bn-islamhouse-qudsi-dbb1b453",
+        "language": "bn",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "f1628b983469d4fc6c66b32e74ab6d9230944647eaa14747f4d49bc1cd31919f",
+        "source_file_sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+        "source_record_sha256": "4adbf9dd7f186361792d884adf0dd3e4cf94dc3a247a527de58b50d0a641edfa",
+        "source_locator_sha256": "43400c81d34180910df9c42b64c89d2057dd52154373ac22e9bc66bd71892985"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:nasai:5010",
+        "source_id": "fawaz-nasai-df57907be352-ar-part-003",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "07eff0ad4f66a8bda6f47521c67cfb2701049cb2bd0b49c6026ac64d40593f53",
+        "source_file_sha256": "f1acfb794c64177ecbb97814c63682b6ebb8c2e007356ba25420faeef8f802ca",
+        "source_record_sha256": "bb5197448954baa77e35c5c9af93350a291b46cd98b0aaeb270461e22fc8c3f8",
+        "source_locator_sha256": "6d74f00faf8a3a8fd98ffa2eabb1365db013afb433e1740c8334bcbec29ddada"
+      },
+      "relation": "source_excerpt",
+      "review": {
+        "reviewer": "Books Maestro exact-source comparison with regular ChatGPT independent comparison",
+        "human_review": false,
+        "method": "Compare the complete publisher-visible local quotation and the corresponding registered Arabic narration in their distinct source editions.",
+        "evidence": "The printed report matches the Abu Said passage of Nasai 5010 and ends at the weight-of-a-particle threshold. The Bank Arabic has a separate concluding comment and Qur’an citation credited to Abu Said, which are outside this printed report.",
+        "qualifications": [
+          "The printed local wording, attributions and reported grade are retained. The linked Arabic source retains its own edition and context."
+        ]
+      }
+    },
+    {
+      "source": {
+        "record_id": "bn:islamhouse-qudsi-dbb1b453:h014",
+        "source_id": "bn-islamhouse-qudsi-dbb1b453",
+        "language": "bn",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "f052b58c2e64d5d4f5bc9e1464d1112b50ce3cce9c768cf93b01d9352a732272",
+        "source_file_sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+        "source_record_sha256": "a16dc9b447d5a8865451a531daff32b126be5e0ab82958b062cbcca56feb64e3",
+        "source_locator_sha256": "9ea0fb081e905971a6601af281ee0e15b004a665dfd5cdcff6c79b06944f7e3e"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:bukhari:22",
+        "source_id": "fawaz-bukhari-df57907be352-ar",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "792e0e5c36a8449223c83776dfe4c84d442bfcb2c28eeff68339243c5534405d",
+        "source_file_sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
+        "source_record_sha256": "47301685ee93133c801bb201655ae416035d4297f52139d6319ff3d1f3242e96",
+        "source_locator_sha256": "16f1327a1ea4c2fb0f4e8ac1073a32ef2d4634952ea5a7dd2813c6cd40e9ced7"
+      },
+      "relation": "source_excerpt",
+      "review": {
+        "reviewer": "Books Maestro exact-source comparison with regular ChatGPT independent comparison",
+        "human_review": false,
+        "method": "Compare the complete publisher-visible local quotation and the corresponding registered Arabic narration in their distinct source editions.",
+        "evidence": "The printed Bengali covers the core Abu Said report in Bukhari 22. The printed Arabic retains the two river forms and omits Malik’s indication of doubt and the separate later transmitter wording preserved in the Bank Arabic source.",
+        "qualifications": [
+          "The printed local wording, attributions and reported grade are retained. The linked Arabic source retains its own edition and context."
+        ]
+      }
+    }
+  ]
+}
