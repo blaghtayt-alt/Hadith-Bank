@@ -1603,7 +1603,7 @@
       ],
       "branch": "books/eight-books-next-eight-sources-20261127",
       "baseCommit": "ff32a1080ac58ba6c091b8521dd451e5ee2cd41f",
-      "publicationStatus": "merged_pending_live",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 2,
       "actualAddedCount": 2,
       "readerScreenshotCount": 0,
@@ -1631,13 +1631,17 @@
         "searchBenchmark": "passed"
       },
       "deploymentReceipt": {
-        "runId": 46029801958,
         "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46029801958",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
+        "buildJobId": 140610526165,
+        "deployJobId": 140632672983,
         "sourceCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0"
       },
-      "liveRecordsChecked": []
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/0b599ce2586a019ee50123a1.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/eadf1c7ed5ca05cdaf0b0361.html"
+      ]
     },
     {
       "batchId": "hi-selected-encyclopedia-001",
@@ -1702,7 +1706,7 @@
       ],
       "branch": "books/eight-books-next-eight-sources-20261127",
       "baseCommit": "ff32a1080ac58ba6c091b8521dd451e5ee2cd41f",
-      "publicationStatus": "merged_pending_live",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 4,
       "actualAddedCount": 4,
       "readerScreenshotCount": 0,
@@ -1730,13 +1734,19 @@
         "searchBenchmark": "passed"
       },
       "deploymentReceipt": {
-        "runId": 46029801958,
         "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46029801958",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
+        "buildJobId": 140610526165,
+        "deployJobId": 140632672983,
         "sourceCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0"
       },
-      "liveRecordsChecked": []
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/2ac01d96e944ce3b55dc175b.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/b588479dc9086816a3622ae4.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/fbc71b7fe9fc950b174d8cbe.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/82c131e2a6fcf42024ca4bd1.html"
+      ]
     },
     {
       "batchId": "bn-islamhouse-qudsi-001",
@@ -1784,7 +1794,7 @@
       ],
       "branch": "books/eight-books-next-eight-sources-20261127",
       "baseCommit": "ff32a1080ac58ba6c091b8521dd451e5ee2cd41f",
-      "publicationStatus": "merged_pending_live",
+      "publicationStatus": "verified_live",
       "expectedAddedCount": 2,
       "actualAddedCount": 2,
       "readerScreenshotCount": 0,
@@ -1812,13 +1822,17 @@
         "searchBenchmark": "passed"
       },
       "deploymentReceipt": {
-        "runId": 46029801958,
         "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46029801958",
-        "status": "in_progress",
-        "conclusion": null,
+        "status": "completed",
+        "conclusion": "success",
+        "buildJobId": 140610526165,
+        "deployJobId": 140632672983,
         "sourceCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0"
       },
-      "liveRecordsChecked": []
+      "liveRecordsChecked": [
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/bn/sahih-hadith-qudsi/islamhouse-adawi-1438-dbb1b453/56625de8a73289ad7c3051cb.html",
+        "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/bn/sahih-hadith-qudsi/islamhouse-adawi-1438-dbb1b453/3d9d0b538df9989f023ad57e.html"
+      ]
     },
     {
       "batchId": "hi-islamhouse-300-024",
@@ -1886,11 +1900,11 @@
         "fawaz:df57907be352:bukhari:1283",
         "fawaz:df57907be352:bukhari:6416"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "merged_pending_live",
       "baseCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
       "branch": "books/eight-books-next-eight-five-editions",
       "expectedAddedCount": 4,
-      "actualAddedCount": 0,
+      "actualAddedCount": 4,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -1901,10 +1915,27 @@
       "nextSourceItemToReview": "H009, earliest source-fit gap",
       "earliestPendingGap": "H009, earliest source-fit gap",
       "nextReviewedItemWaitingIntegration": "H018, H039, H064 and H075 staged",
-      "pullRequest": null,
-      "commit": null,
-      "buildReceipt": null,
-      "deploymentReceipt": null,
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/51",
+      "commit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "buildReceipt": {
+        "status": "success",
+        "runId": 46030299974,
+        "jobId": 140612180168,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46030299974",
+        "syntheticMerge": "ad6d81b0d10de3707fcffb84e26e34d53fe83de5",
+        "bytes": 931776552,
+        "limitBytes": 950000000,
+        "exactFreshMergeReceipt": {
+          "path": "E:\\Codex\\2026-11-16\\th\\work\\eight-book-integration\\EIGHT-BOOK-PR51-EXACT-HOSTED-VALIDATION-FRESH-MERGE-PROOF.json",
+          "sha256": "042a4a5fe514d35141814a67fa1e47c4cf99b809535d476130cb351a3a062f94"
+        }
+      },
+      "deploymentReceipt": {
+        "status": "in_progress",
+        "runId": 46039037176,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46039037176",
+        "head": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432"
+      },
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
     },
@@ -1942,11 +1973,11 @@
       "existingArabicOccurrenceIds": [
         "fawaz:df57907be352:bukhari:6314"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "merged_pending_live",
       "baseCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
       "branch": "books/eight-books-next-eight-five-editions",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -1957,10 +1988,27 @@
       "nextSourceItemToReview": "Second waking remembrance on pp11–12",
       "earliestPendingGap": "Second waking remembrance on pp11–12",
       "nextReviewedItemWaitingIntegration": "First waking remembrance staged",
-      "pullRequest": null,
-      "commit": null,
-      "buildReceipt": null,
-      "deploymentReceipt": null,
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/51",
+      "commit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "buildReceipt": {
+        "status": "success",
+        "runId": 46030299974,
+        "jobId": 140612180168,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46030299974",
+        "syntheticMerge": "ad6d81b0d10de3707fcffb84e26e34d53fe83de5",
+        "bytes": 931776552,
+        "limitBytes": 950000000,
+        "exactFreshMergeReceipt": {
+          "path": "E:\\Codex\\2026-11-16\\th\\work\\eight-book-integration\\EIGHT-BOOK-PR51-EXACT-HOSTED-VALIDATION-FRESH-MERGE-PROOF.json",
+          "sha256": "042a4a5fe514d35141814a67fa1e47c4cf99b809535d476130cb351a3a062f94"
+        }
+      },
+      "deploymentReceipt": {
+        "status": "in_progress",
+        "runId": 46039037176,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46039037176",
+        "head": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432"
+      },
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
     },
@@ -1998,11 +2046,11 @@
       "existingArabicOccurrenceIds": [
         "fawaz:df57907be352:bukhari:6314"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "merged_pending_live",
       "baseCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
       "branch": "books/eight-books-next-eight-five-editions",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -2013,10 +2061,27 @@
       "nextSourceItemToReview": "H002 and its exact endnote [16]",
       "earliestPendingGap": "H002 and its exact endnote [16]",
       "nextReviewedItemWaitingIntegration": "H001 staged",
-      "pullRequest": null,
-      "commit": null,
-      "buildReceipt": null,
-      "deploymentReceipt": null,
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/51",
+      "commit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "buildReceipt": {
+        "status": "success",
+        "runId": 46030299974,
+        "jobId": 140612180168,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46030299974",
+        "syntheticMerge": "ad6d81b0d10de3707fcffb84e26e34d53fe83de5",
+        "bytes": 931776552,
+        "limitBytes": 950000000,
+        "exactFreshMergeReceipt": {
+          "path": "E:\\Codex\\2026-11-16\\th\\work\\eight-book-integration\\EIGHT-BOOK-PR51-EXACT-HOSTED-VALIDATION-FRESH-MERGE-PROOF.json",
+          "sha256": "042a4a5fe514d35141814a67fa1e47c4cf99b809535d476130cb351a3a062f94"
+        }
+      },
+      "deploymentReceipt": {
+        "status": "in_progress",
+        "runId": 46039037176,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46039037176",
+        "head": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432"
+      },
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
     },
@@ -2054,11 +2119,11 @@
       "existingArabicOccurrenceIds": [
         "fawaz:df57907be352:bukhari:6314"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "merged_pending_live",
       "baseCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
       "branch": "books/eight-books-next-eight-five-editions",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -2069,10 +2134,27 @@
       "nextSourceItemToReview": "H002 on p12 of this edition",
       "earliestPendingGap": "H002 on p12 of this edition",
       "nextReviewedItemWaitingIntegration": "H001 staged",
-      "pullRequest": null,
-      "commit": null,
-      "buildReceipt": null,
-      "deploymentReceipt": null,
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/51",
+      "commit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "buildReceipt": {
+        "status": "success",
+        "runId": 46030299974,
+        "jobId": 140612180168,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46030299974",
+        "syntheticMerge": "ad6d81b0d10de3707fcffb84e26e34d53fe83de5",
+        "bytes": 931776552,
+        "limitBytes": 950000000,
+        "exactFreshMergeReceipt": {
+          "path": "E:\\Codex\\2026-11-16\\th\\work\\eight-book-integration\\EIGHT-BOOK-PR51-EXACT-HOSTED-VALIDATION-FRESH-MERGE-PROOF.json",
+          "sha256": "042a4a5fe514d35141814a67fa1e47c4cf99b809535d476130cb351a3a062f94"
+        }
+      },
+      "deploymentReceipt": {
+        "status": "in_progress",
+        "runId": 46039037176,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46039037176",
+        "head": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432"
+      },
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
     },
@@ -2110,11 +2192,11 @@
       "existingArabicOccurrenceIds": [
         "fawaz:df57907be352:bukhari:8"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "merged_pending_live",
       "baseCommit": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
       "branch": "books/eight-books-next-eight-five-editions",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -2125,17 +2207,299 @@
       "nextSourceItemToReview": "H002 begins p8 in this volume",
       "earliestPendingGap": "H002 begins p8 in this volume",
       "nextReviewedItemWaitingIntegration": "Volume 1 H001 staged",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/51",
+      "commit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "buildReceipt": {
+        "status": "success",
+        "runId": 46030299974,
+        "jobId": 140612180168,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46030299974",
+        "syntheticMerge": "ad6d81b0d10de3707fcffb84e26e34d53fe83de5",
+        "bytes": 931776552,
+        "limitBytes": 950000000,
+        "exactFreshMergeReceipt": {
+          "path": "E:\\Codex\\2026-11-16\\th\\work\\eight-book-integration\\EIGHT-BOOK-PR51-EXACT-HOSTED-VALIDATION-FRESH-MERGE-PROOF.json",
+          "sha256": "042a4a5fe514d35141814a67fa1e47c4cf99b809535d476130cb351a3a062f94"
+        }
+      },
+      "deploymentReceipt": {
+        "status": "in_progress",
+        "runId": 46039037176,
+        "url": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46039037176",
+        "head": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432"
+      },
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "hi-selected-encyclopedia-002",
+      "book": "Hindi Selected Hadith Encyclopedia",
+      "sourceEdition": "islamhouse-hadith-encyclopedia-1446-481dab05",
+      "sourcePdfSHA256": "481dab05c77d2840d4072a25289240fde123ecc7ffa4d4a16349d8cb81a64092",
+      "sourceCheckpoint": {
+        "privateExactReviewManifestSHA256": "b7622463f00dc8dd7ad8a36d7d55eb2cb46289ea516b8ec369288b74100ac9e1",
+        "occurrenceProofs": [
+          {
+            "id": "hi:islamhouse-encyclopedia-481dab05:h005",
+            "physicalPages": [
+              16,
+              17
+            ],
+            "sourceLocator": "Original numbered item 5, physical PDF 16,17",
+            "translationSHA256": "daa6fc22b37253798010bcb6de168a37e6282438ecb2c9cc8c2abf743d153030"
+          },
+          {
+            "id": "hi:islamhouse-encyclopedia-481dab05:h007",
+            "physicalPages": [
+              21
+            ],
+            "sourceLocator": "Original numbered item 7, physical PDF 21",
+            "translationSHA256": "d847e23bdaa1d827f3c9e5ac0d06fc7770fc4def34349d0bb74b55a9164b7662"
+          },
+          {
+            "id": "hi:islamhouse-encyclopedia-481dab05:h008",
+            "physicalPages": [
+              22,
+              23
+            ],
+            "sourceLocator": "Original numbered item 8, physical PDF 22,23",
+            "translationSHA256": "647bb56041e3b04311e165c8039ed81086f747c5f800990c314b4aec7bc56e44"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/hi-islamhouse-encyclopedia-481dab05/manifest.json",
+        "sha256": "85e7d20f9375531c171a607601a8e158ca4314ad61889e3a63018d0c26d0b52d",
+        "bytes": 1248
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-encyclopedia-481dab05:h005",
+        "hi:islamhouse-encyclopedia-481dab05:h007",
+        "hi:islamhouse-encyclopedia-481dab05:h008"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:2856",
+        "fawaz:df57907be352:muslim:130",
+        "fawaz:df57907be352:muslim:269"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "branch": "books/eight-books-next-seven-and-hindi-source-corrections",
+      "baseCommit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "expectedAddedCount": 3,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "earliestPendingGap": "H003 semantic fit; H004 and H006 are held separately.",
+      "held": [
+        {
+          "sourceLocator": "H003 semantic fit; H004 and H006 are held separately.",
+          "reason": "See the retained exact source record hold."
+        }
+      ],
+      "nextSourceItemToReview": "H003 semantic fit; H004 and H006 are held separately.",
+      "nextReviewedItemWaitingIntegration": "H005, H007, H008 staged",
       "pullRequest": null,
       "commit": null,
       "buildReceipt": null,
       "deploymentReceipt": null,
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "hi-hisn-short80-001",
+      "book": "Hindi Hisn, short 80-page edition",
+      "sourceEdition": "islamhouse-hisn-hindi-80-page-55649737",
+      "sourcePdfSHA256": "55649737c842de9a7890813b75cb11c3aa284cccf6f3a969e9c8749a7de6fff1",
+      "sourceCheckpoint": {
+        "privateExactReviewManifestSHA256": "b7622463f00dc8dd7ad8a36d7d55eb2cb46289ea516b8ec369288b74100ac9e1",
+        "occurrenceProofs": [
+          {
+            "id": "hi:hisn-risala-short80-55649737:s001-f01",
+            "physicalPages": [
+              8
+            ],
+            "sourceLocator": "Chapter 1, the first waking formula, physical PDF and printed p8; source gives the formula without its own number or note.",
+            "translationSHA256": "8224b847273647e09b9a52a7a19a6f5f0583ef0164c680ad84345383f26344b1"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/hi-hisn-risala-short80-55649737/manifest.json",
+        "sha256": "482ec5b5d3d21e967c983e0954a18332926e6e1fd66513423eb636bbf832ee6d",
+        "bytes": 1223
+      },
+      "includedOccurrenceIds": [
+        "hi:hisn-risala-short80-55649737:s001-f01"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:6314"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "branch": "books/eight-books-next-seven-and-hindi-source-corrections",
+      "baseCommit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "earliestPendingGap": "Source note of the second formula at p8.",
+      "held": [
+        {
+          "sourceLocator": "Source note of the second formula at p8.",
+          "reason": "See the retained exact source record hold."
+        }
+      ],
+      "nextSourceItemToReview": "Source note of the second formula at p8.",
+      "nextReviewedItemWaitingIntegration": "First waking formula staged",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "bn-islamhouse-qudsi-002",
+      "book": "Bengali Sahih Hadith Qudsi",
+      "sourceEdition": "islamhouse-adawi-1438-dbb1b453",
+      "sourcePdfSHA256": "dbb1b4531f399524fa21925863d4ce4bc948ec58a5d7488cae50c5faca37a897",
+      "sourceCheckpoint": {
+        "privateExactReviewManifestSHA256": "b7622463f00dc8dd7ad8a36d7d55eb2cb46289ea516b8ec369288b74100ac9e1",
+        "occurrenceProofs": [
+          {
+            "id": "bn:islamhouse-qudsi-dbb1b453:h001",
+            "physicalPages": [
+              10
+            ],
+            "sourceLocator": "Printed entry 1, physical PDF 10",
+            "translationSHA256": "1734f0cd1a596319d388b753cd6d75555dc10a21d82f57b93f3a5df86546c28d"
+          },
+          {
+            "id": "bn:islamhouse-qudsi-dbb1b453:h002",
+            "physicalPages": [
+              10,
+              11
+            ],
+            "sourceLocator": "Printed entry 2, physical PDF 10,11",
+            "translationSHA256": "b9eb00fbef9d06bc515a4cd42a901abd31078ce46052d2060bd0c9e315c18932"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/bn-islamhouse-qudsi-dbb1b453/manifest.json",
+        "sha256": "9f5d204a3dcbf05216f4e213054e3970d255b166ac94d677c98df2e5fee3249b",
+        "bytes": 1112
+      },
+      "includedOccurrenceIds": [
+        "bn:islamhouse-qudsi-dbb1b453:h001",
+        "bn:islamhouse-qudsi-dbb1b453:h002"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:7501",
+        "fawaz:df57907be352:muslim:336"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "branch": "books/eight-books-next-seven-and-hindi-source-corrections",
+      "baseCommit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "expectedAddedCount": 2,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "earliestPendingGap": "H003 queried source gives conflicting Quran citation.",
+      "held": [
+        {
+          "sourceLocator": "H003 queried source gives conflicting Quran citation.",
+          "reason": "See the retained exact source record hold."
+        }
+      ],
+      "nextSourceItemToReview": "H003 queried source gives conflicting Quran citation.",
+      "nextReviewedItemWaitingIntegration": "H001 and H002 staged",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "ur-hisn-islamhouse-1436-002",
+      "book": "Urdu Hisn, 1436 AH edition",
+      "sourceEdition": "islamhouse-1436-71ceda4c",
+      "sourcePdfSHA256": "71ceda4c6c44f926938e428d4ed2f68abb866e6673b8654c8ef4381eab8426ed",
+      "sourceCheckpoint": {
+        "privateExactReviewManifestSHA256": "b7622463f00dc8dd7ad8a36d7d55eb2cb46289ea516b8ec369288b74100ac9e1",
+        "occurrenceProofs": [
+          {
+            "id": "ur:hisn-islamhouse-1436-71ceda4c:h003",
+            "physicalPages": [
+              13,
+              14
+            ],
+            "sourceLocator": "Printed third waking formula, physical and printed pp13-14; source note 1, p14.",
+            "translationSHA256": "37df5fec4c5bbd7e8e300cc4f3d6a2277dd2d4901ff59afe7fd03afa9e0e9925"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+        "sha256": "bd9171a2dde005b3810e1bbcab49dec9e77e6a673905898657e1362c22b23a80",
+        "bytes": 1131
+      },
+      "includedOccurrenceIds": [
+        "ur:hisn-islamhouse-1436-71ceda4c:h003"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:tirmidhi:3401"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "branch": "books/eight-books-next-seven-and-hindi-source-corrections",
+      "baseCommit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "earliestPendingGap": "H002 complete source and commentary scope require exact proof.",
+      "held": [
+        {
+          "sourceLocator": "H002 complete source and commentary scope require exact proof.",
+          "reason": "See the retained exact source record hold."
+        }
+      ],
+      "nextSourceItemToReview": "H002 complete source and commentary scope require exact proof.",
+      "nextReviewedItemWaitingIntegration": "H003 staged",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "hi-encyclopedia-481dab05-printed-reference-dots-001",
+      "sourceEdition": "islamhouse-hadith-encyclopedia-1446-481dab05",
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 0,
+      "actualAddedCount": 0,
+      "correctedOccurrenceIds": [
+        "hi:islamhouse-encyclopedia-481dab05:h001",
+        "hi:islamhouse-encyclopedia-481dab05:h001-v1",
+        "hi:islamhouse-encyclopedia-481dab05:h002",
+        "hi:islamhouse-encyclopedia-481dab05:h002-v1"
+      ],
+      "publicCorrectionFile": "reports/eight-book-integration/corrections/hi-encyclopedia-481dab05-printed-reference-dots.json",
+      "sourceCheckpoint": {
+        "sourcePdfSHA256": "481dab05c77d2840d4072a25289240fde123ecc7ffa4d4a16349d8cb81a64092",
+        "originalMainWithRecords": "3040ae4d2f6465dd34e813f565f3d7a6b6b4ede0",
+        "correctionSHA256": "db7fa55a4bc90ca9d5f4cc3b51ea5c07fbe10c33e9ff519aa55041245d6c12bf",
+        "sourceLocator": "Original physical pages 6 and 8."
+      },
+      "branch": "books/eight-books-next-seven-and-hindi-source-corrections",
+      "baseCommit": "07226bfd0390c52bcd6a3ad80ca394ea37f0a432",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": []
     }
   ],
   "integrationResume": {
     "nextSourceItemToReview": 9,
-    "nextReviewedItemWaitingIntegration": 18,
+    "nextReviewedItemWaitingIntegration": "Exact seven translations staged. Confirm next candidates by edition.",
     "earliestPendingGap": 9,
     "readerScreenshotRule": "Use a whole-Hadith crop below the reader source note only when a printed text problem leaves the reading unresolved after review and the exact occurrence is eligible for publication with a note.",
     "nextUnstagedCleanCandidate": null,
