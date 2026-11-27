@@ -11,7 +11,7 @@
         "language": "bn",
         "source_text_field": "text_translation",
         "source_text_sha256": "f1628b983469d4fc6c66b32e74ab6d9230944647eaa14747f4d49bc1cd31919f",
-        "source_file_sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+        "source_file_sha256": "71cffb7c68232116fae3219edd5d677dec55639ba0a8d1ae7da5d540d135807e",
         "source_record_sha256": "4adbf9dd7f186361792d884adf0dd3e4cf94dc3a247a527de58b50d0a641edfa",
         "source_locator_sha256": "43400c81d34180910df9c42b64c89d2057dd52154373ac22e9bc66bd71892985"
       },
@@ -43,7 +43,7 @@
         "language": "bn",
         "source_text_field": "text_translation",
         "source_text_sha256": "f052b58c2e64d5d4f5bc9e1464d1112b50ce3cce9c768cf93b01d9352a732272",
-        "source_file_sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+        "source_file_sha256": "71cffb7c68232116fae3219edd5d677dec55639ba0a8d1ae7da5d540d135807e",
         "source_record_sha256": "a16dc9b447d5a8865451a531daff32b126be5e0ab82958b062cbcca56feb64e3",
         "source_locator_sha256": "9ea0fb081e905971a6601af281ee0e15b004a665dfd5cdcff6c79b06944f7e3e"
       },
@@ -65,6 +65,70 @@
         "evidence": "The printed Bengali covers the core Abu Said report in Bukhari 22. The printed Arabic retains the two river forms and omits Malik’s indication of doubt and the separate later transmitter wording preserved in the Bank Arabic source.",
         "qualifications": [
           "The printed local wording, attributions and reported grade are retained. The linked Arabic source retains its own edition and context."
+        ]
+      }
+    },
+    {
+      "source": {
+        "record_id": "bn:islamhouse-qudsi-dbb1b453:h001",
+        "source_id": "bn-islamhouse-qudsi-dbb1b453",
+        "language": "bn",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "1734f0cd1a596319d388b753cd6d75555dc10a21d82f57b93f3a5df86546c28d",
+        "source_file_sha256": "71cffb7c68232116fae3219edd5d677dec55639ba0a8d1ae7da5d540d135807e",
+        "source_record_sha256": "108bd4697df7045220d13fe8045ff810f4a80cb1e2a0eb7819cfeedd05755c58",
+        "source_locator_sha256": "381ea8e5b364475927ee4204e0a7c71509aadb9f51106ee8e437a497819cf36e"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:bukhari:7501",
+        "source_id": "fawaz-bukhari-df57907be352-ar-part-004",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "6712bb69742441b1bea9a3699d4d31e42ddf03642a6e008c0ecdea9ea95e7a25",
+        "source_file_sha256": "8e3e475ce781d78077122ba9bfa479cf20b88a992c5ac60b08d51070e8ca2357",
+        "source_record_sha256": "68be18dac080d7bdc6dbfdc0e89bd7aeeaca8504e76c76e2d8cdbc3abf9d8269",
+        "source_locator_sha256": "d530d669a3c18fc12d6a3ecad82c11804d55090a70b54d8359bf8352fd758d05"
+      },
+      "relation": "same_narration_core",
+      "review": {
+        "human_review": false,
+        "reviewer": "Books Maestro and separate ordinary Extra High source readback",
+        "method": "Whole original bilingual occurrence, then exact existing Arabic readback.",
+        "evidence": "Bukhari 7501 is the matching Abu Hurayrah report with all four command clauses in order. The handbook Arabic prints a final ضعف which the Bank form omits. The Bengali retains the multiplier. The introduction, divine saying, printed source/grade and note 1 are separately retained.",
+        "qualifications": [
+          "Original source quotation placement and attributed grade are preserved."
+        ]
+      }
+    },
+    {
+      "source": {
+        "record_id": "bn:islamhouse-qudsi-dbb1b453:h002",
+        "source_id": "bn-islamhouse-qudsi-dbb1b453",
+        "language": "bn",
+        "source_text_field": "text_translation",
+        "source_text_sha256": "b9eb00fbef9d06bc515a4cd42a901abd31078ce46052d2060bd0c9e315c18932",
+        "source_file_sha256": "71cffb7c68232116fae3219edd5d677dec55639ba0a8d1ae7da5d540d135807e",
+        "source_record_sha256": "d19eb8fe992120e854339e9f3afcf829f80e8a4ea9a89305b1fc1bab82144f22",
+        "source_locator_sha256": "2fcc2ccd561fd683b506cc7d6d48b897f729c90dc80b2328d14d38ce7f420486"
+      },
+      "target": {
+        "record_id": "fawaz:df57907be352:muslim:336",
+        "source_id": "fawaz-muslim-df57907be352-ar",
+        "language": "ar",
+        "source_text_field": "text_arabic",
+        "source_text_sha256": "017f93ff2d2fb9a22364596c79cdff104323fcba083926ba254ba5d7c6eb81f9",
+        "source_file_sha256": "789bd951f8460fc3ea337fbf77746913ef0778613dc1864d7635394f60712982",
+        "source_record_sha256": "95dc9924c21b060eec6722b6bd135c43e47b2b3ce31e808e1bc0d094ff755ba0",
+        "source_locator_sha256": "6c1c39761c3753ca2fe22b199ec4bf8401c9e5c9a158a5ce8d2192ec86fc7173"
+      },
+      "relation": "source_excerpt",
+      "review": {
+        "human_review": false,
+        "reviewer": "Books Maestro and separate ordinary Extra High source readback",
+        "method": "Whole original bilingual occurrence, then exact existing Arabic readback.",
+        "evidence": "The two distinct printed source statements match the first two speeches in Muslim 129 (Bank provider 336). A third speech in the separate witness is outside this printed occurrence. The Bengali second quotation is unclosed at the source boundary and has a narrator/parenthetical aside.",
+        "qualifications": [
+          "Original source quotation placement and attributed grade are preserved."
         ]
       }
     }
