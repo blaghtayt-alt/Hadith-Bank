@@ -3,7 +3,7 @@
   "language": "hi",
   "name": "Hindi",
   "scope": "public_source_snapshots",
-  "record_count": 33073,
+  "record_count": 33078,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -593666,6 +593666,69 @@
       }
     },
     {
+      "dataset_id": "hi-hisn-risala-5443f762",
+      "language": "hi",
+      "book_key": "hisn-al-muslim",
+      "edition": "risala-hisn-4-0-5443f762",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/hi-hisn-risala-5443f762/source.json",
+      "source_sha256": "25608c9dfb8c0063fe9f1ff895ccae7ff0f17893cf87a6ac027e05baff6d7e1a",
+      "canonical_records_path": "materials/hi-hisn-risala-5443f762/records.json",
+      "canonical_records_sha256": "2fbd3118c306178ff2f1d8f866b97dd82baf794ee2c1beb08bdb4e5d479d05ab",
+      "source_descriptor": {
+        "path": "materials/hi-hisn-risala-5443f762/source.json",
+        "sha256": "25608c9dfb8c0063fe9f1ff895ccae7ff0f17893cf87a6ac027e05baff6d7e1a",
+        "name": "हिस्न अल-मुस्लिम (क़ुरआन एवं हदीस की दुआएँ)",
+        "format": "json",
+        "url": "https://islamhouse.com/hi/books/2842335/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/hi-hisn-risala-5443f762/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/hi-hisn-risala-5443f762/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/hi-hisn-risala-5443f762.json",
+          "sha256": "e56568fdcffc91c77f1c8d0453873261b10240efdba8f6baef6acae043f76a26",
+          "size_bytes": 2114
+        }
+      ],
+      "source_name": "हिस्न अल-मुस्लिम (क़ुरआन एवं हदीस की दुआएँ)",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Translation origin not established",
+        "basis": "No source-specific translation provenance supplied",
+        "human_involvement": "not_established",
+        "ai_translation": "unknown",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "hi-islamhouse-encyclopedia-481dab05",
       "language": "hi",
       "book_key": "selected-hadith-encyclopedia",
@@ -593740,15 +593803,15 @@
       "language": "hi",
       "book_key": "bukhari-muslim-300",
       "edition": "islamhouse-al-zulfi-2fc65776",
-      "count": 112,
+      "count": 116,
       "release_status": "source_review_pending",
       "source_file": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-      "source_sha256": "52aba37b08b0d097b110a56fc9eb4217e5c72f1fc694791f3548eae9583da361",
+      "source_sha256": "f5236f39c28562713bc3e2917fb6d240bd92e4731cac8a7547aaedd59ed98e9a",
       "canonical_records_path": "materials/hi-islamhouse-hi300-2fc65776/records.json",
-      "canonical_records_sha256": "95494a635f6ddc5fe4653d16c35131f45cb52468f7a7a5ca446c065e8ed7dc48",
+      "canonical_records_sha256": "b72696f3b102418f80e9922b03fdc5454bdde39de9b37f8125b3a7a34efed4ef",
       "source_descriptor": {
         "path": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-        "sha256": "52aba37b08b0d097b110a56fc9eb4217e5c72f1fc694791f3548eae9583da361",
+        "sha256": "f5236f39c28562713bc3e2917fb6d240bd92e4731cac8a7547aaedd59ed98e9a",
         "name": "बुखारी व मुस्लिम की ३०० हदीस",
         "format": "json",
         "url": "https://islamhouse.com/hi/books/2841061/"
@@ -593770,8 +593833,8 @@
       "supporting_files": [
         {
           "path": "sources/reader-groups/hi-islamhouse-300-001.json",
-          "sha256": "fc0607f5ef6aedad3351c22b4e8f5951ed61758a1dd9b4d194fc3c718add13aa",
-          "size_bytes": 222933
+          "sha256": "f19288bcf39bdb46d2b2ed1fc53c788bac714d658692d9859ab4b8e32318285f",
+          "size_bytes": 230775
         }
       ],
       "source_name": "बुखारी व मुस्लिम की ३०० हदीस",
@@ -594038,10 +594101,38 @@
           "decision_date_japan": "2026-11-11",
           "policy_path": "catalog/provenance-policy.json",
           "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h018": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h039": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h064": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h075": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
         }
       },
       "current_translation_origin_counts": {
-        "human": 112
+        "human": 116
       },
       "current_translation_policy": {
         "classification": "human",

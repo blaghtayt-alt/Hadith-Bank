@@ -4,31 +4,33 @@
   "scope": "public_source_snapshots",
   "current_translation_origins": {
     "ai": 2,
-    "human": 113721,
+    "human": 113729,
     "unknown": 1165
   },
-  "checked_at_utc": "2026-11-27T16:38:33.396352+00:00",
-  "record_count": 114888,
-  "source_dataset_count": 266,
+  "checked_at_utc": "2026-11-27T17:48:59.602604+00:00",
+  "record_count": 114896,
+  "source_dataset_count": 270,
   "by_language": {
     "ar": 32267,
-    "bn": 46,
+    "bn": 48,
     "bs": 3,
     "de": 3,
     "en": 3684,
     "fa": 14382,
     "fil": 2354,
-    "hi": 33073,
+    "hi": 33078,
     "ja": 3520,
     "ms": 147,
     "pt": 8,
-    "ur": 231,
+    "ur": 232,
     "uz": 9780,
     "vi": 4555,
     "zh-CN": 10835
   },
   "by_dataset": {
+    "bn-hisn-islamhouse-mobile-7a1b5a04": 1,
     "bn-islamhouse-qudsi-dbb1b453": 2,
+    "bn-islamhouse-selected-v1-ef7cff1f": 1,
     "bs-tirmidhi-karalic-v1-1999-8b62165c": 3,
     "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd": 200,
     "chanlyislam:vi:abu-dawud:pdf-03e704068cea5733": 140,
@@ -156,8 +158,9 @@
     "hadeethenc-vi-sqlite-3fb9e549494ff0f6": 1203,
     "hadeethenc-zh-sqlite-a22a0e545c70b320": 2256,
     "hadisuz-tirmidhi-uz-web": 606,
+    "hi-hisn-risala-5443f762": 1,
     "hi-islamhouse-encyclopedia-481dab05": 4,
-    "hi-islamhouse-hi300-2fc65776": 112,
+    "hi-islamhouse-hi300-2fc65776": 116,
     "hi-mukhtasar-v1-4785913c": 680,
     "hi-mukhtasar-v2-d99bfae5": 732,
     "hi-mukhtasar-v3-1cd9232b": 626,
@@ -290,20 +293,21 @@
     "quran-excerpts-zh-cn-nasai": 1,
     "quran-excerpts-zh-cn-tirmidhi": 6,
     "quran-excerpts-zh-cn-unclassified": 2,
+    "ur-hisn-islamhouse-1436-71ceda4c": 1,
     "zh-abu-dawud-yu-2002-doc": 2828,
     "zh-cn-hisn-muslim-1a09ee75": 251,
     "zh-cn-ibn-majah-yu-2013": 4354,
     "zh-muwatta-shaybani-yu-2000-docx": 1006
   },
   "coverage": {
-    "canonical_occurrences_compared": 114888,
-    "projection_objects_compared": 114888,
-    "exact_arabic_and_translation_codepoints_compared": 88516811,
-    "canonical_record_files_hashed": 266,
-    "source_and_legacy_files_hashed": 61330,
-    "ordered_search_shards_hashed": 1337,
-    "canonical_record_digest_checks": 114888,
-    "complete_public_projection_objects_reconstructed": 114888,
+    "canonical_occurrences_compared": 114896,
+    "projection_objects_compared": 114896,
+    "exact_arabic_and_translation_codepoints_compared": 88518209,
+    "canonical_record_files_hashed": 270,
+    "source_and_legacy_files_hashed": 61342,
+    "ordered_search_shards_hashed": 1341,
+    "canonical_record_digest_checks": 114896,
+    "complete_public_projection_objects_reconstructed": 114896,
     "pdf_page_images_reviewed": 0,
     "source_glyph_or_linguistic_reviews_performed": 0
   },
@@ -369,6 +373,21 @@
       "sha256": "28f86705f984c270f1e393c7e69d8ba158998b633772460fa7d2957bb98d29c9"
     },
     {
+      "path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/source.json",
+      "bytes": 1800,
+      "sha256": "97e81a037dbd6bd6dce9620a138fdc49208d45670f93d95d77f55e351b0c448f"
+    },
+    {
+      "path": "sources/reader-groups/bn-hisn-islamhouse-mobile-7a1b5a04.json",
+      "bytes": 2143,
+      "sha256": "b6c201e050c06c75571aeaf7930a258e92ba2b7a1408ff4955ea5899143e37e6"
+    },
+    {
+      "path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/records.json",
+      "bytes": 3525,
+      "sha256": "8340096e5a395cebc5e7e92eadf9ef4f6c66bfe8aa00977ed6a22d3544b88862"
+    },
+    {
       "path": "materials/bn-islamhouse-qudsi-dbb1b453/source.json",
       "bytes": 8636,
       "sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54"
@@ -382,6 +401,21 @@
       "path": "materials/bn-islamhouse-qudsi-dbb1b453/records.json",
       "bytes": 12412,
       "sha256": "f63186ff221194d52a8f56b3690a141af35a0ec26673797bff46de86caa71059"
+    },
+    {
+      "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/source.json",
+      "bytes": 3644,
+      "sha256": "804083acce9b075f90ce44ff9def8c8df9465af91a1f59dac83a33cb85ef150c"
+    },
+    {
+      "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
+      "bytes": 2360,
+      "sha256": "fd3cf68dcd80de70cde1480c473f6b325abd3e40d1da2d691295b253af544392"
+    },
+    {
+      "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/records.json",
+      "bytes": 5187,
+      "sha256": "96bb810e1efc7594bada630f606f04da990e91d581c79d84aef919f2317fcf3d"
     },
     {
       "path": "materials/bs-tirmidhi-karalic-v1-1999-8b62165c/source.pdf",
@@ -302439,6 +302473,21 @@
       "sha256": "18e8a1394afa6236cb3a1a9647109c4038a9c2a1cfc9c2698ef5f14cd5440389"
     },
     {
+      "path": "materials/hi-hisn-risala-5443f762/source.json",
+      "bytes": 1815,
+      "sha256": "25608c9dfb8c0063fe9f1ff895ccae7ff0f17893cf87a6ac027e05baff6d7e1a"
+    },
+    {
+      "path": "sources/reader-groups/hi-hisn-risala-5443f762.json",
+      "bytes": 2114,
+      "sha256": "e56568fdcffc91c77f1c8d0453873261b10240efdba8f6baef6acae043f76a26"
+    },
+    {
+      "path": "materials/hi-hisn-risala-5443f762/records.json",
+      "bytes": 3692,
+      "sha256": "2fbd3118c306178ff2f1d8f866b97dd82baf794ee2c1beb08bdb4e5d479d05ab"
+    },
+    {
       "path": "materials/hi-islamhouse-encyclopedia-481dab05/source.json",
       "bytes": 9183,
       "sha256": "542aa27964bccb6f453b88d8696e1cffe50d35ac43a6b87f5407596ceaed82c1"
@@ -302455,18 +302504,18 @@
     },
     {
       "path": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-      "bytes": 145664,
-      "sha256": "52aba37b08b0d097b110a56fc9eb4217e5c72f1fc694791f3548eae9583da361"
+      "bytes": 150171,
+      "sha256": "f5236f39c28562713bc3e2917fb6d240bd92e4731cac8a7547aaedd59ed98e9a"
     },
     {
       "path": "sources/reader-groups/hi-islamhouse-300-001.json",
-      "bytes": 222933,
-      "sha256": "fc0607f5ef6aedad3351c22b4e8f5951ed61758a1dd9b4d194fc3c718add13aa"
+      "bytes": 230775,
+      "sha256": "f19288bcf39bdb46d2b2ed1fc53c788bac714d658692d9859ab4b8e32318285f"
     },
     {
       "path": "materials/hi-islamhouse-hi300-2fc65776/records.json",
-      "bytes": 413836,
-      "sha256": "95494a635f6ddc5fe4653d16c35131f45cb52468f7a7a5ca446c065e8ed7dc48"
+      "bytes": 431163,
+      "sha256": "b72696f3b102418f80e9922b03fdc5454bdde39de9b37f8125b3a7a34efed4ef"
     },
     {
       "path": "materials/hi-mukhtasar-v1-4785913c/source.pdf",
@@ -306054,6 +306103,21 @@
       "sha256": "fa2bfe49d677b3679f2f9980f2f6d27e000b67691bed284c8cd33f090b6b741c"
     },
     {
+      "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/source.json",
+      "bytes": 1481,
+      "sha256": "b18355cc2675661ca7272576fec4a4f257712766e2ecaf01b0a05ffc53fe93ab"
+    },
+    {
+      "path": "sources/reader-groups/ur-hisn-islamhouse-1436-71ceda4c.json",
+      "bytes": 2137,
+      "sha256": "a4e0fc1535b5323cb0ad930bab9a7a2a97c57bb7cf8c8c36ef9fb2b112254133"
+    },
+    {
+      "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/records.json",
+      "bytes": 3368,
+      "sha256": "75ffc0acb6c272d9ef343913e98b5be39a38cc218a1629d0facb292e22527d35"
+    },
+    {
       "path": "attachments/attachments-vi-920394517894aea9/sources/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/source.pdf",
       "bytes": 3000999,
       "sha256": "c7dcc5d2a0abffddba93dc6a3dff6cf3aded8d423958730365d705e00c582272"
@@ -306959,43 +307023,43 @@
       "sha256": "6645891278ead10c167c5ad449e78c9c94f2818675dcb59cb4ff55689d9621ae"
     }
   ],
-  "search_stream_sha256": "b2929cebf0ce8e279c95b065294863c15ace9e76bff4ca9615516139afecc553",
+  "search_stream_sha256": "1d6b9db02d28e226932c95c921324f304896bb7e73883b09d3b8f4a2bc2ee0bc",
   "reader": {
     "path": "hadith-bank-reader.html",
-    "sha256": "bae4a8d8606d7e5501f22f9ffaa842d074a241764d466f67030906c62409dd99",
-    "bytes": 2031326,
-    "embedded_objects_compared": 114888,
+    "sha256": "87205283d03a5fc4bd5585d0f95d50e313d0c485964fb4e72210d8fe6f0e9812",
+    "bytes": 2049580,
+    "embedded_objects_compared": 114896,
     "data_shards_verified": 1565,
-    "reviewed_reading_groups": 166,
+    "reviewed_reading_groups": 171,
     "grouped_reading_count": 114713,
     "external_script_or_stylesheet_dependencies": false,
     "reader_store_metrics": {
       "directory": {
-        "record_count": 114888,
+        "record_count": 114896,
         "shard_count": 20,
-        "compressed_bytes": 1611228,
-        "uncompressed_bytes": 39623468,
+        "compressed_bytes": 1611443,
+        "uncompressed_bytes": 39626250,
         "max_row_bytes": 467
       },
       "search": {
-        "record_count": 114888,
+        "record_count": 114896,
         "shard_count": 363,
-        "compressed_bytes": 81401600,
-        "uncompressed_bytes": 751317974,
+        "compressed_bytes": 81403667,
+        "uncompressed_bytes": 751329855,
         "max_row_bytes": 215760
       },
       "annotations": {
-        "record_count": 114888,
+        "record_count": 114896,
         "shard_count": 95,
-        "compressed_bytes": 26797784,
-        "uncompressed_bytes": 195610208,
+        "compressed_bytes": 26798727,
+        "uncompressed_bytes": 195613481,
         "max_row_bytes": 128046
       },
       "details": {
-        "record_count": 114888,
+        "record_count": 114896,
         "shard_count": 1087,
-        "compressed_bytes": 194185874,
-        "uncompressed_bytes": 2261575033,
+        "compressed_bytes": 194195295,
+        "uncompressed_bytes": 2261621698,
         "max_row_bytes": 257373
       }
     },
@@ -307005,21 +307069,21 @@
       "annotations": 128046
     },
     "max_detail_record_bytes": 257373,
-    "directory_bytes": 39623468,
-    "detail_stream_sha256": "b2929cebf0ce8e279c95b065294863c15ace9e76bff4ca9615516139afecc553",
+    "directory_bytes": 39626250,
+    "detail_stream_sha256": "1d6b9db02d28e226932c95c921324f304896bb7e73883b09d3b8f4a2bc2ee0bc",
     "discovery": {
-      "record_count": 114888,
-      "occurrence_ids_sha256": "536f8ab6b4d1bc900fb507f845fcbdaa7127155d458e2cff295fdda98751ce81",
-      "indexed_quotation_fields_sha256": "e6c2e65a63838eb7f1424728aa9ee75eea3fdb21680587e9fe0c78dbdf7cd41e",
+      "record_count": 114896,
+      "occurrence_ids_sha256": "9fc8c4d95bb8453381685b8ebf84bc66616c0fded4aa7eb78b657f4f7ba58626",
+      "indexed_quotation_fields_sha256": "57fa2d8f17488f01dfdcb577fac8a40b4ba46fb1f9cbd73edce485fbfd264e87",
       "family_count": 108690,
       "source_text_modified": false,
-      "source_bound_families_verified": 2584
+      "source_bound_families_verified": 2589
     }
   },
   "navigation": {
-    "markdown_files_checked": 5381,
-    "local_targets_checked": 274750,
-    "external_links_not_requested": 1311821,
+    "markdown_files_checked": 5392,
+    "local_targets_checked": 274811,
+    "external_links_not_requested": 1311863,
     "fragment_anchors_checked": false
   },
   "baseline_git": {
@@ -307028,10 +307092,10 @@
   },
   "public_scope": {
     "enforced": true,
-    "authorized_dataset_count": 266,
+    "authorized_dataset_count": 270,
     "public_snapshot_hashes_pinned": true,
     "unregistered_attachment_paths_and_extra_text_excluded": true,
-    "registered_material_manifests_verified": 216,
+    "registered_material_manifests_verified": 220,
     "unregistered_source_documents_absent": true,
     "source_review_and_rights_statuses_preserved": true
   },

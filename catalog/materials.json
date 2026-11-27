@@ -2,35 +2,35 @@
   "schema": "hadith-bank-materials-v1",
   "title": "Hadith Bank",
   "scope": "public_source_snapshots",
-  "record_count": 114888,
+  "record_count": 114896,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "by_language": {
     "ar": 32267,
-    "bn": 46,
+    "bn": 48,
     "bs": 3,
     "de": 3,
     "en": 3684,
     "fa": 14382,
     "fil": 2354,
-    "hi": 33073,
+    "hi": 33078,
     "ja": 3520,
     "ms": 147,
     "pt": 8,
-    "ur": 231,
+    "ur": 232,
     "uz": 9780,
     "vi": 4555,
     "zh-CN": 10835
   },
   "translation_origins": {
     "publisher_human_workflow": 8423,
-    "unknown": 74954,
+    "unknown": 74962,
     "human_translator_credited": 30642,
     "ai_translation": 2,
     "legacy_source_history": 867
   },
   "current_translation_origins": {
     "ai": 2,
-    "human": 113721,
+    "human": 113729,
     "unknown": 1165
   },
   "materials": [
@@ -305,6 +305,69 @@
       }
     },
     {
+      "dataset_id": "bn-hisn-islamhouse-mobile-7a1b5a04",
+      "language": "bn",
+      "book_key": "hisn-al-muslim",
+      "edition": "islamhouse-mobile-7a1b5a04",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/source.json",
+      "source_sha256": "97e81a037dbd6bd6dce9620a138fdc49208d45670f93d95d77f55e351b0c448f",
+      "canonical_records_path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/records.json",
+      "canonical_records_sha256": "8340096e5a395cebc5e7e92eadf9ef4f6c66bfe8aa00977ed6a22d3544b88862",
+      "source_descriptor": {
+        "path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/source.json",
+        "sha256": "97e81a037dbd6bd6dce9620a138fdc49208d45670f93d95d77f55e351b0c448f",
+        "name": "হিসনুল মুসলিম [মুসলিমের দুর্গ]",
+        "format": "json",
+        "url": "https://islamhouse.com/1588"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/bn-hisn-islamhouse-mobile-7a1b5a04.json",
+          "sha256": "b6c201e050c06c75571aeaf7930a258e92ba2b7a1408ff4955ea5899143e37e6",
+          "size_bytes": 2143
+        }
+      ],
+      "source_name": "হিসনুল মুসলিম [মুসলিমের দুর্গ]",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Translation origin not established",
+        "basis": "No source-specific translation provenance supplied",
+        "human_involvement": "not_established",
+        "ai_translation": "unknown",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "bn-islamhouse-qudsi-dbb1b453",
       "language": "bn",
       "book_key": "sahih-hadith-qudsi",
@@ -372,6 +435,76 @@
         "decision_date_japan": "2026-11-11",
         "policy_path": "catalog/provenance-policy.json",
         "source_declaration_evidence": "Original Bengali cover, physical PDF page 1, explicitly credits this translator."
+      }
+    },
+    {
+      "dataset_id": "bn-islamhouse-selected-v1-ef7cff1f",
+      "language": "bn",
+      "book_key": "selected-hadith-bengali",
+      "edition": "islamhouse-rabwah-1433-v1-ef7cff1f",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/bn-islamhouse-selected-v1-ef7cff1f/source.json",
+      "source_sha256": "804083acce9b075f90ce44ff9def8c8df9465af91a1f59dac83a33cb85ef150c",
+      "canonical_records_path": "materials/bn-islamhouse-selected-v1-ef7cff1f/records.json",
+      "canonical_records_sha256": "96bb810e1efc7594bada630f606f04da990e91d581c79d84aef919f2317fcf3d",
+      "source_descriptor": {
+        "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/source.json",
+        "sha256": "804083acce9b075f90ce44ff9def8c8df9465af91a1f59dac83a33cb85ef150c",
+        "name": "নির্বাচিত ৫০ টি হাদীস",
+        "format": "json",
+        "url": "https://islamhouse.com/bn/books/392995/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-28",
+        "manifest_path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
+          "sha256": "fd3cf68dcd80de70cde1480c473f6b325abd3e40d1da2d691295b253af544392",
+          "size_bytes": 2360
+        }
+      ],
+      "source_name": "নির্বাচিত ৫০ টি হাদীস",
+      "translation_provenance": {
+        "translator_or_publisher": "আব্দুন্ নূর বিন আব্দুল জব্বার এবং ড. মুহাম্মাদ মর্তুজা বিন্ আয়েশ মুহাম্মাদ",
+        "source_declaration": {
+          "classification": "human",
+          "evidence": "Both translators explicitly credited on original physical p2."
+        },
+        "ai_translation": "unknown",
+        "origin": "unknown",
+        "label": "Unknown",
+        "basis": "Original source attribution metadata; no additional evidence inferred",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Both translators explicitly credited on original physical p2."
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_source_translation_declaration",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json",
+        "source_declaration_evidence": "Both translators explicitly credited on original physical p2."
       }
     },
     {
@@ -615011,6 +615144,69 @@
       }
     },
     {
+      "dataset_id": "hi-hisn-risala-5443f762",
+      "language": "hi",
+      "book_key": "hisn-al-muslim",
+      "edition": "risala-hisn-4-0-5443f762",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/hi-hisn-risala-5443f762/source.json",
+      "source_sha256": "25608c9dfb8c0063fe9f1ff895ccae7ff0f17893cf87a6ac027e05baff6d7e1a",
+      "canonical_records_path": "materials/hi-hisn-risala-5443f762/records.json",
+      "canonical_records_sha256": "2fbd3118c306178ff2f1d8f866b97dd82baf794ee2c1beb08bdb4e5d479d05ab",
+      "source_descriptor": {
+        "path": "materials/hi-hisn-risala-5443f762/source.json",
+        "sha256": "25608c9dfb8c0063fe9f1ff895ccae7ff0f17893cf87a6ac027e05baff6d7e1a",
+        "name": "हिस्न अल-मुस्लिम (क़ुरआन एवं हदीस की दुआएँ)",
+        "format": "json",
+        "url": "https://islamhouse.com/hi/books/2842335/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/hi-hisn-risala-5443f762/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/hi-hisn-risala-5443f762/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/hi-hisn-risala-5443f762.json",
+          "sha256": "e56568fdcffc91c77f1c8d0453873261b10240efdba8f6baef6acae043f76a26",
+          "size_bytes": 2114
+        }
+      ],
+      "source_name": "हिस्न अल-मुस्लिम (क़ुरआन एवं हदीस की दुआएँ)",
+      "translation_provenance": {
+        "origin": "unknown",
+        "label": "Translation origin not established",
+        "basis": "No source-specific translation provenance supplied",
+        "human_involvement": "not_established",
+        "ai_translation": "unknown",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json"
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
       "dataset_id": "hi-islamhouse-encyclopedia-481dab05",
       "language": "hi",
       "book_key": "selected-hadith-encyclopedia",
@@ -615085,15 +615281,15 @@
       "language": "hi",
       "book_key": "bukhari-muslim-300",
       "edition": "islamhouse-al-zulfi-2fc65776",
-      "count": 112,
+      "count": 116,
       "release_status": "source_review_pending",
       "source_file": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-      "source_sha256": "52aba37b08b0d097b110a56fc9eb4217e5c72f1fc694791f3548eae9583da361",
+      "source_sha256": "f5236f39c28562713bc3e2917fb6d240bd92e4731cac8a7547aaedd59ed98e9a",
       "canonical_records_path": "materials/hi-islamhouse-hi300-2fc65776/records.json",
-      "canonical_records_sha256": "95494a635f6ddc5fe4653d16c35131f45cb52468f7a7a5ca446c065e8ed7dc48",
+      "canonical_records_sha256": "b72696f3b102418f80e9922b03fdc5454bdde39de9b37f8125b3a7a34efed4ef",
       "source_descriptor": {
         "path": "materials/hi-islamhouse-hi300-2fc65776/source.json",
-        "sha256": "52aba37b08b0d097b110a56fc9eb4217e5c72f1fc694791f3548eae9583da361",
+        "sha256": "f5236f39c28562713bc3e2917fb6d240bd92e4731cac8a7547aaedd59ed98e9a",
         "name": "बुखारी व मुस्लिम की ३०० हदीस",
         "format": "json",
         "url": "https://islamhouse.com/hi/books/2841061/"
@@ -615115,8 +615311,8 @@
       "supporting_files": [
         {
           "path": "sources/reader-groups/hi-islamhouse-300-001.json",
-          "sha256": "fc0607f5ef6aedad3351c22b4e8f5951ed61758a1dd9b4d194fc3c718add13aa",
-          "size_bytes": 222933
+          "sha256": "f19288bcf39bdb46d2b2ed1fc53c788bac714d658692d9859ab4b8e32318285f",
+          "size_bytes": 230775
         }
       ],
       "source_name": "बुखारी व मुस्लिम की ३०० हदीस",
@@ -615383,10 +615579,38 @@
           "decision_date_japan": "2026-11-11",
           "policy_path": "catalog/provenance-policy.json",
           "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h018": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h039": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h064": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
+        },
+        "hi:islamhouse-hi300-2fc65776:h075": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Organizational credit in this exact edition on PDF page 3."
         }
       },
       "current_translation_origin_counts": {
-        "human": 112
+        "human": 116
       },
       "current_translation_policy": {
         "classification": "human",
@@ -628252,6 +628476,76 @@
       }
     },
     {
+      "dataset_id": "ur-hisn-islamhouse-1436-71ceda4c",
+      "language": "ur",
+      "book_key": "hisn-al-muslim",
+      "edition": "islamhouse-1436-71ceda4c",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ur-hisn-islamhouse-1436-71ceda4c/source.json",
+      "source_sha256": "b18355cc2675661ca7272576fec4a4f257712766e2ecaf01b0a05ffc53fe93ab",
+      "canonical_records_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/records.json",
+      "canonical_records_sha256": "75ffc0acb6c272d9ef343913e98b5be39a38cc218a1629d0facb292e22527d35",
+      "source_descriptor": {
+        "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/source.json",
+        "sha256": "b18355cc2675661ca7272576fec4a4f257712766e2ecaf01b0a05ffc53fe93ab",
+        "name": "حصن المسلم",
+        "format": "json",
+        "url": "https://d1.islamhouse.com/data/ur/ih_books/single2/ur_Hisnul_Muslim_1436.pdf"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/ur-hisn-islamhouse-1436-71ceda4c.json",
+          "sha256": "a4e0fc1535b5323cb0ad930bab9a7a2a97c57bb7cf8c8c36ef9fb2b112254133",
+          "size_bytes": 2137
+        }
+      ],
+      "source_name": "حصن المسلم",
+      "translation_provenance": {
+        "translator_or_publisher": "عبدالسلام بن محمد",
+        "source_declaration": {
+          "classification": "human",
+          "evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
+        },
+        "ai_translation": "unknown",
+        "origin": "unknown",
+        "label": "Unknown",
+        "basis": "Original source attribution metadata; no additional evidence inferred",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_source_translation_declaration",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json",
+        "source_declaration_evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
+      }
+    },
+    {
       "dataset_id": "chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd",
       "language": "vi",
       "book_key": "200-golden-hadith",
@@ -632677,8 +632971,8 @@
   },
   "search": {
     "records_path": "search/records.jsonl",
-    "records_sha256": "b2929cebf0ce8e279c95b065294863c15ace9e76bff4ca9615516139afecc553",
-    "count": 114888,
+    "records_sha256": "1d6b9db02d28e226932c95c921324f304896bb7e73883b09d3b8f4a2bc2ee0bc",
+    "count": 114896,
     "shards": [
       {
         "path": "search/ja/hadeethenc/sqlite-a81da9af28f854f6/part-0001.jsonl",
@@ -633209,10 +633503,22 @@
         "bytes": 283539
       },
       {
+        "path": "search/bn/hisn-al-muslim/islamhouse-mobile-7a1b5a04/part-0001.jsonl",
+        "sha256": "27d3a2df16bc9bda2bf695311a958f2ac6b5d347f6e4afd513dac9e10563237b",
+        "count": 1,
+        "bytes": 5188
+      },
+      {
         "path": "search/bn/sahih-hadith-qudsi/islamhouse-adawi-1438-dbb1b453/part-0001.jsonl",
         "sha256": "bb4e457f655eeeead0aaed768d860b1fb14be81f7ac9b0d87641a3de77938293",
         "count": 2,
         "bytes": 14137
+      },
+      {
+        "path": "search/bn/selected-hadith-bengali/islamhouse-rabwah-1433-v1-ef7cff1f/part-0001.jsonl",
+        "sha256": "bb16df49baa68efd3840939a5f621b5fd25dc5bd1efd32260f66721fa818635d",
+        "count": 1,
+        "bytes": 6625
       },
       {
         "path": "search/bs/tirmidhi/bs-karalic-first-edition-volume-1-1999/part-0001.jsonl",
@@ -638261,6 +638567,12 @@
         "bytes": 205279
       },
       {
+        "path": "search/hi/hisn-al-muslim/risala-hisn-4-0-5443f762/part-0001.jsonl",
+        "sha256": "c77409fef268db28f0d67e623c634c975e90d8929789285d92c3ce60d5056491",
+        "count": 1,
+        "bytes": 5404
+      },
+      {
         "path": "search/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/part-0001.jsonl",
         "sha256": "f86f6ef5041141be552f54d553cee42d3eec17070b5f9f3ba63c873596de7685",
         "count": 4,
@@ -638268,15 +638580,15 @@
       },
       {
         "path": "search/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/part-0001.jsonl",
-        "sha256": "ffc0885780f800e4825be6564b6f0eb30c6a8fe38024c3b3c2f9a44dd10a2044",
+        "sha256": "1ec934e303602b1482f35783a440d2361b25c6eae1459e517c5d63b822552840",
         "count": 100,
         "bytes": 544915
       },
       {
         "path": "search/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/part-0002.jsonl",
-        "sha256": "5964070b03d386c785cf164abef879d95684f824019f131f7c2d576a6bfb8f02",
-        "count": 12,
-        "bytes": 70054
+        "sha256": "deed0fcaa29f6bc6a49eb597148db30dea446f2ee492220c97e08bae6d7b9516",
+        "count": 16,
+        "bytes": 94521
       },
       {
         "path": "search/hi/bukhari/hindi-mukhtasar-v1-4785913c/part-0001.jsonl",
@@ -639863,6 +640175,12 @@
         "bytes": 26152
       },
       {
+        "path": "search/ur/hisn-al-muslim/islamhouse-1436-71ceda4c/part-0001.jsonl",
+        "sha256": "24d5123d7260970e7d42931d256c7e31aaf74aa4b1b3728f47e6be4facbba1d6",
+        "count": 1,
+        "bytes": 4981
+      },
+      {
         "path": "search/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/part-0001.jsonl",
         "sha256": "fcb31257f5e8bc3ea6891d71678c1348231d06b800b6dca29759067f321bd519",
         "count": 100,
@@ -640716,7 +641034,7 @@
   "canonical_sources_unchanged": true,
   "snapshot_equivalence_note": "Provider ID overlap links source snapshots; snapshots and occurrences are not silently merged.",
   "counterparts": {
-    "total": 114888,
+    "total": 114896,
     "arabic_available": 80240,
     "english_available": 9588,
     "arabic_external_links": 0,
@@ -640724,7 +641042,7 @@
     "exact_links": 8768,
     "related_version_links": 329,
     "reviewed_parallel_links": 3174,
-    "unresolved": 102617,
+    "unresolved": 102625,
     "with_numbered_references": 7504,
     "by_language": {
       "ar": {
@@ -640734,8 +641052,8 @@
         "english_available": 15
       },
       "bn": {
-        "total": 46,
-        "unresolved": 46
+        "total": 48,
+        "unresolved": 48
       },
       "bs": {
         "total": 3,
@@ -640764,10 +641082,10 @@
         "unresolved": 356
       },
       "hi": {
-        "total": 33073,
+        "total": 33078,
         "arabic_available": 24583,
         "english_available": 2408,
-        "unresolved": 30665
+        "unresolved": 30670
       },
       "ja": {
         "total": 3520,
@@ -640785,8 +641103,8 @@
         "unresolved": 8
       },
       "ur": {
-        "total": 231,
-        "unresolved": 231
+        "total": 232,
+        "unresolved": 232
       },
       "uz": {
         "total": 9780,
@@ -640812,20 +641130,20 @@
     },
     "availability": {
       "totals": {
-        "total": 114888,
+        "total": 114896,
         "arabic_text": 89009,
         "arabic_link": 9796,
         "arabic_available": 98805,
         "english_text": 72287,
         "english_link": 4051,
         "english_available": 76338,
-        "missing_arabic": 16083,
-        "missing_english": 38550,
+        "missing_arabic": 16091,
+        "missing_english": 38558,
         "both_text": 63653,
         "both_available": 76316,
         "arabic_only": 22489,
         "english_only": 22,
-        "neither_available": 16061
+        "neither_available": 16069
       },
       "by_language": {
         "ar": {
@@ -640845,20 +641163,20 @@
           "neither_available": 0
         },
         "bn": {
-          "total": 46,
+          "total": 48,
           "arabic_text": 0,
           "arabic_link": 4,
           "arabic_available": 4,
           "english_text": 0,
           "english_link": 4,
           "english_available": 4,
-          "missing_arabic": 42,
-          "missing_english": 42,
+          "missing_arabic": 44,
+          "missing_english": 44,
           "both_text": 0,
           "both_available": 4,
           "arabic_only": 0,
           "english_only": 0,
-          "neither_available": 42
+          "neither_available": 44
         },
         "bs": {
           "total": 3,
@@ -640941,20 +641259,20 @@
           "neither_available": 78
         },
         "hi": {
-          "total": 33073,
+          "total": 33078,
           "arabic_text": 24583,
           "arabic_link": 6114,
           "arabic_available": 30697,
           "english_text": 29253,
           "english_link": 1289,
           "english_available": 30542,
-          "missing_arabic": 2376,
-          "missing_english": 2531,
+          "missing_arabic": 2381,
+          "missing_english": 2536,
           "both_text": 24303,
           "both_available": 30538,
           "arabic_only": 159,
           "english_only": 4,
-          "neither_available": 2372
+          "neither_available": 2377
         },
         "ja": {
           "total": 3520,
@@ -641005,20 +641323,20 @@
           "neither_available": 8
         },
         "ur": {
-          "total": 231,
+          "total": 232,
           "arabic_text": 0,
           "arabic_link": 8,
           "arabic_available": 8,
           "english_text": 0,
           "english_link": 12,
           "english_available": 12,
-          "missing_arabic": 223,
-          "missing_english": 219,
+          "missing_arabic": 224,
+          "missing_english": 220,
           "both_text": 0,
           "both_available": 8,
           "arabic_only": 0,
           "english_only": 4,
-          "neither_available": 219
+          "neither_available": 220
         },
         "uz": {
           "total": 9780,

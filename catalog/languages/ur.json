@@ -3,7 +3,7 @@
   "language": "ur",
   "name": "Urdu",
   "scope": "public_source_snapshots",
-  "record_count": 231,
+  "record_count": 232,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
     {
@@ -907,6 +907,76 @@
         "basis": "explicit_owner_default_for_new_books_unless_source_declares_otherwise",
         "decision_date_japan": "2026-11-11",
         "policy_path": "catalog/provenance-policy.json"
+      }
+    },
+    {
+      "dataset_id": "ur-hisn-islamhouse-1436-71ceda4c",
+      "language": "ur",
+      "book_key": "hisn-al-muslim",
+      "edition": "islamhouse-1436-71ceda4c",
+      "count": 1,
+      "release_status": "source_review_pending",
+      "source_file": "materials/ur-hisn-islamhouse-1436-71ceda4c/source.json",
+      "source_sha256": "b18355cc2675661ca7272576fec4a4f257712766e2ecaf01b0a05ffc53fe93ab",
+      "canonical_records_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/records.json",
+      "canonical_records_sha256": "75ffc0acb6c272d9ef343913e98b5be39a38cc218a1629d0facb292e22527d35",
+      "source_descriptor": {
+        "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/source.json",
+        "sha256": "b18355cc2675661ca7272576fec4a4f257712766e2ecaf01b0a05ffc53fe93ab",
+        "name": "حصن المسلم",
+        "format": "json",
+        "url": "https://d1.islamhouse.com/data/ur/ih_books/single2/ur_Hisnul_Muslim_1436.pdf"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/ur-hisn-islamhouse-1436-71ceda4c.json",
+          "sha256": "a4e0fc1535b5323cb0ad930bab9a7a2a97c57bb7cf8c8c36ef9fb2b112254133",
+          "size_bytes": 2137
+        }
+      ],
+      "source_name": "حصن المسلم",
+      "translation_provenance": {
+        "translator_or_publisher": "عبدالسلام بن محمد",
+        "source_declaration": {
+          "classification": "human",
+          "evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
+        },
+        "ai_translation": "unknown",
+        "origin": "unknown",
+        "label": "Unknown",
+        "basis": "Original source attribution metadata; no additional evidence inferred",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_source_translation_declaration",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json",
+        "source_declaration_evidence": "Named Urdu translator printed on physical page 1 of the exact 1436 AH edition."
       }
     }
   ],

@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **114,888 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
+This public bank contains **114,896 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -16,7 +16,9 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | hadeethenc | `sqlite-a22a0e545c70b320` | 2,256 | [Read](../browse/zh-CN/hadeethenc/sqlite-a22a0e545c70b320/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/zh.sqlite) |
 | Uzbek | hadeethenc | `sqlite-8241193c5ac1f3bc` | 420 | [Read](../browse/uz/hadeethenc/sqlite-8241193c5ac1f3bc/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/uz.sqlite) |
 | Hindi | hadeethenc | `sqlite-3b74b6c4da6dc883` | 2,314 | [Read](../browse/hi/hadeethenc/sqlite-3b74b6c4da6dc883/README.md) | [Original file](../sources/hadeethenc/snapshots/2026-11-11/raw/hi.sqlite) |
+| Bengali | hisn-al-muslim | `islamhouse-mobile-7a1b5a04` | 1 | [Read](../browse/bn/hisn-al-muslim/islamhouse-mobile-7a1b5a04/README.md) | [Original file](../materials/bn-hisn-islamhouse-mobile-7a1b5a04/source.json) |
 | Bengali | sahih-hadith-qudsi | `islamhouse-adawi-1438-dbb1b453` | 2 | [Read](../browse/bn/sahih-hadith-qudsi/islamhouse-adawi-1438-dbb1b453/README.md) | [Original file](../materials/bn-islamhouse-qudsi-dbb1b453/source.json) |
+| Bengali | selected-hadith-bengali | `islamhouse-rabwah-1433-v1-ef7cff1f` | 1 | [Read](../browse/bn/selected-hadith-bengali/islamhouse-rabwah-1433-v1-ef7cff1f/README.md) | [Original file](../materials/bn-islamhouse-selected-v1-ef7cff1f/source.json) |
 | bs | tirmidhi | `bs-karalic-first-edition-volume-1-1999` | 3 | [Read](../browse/bs/tirmidhi/bs-karalic-first-edition-volume-1-1999/README.md) | [Original file](../materials/bs-tirmidhi-karalic-v1-1999-8b62165c/source.pdf) |
 | de | nawawi | `suleyman-mobile-7bcee562` | 3 | [Read](../browse/de/nawawi/suleyman-mobile-7bcee562/README.md) | [Original file](../materials/de-suleyman-mobile-7bcee562/source.pdf) |
 | Hindi | abu-dawud | `deenhindi-web-20261112` | 2,078 | [Read](../browse/hi/abu-dawud/deenhindi-web-20261112/README.md) | [Original file](../materials/deenhindi-abudawud/source-index.json) |
@@ -93,8 +95,9 @@ Counts describe source occurrences across translations and editions. They are no
 | Urdu | tirmidhi | `fawaz-api-df57907be352` | 63 | [Read](../browse/ur/tirmidhi/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-ur/source-index.json) |
 | Filipino / Tagalog | hisn-al-muslim | `pdf-3e409dd7-third-edition` | 298 | [Read](../browse/fil/hisn-al-muslim/pdf-3e409dd7-third-edition/README.md) | [Original file](../materials/fil-hisn-muslim-3e409dd7/FIL-HISN-PRIVATE.pdf) |
 | Uzbek | tirmidhi | `hadisuz-tirmidhi-web-20261112` | 606 | [Read](../browse/uz/tirmidhi/hadisuz-tirmidhi-web-20261112/README.md) | [Original file](../materials/hadisuz-tirmidhi-uz-web/source-evidence.json) |
+| Hindi | hisn-al-muslim | `risala-hisn-4-0-5443f762` | 1 | [Read](../browse/hi/hisn-al-muslim/risala-hisn-4-0-5443f762/README.md) | [Original file](../materials/hi-hisn-risala-5443f762/source.json) |
 | Hindi | selected-hadith-encyclopedia | `islamhouse-hadith-encyclopedia-1446-481dab05` | 4 | [Read](../browse/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/README.md) | [Original file](../materials/hi-islamhouse-encyclopedia-481dab05/source.json) |
-| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 112 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
+| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 116 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
 | Hindi | bukhari | `hindi-mukhtasar-v1-4785913c` | 680 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v1-4785913c/README.md) | [Original file](../materials/hi-mukhtasar-v1-4785913c/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v2-d99bfae5` | 732 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v2-d99bfae5/README.md) | [Original file](../materials/hi-mukhtasar-v2-d99bfae5/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v3-1cd9232b` | 626 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v3-1cd9232b/README.md) | [Original file](../materials/hi-mukhtasar-v3-1cd9232b/source.pdf) |
@@ -227,6 +230,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | nasai | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/nasai/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-nasai/source-bundle.json) |
 | Chinese | tirmidhi | `iman-quran-excerpts-ae2c075` | 6 | [Read](../browse/zh-CN/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-tirmidhi/source-bundle.json) |
 | Chinese | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/zh-CN/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-unclassified/source-bundle.json) |
+| Urdu | hisn-al-muslim | `islamhouse-1436-71ceda4c` | 1 | [Read](../browse/ur/hisn-al-muslim/islamhouse-1436-71ceda4c/README.md) | [Original file](../materials/ur-hisn-islamhouse-1436-71ceda4c/source.json) |
 | Vietnamese | 200-golden-hadith | `pdf-c7dcc5d2a0abffdd` | 200 | [Read](../browse/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-d9b954eb26087bf4` | 84 | [Read](../browse/vi/abu-dawud/pdf-d9b954eb26087bf4/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-d9b954eb26087bf4/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-f3309a8aac2dc05c` | 81 | [Read](../browse/vi/abu-dawud/pdf-f3309a8aac2dc05c/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-f3309a8aac2dc05c/source.pdf) |
@@ -282,7 +286,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 113,721 |
+| Human | 113,729 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -292,7 +296,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 74,954 |
+| `unknown` | 74,962 |
 | `human_translator_credited` | 30,642 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |
