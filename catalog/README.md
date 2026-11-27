@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **114,879 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
+This public bank contains **114,880 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -92,7 +92,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Urdu | tirmidhi | `fawaz-api-df57907be352` | 63 | [Read](../browse/ur/tirmidhi/fawaz-api-df57907be352/README.md) | [Original file](../materials/fawaz-tirmidhi-df57907be352-ur/source-index.json) |
 | Filipino / Tagalog | hisn-al-muslim | `pdf-3e409dd7-third-edition` | 298 | [Read](../browse/fil/hisn-al-muslim/pdf-3e409dd7-third-edition/README.md) | [Original file](../materials/fil-hisn-muslim-3e409dd7/FIL-HISN-PRIVATE.pdf) |
 | Uzbek | tirmidhi | `hadisuz-tirmidhi-web-20261112` | 606 | [Read](../browse/uz/tirmidhi/hadisuz-tirmidhi-web-20261112/README.md) | [Original file](../materials/hadisuz-tirmidhi-uz-web/source-evidence.json) |
-| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 109 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
+| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 110 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
 | Hindi | bukhari | `hindi-mukhtasar-v1-4785913c` | 680 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v1-4785913c/README.md) | [Original file](../materials/hi-mukhtasar-v1-4785913c/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v2-d99bfae5` | 732 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v2-d99bfae5/README.md) | [Original file](../materials/hi-mukhtasar-v2-d99bfae5/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v3-1cd9232b` | 626 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v3-1cd9232b/README.md) | [Original file](../materials/hi-mukhtasar-v3-1cd9232b/source.pdf) |
@@ -280,7 +280,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 113,712 |
+| Human | 113,713 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -291,7 +291,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
 | `human_translator_credited` | 30,642 |
-| `unknown` | 74,945 |
+| `unknown` | 74,946 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |
 
