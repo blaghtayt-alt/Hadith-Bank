@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [islamhouse-al-zulfi-2fc65776](islamhouse-al-zulfi-2fc65776/README.md) — 110 source occurrences
+- [islamhouse-al-zulfi-2fc65776](islamhouse-al-zulfi-2fc65776/README.md) — 112 source occurrences

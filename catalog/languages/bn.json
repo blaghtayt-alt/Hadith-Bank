@@ -3,9 +3,79 @@
   "language": "bn",
   "name": "Bengali",
   "scope": "public_source_snapshots",
-  "record_count": 44,
+  "record_count": 46,
   "count_unit": "source narration/entry occurrences across editions; not unique canonical Hadith",
   "datasets": [
+    {
+      "dataset_id": "bn-islamhouse-qudsi-dbb1b453",
+      "language": "bn",
+      "book_key": "sahih-hadith-qudsi",
+      "edition": "islamhouse-adawi-1438-dbb1b453",
+      "count": 2,
+      "release_status": "source_review_pending",
+      "source_file": "materials/bn-islamhouse-qudsi-dbb1b453/source.json",
+      "source_sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+      "canonical_records_path": "materials/bn-islamhouse-qudsi-dbb1b453/records.json",
+      "canonical_records_sha256": "f63186ff221194d52a8f56b3690a141af35a0ec26673797bff46de86caa71059",
+      "source_descriptor": {
+        "path": "materials/bn-islamhouse-qudsi-dbb1b453/source.json",
+        "sha256": "a671caadbb0f76fccce66165ddde766caaae8ce281842ece37a1c184d3adeb54",
+        "name": "সহীহ হাদীসে কুদসী",
+        "format": "json",
+        "url": "https://islamhouse.com/bn/books/385563/"
+      },
+      "adapter": "records-v1",
+      "manifest_path": "materials/bn-islamhouse-qudsi-dbb1b453/manifest.json",
+      "publication": {
+        "visibility": "public",
+        "status": "published_pending_review",
+        "authorized": true,
+        "decision": "owner_requested_public_pending_review",
+        "decision_date_japan": "2026-11-27",
+        "manifest_path": "materials/bn-islamhouse-qudsi-dbb1b453/manifest.json",
+        "independent_qc_asserted": false,
+        "rights_clearance_asserted": false
+      },
+      "available_locally": true,
+      "public_text_published": true,
+      "supporting_files": [
+        {
+          "path": "sources/reader-groups/bn-islamhouse-qudsi-dbb1b453.json",
+          "sha256": "c1d7299ae94cc25350d71295efb5b3bb3bc708fb2380048f46cc89641ec1806e",
+          "size_bytes": 4190
+        }
+      ],
+      "source_name": "সহীহ হাদীসে কুদসী",
+      "translation_provenance": {
+        "translator_or_publisher": "সানাউল্লাহ নাজির আহমদ",
+        "source_declaration": {
+          "classification": "human",
+          "evidence": "Original Bengali cover, physical PDF page 1, explicitly credits this translator."
+        },
+        "ai_translation": "unknown",
+        "origin": "unknown",
+        "label": "Unknown",
+        "basis": "Original source attribution metadata; no additional evidence inferred",
+        "human_involvement": "not_established",
+        "evidence_ids": [],
+        "scope_note": "Original source metadata is preserved; current translation classification follows the recorded provenance evidence and owner policy.",
+        "policy_path": null,
+        "current_policy": {
+          "classification": "human",
+          "basis": "explicit_source_translation_declaration",
+          "decision_date_japan": "2026-11-11",
+          "policy_path": "catalog/provenance-policy.json",
+          "source_declaration_evidence": "Original Bengali cover, physical PDF page 1, explicitly credits this translator."
+        }
+      },
+      "current_translation_policy": {
+        "classification": "human",
+        "basis": "explicit_source_translation_declaration",
+        "decision_date_japan": "2026-11-11",
+        "policy_path": "catalog/provenance-policy.json",
+        "source_declaration_evidence": "Original Bengali cover, physical PDF page 1, explicitly credits this translator."
+      }
+    },
     {
       "dataset_id": "fawaz-bukhari-df57907be352-bn",
       "language": "bn",

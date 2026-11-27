@@ -9,3 +9,4 @@
 - [موطأ مالك — Muwatta of Imam Malik](malik/README.md) — 11 source occurrences
 - [صحيح مسلم — Sahih Muslim](muslim/README.md) — 27 source occurrences
 - [سنن النسائي — Sunan al-Nasai](nasai/README.md) — 4 source occurrences
+- [sahih-hadith-qudsi](sahih-hadith-qudsi/README.md) — 2 source occurrences
