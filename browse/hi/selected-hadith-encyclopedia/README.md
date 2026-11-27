@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [islamhouse-hadith-encyclopedia-1446-481dab05](islamhouse-hadith-encyclopedia-1446-481dab05/README.md) — 4 source occurrences
+- [islamhouse-hadith-encyclopedia-1446-481dab05](islamhouse-hadith-encyclopedia-1446-481dab05/README.md) — 7 source occurrences
