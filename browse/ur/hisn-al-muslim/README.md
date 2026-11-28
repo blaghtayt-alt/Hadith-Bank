@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [islamhouse-1436-71ceda4c](islamhouse-1436-71ceda4c/README.md) — 10 source occurrences
+- [islamhouse-1436-71ceda4c](islamhouse-1436-71ceda4c/README.md) — 12 source occurrences
