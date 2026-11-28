@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **114,910 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
+This public bank contains **114,911 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -232,7 +232,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Chinese | nasai | `iman-quran-excerpts-ae2c075` | 1 | [Read](../browse/zh-CN/nasai/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-nasai/source-bundle.json) |
 | Chinese | tirmidhi | `iman-quran-excerpts-ae2c075` | 6 | [Read](../browse/zh-CN/tirmidhi/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-tirmidhi/source-bundle.json) |
 | Chinese | unclassified | `iman-quran-excerpts-ae2c075` | 2 | [Read](../browse/zh-CN/unclassified/iman-quran-excerpts-ae2c075/README.md) | [Original file](../materials/quran-excerpts-zh-cn-unclassified/source-bundle.json) |
-| Urdu | hisn-al-muslim | `islamhouse-1436-71ceda4c` | 3 | [Read](../browse/ur/hisn-al-muslim/islamhouse-1436-71ceda4c/README.md) | [Original file](../materials/ur-hisn-islamhouse-1436-71ceda4c/source.json) |
+| Urdu | hisn-al-muslim | `islamhouse-1436-71ceda4c` | 4 | [Read](../browse/ur/hisn-al-muslim/islamhouse-1436-71ceda4c/README.md) | [Original file](../materials/ur-hisn-islamhouse-1436-71ceda4c/source.json) |
 | Vietnamese | 200-golden-hadith | `pdf-c7dcc5d2a0abffdd` | 200 | [Read](../browse/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/200-golden-hadith/pdf-c7dcc5d2a0abffdd/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-d9b954eb26087bf4` | 84 | [Read](../browse/vi/abu-dawud/pdf-d9b954eb26087bf4/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-d9b954eb26087bf4/source.pdf) |
 | Vietnamese | abu-dawud | `pdf-f3309a8aac2dc05c` | 81 | [Read](../browse/vi/abu-dawud/pdf-f3309a8aac2dc05c/README.md) | [Original file](../attachments/attachments-vi-920394517894aea9/sources/vi/abu-dawud/pdf-f3309a8aac2dc05c/source.pdf) |
@@ -288,7 +288,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 113,743 |
+| Human | 113,744 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -298,7 +298,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 74,976 |
+| `unknown` | 74,977 |
 | `human_translator_credited` | 30,642 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |

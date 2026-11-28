@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,910 source occurrences**: Arabic text 89,012; English text 72,290; English source links 4,051.
+**114,911 source occurrences**: Arabic text 89,012; English text 72,290; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -21,7 +21,7 @@ Text and external-only links are counted separately. An English source link requ
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt | 8 | 0 | 0 | 0 | 8 | 8 |
-| ur | 234 | 0 | 0 | 12 | 226 | 222 |
+| ur | 235 | 0 | 0 | 12 | 227 | 223 |
 | uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
@@ -297,7 +297,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-zh-cn-nasai | zh-CN | 1 | 0 | 0 | 0 | 1 | 1 |
 | quran-excerpts-zh-cn-tirmidhi | zh-CN | 6 | 6 | 1 | 0 | 0 | 5 |
 | quran-excerpts-zh-cn-unclassified | zh-CN | 2 | 0 | 0 | 0 | 2 | 2 |
-| ur-hisn-islamhouse-1436-71ceda4c | ur | 3 | 0 | 0 | 0 | 3 | 3 |
+| ur-hisn-islamhouse-1436-71ceda4c | ur | 4 | 0 | 0 | 0 | 4 | 4 |
 | zh-abu-dawud-yu-2002-doc | zh-CN | 2,828 | 2,827 | 162 | 2,664 | 1 | 2 |
 | zh-cn-hisn-muslim-1a09ee75 | zh-CN | 251 | 0 | 0 | 0 | 251 | 251 |
 | zh-cn-ibn-majah-yu-2013 | zh-CN | 4,354 | 50 | 49 | 0 | 4,304 | 4,305 |

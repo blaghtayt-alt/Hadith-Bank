@@ -122,6 +122,74 @@
       "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44999278484"
     },
     {
+      "batchId": "hi-islamhouse-300-026-h048",
+      "book": "Hindi 300 Hadith",
+      "exactEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "sourceLocator": "Printed Hadith 48",
+        "sourcePhysicalPages": [
+          23
+        ],
+        "exactPrivateAdmissionSHA256": "b09d55c7accba7a175f1aaad582764cbbadea1265a9a7b2edf8800c055bb676d",
+        "exactPrivateSearchSHA256": "0a82816fc75e93d159d2d46159ecb554539c2ce6716a6a5d2bfe9a1442d44f46",
+        "translationSHA256": "f3cddda6be3fafc51328e1c24974db752266446c4f7576b7af1c2737f7e70586"
+      },
+      "materialManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "0d7b28c18713af76c32603169d0d24d69fd7b437b0d88ced745935b5ce62d5d8",
+        "size_bytes": 1135
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "9d44f58a1e7736f70b905c268c3b60f8298d27f3462f0945ac370bad022d81b7",
+        "size_bytes": 234662
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h048"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:muslim:6548"
+      ],
+      "publicationStatus": "merged_pending_publication_and_live_verification",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 1,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h009",
+          "reason": "Earliest source fit and speaker hold."
+        },
+        {
+          "id": "h046",
+          "reason": "Hindi reduces the Arabic superlative in the source."
+        }
+      ],
+      "earliestPendingGap": 9,
+      "nextSourceItemToReview": "H009 source fit. H046 remains held. Next unaffected whole original from the same exact edition.",
+      "nextReviewedItemWaitingIntegration": "hi:islamhouse-hi300-2fc65776:h048",
+      "branch": "books/hi-encyclopedia-h009-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/56",
+      "commit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "buildReceipt": {
+        "run": 46118444166,
+        "job": 140897447268,
+        "status": "success",
+        "proposedFiles": 45505,
+        "siteBytes": 932033201,
+        "budgetBytes": 950000000,
+        "manifestSHA256": "f63648aed4dd8acf380b43795ea511b6c880b4f002d52fd29e9767c1e3f0960a"
+      },
+      "deploymentReceipt": {
+        "productionRun": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46123417834",
+        "status": "pending"
+      },
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false
+    },
+    {
       "batchId": "hi-islamhouse-300-004",
       "sourceEdition": "islamhouse-al-zulfi-2fc65776",
       "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
@@ -1749,6 +1817,79 @@
       ]
     },
     {
+      "batchId": "hi-islamhouse-encyclopedia-004-h009",
+      "book": "Hindi Selected Hadith Encyclopedia",
+      "exactEdition": "islamhouse-hadith-encyclopedia-1446-481dab05",
+      "sourcePdfSHA256": "481dab05c77d2840d4072a25289240fde123ecc7ffa4d4a16349d8cb81a64092",
+      "sourceCheckpoint": {
+        "sourceLocator": "Original numbered item 9. Arabic and Hindi p24 (printed 22), source explanations/lessons and cross-reference 3419 through p25 (printed 23).",
+        "sourcePhysicalPages": [
+          24,
+          25
+        ],
+        "exactPrivateAdmissionSHA256": "528af73be29163b62623ebfdd299984225888fe1ff6a2bd34e03bc244a99a123",
+        "exactPrivateSearchSHA256": "e00b65f2884a1af378dea026eea80d3cc9c0c052a1c720c746e3191cf01b66be",
+        "translationSHA256": "d0a6f1d62040e7dcd50801aa9b220b57503489da7b1d3473d3c7f33dfae1fd36"
+      },
+      "materialManifest": {
+        "path": "materials/hi-islamhouse-encyclopedia-481dab05/manifest.json",
+        "sha256": "cc747c23219d7fa86e6deb60cf0e0b6e0b7d3dab156bef6c42b3089e8f62cb3b",
+        "size_bytes": 1248
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-encyclopedia-481dab05:h009"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:4497"
+      ],
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-encyclopedia-481dab05.json",
+        "sha256": "026e281730b5f085bc22bbd198d199a17a27019f580d99cddf86ba87b5c98719",
+        "size_bytes": 16286
+      },
+      "publicationStatus": "merged_pending_publication_and_live_verification",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 1,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h003",
+          "reason": "Earliest source fit remains held."
+        },
+        {
+          "id": "h004",
+          "reason": "Distinct printed-clause fit hold."
+        },
+        {
+          "id": "h006",
+          "reason": "Source wording/role mismatch."
+        }
+      ],
+      "earliestPendingGap": 3,
+      "nextSourceItemToReview": "H003 earliest source-fit hold. H010 starts physical p25 in the forward queue.",
+      "nextReviewedItemWaitingIntegration": "hi:islamhouse-encyclopedia-481dab05:h009",
+      "branch": "books/hi-encyclopedia-h009-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/56",
+      "commit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "buildReceipt": {
+        "run": 46118444166,
+        "job": 140897447268,
+        "status": "success",
+        "proposedFiles": 45505,
+        "siteBytes": 932033201,
+        "budgetBytes": 950000000,
+        "manifestSHA256": "f63648aed4dd8acf380b43795ea511b6c880b4f002d52fd29e9767c1e3f0960a"
+      },
+      "deploymentReceipt": {
+        "productionRun": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46123417834",
+        "status": "pending"
+      },
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false
+    },
+    {
       "batchId": "bn-islamhouse-qudsi-001",
       "book": "Sahih Hadith Qudsi — Bengali, 1438 AH IslamHouse",
       "sourceEdition": "islamhouse-adawi-1438-dbb1b453",
@@ -3139,11 +3280,11 @@
       "existingArabicOccurrenceIds": [
         "fawaz:df57907be352:abudawud:4023"
       ],
-      "publicationStatus": "staged_pending_hosted_checks",
+      "publicationStatus": "verified_live",
       "baseCommit": "4ab0cef2fcf0d6de8496b01e351959b5e762e619",
       "branch": "books/ur-hisn-1436-h005-exact",
       "expectedAddedCount": 1,
-      "actualAddedCount": 0,
+      "actualAddedCount": 1,
       "alreadyIntegrated": [],
       "held": [
         {
@@ -3157,13 +3298,340 @@
       ],
       "earliestPendingGap": "Printed 6 exact admission; printed 4 is a verified source numbering gap.",
       "nextSourceItemToReview": "Printed 6 whole local source and separate source note.",
-      "nextReviewedItemWaitingIntegration": "Printed 5 awaits hosted reader checks.",
-      "pullRequest": null,
+      "nextReviewedItemWaitingIntegration": null,
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/55",
+      "commit": "d18ee91ab1b0e19b72a636a1917c493f4d82b3fc",
+      "buildReceipt": {
+        "run": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46114106659",
+        "siteBytes": 931994616,
+        "recordCount": 114911
+      },
+      "deploymentReceipt": {
+        "productionRun": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/46119372774",
+        "status": "success",
+        "verifiedRecordCount": 114911,
+        "verifiedAtUTC": "2026-11-28T07:53:52.807753+00:00",
+        "staticReceiptSHA256": "bee10df8aaf7700baab9c0d3a5ac6933c4cf281ade8de1e3054f4cdd4d7f3b02",
+        "searchReceiptSHA256": "284d7b41772a9641bfd56ea074566aff6d6be4eac0b65f00603e02cca6265e01"
+      },
+      "liveRecordsChecked": [
+        {
+          "id": "ur:hisn-islamhouse-1436-71ceda4c:h005",
+          "url": "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/ur/hisn-al-muslim/islamhouse-1436-71ceda4c/0f037dc611e252e915cb5cf5.html",
+          "htmlSHA256": "69a1d267736b3ad9043f54b40e0cd7dc1735d5fd4cd638cef5bfa8611abbafb4",
+          "linkedArabic": "fawaz:df57907be352:abudawud:4023",
+          "exactTranslatedTextSHA256": "94243223219025020a85b4ed1fb905f73f356eddb43880aa1ac4b3b217bd02a5",
+          "noteCount": 1
+        }
+      ],
+      "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "hi-hisn-short80-002-s001-f03",
+      "book": "Hindi Hisn, short 80-page edition",
+      "exactEdition": "islamhouse-hisn-hindi-80-page-55649737",
+      "sourcePdfSHA256": "55649737c842de9a7890813b75cb11c3aa284cccf6f3a969e9c8749a7de6fff1",
+      "sourceCheckpoint": {
+        "sourceLocator": "Chapter 1, third waking formula, physical PDF and printed p8. Unnumbered formula. Separate footnote 2 at the bottom of p8.",
+        "sourcePhysicalPages": [
+          8
+        ],
+        "exactPrivateAdmissionSHA256": "209857cdf0422e02a5983bf7bd2f58a9b870d6aa852e4c153d85f797aa2a4cf2",
+        "exactPrivateSearchSHA256": "3172146a650a4711eed786ecc5d969f4eab1796a2ebb49c164184e34a60cbd6d",
+        "translationSHA256": "ffaee7d0f9cde9d1a6a97e15122b8d439babe9daaf44677016e7de5f539ba40c"
+      },
+      "materialManifest": {
+        "path": "materials/hi-hisn-risala-short80-55649737/manifest.json",
+        "sha256": "4184fcdabda2cd6ef05250baca5eac1402509f60d63bb8b3102000ca436d2954",
+        "size_bytes": 1223
+      },
+      "includedOccurrenceIds": [
+        "hi:hisn-risala-short80-55649737:s001-f03"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:tirmidhi:3401"
+      ],
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-hisn-risala-short80-55649737.json",
+        "sha256": "9a99555aee95b348eac07f9f6610d6b8116d81bf622a93bdf8faf47121b01caa",
+        "size_bytes": 4360
+      },
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "s001-f02",
+          "reason": "Second waking formula printed references and related wording scope remain held."
+        }
+      ],
+      "earliestPendingGap": "s001-f02",
+      "nextSourceItemToReview": "Second waking formula p8 route hold, then Chapter 2 physical p10.",
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
       "commit": null,
       "buildReceipt": null,
       "deploymentReceipt": null,
       "liveRecordsChecked": [],
-      "readerScreenshotCount": 0
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false,
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/57",
+        "head": "66466bb4a440b0aa6851059881917b475364ac5d"
+      }
+    },
+    {
+      "batchId": "bn-selected-v1-004-h005",
+      "book": "Bengali Selected Hadith, Volume 1",
+      "exactEdition": "islamhouse-rabwah-1433-v1-ef7cff1f",
+      "sourcePdfSHA256": "ef7cff1ff4a16f3eb8193674a1f44384291e065f0a7bd4d649d3ad19b87808f0",
+      "sourceCheckpoint": {
+        "sourceLocator": "Volume 1, printed item ৫, original physical and printed p15. The bio cross-reference and separate lessons continue through p16.",
+        "sourcePhysicalPages": [
+          15
+        ],
+        "exactPrivateAdmissionSHA256": "7e31c5d663bb08f02be7640399010ae71b30212c434b0951322851f61232199e",
+        "exactPrivateSearchSHA256": "587e055fe62d83f2fe3fcbfc93ff1265b710c3ef228adf841efa9bb76576b1a6",
+        "translationSHA256": "9a3d9334dc10fa4f722d6eb7bc5ec3d19b9bf2be5aabecc86f57fb08933e0006"
+      },
+      "materialManifest": {
+        "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
+        "sha256": "b345c79cbf96253d7227e1692d708c81bc3b823e80d66a0a9f7891f0c3ce3293",
+        "size_bytes": 1161
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
+        "sha256": "61e1b5e014cf147fc6fa89370a5f9703558216cef346254de63ffc213a570297",
+        "size_bytes": 8458
+      },
+      "includedOccurrenceIds": [
+        "bn:islamhouse-selected-v1-ef7cff1f:h005"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:nasai:1282"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h002",
+          "reason": "Earliest reward-language fit remains held."
+        }
+      ],
+      "earliestPendingGap": 2,
+      "nextSourceItemToReview": "H002 reward wording, H004 breathing, H006 clothing fit; farther physical original p26–33 remains in whole-source review.",
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false,
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/58",
+        "head": "f491ec3526afce92d8fa682477218b8510b2e6ec"
+      }
+    },
+    {
+      "batchId": "bn-selected-v1-003-h007",
+      "book": "Bengali Selected Hadith, Volume 1",
+      "exactEdition": "islamhouse-rabwah-1433-v1-ef7cff1f",
+      "sourcePdfSHA256": "ef7cff1ff4a16f3eb8193674a1f44384291e065f0a7bd4d649d3ad19b87808f0",
+      "sourceCheckpoint": {
+        "sourceLocator": "Volume 1, item ৭, original print and physical PDF p18. The biography and publisher lessons continue through p19.",
+        "sourcePhysicalPages": [
+          18
+        ],
+        "exactPrivateAdmissionSHA256": "72f57a8484fd1c4bee74a278581e44b579bcccc29ec7d4f40950d69c844c2041",
+        "exactPrivateSearchSHA256": "fc11b95c2d74eaeb0e1fa5cc758980a4ba843913d8350bff7c3906011b9da432",
+        "translationSHA256": "843772cf8fa6591d23f74807a8b12199e25f1575bbf7113eca3716d9590fa627"
+      },
+      "materialManifest": {
+        "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
+        "sha256": "b345c79cbf96253d7227e1692d708c81bc3b823e80d66a0a9f7891f0c3ce3293",
+        "size_bytes": 1161
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
+        "sha256": "61e1b5e014cf147fc6fa89370a5f9703558216cef346254de63ffc213a570297",
+        "size_bytes": 8458
+      },
+      "includedOccurrenceIds": [
+        "bn:islamhouse-selected-v1-ef7cff1f:h007"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:muslim:162"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h002",
+          "reason": "Earliest H002 reward wording, H004 breathing direction, H006 clothing translation. H005 glyph confirmed separately."
+        }
+      ],
+      "earliestPendingGap": 2,
+      "nextSourceItemToReview": "Earliest H002 reward wording, H004 breathing direction, H006 clothing translation. H005 glyph confirmed separately.",
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false,
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/58",
+        "head": "f491ec3526afce92d8fa682477218b8510b2e6ec"
+      }
+    },
+    {
+      "batchId": "bn-islamhouse-qudsi-004-h016",
+      "book": "Bengali Sahih Hadith Qudsi",
+      "exactEdition": "islamhouse-adawi-1438-dbb1b453",
+      "sourcePdfSHA256": "dbb1b4531f399524fa21925863d4ce4bc948ec58a5d7488cae50c5faca37a897",
+      "sourceCheckpoint": {
+        "sourceLocator": "Printed entry 16, exact physical PDF p27 and printed p25. The previous and next headings bound this separate short occurrence.",
+        "sourcePhysicalPages": [
+          27
+        ],
+        "exactPrivateAdmissionSHA256": "72f57a8484fd1c4bee74a278581e44b579bcccc29ec7d4f40950d69c844c2041",
+        "exactPrivateSearchSHA256": "fc11b95c2d74eaeb0e1fa5cc758980a4ba843913d8350bff7c3906011b9da432",
+        "translationSHA256": "e54e160f66d69d4677bafdd8050b2be0b6360c38bde3d188c94ac832895299b3"
+      },
+      "materialManifest": {
+        "path": "materials/bn-islamhouse-qudsi-dbb1b453/manifest.json",
+        "sha256": "ffe996cd3f9f766efb0f11419bc0f04ef98b9a36e2744c60e796449041a3d3a9",
+        "size_bytes": 1113
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/bn-islamhouse-qudsi-dbb1b453.json",
+        "sha256": "157931cdb015f722eaa6ab6f1c7b43f289cb16495d162f673a1d837e0ad1d750",
+        "size_bytes": 12086
+      },
+      "includedOccurrenceIds": [
+        "bn:islamhouse-qudsi-dbb1b453:h016"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:muslim:6970"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h003",
+          "reason": "H003 Qur’an citation, H004 and H006 source issues, H012 measurement and H015 third-way lexical fit remain."
+        }
+      ],
+      "earliestPendingGap": 3,
+      "nextSourceItemToReview": "H003 Qur’an citation, H004 and H006 source issues, H012 measurement and H015 third-way lexical fit remain.",
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false,
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/58",
+        "head": "f491ec3526afce92d8fa682477218b8510b2e6ec"
+      }
+    },
+    {
+      "batchId": "bn-hisn-islamhouse-mobile-003-h006-h007",
+      "book": "Bengali mobile Hisn",
+      "exactEdition": "islamhouse-mobile-7a1b5a04",
+      "sourcePdfSHA256": "7a1b5a04e5c0c9c0437fbcfccf6863304b1390073993929f9569a561f096e63e",
+      "sourceCheckpoint": {
+        "sourceLocators": [
+          "Exact mobile edition, printed formula 6 on original physical p47-48, separate note [২০] p356.",
+          "Exact mobile edition, printed formula 7 on original physical p48, separate note [২১] p356."
+        ],
+        "sourcePhysicalPages": [
+          47,
+          48,
+          356
+        ],
+        "exactPrivateAdmissionSHA256": "03b8bba8a4a7d4f4e530b05fa201756e0644ff2e25b842d562112f2945e09f6d",
+        "exactPrivateSearchSHA256": "2ecf33f6ca8e1bc5a351e5aed823e3e4c5c8344e33165b561844530101d8db5d",
+        "translationHashes": [
+          "6f4fe30615abc70329f0f68a4451cf4965ea4d40aba4b38eaa67c181491735b0",
+          "cabbff980397eed2cb7e8595fc6ff0d67d579ebf3fb1e528387015982bfaad64"
+        ]
+      },
+      "materialManifest": {
+        "path": "materials/bn-hisn-islamhouse-mobile-7a1b5a04/manifest.json",
+        "sha256": "3c276b4741b279b332aacbddb56ada2b7d0f620274ebac77d15fc46984c0125b",
+        "size_bytes": 1155
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/bn-hisn-islamhouse-mobile-7a1b5a04.json",
+        "sha256": "d5b06602575f1d7edc58857ce757a25065170c61d29286e4d75f5f6208080b35",
+        "size_bytes": 7953
+      },
+      "includedOccurrenceIds": [
+        "bn:hisn-islamhouse-mobile-7a1b5a04:h006",
+        "bn:hisn-islamhouse-mobile-7a1b5a04:h007"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:abudawud:4020"
+      ],
+      "expectedAddedCount": 2,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 2,
+      "publicationStatus": "staged_pending_hosted_checks",
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h002",
+          "reason": "Earliest meaning and exact endnote fit."
+        },
+        {
+          "id": "h004",
+          "reason": "Distinct Qur’an quotation and translation limits."
+        },
+        {
+          "id": "h005",
+          "reason": "Standalone formula abbreviation."
+        }
+      ],
+      "earliestPendingGap": 2,
+      "nextSourceItemToReview": "H002 earliest fit. Later whole-source work at physical p84–92.",
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false,
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/59",
+        "head": "f451ecd85e7f59fc82204dd7421d92d763187740"
+      }
     },
     {
       "batchId": "ur-hisn-islamhouse-1436-005",
@@ -3219,7 +3687,7 @@
         "fawaz:df57907be352:ibnmajah:3558"
       ],
       "publicationStatus": "staged_pending_hosted_checks",
-      "baseCommit": "d18ee91ab1b0e19b72a636a1917c493f4d82b3fc",
+      "baseCommit": "05c1e15e087027f03adce249ec374dc2204e8104",
       "branch": "books/ur-hisn-1436-h006-h008-exact",
       "expectedAddedCount": 3,
       "actualAddedCount": 0,
@@ -3236,13 +3704,17 @@
       ],
       "earliestPendingGap": "Printed 9 exact Arabic comparison. Earlier printed number 4 is a confirmed source gap.",
       "nextSourceItemToReview": "Printed 29, physical p28 continuation.",
-      "nextReviewedItemWaitingIntegration": "Printed 6–8 await hosted validation and then live readback.",
-      "pullRequest": null,
+      "nextReviewedItemWaitingIntegration": "This occurrence awaits the combined hosted checks.",
+      "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
       "commit": null,
       "buildReceipt": null,
       "deploymentReceipt": null,
       "liveRecordsChecked": [],
-      "readerScreenshotCount": 0
+      "readerScreenshotCount": 0,
+      "carriedFrom": {
+        "pullRequest": "https://github.com/blaghtayt-alt/Hadith-Bank/pull/60",
+        "head": "d7392e3836c65faa43a45502512a7fcc7bebd0f7"
+      }
     }
   ],
   "integrationResume": {
@@ -3311,5 +3783,52 @@
     "previousFullPublishedBytes": 931983232,
     "observedRecords": 114910,
     "olderOriginalTabsMayNeedRefresh": true
+  },
+  "eightBookResume": {
+    "verifiedLiveOccurrences": 141,
+    "mergedAwaitingLiveVerification": 2,
+    "thisBatchExpectedAdditions": 9,
+    "nextReviewedItemWaitingIntegration": {
+      "staged": [
+        "bn:hisn-islamhouse-mobile-7a1b5a04:h006",
+        "bn:hisn-islamhouse-mobile-7a1b5a04:h007",
+        "bn:islamhouse-qudsi-dbb1b453:h016",
+        "bn:islamhouse-selected-v1-ef7cff1f:h005",
+        "bn:islamhouse-selected-v1-ef7cff1f:h007",
+        "hi:hisn-risala-short80-55649737:s001-f03",
+        "ur:hisn-islamhouse-1436-71ceda4c:h006",
+        "ur:hisn-islamhouse-1436-71ceda4c:h007",
+        "ur:hisn-islamhouse-1436-71ceda4c:h008"
+      ],
+      "nextPrivate": [
+        "Hindi 300 H140",
+        "Hindi Encyclopedia H011 and H014",
+        "Hindi short Hisn three clothing occurrences",
+        "Bengali Qudsi H073",
+        "Bengali mobile Hisn H008 and H011",
+        "Bengali Selected Volume 1 H012 and H013",
+        "Urdu Hisn 1436 H011 and H016"
+      ]
+    },
+    "nextSourceItemToReview": {
+      "Hindi 300": "H226 continuation, physical p101",
+      "Hindi Encyclopedia": "H020 commentary from physical p42",
+      "Hindi Hisn": "short edition physical p18 with second waking route held",
+      "Bengali Qudsi": "H124, physical p149",
+      "Bengali mobile Hisn": "H098 continuation, physical p173",
+      "Bengali Selected": "Volume 2 H018, physical p62",
+      "Urdu Diya": "source ends at physical p314; reuse and independent review hold",
+      "Urdu Hisn 1436": "next report starting on physical p92"
+    },
+    "earliestPendingGap": {
+      "Hindi 300": "H009 speaker and source wording",
+      "Hindi Encyclopedia": "H003 exact foreign wording and fit",
+      "Hindi Hisn": "short edition second waking formula route",
+      "Bengali Qudsi": "H003 verse attribution",
+      "Bengali mobile Hisn": "H002 source wording and route",
+      "Bengali Selected": "Volume 1 H002 exact correspondence",
+      "Urdu Diya": "return to H001 once edition permission and review are available",
+      "Urdu Hisn 1436": "H009 distinct source route; printed 4 is a confirmed numbering gap"
+    }
   }
 }
