@@ -1,6 +1,6 @@
 # All-materials catalog
 
-This public bank contains **114,911 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
+This public bank contains **114,913 source occurrences** in 15 languages, plus **83 preserved legacy source files**.
 
 Counts describe source occurrences across translations and editions. They are not unique canonical Hadith totals.
 
@@ -98,8 +98,8 @@ Counts describe source occurrences across translations and editions. They are no
 | Uzbek | tirmidhi | `hadisuz-tirmidhi-web-20261112` | 606 | [Read](../browse/uz/tirmidhi/hadisuz-tirmidhi-web-20261112/README.md) | [Original file](../materials/hadisuz-tirmidhi-uz-web/source-evidence.json) |
 | Hindi | hisn-al-muslim | `risala-hisn-4-0-5443f762` | 1 | [Read](../browse/hi/hisn-al-muslim/risala-hisn-4-0-5443f762/README.md) | [Original file](../materials/hi-hisn-risala-5443f762/source.json) |
 | Hindi | hisn-al-muslim | `islamhouse-hisn-hindi-80-page-55649737` | 1 | [Read](../browse/hi/hisn-al-muslim/islamhouse-hisn-hindi-80-page-55649737/README.md) | [Original file](../materials/hi-hisn-risala-short80-55649737/source.json) |
-| Hindi | selected-hadith-encyclopedia | `islamhouse-hadith-encyclopedia-1446-481dab05` | 7 | [Read](../browse/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/README.md) | [Original file](../materials/hi-islamhouse-encyclopedia-481dab05/source.json) |
-| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 117 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
+| Hindi | selected-hadith-encyclopedia | `islamhouse-hadith-encyclopedia-1446-481dab05` | 8 | [Read](../browse/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/README.md) | [Original file](../materials/hi-islamhouse-encyclopedia-481dab05/source.json) |
+| Hindi | bukhari-muslim-300 | `islamhouse-al-zulfi-2fc65776` | 118 | [Read](../browse/hi/bukhari-muslim-300/islamhouse-al-zulfi-2fc65776/README.md) | [Original file](../materials/hi-islamhouse-hi300-2fc65776/source.json) |
 | Hindi | bukhari | `hindi-mukhtasar-v1-4785913c` | 680 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v1-4785913c/README.md) | [Original file](../materials/hi-mukhtasar-v1-4785913c/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v2-d99bfae5` | 732 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v2-d99bfae5/README.md) | [Original file](../materials/hi-mukhtasar-v2-d99bfae5/source.pdf) |
 | Hindi | bukhari | `hindi-mukhtasar-v3-1cd9232b` | 626 | [Read](../browse/hi/bukhari/hindi-mukhtasar-v3-1cd9232b/README.md) | [Original file](../materials/hi-mukhtasar-v3-1cd9232b/source.pdf) |
@@ -288,7 +288,7 @@ Counts describe source occurrences across translations and editions. They are no
 | Classification | Source occurrences |
 | --- | ---: |
 | Ai | 2 |
-| Human | 113,744 |
+| Human | 113,746 |
 | Unknown | 1,165 |
 
 The scoped [owner source confirmation](provenance-policy.json) determines the current Human, AI and Unknown grouping. Copied old-bank source documents and their extracted quotations remain Unknown pending owner confirmation.
@@ -298,7 +298,7 @@ The scoped [owner source confirmation](provenance-policy.json) determines the cu
 | Original evidence category | Source occurrences |
 | --- | ---: |
 | `publisher_human_workflow` | 8,423 |
-| `unknown` | 74,977 |
+| `unknown` | 74,979 |
 | `human_translator_credited` | 30,642 |
 | `ai_translation` | 2 |
 | `legacy_source_history` | 867 |

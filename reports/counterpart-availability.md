@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,911 source occurrences**: Arabic text 89,012; English text 72,290; English source links 4,051.
+**114,913 source occurrences**: Arabic text 89,013; English text 72,291; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -17,7 +17,7 @@ Text and external-only links are counted separately. An English source link requ
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 33,083 | 24,586 | 29,256 | 1,289 | 2,383 | 2,538 |
+| hi | 33,085 | 24,587 | 29,257 | 1,289 | 2,384 | 2,539 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt | 8 | 0 | 0 | 0 | 8 | 8 |
@@ -163,8 +163,8 @@ Text and external-only links are counted separately. An English source link requ
 | hadisuz-tirmidhi-uz-web | uz | 606 | 0 | 0 | 0 | 606 | 606 |
 | hi-hisn-risala-5443f762 | hi | 1 | 0 | 0 | 0 | 1 | 1 |
 | hi-hisn-risala-short80-55649737 | hi | 1 | 0 | 0 | 0 | 1 | 1 |
-| hi-islamhouse-encyclopedia-481dab05 | hi | 7 | 7 | 7 | 0 | 0 | 0 |
-| hi-islamhouse-hi300-2fc65776 | hi | 117 | 0 | 0 | 0 | 117 | 117 |
+| hi-islamhouse-encyclopedia-481dab05 | hi | 8 | 8 | 8 | 0 | 0 | 0 |
+| hi-islamhouse-hi300-2fc65776 | hi | 118 | 0 | 0 | 0 | 118 | 118 |
 | hi-mukhtasar-v1-4785913c | hi | 680 | 0 | 0 | 0 | 680 | 680 |
 | hi-mukhtasar-v2-d99bfae5 | hi | 732 | 0 | 0 | 0 | 732 | 732 |
 | hi-mukhtasar-v3-1cd9232b | hi | 626 | 0 | 0 | 0 | 626 | 626 |
