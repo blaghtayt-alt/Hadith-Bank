@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [islamhouse-mobile-7a1b5a04](islamhouse-mobile-7a1b5a04/README.md) — 4 source occurrences
+- [islamhouse-mobile-7a1b5a04](islamhouse-mobile-7a1b5a04/README.md) — 6 source occurrences

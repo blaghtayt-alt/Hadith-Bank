@@ -6,7 +6,7 @@
 
 - [سنن أبي داود — Sunan Abi Dawud](abu-dawud/README.md) — 6 source occurrences
 - [صحيح البخاري — Sahih al-Bukhari](bukhari/README.md) — 5 source occurrences
-- [حصن المسلم — Hisn al-Muslim](hisn-al-muslim/README.md) — 7 source occurrences
+- [حصن المسلم — Hisn al-Muslim](hisn-al-muslim/README.md) — 10 source occurrences
 - [سنن ابن ماجه — Sunan Ibn Majah](ibn-majah/README.md) — 2 source occurrences
 - [موطأ مالك — Muwatta of Imam Malik](malik/README.md) — 27 source occurrences
 - [صحيح مسلم — Sahih Muslim](muslim/README.md) — 122 source occurrences

@@ -4,4 +4,4 @@
 
 [Language index](../README.md) · [All languages](../../README.md)
 
-- [islamhouse-adawi-1438-dbb1b453](islamhouse-adawi-1438-dbb1b453/README.md) — 6 source occurrences
+- [islamhouse-adawi-1438-dbb1b453](islamhouse-adawi-1438-dbb1b453/README.md) — 7 source occurrences

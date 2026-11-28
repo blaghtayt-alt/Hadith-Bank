@@ -8,13 +8,13 @@
 - [अल-अदब अल-मुफ़रद — Al-Adab al-Mufrad](adab-al-mufrad/README.md) — 1 source occurrences
 - [मुसनद अह़मद — Musnad Ahmad](ahmad/README.md) — 3 source occurrences
 - [सह़ीह़ बुख़ारी — Sahih al-Bukhari](bukhari/README.md) — 6609 source occurrences
-- [bukhari-muslim-300](bukhari-muslim-300/README.md) — 118 source occurrences
+- [bukhari-muslim-300](bukhari-muslim-300/README.md) — 119 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 2314 source occurrences
-- [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 5 source occurrences
+- [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 8 source occurrences
 - [सुनन इब्ने माजह — Sunan Ibn Majah](ibn-majah/README.md) — 4089 source occurrences
 - [موطأ مالك — Muwatta of Imam Malik](malik/README.md) — 1836 source occurrences
 - [सहीह मुस्लिम — Sahih Muslim](muslim/README.md) — 4652 source occurrences
 - [سنن النسائي — Sunan al-Nasai](nasai/README.md) — 4838 source occurrences
-- [selected-hadith-encyclopedia](selected-hadith-encyclopedia/README.md) — 8 source occurrences
+- [selected-hadith-encyclopedia](selected-hadith-encyclopedia/README.md) — 10 source occurrences
 - [सुनन तिर्मिज़ी — Jami al-Tirmidhi](tirmidhi/README.md) — 3730 source occurrences
 - [संग्रह की पहचान नहीं हुई — Collection not identified in the source](unclassified/README.md) — 28 source occurrences
