@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,903 source occurrences**: Arabic text 89,012; English text 72,290; English source links 4,051.
+**114,910 source occurrences**: Arabic text 89,012; English text 72,290; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -11,17 +11,17 @@ Text and external-only links are counted separately. An English source link requ
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
 | ar | 32,267 | 32,267 | 32,185 | 69 | 0 | 13 |
-| bn | 50 | 0 | 0 | 4 | 46 | 46 |
+| bn | 55 | 0 | 0 | 4 | 51 | 51 |
 | bs | 3 | 0 | 0 | 0 | 3 | 3 |
 | de | 3 | 0 | 0 | 0 | 3 | 3 |
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 33,082 | 24,586 | 29,256 | 1,289 | 2,382 | 2,537 |
+| hi | 33,083 | 24,586 | 29,256 | 1,289 | 2,383 | 2,538 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt | 8 | 0 | 0 | 0 | 8 | 8 |
-| ur | 233 | 0 | 0 | 12 | 225 | 221 |
+| ur | 234 | 0 | 0 | 12 | 226 | 222 |
 | uz | 9,780 | 9,015 | 452 | 0 | 765 | 9,328 |
 | vi | 4,555 | 1,347 | 1,327 | 0 | 3,208 | 3,228 |
 | zh-CN | 10,835 | 5,245 | 2,521 | 2,664 | 5,590 | 5,650 |
@@ -30,9 +30,10 @@ Text and external-only links are counted separately. An English source link requ
 
 | Source edition | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---|---:|---:|---:|---:|---:|---:|
-| bn-hisn-islamhouse-mobile-7a1b5a04 | bn | 1 | 0 | 0 | 0 | 1 | 1 |
-| bn-islamhouse-qudsi-dbb1b453 | bn | 4 | 0 | 0 | 0 | 4 | 4 |
-| bn-islamhouse-selected-v1-ef7cff1f | bn | 1 | 0 | 0 | 0 | 1 | 1 |
+| bn-hisn-islamhouse-mobile-7a1b5a04 | bn | 2 | 0 | 0 | 0 | 2 | 2 |
+| bn-islamhouse-qudsi-dbb1b453 | bn | 5 | 0 | 0 | 0 | 5 | 5 |
+| bn-islamhouse-selected-v1-ef7cff1f | bn | 2 | 0 | 0 | 0 | 2 | 2 |
+| bn-islamhouse-selected-v2-5c737ef8 | bn | 2 | 0 | 0 | 0 | 2 | 2 |
 | bs-tirmidhi-karalic-v1-1999-8b62165c | bs | 3 | 0 | 0 | 0 | 3 | 3 |
 | chanlyislam:vi:200-golden-hadith:pdf-c7dcc5d2a0abffdd | vi | 200 | 85 | 84 | 0 | 115 | 116 |
 | chanlyislam:vi:abu-dawud:pdf-03e704068cea5733 | vi | 140 | 0 | 0 | 0 | 140 | 140 |
@@ -163,7 +164,7 @@ Text and external-only links are counted separately. An English source link requ
 | hi-hisn-risala-5443f762 | hi | 1 | 0 | 0 | 0 | 1 | 1 |
 | hi-hisn-risala-short80-55649737 | hi | 1 | 0 | 0 | 0 | 1 | 1 |
 | hi-islamhouse-encyclopedia-481dab05 | hi | 7 | 7 | 7 | 0 | 0 | 0 |
-| hi-islamhouse-hi300-2fc65776 | hi | 116 | 0 | 0 | 0 | 116 | 116 |
+| hi-islamhouse-hi300-2fc65776 | hi | 117 | 0 | 0 | 0 | 117 | 117 |
 | hi-mukhtasar-v1-4785913c | hi | 680 | 0 | 0 | 0 | 680 | 680 |
 | hi-mukhtasar-v2-d99bfae5 | hi | 732 | 0 | 0 | 0 | 732 | 732 |
 | hi-mukhtasar-v3-1cd9232b | hi | 626 | 0 | 0 | 0 | 626 | 626 |
@@ -296,7 +297,7 @@ Text and external-only links are counted separately. An English source link requ
 | quran-excerpts-zh-cn-nasai | zh-CN | 1 | 0 | 0 | 0 | 1 | 1 |
 | quran-excerpts-zh-cn-tirmidhi | zh-CN | 6 | 6 | 1 | 0 | 0 | 5 |
 | quran-excerpts-zh-cn-unclassified | zh-CN | 2 | 0 | 0 | 0 | 2 | 2 |
-| ur-hisn-islamhouse-1436-71ceda4c | ur | 2 | 0 | 0 | 0 | 2 | 2 |
+| ur-hisn-islamhouse-1436-71ceda4c | ur | 3 | 0 | 0 | 0 | 3 | 3 |
 | zh-abu-dawud-yu-2002-doc | zh-CN | 2,828 | 2,827 | 162 | 2,664 | 1 | 2 |
 | zh-cn-hisn-muslim-1a09ee75 | zh-CN | 251 | 0 | 0 | 0 | 251 | 251 |
 | zh-cn-ibn-majah-yu-2013 | zh-CN | 4,354 | 50 | 49 | 0 | 4,304 | 4,305 |
