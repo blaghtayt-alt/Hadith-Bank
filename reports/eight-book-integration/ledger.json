@@ -2900,6 +2900,66 @@
       "readerScreenshotCount": 0,
       "branch": "books/eight-books-seven-next-reviewed-entries",
       "baseCommit": "5165865ec1331a2570f17dbfd136f4f052897a57"
+    },
+    {
+      "batchId": "ur-hisn-islamhouse-1436-004",
+      "book": "Urdu Hisn, 1436 AH edition",
+      "sourceEdition": "islamhouse-1436-71ceda4c",
+      "sourcePdfSHA256": "71ceda4c6c44f926938e428d4ed2f68abb866e6673b8654c8ef4381eab8426ed",
+      "sourceCheckpoint": {
+        "privateReviewSHA256": "0aaa20403f677a4a66b57087828a5c18340e141a5e35f325de7b24a1fa824753",
+        "occurrences": [
+          {
+            "id": "ur:hisn-islamhouse-1436-71ceda4c:h005",
+            "physicalPages": [
+              16
+            ],
+            "sourceLocator": "Printed invocation 5 for putting on clothes, physical and printed p16. The separate source footnote is no. 1 on p16.",
+            "translationFieldSHA256": "94243223219025020a85b4ed1fb905f73f356eddb43880aa1ac4b3b217bd02a5"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+        "sha256": "dcad5ddd7b09b10641f4c8b8cce54af791c0d63243a0c49f08f93854e5e124e9",
+        "bytes": 1131
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/ur-hisn-islamhouse-1436-71ceda4c.json",
+        "sha256": "dc3ee987b79bf10dea2bddd7be254a575c04fb90a51f032c1b8446b41b73b4c6",
+        "size_bytes": 8165
+      },
+      "includedOccurrenceIds": [
+        "ur:hisn-islamhouse-1436-71ceda4c:h005"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:abudawud:4023"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "baseCommit": "4ab0cef2fcf0d6de8496b01e351959b5e762e619",
+      "branch": "books/ur-hisn-1436-h005-exact",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "sourceLocator": "Printed 4",
+          "reason": "No separate occurrence numbered 4 was printed in this edition; source Qur’an context stays separate."
+        },
+        {
+          "sourceLocator": "Printed 6 onward",
+          "reason": "Later exact-source admission proceeds separately."
+        }
+      ],
+      "earliestPendingGap": "Printed 6 exact admission; printed 4 is a verified source numbering gap.",
+      "nextSourceItemToReview": "Printed 6 whole local source and separate source note.",
+      "nextReviewedItemWaitingIntegration": "Printed 5 awaits hosted reader checks.",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
     }
   ],
   "integrationResume": {
