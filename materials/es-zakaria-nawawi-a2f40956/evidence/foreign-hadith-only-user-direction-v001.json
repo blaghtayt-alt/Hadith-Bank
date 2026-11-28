@@ -1,0 +1,26 @@
+{
+  "id": "USER-FOREIGN-HADITH-ONLY-20261116",
+  "receivedUtc": "2026-11-15T20:33:53.368350+00:00",
+  "authority": "Explicit human directions relayed by dot, 6af9f2f2-c2c0-8191-86a9-9935e6540033",
+  "verbatim": [
+    "For bengali and all other languages, we drop Arabic readings, we already have the Arabic version.",
+    "We only extract the foreign language Hadiths"
+  ],
+  "scope": "All translated-edition Bank extraction/publication/display: foreign-language HADITH text only.",
+  "excludeFromTranslatedEditionProjection": [
+    "Printed Arabic readings",
+    "Commentary and explanation",
+    "Front matter"
+  ],
+  "preserve": [
+    "Complete original books",
+    "Raw extracted Arabic and other already extracted material in archives",
+    "Source bytes, hashes and all evidence",
+    "Identifying metadata and exact translator/source/edition attribution separate from Hadith text",
+    "Existing canonical Arabic corpus/version records"
+  ],
+  "counterparts": "Link an existing Arabic version only after narration AND variant identity is verified. No match by number/title alone; otherwise leave unlinked.",
+  "gates": "Preserve text fidelity, narration/commentary boundaries, targeted independent QC, overlap, ownership and integration/publication gates. No repeated excluded-material extraction is required.",
+  "frenchCandidate": "Separate text.arabic already null; foreign narration and citation boundary retained. Embedded source honorific glyphs remain subject to their accepted rendering choice and targeted accessibility checks.",
+  "existingHistoricalImports": "No destructive deletion or silent rewriting. Reconcile projections in an owner-coordinated cloud task; no shared-repository change claimed in this receipt."
+}
