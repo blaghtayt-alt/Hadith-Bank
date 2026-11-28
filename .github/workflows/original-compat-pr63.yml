@@ -1,0 +1,86 @@
+name: Publish PR63 Original reader compatibility
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Reader shell to publish with the same retained data and archives
+        type: choice
+        options: [transition, rollback]
+        default: transition
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hadith-bank-reader-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: ops/original-compat-pr63
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Reproduce the verified Pages archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_MODE: ${{ inputs.mode }}
+        run: |
+          python ops/original-compat-pr63/build.py --mode "$RELEASE_MODE" --output "$RUNNER_TEMP/pr63"
+      - name: Upload the exact Pages archive
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/pr63/artifact.tar
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 2
+      - name: Keep exact release measurements
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: pr63-original-compatibility
+          path: ${{ runner.temp }}/pr63/packaged.json
+          if-no-files-found: error
+          retention-days: 14
+
+  deploy:
+    needs: package
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.pages.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: ops/original-compat-pr63
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - name: Recheck current Original and exact retained public routes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ops/original-compat-pr63/build.py --mode check-live
+      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/deploy-pages@v4

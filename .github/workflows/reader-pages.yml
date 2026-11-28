@@ -361,6 +361,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Read the Original publication mode from the exact built commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.build.outputs.published_commit }}
+          persist-credentials: false
+          sparse-checkout: ops/original-pages
       - name: Check that this is still the current bank
         id: current
         env:
@@ -372,7 +378,16 @@ jobs:
           current_main="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
           [[ "$current_main" =~ ^[0-9a-f]{40}$ ]]
           if [[ "$current_main" == "$EXPECTED_COMMIT" ]]; then
-            echo "publish=true" >> "$GITHUB_OUTPUT"
+            # Keep producing the checked full build for the versioned release.
+            # Publishing it here would remove paths used by open reader tabs.
+            mode_file=ops/original-pages/publish-mode
+            if [[ -f "$mode_file" ]]; then
+              [[ "$(cat "$mode_file")" == "versioned-compatibility" ]]
+              echo "Original publication requires the verified compatibility artifact."
+              echo "publish=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "publish=true" >> "$GITHUB_OUTPUT"
+            fi
           else
             echo "Main advanced before deployment; requesting its current build."
             echo "publish=false" >> "$GITHUB_OUTPUT"
