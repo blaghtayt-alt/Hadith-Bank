@@ -122,6 +122,63 @@
       "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/44999278484"
     },
     {
+      "batchId": "hi-islamhouse-300-026-h048",
+      "book": "Hindi 300 Hadith",
+      "exactEdition": "islamhouse-al-zulfi-2fc65776",
+      "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
+      "sourceCheckpoint": {
+        "sourceLocator": "Printed Hadith 48",
+        "sourcePhysicalPages": [
+          23
+        ],
+        "exactPrivateAdmissionSHA256": "b09d55c7accba7a175f1aaad582764cbbadea1265a9a7b2edf8800c055bb676d",
+        "exactPrivateSearchSHA256": "0a82816fc75e93d159d2d46159ecb554539c2ce6716a6a5d2bfe9a1442d44f46",
+        "translationSHA256": "f3cddda6be3fafc51328e1c24974db752266446c4f7576b7af1c2737f7e70586"
+      },
+      "materialManifest": {
+        "path": "materials/hi-islamhouse-hi300-2fc65776/manifest.json",
+        "sha256": "0d7b28c18713af76c32603169d0d24d69fd7b437b0d88ced745935b5ce62d5d8",
+        "size_bytes": 1135
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-300-001.json",
+        "sha256": "9d44f58a1e7736f70b905c268c3b60f8298d27f3462f0945ac370bad022d81b7",
+        "size_bytes": 234662
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-hi300-2fc65776:h048"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:muslim:6548"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h009",
+          "reason": "Earliest source fit and speaker hold."
+        },
+        {
+          "id": "h046",
+          "reason": "Hindi reduces the Arabic superlative in the source."
+        }
+      ],
+      "earliestPendingGap": 9,
+      "nextSourceItemToReview": "H009 source fit. H046 remains held. Next unaffected whole original from the same exact edition.",
+      "nextReviewedItemWaitingIntegration": "hi:islamhouse-hi300-2fc65776:h048",
+      "branch": "books/hi-encyclopedia-h009-exact",
+      "pullRequest": 56,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false
+    },
+    {
       "batchId": "hi-islamhouse-300-004",
       "sourceEdition": "islamhouse-al-zulfi-2fc65776",
       "sourcePdfSHA256": "2fc6577685e881c21901450dba2f0f946179c4a7b5163afdb194b21d2f2eeb9d",
@@ -1747,6 +1804,68 @@
         "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/fbc71b7fe9fc950b174d8cbe.html",
         "https://blaghtayt-alt.github.io/Hadith-Bank/hadith/hi/selected-hadith-encyclopedia/islamhouse-hadith-encyclopedia-1446-481dab05/82c131e2a6fcf42024ca4bd1.html"
       ]
+    },
+    {
+      "batchId": "hi-islamhouse-encyclopedia-004-h009",
+      "book": "Hindi Selected Hadith Encyclopedia",
+      "exactEdition": "islamhouse-hadith-encyclopedia-1446-481dab05",
+      "sourcePdfSHA256": "481dab05c77d2840d4072a25289240fde123ecc7ffa4d4a16349d8cb81a64092",
+      "sourceCheckpoint": {
+        "sourceLocator": "Original numbered item 9. Arabic and Hindi p24 (printed 22), source explanations/lessons and cross-reference 3419 through p25 (printed 23).",
+        "sourcePhysicalPages": [
+          24,
+          25
+        ],
+        "exactPrivateAdmissionSHA256": "528af73be29163b62623ebfdd299984225888fe1ff6a2bd34e03bc244a99a123",
+        "exactPrivateSearchSHA256": "e00b65f2884a1af378dea026eea80d3cc9c0c052a1c720c746e3191cf01b66be",
+        "translationSHA256": "d0a6f1d62040e7dcd50801aa9b220b57503489da7b1d3473d3c7f33dfae1fd36"
+      },
+      "materialManifest": {
+        "path": "materials/hi-islamhouse-encyclopedia-481dab05/manifest.json",
+        "sha256": "cc747c23219d7fa86e6deb60cf0e0b6e0b7d3dab156bef6c42b3089e8f62cb3b",
+        "size_bytes": 1248
+      },
+      "includedOccurrenceIds": [
+        "hi:islamhouse-encyclopedia-481dab05:h009"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:bukhari:4497"
+      ],
+      "groupBindings": {
+        "path": "sources/reader-groups/hi-islamhouse-encyclopedia-481dab05.json",
+        "sha256": "026e281730b5f085bc22bbd198d199a17a27019f580d99cddf86ba87b5c98719",
+        "size_bytes": 16286
+      },
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h003",
+          "reason": "Earliest source fit remains held."
+        },
+        {
+          "id": "h004",
+          "reason": "Distinct printed-clause fit hold."
+        },
+        {
+          "id": "h006",
+          "reason": "Source wording/role mismatch."
+        }
+      ],
+      "earliestPendingGap": 3,
+      "nextSourceItemToReview": "H003 earliest source-fit hold. H010 starts physical p25 in the forward queue.",
+      "nextReviewedItemWaitingIntegration": "hi:islamhouse-encyclopedia-481dab05:h009",
+      "branch": "books/hi-encyclopedia-h009-exact",
+      "pullRequest": 56,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false
     },
     {
       "batchId": "bn-islamhouse-qudsi-001",
