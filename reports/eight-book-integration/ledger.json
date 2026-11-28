@@ -276,6 +276,59 @@
       "deploymentReceipt": "https://github.com/blaghtayt-alt/Hadith-Bank/actions/runs/45005463057"
     },
     {
+      "batchId": "bn-selected-v1-004-h005",
+      "book": "Bengali Selected Hadith, Volume 1",
+      "exactEdition": "islamhouse-rabwah-1433-v1-ef7cff1f",
+      "sourcePdfSHA256": "ef7cff1ff4a16f3eb8193674a1f44384291e065f0a7bd4d649d3ad19b87808f0",
+      "sourceCheckpoint": {
+        "sourceLocator": "Volume 1, printed item ৫, original physical and printed p15. The bio cross-reference and separate lessons continue through p16.",
+        "sourcePhysicalPages": [
+          15
+        ],
+        "exactPrivateAdmissionSHA256": "7e31c5d663bb08f02be7640399010ae71b30212c434b0951322851f61232199e",
+        "exactPrivateSearchSHA256": "587e055fe62d83f2fe3fcbfc93ff1265b710c3ef228adf841efa9bb76576b1a6",
+        "translationSHA256": "9a3d9334dc10fa4f722d6eb7bc5ec3d19b9bf2be5aabecc86f57fb08933e0006"
+      },
+      "materialManifest": {
+        "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
+        "sha256": "b345c79cbf96253d7227e1692d708c81bc3b823e80d66a0a9f7891f0c3ce3293",
+        "size_bytes": 1161
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
+        "sha256": "61e1b5e014cf147fc6fa89370a5f9703558216cef346254de63ffc213a570297",
+        "size_bytes": 8458
+      },
+      "includedOccurrenceIds": [
+        "bn:islamhouse-selected-v1-ef7cff1f:h005"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:nasai:1282"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "expectedAddedCount": 1,
+      "actualAddedCount": 0,
+      "locallyValidatedCandidateCount": 1,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "id": "h002",
+          "reason": "Earliest reward-language fit remains held."
+        }
+      ],
+      "earliestPendingGap": 2,
+      "nextSourceItemToReview": "H002 reward wording, H004 breathing, H006 clothing fit; farther physical original p26–33 remains in whole-source review.",
+      "nextReviewedItemWaitingIntegration": "bn:islamhouse-selected-v1-ef7cff1f:h005",
+      "branch": "books/bengali-selected-07-qudsi-16",
+      "pullRequest": 58,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0,
+      "uploadedWholeSourcePdf": false
+    },
+    {
       "batchId": "bn-selected-v1-003-h007",
       "book": "Bengali Selected Hadith, Volume 1",
       "exactEdition": "islamhouse-rabwah-1433-v1-ef7cff1f",
@@ -291,13 +344,13 @@
       },
       "materialManifest": {
         "path": "materials/bn-islamhouse-selected-v1-ef7cff1f/manifest.json",
-        "sha256": "3ec9e458c26ee96b3d2c8dd678e01fef513e575e4d16aa67f1c6497d6abcc02f",
+        "sha256": "b345c79cbf96253d7227e1692d708c81bc3b823e80d66a0a9f7891f0c3ce3293",
         "size_bytes": 1161
       },
       "groupBindings": {
         "path": "sources/reader-groups/bn-islamhouse-selected-v1-ef7cff1f.json",
-        "sha256": "fb4a6f27c1ced27ed31e9f22f446f87ed82002fb57696538398ebd6bfaa53f05",
-        "size_bytes": 6375
+        "sha256": "61e1b5e014cf147fc6fa89370a5f9703558216cef346254de63ffc213a570297",
+        "size_bytes": 8458
       },
       "includedOccurrenceIds": [
         "bn:islamhouse-selected-v1-ef7cff1f:h007"
@@ -313,14 +366,14 @@
       "held": [
         {
           "id": "h002",
-          "reason": "Volume 1 H002 reward wording and H004 breathing direction; H005 ligature pending."
+          "reason": "Earliest H002 reward wording, H004 breathing direction, H006 clothing translation. H005 glyph confirmed separately."
         }
       ],
       "earliestPendingGap": 2,
-      "nextSourceItemToReview": "Volume 1 H002 reward wording and H004 breathing direction; H005 ligature pending.",
+      "nextSourceItemToReview": "Earliest H002 reward wording, H004 breathing direction, H006 clothing translation. H005 glyph confirmed separately.",
       "nextReviewedItemWaitingIntegration": "bn:islamhouse-selected-v1-ef7cff1f:h007",
       "branch": "books/bengali-selected-07-qudsi-16",
-      "pullRequest": null,
+      "pullRequest": 58,
       "commit": null,
       "buildReceipt": null,
       "deploymentReceipt": null,
@@ -373,7 +426,7 @@
       "nextSourceItemToReview": "H003 Qur’an citation, H004 and H006 source issues, H012 measurement and H015 third-way lexical fit remain.",
       "nextReviewedItemWaitingIntegration": "bn:islamhouse-qudsi-dbb1b453:h016",
       "branch": "books/bengali-selected-07-qudsi-16",
-      "pullRequest": null,
+      "pullRequest": 58,
       "commit": null,
       "buildReceipt": null,
       "deploymentReceipt": null,
