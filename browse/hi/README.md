@@ -10,7 +10,7 @@
 - [सह़ीह़ बुख़ारी — Sahih al-Bukhari](bukhari/README.md) — 6609 source occurrences
 - [bukhari-muslim-300](bukhari-muslim-300/README.md) — 118 source occurrences
 - [HadeethEnc](hadeethenc/README.md) — 2314 source occurrences
-- [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 4 source occurrences
+- [हिस्नुल्-मुस्लिम — Hisn al-Muslim](hisn-al-muslim/README.md) — 5 source occurrences
 - [सुनन इब्ने माजह — Sunan Ibn Majah](ibn-majah/README.md) — 4089 source occurrences
 - [موطأ مالك — Muwatta of Imam Malik](malik/README.md) — 1836 source occurrences
 - [सहीह मुस्लिम — Sahih Muslim](muslim/README.md) — 4652 source occurrences
