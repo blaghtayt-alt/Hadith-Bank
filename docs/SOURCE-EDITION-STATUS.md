@@ -1,8 +1,8 @@
-# Hadith Bank — book editions, source descriptions and statuses
+# Global Hadith Library — book editions, source descriptions and statuses
 
 **Verified generated snapshot: 15 November 2026.** [Main `bc0ef56b2358`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/bc0ef56b2358e20f425e961f0bac6511f30fed20) contains reader outputs sourced from [`9d8db54e0d8a452b967a469c43851780b23245ea`](https://github.com/blaghtayt-alt/Hadith-Bank/commit/9d8db54e0d8a452b967a469c43851780b23245ea).
 
-Hadith Bank emphasizes **non-Arabic/non-English texts**—Bengali, Chinese, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese. **Arabic and English remain included** as their own registered editions, reference readings, `language_versions` and searchable counterparts. This is an edition-based corpus, not a claim about unique canonical narrations, global ranking, entire book coverage, scholarly authentication or completed QC.
+Global Hadith Library emphasizes **non-Arabic/non-English texts**—Bengali, Chinese, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese. **Arabic and English remain included** as their own registered editions, reference readings, `language_versions` and searchable counterparts. This is an edition-based corpus, not a claim about unique canonical narrations, global ranking, entire book coverage, scholarly authentication or completed QC.
 
 [Full generated book-and-download directory](../catalog/BOOKS.md) · [Source-by-source registered catalog](../catalog/README.md) · [Evidence ledger](DOCUMENTATION-EVIDENCE-2026-11-15.md)
 

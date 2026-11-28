@@ -1,10 +1,10 @@
-# Hadith Bank — source-preserving hadith texts across languages
+# Global Hadith Library — source-preserving hadith texts across languages
 
 **Focused on hadith and related source editions beyond Arabic and English:** Bengali, Chinese, Filipino, Hindi, Japanese, Persian, Urdu, Uzbek and Vietnamese. **Arabic and English remain fully available** as source books, reference readings, searchable text and optional counterparts. The bank preserves each recorded source edition, exact wording and translation-origin evidence; its counts do not certify complete books, unique narrations, authenticity or independent source review.
 
 ## Read, search and find a book
 
-### [Search Hadith Bank](https://blaghtayt-alt.github.io/Hadith-Bank/)
+### [Search Global Hadith Library](https://blaghtayt-alt.github.io/Hadith-Bank/)
 
 [![Website build](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml/badge.svg)](https://github.com/blaghtayt-alt/Hadith-Bank/actions/workflows/reader-pages.yml)
 
@@ -178,7 +178,7 @@ Explicitly bounded quotations from the selected older-bank and Qur’an-study so
 
 1. Create an owner-authorized folder under `materials/` containing structured narration records and the original source file.
 2. Follow [Adding material](docs/ADDING-MATERIAL.md) to register its language, book, edition, source, record count and file hashes in `manifest.json`.
-3. Commit the folder to GitHub and merge it into `main`. The **Update Hadith Bank website** workflow validates the data, rebuilds catalogs and reading/search pages, and deploys the site.
+3. Commit the folder to GitHub and merge it into `main`. The **Update Global Hadith Library website** workflow validates the data, rebuilds catalogs and reading/search pages, and deploys the site.
 
 The same build updates the language and book indexes, individual HTML pages, book-download catalog and sitemap. Do not edit generated narration pages or add language options by hand. JSON arrays and JSONL are supported. A PDF alone supplies evidence; searchable narrations also need structured text records. The build does not create a new translation or perform a scholarly review.
 

@@ -537,7 +537,7 @@ class Writer:
                    '<link rel="stylesheet" href="' + href('assets/discovery.css') + '">\n'
                    '<script type="application/ld+json">' + script_json(graph) + '</script>\n'
                    '</head>\n<body><a class="skip" href="#content">Skip to text</a>\n'
-                   '<header><a class="brand" href="' + href('browse/index.html') + '">Hadith Bank</a>'
+                   '<header><a class="brand" href="' + href('browse/index.html') + '">Global Hadith Library</a>'
                    '<nav aria-label="Main navigation"><a href="' + href('hadith-bank-reader.html') + '">Search all texts</a>'
                    '<a href="' + href('browse/index.html') + '">Languages and books</a></nav></header>\n'
                    '<main id="content">' + body + '</main>\n'
@@ -560,7 +560,7 @@ def record_title(record):
     collection = book_name(record['book_key'], record['language'])
     identity = record_path(record).rsplit('/', 1)[-1][:10]
     parts = [source, collection if collection.casefold() not in source.casefold() else '', compact(number_label(record), 85),
-             language_name(record['language']), identity, 'Hadith Bank']
+             language_name(record['language']), identity, 'Global Hadith Library']
     return ' | '.join(part for part in parts if part)
 
 
@@ -659,7 +659,7 @@ def render_record(writer, record, downloads, sources):
     canonical = canonical_url(path, writer.site)
     work = {'@type': 'CreativeWork', '@id': canonical + '#occurrence', 'url': canonical,
             'name': source_title(record) + ' — ' + number_label(record), 'inLanguage': language,
-            'identifier': {'@type': 'PropertyValue', 'propertyID': 'Hadith Bank occurrence ID', 'value': record['id']},
+            'identifier': {'@type': 'PropertyValue', 'propertyID': 'Global Hadith Library occurrence ID', 'value': record['id']},
             'isPartOf': {'@type': 'CreativeWork', 'name': source_title(record), 'url': canonical_url(edition_path, writer.site)}}
     if source_url:
         work['citation'] = source_url
@@ -728,7 +728,7 @@ def render_indexes(writer, records, downloads, sources):
             native_title = compact(editions[0], 110)
             collection = book_name(book, language)
             title = (native_title + (' | ' + collection if collection.casefold() not in native_title.casefold() else '') +
-                     ' | ' + language_name(language) + ' | ' + edition + ' | Page ' + str(page_number) + ' | Hadith Bank')
+                     ' | ' + language_name(language) + ' | ' + edition + ' | Page ' + str(page_number) + ' | Global Hadith Library')
             body = '<nav aria-label="Breadcrumbs"><a href="' + esc(relative_link(current, 'browse/' + language + '/index.html')) + '">' + esc(language_name(language)) + '</a>'
             body += '<a href="' + esc(relative_link(current, 'browse/' + language + '/' + book + '/index.html')) + '">' + title_markup(book_name(book, language)) + '</a></nav>'
             body += '<h1>' + title_markup(heading) + '</h1><p>' + esc(' · '.join(editions)) + '</p>'
@@ -755,7 +755,7 @@ def render_indexes(writer, records, downloads, sources):
             body += '<span class="muted">' + esc(edition) + ' · ' + str(len(items)) + ' source occurrences</span>'
             body += download_links(list(group_downloads.values()), writer.site) + '</li>'
         body += '</ul>'
-        writer.page(current, heading + ' | Hadith Bank', compact(book_name(book, language) + ' in ' + language_name(language) +
+        writer.page(current, heading + ' | Global Hadith Library', compact(book_name(book, language) + ' in ' + language_name(language) +
                     ': source editions, individual narrations, exact references and original books where available.'), body, language)
     for language, book_counts in sorted(languages.items()):
         current = 'browse/' + language + '/index.html'
@@ -767,17 +767,17 @@ def render_indexes(writer, records, downloads, sources):
             target = 'browse/' + language + '/' + book + '/index.html'
             body += '<li><a href="' + esc(relative_link(current, target)) + '">' + title_markup(book_name(book, language)) + '</a><br>' + str(count) + ' source occurrences</li>'
         body += '</ul>'
-        writer.page(current, heading + ' | Hadith Bank', compact(language_heading(language) + '. ' +
+        writer.page(current, heading + ' | Global Hadith Library', compact(language_heading(language) + '. ' +
                     str(sum(book_counts.values())) + ' source occurrences, book editions and available Word/PDF downloads.'), body, language)
     current = 'browse/index.html'
-    body = '<h1>Hadith Bank — languages and books</h1><p>Read individual hadiths and source quotations with their book, numbering, translation origin and original material.</p>'
+    body = '<h1>Global Hadith Library — languages and books</h1><p>Read individual hadiths and source quotations with their book, numbering, translation origin and original material.</p>'
     body += '<p>' + str(len(records)) + ' source occurrences in ' + str(len(languages)) + ' languages. '
     body += 'Repeated source occurrences, excerpts, Companion reports and edition variants remain distinct.</p><ul class="cards">'
     for language, book_counts in sorted(languages.items()):
         body += '<li><a href="' + esc(relative_link(current, 'browse/' + language + '/index.html')) + '" lang="' + esc(language) + '">' + esc(language_heading(language)) + '</a><br>'
         body += esc(language_name(language)) + ' · ' + str(sum(book_counts.values())) + ' source occurrences</li>'
     body += '</ul><h2>Find a book</h2><p>Each language lists only source collections present in the verified bank. Original PDF, DOC and DOCX downloads are linked on their book and narration pages when preserved.</p>'
-    writer.page(current, 'Hadith Bank | Multilingual hadith texts, books and source downloads',
+    writer.page(current, 'Global Hadith Library | Multilingual hadith texts, books and source downloads',
                 'Browse actual hadith texts by language, book and source edition. Find individual narrations, references and preserved PDF or Word books.', body)
     return {'languages': {language: sum(counts.values()) for language, counts in sorted(languages.items())},
             'language_count': len(languages), 'book_language_count': len(books), 'edition_count': len(groups)}
@@ -1193,7 +1193,7 @@ def build(root, output, site=None, records=None, catalog=None):
     source_views = render_fawaz_source_views(writer, seen_ids)
     if writer.static_dom_verified != static_record_count:
         raise ValueError('Not all static record pages had paired DOM checks')
-    writer.page('404.html', 'Page not found | Hadith Bank', 'Find a language, book or source text in Hadith Bank.',
+    writer.page('404.html', 'Page not found | Global Hadith Library', 'Find a language, book or source text in Global Hadith Library.',
                 '<h1>Page not found</h1><p>This address is not part of the published bank. '
                 '<a href="' + esc(canonical_url('browse/index.html', settings)) + '">Browse languages and books</a> '
                 'or use the search reader.</p>', indexable=False)

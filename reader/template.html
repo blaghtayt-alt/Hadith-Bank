@@ -28,8 +28,8 @@ __HADITH_UI_ICONS__
 <a class="skip-link" href="#query">Skip to search</a>
 <header class="masthead">
   <div class="shell topline">
-    <a class="brand" href="#top" aria-label="Hadith Bank, top of page"><span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-reader"></use></svg></span><span id="brand-title">Hadith Bank</span></a>
-    <nav class="site-nav" aria-label="Hadith Bank navigation">
+    <a class="brand" href="#top" aria-label="Global Hadith Library, top of page"><span class="brand-mark" aria-hidden="true"><svg class="icon"><use href="#icon-reader"></use></svg></span><span id="brand-title">Global Hadith Library</span></a>
+    <nav class="site-nav" aria-label="Global Hadith Library navigation">
       <a id="live-reader-link" class="nav-current" href="https://blaghtayt-alt.github.io/Hadith-Bank/">Read &amp; explore</a>
       <a id="repository-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Sources<svg class="icon" aria-hidden="true"><use href="#icon-external-link"></use></svg></a>
       <a id="add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a>
@@ -95,7 +95,7 @@ __HADITH_UI_ICONS__
     </div>
   </div>
 </main>
-<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Hadith Bank</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each result displays a source occurrence or an evidence-linked presentation family. Every source edition, occurrence ID and translation version remains preserved. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
+<footer class="footer"><div class="shell"><div class="footer-top"><span class="footer-brand">Global Hadith Library</span><span>Many languages. Every source preserved.</span><a href="#top">Back to top ↑</a></div><nav class="footer-nav" aria-label="Source and contribution links"><a id="footer-sources-link" href="https://github.com/blaghtayt-alt/Hadith-Bank" target="_blank" rel="noopener noreferrer">Source repository</a><a id="footer-add-material-link" href="https://github.com/blaghtayt-alt/Hadith-Bank/blob/main/docs/ADDING-MATERIAL.md" target="_blank" rel="noopener noreferrer">Add material</a></nav><div class="footer-copy"><p>Each result displays a source occurrence or an evidence-linked presentation family. Every source edition, occurrence ID and translation version remains preserved. Review decisions are shown separately from preserved import history and source-alignment notes.</p><p>A standalone reader includes its texts for offline reading. The web edition can load checked data files from this site. Local source-file links require the complete bank package; repository links open the preserved source files online.</p></div><details class="about"><summary>About this snapshot</summary><pre id="snapshot-info"></pre></details></div></footer>
 <noscript><div class="no-js">Open “Browse languages and source books” above to read the online pages without JavaScript. The interactive reader needs JavaScript. A standalone download includes its records; a hosted edition loads its data from this site.</div></noscript>
 <script id="hadith-records" type="application/octet-stream" data-encoding="__HADITH_ENCODING__">__HADITH_RECORDS_JSON__</script>
 <script id="hadith-snapshot" type="application/json">__HADITH_SNAPSHOT_JSON__</script>
@@ -771,8 +771,8 @@ const linkedPreference=new URLSearchParams(window.location.search).get("preferre
 $("preferred-language").value=preferredChoices.has(linkedPreference)?linkedPreference:preferredChoices.has(preferredLanguage)?preferredLanguage:"en";
 const linkedLanguage=new URLSearchParams(window.location.search).get("language");
 if(languages.has(linkedLanguage) && (!state.exactOccurrence || records.some(record=>record.id===state.exactOccurrence && availableLanguageCodes(record).includes(linkedLanguage))))$("language-filter").value=linkedLanguage;
-$("brand-title").textContent=snapshot.title || "Hadith Bank";
-document.title=(snapshot.title || "Hadith Bank")+" · Reader";
+$("brand-title").textContent=snapshot.title || "Global Hadith Library";
+document.title=(snapshot.title || "Global Hadith Library")+" · Reader";
 $("total-count").textContent=nf.format(records.length);
 const discoveryReadingCount=discoveryEngine?records.length-(discoveryEngine.groups||[]).reduce((count,group)=>count+group.members.length-1,0):readerGroups.readingCount;
 if(discoveryReadingCount<records.length){$("reader-group-count").hidden=false;$("reader-group-count").textContent=nf.format(discoveryReadingCount)+" presentation families / separate occurrences. All source versions remain preserved; this is not a unique-hadith count.";}

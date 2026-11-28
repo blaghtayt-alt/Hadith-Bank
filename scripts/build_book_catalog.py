@@ -116,7 +116,7 @@ def write_catalog(root, catalog=None, site=None):
         key = tuple(component(material[field]) for field in ('language', 'book_key'))
         grouped[key].append(material)
     languages = sorted({language for language, _ in grouped})
-    lines = ['# Hadith Bank — books and source editions', '',
+    lines = ['# Global Hadith Library — books and source editions', '',
              '[Read and search online](' + base + ') · [Browse book pages](' + base + 'browse/) · '
              '[Repository overview](../README.md)', '',
              DOWNLOAD_DESCRIPTION, '',
