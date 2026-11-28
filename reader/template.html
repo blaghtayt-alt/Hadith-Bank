@@ -182,7 +182,7 @@ async function loadReaderShards(manifest,baseURL,onProgress=()=>{}){
     return result;
   }finally{stop();}
 }
-async function loadVerifiedDiscoveryPart(part,{signal,onProgress,recordsSha}={}){
+async function loadVerifiedDiscoveryPart(part,{signal,onProgress,onRetry,recordsSha}={}){
   const path=part?.path,base=new URL(window.location.href),positive=n=>Number.isSafeInteger(n)&&n>0;
   if(typeof path!=="string" || !path || path.startsWith("/") || /[\\%:?#\u0000-\u001f\u007f]/.test(path) || path.split("/").some(value=>!value || value==="." || value===".."))throw new Error("The search index has an unsafe local path.");
   const url=new URL(path,base),prefix=base.pathname.slice(0,base.pathname.lastIndexOf("/")+1);
@@ -194,8 +194,20 @@ async function loadVerifiedDiscoveryPart(part,{signal,onProgress,recordsSha}={})
   const read=async(stream,expected,label)=>{const reader=stream.getReader(),chunks=[];let size=0;try{while(true){abort();const next=await reader.read();if(next.done)break;size+=next.value.byteLength;if(size>expected)throw new Error(label+" exceeds its recorded size.");chunks.push(next.value);if(onProgress&&label==="Search index")onProgress(size,expected);}}catch(error){await reader.cancel().catch(()=>{});throw error;}finally{reader.releaseLock();}if(size!==expected)throw new Error(label+" is incomplete.");const bytes=new Uint8Array(size);let at=0;for(const chunk of chunks){bytes.set(chunk,at);at+=chunk.byteLength;}return bytes;};
   const digest=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",bytes)),byte=>byte.toString(16).padStart(2,"0")).join("");
   const controller=new AbortController(),onAbort=()=>controller.abort(),timeout=setTimeout(()=>controller.abort(),60000);if(signal)signal.addEventListener("abort",onAbort,{once:true});
-  let bytes;
-  try{const response=await fetch(url.href,{cache:"force-cache",signal:controller.signal,credentials:"same-origin",redirect:"error"});if(!response.ok || !response.body)throw new Error("Search index request failed ("+response.status+").");bytes=await read(response.body,part.bytes,"Search index");}catch(error){abort();throw new Error((navigator.onLine===false?"You are offline. ":"")+"The required compact search data could not be loaded. Reconnect and retry, or open a complete standalone reader. "+(error.message||""));}finally{clearTimeout(timeout);if(signal)signal.removeEventListener("abort",onAbort);}
+  let bytes,attempts=1;
+  try{
+    const response=await HadithLazyStore.fetchTransient(url.href,
+      {cache:"force-cache",signal:controller.signal,credentials:"same-origin",redirect:"error"},
+      {onRetry:({nextAttempt,status,attempts:total})=>{attempts=nextAttempt;if(onRetry)onRetry(status,nextAttempt,total);}});
+    if(!response.ok || !response.body) {
+      if(response.body?.cancel)await response.body.cancel().catch(()=>{});
+      throw new Error("Search index request failed ("+response.status+")"+(attempts>1?" after "+attempts+" attempts":"")+".");
+    }
+    bytes=await read(response.body,part.bytes,"Search index");
+  }catch(error){
+    abort();
+    throw new Error((navigator.onLine===false?"You are offline. ":"")+"The required compact search data could not be loaded. Reconnect and retry, or open a complete standalone reader. "+(error.message||""));
+  }finally{clearTimeout(timeout);if(signal)signal.removeEventListener("abort",onAbort);}
   abort();if(await digest(bytes)!==part.sha256)throw new Error("The compact search index failed its checksum check. Reload to get a consistent snapshot.");
   const plain=await read(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip")),part.uncompressed_bytes,"Decoded search index");
   if(await digest(plain)!==part.uncompressed_sha256)throw new Error("The decoded search index failed its checksum check.");abort();
@@ -206,7 +218,7 @@ async function loadDiscoveryPayload(snapshot){
   if(snapshot.discovery_payload)return validate(snapshot.discovery_payload);
   const part=snapshot.discovery;if(!part)return null;
   if(part.record_count!==snapshot.record_count || part.records_sha256!==snapshot.records_sha256)throw new Error("The search index belongs to a different source snapshot.");
-  return validate(await loadVerifiedDiscoveryPart(part,{recordsSha:snapshot.records_sha256,onProgress:(size,total)=>{$("result-count").textContent="Loading the compact search directory… "+Math.round(size/total*100)+"%";}}));
+  return validate(await loadVerifiedDiscoveryPart(part,{recordsSha:snapshot.records_sha256,onProgress:(size,total)=>{$("result-count").textContent="Loading the compact search directory… "+Math.round(size/total*100)+"%";},onRetry:(status,attempt,total)=>{$("result-count").textContent="Compact search request failed"+(status?" (HTTP "+status+")":" (network error)")+". Retrying attempt "+attempt+" of "+total+"…";}}));
 }
 function discoveryProjection(row){return {id:row.id,language:row.language,book_key:row.book_key,edition:row.edition,source_id:row.source_id,source:{name:row.sourceName || "Source not named"},_discovery:row,_reader:{languages:row.languages,origin:row.origin,availability:row.availability,ocr_pending:row.ocrPending===true,citation_pairs:row.references || []}};}
 let records, snapshot, hostedData=false, hostedStore=null, readerGroups=null,discoveryEngine=null;
