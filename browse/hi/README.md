@@ -15,6 +15,6 @@
 - [موطأ مالك — Muwatta of Imam Malik](malik/README.md) — 1836 source occurrences
 - [सहीह मुस्लिम — Sahih Muslim](muslim/README.md) — 4652 source occurrences
 - [سنن النسائي — Sunan al-Nasai](nasai/README.md) — 4838 source occurrences
-- [selected-hadith-encyclopedia](selected-hadith-encyclopedia/README.md) — 14 source occurrences
+- [selected-hadith-encyclopedia](selected-hadith-encyclopedia/README.md) — 20 source occurrences
 - [सुनन तिर्मिज़ी — Jami al-Tirmidhi](tirmidhi/README.md) — 3730 source occurrences
 - [संग्रह की पहचान नहीं हुई — Collection not identified in the source](unclassified/README.md) — 28 source occurrences

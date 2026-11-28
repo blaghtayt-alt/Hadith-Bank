@@ -2,7 +2,7 @@
 
 Generated from every registered source occurrence in this snapshot. This report is regenerated when books or reviewed language links change.
 
-**114,949 source occurrences**: Arabic text 89,018; English text 72,296; English source links 4,051.
+**114,956 source occurrences**: Arabic text 89,022; English text 72,300; English source links 4,051.
 
 Text and external-only links are counted separately. An English source link requires an internet connection and does not add searchable English quotation text to the offline bank. An unresolved alignment can still have Arabic from its original book.
 
@@ -11,13 +11,13 @@ Text and external-only links are counted separately. An English source link requ
 | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---:|---:|---:|---:|---:|---:|
 | ar | 32,267 | 32,267 | 32,185 | 69 | 0 | 13 |
-| bn | 72 | 0 | 0 | 4 | 68 | 68 |
+| bn | 73 | 0 | 0 | 4 | 69 | 69 |
 | bs | 3 | 0 | 0 | 0 | 3 | 3 |
 | de | 3 | 0 | 0 | 0 | 3 | 3 |
 | en | 3,684 | 0 | 3,684 | 0 | 14 | 0 |
 | fa | 14,382 | 13,910 | 540 | 13 | 472 | 13,829 |
 | fil | 2,354 | 2,276 | 1,998 | 0 | 78 | 356 |
-| hi | 33,096 | 24,592 | 29,262 | 1,289 | 2,390 | 2,545 |
+| hi | 33,102 | 24,596 | 29,266 | 1,289 | 2,392 | 2,547 |
 | ja | 3,520 | 366 | 327 | 0 | 3,154 | 3,193 |
 | ms | 147 | 0 | 0 | 0 | 147 | 147 |
 | pt | 8 | 0 | 0 | 0 | 8 | 8 |
@@ -31,7 +31,7 @@ Text and external-only links are counted separately. An English source link requ
 | Source edition | Language | Occurrences | Arabic text | English text | English links | Missing Arabic | Missing English |
 |---|---|---:|---:|---:|---:|---:|---:|
 | bn-hisn-islamhouse-mobile-7a1b5a04 | bn | 10 | 0 | 0 | 0 | 10 | 10 |
-| bn-islamhouse-qudsi-dbb1b453 | bn | 7 | 0 | 0 | 0 | 7 | 7 |
+| bn-islamhouse-qudsi-dbb1b453 | bn | 8 | 0 | 0 | 0 | 8 | 8 |
 | bn-islamhouse-selected-v1-ef7cff1f | bn | 7 | 0 | 0 | 0 | 7 | 7 |
 | bn-islamhouse-selected-v2-5c737ef8 | bn | 2 | 0 | 0 | 0 | 2 | 2 |
 | bn-islamhouse-selected-v3-70259336 | bn | 2 | 0 | 0 | 0 | 2 | 2 |
@@ -164,7 +164,7 @@ Text and external-only links are counted separately. An English source link requ
 | hadisuz-tirmidhi-uz-web | uz | 606 | 0 | 0 | 0 | 606 | 606 |
 | hi-hisn-risala-5443f762 | hi | 1 | 0 | 0 | 0 | 1 | 1 |
 | hi-hisn-risala-short80-55649737 | hi | 5 | 0 | 0 | 0 | 5 | 5 |
-| hi-islamhouse-encyclopedia-481dab05 | hi | 14 | 13 | 13 | 0 | 1 | 1 |
+| hi-islamhouse-encyclopedia-481dab05 | hi | 20 | 17 | 17 | 0 | 3 | 3 |
 | hi-islamhouse-hi300-2fc65776 | hi | 119 | 0 | 0 | 0 | 119 | 119 |
 | hi-mukhtasar-v1-4785913c | hi | 680 | 0 | 0 | 0 | 680 | 680 |
 | hi-mukhtasar-v2-d99bfae5 | hi | 732 | 0 | 0 | 0 | 732 | 732 |
