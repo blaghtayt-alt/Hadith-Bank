@@ -3164,6 +3164,85 @@
       "deploymentReceipt": null,
       "liveRecordsChecked": [],
       "readerScreenshotCount": 0
+    },
+    {
+      "batchId": "ur-hisn-islamhouse-1436-005",
+      "book": "Urdu Hisn, 1436 AH edition",
+      "sourceEdition": "islamhouse-1436-71ceda4c",
+      "sourcePdfSHA256": "71ceda4c6c44f926938e428d4ed2f68abb866e6673b8654c8ef4381eab8426ed",
+      "sourceCheckpoint": {
+        "privateReviewSHA256": "171b69f42e03644e5d728e891eba171901e55538a340932e228449586912cfa4",
+        "occurrences": [
+          {
+            "id": "ur:hisn-islamhouse-1436-71ceda4c:h006",
+            "physicalPages": [
+              16
+            ],
+            "sourceLocator": "Printed invocation 6, physical and printed p16. The separate source footnote is 2 on p16.",
+            "translationFieldSHA256": "60e47adbc506544bb7395357e7a1f102bbe8d2193b7915e285338bc33622da4f"
+          },
+          {
+            "id": "ur:hisn-islamhouse-1436-71ceda4c:h007",
+            "physicalPages": [
+              17
+            ],
+            "sourceLocator": "Printed invocation 7, physical and printed p17. The separate source footnote is 1 on p17.",
+            "translationFieldSHA256": "5e7eee622bbdbc7fae6638fe0ccc8c1b5eff176942c1d4c2de4abf7111b91d94"
+          },
+          {
+            "id": "ur:hisn-islamhouse-1436-71ceda4c:h008",
+            "physicalPages": [
+              17
+            ],
+            "sourceLocator": "Printed invocation 8, physical and printed p17. The separate source footnote is 2 on p17.",
+            "translationFieldSHA256": "d1ea0b5db1bfb10e72d03651b1a6835c5a212c9b42c398d59802a3f47298ddbc"
+          }
+        ]
+      },
+      "sourceManifest": {
+        "path": "materials/ur-hisn-islamhouse-1436-71ceda4c/manifest.json",
+        "sha256": "8bddb89b6839dc5319bd0fc58082ab01d5d9f73de7a9a5a31ebbd7647f894be5",
+        "bytes": 1132
+      },
+      "groupBindings": {
+        "path": "sources/reader-groups/ur-hisn-islamhouse-1436-71ceda4c.json",
+        "sha256": "416f6a9d98ff07dc1e80e61e14a444c4a20dd86fabc8686d314b05d7d298ff9a",
+        "size_bytes": 14182
+      },
+      "includedOccurrenceIds": [
+        "ur:hisn-islamhouse-1436-71ceda4c:h006",
+        "ur:hisn-islamhouse-1436-71ceda4c:h007",
+        "ur:hisn-islamhouse-1436-71ceda4c:h008"
+      ],
+      "existingArabicOccurrenceIds": [
+        "fawaz:df57907be352:abudawud:4020",
+        "fawaz:df57907be352:ibnmajah:3558"
+      ],
+      "publicationStatus": "staged_pending_hosted_checks",
+      "baseCommit": "d18ee91ab1b0e19b72a636a1917c493f4d82b3fc",
+      "branch": "books/ur-hisn-1436-h006-h008-exact",
+      "expectedAddedCount": 3,
+      "actualAddedCount": 0,
+      "alreadyIntegrated": [],
+      "held": [
+        {
+          "sourceLocator": "Printed 9",
+          "reason": "Existing Arabic comparison located for a distinct context. Association held."
+        },
+        {
+          "sourceLocator": "Printed 11",
+          "reason": "Confirm edition footer citation number against printed scan."
+        }
+      ],
+      "earliestPendingGap": "Printed 9 exact Arabic comparison. Earlier printed number 4 is a confirmed source gap.",
+      "nextSourceItemToReview": "Printed 29, physical p28 continuation.",
+      "nextReviewedItemWaitingIntegration": "Printed 6–8 await hosted validation and then live readback.",
+      "pullRequest": null,
+      "commit": null,
+      "buildReceipt": null,
+      "deploymentReceipt": null,
+      "liveRecordsChecked": [],
+      "readerScreenshotCount": 0
     }
   ],
   "integrationResume": {
